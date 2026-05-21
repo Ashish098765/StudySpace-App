@@ -87,6 +87,51 @@
             cursor: pointer;
         }
 
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #444;
+        }
+
+        .divider:not(:empty)::before { margin-right: .5em; }
+        .divider:not(:empty)::after { margin-left: .5em; }
+
+        .google-btn {
+            background-color: #ffffff;
+            color: #333333;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .google-btn:hover {
+            background-color: #f1f1f1;
+        }
+
+        .google-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
         .toggle-link:hover {
             text-decoration: underline;
         }
@@ -99,6 +144,20 @@
     </a>
 
     <div class="auth-container" id="login-box">
+        <h2 id="form-title">Welcome Back</h2>
+        
+        <button type="button" class="google-btn" id="google-login-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
+            Sign in with Google
+        </button>
+
+        <div class="divider">OR</div>
+        
+        <form id="auth-form" onsubmit="event.preventDefault(); alert('Backend connection coming next!');">
+            ```
+
+
+
         <h2 id="form-title">Welcome Back</h2>
         
         <form id="auth-form" onsubmit="event.preventDefault(); alert('Backend connection coming next!');">
