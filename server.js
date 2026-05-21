@@ -36,7 +36,7 @@ app.get('/practice', (req, res) => {
 // CREATE ROOM ROUTE: Generates a dynamic room ID and redirects
 app.get('/create-room', (req, res) => {
     const randomRoomId = Math.random().toString(36).substring(2, 9);
-    res.redirect(`/${randomRoomId});
+    res.redirect(`/${randomRoomId}`);
 });
 
 // SUB-PAGES: Clean fallback text screens until you build their HTML files
@@ -133,9 +133,10 @@ app.get('/:room', (req, res) => {
 // ==========================================
 //        SOCKET.IO REAL-TIME CHAT & VIDEO
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-    console.log(=================================================);
-    console.log(🚀 StudySpace Platform Successfully Deployed!);
-    console.log(🔗 Local server running: http://localhost:${PORT});
-    console.log(=================================================`);
+
+server.listen(PORT, '0.0.0.0', () => {
+    console.log("=========================================");
+    console.log("StudySpace Platform Successfully Deployed!");
+    console.log("Local server running on port: " + PORT);
+    console.log("=========================================");
 });
