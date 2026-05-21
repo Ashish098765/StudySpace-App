@@ -3,91 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudySpace - Your Ultimate Study Hub</title>
+    <title>StudySpace | Collaborative Learning</title>
     <style>
-        /* Base Styles */
-        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #3c0008; color: #ffffff; line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
-        
-        /* Navigation Bar */
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: #121212; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 100;}
-        .logo { font-size: 24px; font-weight: bold; color: #4CAF50; letter-spacing: 1px;}
-        .nav-links { display: flex; gap: 25px; align-items: center; }
-        .nav-links a { font-size: 16px; font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: #4CAF50; }
-        .login-btn { background: #4CAF50; color: white; padding: 8px 20px; border-radius: 6px; font-weight: bold; transition: background 0.3s;}
-        .login-btn:hover { background: #45a049; color: white; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-        /* Hero Section */
-        .hero { text-align: center; padding: 100px 20px; background: linear-gradient(180deg, #1e1e1e 0%, #3c0008 100%); }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; color: #ffffff; }
-        .hero h1 span { color: #4CAF50; }
-        .hero p { font-size: 1.2rem; color: #aaaaaa; max-width: 600px; margin: 0 auto 30px auto; }
-        .hero-btn { display: inline-block; background: #4CAF50; color: white; padding: 15px 35px; font-size: 18px; border-radius: 8px; font-weight: bold; transition: 0.3s; }
-        .hero-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3); }
+        /* --- NAVIGATION BAR --- */
+        #auth-nav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 15px 30px;
+            align-items: center;
+            background-color: #1e1e1e;
+            border-bottom: 1px solid #333;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
 
-        /* Features Grid */
-        .features-section { padding: 60px 50px; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .btn-login {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .btn-login:hover { background-color: #45a049; }
+
+        #user-profile-container {
+            display: none;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-text { text-align: right; }
+        .profile-name { font-weight: bold; color: #ffffff; font-size: 16px; }
+        .profile-email { color: #aaaaaa; font-size: 12px; }
         
-        .card { background: #1e1e1e; padding: 30px; border-radius: 12px; border: 1px solid #333; transition: 0.3s; text-align: center; }
-        .card:hover { border-color: #4CAF50; transform: translateY(-5px); }
-        .card-icon { font-size: 40px; margin-bottom: 15px; }
-        .card h3 { font-size: 1.5rem; margin-bottom: 10px; color: #4CAF50; }
-        .card p { color: #aaa; font-size: 1rem; }
+        .profile-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid #4CAF50;
+            object-fit: cover;
+        }
+
+        .btn-logout {
+            background-color: transparent;
+            color: #f44336;
+            border: 1px solid #f44336;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 10px;
+            transition: all 0.3s;
+        }
+
+        .btn-logout:hover {
+            background-color: #f44336;
+            color: white;
+        }
+
+        /* --- MAIN DASHBOARD CONTENT --- */
+        .main-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #4CAF50, #00bcd4);
+            -webkit-background-clip: text;
+            background-clip: text; /* Add this standard line! */
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #aaaaaa;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .btn-start-session {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+            transition: transform 0.2s, background 0.3s;
+            margin-bottom: 50px;
+        }
+
+        .btn-start-session:hover {
+            background-color: #1976D2;
+            transform: translateY(-2px);
+        }
+
+        /* --- FEATURE GRID --- */
+        .feature-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 900px;
+        }
+
+        .feature-card {
+            background: #1e1e1e;
+            padding: 25px;
+            border-radius: 12px;
+            width: 250px;
+            text-align: center;
+            border: 1px solid #333;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #4CAF50;
+        }
+
+        .feature-icon { font-size: 40px; margin-bottom: 15px; }
+        .feature-card h3 { margin: 0 0 10px 0; color: #fff; }
+        .feature-card p { color: #888; font-size: 14px; margin: 0; }
+
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">StudySpace</div>
-        <div class="nav-links">
-            <a href="/create-room">Study Rooms</a>
-            <a href="/practice">Exam PYQs</a>
-            <a href="/materials">Materials</a>
-            <a href="/tracker">Goal Tracker</a>
-            <a href="/leaderboard">Leaderboard</a>
-            <a href="/login.html" class="login-btn">Login</a>
+    <div id="auth-nav">
+        <button id="nav-login-btn" class="btn-login" onclick="window.location.href='/login'">Log In / Sign Up</button>
+
+        <div id="user-profile-container">
+            <div class="profile-text">
+                <div id="user-name" class="profile-name">Name</div>
+                <div id="user-email" class="profile-email">email@example.com</div>
+            </div>
+            <img id="user-avatar" class="profile-avatar" src="" alt="Avatar">
+            <button id="logout-btn" class="btn-logout">Log Out</button>
         </div>
-    </nav>
+    </div>
 
-    <header class="hero">
-        <h1>Master Your Exams <span>Together</span></h1>
-        <p>Join live study rooms, track your daily goals, climb the XP leaderboard, and practice authentic PYQs in a distraction-free environment.</p>
-        <a href="\room_path.html" class="hero-btn">Start a Live Session</a>
-    </header>
+    <div class="main-container">
+        <h1 class="hero-title">Welcome to StudySpace</h1>
+        <p class="hero-subtitle">Your central hub for collaborative learning, past year question practice, and goal tracking.</p>
 
-    <section class="features-section">
-        <h2 class="section-title">Everything You Need to Succeed</h2>
-        <div class="grid">
+        <button class="btn-start-session" onclick="window.location.href='/create-room'">
+            🎥 Start a Live Session
+        </button>
+
+        <div class="feature-grid">
+            <a href="/practice" class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>PYQ Engine</h3>
+                <p>Practice past year questions with interactive grading.</p>
+            </a>
             
-            <a href="/practice" class="card">
-                <div class="card-icon">📚</div>
-                <h3>Exam PYQs</h3>
-                <p>Solve chapter-wise Previous Year Questions with instant verification, explanations, and score tracking.</p>
-            </a>
-
-            <a href="/leaderboard" class="card">
-                <div class="card-icon">🏆</div>
-                <h3>XP Leaderboard</h3>
-                <p>Earn XP for every minute you study and every question you answer correctly. Compete with top students.</p>
-            </a>
-
-            <a href="/tracker" class="card">
-                <div class="card-icon">🎯</div>
+            <a href="/tracker" class="feature-card">
+                <div class="feature-icon">🎯</div>
                 <h3>Goal Tracker</h3>
-                <p>Set daily study targets, track your completion streaks, and stay disciplined throughout the year.</p>
+                <p>Set daily milestones and track your study hours.</p>
             </a>
 
-            <a href="/materials" class="card">
-                <div class="card-icon">📂</div>
-                <h3>Study Materials</h3>
-                <p>Access high-quality revision notes, mind maps, and formula sheets categorized by subject.</p>
+            <a href="/leaderboard" class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>Leaderboard</h3>
+                <p>Compete with friends and earn XP for studying.</p>
             </a>
-
         </div>
-    </section>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+        // Your exact Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
+            authDomain: "studyspace-45780.firebaseapp.com",
+            projectId: "studyspace-45780",
+            storageBucket: "studyspace-45780.firebasestorage.app",
+            messagingSenderId: "212493442342",
+            appId: "1:212493442342:web:15b83a52a04bbf8567b5e7",
+            measurementId: "G-NVHDFF8JDN"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Grab UI elements
+        const loginBtn = document.getElementById('nav-login-btn');
+        const profileContainer = document.getElementById('user-profile-container');
+        const userNameDisplay = document.getElementById('user-name');
+        const userEmailDisplay = document.getElementById('user-email');
+        const userAvatarDisplay = document.getElementById('user-avatar');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        // Watch for login/logout changes automatically
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // USER IS LOGGED IN
+                loginBtn.style.display = 'none';
+                profileContainer.style.display = 'flex';
+
+                userEmailDisplay.innerText = user.email;
+
+                const displayName = user.displayName || user.email.split('@')[0];
+                userNameDisplay.innerText = displayName;
+
+                if (user.photoURL) {
+                    userAvatarDisplay.src = user.photoURL;
+                } else {
+                    userAvatarDisplay.src = `https://ui-avatars.com/api/?name=${displayName}&background=0D8ABC&color=fff`;
+                }
+            } else {
+                // NOBODY IS LOGGED IN
+                loginBtn.style.display = 'block';
+                profileContainer.style.display = 'none';
+            }
+        });
+
+        // Handle Log Out
+        logoutBtn.addEventListener('click', () => {
+            signOut(auth).then(() => {
+                console.log("User signed out.");
+            }).catch((error) => {
+                alert("Error signing out: " + error.message);
+            });
+        });
+    </script>
 
 </body>
 </html>
