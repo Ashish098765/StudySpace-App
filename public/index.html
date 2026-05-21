@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- Global Reset & Variables --- */
         :root {
             --bg-color: #0f111a;
             --card-bg: #1e2130;
@@ -17,6 +16,7 @@
             --primary-hover: #4f46e5;
             --accent: #10b981;
             --danger: #ef4444;
+            --gold: #fbbf24;
         }
 
         * {
@@ -36,7 +36,7 @@
                 radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
         }
 
-        /* --- Navigation Bar --- */
+        /* Navigation */
         #auth-nav {
             display: flex;
             justify-content: space-between;
@@ -58,7 +58,6 @@
             text-decoration: none;
         }
 
-        /* Buttons */
         button {
             cursor: pointer;
             border: none;
@@ -77,10 +76,8 @@
         .btn-login:hover {
             background-color: var(--primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
         }
 
-        /* User Profile Container */
         #user-profile-container {
             display: flex;
             align-items: center;
@@ -104,16 +101,8 @@
             flex-direction: column;
         }
 
-        #profile-name {
-            font-size: 0.9rem;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-
-        #profile-email {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
+        #profile-name { font-size: 0.9rem; font-weight: 600; }
+        #profile-email { font-size: 0.75rem; color: var(--text-muted); }
 
         .btn-logout {
             background-color: transparent;
@@ -123,11 +112,9 @@
             font-size: 0.85rem;
         }
 
-        .btn-logout:hover {
-            background-color: rgba(239, 68, 68, 0.1);
-        }
+        .btn-logout:hover { background-color: rgba(239, 68, 68, 0.1); }
 
-        /* --- Main Content --- */
+        /* Main Content */
         .main-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -138,20 +125,19 @@
             text-align: center;
         }
 
-        /* Hero Section */
         .hero-title {
             font-size: 4rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            line-height: 1.1;
             letter-spacing: -1px;
         }
 
         .hero-title span {
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
         .hero-subtitle {
             font-size: 1.25rem;
@@ -176,13 +162,89 @@
             box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
         }
 
-        /* --- Feature Grid --- */
+        /* Live Dashboards (New Section) */
+        .live-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            margin-top: 5rem;
+        }
+
+        .dashboard-widget {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: left;
+        }
+
+        .widget-title {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1rem;
+        }
+
+        /* List Items (Rooms & Leaderboard) */
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            transition: all 0.2s ease;
+        }
+
+        .list-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateX(5px);
+        }
+
+        /* Room specific */
+        .room-info h4 { font-size: 1rem; margin-bottom: 0.2rem; }
+        .room-meta { font-size: 0.8rem; color: var(--text-muted); }
+        .pulse-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent);
+            margin-right: 5px;
+        }
+        .btn-join {
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        /* Leaderboard specific */
+        .rank-info { display: flex; align-items: center; gap: 1rem; }
+        .rank-number { font-weight: 800; font-size: 1.2rem; color: var(--text-muted); }
+        .rank-1 { color: var(--gold); }
+        .score-badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Feature Grid */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             width: 100%;
-            margin-top: 5rem;
+            margin-top: 2rem;
         }
 
         .feature-card {
@@ -200,33 +262,19 @@
             transform: translateY(-8px);
             border-color: rgba(99, 102, 241, 0.4);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            background: linear-gradient(to bottom, var(--card-bg), rgba(99, 102, 241, 0.05));
         }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .feature-card h3 { font-size: 1.25rem; margin-bottom: 0.8rem; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
     </style>
 </head>
 <body>
 
     <nav id="auth-nav">
         <a href="/" class="logo-text">🚀 StudySpace</a>
-        
         <div class="nav-actions">
             <button id="nav-login-btn" class="btn-login" onclick="window.location.href='/login.html'">Log In / Sign Up</button>
-            
             <div id="user-profile-container" style="display: none;">
                 <img id="user-avatar" class="profile-avatar" src="" alt="Avatar">
                 <div class="profile-text">
@@ -243,12 +291,69 @@
         <header class="hero-section">
             <h1 class="hero-title">Welcome to <span>StudySpace</span></h1>
             <p class="hero-subtitle">Your central hub for collaborative learning, past year question practice, and cracking exams together.</p>
-            
             <button class="btn-start-session" onclick="window.location.href='/create-room'">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"></path></svg>
                 Start a Live Session
             </button>
         </header>
+
+        <section class="live-dashboard">
+            
+            <div class="dashboard-widget">
+                <h2 class="widget-title">🔴 Live Study Rooms</h2>
+                
+                <div class="list-item">
+                    <div class="room-info">
+                        <h4>Calculus PYQ Prep</h4>
+                        <div class="room-meta"><span class="pulse-dot"></span> 4 students · Hosted by Alex</div>
+                    </div>
+                    <button class="btn-join" onclick="window.location.href='/room/123'">Join</button>
+                </div>
+
+                <div class="list-item">
+                    <div class="room-info">
+                        <h4>Physics Mechanics</h4>
+                        <div class="room-meta"><span class="pulse-dot"></span> 2 students · Hosted by Sarah</div>
+                    </div>
+                    <button class="btn-join" onclick="window.location.href='/room/456'">Join</button>
+                </div>
+            </div>
+
+            <div class="dashboard-widget">
+                <h2 class="widget-title">🏆 Top Scholars</h2>
+                
+                <div class="list-item">
+                    <div class="rank-info">
+                        <span class="rank-number rank-1">1</span>
+                        <div class="room-info">
+                            <h4>Priya M.</h4>
+                        </div>
+                    </div>
+                    <div class="score-badge">2,450 XP</div>
+                </div>
+
+                <div class="list-item">
+                    <div class="rank-info">
+                        <span class="rank-number">2</span>
+                        <div class="room-info">
+                            <h4>David K.</h4>
+                        </div>
+                    </div>
+                    <div class="score-badge">1,820 XP</div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="rank-info">
+                        <span class="rank-number">3</span>
+                        <div class="room-info">
+                            <h4>Aisha T.</h4>
+                        </div>
+                    </div>
+                    <div class="score-badge">1,640 XP</div>
+                </div>
+            </div>
+
+        </section>
 
         <section class="feature-grid">
             <a href="/practice" class="feature-card">
@@ -256,13 +361,11 @@
                 <h3>PYQ Engine</h3>
                 <p>Practice past year questions with interactive grading and instantly verify your solutions.</p>
             </a>
-            
             <a href="/rooms" class="feature-card">
                 <div class="feature-icon">🤝</div>
                 <h3>Live Study Rooms</h3>
                 <p>Join collaborative rooms equipped with real-time chat, shared whiteboards, and study timers.</p>
             </a>
-            
             <a href="/analytics" class="feature-card">
                 <div class="feature-icon">📈</div>
                 <h3>Track Progress</h3>
