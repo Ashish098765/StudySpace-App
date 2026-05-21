@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySpace - Live Room</title>
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; display: flex; margin: 0; height: 100vh; background: #121212; color: white;}
+        #main-container { flex: 3; display: flex; flex-direction: column; padding: 20px; position: relative;}
+        
+        /* Header & Links */
+        .room-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .copy-btn { background: #333; color: white; border: 1px solid #555; padding: 8px 15px; border-radius: 5px; cursor: pointer; transition: 0.2s;}
+        .copy-btn:hover { background: #444; }
+        
+        #video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; flex-grow: 1; align-content: start; }
+        video { width: 100%; height: 200px; object-fit: cover; background: #000; border-radius: 8px; border: 2px solid #4CAF50; transform: scaleX(-1); }
+        
+        /* Toolbar */
+        #toolbar { display: flex; justify-content: center; gap: 15px; padding: 15px; background: #1e1e1e; border-radius: 8px; margin-top: 15px; }
+        .tool-btn { padding: 12px 20px; font-size: 16px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold; }
+        .btn-toggle { background: #333; color: white; }
+        .btn-toggle.off { background: #d32f2f; }
+        .btn-leave { background: #d32f2f; color: white; text-decoration: none; }
+
+        /* Sidebar Chat */
+        #sidebar { flex: 1; background: #1e1e1e; display: flex; flex-direction: column; border-left: 1px solid #333; }
+        #chat-window { flex-grow: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;}
+        .message { background: #333; padding: 10px 15px; border-radius: 15px; width: fit-content; max-width: 80%;}
+        .message.me { background: #4CAF50; align-self: flex-end; }
+        #chat-form { display: flex; padding: 15px; background: #1a1a1a; }
+        #chat-input { flex-grow: 1; padding: 12px; border-radius: 6px; border: 1px solid #444; background: #222; color: white; outline: none;}
+        #chat-form button { padding: 10px 20px; margin-left: 10px; background: #4CAF50; color: white; border: none; border-radius: 6px; cursor: pointer;}
+    </style>
+</head>
+<body>
+
+    <div id="main-container">
+        <div class="room-header">
+            <h2>Live Study Room</h2>
+            <button class="copy-btn" id="copy-btn">📋 Copy Invite Link</button>
+        </div>
+        
+        <div id="video-grid"></div>
+
+        <div id="toolbar">
+            <button class="tool-btn btn-toggle" id="mute-btn">🎤 Mute</button>
+            <button class="tool-btn btn-toggle" id="camera-btn">📷 Stop Video</button>
+            <a href="/" class="tool-btn btn-leave">Leave Room</a>
+        </div>
+    </div>
+
+    <div id="sidebar">
+        <div id="chat-window"></div>
+        <form id="chat-form">
+            <input type="text" id="chat-input" placeholder="Message room..." autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

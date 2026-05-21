@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySpace - Your Ultimate Study Hub</title>
+    <style>
+        /* Base Styles */
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #3c0008; color: #ffffff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        
+        /* Navigation Bar */
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: #121212; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 100;}
+        .logo { font-size: 24px; font-weight: bold; color: #4CAF50; letter-spacing: 1px;}
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a { font-size: 16px; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #4CAF50; }
+        .login-btn { background: #4CAF50; color: white; padding: 8px 20px; border-radius: 6px; font-weight: bold; transition: background 0.3s;}
+        .login-btn:hover { background: #45a049; color: white; }
+
+        /* Hero Section */
+        .hero { text-align: center; padding: 100px 20px; background: linear-gradient(180deg, #1e1e1e 0%, #3c0008 100%); }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; color: #ffffff; }
+        .hero h1 span { color: #4CAF50; }
+        .hero p { font-size: 1.2rem; color: #aaaaaa; max-width: 600px; margin: 0 auto 30px auto; }
+        .hero-btn { display: inline-block; background: #4CAF50; color: white; padding: 15px 35px; font-size: 18px; border-radius: 8px; font-weight: bold; transition: 0.3s; }
+        .hero-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3); }
+
+        /* Features Grid */
+        .features-section { padding: 60px 50px; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .card { background: #1e1e1e; padding: 30px; border-radius: 12px; border: 1px solid #333; transition: 0.3s; text-align: center; }
+        .card:hover { border-color: #4CAF50; transform: translateY(-5px); }
+        .card-icon { font-size: 40px; margin-bottom: 15px; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 10px; color: #4CAF50; }
+        .card p { color: #aaa; font-size: 1rem; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">StudySpace</div>
+        <div class="nav-links">
+            <a href="/create-room">Study Rooms</a>
+            <a href="/practice">Exam PYQs</a>
+            <a href="/materials">Materials</a>
+            <a href="/tracker">Goal Tracker</a>
+            <a href="/leaderboard">Leaderboard</a>
+            <a href="/login" class="login-btn">Login</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Master Your Exams <span>Together</span></h1>
+        <p>Join live study rooms, track your daily goals, climb the XP leaderboard, and practice authentic PYQs in a distraction-free environment.</p>
+        <a href="C:\Users\HP\OneDrive\Desktop\MERA\StudySpace" class="hero-btn">Start a Live Session</a>
+    </header>
+
+    <section class="features-section">
+        <h2 class="section-title">Everything You Need to Succeed</h2>
+        <div class="grid">
+            
+            <a href="/practice" class="card">
+                <div class="card-icon">📚</div>
+                <h3>Exam PYQs</h3>
+                <p>Solve chapter-wise Previous Year Questions with instant verification, explanations, and score tracking.</p>
+            </a>
+
+            <a href="/leaderboard" class="card">
+                <div class="card-icon">🏆</div>
+                <h3>XP Leaderboard</h3>
+                <p>Earn XP for every minute you study and every question you answer correctly. Compete with top students.</p>
+            </a>
+
+            <a href="/tracker" class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Goal Tracker</h3>
+                <p>Set daily study targets, track your completion streaks, and stay disciplined throughout the year.</p>
+            </a>
+
+            <a href="/materials" class="card">
+                <div class="card-icon">📂</div>
+                <h3>Study Materials</h3>
+                <p>Access high-quality revision notes, mind maps, and formula sheets categorized by subject.</p>
+            </a>
+
+        </div>
+    </section>
+
+</body>
+</html>
