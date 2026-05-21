@@ -108,10 +108,20 @@
         <p class="waiting-text" id="waiting-msg">⏳ Waiting for host to let you in...</p>
     </div>
 
-    <div id="room-screen">
+   <div id="room-screen">
         <div class="header">
             <h2>StudySpace Live</h2>
-            <button class="lock-btn" id="lock-btn" onclick="toggleRoomLock()" style="display:none;">🔓 Room is Public</button>
+            
+            <div style="display: flex; gap: 10px;">
+                <button onclick="window.location.href='/create-room'" style="background-color: #2196F3; color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; width: auto;">
+                    ➕ New Room
+                </button>
+
+                <button class="lock-btn" id="lock-btn" onclick="toggleRoomLock()" style="display:none;">
+                    🔓 Room is Public
+                </button>
+            </div>
+            
         </div>
         
         <h3 style="text-align:center; margin-top:50px; color:#888;">
