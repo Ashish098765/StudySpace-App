@@ -3,21 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudySpace - Home</title>
+    <title>Live Study Room | StudySpace</title>
+    <script src="/socket.io/socket.io.js"></script>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #121212; color: white; text-align: center; }
-        .hero { background: #1e1e1e; padding: 50px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); max-width: 500px; }
-        h1 { color: #4CAF50; font-size: 2.5rem; margin-bottom: 10px;}
-        p { color: #aaa; margin-bottom: 30px; line-height: 1.5; }
-        .btn { display: inline-block; padding: 15px 30px; font-size: 18px; color: white; background: #4CAF50; border: none; border-radius: 8px; text-decoration: none; cursor: pointer; transition: 0.3s; font-weight: bold; }
-        .btn:hover { background: #45a049; transform: translateY(-2px); }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* --- LOBBY SCREEN (What guests see first) --- */
+        #lobby-screen {
+            margin-top: 15vh;
+            background: #1e1e1e;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            width: 300px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 6px;
+            border: none;
+            background: #2a2a2a;
+            color: white;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        button:hover { background-color: #45a049; }
+        
+        .waiting-text { display: none; color: #ff9800; margin-top: 15px; font-weight: bold;}
+
+        /* --- ACTIVE ROOM SCREEN --- */
+        #room-screen {
+            display: none; /* Hidden until approved */
+            width: 100%;
+            max-width: 1000px;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1e1e1e;
+            padding: 15px 20px;
+            border-radius: 10px;
+        }
+
+        .lock-btn {
+            background-color: #f44336;
+            width: auto;
+        }
+
+        /* --- HOST APPROVAL POPUP --- */
+        #approval-notification {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2c2c2c;
+            border-left: 5px solid #00bcd4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+        }
+
+        .action-btns { display: flex; gap: 10px; margin-top: 10px; }
+        .btn-accept { background: #4CAF50; }
+        .btn-deny { background: #f44336; }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>StudySpace</h1>
-        <p>A focused digital environment to study together, track your progress, and tackle exam questions in real-time.</p>
-        <a href="\room.html" class="btn">Create a New Study Room</a>
+
+    <div id="lobby-screen">
+        <h2>Join Study Room</h2>
+        <p id="room-id-display"></p>
+        <input type="text" id="username" placeholder="Enter your name..." required>
+        <button onclick="requestToJoin()">Ask to Join</button>
+        <p class="waiting-text" id="waiting-msg">⏳ Waiting for host to let you in...</p>
     </div>
+
+    <div id="room-screen">
+        <div class="header">
+            <h2>StudySpace Live</h2>
+            <button class="lock-btn" id="lock-btn" onclick="toggleRoomLock()" style="display:none;">🔓 Room is Public</button>
+        </div>
+        
+        <h3 style="text-align:center; margin-top:50px; color:#888;">
+            Video & Chat Layout Coming Soon...
+        </h3>
+    </div>
+
+    <div id="approval-notification">
+        <p><strong id="guest-name">Someone</strong> wants to join your private room.</p>
+        <div class="action-btns">
+            <button class="btn-accept" onclick="handleDecision(true)">Let in</button>
+            <button class="btn-deny" onclick="handleDecision(false)">Deny</button>
+        </div>
+    </div>
+
+    <script>
+        const socket = io();
+        
+        // Grab the room ID from the URL (e.g. /xyz123)
+        const ROOM_ID = window.location.pathname.substring(1);
+        document.getElementById('room-id-display').innerText = `Room: ${ROOM_ID}`;
+
+        let isOwner = false;
+        let isRoomLocked = false;
+        let pendingGuestId = null;
+
+        // 1. Guest clicks "Ask to Join"
+        function requestToJoin() {
+            const name = document.getElementById('username').value;
+            if (!name) return alert("Please enter a name");
+
+            document.getElementById('waiting-msg').style.display = 'block';
+            
+            // Send request to the server
+            socket.emit('request-join', { roomId: ROOM_ID, username: name });
+        }
+
+        // 2. Server says you are allowed in!
+        socket.on('join-approved', (data) => {
+            // Hide lobby, show room
+            document.getElementById('lobby-screen').style.display = 'none';
+            document.getElementById('room-screen').style.display = 'block';
+            
+            // If the server tells us we are the first one here, make us the Owner!
+            if (data.isOwner) {
+                isOwner = true;
+                document.getElementById('lock-btn').style.display = 'block';
+            }
+        });
+
+        // 3. Server says you were denied
+        socket.on('join-denied', () => {
+            document.getElementById('waiting-msg').innerText = "❌ The host declined your request.";
+            document.getElementById('waiting-msg').style.color = "#f44336";
+        });
+
+        // ==========================================
+        //         ROOM OWNER CONTROLS
+        // ==========================================
+
+        // Toggle public/private status
+        function toggleRoomLock() {
+            isRoomLocked = !isRoomLocked;
+            const btn = document.getElementById('lock-btn');
+            
+            if (isRoomLocked) {
+                btn.innerText = "🔒 Room is Private";
+                btn.style.backgroundColor = "#ff9800";
+            } else {
+                btn.innerText = "🔓 Room is Public";
+                btn.style.backgroundColor = "#f44336";
+            }
+            // Tell server the room status changed
+            socket.emit('update-lock-status', { roomId: ROOM_ID, locked: isRoomLocked });
+        }
+
+        // Listen for people knocking (Only triggers for the Owner)
+        socket.on('guest-knocking', (guest) => {
+            pendingGuestId = guest.socketId;
+            document.getElementById('guest-name').innerText = guest.username;
+            document.getElementById('approval-notification').style.display = 'block';
+        });
+
+        // Owner clicks Accept or Deny
+        function handleDecision(isApproved) {
+            document.getElementById('approval-notification').style.display = 'none';
+            socket.emit('owner-decision', { 
+                guestSocketId: pendingGuestId, 
+                approved: isApproved 
+            });
+        }
+    </script>
 </body>
-</html
+</html>
