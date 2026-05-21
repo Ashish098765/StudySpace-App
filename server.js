@@ -44,8 +44,9 @@ app.get('/leaderboard', (req, res) => {
     res.send('<h2 style="font-family:sans-serif; text-align:center; margin-top:50px; color:#ffffff; background:#121212; height:100vh; padding-top:50px;">XP Leaderboard Coming Soon!</h2>');
 });
 
+// LOGIN ROUTE: Serves the authentication page
 app.get('/login', (req, res) => {
-    res.send('<h2 style="font-family:sans-serif; text-align:center; margin-top:50px; color:#ffffff; background:#121212; height:100vh; padding-top:50px;">Authentication System Coming Soon!</h2>');
+    res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
 // ==========================================

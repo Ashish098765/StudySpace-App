@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | StudySpace</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .auth-container {
+            background: #1e1e1e;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .auth-container h2 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            color: #4CAF50;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #aaaaaa;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            background: #2a2a2a;
+            color: white;
+            font-size: 16px;
+            box-sizing: border-box; /* Ensures padding doesn't break width */
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .auth-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .auth-btn:hover {
+            background-color: #45a049;
+        }
+
+        .toggle-link {
+            margin-top: 20px;
+            display: block;
+            color: #00bcd4;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .toggle-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="/" style="position: absolute; top: 20px; left: 20px; background: #2c2c2c; color: white; text-decoration: none; padding: 10px 15px; border-radius: 6px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: background 0.3s;" onmouseover="this.style.background='#444'" onmouseout="this.style.background='#2c2c2c'">
+        ⬅ Back to Home
+    </a>
+
+    <div class="auth-container" id="login-box">
+        <h2 id="form-title">Welcome Back</h2>
+        
+        <form id="auth-form" onsubmit="event.preventDefault(); alert('Backend connection coming next!');">
+            
+            <div class="input-group" id="name-group" style="display: none;">
+                <label for="username">Display Name</label>
+                <input type="text" id="username" placeholder="How should we call you?">
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="auth-btn" id="submit-btn">Login</button>
+        </form>
+
+        <a class="toggle-link" onclick="toggleMode()" id="toggle-text">Don't have an account? Sign up here.</a>
+    </div>
+
+    <script>
+        let isLoginMode = true;
+
+        // Toggles the UI between Login and Sign Up mode
+        function toggleMode() {
+            isLoginMode = !isLoginMode;
+            
+            const title = document.getElementById('form-title');
+            const submitBtn = document.getElementById('submit-btn');
+            const toggleText = document.getElementById('toggle-text');
+            const nameGroup = document.getElementById('name-group');
+
+            if (isLoginMode) {
+                title.innerText = "Welcome Back";
+                submitBtn.innerText = "Login";
+                toggleText.innerText = "Don't have an account? Sign up here.";
+                nameGroup.style.display = "none";
+                document.getElementById('username').removeAttribute('required');
+            } else {
+                title.innerText = "Create an Account";
+                submitBtn.innerText = "Sign Up";
+                toggleText.innerText = "Already have an account? Login here.";
+                nameGroup.style.display = "block";
+                document.getElementById('username').setAttribute('required', 'true');
+            }
+        }
+    </script>
+</body>
+</html>
