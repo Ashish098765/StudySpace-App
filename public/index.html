@@ -374,6 +374,49 @@
         </section>
 
     </main>
+<script type="module">
+        // Import the functions from the Firebase CDN
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+        // Import the Authentication tools for Google Sign-In
+        import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
+        // Your exact web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
+            authDomain: "studyspace-45780.firebaseapp.com",
+            projectId: "studyspace-45780",
+            storageBucket: "studyspace-45780.firebasestorage.app",
+            messagingSenderId: "212493442342",
+            appId: "1:212493442342:web:15b83a52a04bbf8567b5e7",
+            measurementId: "G-NVHDFF8JDN"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        
+        // Initialize Auth & Google Provider
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+
+        // Hook up the new visual button to the Firebase logic
+        document.getElementById('google-signin-btn').addEventListener('click', () => {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    // Success! Grab the user info
+                    const user = result.user;
+                    console.log("Logged in successfully as: ", user.displayName);
+                    
+                    // Redirect the user back to the homepage
+                    window.location.href = "/";
+                })
+                .catch((error) => {
+                    // If something goes wrong, log it and tell the user
+                    console.error("Error signing in: ", error.message);
+                    alert("Failed to sign in. Please try again.");
+                });
+        });
+    </script>
 </body>
 </html>
