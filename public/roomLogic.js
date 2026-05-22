@@ -109,48 +109,53 @@ function addVideoStream(video, stream, userName = '') {
 // FIX: ADD SAFETY CHECKS TO BUTTONS
 // ================================================================
 // ================================================================
+// ================================================================
 // BUTTON LOGIC (Icons & Invite Links)
 // ================================================================
 
 // Copy exact room URL to clipboard
 document.getElementById('copy-btn').addEventListener('click', (e) => {
-    const fullRoomUrl = window.location.href; // Grabs http://your-ip:3000/room/123
+    const fullRoomUrl = window.location.href; 
     navigator.clipboard.writeText(fullRoomUrl);
     
-    // Give visual feedback
     const btn = e.currentTarget;
     const textSpan = document.getElementById('invite-text');
     const originalText = textSpan.innerText;
     
     textSpan.innerText = "✅ Link Copied!";
-    btn.style.background = "#10b981"; // Turn button green temporarily
+    btn.style.background = "#10b981"; 
     
     setTimeout(() => { 
         textSpan.innerText = originalText; 
-        btn.style.background = ""; // Reset to original color
+        btn.style.background = ""; 
     }, 2000);
 });
 
-// Toggle Microphone (Swaps SVGs automatically using CSS)
+// Toggle Microphone 
 document.getElementById('mute-btn').addEventListener('click', (e) => {
-    if (!localStream) return alert("Camera/mic is blocked (Needs HTTPS).");
+    // 1. Visually toggle the icon IMMEDIATELY (adds the slash)
+    e.currentTarget.classList.toggle('off'); 
     
-    const audioTrack = localStream.getAudioTracks()[0];
-    if (audioTrack) {
-        audioTrack.enabled = !audioTrack.enabled;
-        // e.currentTarget gets the button itself, not the SVG path inside it
-        e.currentTarget.classList.toggle('off'); 
+    // 2. Actually mute the audio (if the stream exists)
+    if (localStream) {
+        const audioTrack = localStream.getAudioTracks()[0];
+        if (audioTrack) {
+            audioTrack.enabled = !audioTrack.enabled;
+        }
     }
 });
 
-// Toggle Camera (Swaps SVGs automatically using CSS)
+// Toggle Camera 
 document.getElementById('camera-btn').addEventListener('click', (e) => {
-    if (!localStream) return alert("Camera/mic is blocked (Needs HTTPS).");
+    // 1. Visually toggle the icon IMMEDIATELY (adds the slash)
+    e.currentTarget.classList.toggle('off');
     
-    const videoTrack = localStream.getVideoTracks()[0];
-    if (videoTrack) {
-        videoTrack.enabled = !videoTrack.enabled;
-        e.currentTarget.classList.toggle('off');
+    // 2. Actually turn off the video (if the stream exists)
+    if (localStream) {
+        const videoTrack = localStream.getVideoTracks()[0];
+        if (videoTrack) {
+            videoTrack.enabled = !videoTrack.enabled;
+        }
     }
 });
 
@@ -161,18 +166,33 @@ const chatForm = document.getElementById('chat-form');
 const chatInput = document.getElementById('chat-input');
 const chatWindow = document.getElementById('chat-window');
 
-// Send Message
-chatForm.addEventListener('submit', (e) => {
-    e.preventDefault(); 
+// Helper function to handle sending the message
+function attemptSendMessage() {
     const text = chatInput.value.trim();
-    
     if (text !== "") {
-        // Send our Google Name alongside the message
         const payload = JSON.stringify({ name: myName, text: text });
         socket.emit('chatMessage', payload);
-        chatInput.value = ''; // Clear the input box
+        chatInput.value = ''; // Clear the input box safely
     }
-});
+}
+
+// Catch the Form Submit (Clicking the Send Button)
+if (chatForm) {
+    chatForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // CRITICAL: This stops the page from refreshing!
+        attemptSendMessage();
+    });
+}
+
+// Backup: Catch the 'Enter' key directly on the keyboard
+if (chatInput) {
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // CRITICAL: This stops the page from refreshing!
+            attemptSendMessage();
+        }
+    });
+}
 
 // Receive Message
 socket.on('message', (data) => {
@@ -180,23 +200,19 @@ socket.on('message', (data) => {
     let senderName = `User`;
     let messageText = data.text;
     
-    // Unpack the JSON payload sent by other users
     try {
         const parsed = JSON.parse(data.text);
         senderName = parsed.name || "User";
         messageText = parsed.text;
     } catch(e) {} 
 
-    // Create the chat bubble
     const msgDiv = document.createElement('div');
     msgDiv.classList.add('message');
     if (isMe) msgDiv.classList.add('me');
     
-    // Add the user's name above the message (unless it's you)
     const label = isMe ? "" : `<div style="font-size: 11px; font-weight: 600; color: #6366f1; margin-bottom: 4px;">${senderName}</div>`;
     msgDiv.innerHTML = `${label}${messageText}`;
     
-    // Inject into the chat window and auto-scroll to the bottom
     chatWindow.appendChild(msgDiv);
     chatWindow.scrollTop = chatWindow.scrollHeight;
 });
