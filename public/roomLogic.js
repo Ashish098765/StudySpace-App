@@ -56,25 +56,87 @@ myPeer.on('open', id => {
 // ================================================================
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     // If HTTPS is secure, start the camera normally
-    navigator.mediaDevices.getUserMedia({ video: true, audio: true })
-        .then(stream => {
-            localStream = stream;
-            addVideoStream(myVideo, stream, myName + " (You)");
+    const btnStartCam = document.getElementById('btn-start-cam');
+const btnShareScreen = document.getElementById('btn-share-screen');
+const activityWarning = document.getElementById('activity-warning');
 
-            myPeer.on('call', call => {
-                call.answer(stream);
-                const video = document.createElement('video');
-                const callerName = (call.metadata && call.metadata.name) ? call.metadata.name : 'Participant';
-                
-                let videoWrapper;
-                call.on('stream', userVideoStream => {
-                    if(!videoWrapper) videoWrapper = addVideoStream(video, userVideoStream, callerName);
-                });
+let myStream = null;
+
+// --- 1. THE 2-MINUTE KICK TIMER ---
+// 120,000 milliseconds = 2 minutes
+let inactivityTimer = setTimeout(() => {
+    alert("You were removed from the room for inactivity. Study rooms require a camera or screen share!");
+    window.location.href = '/'; // Kick them back to the homepage
+}, 120000);
+
+// Helper function to stop the timer when they follow the rules
+function userDidBecomeActive() {
+    clearTimeout(inactivityTimer);
+    activityWarning.style.display = 'none'; // Hide the red warning banner
+    btnStartCam.style.display = 'none';     // Hide the buttons so they can't click them twice
+    btnShareScreen.style.display = 'none';
+}
+
+
+// --- 2. CAMERA LOGIC ---
+btnStartCam.addEventListener('click', async () => {
+    try {
+        myStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        userDidBecomeActive(); // Stop the kick timer!
+        
+        addVideoStream(myVideo, myStream);
+        
+        // Now that we have a stream, tell Socket.io and PeerJS we are ready to connect
+        socket.emit('join-room', ROOM_ID, myPeer.id);
+        
+        // Answer incoming calls
+        myPeer.on('call', call => {
+            call.answer(myStream);
+            const video = document.createElement('video');
+            call.on('stream', userVideoStream => {
+                addVideoStream(video, userVideoStream);
             });
-        })
-        .catch(err => {
-            console.warn("Camera blocked by browser:", err);
         });
+
+    } catch (error) {
+        console.error("Camera error:", error);
+        alert("Could not access your camera.");
+    }
+});
+
+
+// --- 3. SCREEN SHARE LOGIC ---
+btnShareScreen.addEventListener('click', async () => {
+    try {
+        // getDisplayMedia is the built-in browser API for screen sharing
+        myStream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
+        userDidBecomeActive(); // Stop the kick timer!
+        
+        addVideoStream(myVideo, myStream);
+        
+        // Tell Socket.io and PeerJS we are ready to connect
+        socket.emit('join-room', ROOM_ID, myPeer.id);
+        
+        // Answer incoming calls with the screen share stream
+        myPeer.on('call', call => {
+            call.answer(myStream);
+            const video = document.createElement('video');
+            call.on('stream', userVideoStream => {
+                addVideoStream(video, userVideoStream);
+            });
+        });
+
+        // Listen for when the user clicks "Stop Sharing" on the browser's built-in popup
+        myStream.getVideoTracks()[0].onended = () => {
+            alert("Screen sharing ended. You must refresh to share again.");
+            window.location.href = '/'; // Kick them out if they stop sharing
+        };
+
+    } catch (error) {
+        console.error("Screen share error:", error);
+        alert("Could not share screen.");
+    }
+});
 } else {
     // If HTTP, skip the camera entirely so the script doesn't crash!
     console.warn("Camera API disabled by browser because this is not an HTTPS site. Text chat only!");

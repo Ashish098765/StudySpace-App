@@ -444,23 +444,31 @@
         </header>
 
         <section class="live-dashboard">
-            <div class="dashboard-widget">
-                <h2 class="widget-title"><i class="fa-solid fa-tower-broadcast" style="color: var(--danger); margin-right: 10px;"></i>Live Study Rooms</h2>
+           <div class="dashboard-widget">
+                <h2 class="widget-title"><i class="fa-solid fa-tower-broadcast" style="color: var(--danger); margin-right: 10px;"></i> Public Study Rooms</h2>
                 
                 <div class="list-item">
-                    <div class="room-info">
-                        <h4>Calculus PYQ Prep</h4>
-                        <div class="room-meta"><span class="pulse-dot"></span> 4 students · Hosted by Alex</div>
+                    <div>
+                        <h4>📚 General Study Lounge</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Open to everyone. Mic off, Cam/Screen on.</p>
                     </div>
-                    <button class="btn-join" onclick="window.location.href='/room/123'">Join</button>
+                    <button class="btn-join" onclick="window.location.href='/room/public-general'">Join</button>
                 </div>
 
                 <div class="list-item">
-                    <div class="room-info">
-                        <h4>Physics Mechanics</h4>
-                        <div class="room-meta"><span class="pulse-dot"></span> 2 students · Hosted by Sarah</div>
+                    <div>
+                        <h4>🍅 Pomodoro Focus</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Strict 50/10 study timers.</p>
                     </div>
-                    <button class="btn-join" onclick="window.location.href='/room/456'">Join</button>
+                    <button class="btn-join" onclick="window.location.href='/room/public-pomodoro'">Join</button>
+                </div>
+
+                <div class="list-item">
+                    <div>
+                        <h4>🤫 Quiet Reading Room</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Deep focus. No chatting allowed.</p>
+                    </div>
+                    <button class="btn-join" onclick="window.location.href='/room/public-quiet'">Join</button>
                 </div>
             </div>
 

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYQ Engine | StudySpace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root { --bg-color: #0f111a; --card-bg: #1e2130; --text-main: #f8fafc; --text-muted: #94a3b8; --primary: #6366f1; --accent: #10b981; --danger: #ef4444; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); min-height: 100vh; }
+
+        /* Navigation (Same as Home) */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background: rgba(15, 17, 26, 0.9); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .logo-text { font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
+
+        /* --- SCREEN 1: EXAM DASHBOARD --- */
+        #exam-dashboard { display: block; }
+        .header-title { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .header-sub { color: var(--text-muted); margin-bottom: 3rem; }
+        
+        .exam-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .exam-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 2rem; cursor: pointer; transition: 0.2s; text-align: center; }
+        .exam-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1); }
+        .exam-icon { font-size: 3rem; margin-bottom: 1rem; color: var(--primary); }
+        .exam-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+        /* --- SCREEN 2: QUIZ ENGINE --- */
+        #quiz-engine { display: none; }
+        .back-btn { background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 1rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; }
+        .back-btn:hover { color: var(--text-main); }
+        
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .question-box { background: var(--card-bg); padding: 2rem; border-radius: 12px; font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem; }
+        
+        .options-grid { display: flex; flex-direction: column; gap: 1rem; }
+        .option-btn { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 1.2rem; border-radius: 8px; text-align: left; cursor: pointer; font-size: 1rem; transition: 0.2s; display: flex; align-items: center; gap: 1rem; }
+        .option-btn:hover { background: rgba(255,255,255,0.05); }
+        .option-btn.selected { border-color: var(--primary); background: rgba(99, 102, 241, 0.1); }
+        
+        /* State Colors */
+        .option-btn.correct { background: rgba(16, 185, 129, 0.2); border-color: var(--accent); }
+        .option-btn.wrong { background: rgba(239, 68, 68, 0.2); border-color: var(--danger); }
+
+        .action-bar { display: flex; justify-content: space-between; margin-top: 2rem; align-items: center; }
+        .btn-main { background: var(--primary); color: white; padding: 0.8rem 2rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+        .btn-main:disabled { opacity: 0.5; cursor: not-allowed; }
+        
+        #explanation-box { display: none; background: rgba(99, 102, 241, 0.1); border-left: 4px solid var(--primary); padding: 1.5rem; margin-top: 2rem; border-radius: 0 8px 8px 0; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo-text"><i class="fa-solid fa-rocket" style="color: var(--primary);"></i> StudySpace</a>
+    </nav>
+
+    <div class="container">
+        
+        <div id="exam-dashboard">
+            <h1 class="header-title">PYQ Engine</h1>
+            <p class="header-sub">Select your exam target to start practicing previous year questions.</p>
+            
+            <div class="exam-grid">
+                <div class="exam-card" onclick="startExam('JEE Mains')">
+                    <i class="fa-solid fa-atom exam-icon"></i>
+                    <h3>JEE Mains</h3>
+                    <p class="text-muted">Physics, Chem, Math</p>
+                </div>
+                <div class="exam-card" onclick="startExam('NEET')">
+                    <i class="fa-solid fa-dna exam-icon" style="color: var(--accent);"></i>
+                    <h3>NEET</h3>
+                    <p class="text-muted">Physics, Chem, Bio</p>
+                </div>
+                <div class="exam-card" onclick="startExam('CUET')">
+                    <i class="fa-solid fa-building-columns exam-icon" style="color: var(--gold);"></i>
+                    <h3>CUET</h3>
+                    <p class="text-muted">Undergrad Entrance</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="quiz-engine">
+            <button class="back-btn" onclick="exitExam()"><i class="fa-solid fa-arrow-left"></i> Back to Exams</button>
+            
+            <div class="quiz-header">
+                <h2 id="active-exam-title">JEE Mains Practice</h2>
+                <span id="question-tracker" style="color: var(--text-muted);">Q 1 / 10</span>
+            </div>
+
+            <div class="question-box" id="question-text">
+                Loading question...
+            </div>
+
+            <div class="options-grid" id="options-container">
+                </div>
+
+            <div id="explanation-box"></div>
+
+            <div class="action-bar">
+                <div id="result-status" style="font-weight: 600;"></div>
+                <button class="btn-main" id="check-btn" onclick="checkAnswer()" disabled>Check Answer</button>
+                <button class="btn-main" id="next-btn" onclick="nextQuestion()" style="display: none; background: var(--accent);">Next Question <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- THE QUESTION DATABASE ---
+        // In the future, you will pull this from Firebase Firestore. 
+        // For now, it's hardcoded to build the UI.
+        const questionBank = {
+            "JEE Mains": [
+                {
+                    q: "The work done by a conservative force on a particle moving in a closed loop is:",
+                    options: ["Always positive", "Always negative", "Zero", "Depends on the path"],
+                    answer: 2, // Index 2 is "Zero"
+                    explanation: "By definition, the work done by a conservative force (like gravity or electrostatic force) over a closed loop is always strictly zero."
+                },
+                {
+                    q: "If the kinetic energy of a free electron doubles, its de Broglie wavelength changes by the factor:",
+                    options: ["1/2", "1/√2", "√2", "2"],
+                    answer: 1,
+                    explanation: "de Broglie wavelength λ = h / √(2mK). If K is doubled, the denominator is multiplied by √2, so λ changes by a factor of 1/√2."
+                }
+            ],
+            "NEET": [
+                {
+                    q: "Which of the following is responsible for the transport of water and minerals in plants?",
+                    options: ["Phloem", "Xylem", "Epidermis", "Stomata"],
+                    answer: 1,
+                    explanation: "The Xylem tissue is primarily responsible for the transport of water and dissolved minerals from the roots to the rest of the plant."
+                }
+            ]
+        };
+
+        // --- APP STATE ---
+        let currentExam = "";
+        let currentQuestions = [];
+        let currentIndex = 0;
+        let selectedOptionIndex = null;
+        let isAnswerChecked = false;
+
+        // UI Elements
+        const dashboard = document.getElementById('exam-dashboard');
+        const quizEngine = document.getElementById('quiz-engine');
+        const optionsContainer = document.getElementById('options-container');
+        const checkBtn = document.getElementById('check-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const explanationBox = document.getElementById('explanation-box');
+        const resultStatus = document.getElementById('result-status');
+
+        // --- CORE FUNCTIONS ---
+
+        function startExam(examName) {
+            currentExam = examName;
+            currentQuestions = questionBank[examName] || [];
+            currentIndex = 0;
+            
+            if(currentQuestions.length === 0) {
+                alert("Coming soon! Questions for this exam are being added.");
+                return;
+            }
+
+            document.getElementById('active-exam-title').innerText = `${examName} - PYQ Practice`;
+            dashboard.style.display = 'none';
+            quizEngine.style.display = 'block';
+            
+            loadQuestion();
+        }
+
+        function exitExam() {
+            dashboard.style.display = 'block';
+            quizEngine.style.display = 'none';
+        }
+
+        function loadQuestion() {
+            isAnswerChecked = false;
+            selectedOptionIndex = null;
+            checkBtn.style.display = 'block';
+            checkBtn.disabled = true;
+            nextBtn.style.display = 'none';
+            explanationBox.style.display = 'none';
+            resultStatus.innerText = "";
+            
+            const qData = currentQuestions[currentIndex];
+            document.getElementById('question-tracker').innerText = `Question ${currentIndex + 1} of ${currentQuestions.length}`;
+            document.getElementById('question-text').innerText = qData.q;
+            
+            optionsContainer.innerHTML = "";
+            qData.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                // A, B, C, D labels
+                const label = String.fromCharCode(65 + index); 
+                btn.innerHTML = `<strong style="background: rgba(255,255,255,0.1); padding: 0.2rem 0.6rem; border-radius: 4px;">${label}</strong> ${opt}`;
+                
+                btn.onclick = () => selectOption(index, btn);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectOption(index, btnElement) {
+            if (isAnswerChecked) return; // Prevent changing answer after checking
+            
+            selectedOptionIndex = index;
+            checkBtn.disabled = false;
+
+            // Remove selected class from all, add to clicked
+            document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+            btnElement.classList.add('selected');
+        }
+
+        function checkAnswer() {
+            if (selectedOptionIndex === null) return;
+            isAnswerChecked = true;
+            checkBtn.style.display = 'none';
+            nextBtn.style.display = 'block';
+
+            const qData = currentQuestions[currentIndex];
+            const buttons = document.querySelectorAll('.option-btn');
+            
+            const isCorrect = selectedOptionIndex === qData.answer;
+
+            if (isCorrect) {
+                buttons[selectedOptionIndex].classList.add('correct');
+                resultStatus.innerHTML = `<i class="fa-solid fa-check-circle" style="color: var(--accent);"></i> Brilliant! Correct Answer.`;
+            } else {
+                buttons[selectedOptionIndex].classList.add('wrong');
+                buttons[qData.answer].classList.add('correct'); // Show the real correct answer
+                resultStatus.innerHTML = `<i class="fa-solid fa-xmark-circle" style="color: var(--danger);"></i> Incorrect.`;
+            }
+
+            // Show explanation
+            explanationBox.innerHTML = `<strong>Explanation:</strong> <br> ${qData.explanation}`;
+            explanationBox.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentIndex++;
+            if (currentIndex < currentQuestions.length) {
+                loadQuestion();
+            } else {
+                // Exam Finished
+                document.getElementById('question-text').innerHTML = `
+                    <div style="text-align: center;">
+                        <i class="fa-solid fa-trophy" style="font-size: 4rem; color: var(--gold); margin-bottom: 1rem;"></i>
+                        <h2>Practice Set Complete!</h2>
+                        <p style="color: var(--text-muted); margin-top: 1rem;">Great job staying consistent. More questions coming soon.</p>
+                    </div>
+                `;
+                optionsContainer.innerHTML = "";
+                explanationBox.style.display = 'none';
+                resultStatus.innerText = "";
+                nextBtn.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

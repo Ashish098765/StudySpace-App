@@ -252,6 +252,7 @@
                     <svg class="icon-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2m5.66 0H14a2 2 0 0 1 2 2v3.34l1 1L23 7v10"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
                 </button>
 
+
                 <button id="copy-btn" class="control-btn btn-invite">
                     <svg id="invite-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
                     <span id="invite-text">Copy Invite Link</span>
@@ -277,5 +278,27 @@
         const roomId = pathParts[pathParts.length - 1];
         document.getElementById('display-room-id').innerText = roomId;
     </script>
+    <div id="activity-warning" style="background: var(--danger); color: white; text-align: center; padding: 0.5rem; font-weight: 600;">
+        ⏳ You have 2 minutes to turn on your Camera or Share your Screen, or you will be removed for inactivity.
+    </div>
+
+    <div class="room-header">
+        <h2>Room: <span id="room-id-display"></span></h2>
+        <span id="timer-display">00:00</span>
+    </div>
+
+    <div id="video-grid"></div>
+
+    <div class="room-controls" style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem; padding-bottom: 2rem;">
+        <button id="btn-start-cam" style="background: var(--primary); color: white; padding: 0.8rem 1.5rem; border: none; border-radius: 8px; cursor: pointer;">
+            <i class="fa-solid fa-video"></i> Start Camera
+        </button>
+        <button id="btn-share-screen" style="background: var(--accent); color: white; padding: 0.8rem 1.5rem; border: none; border-radius: 8px; cursor: pointer;">
+            <i class="fa-solid fa-display"></i> Share Screen
+        </button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="/roomLogic.js"></script>
 </body>
 </html>
