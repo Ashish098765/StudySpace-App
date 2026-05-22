@@ -1,0 +1,12 @@
+{
+    "Physics": [
+        { "id": "jee_phy_units", "name": "Units and Dimensions", "total": 120, "breakdown": { "2026": 12, "2025": 15, "2024": 14 } },
+        { "id": "jee_phy_kinematics", "name": "Kinematics (1D & 2D)", "total": 210, "breakdown": { "2026": 22, "2025": 20, "2024": 25 } }
+    ],
+    "Chemistry": [
+        { "id": "jee_chem_mole", "name": "Some Basic Concepts (Mole)", "total": 140, "breakdown": { "2026": 14, "2025": 16, "2024": 15 } }
+    ],
+    "Maths": [
+        { "id": "jee_math_sets", "name": "Sets, Relations and Functions", "total": 200, "breakdown": { "2026": 20, "2025": 22, "2024": 21 } }
+    ]
+}
