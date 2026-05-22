@@ -518,12 +518,16 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
         
-        window.auth = auth; // Expose globally for routing functions
+        window.auth = auth;
 
         // --- 2. AUTHENTICATION UI LOGIC ---
         const loginBtn = document.getElementById('nav-login-btn');
         const profileContainer = document.getElementById('user-profile-container');
         const profileName = document.getElementById('profile-name');
+        
+        // FIXED: Grab the email element
+        const profileEmail = document.getElementById('profile-email'); 
+        
         const profileAvatar = document.getElementById('user-avatar');
         const logoutBtn = document.getElementById('logout-btn');
 
@@ -532,6 +536,10 @@
                 if(loginBtn) loginBtn.style.display = 'none';
                 if(profileContainer) profileContainer.style.display = 'flex';
                 if(profileName) profileName.textContent = user.displayName || 'Student';
+                
+                // FIXED: Update the email text
+                if(profileEmail) profileEmail.textContent = user.email || ''; 
+                
                 if(profileAvatar && user.photoURL) profileAvatar.src = user.photoURL;
             } else {
                 if(loginBtn) loginBtn.style.display = 'block';
@@ -548,7 +556,7 @@
         // --- 3. THE ULTIMATE LEADERBOARD LOGIC ---
         async function loadLeaderboard() {
             const container = document.getElementById('leaderboard-list');
-            if (!container) return; // Stop if the widget doesn't exist on the page
+            if (!container) return; 
 
             // Fetch Top 3 Getters
             const q = query(collection(db, "users"), orderBy("xp", "desc"), limit(3));
@@ -558,10 +566,15 @@
             
             querySnapshot.forEach((docSnap, index) => {
                 const user = docSnap.data();
+                
+                // FIXED: Catch NaN or undefined XP and force it to 0
+                const safeXP = isNaN(user.xp) || user.xp === undefined ? 0 : user.xp;
+                const safeName = user.name || "Student";
+                
                 container.innerHTML += `
                     <div class="list-item" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <span><strong style="color: var(--primary); margin-right: 8px;">${index + 1}.</strong> ${user.name}</span>
-                        <span style="background: rgba(16, 185, 129, 0.1); color: var(--accent); padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">${user.xp} XP</span>
+                        <span><strong style="color: var(--primary); margin-right: 8px;">${index + 1}.</strong> ${safeName}</span>
+                        <span style="background: rgba(16, 185, 129, 0.1); color: var(--accent); padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">${safeXP} XP</span>
                     </div>
                 `;
             });
@@ -573,21 +586,29 @@
                     const userRef = doc(db, "users", uid);
                     const userSnap = await getDoc(userRef);
 
+                    // Set defaults just in case they haven't earned any XP yet
+                    let myXP = 0;
+                    let myName = window.auth.currentUser.displayName || 'Student';
+
                     if (userSnap.exists()) {
                         const myData = userSnap.data();
                         
-                        container.innerHTML += `
-                            <div style="display: flex; align-items: center; text-align: center; margin: 1rem 0; color: var(--text-muted); font-size: 0.8rem;">
-                                <div style="flex: 1; border-bottom: 1px solid rgba(255,255,255,0.1);"></div>
-                                <span style="padding: 0 10px; font-weight: 600;">YOUR RANK</span>
-                                <div style="flex: 1; border-bottom: 1px solid rgba(255,255,255,0.1);"></div>
-                            </div>
-                            <div class="list-item" style="background: rgba(99, 102, 241, 0.15); border: 1px solid var(--primary); border-radius: 8px; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
-                                <span><i class="fa-solid fa-user" style="color: var(--primary); margin-right: 8px;"></i>${myData.name}</span>
-                                <span style="background: var(--primary); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">${myData.xp} XP</span>
-                            </div>
-                        `;
+                        // FIXED: Catch NaN for the current user too
+                        myXP = isNaN(myData.xp) || myData.xp === undefined ? 0 : myData.xp;
+                        myName = myData.name || myName;
                     }
+                    
+                    container.innerHTML += `
+                        <div style="display: flex; align-items: center; text-align: center; margin: 1rem 0; color: var(--text-muted); font-size: 0.8rem;">
+                            <div style="flex: 1; border-bottom: 1px solid rgba(255,255,255,0.1);"></div>
+                            <span style="padding: 0 10px; font-weight: 600;">YOUR RANK</span>
+                            <div style="flex: 1; border-bottom: 1px solid rgba(255,255,255,0.1);"></div>
+                        </div>
+                        <div class="list-item" style="background: rgba(99, 102, 241, 0.15); border: 1px solid var(--primary); border-radius: 8px; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+                            <span><i class="fa-solid fa-user" style="color: var(--primary); margin-right: 8px;"></i>${myName}</span>
+                            <span style="background: var(--primary); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">${myXP} XP</span>
+                        </div>
+                    `;
                 }
             }, 1000); 
         }
