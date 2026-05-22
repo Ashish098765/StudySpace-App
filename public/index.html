@@ -473,10 +473,11 @@
             </div>
 
             <div class="dashboard-widget">
-                <h2 class="widget-title"><i class="fa-solid fa-trophy" style="color: var(--gold); margin-right: 10px;"></i>Top Scholars</h2>
-                
-                <div id="leaderboard-list">
+    <h2 class="widget-title"><i class="fa-solid fa-trophy" style="color: var(--gold); margin-right: 10px;"></i> Top Scholars</h2>
+    <div id="leaderboard-list">
+        Loading top scholars...
     </div>
+</div>
         </section>
 
         <section class="feature-grid">
@@ -497,10 +498,12 @@
     </main>
 
     <script type="module">
+        // --- 1. FIREBASE IMPORTS & SETUP ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+        import { getFirestore, collection, query, orderBy, limit, getDocs, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-        // 1. Your Config
+        // ⚠️ PASTE YOUR FIREBASE CONFIG HERE ⚠️
         const firebaseConfig = {
             apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
             authDomain: "studyspace-45780.firebaseapp.com",
@@ -513,43 +516,126 @@
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
+        const db = getFirestore(app);
         
-        // CRITICAL: Expose auth globally so your buttons can see it!
-        window.auth = auth;
+        window.auth = auth; // Expose globally for routing functions
 
-        // 2. Safely grab UI Elements
+        // --- 2. AUTHENTICATION UI LOGIC ---
         const loginBtn = document.getElementById('nav-login-btn');
         const profileContainer = document.getElementById('user-profile-container');
         const profileName = document.getElementById('profile-name');
-        const profileEmail = document.getElementById('profile-email');
         const profileAvatar = document.getElementById('user-avatar');
         const logoutBtn = document.getElementById('logout-btn');
 
-        // 3. Listen for Login State changes
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                // User is signed in! (Safety checks added so it doesn't crash)
                 if(loginBtn) loginBtn.style.display = 'none';
                 if(profileContainer) profileContainer.style.display = 'flex';
                 if(profileName) profileName.textContent = user.displayName || 'Student';
-                if(profileEmail) profileEmail.textContent = user.email;
                 if(profileAvatar && user.photoURL) profileAvatar.src = user.photoURL;
-                
-                localStorage.setItem('studySpaceUserName', user.displayName || 'Student');
             } else {
-                // User is signed out
                 if(loginBtn) loginBtn.style.display = 'block';
                 if(profileContainer) profileContainer.style.display = 'none';
             }
         });
 
-        // 4. Handle Log Out
         if(logoutBtn) {
             logoutBtn.addEventListener('click', () => {
-                signOut(auth).then(() => {
-                    window.location.reload();
-                });
+                signOut(auth).then(() => window.location.reload());
             });
+        }
+
+        // --- 3. THE ULTIMATE LEADERBOARD LOGIC ---
+        async function loadLeaderboard() {
+            const container = document.getElementById('leaderboard-list');
+            if (!container) return; // Stop if the widget doesn't exist on the page
+
+            // Fetch Top 3 Getters
+            const q = query(collection(db, "users"), orderBy("xp", "desc"), limit(3));
+            const querySnapshot = await getDocs(q);
+            
+            container.innerHTML = ""; 
+            
+            querySnapshot.forEach((docSnap, index) => {
+                const user = docSnap.data();
+                container.innerHTML += `
+                    <div class="list-item" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <span><strong style="color: var(--primary); margin-right: 8px;">${index + 1}.</strong> ${user.name}</span>
+                        <span style="background: rgba(16, 185, 129, 0.1); color: var(--accent); padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">${user.xp} XP</span>
+                    </div>
+                `;
+            });
+
+            // Fetch and append CURRENT USER ranking
+            setTimeout(async () => {
+                if (window.auth && window.auth.currentUser) {
+                    const uid = window.auth.currentUser.uid;
+                    const userRef = doc(db, "users", uid);
+                    const userSnap = await getDoc(userRef);
+
+                    if (userSnap.exists()) {
+                        const myData = userSnap.data();
+                        
+                        container.innerHTML += `
+                            <div style="display: flex; align-items: center; text-align: center; margin: 1rem 0; color: var(--text-muted); font-size: 0.8rem;">
+                                <div style="flex: 1; border-bottom: 1px solid rgba(255,255,255,0.1);"></div>
+                                <span style="padding: 0 10px; font-weight: 600;">YOUR RANK</span>
+                                <div style="flex: 1; border-bottom: 1px solid rgba(255,255,255,0.1);"></div>
+                            </div>
+                            <div class="list-item" style="background: rgba(99, 102, 241, 0.15); border: 1px solid var(--primary); border-radius: 8px; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+                                <span><i class="fa-solid fa-user" style="color: var(--primary); margin-right: 8px;"></i>${myData.name}</span>
+                                <span style="background: var(--primary); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">${myData.xp} XP</span>
+                            </div>
+                        `;
+                    }
+                }
+            }, 1000); 
+        }
+        
+        loadLeaderboard();
+    </script>
+
+    <script>
+        // --- 4. SAFE ROUTING LOGIC (Login Wall) ---
+        function checkLogin() {
+            if (!window.auth || !window.auth.currentUser) {
+                sessionStorage.setItem('returnUrl', window.location.href);
+                window.location.href = '/login.html';
+                return false;
+            }
+            return true;
+        }
+
+        function createPrivateRoom() {
+            if (!checkLogin()) return; 
+            const randomRoomId = Math.random().toString(36).substring(2, 10);
+            window.location.href = `/room/${randomRoomId}`;
+        }
+
+        function joinPrivateRoom() {
+            if (!checkLogin()) return; 
+            document.getElementById('join-modal').classList.add('active');
+            const input = document.getElementById('join-room-input');
+            if(input) input.focus();
+        }
+
+        function closeJoinModal() {
+            document.getElementById('join-modal').classList.remove('active');
+        }
+
+        function submitJoinRoom() {
+            if (!checkLogin()) return; 
+
+            const input = document.getElementById('join-room-input').value.trim();
+            if (!input) return;
+
+            let roomId = input;
+            if (input.includes('/room/')) {
+                roomId = input.split('/room/').pop();
+            }
+            roomId = roomId.split('?')[0].replace(/\//g, '');
+
+            if (roomId) window.location.href = `/room/${roomId}`;
         }
     </script>
 

@@ -86,12 +86,27 @@ function connectToRoom(stream) {
     if (isConnected) return;
     isConnected = true;
     stopKickTimer();
+    function addVideoStream(video, stream) {
+    video.srcObject = stream;
+    video.addEventListener('loadedmetadata', () => { video.play(); });
+    
+    // START LISTENING TO THIS VIDEO FOR SPEECH HIGHLIGHTS
+    monitorSpeech(stream, video); 
+    
+    videoGrid.append(video);
+}
     addVideoStream(myVideo, stream);
     socket.emit('join-room', ROOM_ID, myPeer.id);
 }
 
 // --- MIC TOGGLE ---
+// --- MIC TOGGLE ---
 btnMic.addEventListener('click', async () => {
+    // NEW: Force close mic in public rooms
+    if (isPublicRoom) {
+        alert("🔇 Microphones are disabled in Public Rooms to maintain a quiet study environment.");
+        return; 
+    }
     // If we don't have a stream yet, ask for it
     if (!myStream) {
         try {
@@ -122,31 +137,53 @@ btnMic.addEventListener('click', async () => {
 });
 
 // --- CAMERA TOGGLE ---
+// --- CAMERA TOGGLE & PREVIEW ---
+let isPreviewing = false;
+
 btnCam.addEventListener('click', async () => {
+    // 1. If they have no stream, get it and start PREVIEW MODE
     if (!myStream) {
         try {
             myStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-            connectToRoom(myStream);
-            isMicOn = true;
+            
+            // Add video to screen, but DO NOT connect to the room yet
+            addVideoStream(myVideo, myStream); 
+            isCamOn = true;
+            isPreviewing = true;
+            
+            // Change button to green "Join Call" button
+            btnCam.className = "btn-media";
+            btnCam.style.background = "var(--accent)";
+            btnCam.style.width = "auto";
+            btnCam.style.padding = "0 1.5rem";
+            btnCam.style.borderRadius = "8px";
+            btnCam.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> Join Call';
+            return; 
         } catch (e) { alert("Camera access denied."); return; }
     }
     
-    // Toggle video track state
+    // 2. If they are previewing and click "Join Call", officially connect!
+    if (isPreviewing) {
+        connectToRoom(myStream);
+        isPreviewing = false;
+        
+        // Reset button back to standard Camera Toggle icon
+        btnCam.style = ""; 
+        btnCam.className = "btn-media btn-on";
+        btnCam.innerHTML = '<i class="fa-solid fa-video"></i>';
+        return;
+    }
+
+    // 3. Normal Toggle (On/Off) once they are in the room
     isCamOn = !isCamOn;
     myStream.getVideoTracks()[0].enabled = isCamOn;
     
-    // Update Button UI
     if (isCamOn) {
         btnCam.className = "btn-media btn-on";
         btnCam.innerHTML = '<i class="fa-solid fa-video"></i>';
     } else {
         btnCam.className = "btn-media btn-off";
         btnCam.innerHTML = '<i class="fa-solid fa-video-slash"></i>';
-    }
-
-    if (isMicOn) {
-        btnMic.className = "btn-media btn-on";
-        btnMic.innerHTML = '<i class="fa-solid fa-microphone"></i>';
     }
 });
 
@@ -229,3 +266,37 @@ window.onbeforeunload = async () => {
         }
     }
 };
+// --- SPEECH DETECTION ENGINE (ZOOM HIGHLIGHT) ---
+function monitorSpeech(stream, videoElement) {
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const analyser = audioContext.createAnalyser();
+        const microphone = audioContext.createMediaStreamSource(stream);
+        const scriptProcessor = audioContext.createScriptProcessor(2048, 1, 1);
+
+        analyser.smoothingTimeConstant = 0.8;
+        analyser.fftSize = 1024;
+
+        microphone.connect(analyser);
+        analyser.connect(scriptProcessor);
+        scriptProcessor.connect(audioContext.destination);
+
+        scriptProcessor.onaudioprocess = function() {
+            const array = new Uint8Array(analyser.frequencyBinCount);
+            analyser.getByteFrequencyData(array);
+            let values = 0;
+            for (let i = 0; i < array.length; i++) values += (array[i]);
+            
+            const average = values / array.length;
+            
+            // If volume is above threshold (20), they are talking!
+            if (average > 20) {
+                videoElement.classList.add('speaking');
+            } else {
+                videoElement.classList.remove('speaking');
+            }
+        };
+    } catch (e) {
+        console.warn("Speech detection not supported for this stream.", e);
+    }
+}
