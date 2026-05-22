@@ -108,31 +108,49 @@ function addVideoStream(video, stream, userName = '') {
 // ================================================================
 // FIX: ADD SAFETY CHECKS TO BUTTONS
 // ================================================================
+// ================================================================
+// BUTTON LOGIC (Icons & Invite Links)
+// ================================================================
+
+// Copy exact room URL to clipboard
 document.getElementById('copy-btn').addEventListener('click', (e) => {
-    navigator.clipboard.writeText(window.location.href);
-    e.target.innerText = "✅ Copied!";
-    setTimeout(() => { e.target.innerText = "📋 Copy Invite Link"; }, 2000);
+    const fullRoomUrl = window.location.href; // Grabs http://your-ip:3000/room/123
+    navigator.clipboard.writeText(fullRoomUrl);
+    
+    // Give visual feedback
+    const btn = e.currentTarget;
+    const textSpan = document.getElementById('invite-text');
+    const originalText = textSpan.innerText;
+    
+    textSpan.innerText = "✅ Link Copied!";
+    btn.style.background = "#10b981"; // Turn button green temporarily
+    
+    setTimeout(() => { 
+        textSpan.innerText = originalText; 
+        btn.style.background = ""; // Reset to original color
+    }, 2000);
 });
 
+// Toggle Microphone (Swaps SVGs automatically using CSS)
 document.getElementById('mute-btn').addEventListener('click', (e) => {
-    if (!localStream) return alert("Your camera/mic is blocked because the server is not running on HTTPS.");
+    if (!localStream) return alert("Camera/mic is blocked (Needs HTTPS).");
     
     const audioTrack = localStream.getAudioTracks()[0];
     if (audioTrack) {
         audioTrack.enabled = !audioTrack.enabled;
-        e.target.innerText = audioTrack.enabled ? "🎤" : "🔇";
-        e.target.classList.toggle('off');
+        // e.currentTarget gets the button itself, not the SVG path inside it
+        e.currentTarget.classList.toggle('off'); 
     }
 });
 
+// Toggle Camera (Swaps SVGs automatically using CSS)
 document.getElementById('camera-btn').addEventListener('click', (e) => {
-    if (!localStream) return alert("Your camera/mic is blocked because the server is not running on HTTPS.");
+    if (!localStream) return alert("Camera/mic is blocked (Needs HTTPS).");
     
     const videoTrack = localStream.getVideoTracks()[0];
     if (videoTrack) {
         videoTrack.enabled = !videoTrack.enabled;
-        e.target.innerText = videoTrack.enabled ? "📹" : "📷";
-        e.target.classList.toggle('off');
+        e.currentTarget.classList.toggle('off');
     }
 });
 
@@ -143,36 +161,42 @@ const chatForm = document.getElementById('chat-form');
 const chatInput = document.getElementById('chat-input');
 const chatWindow = document.getElementById('chat-window');
 
+// Send Message
 chatForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Stop page reload
+    e.preventDefault(); 
     const text = chatInput.value.trim();
     
     if (text !== "") {
+        // Send our Google Name alongside the message
         const payload = JSON.stringify({ name: myName, text: text });
         socket.emit('chatMessage', payload);
-        chatInput.value = '';
+        chatInput.value = ''; // Clear the input box
     }
 });
 
+// Receive Message
 socket.on('message', (data) => {
     const isMe = data.id === myUserId;
-    
     let senderName = `User`;
     let messageText = data.text;
     
+    // Unpack the JSON payload sent by other users
     try {
         const parsed = JSON.parse(data.text);
         senderName = parsed.name || "User";
         messageText = parsed.text;
-    } catch(e) {} // Fallback for plain text
+    } catch(e) {} 
 
+    // Create the chat bubble
     const msgDiv = document.createElement('div');
     msgDiv.classList.add('message');
     if (isMe) msgDiv.classList.add('me');
     
-    const label = isMe ? "" : `<div style="font-size: 11px; font-weight: 600; color: #6366f1; margin-bottom: 3px;">${senderName}</div>`;
+    // Add the user's name above the message (unless it's you)
+    const label = isMe ? "" : `<div style="font-size: 11px; font-weight: 600; color: #6366f1; margin-bottom: 4px;">${senderName}</div>`;
     msgDiv.innerHTML = `${label}${messageText}`;
     
+    // Inject into the chat window and auto-scroll to the bottom
     chatWindow.appendChild(msgDiv);
     chatWindow.scrollTop = chatWindow.scrollHeight;
 });
