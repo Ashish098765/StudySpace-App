@@ -113,7 +113,8 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-        import { getFirestore, doc, updateDoc, setDoc, increment } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+        // NEW: Imported arrayUnion and getDoc to handle the memory array
+        import { getFirestore, doc, updateDoc, setDoc, increment, arrayUnion, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
         // ⚠️ PASTE YOUR FIREBASE CONFIG HERE ⚠️
         const firebaseConfig = {
@@ -131,9 +132,18 @@
         const db = getFirestore(app);
         
         let currentUser = null;
+        let attemptedQuestions = []; // Local memory of what they've solved
         
-        onAuthStateChanged(auth, (user) => {
-            if (user) currentUser = user;
+        // Load user data and their attempted questions memory
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                currentUser = user;
+                const userRef = doc(db, "users", user.uid);
+                const snap = await getDoc(userRef);
+                if (snap.exists() && snap.data().attemptedQuestions) {
+                    attemptedQuestions = snap.data().attemptedQuestions;
+                }
+            }
         });
 
         // --- THE QUESTION DATABASE ---
@@ -163,7 +173,6 @@
         const explanationBox = document.getElementById('explanation-box');
         const resultStatus = document.getElementById('result-status');
 
-        // Global EXPORT for HTML onclick functions
         window.startExam = (examName) => {
             currentExam = examName;
             currentQuestions = questionBank[examName] || [];
@@ -190,6 +199,9 @@
             resultStatus.innerText = "";
             
             const qData = currentQuestions[currentIndex];
+            const questionId = `${currentExam}_${currentIndex}`; // Unique ID for this specific question
+            const hasAttempted = attemptedQuestions.includes(questionId);
+
             document.getElementById('question-tracker').innerText = `Question ${currentIndex + 1} of ${currentQuestions.length}`;
             document.getElementById('question-text').innerText = qData.q;
             
@@ -198,27 +210,55 @@
                 const btn = document.createElement('button');
                 btn.className = 'option-btn';
                 btn.innerHTML = `<strong style="background: rgba(255,255,255,0.1); padding: 0.2rem 0.6rem; border-radius: 4px;">${String.fromCharCode(65 + index)}</strong> ${opt}`;
-                btn.onclick = () => {
-                    if (isAnswerChecked) return;
-                    selectedOptionIndex = index;
-                    checkBtn.disabled = false;
-                    document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
-                    btn.classList.add('selected');
-                };
+                
+                // Only allow clicking if they haven't attempted it before
+                if (!hasAttempted) {
+                    btn.onclick = () => {
+                        if (isAnswerChecked) return;
+                        selectedOptionIndex = index;
+                        checkBtn.disabled = false;
+                        document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+                        btn.classList.add('selected');
+                    };
+                } else {
+                    btn.style.cursor = "not-allowed"; // Visually show it's locked
+                }
                 optionsContainer.appendChild(btn);
             });
+
+            // If already attempted, immediately show the answer and explanation
+            if (hasAttempted) {
+                isAnswerChecked = true;
+                checkBtn.style.display = 'none';
+                nextBtn.style.display = 'block';
+                
+                const buttons = document.querySelectorAll('.option-btn');
+                buttons[qData.answer].classList.add('correct'); // Highlight correct answer
+                
+                resultStatus.innerHTML = `<i class="fa-solid fa-lock" style="color: var(--text-muted);"></i> Already attempted. No XP awarded.`;
+                explanationBox.innerHTML = `<strong>Explanation:</strong> <br> ${qData.explanation}`;
+                explanationBox.style.display = 'block';
+            }
         }
 
-        // --- THE XP LOGIC ---
-        async function updateXP(amount) {
-            if (!currentUser) return; // Only save if logged in
+        // --- THE XP & MEMORY SAVER ---
+        async function saveAttemptAndXP(amount, questionId) {
+            if (!currentUser) return; 
             
             const userRef = doc(db, "users", currentUser.uid);
+            attemptedQuestions.push(questionId); // Save locally so it works immediately without refresh
+
             try {
-                await updateDoc(userRef, { xp: increment(amount) });
+                await updateDoc(userRef, { 
+                    xp: increment(amount),
+                    attemptedQuestions: arrayUnion(questionId) // Save permanently to Firebase
+                });
             } catch (e) {
-                // If they have no XP record yet, create one
-                await setDoc(userRef, { name: currentUser.displayName, xp: amount });
+                await setDoc(userRef, { 
+                    name: currentUser.displayName, 
+                    xp: amount,
+                    attemptedQuestions: [questionId] 
+                });
             }
         }
 
@@ -229,18 +269,19 @@
             nextBtn.style.display = 'block';
 
             const qData = currentQuestions[currentIndex];
+            const questionId = `${currentExam}_${currentIndex}`;
             const buttons = document.querySelectorAll('.option-btn');
             const isCorrect = selectedOptionIndex === qData.answer;
 
             if (isCorrect) {
                 buttons[selectedOptionIndex].classList.add('correct');
                 resultStatus.innerHTML = `<i class="fa-solid fa-check-circle" style="color: var(--accent);"></i> Correct! <strong style="color: var(--gold);">+8 XP</strong>`;
-                await updateXP(8); // Add 8 XP
+                await saveAttemptAndXP(8, questionId); 
             } else {
                 buttons[selectedOptionIndex].classList.add('wrong');
                 buttons[qData.answer].classList.add('correct');
                 resultStatus.innerHTML = `<i class="fa-solid fa-xmark-circle" style="color: var(--danger);"></i> Incorrect. <strong style="color: var(--danger);">-2 XP</strong>`;
-                await updateXP(-2); // Subtract 2 XP
+                await saveAttemptAndXP(-2, questionId); 
             }
 
             explanationBox.innerHTML = `<strong>Explanation:</strong> <br> ${qData.explanation}`;
