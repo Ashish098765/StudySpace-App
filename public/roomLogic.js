@@ -1,6 +1,30 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 import { getFirestore, doc, updateDoc, setDoc, increment } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-const db = getFirestore();
 
+// ⚠️ YOUR FIREBASE CONFIG
+const firebaseConfig = {
+    apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
+    authDomain: "studyspace-45780.firebaseapp.com",
+    projectId: "studyspace-45780",
+    storageBucket: "studyspace-45780.firebasestorage.app",
+    messagingSenderId: "212493442342",
+    appId: "1:212493442342:web:15b83a52a04bbf8567b5e7",
+    measurementId: "G-NVHDFF8JDN"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// Make auth global so your XP saver at the bottom can see who is logged in!
+window.auth = auth; 
+
+// --- YOUR EXISTING CODE CONTINUES HERE ---
+// const ROOM_ID = window.location.pathname.split('/').pop();
+// const roomTitleDisplay = document.getElementById('room-id-display');
+// ... etc
 // --- 1. UI SETUP & TIMER ---
 const ROOM_ID = window.location.pathname.split('/').pop();
 const roomTitleDisplay = document.getElementById('room-id-display');
