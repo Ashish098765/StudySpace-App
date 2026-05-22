@@ -8,61 +8,51 @@
     
     <style>
         :root {
-            --bg-color: #0f111a;
-            --card-bg: #1e2130;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --primary: #6366f1;
-            --primary-hover: #4f46e5;
-            --accent: #10b981;
-            --danger: #ef4444;
-            --gold: #fbbf24;
-            --border: rgba(255, 255, 255, 0.05);
+            --bg-color: #0f111a; --card-bg: #1e2130; --text-main: #f8fafc;
+            --text-muted: #94a3b8; --primary: #6366f1; --primary-hover: #4f46e5;
+            --accent: #10b981; --danger: #ef4444; --gold: #fbbf24;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; min-height: 100vh; 
+               background-image: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%), 
+                                 radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%); }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            min-height: 100vh;
-        }
-
-        /* --- Modal Styles --- */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            display: flex; align-items: center; justify-content: center;
-            z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.3s ease;
-        }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-content {
-            background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 16px; padding: 2rem; width: 90%; max-width: 450px;
-        }
-        .modal-input {
-            width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1);
-            color: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; outline: none;
-        }
-        .modal-actions { display: flex; gap: 1rem; justify-content: flex-end; }
-        .btn-confirm { background: var(--primary); color: white; padding: 0.6rem 1.5rem; border: none; border-radius: 8px; }
-
-        /* --- Navigation & Hero --- */
-        #auth-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; }
+        /* Navigation */
+        #auth-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background: rgba(15, 17, 26, 0.7); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); position: sticky; top: 0; z-index: 100; }
         .logo-text { font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
-        .btn-login { background-color: var(--primary); color: white; padding: 0.6rem 1.5rem; border-radius: 8px; }
-        .main-container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; text-align: center; }
-        .hero-title { font-size: 4rem; margin-bottom: 1rem; }
+        .btn-login { background-color: var(--primary); color: white; padding: 0.6rem 1.5rem; border-radius: 8px; font-weight: 600; border: none; cursor: pointer; }
+        #user-profile-container { display: flex; align-items: center; gap: 1rem; background: var(--card-bg); padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .profile-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+        .btn-logout { background: transparent; color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.3); padding: 0.4rem 0.8rem; border-radius: 8px; cursor: pointer; }
+
+        /* Main Content */
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .hero-title { font-size: 4rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -1px; }
         .hero-title span { background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-subtitle { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin-bottom: 3rem; }
         
-        /* Dropdown & Dashboard Styles (Kept your existing ones) */
+        /* Dropdown */
         .session-dropdown-wrapper { position: relative; display: inline-block; }
+        .btn-start-session { background-color: var(--text-main); color: var(--bg-color); padding: 1rem 2.5rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.8rem; border-radius: 12px; font-weight: 800; cursor: pointer; border: none; }
         .dropdown-menu { position: absolute; top: 120%; left: 50%; transform: translateX(-50%); background: rgba(30, 33, 48, 0.95); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 0.5rem; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 50; }
         .session-dropdown-wrapper:hover .dropdown-menu { opacity: 1; visibility: visible; }
         .dropdown-item { background: transparent; color: var(--text-main); padding: 0.8rem 1rem; border-radius: 8px; border: none; text-align: left; cursor: pointer; }
-        .dropdown-item:hover { background: rgba(99, 102, 241, 0.15); }
-        .btn-start-session { background: var(--text-main); color: var(--bg-color); padding: 1rem 2.5rem; border-radius: 12px; font-weight: 800; }
+        .dropdown-item:hover { background: rgba(99, 102, 241, 0.15); color: var(--primary); }
+
+        /* Dashboard Widgets */
+        .live-dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; width: 100%; margin-top: 5rem; }
+        .dashboard-widget { background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 2rem; text-align: left; }
+        .widget-title { font-size: 1.25rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 1rem; }
+        .list-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: rgba(0, 0, 0, 0.2); border-radius: 8px; margin-bottom: 0.8rem; }
+        .btn-join { background: var(--primary); color: white; padding: 0.4rem 1rem; border-radius: 8px; border: none; cursor: pointer; }
+
+        /* Modal */
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background: var(--card-bg); border-radius: 16px; padding: 2rem; width: 90%; max-width: 450px; }
+        .modal-input { width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
+        .modal-actions { display: flex; gap: 1rem; justify-content: flex-end; }
+        .btn-confirm { background: var(--primary); color: white; padding: 0.6rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -71,9 +61,9 @@
         <a href="/" class="logo-text">🚀 StudySpace</a>
         <div class="nav-actions">
             <button id="nav-login-btn" class="btn-login" onclick="window.location.href='/login.html'">Log In / Sign Up</button>
-            <div id="user-profile-container" style="display: none; align-items: center; gap: 1rem;">
-                <img id="user-avatar" style="width:40px; height:40px; border-radius:50%;" src="" alt="Avatar">
-                <button id="logout-btn" style="background:transparent; color:var(--danger); border:1px solid var(--danger); padding:0.4rem 0.8rem;">Log Out</button>
+            <div id="user-profile-container" style="display: none;">
+                <img id="user-avatar" class="profile-avatar" src="" alt="Avatar">
+                <button id="logout-btn" class="btn-logout">Log Out</button>
             </div>
         </div>
     </nav>
@@ -83,10 +73,9 @@
             <h3>Join a Study Room</h3>
             <p>Paste your friend's invite link or enter the Room ID.</p>
             <input type="text" id="join-room-input" class="modal-input" placeholder="Room ID..." autocomplete="off">
-            <div id="join-error" style="color: var(--danger); display: none; margin-bottom: 1rem;">❌ Room not found.</div>
             <div class="modal-actions">
-                <button class="btn-cancel" onclick="closeJoinModal()">Cancel</button>
-                <button class="btn-confirm" id="btn-join-submit" onclick="submitJoinRoom()">Join Room</button>
+                <button class="btn-cancel" style="background:transparent; color:white; border:none; cursor:pointer;" onclick="closeJoinModal()">Cancel</button>
+                <button class="btn-confirm" onclick="submitJoinRoom()">Join Room</button>
             </div>
         </div>
     </div>
@@ -94,6 +83,7 @@
     <main class="main-container">
         <header class="hero-section">
             <h1 class="hero-title">Welcome to <span>StudySpace</span></h1>
+            <p class="hero-subtitle">Your central hub for collaborative learning.</p>
             <div class="session-dropdown-wrapper">
                 <button class="btn-start-session">Start a Live Session</button>
                 <div class="dropdown-menu">
@@ -102,31 +92,36 @@
                 </div>
             </div>
         </header>
+
+        <section class="live-dashboard">
+            <div class="dashboard-widget">
+                <h2 class="widget-title">🔴 Live Study Rooms</h2>
+                <div class="list-item"><div><h4>Calculus PYQ Prep</h4></div><button class="btn-join" onclick="window.location.href='/room/123'">Join</button></div>
+            </div>
+            <div class="dashboard-widget">
+                <h2 class="widget-title">🏆 Top Scholars</h2>
+                <div class="list-item"><span>1. Archana</span><span>2,450 XP</span></div>
+            </div>
+        </section>
     </main>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-
         const firebaseConfig = { /* ... your config ... */ };
         const app = initializeApp(firebaseConfig);
-        window.auth = getAuth(app); // Global auth
-
-        const loginBtn = document.getElementById('nav-login-btn');
-        const profileContainer = document.getElementById('user-profile-container');
-        const logoutBtn = document.getElementById('logout-btn');
+        window.auth = getAuth(app);
 
         onAuthStateChanged(window.auth, (user) => {
             if (user) {
-                loginBtn.style.display = 'none';
-                profileContainer.style.display = 'flex';
+                document.getElementById('nav-login-btn').style.display = 'none';
+                document.getElementById('user-profile-container').style.display = 'flex';
+                document.getElementById('user-avatar').src = user.photoURL || '';
                 localStorage.setItem('studySpaceUserName', user.displayName || 'Student');
             }
         });
 
-        logoutBtn.addEventListener('click', () => {
-            signOut(window.auth).then(() => window.location.reload());
-        });
+        document.getElementById('logout-btn').addEventListener('click', () => signOut(window.auth).then(() => window.location.reload()));
     </script>
 
     <script>
@@ -136,26 +131,19 @@
                 window.location.href = '/login.html';
                 return;
             }
-            const randomRoomId = Math.random().toString(36).substring(2, 10);
-            window.location.href = `/room/${randomRoomId}`;
+            window.location.href = `/room/${Math.random().toString(36).substring(2, 10)}`;
         }
 
-        function joinPrivateRoom() {
-            document.getElementById('join-modal').classList.add('active');
-        }
-
-        function closeJoinModal() {
-            document.getElementById('join-modal').classList.remove('active');
-        }
-
-        async function submitJoinRoom() {
+        function joinPrivateRoom() { document.getElementById('join-modal').classList.add('active'); }
+        function closeJoinModal() { document.getElementById('join-modal').classList.remove('active'); }
+        function submitJoinRoom() {
             if (!window.auth.currentUser) {
                 sessionStorage.setItem('returnUrl', window.location.href);
                 window.location.href = '/login.html';
                 return;
             }
-            const input = document.getElementById('join-room-input').value.trim();
-            if (input) window.location.href = `/room/${input.split('/').pop()}`;
+            const id = document.getElementById('join-room-input').value.trim();
+            if (id) window.location.href = `/room/${id.split('/').pop()}`;
         }
     </script>
 </body>
