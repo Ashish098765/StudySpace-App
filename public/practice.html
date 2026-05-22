@@ -246,40 +246,12 @@
             }
         });
 
-        // --- GLOBAL CENTRALIZED MARKS QUESTION SOURCE BANK ---
-        const centralizedQuestionBank = {
-            "JEE Mains": {
-                "Physics": [
-                    { id: "jee_24_p_ud", chapter: "Units & Dimensions", year: "2024", q: "The dimensional formula of the coefficient of viscosity is:", options: ["[M L^-1 T^-1]", "[M L^1 T^-1]", "[M L^-1 T^-2]", "[M L^-2 T^-1]"], answer: 0, explanation: "Viscous Force F = ηA(dv/dx). Therefore η = F / [A(dv/dx)] which evaluates structurally to [M L^-1 T^-1]." },
-                    { id: "jee_23_p_kin", chapter: "Motion in 1D", year: "2023", q: "A ball is thrown vertically upwards with velocity u. The distance traveled by it during the last t seconds of its ascent is:", options: ["ut", "(1/2)g t^2", "ut - (1/2)g t^2", "(1/2)g(2t-1)"], answer: 1, explanation: "The distance traveled during the last t seconds of ascent equals the distance traveled in the first t seconds of descent from rest under gravity, which is exactly (1/2)gt^2." },
-                    { id: "jee_24_p_work", chapter: "Laws of Motion", year: "2024", q: "The work done by a conservative force on a particle moving in a closed loop is:", options: ["Always positive", "Always negative", "Zero", "Depends on the mechanical trajectory path"], answer: 2, explanation: "By structural definition, the net mechanical work expression evaluated over any closed path mapping for conservative vector fields is always zero." }
-                ],
-                "Chemistry": [
-                    { id: "jee_24_c_per", chapter: "Periodic Table", year: "2024", q: "Which of the following configurations represents the element with the highest electron gain enthalpy?", options: ["1s^2 2s^2 2p^5", "1s^2 2s^2 2p^6 3s^2 3p^5", "1s^2 2s^2 2p^4", "1s^2 2s^2 2p^6 3s^2 3p^4"], answer: 1, explanation: "Chlorine ([Ne] 3s^2 3p^5) exhibits a more negative electron gain enthalpy value than Fluorine due to lessened inter-electronic repulsive forces in its larger 3p valence subshell environment." },
-                    { id: "jee_23_c_bond", chapter: "Chemical Bonding", year: "2023", q: "The geometry of XeF4 according to VSEPR theory is:", options: ["Tetrahedral", "Square Planar", "Octahedral", "See-saw"], answer: 1, explanation: "Xenon tetrafluoride possesses 4 bonding pairs and 2 lone pairs relative to its central atom coordinates, forcing a square planar structural visualization geometric profile shape." }
-                ],
-                "Maths": [
-                    { id: "jee_24_m_mat", chapter: "Matrices & Determinants", year: "2024", q: "If A is a square matrix of order 3 such that det(A) = 4, then det(2A) is equal to:", options: ["8", "16", "32", "64"], answer: 2, explanation: "For any scalar scaling factor k and square matrix order n, det(kA) = (k^n)det(A). Here, 2^3 * 4 = 8 * 4 = 32." },
-                    { id: "jee_23_m_calc", chapter: "Limits & Continuity", year: "2023", q: "The value of lim (x->0) [sin(x) / x] is evaluate to:", options: ["0", "1", "Does not exist", "Infinite"], answer: 1, explanation: "This represents a fundamental standard trigonometric calculus limits theorem identity checking out exactly to 1." }
-                ]
-            },
-            "NEET": {
-                "Physics": [
-                    { id: "neet_23_p_opt", chapter: "Ray Optics", year: "2023", q: "A convex lens is immersed in a fluid container whose refractive index is precisely equal to the glass matrix index. Its focal configuration tracking path parameters evaluate to:", options: ["Zero", "Infinite", "Unchanged", "Diminished"], answer: 1, explanation: "By the Lens Maker's Formula, matching boundary indices yields a relative parameter value of zero for curvature differentials, translating focal parameters to infinity." }
-                ],
-                "Chemistry": [
-                    { id: "neet_24_c_org", chapter: "Organic Mechanisms", year: "2024", q: "The most stable carbocation intermediate configuration among the listed set corresponds to:", options: ["Primary carbocation", "Secondary carbocation", "Tertiary carbocation", "Methyl radical structural entity"], answer: 2, explanation: "Tertiary carbocations achieve maximal structural stability configurations derived via collective hyperconjugation metrics and inductive donor dispersal properties." }
-                ],
-                "Biology": [
-                    { id: "neet_23_b_xyl", chapter: "Plant Anatomy", year: "2023", q: "Which tissue layer configuration framework operates fluid translocation vectors across vascular plant systems?", options: ["Phloem", "Xylem", "Epidermis", "Cortex"], answer: 1, explanation: "Xylem specialized cellular structures anchor primary water and systemic mineral transport processes across structural coordinates safely." }
-                ]
-            }
-        };
-
         // --- APPLICATION INSTANCE TRACKING CONTROL STATE ---
         let selectedTargetExam = "";
         let selectedActiveSubject = "";
         let selectedActiveChapter = "";
+        let selectedChapterId = ""; // The ID needed to fetch the correct JSON file
+        let activeMetadata = null; // Holds the fetched dashboard data
         let filteredPracticeSet = [];
         let currentIndex = 0;
         let selectedOptionIndex = null;
@@ -299,33 +271,52 @@
             screenQuiz.style.display = 'none';
         };
 
-        window.navigateToExplorer = (examName) => {
+        window.navigateToExplorer = async (examName) => {
             selectedTargetExam = examName;
             document.getElementById('explorer-title').innerText = `${examName} Repository Workspace`;
             
-            // Build Dynamic Subject Navigation Sidebar Controls
-            const sidebarContainer = document.getElementById('subject-sidebar-container');
-            sidebarContainer.innerHTML = "";
-            const availableSubjects = Object.keys(centralizedQuestionBank[examName]);
-            
-            availableSubjects.forEach((sub, idx) => {
-                const btn = document.createElement('button');
-                btn.className = `sidebar-btn ${idx === 0 ? 'active' : ''}`;
-                btn.innerHTML = `<span>${sub}</span> <i class="fa-solid fa-chevron-right"></i>`;
-                btn.onclick = () => {
-                    document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    renderChapterInventoryList(sub);
-                };
-                sidebarContainer.appendChild(btn);
-            });
-
             screenGateway.style.display = 'none';
             screenExplorer.style.display = 'block';
             
-            // Auto-target initial subject partition array profile
-            if(availableSubjects.length > 0) {
-                renderChapterInventoryList(availableSubjects[0]);
+            const sidebarContainer = document.getElementById('subject-sidebar-container');
+            const chapterListContainer = document.getElementById('chapter-list-container');
+            
+            sidebarContainer.innerHTML = '<div style="padding: 1rem; color: var(--text-secondary); font-size: 0.9rem;"><i class="fa-solid fa-spinner fa-spin"></i> Loading Modules...</div>';
+            chapterListContainer.innerHTML = "";
+
+            try {
+                // 1. DYNAMIC FETCH: Pulls the tiny dashboard file
+                const metaFile = examName === "JEE Mains" ? "data/metadata_jee.json" : "data/metadata_neet.json";
+                const response = await fetch(metaFile);
+                if (!response.ok) throw new Error("Metadata JSON file not found.");
+                
+                activeMetadata = await response.json();
+
+                // 2. Build Sidebar dynamically from the JSON
+                sidebarContainer.innerHTML = "";
+                const availableSubjects = Object.keys(activeMetadata);
+                
+                availableSubjects.forEach((sub, idx) => {
+                    const btn = document.createElement('button');
+                    btn.className = `sidebar-btn ${idx === 0 ? 'active' : ''}`;
+                    btn.innerHTML = `<span>${sub}</span> <i class="fa-solid fa-chevron-right"></i>`;
+                    btn.onclick = () => {
+                        document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        renderChapterInventoryList(sub);
+                    };
+                    sidebarContainer.appendChild(btn);
+                });
+
+                if(availableSubjects.length > 0) {
+                    renderChapterInventoryList(availableSubjects[0]);
+                } else {
+                    chapterListContainer.innerHTML = `<div style="color: var(--text-secondary); padding: 2rem; font-size:0.9rem;">No subjects available in the database.</div>`;
+                }
+
+            } catch (error) {
+                sidebarContainer.innerHTML = '<div style="color: var(--error-red); padding: 1rem; font-size: 0.85rem;">Error loading data. Ensure you created the /data/ folder and JSON files!</div>';
+                console.error(error);
             }
         };
 
@@ -334,58 +325,46 @@
             const container = document.getElementById('chapter-list-container');
             container.innerHTML = "";
             
-            const datasets = centralizedQuestionBank[selectedTargetExam][subjectName] || [];
-            
-            // Extract distinct topics configurations dynamically via tracking profile
-            const mapChapters = {};
-            datasets.forEach(q => {
-                if(!mapChapters[q.chapter]) {
-                    mapChapters[q.chapter] = { total: 0, breakdowns: {} };
-                }
-                mapChapters[q.chapter].total++;
-                mapChapters[q.chapter].breakdowns[q.year] = (mapChapters[q.chapter].breakdowns[q.year] || 0) + 1;
-            });
+            const chapters = activeMetadata[subjectName] || [];
 
-            const keys = Object.keys(mapChapters);
-            if(keys.length === 0) {
+            if(chapters.length === 0) {
                 container.innerHTML = `<div style="color: var(--text-secondary); padding: 2rem; font-size:0.9rem;">No question allocations mapped yet for this segment.</div>`;
                 return;
             }
 
-            keys.forEach(chName => {
-                const item = mapChapters[chName];
-                const textMetric24 = item.breakdowns["2024"] ? `2024: <span class="stat-highlight">${item.breakdowns["2024"]} Qs</span>` : `2024: 0 Qs`;
-                const textMetric23 = item.breakdowns["2023"] ? `2023: ${item.breakdowns["2023"]} Qs` : `2023: 0 Qs`;
+            chapters.forEach(ch => {
+                const textMetric24 = ch.breakdown["2024"] ? `2024: <span class="stat-highlight">${ch.breakdown["2024"]} Qs</span>` : `2024: 0 Qs`;
+                const textMetric23 = ch.breakdown["2023"] ? `2023: ${ch.breakdown["2023"]} Qs` : `2023: 0 Qs`;
 
                 const divRow = document.createElement('div');
                 divRow.className = "chapter-row";
                 divRow.innerHTML = `
                     <div class="chapter-title-wrapper">
                         <i class="fa-regular fa-folder-open"></i>
-                        <span class="chapter-name">${chName}</span>
+                        <span class="chapter-name">${ch.name}</span>
                     </div>
                     <div class="chapter-stats">
                         <span>${textMetric24}</span>
                         <span>${textMetric23}</span>
-                        <span>Total: ${item.total} Qs</span>
+                        <span>Total: ${ch.total} Qs</span>
                     </div>
                 `;
-                divRow.onclick = () => showFilterPanel(chName);
+                // Pass the unique chapter ID (filename) to the filter panel
+                divRow.onclick = () => showFilterPanel(ch.name, ch.id, Object.keys(ch.breakdown));
                 container.appendChild(divRow);
             });
         }
 
-        function showFilterPanel(chapterName) {
+        function showFilterPanel(chapterName, chapterFileId, availableYears) {
             selectedActiveChapter = chapterName;
+            selectedChapterId = chapterFileId; // We need this to fetch the real questions later
             document.getElementById('filter-heading').innerText = chapterName;
-            
-            // Scan years allocation mapped configuration profiles safely
-            const datasets = centralizedQuestionBank[selectedTargetExam][selectedActiveSubject].filter(q => q.chapter === chapterName);
-            const explicitYears = [...new Set(datasets.map(q => q.year))].sort((a,b) => b - a);
             
             const selYear = document.getElementById('select-year');
             selYear.innerHTML = '<option value="All">All Structural Tracking Years</option>';
-            explicitYears.forEach(y => {
+            
+            // Build dropdown based on available years in the metadata
+            availableYears.sort((a,b) => b - a).forEach(y => {
                 selYear.innerHTML += `<option value="${y}">Exam Cycle Season Year ${y}</option>`;
             });
 
@@ -404,23 +383,47 @@
         };
 
         // --- CORE RUNTIME PRACTICE CORE LAYER EXECUTION ---
-        window.launchSession = () => {
-            const rawSets = centralizedQuestionBank[selectedTargetExam][selectedActiveSubject].filter(q => q.chapter === selectedActiveChapter);
-            const evaluationYearFilter = document.getElementById('select-year').value;
+        window.launchSession = async () => {
+            const startBtn = document.querySelector('#filter-screen .btn-primary');
+            const originalText = startBtn.innerHTML;
+            
+            startBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> FETCHING DATABASE...';
+            startBtn.disabled = true;
 
-            filteredPracticeSet = rawSets.filter(q => {
-                return evaluationYearFilter === "All" || q.year === evaluationYearFilter;
-            });
+            try {
+                // 3. LAZY LOADING: Fetch the specific chapter's JSON file only when needed!
+                const targetFile = `data/questions/${selectedChapterId}.json`;
+                const response = await fetch(targetFile);
+                
+                if (!response.ok) throw new Error("Question file missing: " + targetFile);
+                
+                const rawChapterQuestions = await response.json();
+                const evaluationYearFilter = document.getElementById('select-year').value;
 
-            if(filteredPracticeSet.length === 0) {
-                alert("No structural matrix matched standard targeting fields.");
-                return;
+                filteredPracticeSet = rawChapterQuestions.filter(q => {
+                    return evaluationYearFilter === "All" || q.year === evaluationYearFilter;
+                });
+
+                if(filteredPracticeSet.length === 0) {
+                    alert("No questions match standard targeting fields.");
+                    startBtn.innerHTML = originalText;
+                    startBtn.disabled = false;
+                    return;
+                }
+
+                currentIndex = 0;
+                screenFilter.style.display = 'none';
+                screenQuiz.style.display = 'block';
+                loadActiveQuestionItem();
+
+            } catch (error) {
+                alert("Could not load questions. Ensure the chapter JSON file exists in the /data/questions/ folder.");
+                console.error(error);
+            } finally {
+                // Reset the button state
+                startBtn.innerHTML = originalText;
+                startBtn.disabled = false;
             }
-
-            currentIndex = 0;
-            screenFilter.style.display = 'none';
-            screenQuiz.style.display = 'block';
-            loadActiveQuestionItem();
         };
 
         function loadActiveQuestionItem() {
