@@ -261,6 +261,47 @@
         </div>
     </div>
     
+    <script type="module">
+        console.log("🚦 STEP 1: Script has started running!");
 
-    </body>
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+        
+        console.log("🚦 STEP 2: Firebase tools downloaded successfully!");
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
+            authDomain: "studyspace-45780.firebaseapp.com",
+            projectId: "studyspace-45780",
+            storageBucket: "studyspace-45780.firebasestorage.app",
+            messagingSenderId: "212493442342",
+            appId: "1:212493442342:web:15b83a52a04bbf8567b5e7",
+            measurementId: "G-NVHDFF8JDN"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+        
+        console.log("🚦 STEP 3: Firebase is initialized and ready!");
+
+        const loginBtn = document.getElementById('google-signin-btn');
+        console.log("🚦 STEP 4: Button found on page:", loginBtn);
+
+        loginBtn.addEventListener('click', () => {
+            console.log("🚦 STEP 5: Button was clicked! Attempting to talk to Google...");
+            
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    console.log("✅ SUCCESS! Logged in as:", result.user.email);
+                    window.location.href = "/";
+                })
+                .catch((error) => {
+                    console.error("❌ FIREBASE ERROR:", error.code);
+                    console.error("❌ ERROR MESSAGE:", error.message);
+                    alert("Error: " + error.message);
+                });
+        });
+    </script>
+</body>
 </html>
