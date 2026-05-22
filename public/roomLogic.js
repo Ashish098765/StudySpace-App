@@ -32,7 +32,7 @@ const myVideo = document.createElement('video');
 myVideo.muted = true; // Always mute yourself
 
 // ================================================================
-// FIX: JOIN THE ROOM IMMEDIATELY (Don't wait for the camera!)
+// JOIN THE ROOM IMMEDIATELY
 // ================================================================
 myPeer.on('open', id => {
     myUserId = id;
@@ -40,29 +40,37 @@ myPeer.on('open', id => {
 });
 
 // ================================================================
-// ATTEMPT TO START CAMERA (Will fail on HTTP, but won't break chat)
+// ATTEMPT TO START CAMERA (Safely checks for HTTPS first)
 // ================================================================
-navigator.mediaDevices.getUserMedia({ video: true, audio: true })
-    .then(stream => {
-        localStream = stream;
-        addVideoStream(myVideo, stream, myName + " (You)");
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // If HTTPS is secure, start the camera normally
+    navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        .then(stream => {
+            localStream = stream;
+            addVideoStream(myVideo, stream, myName + " (You)");
 
-        myPeer.on('call', call => {
-            call.answer(stream);
-            const video = document.createElement('video');
-            const callerName = (call.metadata && call.metadata.name) ? call.metadata.name : 'Participant';
-            
-            let videoWrapper;
-            call.on('stream', userVideoStream => {
-                if(!videoWrapper) videoWrapper = addVideoStream(video, userVideoStream, callerName);
+            myPeer.on('call', call => {
+                call.answer(stream);
+                const video = document.createElement('video');
+                const callerName = (call.metadata && call.metadata.name) ? call.metadata.name : 'Participant';
+                
+                let videoWrapper;
+                call.on('stream', userVideoStream => {
+                    if(!videoWrapper) videoWrapper = addVideoStream(video, userVideoStream, callerName);
+                });
             });
+        })
+        .catch(err => {
+            console.warn("Camera blocked by browser:", err);
         });
-    })
-    .catch(err => {
-        console.warn("Camera blocked by browser (Needs HTTPS):", err);
-        // We log the warning, but the rest of the app continues to work!
-    });
+} else {
+    // If HTTP, skip the camera entirely so the script doesn't crash!
+    console.warn("Camera API disabled by browser because this is not an HTTPS site. Text chat only!");
+}
 
+// ================================================================
+// SOCKET CONNECTION LOGIC
+// ================================================================
 socket.on('user-connected', userId => {
     if (localStream) {
         connectToNewUser(userId, localStream);
@@ -106,14 +114,8 @@ function addVideoStream(video, stream, userName = '') {
 }
 
 // ================================================================
-// FIX: ADD SAFETY CHECKS TO BUTTONS
-// ================================================================
-// ================================================================
-// ================================================================
 // BUTTON LOGIC (Icons & Invite Links)
 // ================================================================
-
-// Copy exact room URL to clipboard
 document.getElementById('copy-btn').addEventListener('click', (e) => {
     const fullRoomUrl = window.location.href; 
     navigator.clipboard.writeText(fullRoomUrl);
@@ -131,12 +133,8 @@ document.getElementById('copy-btn').addEventListener('click', (e) => {
     }, 2000);
 });
 
-// Toggle Microphone 
 document.getElementById('mute-btn').addEventListener('click', (e) => {
-    // 1. Visually toggle the icon IMMEDIATELY (adds the slash)
     e.currentTarget.classList.toggle('off'); 
-    
-    // 2. Actually mute the audio (if the stream exists)
     if (localStream) {
         const audioTrack = localStream.getAudioTracks()[0];
         if (audioTrack) {
@@ -145,12 +143,8 @@ document.getElementById('mute-btn').addEventListener('click', (e) => {
     }
 });
 
-// Toggle Camera 
 document.getElementById('camera-btn').addEventListener('click', (e) => {
-    // 1. Visually toggle the icon IMMEDIATELY (adds the slash)
     e.currentTarget.classList.toggle('off');
-    
-    // 2. Actually turn off the video (if the stream exists)
     if (localStream) {
         const videoTrack = localStream.getVideoTracks()[0];
         if (videoTrack) {
@@ -166,35 +160,31 @@ const chatForm = document.getElementById('chat-form');
 const chatInput = document.getElementById('chat-input');
 const chatWindow = document.getElementById('chat-window');
 
-// Helper function to handle sending the message
 function attemptSendMessage() {
     const text = chatInput.value.trim();
     if (text !== "") {
         const payload = JSON.stringify({ name: myName, text: text });
         socket.emit('chatMessage', payload);
-        chatInput.value = ''; // Clear the input box safely
+        chatInput.value = ''; 
     }
 }
 
-// Catch the Form Submit (Clicking the Send Button)
 if (chatForm) {
     chatForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // CRITICAL: This stops the page from refreshing!
+        e.preventDefault(); 
         attemptSendMessage();
     });
 }
 
-// Backup: Catch the 'Enter' key directly on the keyboard
 if (chatInput) {
     chatInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
-            e.preventDefault(); // CRITICAL: This stops the page from refreshing!
+            e.preventDefault(); 
             attemptSendMessage();
         }
     });
 }
 
-// Receive Message
 socket.on('message', (data) => {
     const isMe = data.id === myUserId;
     let senderName = `User`;
