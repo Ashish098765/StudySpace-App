@@ -555,10 +555,9 @@
                 if (user.photoURL) profileAvatar.src = user.photoURL;
                 
                 localStorage.setItem('studySpaceUserName', user.displayName || 'Student');
-            } else {
-                // 🛑 THE BOUNCER: User is not logged in. Redirect immediately!
-                window.location.href = '/login.html';
-            }
+            } 
+            // If user is null, we do NOTHING. 
+            // The Login button will remain visible, and that's exactly what we want!
         });
         // Handle Log Out
         logoutBtn.addEventListener('click', () => {
@@ -591,43 +590,30 @@
         async function submitJoinRoom() {
             const input = document.getElementById('join-room-input').value.trim();
             const errorDiv = document.getElementById('join-error');
-            const submitBtn = document.getElementById('btn-join-submit');
+            
+            // SECURITY CHECK: Are they logged in?
+            const user = auth.currentUser;
+            if (!user) {
+                sessionStorage.setItem('returnUrl', window.location.href);
+                window.location.href = '/login.html';
+                return;
+            }
 
             if (!input) return;
+            // ... rest of your submitJoinRoom code stays exactly as it is ...
+        }
 
-            let roomId = input;
-            if (input.includes('/room/')) {
-                roomId = input.split('/room/').pop();
+        function createPrivateRoom() {
+            // SECURITY CHECK: Are they logged in?
+            const user = auth.currentUser;
+            if (!user) {
+                sessionStorage.setItem('returnUrl', window.location.href);
+                window.location.href = '/login.html';
+                return;
             }
-            roomId = roomId.split('?')[0].replace(/\//g, '');
-
-            if (roomId) {
-                // Change button text to show it's thinking
-                submitBtn.innerText = "Checking...";
-                submitBtn.disabled = true;
-
-                try {
-                    // Ask the server if the room is active
-                    const response = await fetch(`/api/check-room/${roomId}`);
-                    const data = await response.json();
-
-                    if (data.exists) {
-                        // Success! Teleport them
-                        window.location.href = `/room/${roomId}`;
-                    } else {
-                        // Fail! Show the error message
-                        errorDiv.style.display = 'block';
-                        submitBtn.innerText = "Join Room";
-                        submitBtn.disabled = false;
-                    }
-                } catch (error) {
-                    console.error("Error checking room:", error);
-                    errorDiv.innerText = "❌ Could not connect to server.";
-                    errorDiv.style.display = 'block';
-                    submitBtn.innerText = "Join Room";
-                    submitBtn.disabled = false;
-                }
-            }
+            
+            const randomRoomId = Math.random().toString(36).substring(2, 10);
+            window.location.href = `/room/${randomRoomId}`;
         }
 
         document.getElementById('join-room-input').addEventListener('keypress', function (e) {
