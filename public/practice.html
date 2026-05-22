@@ -42,7 +42,20 @@
         .page-subtitle { color: var(--text-secondary); font-size: 0.95rem; }
 
         .grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-        .module-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: space-between; }
+        .module-card { 
+    background: var(--bg-surface); 
+    border: 1px solid var(--border-color); 
+    border-radius: 4px; /* Less rounded corners */
+    padding: 1rem; 
+    cursor: pointer; 
+    transition: 0.2s; 
+    display: flex; 
+    align-items: center; 
+}
+.module-card:hover { 
+    background: #2a2a2a; 
+    border-color: var(--brand-blue); 
+}
         .module-card:hover { border-color: var(--brand-blue); background: var(--bg-surface-elevated); }
         .module-info h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.2rem; }
         .module-info p { font-size: 0.85rem; color: var(--text-secondary); }
@@ -116,29 +129,22 @@
 
     <div class="container">
         
-        <div id="exam-dashboard">
-            <div class="page-header">
-                <h1 class="page-title">Practice PYQs</h1>
-                <p class="page-subtitle">Select an exam category to start solving previous year questions.</p>
-            </div>
-            
-            <div class="grid-cards">
-                <div class="module-card" onclick="openFilters('JEE Mains')">
-                    <div class="module-info">
-                        <h3>JEE Main</h3>
-                        <p>Physics, Chemistry, Mathematics</p>
-                    </div>
-                    <div class="module-icon"><i class="fa-solid fa-chevron-right"></i></div>
-                </div>
-                <div class="module-card" onclick="openFilters('NEET')">
-                    <div class="module-info">
-                        <h3>NEET UG</h3>
-                        <p>Physics, Chemistry, Biology</p>
-                    </div>
-                    <div class="module-icon"><i class="fa-solid fa-chevron-right"></i></div>
-                </div>
-            </div>
+        <div id="exam-dashboard" style="display: block;">
+    <div class="page-header">
+        <h1 class="page-title">JEE Main <span style="font-size: 1rem; color: var(--text-tertiary);">2012 - 2026</span></h1>
+    </div>
+
+    <div style="display: flex; gap: 2rem;">
+        <div style="width: 250px; flex-shrink: 0;">
+            <div class="module-card" style="margin-bottom: 0.5rem; border-color: var(--brand-blue);" onclick="filterBySubject('Physics')">Physics</div>
+            <div class="module-card" style="margin-bottom: 0.5rem;" onclick="filterBySubject('Chemistry')">Chemistry</div>
+            <div class="module-card" style="margin-bottom: 0.5rem;" onclick="filterBySubject('Maths')">Mathematics</div>
         </div>
+
+        <div style="flex-grow: 1;" id="chapter-list">
+            </div>
+    </div>
+</div>
 
         <div id="filter-dashboard">
             <button class="btn-text" onclick="showDashboard()" style="margin-bottom: 1.5rem;"><i class="fa-solid fa-arrow-left"></i> Back</button>
@@ -250,6 +256,13 @@
                 { id: "neet_21_phy_01", year: "2021", subject: "Physics", q: "A convex lens is dipped in a liquid whose refractive index is equal to the refractive index of the lens. Its focal length will:", options: ["Become zero", "Become infinite", "Remain unchanged", "Become small"], answer: 1, explanation: "When dipped in a medium of the same refractive index, the lens behaves as a plane glass plate. Its focal length becomes infinite." }
             ]
         };
+        const chapterData = {
+    "Physics": [
+        { name: "Math in Physics", total: 121, years: { "2026": 3, "2025": 7 } },
+        { name: "Units & Dimensions", total: 148, years: { "2026": 15, "2025": 25 } },
+        { name: "Motion in 1D", total: 178, years: { "2026": 10, "2025": 11 } }
+    ]
+};
 
         // --- APP STATE ---
         let currentExam = "";
@@ -431,6 +444,24 @@
                 document.querySelector('.test-meta').style.display = 'none';
             }
         }
+        window.filterBySubject = (subject) => {
+    const list = document.getElementById('chapter-list');
+    list.innerHTML = "";
+    
+    chapterData[subject].forEach(chapter => {
+        list.innerHTML += `
+            <div class="module-card" style="margin-bottom: 0.5rem; justify-content: space-between;" onclick="openFilters('${subject}', '${chapter.name}')">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <i class="fa-solid fa-square-root-variable" style="color: var(--brand-blue);"></i>
+                    <h3 style="font-size: 1rem;">${chapter.name}</h3>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-tertiary);">
+                    2026: ${chapter.years['2026'] || 0} Qs | 2025: ${chapter.years['2025'] || 0} Qs | Total: ${chapter.total} Qs
+                </div>
+            </div>
+        `;
+    });
+};
     </script>
 </body>
 </html>
