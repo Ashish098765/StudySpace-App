@@ -94,6 +94,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--primary);
+            background-color: var(--primary);
         }
 
         .profile-text {
@@ -133,11 +134,11 @@
         }
 
         .hero-title span {
-    background: linear-gradient(to right, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
         .hero-subtitle {
             font-size: 1.25rem;
@@ -162,7 +163,7 @@
             box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
         }
 
-        /* Live Dashboards (New Section) */
+        /* Live Dashboards */
         .live-dashboard {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -189,7 +190,6 @@
             padding-bottom: 1rem;
         }
 
-        /* List Items (Rooms & Leaderboard) */
         .list-item {
             display: flex;
             justify-content: space-between;
@@ -206,7 +206,6 @@
             transform: translateX(5px);
         }
 
-        /* Room specific */
         .room-info h4 { font-size: 1rem; margin-bottom: 0.2rem; }
         .room-meta { font-size: 0.8rem; color: var(--text-muted); }
         .pulse-dot {
@@ -225,7 +224,6 @@
             font-size: 0.85rem;
         }
 
-        /* Leaderboard specific */
         .rank-info { display: flex; align-items: center; gap: 1rem; }
         .rank-number { font-weight: 800; font-size: 1.2rem; color: var(--text-muted); }
         .rank-1 { color: var(--gold); }
@@ -238,7 +236,6 @@
             font-weight: 600;
         }
 
-        /* Feature Grid */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -275,6 +272,7 @@
         <a href="/" class="logo-text">🚀 StudySpace</a>
         <div class="nav-actions">
             <button id="nav-login-btn" class="btn-login" onclick="window.location.href='/login.html'">Log In / Sign Up</button>
+            
             <div id="user-profile-container" style="display: none;">
                 <img id="user-avatar" class="profile-avatar" src="" alt="Avatar">
                 <div class="profile-text">
@@ -298,7 +296,6 @@
         </header>
 
         <section class="live-dashboard">
-            
             <div class="dashboard-widget">
                 <h2 class="widget-title">🔴 Live Study Rooms</h2>
                 
@@ -352,7 +349,6 @@
                     <div class="score-badge">1,640 XP</div>
                 </div>
             </div>
-
         </section>
 
         <section class="feature-grid">
@@ -374,14 +370,11 @@
         </section>
 
     </main>
-<script type="module">
-        // Import the functions from the Firebase CDN
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
-        // Import the Authentication tools for Google Sign-In
-        import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
-        // Your exact web app's Firebase configuration
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
         const firebaseConfig = {
             apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
             authDomain: "studyspace-45780.firebaseapp.com",
@@ -392,30 +385,40 @@
             measurementId: "G-NVHDFF8JDN"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        
-        // Initialize Auth & Google Provider
         const auth = getAuth(app);
-        const provider = new GoogleAuthProvider();
 
-        // Hook up the new visual button to the Firebase logic
-        document.getElementById('google-signin-btn').addEventListener('click', () => {
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    // Success! Grab the user info
-                    const user = result.user;
-                    console.log("Logged in successfully as: ", user.displayName);
-                    
-                    // Redirect the user back to the homepage
-                    window.location.href = "/";
-                })
-                .catch((error) => {
-                    // If something goes wrong, log it and tell the user
-                    console.error("Error signing in: ", error.message);
-                    alert("Failed to sign in. Please try again.");
-                });
+        // UI Elements
+        const loginBtn = document.getElementById('nav-login-btn');
+        const profileContainer = document.getElementById('user-profile-container');
+        const profileName = document.getElementById('profile-name');
+        const profileEmail = document.getElementById('profile-email');
+        const profileAvatar = document.getElementById('user-avatar');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        // Listen for Login State changes
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // User is signed in! Update the UI
+                loginBtn.style.display = 'none';
+                profileContainer.style.display = 'flex';
+                profileName.textContent = user.displayName || 'Student';
+                profileEmail.textContent = user.email;
+                if (user.photoURL) profileAvatar.src = user.photoURL;
+            } else {
+                // User is signed out. Show login button
+                loginBtn.style.display = 'block';
+                profileContainer.style.display = 'none';
+            }
+        });
+
+        // Handle Log Out
+        logoutBtn.addEventListener('click', () => {
+            signOut(auth).then(() => {
+                window.location.reload();
+            }).catch((error) => {
+                console.error("Logout Error:", error);
+            });
         });
     </script>
 </body>

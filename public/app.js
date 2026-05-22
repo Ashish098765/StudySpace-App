@@ -102,7 +102,7 @@ socket.on('message', (data) => {
     
     // Create label if it's someone else
     const label = isMe ? "" : `<div style="font-size: 10px; color: #aaa; margin-bottom: 2px;">User_${data.id.substring(0,4)}</div>`;
-    msgDiv.innerHTML = $`{label}${data.text}`;
+    msgDiv.innerHTML = `${label}${data.text}`;
     
     chatWindow.appendChild(msgDiv);
     chatWindow.scrollTop = chatWindow.scrollHeight;
