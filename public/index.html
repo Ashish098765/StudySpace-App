@@ -7,6 +7,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
+        /* --- Join Room Modal --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border, rgba(255,255,255,0.1));
+            border-radius: 16px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 450px;
+            text-align: left;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-content h3 { margin-bottom: 0.5rem; font-size: 1.5rem; }
+        .modal-content p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+        .modal-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            outline: none;
+        }
+        .modal-input:focus { border-color: var(--primary); }
+
+        .modal-actions { display: flex; gap: 1rem; justify-content: flex-end; }
+        
+        .btn-cancel { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text-main); padding: 0.6rem 1.2rem; }
+        .btn-cancel:hover { background: rgba(255,255,255,0.05); }
+        .btn-confirm { background: var(--primary); color: white; padding: 0.6rem 1.5rem; border: none; }
+        .btn-confirm:hover { background: var(--primary-hover); }
         /* --- Live Session Dropdown --- */
         .session-dropdown-wrapper {
             position: relative;
@@ -335,6 +394,17 @@
         </div>
     </nav>
 
+    <div id="join-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Join a Study Room</h3>
+            <p>Paste your friend's invite link or enter the Room ID directly below.</p>
+            <input type="text" id="join-room-input" class="modal-input" placeholder="e.g. http://.../room/xyz123 or xyz123" autocomplete="off">
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeJoinModal()">Cancel</button>
+                <button class="btn-confirm" onclick="submitJoinRoom()">Join Room</button>
+            </div>
+        </div>
+    </div>
     <main class="main-container">
         
        <header class="hero-section">
@@ -487,17 +557,47 @@
     <script>
         // Routing Logic
         function createPrivateRoom() {
-            // Generates a random secure ID like "x8f9a2b"
             const randomRoomId = Math.random().toString(36).substring(2, 10);
             window.location.href = `/room/${randomRoomId}`;
         }
 
+        // --- NEW JOIN LOGIC ---
         function joinPrivateRoom() {
-            const roomId = prompt("Please enter the Private Room ID:");
-            if (roomId && roomId.trim() !== "") {
-                window.location.href = `/room/${roomId.trim()}`;
+            // Show the custom modal instead of the ugly prompt
+            document.getElementById('join-modal').classList.add('active');
+            document.getElementById('join-room-input').focus();
+        }
+
+        function closeJoinModal() {
+            document.getElementById('join-modal').classList.remove('active');
+            document.getElementById('join-room-input').value = ''; // Clear it out
+        }
+
+        function submitJoinRoom() {
+            const input = document.getElementById('join-room-input').value.trim();
+            if (!input) return;
+
+            let roomId = input;
+
+            // Intelligent slicing: If they pasted a full URL, extract just the ID at the end
+            if (input.includes('/room/')) {
+                roomId = input.split('/room/').pop();
+            }
+
+            // Clean up any accidental trailing slashes or URL garbage just in case
+            roomId = roomId.split('?')[0].replace(/\//g, '');
+
+            if (roomId) {
+                window.location.href = `/room/${roomId}`;
             }
         }
+
+        // Allow pressing 'Enter' inside the modal to submit
+        document.getElementById('join-room-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                submitJoinRoom();
+            }
+        });
     </script>
 </body>
 </html>
