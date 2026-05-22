@@ -3,232 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practice | StudySpace</title>
+    <title>Practice Platform | StudySpace</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* MARKS APP DARK THEME COLOR PALETTE */
         :root { 
-            --bg-base: #121212; 
-            --bg-surface: #1e1e1e; 
-            --bg-surface-elevated: #2c2c2c;
-            --text-primary: #ffffff; 
-            --text-secondary: #aaaaaa; 
-            --text-tertiary: #777777;
-            --brand-blue: #3b82f6; 
-            --brand-blue-hover: #2563eb;
-            --success-green: #22c55e;
-            --success-bg: rgba(34, 197, 94, 0.1);
+            --bg-base: #0f111a; 
+            --bg-surface: #1e2130; 
+            --bg-surface-elevated: #272a3d;
+            --text-primary: #f8fafc; 
+            --text-secondary: #94a3b8; 
+            --text-tertiary: #64748b;
+            --brand-blue: #6366f1; 
+            --brand-blue-hover: #4f46e5;
+            --success-green: #10b981;
+            --success-bg: rgba(16, 185, 129, 0.1);
             --error-red: #ef4444;
             --error-bg: rgba(239, 68, 68, 0.1);
-            --border-color: #333333;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --gold: #fbbf24;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg-base); color: var(--text-primary); min-height: 100vh; }
+        body { background-color: var(--bg-base); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
 
-        /* Navbar */
+        /* Navigation Header */
         nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: var(--bg-surface); border-bottom: 1px solid var(--border-color); }
-        .logo-text { font-size: 1.2rem; font-weight: 800; color: var(--text-primary); text-decoration: none; }
+        .logo-text { font-size: 1.2rem; font-weight: 800; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-text i { color: var(--brand-blue); }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
-        .btn-text { background: transparent; border: none; color: var(--text-secondary); cursor: pointer; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; transition: 0.2s; }
+        .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 2rem 1rem; flex-grow: 1; }
+        .btn-text { background: transparent; border: none; color: var(--text-secondary); cursor: pointer; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: 0.2s; margin-bottom: 1.5rem; }
         .btn-text:hover { color: var(--text-primary); }
 
-        /* --- DASHBOARD & FILTERS --- */
-        .page-header { margin-bottom: 2rem; }
-        .page-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .page-subtitle { color: var(--text-secondary); font-size: 0.95rem; }
+        /* --- SCREEN 1: EXAM GATEWAY --- */
+        #exam-gateway-screen { display: block; }
+        .gateway-title { text-align: center; font-size: 2.2rem; font-weight: 800; margin-top: 3rem; margin-bottom: 0.5rem; }
+        .gateway-subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1rem; }
+        .gateway-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 700px; margin: 0 auto; }
+        .gateway-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center; cursor: pointer; transition: 0.2s; }
+        .gateway-card:hover { border-color: var(--brand-blue); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15); }
+        .gateway-icon { width: 60px; height: 60px; border-radius: 50%; background: rgba(99, 102, 241, 0.1); color: var(--brand-blue); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1.5rem auto; }
+        .gateway-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .gateway-card p { font-size: 0.9rem; color: var(--text-secondary); }
 
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-        .module-card { 
-    background: var(--bg-surface); 
-    border: 1px solid var(--border-color); 
-    border-radius: 4px; /* Less rounded corners */
-    padding: 1rem; 
-    cursor: pointer; 
-    transition: 0.2s; 
-    display: flex; 
-    align-items: center; 
-}
-.module-card:hover { 
-    background: #2a2a2a; 
-    border-color: var(--brand-blue); 
-}
-        .module-card:hover { border-color: var(--brand-blue); background: var(--bg-surface-elevated); }
-        .module-info h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.2rem; }
-        .module-info p { font-size: 0.85rem; color: var(--text-secondary); }
-        .module-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(59, 130, 246, 0.1); color: var(--brand-blue); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        /* --- SCREEN 2: CHAPTER EXPLORER (MARKS STYLE) --- */
+        #chapter-explorer-screen { display: none; }
+        .explorer-layout { display: flex; gap: 2rem; margin-top: 1.5rem; }
+        
+        /* Sidebar Controls */
+        .subject-sidebar { width: 240px; flex-shrink: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+        .sidebar-btn { width: 100%; padding: 1rem; border-radius: 8px; background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-secondary); font-weight: 600; font-size: 0.95rem; text-align: left; transition: 0.2s; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+        .sidebar-btn:hover { background: var(--bg-surface-elevated); color: var(--text-primary); }
+        .sidebar-btn.active { background: var(--brand-blue); color: white; border-color: var(--brand-blue); }
+        
+        /* High-Density Chapter Rows */
+        .chapter-container { flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+        .chapter-row { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; }
+        .chapter-row:hover { border-color: var(--text-secondary); background: var(--bg-surface-elevated); }
+        .chapter-title-wrapper { display: flex; align-items: center; gap: 0.8rem; }
+        .chapter-title-wrapper i { color: var(--brand-blue); font-size: 0.95rem; }
+        .chapter-name { font-size: 0.95rem; font-weight: 600; }
+        .chapter-stats { font-size: 0.8rem; color: var(--text-secondary); display: flex; gap: 1rem; font-weight: 500; }
+        .stat-highlight { color: var(--gold); font-weight: 600; }
 
-        .filter-panel { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 2rem; }
-        .filter-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
-        .filter-group label { display: block; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .marks-select { width: 100%; background: var(--bg-base); border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.8rem 1rem; border-radius: 6px; font-size: 0.95rem; outline: none; cursor: pointer; appearance: none; }
+        /* --- SCREEN 3: FILTER SYSTEM --- */
+        #filter-screen { display: none; }
+        .filter-panel { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 2rem; max-width: 600px; margin: 2rem auto 0 auto; }
+        .filter-group { margin-bottom: 1.5rem; }
+        .filter-group label { display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .marks-select { width: 100%; background: var(--bg-base); border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.8rem 1rem; border-radius: 6px; font-size: 0.95rem; outline: none; cursor: pointer; }
         .marks-select:focus { border-color: var(--brand-blue); }
-        
-        .btn-primary { background: var(--brand-blue); color: white; border: none; padding: 0.8rem 2rem; border-radius: 6px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: 0.2s; width: 100%; text-align: center; }
-        .btn-primary:hover { background: var(--brand-blue-hover); }
-        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        /* --- THE QUIZ ENGINE (MARKS UI) --- */
-        #quiz-engine { display: none; }
-        
+        /* --- SCREEN 4: QUIZ WORKSPACE --- */
+        #quiz-engine-screen { display: none; }
         .test-header { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border-radius: 8px 8px 0 0; border: 1px solid var(--border-color); border-bottom: none; }
-        .test-meta { display: flex; gap: 0.8rem; align-items: center; }
-        .marks-tag { font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase; }
-        .tag-year { background: rgba(251, 191, 36, 0.15); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.3); }
-        .tag-subject { background: rgba(59, 130, 246, 0.15); color: var(--brand-blue); border: 1px solid rgba(59, 130, 246, 0.3); }
+        .test-meta { display: flex; gap: 0.6rem; align-items: center; }
+        .marks-tag { font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+        .tag-year { background: rgba(251, 191, 36, 0.12); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.25); }
+        .tag-subject { background: rgba(99, 102, 241, 0.15); color: var(--brand-blue); border: 1px solid rgba(99, 102, 241, 0.25); }
+        .tag-chapter { background: rgba(255,255,255,0.06); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.1); }
         
-        .test-actions { display: flex; gap: 1rem; color: var(--text-tertiary); }
-        .test-actions i { cursor: pointer; transition: 0.2s; }
-        .test-actions i:hover { color: var(--text-primary); }
-
-        .question-container { background: var(--bg-base); border: 1px solid var(--border-color); padding: 2rem 1.5rem; border-radius: 0 0 8px 8px; margin-bottom: 1.5rem; }
-        .q-number { font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; margin-bottom: 1rem; display: block; }
+        .question-container { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 2rem 1.5rem; border-radius: 0 0 8px 8px; margin-bottom: 1.5rem; }
+        .q-number { font-size: 0.85rem; color: var(--text-secondary); font-weight: 700; margin-bottom: 1rem; display: block; }
         .q-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-weight: 500; }
-
-        .options-list { display: flex; flex-direction: column; gap: 0.8rem; }
-        .marks-option { display: flex; align-items: center; padding: 0.8rem 1rem; border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; transition: 0.2s; background: var(--bg-surface); }
-        .marks-option:hover:not(.locked) { border-color: var(--text-secondary); }
         
-        .opt-letter { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; margin-right: 1rem; transition: 0.2s; flex-shrink: 0; }
+        .options-list { display: flex; flex-direction: column; gap: 0.8rem; }
+        .marks-option { display: flex; align-items: center; padding: 0.9rem 1.2rem; border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; transition: 0.15s; background: rgba(0,0,0,0.15); }
+        .marks-option:hover:not(.locked) { border-color: var(--text-secondary); background: var(--bg-surface-elevated); }
+        
+        .opt-letter { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; margin-right: 1rem; flex-shrink: 0; background: var(--bg-base); transition: 0.15s; }
         .opt-text { flex-grow: 1; font-size: 0.95rem; }
-        .opt-icon { margin-left: 1rem; font-size: 1.2rem; display: none; }
+        .opt-icon { margin-left: 1rem; font-size: 1.1rem; display: none; }
 
-        /* Option States */
-        .marks-option.selected { border-color: var(--brand-blue); background: rgba(59, 130, 246, 0.05); }
+        /* Selection/Evaluation States */
+        .marks-option.selected { border-color: var(--brand-blue); background: rgba(99, 102, 241, 0.08); }
         .marks-option.selected .opt-letter { background: var(--brand-blue); border-color: var(--brand-blue); color: white; }
         
         .marks-option.correct { border-color: var(--success-green); background: var(--success-bg); }
         .marks-option.correct .opt-letter { background: var(--success-green); border-color: var(--success-green); color: white; }
-        .marks-option.correct .opt-icon { color: var(--success-green); display: block; }
+        .marks-option.correct .opt-icon.check-icon { color: var(--success-green); display: block; }
         
         .marks-option.wrong { border-color: var(--error-red); background: var(--error-bg); }
         .marks-option.wrong .opt-letter { background: var(--error-red); border-color: var(--error-red); color: white; }
-        .marks-option.wrong .opt-icon { color: var(--error-red); display: block; }
-
+        .marks-option.wrong .opt-icon.cross-icon { color: var(--error-red); display: block; }
         .marks-option.locked { cursor: default; }
 
-        .bottom-bar { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; }
-        .status-msg { font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
-        
-        .solution-box { display: none; margin-top: 1.5rem; padding: 1.5rem; border-radius: 8px; border: 1px solid var(--success-green); background: var(--success-bg); }
-        .solution-title { font-size: 0.85rem; color: var(--success-green); text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
-        .solution-text { font-size: 0.95rem; line-height: 1.6; }
-        
-        #filter-dashboard { display: none; }
+        .bottom-bar { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; min-height: 4.5rem; }
+        .status-msg { font-size: 0.9rem; font-weight: 600; }
+        .btn-primary { background: var(--brand-blue); color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary:hover:not(:disabled) { background: var(--brand-blue-hover); }
+        .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .solution-box { display: none; margin-top: 1.5rem; padding: 1.5rem; border-radius: 6px; border: 1px solid var(--success-green); background: var(--success-bg); }
+        .solution-title { font-size: 0.8rem; color: var(--success-green); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; }
+        .solution-text { font-size: 0.95rem; line-height: 1.6; color: var(--text-primary); }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="/" class="logo-text">StudySpace</a>
-        <div style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;"><i class="fa-solid fa-bolt" style="color: var(--gold);"></i> PYQ ENGINE</div>
+        <a href="/" class="logo-text"><i class="fa-solid fa-graduation-cap"></i> StudySpace</a>
+        <div style="font-size: 0.8rem; color: var(--text-secondary); font-weight: 700; letter-spacing: 1px;"><i class="fa-solid fa-bolt" style="color: var(--gold);"></i> MARKS ENGINE</div>
     </nav>
 
     <div class="container">
-        <div id="exam-selection-screen" style="display: block;">
-    <div class="page-header" style="text-align: center; margin-top: 5rem;">
-        <h1 class="page-title">Choose your target</h1>
-        <p class="page-subtitle">Select the exam you are preparing for to get started.</p>
-    </div>
-    
-    <div class="grid-cards" style="justify-content: center; max-width: 600px; margin: 3rem auto;">
-        <div class="module-card" onclick="selectExam('JEE Mains')">
-            <div class="module-icon"><i class="fa-solid fa-atom"></i></div>
-            <div class="module-info">
-                <h3>JEE Main</h3>
-                <p>Engineering Entrance</p>
-            </div>
-        </div>
-        <div class="module-card" onclick="selectExam('NEET')">
-            <div class="module-icon"><i class="fa-solid fa-dna" style="color: var(--success-green);"></i></div>
-            <div class="module-info">
-                <h3>NEET UG</h3>
-                <p>Medical Entrance</p>
-            </div>
-        </div>
-    </div>
-</div>
-
         
-        <div id="exam-dashboard" style="display: block;">
-    <div class="page-header">
-        <h1 class="page-title">JEE Main <span style="font-size: 1rem; color: var(--text-tertiary);">2012 - 2026</span></h1>
-    </div>
-
-    <div style="display: flex; gap: 2rem;">
-        <div style="width: 250px; flex-shrink: 0;">
-            <div class="module-card" style="margin-bottom: 0.5rem; border-color: var(--brand-blue);" onclick="filterBySubject('Physics')">Physics</div>
-            <div class="module-card" style="margin-bottom: 0.5rem;" onclick="filterBySubject('Chemistry')">Chemistry</div>
-            <div class="module-card" style="margin-bottom: 0.5rem;" onclick="filterBySubject('Maths')">Mathematics</div>
+        <div id="exam-gateway-screen">
+            <h1 class="gateway-title">Target Exam</h1>
+            <p class="gateway-subtitle">Select your preference to unlock structured historical test items.</p>
+            <div class="gateway-grid">
+                <div class="gateway-card" onclick="navigateToExplorer('JEE Mains')">
+                    <div class="gateway-icon"><i class="fa-solid fa-atom"></i></div>
+                    <h3>JEE Main</h3>
+                    <p>Physics, Chemistry, Mathematics</p>
+                </div>
+                <div class="gateway-card" onclick="navigateToExplorer('NEET')">
+                    <div class="gateway-icon" style="color: var(--success-green); background: rgba(16, 185, 129, 0.1);"><i class="fa-solid fa-dna"></i></div>
+                    <h3>NEET UG</h3>
+                    <p>Physics, Chemistry, Biology</p>
+                </div>
+            </div>
         </div>
 
-        <div style="flex-grow: 1;" id="chapter-list">
-            </div>
-    </div>
-</div>
-
-        <div id="filter-dashboard">
-            <button class="btn-text" onclick="showDashboard()" style="margin-bottom: 1.5rem;"><i class="fa-solid fa-arrow-left"></i> Back</button>
+        <div id="chapter-explorer-screen">
+            <button class="btn-text" onclick="navigateToGateway()"><i class="fa-solid fa-arrow-left"></i> Change Target</button>
             <div class="page-header">
-                <h1 class="page-title" id="filter-title">JEE Main</h1>
-                <p class="page-subtitle">Filter questions by year and subject.</p>
+                <h1 class="page-title" id="explorer-title">JEE Main Workspace</h1>
+                <p class="page-subtitle" style="margin-bottom: 1.5rem;">Select a topic path from the inventory below to inspect content allocations.</p>
+            </div>
+            
+            <div class="explorer-layout">
+                <div class="subject-sidebar" id="subject-sidebar-container">
+                    </div>
+                <div class="chapter-container" id="chapter-list-container">
+                    </div>
+            </div>
+        </div>
+
+        <div id="filter-screen">
+            <button class="btn-text" onclick="restoreExplorer()"><i class="fa-solid fa-arrow-left"></i> Topics Inventory</button>
+            <div class="page-header">
+                <h1 class="page-title" id="filter-heading">Topic Setup</h1>
+                <p class="page-subtitle">Configure scope boundaries before initialization.</p>
             </div>
 
             <div class="filter-panel">
-                <div class="filter-row">
-                    <div class="filter-group">
-                        <label>Paper Year</label>
-                        <select id="select-year" class="marks-select">
-                            <option value="All">All Years</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label>Subject</label>
-                        <select id="select-subject" class="marks-select">
-                            <option value="All">All Subjects</option>
-                        </select>
-                    </div>
+                <div class="filter-group">
+                    <label>Paper Instance Year</label>
+                    <select id="select-year" class="marks-select">
+                        <option value="All">All Years</option>
+                    </select>
                 </div>
-                <button class="btn-primary" onclick="startPractice()">START PRACTICE</button>
+                <button class="btn-primary" style="width: 100%; justify-content: center; margin-top: 1rem;" onclick="launchSession()">CONFIRM & START</button>
             </div>
         </div>
 
-        <div id="quiz-engine">
-            <button class="btn-text" onclick="openFilters(currentExam)" style="margin-bottom: 1rem;"><i class="fa-solid fa-arrow-left"></i> End Session</button>
+        <div id="quiz-engine-screen">
+            <button class="btn-text" onclick="abortSession()"><i class="fa-solid fa-arrow-left"></i> Suspend Practice</button>
             
             <div class="test-header">
                 <div class="test-meta">
-                    <span class="marks-tag tag-year" id="badge-year">2023</span>
+                    <span class="marks-tag tag-year" id="badge-year">2024</span>
                     <span class="marks-tag tag-subject" id="badge-subject">Physics</span>
-                </div>
-                <div class="test-actions">
-                    <i class="fa-regular fa-bookmark" title="Bookmark"></i>
-                    <i class="fa-solid fa-triangle-exclamation" title="Report Error"></i>
+                    <span class="marks-tag tag-chapter" id="badge-chapter">Kinematics</span>
                 </div>
             </div>
 
             <div class="question-container">
-                <span class="q-number" id="question-tracker">Question 1 / 10</span>
-                <div class="q-text" id="question-text">Loading question...</div>
+                <span class="q-number" id="question-tracker">Question 1 / 1</span>
+                <div class="q-text" id="question-text">Loading prompt structure...</div>
                 
                 <div class="options-list" id="options-container">
                     </div>
 
                 <div class="solution-box" id="explanation-box">
-                    <div class="solution-title"><i class="fa-solid fa-lightbulb"></i> Solution</div>
+                    <div class="solution-title"><i class="fa-solid fa-lightbulb"></i> Rationalized Solution Explanation</div>
                     <div class="solution-text" id="explanation-text"></div>
                 </div>
             </div>
 
             <div class="bottom-bar">
                 <div class="status-msg" id="result-status"></div>
-                <div style="display: flex; gap: 1rem; margin-left: auto;">
-                    <button class="btn-primary" id="check-btn" onclick="checkAnswer()" style="width: auto;" disabled>SAVE & CHECK</button>
-                    <button class="btn-primary" id="next-btn" onclick="nextQuestion()" style="width: auto; display: none;">NEXT QUESTION <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
-                </div>
+                <button class="btn-primary" id="check-btn" onclick="evaluateSelection()" disabled>SAVE & CHECK ANSWER</button>
+                <button class="btn-primary" id="next-btn" onclick="advanceStep()" style="display: none; background: var(--success-green);">CONTINUE <i class="fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
 
@@ -239,7 +218,6 @@
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
         import { getFirestore, doc, updateDoc, setDoc, increment, arrayUnion, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-        // ⚠️ PASTE YOUR FIREBASE CONFIG HERE
         const firebaseConfig = {
             apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
             authDomain: "studyspace-45780.firebaseapp.com",
@@ -268,197 +246,303 @@
             }
         });
 
-        // --- DATA BANK ---
-        const questionBank = {
-            "JEE Mains": [
-                { id: "jee_23_phy_01", year: "2023", subject: "Physics", q: "The work done by a conservative force on a particle moving in a closed loop is:", options: ["Always positive", "Always negative", "Zero", "Depends on the path"], answer: 2, explanation: "By definition, the work done by a conservative force over a closed loop is always strictly zero." },
-                { id: "jee_22_phy_01", year: "2022", subject: "Physics", q: "If the kinetic energy of a free electron doubles, its de Broglie wavelength changes by the factor:", options: ["1/2", "1/√2", "√2", "2"], answer: 1, explanation: "de Broglie wavelength λ = h / √(2mK). If K is doubled, the denominator is multiplied by √2, so λ changes by a factor of 1/√2." },
-                { id: "jee_23_chem_01", year: "2023", subject: "Chemistry", q: "Which of the following has the highest electron gain enthalpy?", options: ["F", "Cl", "Br", "I"], answer: 1, explanation: "Chlorine has the highest negative electron gain enthalpy because of the exceptionally small size of the Fluorine atom which causes electron-electron repulsion." }
-            ],
-            "NEET": [
-                { id: "neet_23_bio_01", year: "2023", subject: "Biology", q: "Which of the following is responsible for the transport of water and minerals in plants?", options: ["Phloem", "Xylem", "Epidermis", "Stomata"], answer: 1, explanation: "The Xylem tissue transports water and minerals." },
-                { id: "neet_21_phy_01", year: "2021", subject: "Physics", q: "A convex lens is dipped in a liquid whose refractive index is equal to the refractive index of the lens. Its focal length will:", options: ["Become zero", "Become infinite", "Remain unchanged", "Become small"], answer: 1, explanation: "When dipped in a medium of the same refractive index, the lens behaves as a plane glass plate. Its focal length becomes infinite." }
-            ]
+        // --- GLOBAL CENTRALIZED MARKS QUESTION SOURCE BANK ---
+        const centralizedQuestionBank = {
+            "JEE Mains": {
+                "Physics": [
+                    { id: "jee_24_p_ud", chapter: "Units & Dimensions", year: "2024", q: "The dimensional formula of the coefficient of viscosity is:", options: ["[M L^-1 T^-1]", "[M L^1 T^-1]", "[M L^-1 T^-2]", "[M L^-2 T^-1]"], answer: 0, explanation: "Viscous Force F = ηA(dv/dx). Therefore η = F / [A(dv/dx)] which evaluates structurally to [M L^-1 T^-1]." },
+                    { id: "jee_23_p_kin", chapter: "Motion in 1D", year: "2023", q: "A ball is thrown vertically upwards with velocity u. The distance traveled by it during the last t seconds of its ascent is:", options: ["ut", "(1/2)g t^2", "ut - (1/2)g t^2", "(1/2)g(2t-1)"], answer: 1, explanation: "The distance traveled during the last t seconds of ascent equals the distance traveled in the first t seconds of descent from rest under gravity, which is exactly (1/2)gt^2." },
+                    { id: "jee_24_p_work", chapter: "Laws of Motion", year: "2024", q: "The work done by a conservative force on a particle moving in a closed loop is:", options: ["Always positive", "Always negative", "Zero", "Depends on the mechanical trajectory path"], answer: 2, explanation: "By structural definition, the net mechanical work expression evaluated over any closed path mapping for conservative vector fields is always zero." }
+                ],
+                "Chemistry": [
+                    { id: "jee_24_c_per", chapter: "Periodic Table", year: "2024", q: "Which of the following configurations represents the element with the highest electron gain enthalpy?", options: ["1s^2 2s^2 2p^5", "1s^2 2s^2 2p^6 3s^2 3p^5", "1s^2 2s^2 2p^4", "1s^2 2s^2 2p^6 3s^2 3p^4"], answer: 1, explanation: "Chlorine ([Ne] 3s^2 3p^5) exhibits a more negative electron gain enthalpy value than Fluorine due to lessened inter-electronic repulsive forces in its larger 3p valence subshell environment." },
+                    { id: "jee_23_c_bond", chapter: "Chemical Bonding", year: "2023", q: "The geometry of XeF4 according to VSEPR theory is:", options: ["Tetrahedral", "Square Planar", "Octahedral", "See-saw"], answer: 1, explanation: "Xenon tetrafluoride possesses 4 bonding pairs and 2 lone pairs relative to its central atom coordinates, forcing a square planar structural visualization geometric profile shape." }
+                ],
+                "Maths": [
+                    { id: "jee_24_m_mat", chapter: "Matrices & Determinants", year: "2024", q: "If A is a square matrix of order 3 such that det(A) = 4, then det(2A) is equal to:", options: ["8", "16", "32", "64"], answer: 2, explanation: "For any scalar scaling factor k and square matrix order n, det(kA) = (k^n)det(A). Here, 2^3 * 4 = 8 * 4 = 32." },
+                    { id: "jee_23_m_calc", chapter: "Limits & Continuity", year: "2023", q: "The value of lim (x->0) [sin(x) / x] is evaluate to:", options: ["0", "1", "Does not exist", "Infinite"], answer: 1, explanation: "This represents a fundamental standard trigonometric calculus limits theorem identity checking out exactly to 1." }
+                ]
+            },
+            "NEET": {
+                "Physics": [
+                    { id: "neet_23_p_opt", chapter: "Ray Optics", year: "2023", q: "A convex lens is immersed in a fluid container whose refractive index is precisely equal to the glass matrix index. Its focal configuration tracking path parameters evaluate to:", options: ["Zero", "Infinite", "Unchanged", "Diminished"], answer: 1, explanation: "By the Lens Maker's Formula, matching boundary indices yields a relative parameter value of zero for curvature differentials, translating focal parameters to infinity." }
+                ],
+                "Chemistry": [
+                    { id: "neet_24_c_org", chapter: "Organic Mechanisms", year: "2024", q: "The most stable carbocation intermediate configuration among the listed set corresponds to:", options: ["Primary carbocation", "Secondary carbocation", "Tertiary carbocation", "Methyl radical structural entity"], answer: 2, explanation: "Tertiary carbocations achieve maximal structural stability configurations derived via collective hyperconjugation metrics and inductive donor dispersal properties." }
+                ],
+                "Biology": [
+                    { id: "neet_23_b_xyl", chapter: "Plant Anatomy", year: "2023", q: "Which tissue layer configuration framework operates fluid translocation vectors across vascular plant systems?", options: ["Phloem", "Xylem", "Epidermis", "Cortex"], answer: 1, explanation: "Xylem specialized cellular structures anchor primary water and systemic mineral transport processes across structural coordinates safely." }
+                ]
+            }
         };
-        const chapterData = {
-    "Physics": [
-        { name: "Math in Physics", total: 121, years: { "2026": 3, "2025": 7 } },
-        { name: "Units & Dimensions", total: 148, years: { "2026": 15, "2025": 25 } },
-        { name: "Motion in 1D", total: 178, years: { "2026": 10, "2025": 11 } }
-    ]
-};
 
-        // --- APP STATE ---
-       currentExam = ""; // Just update the existing variable
-        let filteredQuestions = [];
+        // --- APPLICATION INSTANCE TRACKING CONTROL STATE ---
+        let selectedTargetExam = "";
+        let selectedActiveSubject = "";
+        let selectedActiveChapter = "";
+        let filteredPracticeSet = [];
         let currentIndex = 0;
         let selectedOptionIndex = null;
         let isAnswerChecked = false;
 
-        const dashboard = document.getElementById('exam-dashboard');
-        const filterDash = document.getElementById('filter-dashboard');
-        const quizEngine = document.getElementById('quiz-engine');
-        const yearSelect = document.getElementById('select-year');
-        const subjectSelect = document.getElementById('select-subject');
+        // View Node Mapping Pointers
+        const screenGateway = document.getElementById('exam-gateway-screen');
+        const screenExplorer = document.getElementById('chapter-explorer-screen');
+        const screenFilter = document.getElementById('filter-screen');
+        const screenQuiz = document.getElementById('quiz-engine-screen');
 
-        window.showDashboard = () => {
-            dashboard.style.display = 'block';
-            filterDash.style.display = 'none';
-            quizEngine.style.display = 'none';
-        }
+        // --- NAVIGATION ROUTING LAYER IMPLEMENTATION ---
+        window.navigateToGateway = () => {
+            screenGateway.style.display = 'block';
+            screenExplorer.style.display = 'none';
+            screenFilter.style.display = 'none';
+            screenQuiz.style.display = 'none';
+        };
 
-        window.openFilters = (examName) => {
-            currentExam = examName;
-            const questions = questionBank[examName] || [];
-            if(questions.length === 0) return alert("Content updating soon.");
-
-            const uniqueYears = [...new Set(questions.map(q => q.year))].sort((a,b) => b - a);
-            const uniqueSubjects = [...new Set(questions.map(q => q.subject))];
-
-            document.getElementById('filter-title').innerText = examName;
+        window.navigateToExplorer = (examName) => {
+            selectedTargetExam = examName;
+            document.getElementById('explorer-title').innerText = `${examName} Repository Workspace`;
             
-            yearSelect.innerHTML = '<option value="All">All Years</option>';
-            uniqueYears.forEach(y => yearSelect.innerHTML += `<option value="${y}">${y}</option>`);
-
-            subjectSelect.innerHTML = '<option value="All">All Subjects</option>';
-            uniqueSubjects.forEach(s => subjectSelect.innerHTML += `<option value="${s}">${s}</option>`);
-
-            dashboard.style.display = 'none';
-            quizEngine.style.display = 'none';
-            filterDash.style.display = 'block';
-        }
-
-        window.startPractice = () => {
-            const rawQuestions = questionBank[currentExam];
-            const selectedYear = yearSelect.value;
-            const selectedSubject = subjectSelect.value;
-
-            filteredQuestions = rawQuestions.filter(q => {
-                const yearMatch = selectedYear === "All" || q.year === selectedYear;
-                const subjectMatch = selectedSubject === "All" || q.subject === selectedSubject;
-                return yearMatch && subjectMatch;
+            // Build Dynamic Subject Navigation Sidebar Controls
+            const sidebarContainer = document.getElementById('subject-sidebar-container');
+            sidebarContainer.innerHTML = "";
+            const availableSubjects = Object.keys(centralizedQuestionBank[examName]);
+            
+            availableSubjects.forEach((sub, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `sidebar-btn ${idx === 0 ? 'active' : ''}`;
+                btn.innerHTML = `<span>${sub}</span> <i class="fa-solid fa-chevron-right"></i>`;
+                btn.onclick = () => {
+                    document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderChapterInventoryList(sub);
+                };
+                sidebarContainer.appendChild(btn);
             });
 
-            if (filteredQuestions.length === 0) return alert("No questions match these filters.");
+            screenGateway.style.display = 'none';
+            screenExplorer.style.display = 'block';
+            
+            // Auto-target initial subject partition array profile
+            if(availableSubjects.length > 0) {
+                renderChapterInventoryList(availableSubjects[0]);
+            }
+        };
 
-            currentIndex = 0;
-            filterDash.style.display = 'none';
-            quizEngine.style.display = 'block';
-            window.loadQuestion();
+        function renderChapterInventoryList(subjectName) {
+            selectedActiveSubject = subjectName;
+            const container = document.getElementById('chapter-list-container');
+            container.innerHTML = "";
+            
+            const datasets = centralizedQuestionBank[selectedTargetExam][subjectName] || [];
+            
+            // Extract distinct topics configurations dynamically via tracking profile
+            const mapChapters = {};
+            datasets.forEach(q => {
+                if(!mapChapters[q.chapter]) {
+                    mapChapters[q.chapter] = { total: 0, breakdowns: {} };
+                }
+                mapChapters[q.chapter].total++;
+                mapChapters[q.chapter].breakdowns[q.year] = (mapChapters[q.chapter].breakdowns[q.year] || 0) + 1;
+            });
+
+            const keys = Object.keys(mapChapters);
+            if(keys.length === 0) {
+                container.innerHTML = `<div style="color: var(--text-secondary); padding: 2rem; font-size:0.9rem;">No question allocations mapped yet for this segment.</div>`;
+                return;
+            }
+
+            keys.forEach(chName => {
+                const item = mapChapters[chName];
+                const textMetric24 = item.breakdowns["2024"] ? `2024: <span class="stat-highlight">${item.breakdowns["2024"]} Qs</span>` : `2024: 0 Qs`;
+                const textMetric23 = item.breakdowns["2023"] ? `2023: ${item.breakdowns["2023"]} Qs` : `2023: 0 Qs`;
+
+                const divRow = document.createElement('div');
+                divRow.className = "chapter-row";
+                divRow.innerHTML = `
+                    <div class="chapter-title-wrapper">
+                        <i class="fa-regular fa-folder-open"></i>
+                        <span class="chapter-name">${chName}</span>
+                    </div>
+                    <div class="chapter-stats">
+                        <span>${textMetric24}</span>
+                        <span>${textMetric23}</span>
+                        <span>Total: ${item.total} Qs</span>
+                    </div>
+                `;
+                divRow.onclick = () => showFilterPanel(chName);
+                container.appendChild(divRow);
+            });
         }
 
-        window.loadQuestion = () => {
+        function showFilterPanel(chapterName) {
+            selectedActiveChapter = chapterName;
+            document.getElementById('filter-heading').innerText = chapterName;
+            
+            // Scan years allocation mapped configuration profiles safely
+            const datasets = centralizedQuestionBank[selectedTargetExam][selectedActiveSubject].filter(q => q.chapter === chapterName);
+            const explicitYears = [...new Set(datasets.map(q => q.year))].sort((a,b) => b - a);
+            
+            const selYear = document.getElementById('select-year');
+            selYear.innerHTML = '<option value="All">All Structural Tracking Years</option>';
+            explicitYears.forEach(y => {
+                selYear.innerHTML += `<option value="${y}">Exam Cycle Season Year ${y}</option>`;
+            });
+
+            screenExplorer.style.display = 'none';
+            screenFilter.style.display = 'block';
+        }
+
+        window.restoreExplorer = () => {
+            screenFilter.style.display = 'none';
+            screenExplorer.style.display = 'block';
+        };
+
+        window.abortSession = () => {
+            screenQuiz.style.display = 'none';
+            screenExplorer.style.display = 'block';
+        };
+
+        // --- CORE RUNTIME PRACTICE CORE LAYER EXECUTION ---
+        window.launchSession = () => {
+            const rawSets = centralizedQuestionBank[selectedTargetExam][selectedActiveSubject].filter(q => q.chapter === selectedActiveChapter);
+            const evaluationYearFilter = document.getElementById('select-year').value;
+
+            filteredPracticeSet = rawSets.filter(q => {
+                return evaluationYearFilter === "All" || q.year === evaluationYearFilter;
+            });
+
+            if(filteredPracticeSet.length === 0) {
+                alert("No structural matrix matched standard targeting fields.");
+                return;
+            }
+
+            currentIndex = 0;
+            screenFilter.style.display = 'none';
+            screenQuiz.style.display = 'block';
+            loadActiveQuestionItem();
+        };
+
+        function loadActiveQuestionItem() {
             isAnswerChecked = false;
             selectedOptionIndex = null;
+            
             document.getElementById('check-btn').style.display = 'block';
             document.getElementById('check-btn').disabled = true;
             document.getElementById('next-btn').style.display = 'none';
             document.getElementById('explanation-box').style.display = 'none';
             document.getElementById('result-status').innerText = "";
-            
-            const qData = filteredQuestions[currentIndex];
-            const hasAttempted = attemptedQuestions.includes(qData.id);
 
-            document.getElementById('question-tracker').innerText = `Question ${currentIndex + 1} of ${filteredQuestions.length}`;
-            document.getElementById('question-text').innerText = qData.q;
-            document.getElementById('badge-year').innerText = `${qData.year}`;
-            document.getElementById('badge-subject').innerText = qData.subject;
+            const targetQuestion = filteredPracticeSet[currentIndex];
+            const identityAttemptedFlag = attemptedQuestions.includes(targetQuestion.id);
 
-            const optionsContainer = document.getElementById('options-container');
-            optionsContainer.innerHTML = "";
-            
-            qData.options.forEach((opt, index) => {
-                const letter = String.fromCharCode(65 + index);
-                const btn = document.createElement('div');
-                btn.className = `marks-option ${hasAttempted ? 'locked' : ''}`;
-                btn.innerHTML = `
-                    <div class="opt-letter">${letter}</div>
+            // Synchronize Metadata Layout Badges
+            document.getElementById('badge-year').innerText = `YEAR: ${targetQuestion.year}`;
+            document.getElementById('badge-subject').innerText = selectedActiveSubject;
+            document.getElementById('badge-chapter').innerText = selectedActiveChapter;
+            document.getElementById('question-tracker').innerText = `QUESTION ${currentIndex + 1} OF ${filteredPracticeSet.length}`;
+            document.getElementById('question-text').innerText = targetQuestion.q;
+
+            const targetWrapperNode = document.getElementById('options-container');
+            targetWrapperNode.innerHTML = "";
+
+            targetQuestion.options.forEach((opt, idx) => {
+                const codeMarker = String.fromCharCode(65 + idx);
+                const blockOption = document.createElement('div');
+                blockOption.className = `marks-option ${identityAttemptedFlag ? 'locked' : ''}`;
+                blockOption.innerHTML = `
+                    <div class="opt-letter">${codeMarker}</div>
                     <div class="opt-text">${opt}</div>
-                    <i class="fa-solid fa-check opt-icon check-icon"></i>
-                    <i class="fa-solid fa-xmark opt-icon cross-icon" style="display:none;"></i>
+                    <i class="fa-solid fa-circle-check opt-icon check-icon"></i>
+                    <i class="fa-solid fa-circle-xmark opt-icon cross-icon" style="display:none;"></i>
                 `;
-                
-                if (!hasAttempted) {
-                    btn.onclick = () => {
-                        if (isAnswerChecked) return;
-                        selectedOptionIndex = index;
+
+                if(!identityAttemptedFlag) {
+                    blockOption.onclick = () => {
+                        if(isAnswerChecked) return;
+                        selectedOptionIndex = idx;
                         document.getElementById('check-btn').disabled = false;
-                        document.querySelectorAll('.marks-option').forEach(b => b.classList.remove('selected'));
-                        btn.classList.add('selected');
+                        document.querySelectorAll('.marks-option').forEach(el => el.classList.remove('selected'));
+                        blockOption.classList.add('selected');
                     };
                 }
-                optionsContainer.appendChild(btn);
+                targetWrapperNode.appendChild(blockOption);
             });
 
-            if (hasAttempted) {
+            if(identityAttemptedFlag) {
                 isAnswerChecked = true;
                 document.getElementById('check-btn').style.display = 'none';
                 document.getElementById('next-btn').style.display = 'block';
-                
-                const buttons = document.querySelectorAll('.marks-option');
-                buttons[qData.answer].classList.add('correct'); 
-                
-                document.getElementById('result-status').innerHTML = `<i class="fa-solid fa-lock" style="color: var(--text-tertiary);"></i> <span style="color: var(--text-secondary);">Previously Attempted</span>`;
-                document.getElementById('explanation-text').innerHTML = qData.explanation;
+
+                const trackingRows = document.querySelectorAll('.marks-option');
+                trackingRows[targetQuestion.answer].classList.add('correct');
+
+                document.getElementById('result-status').innerHTML = `<span style="color: var(--text-tertiary);"><i class="fa-solid fa-lock"></i> Item Locked (Previously Verified)</span>`;
+                document.getElementById('explanation-text').innerHTML = targetQuestion.explanation;
                 document.getElementById('explanation-box').style.display = 'block';
             }
         }
 
-        async function saveAttemptAndXP(amount, questionId) {
-            if (!currentUser) return; 
-            const userRef = doc(db, "users", currentUser.uid);
-            attemptedQuestions.push(questionId); 
+        async function postActivityTransactionRecord(pointsCalculated, referenceIdKey) {
+            if(!currentUser) return;
+            const documentTargetRef = doc(db, "users", currentUser.uid);
+            attemptedQuestions.push(referenceIdKey);
 
             try {
-                await updateDoc(userRef, { 
-                    xp: increment(amount),
-                    attemptedQuestions: arrayUnion(questionId) 
+                await updateDoc(documentTargetRef, {
+                    xp: increment(pointsCalculated),
+                    attemptedQuestions: arrayUnion(referenceIdKey)
                 });
-            } catch (e) {
-                await setDoc(userRef, { name: currentUser.displayName, xp: amount, attemptedQuestions: [questionId] });
+            } catch(e) {
+                await setDoc(documentTargetRef, {
+                    name: currentUser.displayName || "Scholar",
+                    xp: pointsCalculated,
+                    attemptedQuestions: [referenceIdKey]
+                });
             }
         }
 
-        window.checkAnswer = async () => {
-            if (selectedOptionIndex === null) return;
+        window.evaluateSelection = async () => {
+            if(selectedOptionIndex === null) return;
             isAnswerChecked = true;
+            
             document.getElementById('check-btn').style.display = 'none';
             document.getElementById('next-btn').style.display = 'block';
 
-            const qData = filteredQuestions[currentIndex];
-            const buttons = document.querySelectorAll('.marks-option');
-            const isCorrect = selectedOptionIndex === qData.answer;
+            const activeQuestionItem = filteredPracticeSet[currentIndex];
+            const trackingRows = document.querySelectorAll('.marks-option');
+            const evaluationCorrectState = (selectedOptionIndex === activeQuestionItem.answer);
 
-            // Lock all buttons
-            buttons.forEach(b => b.classList.add('locked'));
+            trackingRows.forEach(row => row.classList.add('locked'));
 
-            if (isCorrect) {
-                buttons[selectedOptionIndex].classList.add('correct');
-                document.getElementById('result-status').innerHTML = `<span style="color: var(--success-green);"><i class="fa-solid fa-circle-check"></i> +8 XP Earned</span>`;
-                await saveAttemptAndXP(8, qData.id); 
+            if(evaluationCorrectState) {
+                trackingRows[selectedOptionIndex].classList.add('correct');
+                document.getElementById('result-status').innerHTML = `<span style="color: var(--success-green);"><i class="fa-solid fa-check"></i> Correct Verification (+8 XP)</span>`;
+                await postActivityTransactionRecord(8, activeQuestionItem.id);
             } else {
-                buttons[selectedOptionIndex].classList.add('wrong');
-                buttons[selectedOptionIndex].querySelector('.check-icon').style.display = 'none';
-                buttons[selectedOptionIndex].querySelector('.cross-icon').style.display = 'block';
+                trackingRows[selectedOptionIndex].classList.add('wrong');
+                trackingRows[selectedOptionIndex].querySelector('.check-icon').style.display = 'none';
+                trackingRows[selectedOptionIndex].querySelector('.cross-icon').style.display = 'block';
                 
-                buttons[qData.answer].classList.add('correct'); // Show correct answer
-                document.getElementById('result-status').innerHTML = `<span style="color: var(--error-red);"><i class="fa-solid fa-circle-xmark"></i> -2 XP Penalty</span>`;
-                await saveAttemptAndXP(-2, qData.id); 
+                trackingRows[activeQuestionItem.answer].classList.add('correct');
+                document.getElementById('result-status').innerHTML = `<span style="color: var(--error-red);"><i class="fa-solid fa-xmark"></i> Differential Mismatch (-2 XP)</span>`;
+                await postActivityTransactionRecord(-2, activeQuestionItem.id);
             }
 
-            document.getElementById('explanation-text').innerHTML = qData.explanation;
+            document.getElementById('explanation-text').innerHTML = activeQuestionItem.explanation;
             document.getElementById('explanation-box').style.display = 'block';
-        }
+        };
 
-        window.nextQuestion = () => {
+        window.advanceStep = () => {
             currentIndex++;
-            if (currentIndex < filteredQuestions.length) window.loadQuestion();
-            else {
+            if(currentIndex < filteredPracticeSet.length) {
+                loadActiveQuestionItem();
+            } else {
                 document.getElementById('question-text').innerHTML = `
-                    <div style="text-align: center; padding: 3rem 0;">
-                        <i class="fa-solid fa-flag-checkered" style="font-size: 3rem; color: var(--success-green); margin-bottom: 1rem;"></i>
-                        <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Module Completed</h2>
-                        <p style="color: var(--text-secondary); font-size: 0.95rem;">You have answered all available questions for this filter.</p>
+                    <div style="text-align: center; padding: 2.5rem 0;">
+                        <i class="fa-solid fa-flag-checkered" style="font-size: 3.5rem; color: var(--success-green); margin-bottom: 1.2rem;"></i>
+                        <h2 style="font-size: 1.4rem; margin-bottom: 0.5rem; font-weight:700;">Chapter Subset Finalized</h2>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">You have cleared the target boundaries for this tracking profile run.</p>
                     </div>`;
                 document.getElementById('options-container').innerHTML = "";
                 document.getElementById('explanation-box').style.display = 'none';
@@ -467,46 +551,7 @@
                 document.getElementById('question-tracker').style.display = 'none';
                 document.querySelector('.test-meta').style.display = 'none';
             }
-        }
-        window.filterBySubject = (subject) => {
-    const list = document.getElementById('chapter-list');
-    list.innerHTML = "";
-    
-    chapterData[subject].forEach(chapter => {
-        list.innerHTML += `
-            <div class="module-card" style="margin-bottom: 0.5rem; justify-content: space-between;" onclick="openFilters('${subject}', '${chapter.name}')">
-                <div style="display: flex; align-items: center; gap: 1rem;">
-                    <i class="fa-solid fa-square-root-variable" style="color: var(--brand-blue);"></i>
-                    <h3 style="font-size: 1rem;">${chapter.name}</h3>
-                </div>
-                <div style="font-size: 0.8rem; color: var(--text-tertiary);">
-                    2026: ${chapter.years['2026'] || 0} Qs | 2025: ${chapter.years['2025'] || 0} Qs | Total: ${chapter.total} Qs
-                </div>
-            </div>
-        `;
-    });
-};
-// Add this global variable
-let currentExam = "";
-
-// The Gateway Function
-window.selectExam = (examName) => {
-    currentExam = examName;
-    
-    // Hide Gateway, Show Dashboard
-    document.getElementById('exam-selection-screen').style.display = 'none';
-    document.getElementById('exam-dashboard').style.display = 'block';
-    
-    // Update dashboard title
-    document.querySelector('.page-title').innerHTML = `${examName} <span style="font-size: 1rem; color: var(--text-tertiary);">2012 - 2026</span>`;
-    
-    // Initialize the list for this specific exam
-    loadChapterList(examName);
-}
-
-// Modify your back button in the dashboard to go back to gateway
-// Update the dashboard header back button:
-// <button class="btn-text" onclick="window.location.reload()"><i class="fa-solid fa-arrow-left"></i> Change Exam</button>
+        };
     </script>
 </body>
 </html>
