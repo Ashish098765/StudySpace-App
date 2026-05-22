@@ -15,7 +15,24 @@ app.get('/', (req, res) => {
 app.get('/room/:room', (req, res) => {
     res.sendFile(__dirname + '/public/room.html');
 });
+// ... existing routes ...
+app.get('/room/:room', (req, res) => {
+    res.sendFile(__dirname + '/public/room.html');
+});
 
+// NEW: API Endpoint to check if a room is active
+app.get('/api/check-room/:room', (req, res) => {
+    const roomId = req.params.room;
+    // Look into Socket.io's active memory to see if the room exists
+    const room = io.sockets.adapter.rooms.get(roomId);
+    
+    // If the room exists and has at least 1 person in it, return true
+    if (room && room.size > 0) {
+        res.json({ exists: true });
+    } else {
+        res.json({ exists: false });
+    }
+});
 // 3. Socket.io Logic: Handling video and chat connections
 io.on('connection', socket => {
     socket.on('join-room', (roomId, userId) => {

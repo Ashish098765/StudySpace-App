@@ -398,6 +398,23 @@
         <div class="modal-content">
             <h3>Join a Study Room</h3>
             <p>Paste your friend's invite link or enter the Room ID directly below.</p>
+            
+            <input type="text" id="join-room-input" class="modal-input" placeholder="e.g. http://.../room/xyz123 or xyz123" autocomplete="off">
+            
+            <div id="join-error" style="color: var(--danger); font-size: 0.85rem; margin-top: -1rem; margin-bottom: 1rem; display: none; font-weight: 600;">
+                ❌ Room not found. Make sure the host is currently in the room!
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeJoinModal()">Cancel</button>
+                <button class="btn-confirm" id="btn-join-submit" onclick="submitJoinRoom()">Join Room</button>
+            </div>
+        </div>
+    </div>
+    <div id="join-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Join a Study Room</h3>
+            <p>Paste your friend's invite link or enter the Room ID directly below.</p>
             <input type="text" id="join-room-input" class="modal-input" placeholder="e.g. http://.../room/xyz123 or xyz123" autocomplete="off">
             <div class="modal-actions">
                 <button class="btn-cancel" onclick="closeJoinModal()">Cancel</button>
@@ -561,42 +578,69 @@
             window.location.href = `/room/${randomRoomId}`;
         }
 
-        // --- NEW JOIN LOGIC ---
         function joinPrivateRoom() {
-            // Show the custom modal instead of the ugly prompt
             document.getElementById('join-modal').classList.add('active');
             document.getElementById('join-room-input').focus();
         }
 
         function closeJoinModal() {
             document.getElementById('join-modal').classList.remove('active');
-            document.getElementById('join-room-input').value = ''; // Clear it out
+            document.getElementById('join-room-input').value = ''; 
+            document.getElementById('join-error').style.display = 'none'; // Hide error on close
         }
 
-        function submitJoinRoom() {
+        // UPGRADED: Async function to check the server before routing
+        async function submitJoinRoom() {
             const input = document.getElementById('join-room-input').value.trim();
+            const errorDiv = document.getElementById('join-error');
+            const submitBtn = document.getElementById('btn-join-submit');
+
             if (!input) return;
 
             let roomId = input;
-
-            // Intelligent slicing: If they pasted a full URL, extract just the ID at the end
             if (input.includes('/room/')) {
                 roomId = input.split('/room/').pop();
             }
-
-            // Clean up any accidental trailing slashes or URL garbage just in case
             roomId = roomId.split('?')[0].replace(/\//g, '');
 
             if (roomId) {
-                window.location.href = `/room/${roomId}`;
+                // Change button text to show it's thinking
+                submitBtn.innerText = "Checking...";
+                submitBtn.disabled = true;
+
+                try {
+                    // Ask the server if the room is active
+                    const response = await fetch(`/api/check-room/${roomId}`);
+                    const data = await response.json();
+
+                    if (data.exists) {
+                        // Success! Teleport them
+                        window.location.href = `/room/${roomId}`;
+                    } else {
+                        // Fail! Show the error message
+                        errorDiv.style.display = 'block';
+                        submitBtn.innerText = "Join Room";
+                        submitBtn.disabled = false;
+                    }
+                } catch (error) {
+                    console.error("Error checking room:", error);
+                    errorDiv.innerText = "❌ Could not connect to server.";
+                    errorDiv.style.display = 'block';
+                    submitBtn.innerText = "Join Room";
+                    submitBtn.disabled = false;
+                }
             }
         }
 
-        // Allow pressing 'Enter' inside the modal to submit
         document.getElementById('join-room-input').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 submitJoinRoom();
             }
+        });
+        
+        // Hide error message if the user starts typing again
+        document.getElementById('join-room-input').addEventListener('input', function() {
+            document.getElementById('join-error').style.display = 'none';
         });
     </script>
 </body>
