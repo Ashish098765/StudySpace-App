@@ -128,6 +128,30 @@
     </nav>
 
     <div class="container">
+        <div id="exam-selection-screen" style="display: block;">
+    <div class="page-header" style="text-align: center; margin-top: 5rem;">
+        <h1 class="page-title">Choose your target</h1>
+        <p class="page-subtitle">Select the exam you are preparing for to get started.</p>
+    </div>
+    
+    <div class="grid-cards" style="justify-content: center; max-width: 600px; margin: 3rem auto;">
+        <div class="module-card" onclick="selectExam('JEE Mains')">
+            <div class="module-icon"><i class="fa-solid fa-atom"></i></div>
+            <div class="module-info">
+                <h3>JEE Main</h3>
+                <p>Engineering Entrance</p>
+            </div>
+        </div>
+        <div class="module-card" onclick="selectExam('NEET')">
+            <div class="module-icon"><i class="fa-solid fa-dna" style="color: var(--success-green);"></i></div>
+            <div class="module-info">
+                <h3>NEET UG</h3>
+                <p>Medical Entrance</p>
+            </div>
+        </div>
+    </div>
+</div>
+
         
         <div id="exam-dashboard" style="display: block;">
     <div class="page-header">
@@ -265,7 +289,7 @@
 };
 
         // --- APP STATE ---
-        let currentExam = "";
+       currentExam = ""; // Just update the existing variable
         let filteredQuestions = [];
         let currentIndex = 0;
         let selectedOptionIndex = null;
@@ -462,6 +486,27 @@
         `;
     });
 };
+// Add this global variable
+let currentExam = "";
+
+// The Gateway Function
+window.selectExam = (examName) => {
+    currentExam = examName;
+    
+    // Hide Gateway, Show Dashboard
+    document.getElementById('exam-selection-screen').style.display = 'none';
+    document.getElementById('exam-dashboard').style.display = 'block';
+    
+    // Update dashboard title
+    document.querySelector('.page-title').innerHTML = `${examName} <span style="font-size: 1rem; color: var(--text-tertiary);">2012 - 2026</span>`;
+    
+    // Initialize the list for this specific exam
+    loadChapterList(examName);
+}
+
+// Modify your back button in the dashboard to go back to gateway
+// Update the dashboard header back button:
+// <button class="btn-text" onclick="window.location.reload()"><i class="fa-solid fa-arrow-left"></i> Change Exam</button>
     </script>
 </body>
 </html>
