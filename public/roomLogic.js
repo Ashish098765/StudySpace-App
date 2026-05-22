@@ -1,193 +1,173 @@
 import { getFirestore, doc, updateDoc, setDoc, increment } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 const db = getFirestore();
 
-// --- 1. ROOM IDENTIFICATION LOGIC ---
+// --- 1. UI SETUP & TIMER ---
 const ROOM_ID = window.location.pathname.split('/').pop();
 const roomTitleDisplay = document.getElementById('room-id-display');
 const activityWarning = document.getElementById('activity-warning');
+const timerDisplay = document.getElementById('timer-display');
+const videoGrid = document.getElementById('video-grid');
 
-// Dictionary of our public rooms
+const btnMic = document.getElementById('btn-mic');
+const btnCam = document.getElementById('btn-cam');
+const btnScreen = document.getElementById('btn-screen');
+
+let secondsSpent = 0;
+setInterval(() => {
+    secondsSpent++;
+    const mins = Math.floor(secondsSpent / 60).toString().padStart(2, '0');
+    const secs = (secondsSpent % 60).toString().padStart(2, '0');
+    if (timerDisplay) timerDisplay.innerText = `${mins}:${secs}`;
+}, 1000);
+
+// --- 2. ROOM RULES (2-Min Kick) ---
 const publicRooms = {
     'public-general': '📚 General Study Lounge',
     'public-pomodoro': '🍅 Pomodoro Focus',
     'public-quiet': '🤫 Quiet Reading Room'
 };
-
 const isPublicRoom = ROOM_ID.startsWith('public-');
 
-// Transform the Room Title dynamically
-if (publicRooms[ROOM_ID]) {
-    roomTitleDisplay.innerText = publicRooms[ROOM_ID];
-} else {
-    roomTitleDisplay.innerText = `🔒 Private Room (${ROOM_ID})`;
-}
-/* global io, Peer */
+if (publicRooms[ROOM_ID]) roomTitleDisplay.innerHTML = publicRooms[ROOM_ID];
+else roomTitleDisplay.innerHTML = `<i class="fa-solid fa-lock"></i> Private Room (${ROOM_ID})`;
 
-const socket = io();
-const videoGrid = document.getElementById('video-grid');
-const myPeer = new Peer();
+let inactivityTimer;
+if (isPublicRoom) {
+    activityWarning.style.display = 'block';
+    inactivityTimer = setTimeout(() => {
+        alert("Removed for inactivity.");
+        window.location.href = '/'; 
+    }, 120000);
+}
+
+function stopKickTimer() {
+    if (inactivityTimer) clearTimeout(inactivityTimer);
+    activityWarning.style.display = 'none';
+}
+
+// --- 3. WEB-RTC & MEDIA LOGIC ---
+const socket = io('/');
+const myPeer = new Peer(undefined, { host: '/', port: '3001' }); 
+const myVideo = document.createElement('video');
+myVideo.muted = true; // Always mute yourself to avoid echo
 const peers = {};
 
-// 1. Get the Name from Firebase (saved on login)
-const myName = localStorage.getItem('studySpaceUserName');
-
-// 🛑 THE BOUNCER: Check if they are logged in
-if (!myName) {
-    // Save the exact room they were trying to join so we can send them back later
-    sessionStorage.setItem('returnUrl', window.location.href);
-    window.location.href = '/login.html';
-}
-
-// ... the rest of your code (const style = document.createElement...) continues here
-
-// 2. Inject CSS for the floating video nametags
-const style = document.createElement('style');
-style.innerHTML = `
-    .video-wrapper { position: relative; display: inline-block; overflow: hidden; border-radius: 12px; background: #000; width: 100%; height: 100%; min-height: 250px; }
-    .video-name-label {
-        position: absolute; bottom: 10px; left: 10px;
-        background: rgba(0,0,0,0.7); color: white;
-        padding: 4px 10px; border-radius: 6px;
-        font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif;
-        z-index: 10; pointer-events: none;
-    }
-    .video-wrapper video { width: 100%; height: 100%; object-fit: cover; }
-`;
-document.head.appendChild(style);
-
-// 3. Figure out what room we are in from the URL
-const currentRoom = window.location.pathname.split('/').pop();
-let myUserId = '';
-let localStream = null;
-
-const myVideo = document.createElement('video');
-myVideo.muted = true; // Always mute yourself
-
-// ================================================================
-// JOIN THE ROOM IMMEDIATELY
-// ================================================================
-myPeer.on('open', id => {
-    myUserId = id;
-    socket.emit('join-room', currentRoom, myUserId);
-});
-
-// ================================================================
-// ATTEMPT TO START CAMERA (Safely checks for HTTPS first)
-// ================================================================
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    // If HTTPS is secure, start the camera normally
-    const btnStartCam = document.getElementById('btn-start-cam');
-const btnShareScreen = document.getElementById('btn-share-screen');
-const activityWarning = document.getElementById('activity-warning');
-
 let myStream = null;
+let isMicOn = false;
+let isCamOn = false;
+let isConnected = false;
 
-// --- 2. THE CONDITIONAL 2-MINUTE KICK TIMER ---
-let inactivityTimer;
+// Function to actually connect to the room (runs ONLY ONCE)
+function connectToRoom(stream) {
+    if (isConnected) return;
+    isConnected = true;
+    stopKickTimer();
+    addVideoStream(myVideo, stream);
+    socket.emit('join-room', ROOM_ID, myPeer.id);
+}
 
-if (isPublicRoom) {
-    // PUBLIC ROOM: Enforce the 2-minute rule
-    activityWarning.style.display = 'block'; // Show warning
+// --- MIC TOGGLE ---
+btnMic.addEventListener('click', async () => {
+    // If we don't have a stream yet, ask for it
+    if (!myStream) {
+        try {
+            myStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+            connectToRoom(myStream);
+            isCamOn = true; // Got cam by default
+        } catch (e) { alert("Microphone access denied."); return; }
+    }
     
-    inactivityTimer = setTimeout(() => {
-        alert("You were removed from the public room for inactivity. Cameras or Screen Share are required!");
-        window.location.href = '/'; 
-    }, 120000); // 2 minutes
-} else {
-    // PRIVATE ROOM: Relax the rules for friends
-    activityWarning.style.display = 'none'; // Hide warning
-}
-
-// Helper function to stop the timer when they follow the rules
-function userDidBecomeActive() {
-    if (inactivityTimer) clearTimeout(inactivityTimer);
-    if (activityWarning) activityWarning.style.display = 'none';
+    // Toggle audio track state
+    isMicOn = !isMicOn;
+    myStream.getAudioTracks()[0].enabled = isMicOn;
     
-    // Optional: Keep buttons visible if you want them to be able to switch between Cam/Screen, 
-    // or hide them if you only want one stream per person.
-    document.getElementById('btn-start-cam').style.display = 'none';     
-    document.getElementById('btn-share-screen').style.display = 'none';
-}
-// Helper function to stop the timer when they follow the rules
-function userDidBecomeActive() {
-    clearTimeout(inactivityTimer);
-    activityWarning.style.display = 'none'; // Hide the red warning banner
-    btnStartCam.style.display = 'none';     // Hide the buttons so they can't click them twice
-    btnShareScreen.style.display = 'none';
-}
+    // Update Button UI
+    if (isMicOn) {
+        btnMic.className = "btn-media btn-on";
+        btnMic.innerHTML = '<i class="fa-solid fa-microphone"></i>';
+    } else {
+        btnMic.className = "btn-media btn-off";
+        btnMic.innerHTML = '<i class="fa-solid fa-microphone-slash"></i>';
+    }
 
-
-// --- 2. CAMERA LOGIC ---
-btnStartCam.addEventListener('click', async () => {
-    try {
-        myStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-        userDidBecomeActive(); // Stop the kick timer!
-        
-        addVideoStream(myVideo, myStream);
-        
-        // Now that we have a stream, tell Socket.io and PeerJS we are ready to connect
-        socket.emit('join-room', ROOM_ID, myPeer.id);
-        
-        // Answer incoming calls
-        myPeer.on('call', call => {
-            call.answer(myStream);
-            const video = document.createElement('video');
-            call.on('stream', userVideoStream => {
-                addVideoStream(video, userVideoStream);
-            });
-        });
-
-    } catch (error) {
-        console.error("Camera error:", error);
-        alert("Could not access your camera.");
+    // Sync Cam UI if it was just turned on for the first time
+    if (isCamOn) {
+        btnCam.className = "btn-media btn-on";
+        btnCam.innerHTML = '<i class="fa-solid fa-video"></i>';
     }
 });
 
+// --- CAMERA TOGGLE ---
+btnCam.addEventListener('click', async () => {
+    if (!myStream) {
+        try {
+            myStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+            connectToRoom(myStream);
+            isMicOn = true;
+        } catch (e) { alert("Camera access denied."); return; }
+    }
+    
+    // Toggle video track state
+    isCamOn = !isCamOn;
+    myStream.getVideoTracks()[0].enabled = isCamOn;
+    
+    // Update Button UI
+    if (isCamOn) {
+        btnCam.className = "btn-media btn-on";
+        btnCam.innerHTML = '<i class="fa-solid fa-video"></i>';
+    } else {
+        btnCam.className = "btn-media btn-off";
+        btnCam.innerHTML = '<i class="fa-solid fa-video-slash"></i>';
+    }
 
-// --- 3. SCREEN SHARE LOGIC ---
-btnShareScreen.addEventListener('click', async () => {
+    if (isMicOn) {
+        btnMic.className = "btn-media btn-on";
+        btnMic.innerHTML = '<i class="fa-solid fa-microphone"></i>';
+    }
+});
+
+// --- SCREEN SHARE LOGIC ---
+btnScreen.addEventListener('click', async () => {
     try {
-        // getDisplayMedia is the built-in browser API for screen sharing
-        myStream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
-        userDidBecomeActive(); // Stop the kick timer!
+        const screenStream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
         
-        addVideoStream(myVideo, myStream);
-        
-        // Tell Socket.io and PeerJS we are ready to connect
-        socket.emit('join-room', ROOM_ID, myPeer.id);
-        
-        // Answer incoming calls with the screen share stream
-        myPeer.on('call', call => {
-            call.answer(myStream);
-            const video = document.createElement('video');
-            call.on('stream', userVideoStream => {
-                addVideoStream(video, userVideoStream);
-            });
-        });
+        // If they hadn't connected yet, connect now with screen
+        if (!isConnected) {
+            myStream = screenStream;
+            connectToRoom(myStream);
+        } else {
+            // Replace camera video track with screen video track for all peers
+            const videoTrack = screenStream.getVideoTracks()[0];
+            const sender = myPeer.getConnection().peerConnection.getSenders().find(s => s.track.kind === videoTrack.kind);
+            sender.replaceTrack(videoTrack);
+            myVideo.srcObject = screenStream;
+        }
 
-        // Listen for when the user clicks "Stop Sharing" on the browser's built-in popup
-        myStream.getVideoTracks()[0].onended = () => {
-            alert("Screen sharing ended. You must refresh to share again.");
-            window.location.href = '/'; // Kick them out if they stop sharing
+        btnScreen.className = "btn-media btn-on";
+        stopKickTimer();
+
+        // Listen for user hitting "Stop Sharing" on Chrome's built in popup
+        screenStream.getVideoTracks()[0].onended = () => {
+            alert("Screen sharing stopped.");
+            window.location.reload(); 
         };
-
     } catch (error) {
-        console.error("Screen share error:", error);
-        alert("Could not share screen.");
+        console.error(error);
     }
 });
-} else {
-    // If HTTP, skip the camera entirely so the script doesn't crash!
-    console.warn("Camera API disabled by browser because this is not an HTTPS site. Text chat only!");
-}
 
-// ================================================================
-// SOCKET CONNECTION LOGIC
-// ================================================================
+// --- PEER TO PEER LOGIC ---
+myPeer.on('call', call => {
+    if (!myStream) return;
+    call.answer(myStream);
+    const video = document.createElement('video');
+    call.on('stream', userVideoStream => {
+        addVideoStream(video, userVideoStream);
+    });
+});
+
 socket.on('user-connected', userId => {
-    if (localStream) {
-        connectToNewUser(userId, localStream);
-    }
+    if (myStream) connectToNewUser(userId, myStream);
 });
 
 socket.on('user-disconnected', userId => {
@@ -195,127 +175,33 @@ socket.on('user-disconnected', userId => {
 });
 
 function connectToNewUser(userId, stream) {
-    const call = myPeer.call(userId, stream, { metadata: { name: myName } });
+    const call = myPeer.call(userId, stream);
     const video = document.createElement('video');
-    
-    let videoWrapper;
     call.on('stream', userVideoStream => {
-        if(!videoWrapper) videoWrapper = addVideoStream(video, userVideoStream, call.metadata ? call.metadata.name : 'Participant');
+        addVideoStream(video, userVideoStream);
     });
-    
-    call.on('close', () => { if(videoWrapper) videoWrapper.remove(); });
+    call.on('close', () => {
+        video.remove();
+    });
     peers[userId] = call;
 }
 
-function addVideoStream(video, stream, userName = '') {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'video-wrapper';
-    
+function addVideoStream(video, stream) {
     video.srcObject = stream;
     video.addEventListener('loadedmetadata', () => { video.play(); });
-    wrapper.append(video);
-
-    if (userName) {
-        const label = document.createElement('div');
-        label.className = 'video-name-label';
-        label.innerText = userName;
-        wrapper.append(label);
-    }
-
-    videoGrid.append(wrapper);
-    return wrapper; 
+    videoGrid.append(video);
 }
 
-// ================================================================
-// BUTTON LOGIC (Icons & Invite Links)
-// ================================================================
-document.getElementById('copy-btn').addEventListener('click', (e) => {
-    const fullRoomUrl = window.location.href; 
-    navigator.clipboard.writeText(fullRoomUrl);
-    
-    const btn = e.currentTarget;
-    const textSpan = document.getElementById('invite-text');
-    const originalText = textSpan.innerText;
-    
-    textSpan.innerText = "✅ Link Copied!";
-    btn.style.background = "#10b981"; 
-    
-    setTimeout(() => { 
-        textSpan.innerText = originalText; 
-        btn.style.background = ""; 
-    }, 2000);
-});
-
-document.getElementById('mute-btn').addEventListener('click', (e) => {
-    e.currentTarget.classList.toggle('off'); 
-    if (localStream) {
-        const audioTrack = localStream.getAudioTracks()[0];
-        if (audioTrack) {
-            audioTrack.enabled = !audioTrack.enabled;
+// --- XP SAVER (FIREBASE) ---
+window.onbeforeunload = async () => {
+    const user = window.auth?.currentUser;
+    if (user && secondsSpent >= 60) {
+        const xpEarned = Math.floor(secondsSpent / 60) * 10;
+        const userRef = doc(db, "users", user.uid);
+        try {
+            await updateDoc(userRef, { xp: increment(xpEarned), lastActive: new Date() });
+        } catch (e) {
+            await setDoc(userRef, { name: user.displayName || 'Student', xp: xpEarned, lastActive: new Date() });
         }
     }
-});
-
-document.getElementById('camera-btn').addEventListener('click', (e) => {
-    e.currentTarget.classList.toggle('off');
-    if (localStream) {
-        const videoTrack = localStream.getVideoTracks()[0];
-        if (videoTrack) {
-            videoTrack.enabled = !videoTrack.enabled;
-        }
-    }
-});
-
-// ================================================================
-// LIVE CHAT LOGIC
-// ================================================================
-const chatForm = document.getElementById('chat-form');
-const chatInput = document.getElementById('chat-input');
-const chatWindow = document.getElementById('chat-window');
-
-function attemptSendMessage() {
-    const text = chatInput.value.trim();
-    if (text !== "") {
-        const payload = JSON.stringify({ name: myName, text: text });
-        socket.emit('chatMessage', payload);
-        chatInput.value = ''; 
-    }
-}
-
-if (chatForm) {
-    chatForm.addEventListener('submit', (e) => {
-        e.preventDefault(); 
-        attemptSendMessage();
-    });
-}
-
-if (chatInput) {
-    chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault(); 
-            attemptSendMessage();
-        }
-    });
-}
-
-socket.on('message', (data) => {
-    const isMe = data.id === myUserId;
-    let senderName = `User`;
-    let messageText = data.text;
-    
-    try {
-        const parsed = JSON.parse(data.text);
-        senderName = parsed.name || "User";
-        messageText = parsed.text;
-    } catch(e) {} 
-
-    const msgDiv = document.createElement('div');
-    msgDiv.classList.add('message');
-    if (isMe) msgDiv.classList.add('me');
-    
-    const label = isMe ? "" : `<div style="font-size: 11px; font-weight: 600; color: #6366f1; margin-bottom: 4px;">${senderName}</div>`;
-    msgDiv.innerHTML = `${label}${messageText}`;
-    
-    chatWindow.appendChild(msgDiv);
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-});
+};
