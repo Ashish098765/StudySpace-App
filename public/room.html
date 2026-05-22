@@ -18,29 +18,77 @@
         .room-title { font-size: 1.2rem; font-weight: 800; }
         .timer-badge { font-family: monospace; font-size: 1.2rem; color: var(--accent); background: rgba(16, 185, 129, 0.1); padding: 0.4rem 1rem; border-radius: 8px; }
 
-        /* Video Grid Area */
-        #video-grid { flex-grow: 1; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem; padding: 2rem; overflow-y: auto; }
-        video { width: 100%; max-width: 600px; max-height: 400px; aspect-ratio: 16/9; object-fit: cover; border-radius: 16px; background: #000; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        /* Discord-Style Dynamic Grid */
+        #video-grid { 
+            flex-grow: 1; 
+            display: grid; 
+            gap: 1rem; 
+            padding: 1.5rem; 
+            align-content: center; 
+            justify-content: center; 
+            overflow-y: auto;
+            /* JS will dynamically update the grid columns */
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            aspect-ratio: 16/9;
+            transition: all 0.3s ease;
+        }
+
+        video { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            border-radius: 12px; 
+            background: #000; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 3px solid transparent; 
+            transition: all 0.2s ease;
+        }
+
+        /* Zoom-Style Speaking Highlight */
+        .video-container.speaking video {
+            border-color: var(--accent);
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
+            transform: scale(1.02);
+        }
+
+        .name-badge {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 2;
+        }
 
         /* Floating Control Bar */
-        .controls-wrapper { position: fixed; bottom: 2rem; left: 0; width: 100%; display: flex; justify-content: center; pointer-events: none; }
-        .control-bar { background: rgba(30, 33, 48, 0.9); backdrop-filter: blur(15px); padding: 1rem 1.5rem; border-radius: 100px; display: flex; gap: 1rem; pointer-events: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); }
+        .controls-wrapper { position: fixed; bottom: 2rem; left: 0; width: 100%; display: flex; justify-content: center; pointer-events: none; z-index: 20; }
+        .control-bar { background: rgba(30, 33, 48, 0.9); backdrop-filter: blur(15px); padding: 1rem 1.5rem; border-radius: 100px; display: flex; gap: 1rem; pointer-events: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); align-items: center; }
         
         .btn-media { width: 50px; height: 50px; border-radius: 50%; border: none; font-size: 1.2rem; cursor: pointer; transition: all 0.2s ease; display: flex; justify-content: center; align-items: center; color: white; }
-        
-        /* State Colors */
         .btn-on { background: var(--primary); }
         .btn-off { background: var(--btn-off); color: #cbd5e1; }
         .btn-danger { background: var(--danger); }
-        
         .btn-media:hover { filter: brightness(1.2); transform: translateY(-2px); }
+        
+        /* Explicit Join Button for Preview Phase */
+        #btn-join { background: var(--accent); width: auto; padding: 0 1.5rem; font-weight: 600; display: none; gap: 8px; border-radius: 100px; }
     </style>
 </head>
 <body>
 
-    <div id="activity-warning">
-        ⏳ You have 2 minutes to turn on a device, or you will be removed for inactivity.
-    </div>
+    <div id="activity-warning">⏳ You have 2 minutes to turn on a device, or you will be removed for inactivity.</div>
 
     <div class="room-header">
         <div class="room-title" id="room-id-display">Loading...</div>
@@ -54,6 +102,10 @@
             <button id="btn-mic" class="btn-media btn-off" title="Toggle Microphone"><i class="fa-solid fa-microphone-slash"></i></button>
             <button id="btn-cam" class="btn-media btn-off" title="Toggle Camera"><i class="fa-solid fa-video-slash"></i></button>
             <button id="btn-screen" class="btn-media btn-off" title="Share Screen"><i class="fa-solid fa-display"></i></button>
+            
+            <button id="btn-join"><i class="fa-solid fa-right-to-bracket"></i> Join Room</button>
+            
+            <div style="width: 2px; height: 30px; background: rgba(255,255,255,0.1); margin: 0 5px;"></div>
             <button class="btn-media btn-danger" onclick="window.location.href='/'" title="Leave Room"><i class="fa-solid fa-phone-slash"></i></button>
         </div>
     </div>
