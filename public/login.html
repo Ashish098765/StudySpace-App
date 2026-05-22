@@ -17,12 +17,19 @@
         .auth-container h2 { font-size: 2rem; margin-bottom: 0.5rem; }
         .auth-container p { color: var(--text-muted); margin-bottom: 2rem; }
 
+        /* Google Button & Divider */
+        .btn-google { width: 100%; background: white; color: #0f111a; padding: 0.9rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.2s; }
+        .btn-google:hover { background: #f1f5f9; transform: translateY(-2px); }
+        .divider { display: flex; align-items: center; text-align: center; margin: 1.5rem 0; color: var(--text-muted); font-size: 0.85rem; }
+        .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .divider span { padding: 0 15px; font-weight: 600; }
+
         .input-group { margin-bottom: 1.2rem; text-align: left; }
         .input-group label { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.4rem; }
         .input-group input { width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 0.8rem 1rem; border-radius: 8px; outline: none; transition: 0.2s; }
         .input-group input:focus { border-color: var(--primary); }
 
-        /* Avatar Grid Settings */
+        /* Avatar Grid */
         .avatar-section { display: none; margin-bottom: 1.5rem; text-align: left; }
         .avatar-label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; display: block; }
         .avatar-grid { display: flex; gap: 10px; justify-content: space-between; }
@@ -30,7 +37,7 @@
         .avatar-option:hover { opacity: 0.8; }
         .avatar-option.selected { border-color: var(--primary); opacity: 1; transform: scale(1.1); box-shadow: 0 0 15px rgba(99, 102, 241, 0.4); }
 
-        .btn-submit { width: 100%; background: var(--primary); color: white; padding: 0.9rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: 0.2s; margin-top: 1rem; }
+        .btn-submit { width: 100%; background: var(--primary); color: white; padding: 0.9rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: 0.2s; margin-top: 0.5rem; }
         .btn-submit:hover { filter: brightness(1.1); }
         
         .toggle-text { margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
@@ -45,6 +52,12 @@
     <div class="auth-container">
         <h2><i class="fa-solid fa-rocket" style="color: var(--primary);"></i> StudySpace</h2>
         <p id="auth-subtitle">Sign in to join study rooms</p>
+
+        <button type="button" class="btn-google" id="google-login-btn">
+            <i class="fa-brands fa-google" style="color: #ea4335;"></i> Continue with Google
+        </button>
+
+        <div class="divider"><span>OR EMAIL</span></div>
 
         <form id="auth-form">
             <div class="input-group" id="name-group" style="display: none;">
@@ -84,11 +97,10 @@
     </div>
 
     <script type="module">
-        // --- 1. FIREBASE SETUP ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
-        // ⚠️ PASTE YOUR CONFIG HERE ⚠️
+        // ⚠️ PASTE YOUR FIREBASE CONFIG HERE ⚠️
         const firebaseConfig = {
             apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
             authDomain: "studyspace-45780.firebaseapp.com",
@@ -101,19 +113,20 @@
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
+        const provider = new GoogleAuthProvider(); // Re-added Google Provider
 
-        // --- 2. UI LOGIC ---
         let isLoginMode = true;
-        let selectedAvatar = "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"; // Default
+        let selectedAvatar = "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix";
 
         const form = document.getElementById('auth-form');
         const nameGroup = document.getElementById('name-group');
         const avatarSection = document.getElementById('avatar-section');
         const submitBtn = document.getElementById('submit-btn');
+        const googleBtn = document.getElementById('google-login-btn');
         const toggleText = document.getElementById('toggle-auth');
         const errorMsg = document.getElementById('error-msg');
 
-        // Handle Avatar Selection
+        // Avatar Selection Logic
         document.querySelectorAll('.avatar-option').forEach(img => {
             img.addEventListener('click', (e) => {
                 document.querySelectorAll('.avatar-option').forEach(i => i.classList.remove('selected'));
@@ -122,7 +135,7 @@
             });
         });
 
-        // Toggle between Login and Signup
+        // UI Toggle Logic
         window.toggleMode = () => {
             isLoginMode = !isLoginMode;
             errorMsg.style.display = 'none';
@@ -142,9 +155,32 @@
             }
         }
 
-        // --- 3. AUTHENTICATION LOGIC ---
+        // Shared Teleport Logic (Used by both Google and Email login)
+        function handleSuccessfulLogin() {
+            const returnUrl = sessionStorage.getItem('returnUrl');
+            if (returnUrl) {
+                sessionStorage.removeItem('returnUrl');
+                window.location.href = returnUrl;
+            } else {
+                window.location.href = "/";
+            }
+        }
+
+        // --- 1. GOOGLE LOGIN FLOW ---
+        googleBtn.addEventListener('click', async () => {
+            errorMsg.style.display = 'none';
+            try {
+                await signInWithPopup(auth, provider);
+                handleSuccessfulLogin();
+            } catch (error) {
+                errorMsg.style.display = 'block';
+                errorMsg.innerText = "❌ Google login failed or was cancelled.";
+            }
+        });
+
+        // --- 2. EMAIL/PASSWORD FLOW ---
         form.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Prevent page refresh
+            e.preventDefault();
             
             const email = document.getElementById('user-email').value.trim();
             const pass = document.getElementById('user-pass').value.trim();
@@ -156,37 +192,23 @@
 
             try {
                 if (isLoginMode) {
-                    // LOGIN FLOW
                     await signInWithEmailAndPassword(auth, email, pass);
                 } else {
-                    // SIGNUP FLOW & VALIDATION
                     if (pass.length < 6) throw new Error("Password must be at least 6 characters.");
                     if (!name) throw new Error("Please enter a Display Name.");
 
                     const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
-                    
-                    // Attach Avatar and Name to Firebase Profile
                     await updateProfile(userCredential.user, {
                         displayName: name,
                         photoURL: selectedAvatar
                     });
                 }
-
-                // SUCCESS: Teleport Logic
-                const returnUrl = sessionStorage.getItem('returnUrl');
-                if (returnUrl) {
-                    sessionStorage.removeItem('returnUrl');
-                    window.location.href = returnUrl;
-                } else {
-                    window.location.href = "/";
-                }
-
+                handleSuccessfulLogin();
             } catch (error) {
-                // Handle Errors nicely
                 submitBtn.disabled = false;
                 submitBtn.innerText = isLoginMode ? 'Log In' : 'Create Account';
-                
                 errorMsg.style.display = 'block';
+                
                 if (error.code === 'auth/email-already-in-use') errorMsg.innerText = "❌ Email is already registered.";
                 else if (error.code === 'auth/invalid-credential') errorMsg.innerText = "❌ Invalid email or password.";
                 else errorMsg.innerText = `❌ ${error.message}`;
