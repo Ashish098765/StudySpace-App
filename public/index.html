@@ -491,11 +491,10 @@
     </main>
 
     <script type="module">
-        import { getFirestore, collection, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-const db = getFirestore();
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
+        // 1. Your Config
         const firebaseConfig = {
             apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
             authDomain: "studyspace-45780.firebaseapp.com",
@@ -508,9 +507,11 @@ const db = getFirestore();
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
+        
+        // CRITICAL: Expose auth globally so your buttons can see it!
         window.auth = auth;
 
-        // UI Elements
+        // 2. Safely grab UI Elements
         const loginBtn = document.getElementById('nav-login-btn');
         const profileContainer = document.getElementById('user-profile-container');
         const profileName = document.getElementById('profile-name');
@@ -518,77 +519,83 @@ const db = getFirestore();
         const profileAvatar = document.getElementById('user-avatar');
         const logoutBtn = document.getElementById('logout-btn');
 
-        // Listen for Login State changes
-        // Listen for Login State changes
+        // 3. Listen for Login State changes
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                // User is signed in! Update the UI
-                loginBtn.style.display = 'none';
-                profileContainer.style.display = 'flex';
-                profileName.textContent = user.displayName || 'Student';
-                profileEmail.textContent = user.email;
-                if (user.photoURL) profileAvatar.src = user.photoURL;
+                // User is signed in! (Safety checks added so it doesn't crash)
+                if(loginBtn) loginBtn.style.display = 'none';
+                if(profileContainer) profileContainer.style.display = 'flex';
+                if(profileName) profileName.textContent = user.displayName || 'Student';
+                if(profileEmail) profileEmail.textContent = user.email;
+                if(profileAvatar && user.photoURL) profileAvatar.src = user.photoURL;
                 
                 localStorage.setItem('studySpaceUserName', user.displayName || 'Student');
-            } 
-            // If user is null, we do NOTHING. 
-            // The Login button will remain visible, and that's exactly what we want!
+            } else {
+                // User is signed out
+                if(loginBtn) loginBtn.style.display = 'block';
+                if(profileContainer) profileContainer.style.display = 'none';
+            }
         });
-        // Handle Log Out
-        logoutBtn.addEventListener('click', () => {
-            signOut(auth).then(() => {
-                window.location.reload();
-            }).catch((error) => {
-                console.error("Logout Error:", error);
+
+        // 4. Handle Log Out
+        if(logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+                signOut(auth).then(() => {
+                    window.location.reload();
+                });
             });
-        });
+        }
     </script>
+
     <script>
-    // --- CREATE ROOM ---
-    function createPrivateRoom() {
-        // Check if user is logged in
-        if (!window.auth.currentUser) {
-            // Save the current page so we can send them back after login
-            sessionStorage.setItem('returnUrl', window.location.href);
-            window.location.href = '/login.html';
-            return;
-        }
+        // --- SAFE ROUTING LOGIC ---
         
-        // If logged in, create the room
-        const randomRoomId = Math.random().toString(36).substring(2, 10);
-        window.location.href = `/room/${randomRoomId}`;
-    }
-
-    // --- JOIN ROOM ---
-    function joinPrivateRoom() {
-        // Check if user is logged in
-        if (!window.auth.currentUser) {
-            sessionStorage.setItem('returnUrl', window.location.href);
-            window.location.href = '/login.html';
-            return;
+        // Helper to check if Firebase is ready and user is logged in
+        function checkLogin() {
+            if (!window.auth || !window.auth.currentUser) {
+                sessionStorage.setItem('returnUrl', window.location.href);
+                window.location.href = '/login.html';
+                return false;
+            }
+            return true;
         }
-        
-        // If logged in, open the modal
-        document.getElementById('join-modal').classList.add('active');
-        document.getElementById('join-room-input').focus();
-    }
-    async function loadLeaderboard() {
-    const q = query(collection(db, "users"), orderBy("xp", "desc"), limit(3));
-    const querySnapshot = await getDocs(q);
-    const container = document.getElementById('leaderboard-list');
 
-    container.innerHTML = ""; 
-    querySnapshot.forEach((doc, index) => {
-        const user = doc.data();
-        container.innerHTML += `
-            <div class="list-item">
-                <span>${index + 1}. ${user.name}</span>
-                <span class="score-badge">${user.xp} XP</span>
-            </div>
-        `;
-    });
-}
-loadLeaderboard();
-</script>
+        function createPrivateRoom() {
+            if (!checkLogin()) return; // Stop if not logged in
+            
+            const randomRoomId = Math.random().toString(36).substring(2, 10);
+            window.location.href = `/room/${randomRoomId}`;
+        }
+
+        function joinPrivateRoom() {
+            if (!checkLogin()) return; // Stop if not logged in
+            
+            document.getElementById('join-modal').classList.add('active');
+            const input = document.getElementById('join-room-input');
+            if(input) input.focus();
+        }
+
+        function closeJoinModal() {
+            document.getElementById('join-modal').classList.remove('active');
+        }
+
+        function submitJoinRoom() {
+            if (!checkLogin()) return; // Stop if not logged in
+
+            const input = document.getElementById('join-room-input').value.trim();
+            if (!input) return;
+
+            // Intelligent slicing for full URLs or just IDs
+            let roomId = input;
+            if (input.includes('/room/')) {
+                roomId = input.split('/room/').pop();
+            }
+            roomId = roomId.split('?')[0].replace(/\//g, '');
+
+            if (roomId) {
+                window.location.href = `/room/${roomId}`;
+            }
+        }
+    </script>
 </body>
 </html>
