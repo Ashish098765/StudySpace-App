@@ -271,17 +271,23 @@
             const querySnapshot = await getDocs(q);
             container.innerHTML = ""; 
             
-            querySnapshot.forEach((docSnap, index) => {
+            // Create our own rank counter!
+            let rank = 1; 
+            
+            querySnapshot.forEach((docSnap) => {
                 const user = docSnap.data();
-                const cleanXP = forceNumber(user.xp); // Using the Enforcer
+                const cleanXP = forceNumber(user.xp);
                 const safeName = user.name || "Student";
                 
                 container.innerHTML += `
                     <div class="list-item" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <span><strong style="color: var(--primary); margin-right: 8px;">${index + 1}.</strong> ${safeName}</span>
+                        <span><strong style="color: var(--primary); margin-right: 8px;">${rank}.</strong> ${safeName}</span>
                         <span style="background: rgba(16, 185, 129, 0.1); color: var(--accent); padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">${cleanXP} XP</span>
                     </div>
                 `;
+                
+                // Increase the rank for the next person
+                rank++; 
             });
 
             setTimeout(async () => {
