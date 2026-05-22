@@ -1,17 +1,3 @@
-// ... top of your file (requires, express, io setup) ...
-
-// Existing Home Route
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
-});
-
-// NEW: Dynamic Room Route
-app.get('/room/:room', (req, res) => {
-    // When someone goes to /room/anything, serve them the room interface
-    res.sendFile(__dirname + '/public/room.html');
-});
-
-// ... your socket.io connection logic down below ...
 /* global io, Peer */
 
 const socket = io();
@@ -19,10 +5,10 @@ const videoGrid = document.getElementById('video-grid');
 const myPeer = new Peer();
 const peers = {};
 
-// Get the Name from Firebase (saved on the homepage)
+// 1. Get the Name from Firebase (saved on the homepage earlier!)
 const myName = localStorage.getItem('studySpaceUserName') || 'Anonymous Student';
 
-// Inject CSS for the floating video nametags
+// 2. Inject CSS for the floating video nametags
 const style = document.createElement('style');
 style.innerHTML = `
     .video-wrapper { position: relative; display: inline-block; overflow: hidden; border-radius: 12px; background: #000; }
@@ -36,14 +22,17 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-const currentRoom = window.location.pathname.replace('/', '');
+// 3. Figure out what room we are in from the URL (e.g., /room/x8f9a2b)
+const pathParts = window.location.pathname.split('/');
+const currentRoom = pathParts[pathParts.length - 1]; 
+
 let myUserId = '';
 let localStream = null;
 
 const myVideo = document.createElement('video');
-myVideo.muted = true; 
+myVideo.muted = true; // Always mute yourself so you don't hear an echo
 
-// Start Video
+// 4. Start Video & Audio
 navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then(stream => {
     localStream = stream;
     addVideoStream(myVideo, stream, myName + " (You)");
@@ -74,7 +63,7 @@ socket.on('user-disconnected', userId => {
     if (peers[userId]) peers[userId].close();
 });
 
-// Send our Google Name through the WebRTC connection metadata!
+// 5. Send our Google Name through the WebRTC connection metadata
 function connectToNewUser(userId, stream) {
     const call = myPeer.call(userId, stream, { metadata: { name: myName } });
     const video = document.createElement('video');
@@ -88,7 +77,7 @@ function connectToNewUser(userId, stream) {
     peers[userId] = call;
 }
 
-// Wraps the video element to allow floating name tags
+// 6. Wrap the video element to attach the floating name tags
 function addVideoStream(video, stream, userName = '') {
     const wrapper = document.createElement('div');
     wrapper.className = 'video-wrapper';
@@ -108,28 +97,28 @@ function addVideoStream(video, stream, userName = '') {
     return wrapper; 
 }
 
-// --- Toolbar Logic ---
+// --- 7. Toolbar Logic (Mute, Camera, Invite) ---
 document.getElementById('copy-btn').addEventListener('click', (e) => {
     navigator.clipboard.writeText(window.location.href);
-    e.target.innerText = "✅ Link Copied!";
+    e.target.innerText = "✅ Copied!";
     setTimeout(() => { e.target.innerText = "📋 Copy Invite Link"; }, 2000);
 });
 
 document.getElementById('mute-btn').addEventListener('click', (e) => {
     const audioTrack = localStream.getAudioTracks()[0];
     audioTrack.enabled = !audioTrack.enabled;
-    e.target.innerText = audioTrack.enabled ? "🎤 Mute" : "🔇 Unmute";
+    e.target.innerText = audioTrack.enabled ? "🎤" : "🔇";
     e.target.classList.toggle('off');
 });
 
 document.getElementById('camera-btn').addEventListener('click', (e) => {
     const videoTrack = localStream.getVideoTracks()[0];
     videoTrack.enabled = !videoTrack.enabled;
-    e.target.innerText = videoTrack.enabled ? "📷 Stop Video" : "📹 Start Video";
+    e.target.innerText = videoTrack.enabled ? "📹" : "📷";
     e.target.classList.toggle('off');
 });
 
-// --- Chat Logic with Names ---
+// --- 8. Live Chat Logic with Google Names ---
 const chatForm = document.getElementById('chat-form');
 const chatInput = document.getElementById('chat-input');
 const chatWindow = document.getElementById('chat-window');
@@ -137,7 +126,7 @@ const chatWindow = document.getElementById('chat-window');
 chatForm.addEventListener('submit', (e) => {
     e.preventDefault();
     if (chatInput.value.trim()) {
-        // We pack the name and text together so the backend doesn't break
+        // Pack the name and text together so the backend knows who sent it
         const payload = JSON.stringify({ name: myName, text: chatInput.value.trim() });
         socket.emit('chatMessage', payload);
         chatInput.value = '';
@@ -154,12 +143,13 @@ socket.on('message', (data) => {
         const parsed = JSON.parse(data.text);
         senderName = parsed.name;
         messageText = parsed.text;
-    } catch(e) { } // Fallback for old messages
+    } catch(e) { } 
 
     const msgDiv = document.createElement('div');
     msgDiv.classList.add('message');
     if (isMe) msgDiv.classList.add('me');
     
+    // Make the name blue and small above the text message
     const label = isMe ? "" : `<div style="font-size: 11px; font-weight: 600; color: #6366f1; margin-bottom: 3px;">${senderName}</div>`;
     msgDiv.innerHTML = `${label}${messageText}`;
     
