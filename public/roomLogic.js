@@ -5,8 +5,17 @@ const videoGrid = document.getElementById('video-grid');
 const myPeer = new Peer();
 const peers = {};
 
-// 1. Get the Name from Firebase (saved on the homepage)
-const myName = localStorage.getItem('studySpaceUserName') || 'Student';
+// 1. Get the Name from Firebase (saved on login)
+const myName = localStorage.getItem('studySpaceUserName');
+
+// 🛑 THE BOUNCER: Check if they are logged in
+if (!myName) {
+    // Save the exact room they were trying to join so we can send them back later
+    sessionStorage.setItem('returnUrl', window.location.href);
+    window.location.href = '/login.html';
+}
+
+// ... the rest of your code (const style = document.createElement...) continues here
 
 // 2. Inject CSS for the floating video nametags
 const style = document.createElement('style');

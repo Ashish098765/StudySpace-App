@@ -312,16 +312,31 @@
         loginBtn.addEventListener('click', () => {
             console.log("🚦 STEP 5: Button was clicked! Attempting to talk to Google...");
             
+           loginBtn.addEventListener('click', () => {
+            console.log("🚦 STEP 5: Button was clicked! Attempting to talk to Google...");
+            
             signInWithPopup(auth, provider)
                 .then((result) => {
                     console.log("✅ SUCCESS! Logged in as:", result.user.email);
-                    window.location.href = "/";
+                    
+                    // Immediately save their name for the room logic
+                    localStorage.setItem('studySpaceUserName', result.user.displayName || 'Student');
+
+                    // 🧠 SMART REDIRECT: Did they come from an invite link?
+                    const returnUrl = sessionStorage.getItem('returnUrl');
+                    if (returnUrl) {
+                        sessionStorage.removeItem('returnUrl'); // Clean up memory
+                        window.location.href = returnUrl;       // Drop them in the room!
+                    } else {
+                        window.location.href = "/";             // Normal login, go to home
+                    }
                 })
                 .catch((error) => {
                     console.error("❌ FIREBASE ERROR:", error.code);
                     console.error("❌ ERROR MESSAGE:", error.message);
                     alert("Error: " + error.message);
                 });
+        });
         });
     </script>
 </body>

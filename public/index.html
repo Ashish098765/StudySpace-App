@@ -544,6 +544,7 @@
         const logoutBtn = document.getElementById('logout-btn');
 
         // Listen for Login State changes
+        // Listen for Login State changes
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 // User is signed in! Update the UI
@@ -553,15 +554,12 @@
                 profileEmail.textContent = user.email;
                 if (user.photoURL) profileAvatar.src = user.photoURL;
                 
-                // CRITICAL ADDITION: Save the name so the video room can use it!
                 localStorage.setItem('studySpaceUserName', user.displayName || 'Student');
             } else {
-                // User is signed out. Show login button
-                loginBtn.style.display = 'block';
-                profileContainer.style.display = 'none';
+                // 🛑 THE BOUNCER: User is not logged in. Redirect immediately!
+                window.location.href = '/login.html';
             }
         });
-
         // Handle Log Out
         logoutBtn.addEventListener('click', () => {
             signOut(auth).then(() => {
