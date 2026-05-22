@@ -166,3 +166,28 @@ socket.on('message', (data) => {
     chatWindow.appendChild(msgDiv);
     chatWindow.scrollTop = chatWindow.scrollHeight;
 });
+// Function to fetch and display the questions
+function loadQuestions() {
+    // 1. Point to your newly created JSON file
+    const dataUrl = 'data/questions/jee_phy_units.json'; 
+
+    fetch(dataUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Successfully loaded data:", data);
+            
+            // 2. We will write the code to display them here next!
+            // For now, let's just make sure it loads in the background.
+        })
+        .catch(error => {
+            console.error("Error loading the JSON file:", error);
+        });
+}
+
+// 3. Call the function as soon as the page loads
+document.addEventListener('DOMContentLoaded', loadQuestions);
