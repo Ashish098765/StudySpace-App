@@ -1,3 +1,6 @@
+import { getFirestore, doc, updateDoc, setDoc, increment } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+const db = getFirestore();
+
 /* global io, Peer */
 
 const socket = io();

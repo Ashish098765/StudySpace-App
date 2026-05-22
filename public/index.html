@@ -466,36 +466,8 @@
             <div class="dashboard-widget">
                 <h2 class="widget-title">🏆 Top Scholars</h2>
                 
-                <div class="list-item">
-                    <div class="rank-info">
-                        <span class="rank-number rank-1">1</span>
-                        <div class="room-info">
-                            <h4>Archana</h4>
-                        </div>
-                    </div>
-                    <div class="score-badge">2,450 XP</div>
-                </div>
-
-                <div class="list-item">
-                    <div class="rank-info">
-                        <span class="rank-number">2</span>
-                        <div class="room-info">
-                            <h4>David K.</h4>
-                        </div>
-                    </div>
-                    <div class="score-badge">1,820 XP</div>
-                </div>
-                
-                <div class="list-item">
-                    <div class="rank-info">
-                        <span class="rank-number">3</span>
-                        <div class="room-info">
-                            <h4>Aisha T.</h4>
-                        </div>
-                    </div>
-                    <div class="score-badge">1,640 XP</div>
-                </div>
-            </div>
+                <div id="leaderboard-list">
+    </div>
         </section>
 
         <section class="feature-grid">
@@ -519,6 +491,8 @@
     </main>
 
     <script type="module">
+        import { getFirestore, collection, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+const db = getFirestore();
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
@@ -598,6 +572,23 @@
         document.getElementById('join-modal').classList.add('active');
         document.getElementById('join-room-input').focus();
     }
+    async function loadLeaderboard() {
+    const q = query(collection(db, "users"), orderBy("xp", "desc"), limit(3));
+    const querySnapshot = await getDocs(q);
+    const container = document.getElementById('leaderboard-list');
+
+    container.innerHTML = ""; 
+    querySnapshot.forEach((doc, index) => {
+        const user = doc.data();
+        container.innerHTML += `
+            <div class="list-item">
+                <span>${index + 1}. ${user.name}</span>
+                <span class="score-badge">${user.xp} XP</span>
+            </div>
+        `;
+    });
+}
+loadLeaderboard();
 </script>
 </body>
 </html>
