@@ -394,7 +394,7 @@
 
             try {
                 // 3. LAZY LOADING: Fetch the specific chapter's JSON file only when needed!
-                 const targetFile = "/data/questions/${selectedChapterId}.json";
+                const targetFile = `/data/questions/${selectedChapterId}.json`;
                 const response = await fetch(targetFile);
                 
                 if (!response.ok) throw new Error("Question file missing: " + targetFile);
