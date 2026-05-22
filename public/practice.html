@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root { --bg-color: #0f111a; --card-bg: #1e2130; --text-main: #f8fafc; --text-muted: #94a3b8; --primary: #6366f1; --accent: #10b981; --danger: #ef4444; }
+        :root { --bg-color: #0f111a; --card-bg: #1e2130; --text-main: #f8fafc; --text-muted: #94a3b8; --primary: #6366f1; --accent: #10b981; --danger: #ef4444; --gold: #fbbf24; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-main); min-height: 100vh; }
 
-        /* Navigation (Same as Home) */
+        /* Navigation */
         nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background: rgba(15, 17, 26, 0.9); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         .logo-text { font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
 
         .container { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
+        .back-btn { background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 1rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; }
+        .back-btn:hover { color: var(--text-main); }
 
         /* --- SCREEN 1: EXAM DASHBOARD --- */
         #exam-dashboard { display: block; }
@@ -29,17 +31,30 @@
         .exam-icon { font-size: 3rem; margin-bottom: 1rem; color: var(--primary); }
         .exam-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 
-        /* --- SCREEN 2: QUIZ ENGINE --- */
+        /* --- SCREEN 2: FILTER DASHBOARD (MARKS APP STYLE) --- */
+        #filter-dashboard { display: none; }
+        .filter-container { background: var(--card-bg); padding: 2rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
+        .filter-group { margin-bottom: 1.5rem; text-align: left; }
+        .filter-group label { display: block; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 600; }
+        .filter-select { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 1rem; border-radius: 8px; outline: none; font-size: 1rem; cursor: pointer; appearance: none; }
+        .filter-select:focus { border-color: var(--primary); }
+        .btn-start-practice { width: 100%; background: var(--primary); color: white; padding: 1rem; border: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; cursor: pointer; margin-top: 1rem; transition: 0.2s; }
+        .btn-start-practice:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+        /* --- SCREEN 3: QUIZ ENGINE --- */
         #quiz-engine { display: none; }
-        .back-btn { background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 1rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; }
-        .back-btn:hover { color: var(--text-main); }
         
-        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .quiz-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .meta-badges { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+        .badge { font-size: 0.8rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 50px; }
+        .badge-year { background: rgba(251, 191, 36, 0.15); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.3); }
+        .badge-subject { background: rgba(99, 102, 241, 0.15); color: var(--primary); border: 1px solid rgba(99, 102, 241, 0.3); }
+
         .question-box { background: var(--card-bg); padding: 2rem; border-radius: 12px; font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem; }
         
         .options-grid { display: flex; flex-direction: column; gap: 1rem; }
         .option-btn { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 1.2rem; border-radius: 8px; text-align: left; cursor: pointer; font-size: 1rem; transition: 0.2s; display: flex; align-items: center; gap: 1rem; }
-        .option-btn:hover { background: rgba(255,255,255,0.05); }
+        .option-btn:hover:not(:disabled) { background: rgba(255,255,255,0.05); }
         .option-btn.selected { border-color: var(--primary); background: rgba(99, 102, 241, 0.1); }
         
         /* State Colors */
@@ -66,39 +81,59 @@
             <p class="header-sub">Select your exam target to start practicing previous year questions.</p>
             
             <div class="exam-grid">
-                <div class="exam-card" onclick="startExam('JEE Mains')">
+                <div class="exam-card" onclick="openFilters('JEE Mains')">
                     <i class="fa-solid fa-atom exam-icon"></i>
                     <h3>JEE Mains</h3>
                     <p class="text-muted">Physics, Chem, Math</p>
                 </div>
-                <div class="exam-card" onclick="startExam('NEET')">
+                <div class="exam-card" onclick="openFilters('NEET')">
                     <i class="fa-solid fa-dna exam-icon" style="color: var(--accent);"></i>
                     <h3>NEET</h3>
                     <p class="text-muted">Physics, Chem, Bio</p>
                 </div>
-                <div class="exam-card" onclick="startExam('CUET')">
-                    <i class="fa-solid fa-building-columns exam-icon" style="color: var(--gold);"></i>
-                    <h3>CUET</h3>
-                    <p class="text-muted">Undergrad Entrance</p>
+            </div>
+        </div>
+
+        <div id="filter-dashboard">
+            <button class="back-btn" onclick="showDashboard()"><i class="fa-solid fa-arrow-left"></i> Back to Exams</button>
+            <h1 class="header-title" id="filter-title">Configure Practice</h1>
+            <p class="header-sub">Select specific years and subjects to tailor your PYQ session.</p>
+
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label>Select Year</label>
+                    <select id="select-year" class="filter-select">
+                        <option value="All">All Years</option>
+                        </select>
                 </div>
+                
+                <div class="filter-group">
+                    <label>Select Subject</label>
+                    <select id="select-subject" class="filter-select">
+                        <option value="All">All Subjects</option>
+                        </select>
+                </div>
+
+                <button class="btn-start-practice" onclick="startPractice()"><i class="fa-solid fa-play"></i> Start Practice Session</button>
             </div>
         </div>
 
         <div id="quiz-engine">
-            <button class="back-btn" onclick="exitExam()"><i class="fa-solid fa-arrow-left"></i> Back to Exams</button>
+            <button class="back-btn" onclick="openFilters(currentExam)"><i class="fa-solid fa-arrow-left"></i> Back to Filters</button>
             
             <div class="quiz-header">
-                <h2 id="active-exam-title">JEE Mains Practice</h2>
-                <span id="question-tracker" style="color: var(--text-muted);">Q 1 / 10</span>
-            </div>
-
-            <div class="question-box" id="question-text">
-                Loading question...
-            </div>
-
-            <div class="options-grid" id="options-container">
+                <div>
+                    <h2 id="active-exam-title">Practice</h2>
+                    <div class="meta-badges">
+                        <span class="badge badge-year" id="badge-year">2023</span>
+                        <span class="badge badge-subject" id="badge-subject">Physics</span>
+                    </div>
                 </div>
+                <span id="question-tracker" style="color: var(--text-muted); font-weight: 600;">Q 1 / 10</span>
+            </div>
 
+            <div class="question-box" id="question-text">Loading question...</div>
+            <div class="options-grid" id="options-container"></div>
             <div id="explanation-box"></div>
 
             <div class="action-bar">
@@ -113,10 +148,9 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-        // NEW: Imported arrayUnion and getDoc to handle the memory array
         import { getFirestore, doc, updateDoc, setDoc, increment, arrayUnion, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-        // ⚠️ PASTE YOUR FIREBASE CONFIG HERE ⚠️
+        // ⚠️ PASTE YOUR FIREBASE CONFIG HERE
         const firebaseConfig = {
             apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
             authDomain: "studyspace-45780.firebaseapp.com",
@@ -132,9 +166,8 @@
         const db = getFirestore(app);
         
         let currentUser = null;
-        let attemptedQuestions = []; // Local memory of what they've solved
+        let attemptedQuestions = []; 
         
-        // Load user data and their attempted questions memory
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 currentUser = user;
@@ -146,157 +179,195 @@
             }
         });
 
-        // --- THE QUESTION DATABASE ---
+        // --- 1. THE UPGRADED DATA BANK (Added Year, Subject, and unique IDs) ---
         const questionBank = {
             "JEE Mains": [
-                { q: "The work done by a conservative force on a particle moving in a closed loop is:", options: ["Always positive", "Always negative", "Zero", "Depends on the path"], answer: 2, explanation: "By definition, the work done by a conservative force over a closed loop is always strictly zero." },
-                { q: "If the kinetic energy of a free electron doubles, its de Broglie wavelength changes by the factor:", options: ["1/2", "1/√2", "√2", "2"], answer: 1, explanation: "de Broglie wavelength λ = h / √(2mK)." }
+                { id: "jee_23_phy_01", year: "2023", subject: "Physics", q: "The work done by a conservative force on a particle moving in a closed loop is:", options: ["Always positive", "Always negative", "Zero", "Depends on the path"], answer: 2, explanation: "By definition, the work done by a conservative force over a closed loop is always strictly zero." },
+                { id: "jee_22_phy_01", year: "2022", subject: "Physics", q: "If the kinetic energy of a free electron doubles, its de Broglie wavelength changes by the factor:", options: ["1/2", "1/√2", "√2", "2"], answer: 1, explanation: "de Broglie wavelength λ = h / √(2mK)." },
+                { id: "jee_23_chem_01", year: "2023", subject: "Chemistry", q: "Which of the following has the highest electron gain enthalpy?", options: ["F", "Cl", "Br", "I"], answer: 1, explanation: "Chlorine has the highest negative electron gain enthalpy because of the exceptionally small size of the Fluorine atom which causes electron-electron repulsion." }
             ],
             "NEET": [
-                { q: "Which of the following is responsible for the transport of water and minerals in plants?", options: ["Phloem", "Xylem", "Epidermis", "Stomata"], answer: 1, explanation: "The Xylem tissue transports water and minerals." }
+                { id: "neet_23_bio_01", year: "2023", subject: "Biology", q: "Which of the following is responsible for the transport of water and minerals in plants?", options: ["Phloem", "Xylem", "Epidermis", "Stomata"], answer: 1, explanation: "The Xylem tissue transports water and minerals." },
+                { id: "neet_21_phy_01", year: "2021", subject: "Physics", q: "A convex lens is dipped in a liquid whose refractive index is equal to the refractive index of the lens. Its focal length will:", options: ["Become zero", "Become infinite", "Remain unchanged", "Become small"], answer: 1, explanation: "When dipped in a medium of the same refractive index, the lens behaves as a plane glass plate. Its focal length becomes infinite." }
             ]
         };
 
         // --- APP STATE ---
         let currentExam = "";
-        let currentQuestions = [];
+        let filteredQuestions = [];
         let currentIndex = 0;
         let selectedOptionIndex = null;
         let isAnswerChecked = false;
 
         // UI Elements
         const dashboard = document.getElementById('exam-dashboard');
+        const filterDash = document.getElementById('filter-dashboard');
         const quizEngine = document.getElementById('quiz-engine');
-        const optionsContainer = document.getElementById('options-container');
-        const checkBtn = document.getElementById('check-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const explanationBox = document.getElementById('explanation-box');
-        const resultStatus = document.getElementById('result-status');
+        
+        const yearSelect = document.getElementById('select-year');
+        const subjectSelect = document.getElementById('select-subject');
 
-        window.startExam = (examName) => {
+        // --- 2. FILTER ENGINE ---
+        window.showDashboard = () => {
+            dashboard.style.display = 'block';
+            filterDash.style.display = 'none';
+            quizEngine.style.display = 'none';
+        }
+
+        window.openFilters = (examName) => {
             currentExam = examName;
-            currentQuestions = questionBank[examName] || [];
-            currentIndex = 0;
-            if(currentQuestions.length === 0) return alert("Coming soon!");
-            document.getElementById('active-exam-title').innerText = `${examName} - PYQ Practice`;
+            const questions = questionBank[examName] || [];
+            if(questions.length === 0) return alert("Coming soon!");
+
+            // Extract unique Years and Subjects from the database to build the dropdowns
+            const uniqueYears = [...new Set(questions.map(q => q.year))].sort((a,b) => b - a);
+            const uniqueSubjects = [...new Set(questions.map(q => q.subject))];
+
+            document.getElementById('filter-title').innerText = `${examName} Practice`;
+            
+            yearSelect.innerHTML = '<option value="All">All Years</option>';
+            uniqueYears.forEach(y => yearSelect.innerHTML += `<option value="${y}">${y}</option>`);
+
+            subjectSelect.innerHTML = '<option value="All">All Subjects</option>';
+            uniqueSubjects.forEach(s => subjectSelect.innerHTML += `<option value="${s}">${s}</option>`);
+
             dashboard.style.display = 'none';
+            quizEngine.style.display = 'none';
+            filterDash.style.display = 'block';
+        }
+
+        window.startPractice = () => {
+            const rawQuestions = questionBank[currentExam];
+            const selectedYear = yearSelect.value;
+            const selectedSubject = subjectSelect.value;
+
+            // Apply Filters!
+            filteredQuestions = rawQuestions.filter(q => {
+                const yearMatch = selectedYear === "All" || q.year === selectedYear;
+                const subjectMatch = selectedSubject === "All" || q.subject === selectedSubject;
+                return yearMatch && subjectMatch;
+            });
+
+            if (filteredQuestions.length === 0) {
+                return alert("No questions found for this specific filter combination!");
+            }
+
+            currentIndex = 0;
+            document.getElementById('active-exam-title').innerText = currentExam;
+            
+            filterDash.style.display = 'none';
             quizEngine.style.display = 'block';
             window.loadQuestion();
         }
 
-        window.exitExam = () => {
-            dashboard.style.display = 'block';
-            quizEngine.style.display = 'none';
-        }
-
+        // --- 3. THE QUIZ ENGINE ---
         window.loadQuestion = () => {
             isAnswerChecked = false;
             selectedOptionIndex = null;
-            checkBtn.style.display = 'block';
-            checkBtn.disabled = true;
-            nextBtn.style.display = 'none';
-            explanationBox.style.display = 'none';
-            resultStatus.innerText = "";
+            document.getElementById('check-btn').style.display = 'block';
+            document.getElementById('check-btn').disabled = true;
+            document.getElementById('next-btn').style.display = 'none';
+            document.getElementById('explanation-box').style.display = 'none';
+            document.getElementById('result-status').innerText = "";
             
-            const qData = currentQuestions[currentIndex];
-            const questionId = `${currentExam}_${currentIndex}`; // Unique ID for this specific question
-            const hasAttempted = attemptedQuestions.includes(questionId);
+            const qData = filteredQuestions[currentIndex];
+            const hasAttempted = attemptedQuestions.includes(qData.id);
 
-            document.getElementById('question-tracker').innerText = `Question ${currentIndex + 1} of ${currentQuestions.length}`;
+            document.getElementById('question-tracker').innerText = `Question ${currentIndex + 1} of ${filteredQuestions.length}`;
             document.getElementById('question-text').innerText = qData.q;
             
+            // Set Dynamic Badges
+            document.getElementById('badge-year').innerText = `Year: ${qData.year}`;
+            document.getElementById('badge-subject').innerText = qData.subject;
+
+            const optionsContainer = document.getElementById('options-container');
             optionsContainer.innerHTML = "";
+            
             qData.options.forEach((opt, index) => {
                 const btn = document.createElement('button');
                 btn.className = 'option-btn';
                 btn.innerHTML = `<strong style="background: rgba(255,255,255,0.1); padding: 0.2rem 0.6rem; border-radius: 4px;">${String.fromCharCode(65 + index)}</strong> ${opt}`;
                 
-                // Only allow clicking if they haven't attempted it before
                 if (!hasAttempted) {
                     btn.onclick = () => {
                         if (isAnswerChecked) return;
                         selectedOptionIndex = index;
-                        checkBtn.disabled = false;
+                        document.getElementById('check-btn').disabled = false;
                         document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
                         btn.classList.add('selected');
                     };
                 } else {
-                    btn.style.cursor = "not-allowed"; // Visually show it's locked
+                    btn.style.cursor = "not-allowed"; 
                 }
                 optionsContainer.appendChild(btn);
             });
 
-            // If already attempted, immediately show the answer and explanation
+            // Prevent Farming (Memory check)
             if (hasAttempted) {
                 isAnswerChecked = true;
-                checkBtn.style.display = 'none';
-                nextBtn.style.display = 'block';
+                document.getElementById('check-btn').style.display = 'none';
+                document.getElementById('next-btn').style.display = 'block';
                 
                 const buttons = document.querySelectorAll('.option-btn');
-                buttons[qData.answer].classList.add('correct'); // Highlight correct answer
+                buttons[qData.answer].classList.add('correct'); 
                 
-                resultStatus.innerHTML = `<i class="fa-solid fa-lock" style="color: var(--text-muted);"></i> Already attempted. No XP awarded.`;
-                explanationBox.innerHTML = `<strong>Explanation:</strong> <br> ${qData.explanation}`;
-                explanationBox.style.display = 'block';
+                document.getElementById('result-status').innerHTML = `<i class="fa-solid fa-lock" style="color: var(--text-muted);"></i> Already attempted.`;
+                document.getElementById('explanation-box').innerHTML = `<strong>Explanation:</strong> <br> ${qData.explanation}`;
+                document.getElementById('explanation-box').style.display = 'block';
             }
         }
 
-        // --- THE XP & MEMORY SAVER ---
         async function saveAttemptAndXP(amount, questionId) {
             if (!currentUser) return; 
-            
             const userRef = doc(db, "users", currentUser.uid);
-            attemptedQuestions.push(questionId); // Save locally so it works immediately without refresh
+            attemptedQuestions.push(questionId); 
 
             try {
                 await updateDoc(userRef, { 
                     xp: increment(amount),
-                    attemptedQuestions: arrayUnion(questionId) // Save permanently to Firebase
+                    attemptedQuestions: arrayUnion(questionId) 
                 });
             } catch (e) {
-                await setDoc(userRef, { 
-                    name: currentUser.displayName, 
-                    xp: amount,
-                    attemptedQuestions: [questionId] 
-                });
+                await setDoc(userRef, { name: currentUser.displayName, xp: amount, attemptedQuestions: [questionId] });
             }
         }
 
         window.checkAnswer = async () => {
             if (selectedOptionIndex === null) return;
             isAnswerChecked = true;
-            checkBtn.style.display = 'none';
-            nextBtn.style.display = 'block';
+            document.getElementById('check-btn').style.display = 'none';
+            document.getElementById('next-btn').style.display = 'block';
 
-            const qData = currentQuestions[currentIndex];
-            const questionId = `${currentExam}_${currentIndex}`;
+            const qData = filteredQuestions[currentIndex];
             const buttons = document.querySelectorAll('.option-btn');
             const isCorrect = selectedOptionIndex === qData.answer;
 
             if (isCorrect) {
                 buttons[selectedOptionIndex].classList.add('correct');
-                resultStatus.innerHTML = `<i class="fa-solid fa-check-circle" style="color: var(--accent);"></i> Correct! <strong style="color: var(--gold);">+8 XP</strong>`;
-                await saveAttemptAndXP(8, questionId); 
+                document.getElementById('result-status').innerHTML = `<i class="fa-solid fa-check-circle" style="color: var(--accent);"></i> Correct! <strong style="color: var(--gold);">+8 XP</strong>`;
+                await saveAttemptAndXP(8, qData.id); 
             } else {
                 buttons[selectedOptionIndex].classList.add('wrong');
                 buttons[qData.answer].classList.add('correct');
-                resultStatus.innerHTML = `<i class="fa-solid fa-xmark-circle" style="color: var(--danger);"></i> Incorrect. <strong style="color: var(--danger);">-2 XP</strong>`;
-                await saveAttemptAndXP(-2, questionId); 
+                document.getElementById('result-status').innerHTML = `<i class="fa-solid fa-xmark-circle" style="color: var(--danger);"></i> Incorrect. <strong style="color: var(--danger);">-2 XP</strong>`;
+                await saveAttemptAndXP(-2, qData.id); 
             }
 
-            explanationBox.innerHTML = `<strong>Explanation:</strong> <br> ${qData.explanation}`;
-            explanationBox.style.display = 'block';
+            document.getElementById('explanation-box').innerHTML = `<strong>Explanation:</strong> <br> ${qData.explanation}`;
+            document.getElementById('explanation-box').style.display = 'block';
         }
 
         window.nextQuestion = () => {
             currentIndex++;
-            if (currentIndex < currentQuestions.length) window.loadQuestion();
+            if (currentIndex < filteredQuestions.length) window.loadQuestion();
             else {
-                document.getElementById('question-text').innerHTML = `<div style="text-align: center;"><i class="fa-solid fa-trophy" style="font-size: 4rem; color: var(--gold); margin-bottom: 1rem;"></i><h2>Practice Set Complete!</h2></div>`;
-                optionsContainer.innerHTML = "";
-                explanationBox.style.display = 'none';
-                resultStatus.innerText = "";
-                nextBtn.style.display = 'none';
+                document.getElementById('question-text').innerHTML = `<div style="text-align: center;"><i class="fa-solid fa-trophy" style="font-size: 4rem; color: var(--gold); margin-bottom: 1rem;"></i><h2>Session Complete!</h2></div>`;
+                document.getElementById('options-container').innerHTML = "";
+                document.getElementById('explanation-box').style.display = 'none';
+                document.getElementById('result-status').innerText = "";
+                document.getElementById('next-btn').style.display = 'none';
+                document.getElementById('badge-year').style.display = 'none';
+                document.getElementById('badge-subject').style.display = 'none';
             }
         }
     </script>
