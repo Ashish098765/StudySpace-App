@@ -312,31 +312,32 @@
         loginBtn.addEventListener('click', () => {
             console.log("🚦 STEP 5: Button was clicked! Attempting to talk to Google...");
             
-           loginBtn.addEventListener('click', () => {
-            console.log("🚦 STEP 5: Button was clicked! Attempting to talk to Google...");
+           // Look for your button event listener in login.html
+loginBtn.addEventListener('click', () => {
+    
+    // This is the part that talks to Google
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // --- PASTE THE TELEPORT LOGIC HERE ---
             
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    console.log("✅ SUCCESS! Logged in as:", result.user.email);
-                    
-                    // Immediately save their name for the room logic
-                    localStorage.setItem('studySpaceUserName', result.user.displayName || 'Student');
-
-                    // 🧠 SMART REDIRECT: Did they come from an invite link?
-                    const returnUrl = sessionStorage.getItem('returnUrl');
-                    if (returnUrl) {
-                        sessionStorage.removeItem('returnUrl'); // Clean up memory
-                        window.location.href = returnUrl;       // Drop them in the room!
-                    } else {
-                        window.location.href = "/";             // Normal login, go to home
-                    }
-                })
-                .catch((error) => {
-                    console.error("❌ FIREBASE ERROR:", error.code);
-                    console.error("❌ ERROR MESSAGE:", error.message);
-                    alert("Error: " + error.message);
-                });
+            // Check if there is a saved room they were trying to join
+            const returnUrl = sessionStorage.getItem('returnUrl');
+            
+            if (returnUrl) {
+                // If they have a "bookmark", delete it and send them there
+                sessionStorage.removeItem('returnUrl'); 
+                window.location.href = returnUrl; 
+            } else {
+                // Otherwise, send them to the homepage as normal
+                window.location.href = "/";
+            }
+            
+            // --- END OF TELEPORT LOGIC ---
+        })
+        .catch((error) => {
+            console.error("Login failed:", error);
         });
+});
         });
     </script>
 </body>

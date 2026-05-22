@@ -534,6 +534,7 @@
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
+        window.auth = auth;
 
         // UI Elements
         const loginBtn = document.getElementById('nav-login-btn');
@@ -569,63 +570,34 @@
         });
     </script>
     <script>
-        // Routing Logic
-        function createPrivateRoom() {
-            const randomRoomId = Math.random().toString(36).substring(2, 10);
-            window.location.href = `/room/${randomRoomId}`;
+    // --- CREATE ROOM ---
+    function createPrivateRoom() {
+        // Check if user is logged in
+        if (!window.auth.currentUser) {
+            // Save the current page so we can send them back after login
+            sessionStorage.setItem('returnUrl', window.location.href);
+            window.location.href = '/login.html';
+            return;
         }
-
-        function joinPrivateRoom() {
-            document.getElementById('join-modal').classList.add('active');
-            document.getElementById('join-room-input').focus();
-        }
-
-        function closeJoinModal() {
-            document.getElementById('join-modal').classList.remove('active');
-            document.getElementById('join-room-input').value = ''; 
-            document.getElementById('join-error').style.display = 'none'; // Hide error on close
-        }
-
-        // UPGRADED: Async function to check the server before routing
-        async function submitJoinRoom() {
-            const input = document.getElementById('join-room-input').value.trim();
-            const errorDiv = document.getElementById('join-error');
-            
-            // SECURITY CHECK: Are they logged in?
-            const user = auth.currentUser;
-            if (!user) {
-                sessionStorage.setItem('returnUrl', window.location.href);
-                window.location.href = '/login.html';
-                return;
-            }
-
-            if (!input) return;
-            // ... rest of your submitJoinRoom code stays exactly as it is ...
-        }
-
-        function createPrivateRoom() {
-            // SECURITY CHECK: Are they logged in?
-            const user = auth.currentUser;
-            if (!user) {
-                sessionStorage.setItem('returnUrl', window.location.href);
-                window.location.href = '/login.html';
-                return;
-            }
-            
-            const randomRoomId = Math.random().toString(36).substring(2, 10);
-            window.location.href = `/room/${randomRoomId}`;
-        }
-
-        document.getElementById('join-room-input').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                submitJoinRoom();
-            }
-        });
         
-        // Hide error message if the user starts typing again
-        document.getElementById('join-room-input').addEventListener('input', function() {
-            document.getElementById('join-error').style.display = 'none';
-        });
-    </script>
+        // If logged in, create the room
+        const randomRoomId = Math.random().toString(36).substring(2, 10);
+        window.location.href = `/room/${randomRoomId}`;
+    }
+
+    // --- JOIN ROOM ---
+    function joinPrivateRoom() {
+        // Check if user is logged in
+        if (!window.auth.currentUser) {
+            sessionStorage.setItem('returnUrl', window.location.href);
+            window.location.href = '/login.html';
+            return;
+        }
+        
+        // If logged in, open the modal
+        document.getElementById('join-modal').classList.add('active');
+        document.getElementById('join-room-input').focus();
+    }
+</script>
 </body>
 </html>
