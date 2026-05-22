@@ -7,52 +7,373 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --bg-color: #0f111a; --card-bg: #1e2130; --text-main: #f8fafc;
-            --text-muted: #94a3b8; --primary: #6366f1; --primary-hover: #4f46e5;
-            --accent: #10b981; --danger: #ef4444; --gold: #fbbf24;
+        /* --- Join Room Modal --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; min-height: 100vh; 
-               background-image: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%), 
-                                 radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%); }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border, rgba(255,255,255,0.1));
+            border-radius: 16px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 450px;
+            text-align: left;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-content h3 { margin-bottom: 0.5rem; font-size: 1.5rem; }
+        .modal-content p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+        .modal-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            outline: none;
+        }
+        .modal-input:focus { border-color: var(--primary); }
+
+        .modal-actions { display: flex; gap: 1rem; justify-content: flex-end; }
+        
+        .btn-cancel { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text-main); padding: 0.6rem 1.2rem; }
+        .btn-cancel:hover { background: rgba(255,255,255,0.05); }
+        .btn-confirm { background: var(--primary); color: white; padding: 0.6rem 1.5rem; border: none; }
+        .btn-confirm:hover { background: var(--primary-hover); }
+        /* --- Live Session Dropdown --- */
+        .session-dropdown-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 120%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(30, 33, 48, 0.95);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            min-width: 220px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 50;
+        }
+
+        .session-dropdown-wrapper:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-item {
+            background: transparent;
+            color: var(--text-main);
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--primary);
+            transform: translateY(0); /* Override default button hover */
+        }
+        :root {
+            --bg-color: #0f111a;
+            --card-bg: #1e2130;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --accent: #10b981;
+            --danger: #ef4444;
+            --gold: #fbbf24;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
+        }
 
         /* Navigation */
-        #auth-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background: rgba(15, 17, 26, 0.7); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); position: sticky; top: 0; z-index: 100; }
-        .logo-text { font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
-        .btn-login { background-color: var(--primary); color: white; padding: 0.6rem 1.5rem; border-radius: 8px; font-weight: 600; border: none; cursor: pointer; }
-        #user-profile-container { display: flex; align-items: center; gap: 1rem; background: var(--card-bg); padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1); }
-        .profile-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
-        .btn-logout { background: transparent; color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.3); padding: 0.4rem 0.8rem; border-radius: 8px; cursor: pointer; }
+        #auth-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(15, 17, 26, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-login {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        #user-profile-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--card-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+            background-color: var(--primary);
+        }
+
+        .profile-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #profile-name { font-size: 0.9rem; font-weight: 600; }
+        #profile-email { font-size: 0.75rem; color: var(--text-muted); }
+
+        .btn-logout {
+            background-color: transparent;
+            color: var(--danger);
+            padding: 0.4rem 0.8rem;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            font-size: 0.85rem;
+        }
+
+        .btn-logout:hover { background-color: rgba(239, 68, 68, 0.1); }
 
         /* Main Content */
-        .main-container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .hero-title { font-size: 4rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -1px; }
-        .hero-title span { background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-subtitle { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin-bottom: 3rem; }
-        
-        /* Dropdown */
-        .session-dropdown-wrapper { position: relative; display: inline-block; }
-        .btn-start-session { background-color: var(--text-main); color: var(--bg-color); padding: 1rem 2.5rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.8rem; border-radius: 12px; font-weight: 800; cursor: pointer; border: none; }
-        .dropdown-menu { position: absolute; top: 120%; left: 50%; transform: translateX(-50%); background: rgba(30, 33, 48, 0.95); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 0.5rem; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 50; }
-        .session-dropdown-wrapper:hover .dropdown-menu { opacity: 1; visibility: visible; }
-        .dropdown-item { background: transparent; color: var(--text-main); padding: 0.8rem 1rem; border-radius: 8px; border: none; text-align: left; cursor: pointer; }
-        .dropdown-item:hover { background: rgba(99, 102, 241, 0.15); color: var(--primary); }
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
 
-        /* Dashboard Widgets */
-        .live-dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; width: 100%; margin-top: 5rem; }
-        .dashboard-widget { background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 2rem; text-align: left; }
-        .widget-title { font-size: 1.25rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 1rem; }
-        .list-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: rgba(0, 0, 0, 0.2); border-radius: 8px; margin-bottom: 0.8rem; }
-        .btn-join { background: var(--primary); color: white; padding: 0.4rem 1rem; border-radius: 8px; border: none; cursor: pointer; }
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
 
-        /* Modal */
-        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-content { background: var(--card-bg); border-radius: 16px; padding: 2rem; width: 90%; max-width: 450px; }
-        .modal-input { width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
-        .modal-actions { display: flex; gap: 1rem; justify-content: flex-end; }
-        .btn-confirm { background: var(--primary); color: white; padding: 0.6rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; }
+        .hero-title span {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        .btn-start-session {
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-radius: 12px;
+        }
+
+        .btn-start-session:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Live Dashboards */
+        .live-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            margin-top: 5rem;
+        }
+
+        .dashboard-widget {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: left;
+        }
+
+        .widget-title {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1rem;
+        }
+
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            transition: all 0.2s ease;
+        }
+
+        .list-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateX(5px);
+        }
+
+        .room-info h4 { font-size: 1rem; margin-bottom: 0.2rem; }
+        .room-meta { font-size: 0.8rem; color: var(--text-muted); }
+        .pulse-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent);
+            margin-right: 5px;
+        }
+        .btn-join {
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        .rank-info { display: flex; align-items: center; gap: 1rem; }
+        .rank-number { font-weight: 800; font-size: 1.2rem; color: var(--text-muted); }
+        .rank-1 { color: var(--gold); }
+        .score-badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            text-decoration: none;
+            color: var(--text-main);
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .feature-card h3 { font-size: 1.25rem; margin-bottom: 0.8rem; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
     </style>
 </head>
 <body>
@@ -61,8 +382,13 @@
         <a href="/" class="logo-text">🚀 StudySpace</a>
         <div class="nav-actions">
             <button id="nav-login-btn" class="btn-login" onclick="window.location.href='/login.html'">Log In / Sign Up</button>
+            
             <div id="user-profile-container" style="display: none;">
                 <img id="user-avatar" class="profile-avatar" src="" alt="Avatar">
+                <div class="profile-text">
+                    <div id="profile-name">Name</div>
+                    <div id="profile-email">email@example.com</div>
+                </div>
                 <button id="logout-btn" class="btn-logout">Log Out</button>
             </div>
         </div>
@@ -71,24 +397,47 @@
     <div id="join-modal" class="modal-overlay">
         <div class="modal-content">
             <h3>Join a Study Room</h3>
-            <p>Paste your friend's invite link or enter the Room ID.</p>
-            <input type="text" id="join-room-input" class="modal-input" placeholder="Room ID..." autocomplete="off">
+            <p>Paste your friend's invite link or enter the Room ID directly below.</p>
+            
+            <input type="text" id="join-room-input" class="modal-input" placeholder="e.g. http://.../room/xyz123 or xyz123" autocomplete="off">
+            
+            <div id="join-error" style="color: var(--danger); font-size: 0.85rem; margin-top: -1rem; margin-bottom: 1rem; display: none; font-weight: 600;">
+                ❌ Room not found. Make sure the host is currently in the room!
+            </div>
+
             <div class="modal-actions">
-                <button class="btn-cancel" style="background:transparent; color:white; border:none; cursor:pointer;" onclick="closeJoinModal()">Cancel</button>
+                <button class="btn-cancel" onclick="closeJoinModal()">Cancel</button>
+                <button class="btn-confirm" id="btn-join-submit" onclick="submitJoinRoom()">Join Room</button>
+            </div>
+        </div>
+    </div>
+    <div id="join-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Join a Study Room</h3>
+            <p>Paste your friend's invite link or enter the Room ID directly below.</p>
+            <input type="text" id="join-room-input" class="modal-input" placeholder="e.g. http://.../room/xyz123 or xyz123" autocomplete="off">
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeJoinModal()">Cancel</button>
                 <button class="btn-confirm" onclick="submitJoinRoom()">Join Room</button>
             </div>
         </div>
     </div>
-
     <main class="main-container">
-        <header class="hero-section">
+        
+       <header class="hero-section">
             <h1 class="hero-title">Welcome to <span>StudySpace</span></h1>
-            <p class="hero-subtitle">Your central hub for collaborative learning.</p>
+            <p class="hero-subtitle">Your central hub for collaborative learning, past year question practice, and cracking exams together.</p>
+            
             <div class="session-dropdown-wrapper">
-                <button class="btn-start-session">Start a Live Session</button>
+                <button class="btn-start-session">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"></path></svg>
+                    Start a Live Session
+                </button>
+                
                 <div class="dropdown-menu">
                     <button class="dropdown-item" onclick="createPrivateRoom()">🔒 Create a new room</button>
                     <button class="dropdown-item" onclick="joinPrivateRoom()">🔑 Join a private room</button>
+                    <button class="dropdown-item" onclick="window.location.href='/room/public-lounge'">🌍 Join public room</button>
                 </div>
             </div>
         </header>
@@ -96,55 +445,187 @@
         <section class="live-dashboard">
             <div class="dashboard-widget">
                 <h2 class="widget-title">🔴 Live Study Rooms</h2>
-                <div class="list-item"><div><h4>Calculus PYQ Prep</h4></div><button class="btn-join" onclick="window.location.href='/room/123'">Join</button></div>
+                
+                <div class="list-item">
+                    <div class="room-info">
+                        <h4>Calculus PYQ Prep</h4>
+                        <div class="room-meta"><span class="pulse-dot"></span> 4 students · Hosted by Alex</div>
+                    </div>
+                    <button class="btn-join" onclick="window.location.href='/room/123'">Join</button>
+                </div>
+
+                <div class="list-item">
+                    <div class="room-info">
+                        <h4>Physics Mechanics</h4>
+                        <div class="room-meta"><span class="pulse-dot"></span> 2 students · Hosted by Sarah</div>
+                    </div>
+                    <button class="btn-join" onclick="window.location.href='/room/456'">Join</button>
+                </div>
             </div>
+
             <div class="dashboard-widget">
                 <h2 class="widget-title">🏆 Top Scholars</h2>
-                <div class="list-item"><span>1. Archana</span><span>2,450 XP</span></div>
+                
+                <div class="list-item">
+                    <div class="rank-info">
+                        <span class="rank-number rank-1">1</span>
+                        <div class="room-info">
+                            <h4>Archana</h4>
+                        </div>
+                    </div>
+                    <div class="score-badge">2,450 XP</div>
+                </div>
+
+                <div class="list-item">
+                    <div class="rank-info">
+                        <span class="rank-number">2</span>
+                        <div class="room-info">
+                            <h4>David K.</h4>
+                        </div>
+                    </div>
+                    <div class="score-badge">1,820 XP</div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="rank-info">
+                        <span class="rank-number">3</span>
+                        <div class="room-info">
+                            <h4>Aisha T.</h4>
+                        </div>
+                    </div>
+                    <div class="score-badge">1,640 XP</div>
+                </div>
             </div>
         </section>
+
+        <section class="feature-grid">
+            <a href="/practice" class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>PYQ Engine</h3>
+                <p>Practice past year questions with interactive grading and instantly verify your solutions.</p>
+            </a>
+            <a href="/rooms" class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3>Live Study Rooms</h3>
+                <p>Join collaborative rooms equipped with real-time chat, shared whiteboards, and study timers.</p>
+            </a>
+            <a href="/analytics" class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>Track Progress</h3>
+                <p>Monitor your performance, track your study hours, and level up your skills over time.</p>
+            </a>
+        </section>
+
     </main>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-        const firebaseConfig = { /* ... your config ... */ };
-        const app = initializeApp(firebaseConfig);
-        window.auth = getAuth(app);
 
-        onAuthStateChanged(window.auth, (user) => {
+        const firebaseConfig = {
+            apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
+            authDomain: "studyspace-45780.firebaseapp.com",
+            projectId: "studyspace-45780",
+            storageBucket: "studyspace-45780.firebasestorage.app",
+            messagingSenderId: "212493442342",
+            appId: "1:212493442342:web:15b83a52a04bbf8567b5e7",
+            measurementId: "G-NVHDFF8JDN"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // UI Elements
+        const loginBtn = document.getElementById('nav-login-btn');
+        const profileContainer = document.getElementById('user-profile-container');
+        const profileName = document.getElementById('profile-name');
+        const profileEmail = document.getElementById('profile-email');
+        const profileAvatar = document.getElementById('user-avatar');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        // Listen for Login State changes
+        // Listen for Login State changes
+        onAuthStateChanged(auth, (user) => {
             if (user) {
-                document.getElementById('nav-login-btn').style.display = 'none';
-                document.getElementById('user-profile-container').style.display = 'flex';
-                document.getElementById('user-avatar').src = user.photoURL || '';
+                // User is signed in! Update the UI
+                loginBtn.style.display = 'none';
+                profileContainer.style.display = 'flex';
+                profileName.textContent = user.displayName || 'Student';
+                profileEmail.textContent = user.email;
+                if (user.photoURL) profileAvatar.src = user.photoURL;
+                
                 localStorage.setItem('studySpaceUserName', user.displayName || 'Student');
+            } 
+            // If user is null, we do NOTHING. 
+            // The Login button will remain visible, and that's exactly what we want!
+        });
+        // Handle Log Out
+        logoutBtn.addEventListener('click', () => {
+            signOut(auth).then(() => {
+                window.location.reload();
+            }).catch((error) => {
+                console.error("Logout Error:", error);
+            });
+        });
+    </script>
+    <script>
+        // Routing Logic
+        function createPrivateRoom() {
+            const randomRoomId = Math.random().toString(36).substring(2, 10);
+            window.location.href = `/room/${randomRoomId}`;
+        }
+
+        function joinPrivateRoom() {
+            document.getElementById('join-modal').classList.add('active');
+            document.getElementById('join-room-input').focus();
+        }
+
+        function closeJoinModal() {
+            document.getElementById('join-modal').classList.remove('active');
+            document.getElementById('join-room-input').value = ''; 
+            document.getElementById('join-error').style.display = 'none'; // Hide error on close
+        }
+
+        // UPGRADED: Async function to check the server before routing
+        async function submitJoinRoom() {
+            const input = document.getElementById('join-room-input').value.trim();
+            const errorDiv = document.getElementById('join-error');
+            
+            // SECURITY CHECK: Are they logged in?
+            const user = auth.currentUser;
+            if (!user) {
+                sessionStorage.setItem('returnUrl', window.location.href);
+                window.location.href = '/login.html';
+                return;
+            }
+
+            if (!input) return;
+            // ... rest of your submitJoinRoom code stays exactly as it is ...
+        }
+
+        function createPrivateRoom() {
+            // SECURITY CHECK: Are they logged in?
+            const user = auth.currentUser;
+            if (!user) {
+                sessionStorage.setItem('returnUrl', window.location.href);
+                window.location.href = '/login.html';
+                return;
+            }
+            
+            const randomRoomId = Math.random().toString(36).substring(2, 10);
+            window.location.href = `/room/${randomRoomId}`;
+        }
+
+        document.getElementById('join-room-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                submitJoinRoom();
             }
         });
-
-        document.getElementById('logout-btn').addEventListener('click', () => signOut(window.auth).then(() => window.location.reload()));
-    </script>
-
-    <script>
-        function createPrivateRoom() {
-            if (!window.auth.currentUser) {
-                sessionStorage.setItem('returnUrl', window.location.href);
-                window.location.href = '/login.html';
-                return;
-            }
-            window.location.href = `/room/${Math.random().toString(36).substring(2, 10)}`;
-        }
-
-        function joinPrivateRoom() { document.getElementById('join-modal').classList.add('active'); }
-        function closeJoinModal() { document.getElementById('join-modal').classList.remove('active'); }
-        function submitJoinRoom() {
-            if (!window.auth.currentUser) {
-                sessionStorage.setItem('returnUrl', window.location.href);
-                window.location.href = '/login.html';
-                return;
-            }
-            const id = document.getElementById('join-room-input').value.trim();
-            if (id) window.location.href = `/room/${id.split('/').pop()}`;
-        }
+        
+        // Hide error message if the user starts typing again
+        document.getElementById('join-room-input').addEventListener('input', function() {
+            document.getElementById('join-error').style.display = 'none';
+        });
     </script>
 </body>
 </html>
