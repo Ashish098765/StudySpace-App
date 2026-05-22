@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudySpace | Collaborative Learning</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         /* --- Join Room Modal --- */
         .modal-overlay {
@@ -379,7 +380,7 @@
 <body>
 
     <nav id="auth-nav">
-        <a href="/" class="logo-text">🚀 StudySpace</a>
+        <a href="/" class="logo-text"><i class="fa-solid fa-rocket" style="color: var(--primary); margin-right: 8px;"></i>StudySpace</a>
         <div class="nav-actions">
             <button id="nav-login-btn" class="btn-login" onclick="window.location.href='/login.html'">Log In / Sign Up</button>
             
@@ -435,8 +436,8 @@
                 </button>
                 
                 <div class="dropdown-menu">
-                    <button class="dropdown-item" onclick="createPrivateRoom()">🔒 Create a new room</button>
-                    <button class="dropdown-item" onclick="joinPrivateRoom()">🔑 Join a private room</button>
+                    <button class="dropdown-item" onclick="createPrivateRoom()"><i class="fa-solid fa-lock" style="width: 20px;"></i> Create a new room</button>
+                    <button class="dropdown-item" onclick="joinPrivateRoom()"><i class="fa-solid fa-key" style="width: 20px;"></i> Join a private room</button>
                     <button class="dropdown-item" onclick="window.location.href='/room/public-lounge'">🌍 Join public room</button>
                 </div>
             </div>
@@ -444,7 +445,7 @@
 
         <section class="live-dashboard">
             <div class="dashboard-widget">
-                <h2 class="widget-title">🔴 Live Study Rooms</h2>
+                <h2 class="widget-title"><i class="fa-solid fa-tower-broadcast" style="color: var(--danger); margin-right: 10px;"></i>Live Study Rooms</h2>
                 
                 <div class="list-item">
                     <div class="room-info">
@@ -464,7 +465,7 @@
             </div>
 
             <div class="dashboard-widget">
-                <h2 class="widget-title">🏆 Top Scholars</h2>
+                <h2 class="widget-title"><i class="fa-solid fa-trophy" style="color: var(--gold); margin-right: 10px;"></i>Top Scholars</h2>
                 
                 <div id="leaderboard-list">
     </div>
@@ -472,18 +473,15 @@
 
         <section class="feature-grid">
             <a href="/practice" class="feature-card">
-                <div class="feature-icon">📚</div>
-                <h3>PYQ Engine</h3>
+                <h3><div class="feature-icon"><i class="fa-solid fa-book-open"></i></div></h3>
                 <p>Practice past year questions with interactive grading and instantly verify your solutions.</p>
             </a>
             <a href="/rooms" class="feature-card">
-                <div class="feature-icon">🤝</div>
-                <h3>Live Study Rooms</h3>
+                <h3><div class="feature-icon"><i class="fa-solid fa-users"></i></div></h3>
                 <p>Join collaborative rooms equipped with real-time chat, shared whiteboards, and study timers.</p>
             </a>
             <a href="/analytics" class="feature-card">
-                <div class="feature-icon">📈</div>
-                <h3>Track Progress</h3>
+                <h3><div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div></h3>
                 <p>Monitor your performance, track your study hours, and level up your skills over time.</p>
             </a>
         </section>

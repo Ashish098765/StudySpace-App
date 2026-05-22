@@ -4,292 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | StudySpace</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root {
-            --bg-color: #0f111a;
-            --card-bg: rgba(30, 33, 48, 0.6);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --primary: #6366f1;
-            --primary-hover: #4f46e5;
-            --accent: #10b981;
-            --accent-hover: #059669;
-            --input-bg: #0f111a;
-            --border-color: rgba(255, 255, 255, 0.1);
-        }
+        :root { --bg-color: #0f111a; --card-bg: #1e2130; --text-main: #f8fafc; --text-muted: #94a3b8; --primary: #6366f1; --danger: #ef4444; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        body { background-color: var(--bg-color); color: var(--text-main); display: flex; align-items: center; justify-content: center; min-height: 100vh; background-image: radial-gradient(at 50% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%); }
+        
+        .auth-container { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 3rem; width: 100%; max-width: 450px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+        .auth-container h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .auth-container p { color: var(--text-muted); margin-bottom: 2rem; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+        .input-group { margin-bottom: 1.2rem; text-align: left; }
+        .input-group label { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+        .input-group input { width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 0.8rem 1rem; border-radius: 8px; outline: none; transition: 0.2s; }
+        .input-group input:focus { border-color: var(--primary); }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
-            position: relative;
-        }
+        /* Avatar Grid Settings */
+        .avatar-section { display: none; margin-bottom: 1.5rem; text-align: left; }
+        .avatar-label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; display: block; }
+        .avatar-grid { display: flex; gap: 10px; justify-content: space-between; }
+        .avatar-option { width: 55px; height: 55px; border-radius: 50%; cursor: pointer; border: 3px solid transparent; opacity: 0.5; transition: all 0.2s; background: rgba(255,255,255,0.05); }
+        .avatar-option:hover { opacity: 0.8; }
+        .avatar-option.selected { border-color: var(--primary); opacity: 1; transform: scale(1.1); box-shadow: 0 0 15px rgba(99, 102, 241, 0.4); }
 
-        /* Back to Home Button */
-        /* Back to Home Button */
-        .back-nav {
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            z-index: 10;
-        }
+        .btn-submit { width: 100%; background: var(--primary); color: white; padding: 0.9rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: 0.2s; margin-top: 1rem; }
+        .btn-submit:hover { filter: brightness(1.1); }
+        
+        .toggle-text { margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
+        .toggle-text span { color: var(--primary); cursor: pointer; font-weight: 600; }
+        .toggle-text span:hover { text-decoration: underline; }
 
-        .btn-back {
-            background: rgba(255, 255, 255, 0.03);
-            color: var(--text-muted);
-            text-decoration: none;
-            padding: 0.6rem 1.4rem;
-            border-radius: 50px; /* Sleek pill shape */
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-back:hover {
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--text-main);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateX(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(99, 102, 241, 0.15); /* Soft indigo glow */
-        }
-
-        /* Makes the arrow physically slide over when hovered */
-        .btn-back svg {
-            transition: transform 0.3s ease;
-        }
-
-        .btn-back:hover svg {
-            transform: translateX(-3px); 
-        }
-
-        .btn-back:hover {
-            color: var(--text-main);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateX(-3px);
-        }
-
-        /* Login Card */
-        .login-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 3rem;
-            width: 100%;
-            max-width: 440px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
-
-        .login-title {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.5px;
-        }
-
-        .login-subtitle {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-        }
-
-        /* Google Button */
-        .btn-google {
-            background-color: white;
-            color: #333;
-            width: 100%;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-google:hover {
-            background-color: #f8fafc;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
-        }
-
-        /* Divider */
-        .divider {
-            display: flex;
-            align-items: center;
-            margin: 2rem 0;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .divider::before, .divider::after {
-            content: "";
-            flex: 1;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .divider span {
-            padding: 0 1rem;
-        }
-
-        /* Form Inputs */
-        .input-group {
-            text-align: left;
-            margin-bottom: 1.5rem;
-        }
-
-        .input-group label {
-            display: block;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .input-field {
-            width: 100%;
-            background-color: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 0.9rem 1rem;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            outline: none;
-        }
-
-        .input-field:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-        }
-
-        .input-field::placeholder {
-            color: rgba(148, 163, 184, 0.5);
-        }
-
-        /* Submit Button */
-        .btn-submit {
-            background-color: var(--accent);
-            color: white;
-            width: 100%;
-            padding: 0.9rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-top: 0.5rem;
-        }
-
-        .btn-submit:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-        }
-
-        /* Footer Link */
-        .auth-footer {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .auth-footer a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s ease;
-        }
-
-        .auth-footer a:hover {
-            color: var(--primary-hover);
-            text-decoration: underline;
-        }
+        .error-message { color: var(--danger); font-size: 0.85rem; margin-top: 1rem; display: none; }
     </style>
 </head>
 <body>
 
-    <nav class="back-nav">
-        <a href="/" class="btn-back">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-            Back to Home
-        </a>
-    </nav>
+    <div class="auth-container">
+        <h2><i class="fa-solid fa-rocket" style="color: var(--primary);"></i> StudySpace</h2>
+        <p id="auth-subtitle">Sign in to join study rooms</p>
 
-    <div class="login-card">
-        <h2 class="login-title">Welcome Back</h2>
-        <p class="login-subtitle">Sign in to continue your learning journey.</p>
+        <form id="auth-form">
+            <div class="input-group" id="name-group" style="display: none;">
+                <label>Display Name</label>
+                <input type="text" id="user-name" placeholder="How should we call you?">
+            </div>
 
-        <button id="google-signin-btn" class="btn-google">
-            <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-            </svg>
-            Sign in with Google
-        </button>
-
-        <div class="divider"><span>OR</span></div>
-
-        <form id="login-form">
-            <div class="input-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" class="input-field" placeholder="you@example.com" required>
+            <div class="avatar-section" id="avatar-section">
+                <span class="avatar-label">Choose your Avatar</span>
+                <div class="avatar-grid" id="avatar-grid">
+                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Felix" class="avatar-option selected" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Felix">
+                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Aneka" class="avatar-option" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Aneka">
+                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Leo" class="avatar-option" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Leo">
+                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Mimi" class="avatar-option" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Mimi">
+                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Jack" class="avatar-option" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Jack">
+                </div>
             </div>
 
             <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" class="input-field" placeholder="••••••••" required>
+                <label>Email</label>
+                <input type="email" id="user-email" placeholder="you@example.com" required>
             </div>
 
-            <button type="submit" id="login-btn" class="btn-submit">Login</button>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="user-pass" placeholder="••••••••" required>
+            </div>
+
+            <div id="error-msg" class="error-message"></div>
+
+            <button type="submit" class="btn-submit" id="submit-btn">Log In</button>
         </form>
 
-        <div class="auth-footer">
-            Don't have an account? <a href="/signup.html">Sign up here.</a>
+        <div class="toggle-text" id="toggle-auth">
+            Don't have an account? <span onclick="toggleMode()">Sign up here</span>
         </div>
     </div>
-    
+
     <script type="module">
-        console.log("🚦 STEP 1: Script has started running!");
-
+        // --- 1. FIREBASE SETUP ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-        
-        console.log("🚦 STEP 2: Firebase tools downloaded successfully!");
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
+        // ⚠️ PASTE YOUR CONFIG HERE ⚠️
         const firebaseConfig = {
             apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
             authDomain: "studyspace-45780.firebaseapp.com",
@@ -302,42 +101,96 @@
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
-        const provider = new GoogleAuthProvider();
-        
-        console.log("🚦 STEP 3: Firebase is initialized and ready!");
 
-        const loginBtn = document.getElementById('google-signin-btn');
-        console.log("🚦 STEP 4: Button found on page:", loginBtn);
+        // --- 2. UI LOGIC ---
+        let isLoginMode = true;
+        let selectedAvatar = "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"; // Default
 
-        loginBtn.addEventListener('click', () => {
-            console.log("🚦 STEP 5: Button was clicked! Attempting to talk to Google...");
-            
-           // Look for your button event listener in login.html
-loginBtn.addEventListener('click', () => {
-    
-    // This is the part that talks to Google
-    signInWithPopup(auth, provider)
-        .then((result) => {
-            // --- PASTE THE TELEPORT LOGIC HERE ---
-            
-            // Check if there is a saved room they were trying to join
-            const returnUrl = sessionStorage.getItem('returnUrl');
-            
-            if (returnUrl) {
-                // If they have a "bookmark", delete it and send them there
-                sessionStorage.removeItem('returnUrl'); 
-                window.location.href = returnUrl; 
-            } else {
-                // Otherwise, send them to the homepage as normal
-                window.location.href = "/";
-            }
-            
-            // --- END OF TELEPORT LOGIC ---
-        })
-        .catch((error) => {
-            console.error("Login failed:", error);
+        const form = document.getElementById('auth-form');
+        const nameGroup = document.getElementById('name-group');
+        const avatarSection = document.getElementById('avatar-section');
+        const submitBtn = document.getElementById('submit-btn');
+        const toggleText = document.getElementById('toggle-auth');
+        const errorMsg = document.getElementById('error-msg');
+
+        // Handle Avatar Selection
+        document.querySelectorAll('.avatar-option').forEach(img => {
+            img.addEventListener('click', (e) => {
+                document.querySelectorAll('.avatar-option').forEach(i => i.classList.remove('selected'));
+                e.target.classList.add('selected');
+                selectedAvatar = e.target.getAttribute('data-url');
+            });
         });
-});
+
+        // Toggle between Login and Signup
+        window.toggleMode = () => {
+            isLoginMode = !isLoginMode;
+            errorMsg.style.display = 'none';
+
+            if (isLoginMode) {
+                nameGroup.style.display = 'none';
+                avatarSection.style.display = 'none';
+                submitBtn.innerText = 'Log In';
+                document.getElementById('auth-subtitle').innerText = 'Sign in to join study rooms';
+                toggleText.innerHTML = `Don't have an account? <span onclick="toggleMode()">Sign up here</span>`;
+            } else {
+                nameGroup.style.display = 'block';
+                avatarSection.style.display = 'block';
+                submitBtn.innerText = 'Create Account';
+                document.getElementById('auth-subtitle').innerText = 'Set up your student profile';
+                toggleText.innerHTML = `Already have an account? <span onclick="toggleMode()">Log in here</span>`;
+            }
+        }
+
+        // --- 3. AUTHENTICATION LOGIC ---
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent page refresh
+            
+            const email = document.getElementById('user-email').value.trim();
+            const pass = document.getElementById('user-pass').value.trim();
+            const name = document.getElementById('user-name').value.trim();
+
+            errorMsg.style.display = 'none';
+            submitBtn.innerText = "Processing...";
+            submitBtn.disabled = true;
+
+            try {
+                if (isLoginMode) {
+                    // LOGIN FLOW
+                    await signInWithEmailAndPassword(auth, email, pass);
+                } else {
+                    // SIGNUP FLOW & VALIDATION
+                    if (pass.length < 6) throw new Error("Password must be at least 6 characters.");
+                    if (!name) throw new Error("Please enter a Display Name.");
+
+                    const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
+                    
+                    // Attach Avatar and Name to Firebase Profile
+                    await updateProfile(userCredential.user, {
+                        displayName: name,
+                        photoURL: selectedAvatar
+                    });
+                }
+
+                // SUCCESS: Teleport Logic
+                const returnUrl = sessionStorage.getItem('returnUrl');
+                if (returnUrl) {
+                    sessionStorage.removeItem('returnUrl');
+                    window.location.href = returnUrl;
+                } else {
+                    window.location.href = "/";
+                }
+
+            } catch (error) {
+                // Handle Errors nicely
+                submitBtn.disabled = false;
+                submitBtn.innerText = isLoginMode ? 'Log In' : 'Create Account';
+                
+                errorMsg.style.display = 'block';
+                if (error.code === 'auth/email-already-in-use') errorMsg.innerText = "❌ Email is already registered.";
+                else if (error.code === 'auth/invalid-credential') errorMsg.innerText = "❌ Invalid email or password.";
+                else errorMsg.innerText = `❌ ${error.message}`;
+            }
         });
     </script>
 </body>
