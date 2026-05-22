@@ -7,6 +7,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
+        /* --- Live Session Dropdown --- */
+        .session-dropdown-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 120%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(30, 33, 48, 0.95);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            min-width: 220px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 50;
+        }
+
+        .session-dropdown-wrapper:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-item {
+            background: transparent;
+            color: var(--text-main);
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--primary);
+            transform: translateY(0); /* Override default button hover */
+        }
         :root {
             --bg-color: #0f111a;
             --card-bg: #1e2130;
@@ -286,13 +337,22 @@
 
     <main class="main-container">
         
-        <header class="hero-section">
+       <header class="hero-section">
             <h1 class="hero-title">Welcome to <span>StudySpace</span></h1>
             <p class="hero-subtitle">Your central hub for collaborative learning, past year question practice, and cracking exams together.</p>
-            <button class="btn-start-session" onclick="window.location.href='/create-room'">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"></path></svg>
-                Start a Live Session
-            </button>
+            
+            <div class="session-dropdown-wrapper">
+                <button class="btn-start-session">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"></path></svg>
+                    Start a Live Session
+                </button>
+                
+                <div class="dropdown-menu">
+                    <button class="dropdown-item" onclick="createPrivateRoom()">🔒 Create a new room</button>
+                    <button class="dropdown-item" onclick="joinPrivateRoom()">🔑 Join a private room</button>
+                    <button class="dropdown-item" onclick="window.location.href='/room/public-lounge'">🌍 Join public room</button>
+                </div>
+            </div>
         </header>
 
         <section class="live-dashboard">
@@ -405,6 +465,9 @@
                 profileName.textContent = user.displayName || 'Student';
                 profileEmail.textContent = user.email;
                 if (user.photoURL) profileAvatar.src = user.photoURL;
+                
+                // CRITICAL ADDITION: Save the name so the video room can use it!
+                localStorage.setItem('studySpaceUserName', user.displayName || 'Student');
             } else {
                 // User is signed out. Show login button
                 loginBtn.style.display = 'block';
@@ -420,6 +483,21 @@
                 console.error("Logout Error:", error);
             });
         });
+    </script>
+    <script>
+        // Routing Logic
+        function createPrivateRoom() {
+            // Generates a random secure ID like "x8f9a2b"
+            const randomRoomId = Math.random().toString(36).substring(2, 10);
+            window.location.href = `/room/${randomRoomId}`;
+        }
+
+        function joinPrivateRoom() {
+            const roomId = prompt("Please enter the Private Room ID:");
+            if (roomId && roomId.trim() !== "") {
+                window.location.href = `/room/${roomId.trim()}`;
+            }
+        }
     </script>
 </body>
 </html>
