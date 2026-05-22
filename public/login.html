@@ -98,8 +98,7 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, sendEmailVerification, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
         // ⚠️ PASTE YOUR FIREBASE CONFIG HERE ⚠️
         const firebaseConfig = {
             apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
@@ -190,23 +189,54 @@
             submitBtn.innerText = "Processing...";
             submitBtn.disabled = true;
 
-            try {
+           try {
                 if (isLoginMode) {
-                    await signInWithEmailAndPassword(auth, email, pass);
+                    // --- SECURE LOGIN FLOW ---
+                    const userCredential = await signInWithEmailAndPassword(auth, email, pass);
+                    
+                    // NEW: Check if they actually clicked the link in their email!
+                    if (!userCredential.user.emailVerified) {
+                        await signOut(auth); // Kick them back out
+                        throw new Error("Please verify your email address. Check your inbox!");
+                    }
+                    
+                    handleSuccessfulLogin();
+                    
                 } else {
+                    // --- SECURE SIGNUP FLOW ---
                     if (pass.length < 6) throw new Error("Password must be at least 6 characters.");
                     if (!name) throw new Error("Please enter a Display Name.");
 
                     const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
+                    
                     await updateProfile(userCredential.user, {
                         displayName: name,
                         photoURL: selectedAvatar
                     });
+
+                    // NEW: Send the verification email
+                    await sendEmailVerification(userCredential.user);
+                    
+                    // Immediately sign them out so they can't bypass the check
+                    await signOut(auth);
+
+                    // Change the UI to show a success message
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Create Account';
+                    errorMsg.style.color = "var(--accent)"; // Make it green!
+                    errorMsg.innerText = "✅ Account created! Please check your email inbox to verify your account before logging in.";
+                    errorMsg.style.display = 'block';
+                    
+                    // Stop here. Do NOT run handleSuccessfulLogin()
+                    return; 
                 }
-                handleSuccessfulLogin();
+
             } catch (error) {
+                // Handle Errors
                 submitBtn.disabled = false;
                 submitBtn.innerText = isLoginMode ? 'Log In' : 'Create Account';
+                
+                errorMsg.style.color = "var(--danger)"; // Reset to red for errors
                 errorMsg.style.display = 'block';
                 
                 if (error.code === 'auth/email-already-in-use') errorMsg.innerText = "❌ Email is already registered.";
