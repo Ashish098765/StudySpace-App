@@ -1,6 +1,26 @@
 import { getFirestore, doc, updateDoc, setDoc, increment } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 const db = getFirestore();
 
+// --- 1. ROOM IDENTIFICATION LOGIC ---
+const ROOM_ID = window.location.pathname.split('/').pop();
+const roomTitleDisplay = document.getElementById('room-id-display');
+const activityWarning = document.getElementById('activity-warning');
+
+// Dictionary of our public rooms
+const publicRooms = {
+    'public-general': '📚 General Study Lounge',
+    'public-pomodoro': '🍅 Pomodoro Focus',
+    'public-quiet': '🤫 Quiet Reading Room'
+};
+
+const isPublicRoom = ROOM_ID.startsWith('public-');
+
+// Transform the Room Title dynamically
+if (publicRooms[ROOM_ID]) {
+    roomTitleDisplay.innerText = publicRooms[ROOM_ID];
+} else {
+    roomTitleDisplay.innerText = `🔒 Private Room (${ROOM_ID})`;
+}
 /* global io, Peer */
 
 const socket = io();
@@ -62,13 +82,32 @@ const activityWarning = document.getElementById('activity-warning');
 
 let myStream = null;
 
-// --- 1. THE 2-MINUTE KICK TIMER ---
-// 120,000 milliseconds = 2 minutes
-let inactivityTimer = setTimeout(() => {
-    alert("You were removed from the room for inactivity. Study rooms require a camera or screen share!");
-    window.location.href = '/'; // Kick them back to the homepage
-}, 120000);
+// --- 2. THE CONDITIONAL 2-MINUTE KICK TIMER ---
+let inactivityTimer;
 
+if (isPublicRoom) {
+    // PUBLIC ROOM: Enforce the 2-minute rule
+    activityWarning.style.display = 'block'; // Show warning
+    
+    inactivityTimer = setTimeout(() => {
+        alert("You were removed from the public room for inactivity. Cameras or Screen Share are required!");
+        window.location.href = '/'; 
+    }, 120000); // 2 minutes
+} else {
+    // PRIVATE ROOM: Relax the rules for friends
+    activityWarning.style.display = 'none'; // Hide warning
+}
+
+// Helper function to stop the timer when they follow the rules
+function userDidBecomeActive() {
+    if (inactivityTimer) clearTimeout(inactivityTimer);
+    if (activityWarning) activityWarning.style.display = 'none';
+    
+    // Optional: Keep buttons visible if you want them to be able to switch between Cam/Screen, 
+    // or hide them if you only want one stream per person.
+    document.getElementById('btn-start-cam').style.display = 'none';     
+    document.getElementById('btn-share-screen').style.display = 'none';
+}
 // Helper function to stop the timer when they follow the rules
 function userDidBecomeActive() {
     clearTimeout(inactivityTimer);

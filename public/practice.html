@@ -110,32 +110,40 @@
 
     </div>
 
-    <script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+        import { getFirestore, doc, updateDoc, setDoc, increment } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        // ⚠️ PASTE YOUR FIREBASE CONFIG HERE ⚠️
+        const firebaseConfig = {
+            apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
+            authDomain: "studyspace-45780.firebaseapp.com",
+            projectId: "studyspace-45780",
+            storageBucket: "studyspace-45780.firebasestorage.app",
+            messagingSenderId: "212493442342",
+            appId: "1:212493442342:web:15b83a52a04bbf8567b5e7",
+            measurementId: "G-NVHDFF8JDN"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        
+        let currentUser = null;
+        
+        onAuthStateChanged(auth, (user) => {
+            if (user) currentUser = user;
+        });
+
         // --- THE QUESTION DATABASE ---
-        // In the future, you will pull this from Firebase Firestore. 
-        // For now, it's hardcoded to build the UI.
         const questionBank = {
             "JEE Mains": [
-                {
-                    q: "The work done by a conservative force on a particle moving in a closed loop is:",
-                    options: ["Always positive", "Always negative", "Zero", "Depends on the path"],
-                    answer: 2, // Index 2 is "Zero"
-                    explanation: "By definition, the work done by a conservative force (like gravity or electrostatic force) over a closed loop is always strictly zero."
-                },
-                {
-                    q: "If the kinetic energy of a free electron doubles, its de Broglie wavelength changes by the factor:",
-                    options: ["1/2", "1/√2", "√2", "2"],
-                    answer: 1,
-                    explanation: "de Broglie wavelength λ = h / √(2mK). If K is doubled, the denominator is multiplied by √2, so λ changes by a factor of 1/√2."
-                }
+                { q: "The work done by a conservative force on a particle moving in a closed loop is:", options: ["Always positive", "Always negative", "Zero", "Depends on the path"], answer: 2, explanation: "By definition, the work done by a conservative force over a closed loop is always strictly zero." },
+                { q: "If the kinetic energy of a free electron doubles, its de Broglie wavelength changes by the factor:", options: ["1/2", "1/√2", "√2", "2"], answer: 1, explanation: "de Broglie wavelength λ = h / √(2mK)." }
             ],
             "NEET": [
-                {
-                    q: "Which of the following is responsible for the transport of water and minerals in plants?",
-                    options: ["Phloem", "Xylem", "Epidermis", "Stomata"],
-                    answer: 1,
-                    explanation: "The Xylem tissue is primarily responsible for the transport of water and dissolved minerals from the roots to the rest of the plant."
-                }
+                { q: "Which of the following is responsible for the transport of water and minerals in plants?", options: ["Phloem", "Xylem", "Epidermis", "Stomata"], answer: 1, explanation: "The Xylem tissue transports water and minerals." }
             ]
         };
 
@@ -155,31 +163,24 @@
         const explanationBox = document.getElementById('explanation-box');
         const resultStatus = document.getElementById('result-status');
 
-        // --- CORE FUNCTIONS ---
-
-        function startExam(examName) {
+        // Global EXPORT for HTML onclick functions
+        window.startExam = (examName) => {
             currentExam = examName;
             currentQuestions = questionBank[examName] || [];
             currentIndex = 0;
-            
-            if(currentQuestions.length === 0) {
-                alert("Coming soon! Questions for this exam are being added.");
-                return;
-            }
-
+            if(currentQuestions.length === 0) return alert("Coming soon!");
             document.getElementById('active-exam-title').innerText = `${examName} - PYQ Practice`;
             dashboard.style.display = 'none';
             quizEngine.style.display = 'block';
-            
-            loadQuestion();
+            window.loadQuestion();
         }
 
-        function exitExam() {
+        window.exitExam = () => {
             dashboard.style.display = 'block';
             quizEngine.style.display = 'none';
         }
 
-        function loadQuestion() {
+        window.loadQuestion = () => {
             isAnswerChecked = false;
             selectedOptionIndex = null;
             checkBtn.style.display = 'block';
@@ -196,27 +197,32 @@
             qData.options.forEach((opt, index) => {
                 const btn = document.createElement('button');
                 btn.className = 'option-btn';
-                // A, B, C, D labels
-                const label = String.fromCharCode(65 + index); 
-                btn.innerHTML = `<strong style="background: rgba(255,255,255,0.1); padding: 0.2rem 0.6rem; border-radius: 4px;">${label}</strong> ${opt}`;
-                
-                btn.onclick = () => selectOption(index, btn);
+                btn.innerHTML = `<strong style="background: rgba(255,255,255,0.1); padding: 0.2rem 0.6rem; border-radius: 4px;">${String.fromCharCode(65 + index)}</strong> ${opt}`;
+                btn.onclick = () => {
+                    if (isAnswerChecked) return;
+                    selectedOptionIndex = index;
+                    checkBtn.disabled = false;
+                    document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                };
                 optionsContainer.appendChild(btn);
             });
         }
 
-        function selectOption(index, btnElement) {
-            if (isAnswerChecked) return; // Prevent changing answer after checking
+        // --- THE XP LOGIC ---
+        async function updateXP(amount) {
+            if (!currentUser) return; // Only save if logged in
             
-            selectedOptionIndex = index;
-            checkBtn.disabled = false;
-
-            // Remove selected class from all, add to clicked
-            document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
-            btnElement.classList.add('selected');
+            const userRef = doc(db, "users", currentUser.uid);
+            try {
+                await updateDoc(userRef, { xp: increment(amount) });
+            } catch (e) {
+                // If they have no XP record yet, create one
+                await setDoc(userRef, { name: currentUser.displayName, xp: amount });
+            }
         }
 
-        function checkAnswer() {
+        window.checkAnswer = async () => {
             if (selectedOptionIndex === null) return;
             isAnswerChecked = true;
             checkBtn.style.display = 'none';
@@ -224,36 +230,28 @@
 
             const qData = currentQuestions[currentIndex];
             const buttons = document.querySelectorAll('.option-btn');
-            
             const isCorrect = selectedOptionIndex === qData.answer;
 
             if (isCorrect) {
                 buttons[selectedOptionIndex].classList.add('correct');
-                resultStatus.innerHTML = `<i class="fa-solid fa-check-circle" style="color: var(--accent);"></i> Brilliant! Correct Answer.`;
+                resultStatus.innerHTML = `<i class="fa-solid fa-check-circle" style="color: var(--accent);"></i> Correct! <strong style="color: var(--gold);">+8 XP</strong>`;
+                await updateXP(8); // Add 8 XP
             } else {
                 buttons[selectedOptionIndex].classList.add('wrong');
-                buttons[qData.answer].classList.add('correct'); // Show the real correct answer
-                resultStatus.innerHTML = `<i class="fa-solid fa-xmark-circle" style="color: var(--danger);"></i> Incorrect.`;
+                buttons[qData.answer].classList.add('correct');
+                resultStatus.innerHTML = `<i class="fa-solid fa-xmark-circle" style="color: var(--danger);"></i> Incorrect. <strong style="color: var(--danger);">-2 XP</strong>`;
+                await updateXP(-2); // Subtract 2 XP
             }
 
-            // Show explanation
             explanationBox.innerHTML = `<strong>Explanation:</strong> <br> ${qData.explanation}`;
             explanationBox.style.display = 'block';
         }
 
-        function nextQuestion() {
+        window.nextQuestion = () => {
             currentIndex++;
-            if (currentIndex < currentQuestions.length) {
-                loadQuestion();
-            } else {
-                // Exam Finished
-                document.getElementById('question-text').innerHTML = `
-                    <div style="text-align: center;">
-                        <i class="fa-solid fa-trophy" style="font-size: 4rem; color: var(--gold); margin-bottom: 1rem;"></i>
-                        <h2>Practice Set Complete!</h2>
-                        <p style="color: var(--text-muted); margin-top: 1rem;">Great job staying consistent. More questions coming soon.</p>
-                    </div>
-                `;
+            if (currentIndex < currentQuestions.length) window.loadQuestion();
+            else {
+                document.getElementById('question-text').innerHTML = `<div style="text-align: center;"><i class="fa-solid fa-trophy" style="font-size: 4rem; color: var(--gold); margin-bottom: 1rem;"></i><h2>Practice Set Complete!</h2></div>`;
                 optionsContainer.innerHTML = "";
                 explanationBox.style.display = 'none';
                 resultStatus.innerText = "";
