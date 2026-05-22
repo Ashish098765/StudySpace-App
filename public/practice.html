@@ -286,7 +286,7 @@
 
             try {
                 // 1. DYNAMIC FETCH: Pulls the tiny dashboard file
-                const metaFile = examName === "JEE Mains" ? "data/metadata_jee.json" : "data/metadata_neet.json";
+                const metaFile = examName === "JEE Mains" ? "/data/metadata_jee.json" : "/data/metadata_neet.json"; 
                 const response = await fetch(metaFile);
                 if (!response.ok) throw new Error("Metadata JSON file not found.");
                 
@@ -392,7 +392,7 @@
 
             try {
                 // 3. LAZY LOADING: Fetch the specific chapter's JSON file only when needed!
-                const targetFile = `data/questions/${selectedChapterId}.json`;
+                 const targetFile = "/data/questions/${selectedChapterId}.json";
                 const response = await fetch(targetFile);
                 
                 if (!response.ok) throw new Error("Question file missing: " + targetFile);
