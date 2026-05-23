@@ -40,7 +40,7 @@
         .btn-primary:hover:not(:disabled) { background: var(--brand-blue-hover); }
         .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
 
-        /* --- SCREEN 1: EXAM GATEWAY --- */
+        /* --- SCREEN 1 & 2: GATEWAY & EXPLORER --- */
         #exam-gateway-screen { display: block; }
         .gateway-title { text-align: center; font-size: 2.2rem; font-weight: 800; margin-top: 3rem; margin-bottom: 0.5rem; }
         .gateway-subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1rem; }
@@ -51,7 +51,6 @@
         .gateway-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; }
         .gateway-card p { font-size: 0.9rem; color: var(--text-secondary); }
 
-        /* --- SCREEN 2: CHAPTER EXPLORER --- */
         #chapter-explorer-screen { display: none; }
         .explorer-layout { display: flex; gap: 2rem; margin-top: 1.5rem; }
         .subject-sidebar { width: 240px; flex-shrink: 0; display: flex; flex-direction: column; gap: 0.5rem; }
@@ -68,43 +67,38 @@
         .chapter-stats { font-size: 0.8rem; color: var(--text-secondary); display: flex; gap: 1rem; font-weight: 500; }
         .stat-highlight { color: var(--gold); font-weight: 600; }
 
-        /* --- SCREEN 3: LIST WORKSPACE --- */
-        #list-engine-screen { display: none; }
-        .test-header { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); }
-        .test-meta { display: flex; gap: 0.6rem; align-items: center; }
+        /* Shared Header/Tags */
+        .test-header { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1.5rem; }
+        .test-meta { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
         .marks-tag { font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
-        .tag-year { background: rgba(251, 191, 36, 0.12); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.25); }
         .tag-subject { background: rgba(99, 102, 241, 0.15); color: var(--brand-blue); border: 1px solid rgba(99, 102, 241, 0.25); }
         .tag-chapter { background: rgba(255,255,255,0.06); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.1); }
-        
-        .list-container { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
-        
-        /* Accordion Cards */
-        .q-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
-        .q-card-header { padding: 1.2rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: background 0.2s; }
-        .q-card-header:hover { background: var(--bg-surface-elevated); }
-        .q-title { font-weight: 600; font-size: 1rem; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 70%; }
-        
-        /* Status Badges */
+
+        /* --- SCREEN 3: LIST INDEX VIEW --- */
+        #list-index-screen { display: none; }
+        .index-list-container { display: flex; flex-direction: column; gap: 0.5rem; }
+        .index-row { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; }
+        .index-row:hover { background: var(--bg-surface-elevated); border-color: var(--text-secondary); }
+        .index-q-text { font-weight: 500; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 75%; }
         .status-badge { font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
         .badge-pending { background: rgba(255, 255, 255, 0.05); color: var(--text-secondary); border: 1px solid rgba(255, 255, 255, 0.1); }
         .badge-correct { background: var(--success-bg); color: var(--success-green); border: 1px solid var(--success-green); }
         .badge-wrong { background: var(--error-bg); color: var(--error-red); border: 1px solid var(--error-red); }
 
-        /* Card Body (Hidden by default) */
-        .q-card-body { padding: 0 1.5rem 1.5rem 1.5rem; border-top: 1px solid var(--border-color); display: none; }
-        .q-card.open .q-card-body { display: block; }
+        /* --- SCREEN 4: SINGLE QUESTION FOCUS VIEW --- */
+        #quiz-focus-screen { display: none; }
+        .question-container { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 2rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; }
+        .q-number { font-size: 0.85rem; color: var(--text-secondary); font-weight: 700; margin-bottom: 1rem; display: block; }
+        .q-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-weight: 500; overflow-x: auto; }
         
-        .q-text { font-size: 1.05rem; line-height: 1.6; margin: 1.5rem 0; font-weight: 500; }
-        .options-list { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1.5rem; }
-        
+        .options-list { display: flex; flex-direction: column; gap: 0.8rem; }
         .marks-option { display: flex; align-items: center; padding: 0.9rem 1.2rem; border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; transition: 0.15s; background: rgba(0,0,0,0.15); }
         .marks-option:hover:not(.locked) { border-color: var(--text-secondary); background: var(--bg-surface-elevated); }
         .opt-letter { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; margin-right: 1rem; flex-shrink: 0; background: var(--bg-base); transition: 0.15s; }
         .opt-text { flex-grow: 1; font-size: 0.95rem; }
         .opt-icon { margin-left: 1rem; font-size: 1.1rem; display: none; }
 
-        /* Selection/Evaluation States */
+        /* Option States */
         .marks-option.selected { border-color: var(--brand-blue); background: rgba(99, 102, 241, 0.08); }
         .marks-option.selected .opt-letter { background: var(--brand-blue); border-color: var(--brand-blue); color: white; }
         .marks-option.correct { border-color: var(--success-green); background: var(--success-bg); }
@@ -115,9 +109,12 @@
         .marks-option.wrong .opt-icon.cross-icon { color: var(--error-red); display: block; }
         .marks-option.locked { cursor: default; }
 
+        .bottom-bar { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; min-height: 4.5rem; }
+        .status-msg { font-size: 0.9rem; font-weight: 600; }
+        
         .solution-box { display: none; margin-top: 1.5rem; padding: 1.5rem; border-radius: 6px; border: 1px solid var(--success-green); background: var(--success-bg); }
         .solution-title { font-size: 0.8rem; color: var(--success-green); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; }
-        .solution-text { font-size: 0.95rem; line-height: 1.6; color: var(--text-primary); }
+        .solution-text { font-size: 0.95rem; line-height: 1.6; color: var(--text-primary); overflow-x: auto; }
     </style>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -131,6 +128,7 @@
 
     <div class="container">
         
+        <!-- Screen 1: Gateway -->
         <div id="exam-gateway-screen">
             <h1 class="gateway-title">Target Exam</h1>
             <p class="gateway-subtitle">Select your preference to unlock structured historical test items.</p>
@@ -148,6 +146,7 @@
             </div>
         </div>
 
+        <!-- Screen 2: Explorer -->
         <div id="chapter-explorer-screen">
             <button class="btn-text" onclick="navigateToGateway()"><i class="fa-solid fa-arrow-left"></i> Change Target</button>
             <div class="page-header">
@@ -160,23 +159,49 @@
             </div>
         </div>
 
-        <!-- LIST VIEW SCREEN (Now directly accessed from Explorer) -->
-        <div id="list-engine-screen">
+        <!-- Screen 3: List Index View -->
+        <div id="list-index-screen">
             <button class="btn-text" onclick="abortSession()"><i class="fa-solid fa-arrow-left"></i> Back to Inventory</button>
             
             <div class="test-header">
                 <div class="test-meta">
-                    <span class="marks-tag tag-year" id="badge-year">ALL YEARS</span>
-                    <span class="marks-tag tag-subject" id="badge-subject">Physics</span>
-                    <span class="marks-tag tag-chapter" id="badge-chapter">Kinematics</span>
+                    <span class="marks-tag tag-subject" id="list-badge-subject">Physics</span>
+                    <span class="marks-tag tag-chapter" id="list-badge-chapter">Kinematics</span>
                 </div>
-                <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);" id="progress-tracker">
-                    0 / 0 Completed
+                <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);" id="list-progress-tracker">0 / 0 Completed</div>
+            </div>
+
+            <div class="index-list-container" id="index-list-container">
+                <!-- Clickable rows injected here -->
+            </div>
+        </div>
+
+        <!-- Screen 4: Single Question Focus View -->
+        <div id="quiz-focus-screen">
+            <button class="btn-text" onclick="returnToList()"><i class="fa-solid fa-list"></i> Back to Question List</button>
+            
+            <div class="test-header" style="border-radius: 8px 8px 0 0; border-bottom: none; margin-bottom: 0;">
+                <div class="test-meta">
+                    <span class="marks-tag tag-subject" id="focus-badge-subject">Physics</span>
+                    <span class="marks-tag tag-chapter" id="focus-badge-chapter">Kinematics</span>
+                </div>
+                <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);" id="focus-progress-tracker">Q 1 of 1</div>
+            </div>
+
+            <div class="question-container" style="border-radius: 0 0 8px 8px;">
+                <div class="q-text" id="focus-q-text">Loading...</div>
+                <div class="options-list" id="focus-options-container"></div>
+
+                <div class="solution-box" id="focus-explanation-box">
+                    <div class="solution-title"><i class="fa-solid fa-lightbulb"></i> Rationalized Solution Explanation</div>
+                    <div class="solution-text" id="focus-explanation-text"></div>
                 </div>
             </div>
 
-            <div class="list-container" id="questions-list-container">
-                <!-- Question Cards Will Be Injected Here via JavaScript -->
+            <div class="bottom-bar">
+                <div class="status-msg" id="focus-result-status"></div>
+                <button class="btn-primary" id="btn-check-focus" onclick="evaluateFocusQuestion()" disabled>SAVE & CHECK ANSWER</button>
+                <button class="btn-primary" id="btn-next-focus" onclick="advanceToNextQuestion()" style="display: none; background: var(--success-green);">CONTINUE <i class="fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
 
@@ -217,22 +242,30 @@
             }
         });
 
+        // Global State
         let selectedTargetExam = "";
         let selectedActiveSubject = "";
         let selectedActiveChapter = "";
         let selectedChapterId = ""; 
         let activeMetadata = null; 
         let filteredPracticeSet = [];
-        let activeSelections = {}; 
+        
+        // Single Question Focus State
+        let currentFocusIndex = 0;
+        let selectedOptionIndex = null;
+        let isFocusAnswerChecked = false;
 
+        // Screen Pointers
         const screenGateway = document.getElementById('exam-gateway-screen');
         const screenExplorer = document.getElementById('chapter-explorer-screen');
-        const screenList = document.getElementById('list-engine-screen');
+        const screenList = document.getElementById('list-index-screen');
+        const screenFocus = document.getElementById('quiz-focus-screen');
 
         window.navigateToGateway = () => {
             screenGateway.style.display = 'block';
             screenExplorer.style.display = 'none';
             screenList.style.display = 'none';
+            screenFocus.style.display = 'none';
         };
 
         window.navigateToExplorer = async (examName) => {
@@ -283,7 +316,6 @@
             
             const chapters = activeMetadata[subjectName] || [];
             chapters.forEach(ch => {
-                const textMetric24 = ch.breakdown["2024"] ? `2024: <span class="stat-highlight">${ch.breakdown["2024"]} Qs</span>` : `2024: 0 Qs`;
                 const divRow = document.createElement('div');
                 divRow.className = "chapter-row";
                 divRow.innerHTML = `
@@ -292,20 +324,13 @@
                         <span class="chapter-name">${ch.name}</span>
                     </div>
                     <div class="chapter-stats">
-                        <span>${textMetric24}</span>
                         <span>Total: ${ch.total} Qs</span>
                     </div>
                 `;
-                // Direct jump to the question list, bypassing the old filter screen
                 divRow.onclick = () => launchSession(ch.name, ch.id);
                 container.appendChild(divRow);
             });
         }
-
-        window.abortSession = () => {
-            screenList.style.display = 'none';
-            screenExplorer.style.display = 'block';
-        };
 
         function generateQuestionId(qText) {
             let hash = 0;
@@ -316,168 +341,203 @@
             return Math.abs(hash).toString();
         }
 
-        // Modified to trigger directly from the chapter click
+        // --- CORE LOGIC: LAUNCH THE LIST ---
         window.launchSession = async (chapterName, chapterFileId) => {
             selectedActiveChapter = chapterName;
             selectedChapterId = chapterFileId;
 
-            // Optional: Provide instant visual feedback before the fetch completes
-            const listContainer = document.getElementById('questions-list-container');
-            document.getElementById('badge-subject').innerText = selectedActiveSubject;
-            document.getElementById('badge-chapter').innerText = selectedActiveChapter;
+            // Update Badges
+            document.getElementById('list-badge-subject').innerText = selectedActiveSubject;
+            document.getElementById('list-badge-chapter').innerText = selectedActiveChapter;
+            document.getElementById('focus-badge-subject').innerText = selectedActiveSubject;
+            document.getElementById('focus-badge-chapter').innerText = selectedActiveChapter;
             
             screenExplorer.style.display = 'none';
             screenList.style.display = 'block';
-            listContainer.innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--text-secondary);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><br><br>Loading Question Bank...</div>';
+            document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--text-secondary);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><br><br>Loading Question Bank...</div>';
 
             try {
-                const targetFile = `/data/questions/${selectedChapterId}.json`;
-                const response = await fetch(targetFile);
+                const response = await fetch(`/data/questions/${selectedChapterId}.json`);
                 if (!response.ok) throw new Error("Question file missing.");
                 
-                const rawChapterQuestions = await response.json();
+                let rawQuestions = await response.json();
                 
-                // Directly utilize all questions from the file
-                filteredPracticeSet = rawChapterQuestions;
-
-                if(filteredPracticeSet.length === 0) {
-                    listContainer.innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--error-red);">No questions available for this topic yet.</div>';
+                if(rawQuestions.length === 0) {
+                    document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--error-red);">No questions available.</div>';
                     return;
                 }
 
-                filteredPracticeSet = filteredPracticeSet.map(q => ({
+                // Inject stable IDs
+                filteredPracticeSet = rawQuestions.map(q => ({
                     ...q,
                     uid: `${selectedChapterId}_${generateQuestionId(q.q)}`
                 }));
 
-                activeSelections = {}; 
-                renderFullQuestionList();
+                renderIndexList();
 
             } catch (error) {
                 console.error(error);
-                listContainer.innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--error-red);">Failed to load the dataset. Please ensure the JSON file is uploaded to the server.</div>';
+                document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--error-red);">Failed to load the dataset.</div>';
             }
         };
 
-        function renderFullQuestionList() {
-            const listContainer = document.getElementById('questions-list-container');
-            listContainer.innerHTML = "";
+        window.abortSession = () => {
+            screenList.style.display = 'none';
+            screenExplorer.style.display = 'block';
+        };
+
+        window.returnToList = () => {
+            renderIndexList(); // Re-render to update badges with newly completed questions
+            screenFocus.style.display = 'none';
+            screenList.style.display = 'block';
+        };
+
+        // --- SCREEN 3: RENDER THE CLICKABLE LIST ---
+        function renderIndexList() {
+            const container = document.getElementById('index-list-container');
+            container.innerHTML = "";
             let completedCount = 0;
 
             filteredPracticeSet.forEach((q, index) => {
                 const isCorrect = correctIds.includes(q.uid);
                 const isWrong = wrongIds.includes(q.uid);
-                const isAttempted = isCorrect || isWrong;
                 
-                if (isAttempted) completedCount++;
+                if (isCorrect || isWrong) completedCount++;
 
-                let badgeHtml = `<div class="status-badge badge-pending" id="badge-${index}"><i class="fa-solid fa-circle-minus"></i> Pending</div>`;
-                if (isCorrect) badgeHtml = `<div class="status-badge badge-correct" id="badge-${index}"><i class="fa-solid fa-check"></i> Correct</div>`;
-                if (isWrong) badgeHtml = `<div class="status-badge badge-wrong" id="badge-${index}"><i class="fa-solid fa-xmark"></i> Incorrect</div>`;
+                let badgeHtml = `<div class="status-badge badge-pending"><i class="fa-solid fa-circle-minus"></i> Pending</div>`;
+                if (isCorrect) badgeHtml = `<div class="status-badge badge-correct"><i class="fa-solid fa-check"></i> Correct</div>`;
+                if (isWrong) badgeHtml = `<div class="status-badge badge-wrong"><i class="fa-solid fa-xmark"></i> Incorrect</div>`;
 
-                let optionsHtml = '';
-                q.options.forEach((opt, optIdx) => {
-                    const codeMarker = String.fromCharCode(65 + optIdx);
-                    
-                    let optClass = `marks-option opt-row-${index}`;
-                    let checkDisplay = 'none';
-                    let crossDisplay = 'none';
-                    
-                    if (isAttempted) {
-                        optClass += ' locked';
-                        if (optIdx === q.answer) {
-                            optClass += ' correct';
-                            checkDisplay = 'block';
-                        }
-                    }
-
-                    optionsHtml += `
-                        <div class="${optClass}" id="opt-${index}-${optIdx}" onclick="selectOption(${index}, ${optIdx})">
-                            <div class="opt-letter">${codeMarker}</div>
-                            <div class="opt-text">${opt}</div>
-                            <i class="fa-solid fa-circle-check opt-icon check-icon" id="check-${index}-${optIdx}" style="display:${checkDisplay};"></i>
-                            <i class="fa-solid fa-circle-xmark opt-icon cross-icon" id="cross-${index}-${optIdx}" style="display:${crossDisplay};"></i>
-                        </div>
-                    `;
-                });
-
-                const cardHtml = `
-                    <div class="q-card" id="card-${index}">
-                        <div class="q-card-header" onclick="toggleCard(${index})">
-                            <div class="q-title">Q${index + 1}. ${q.q.substring(0, 65)}...</div>
-                            ${badgeHtml}
-                        </div>
-                        <div class="q-card-body">
-                            <div class="q-text">${q.q}</div>
-                            <div class="options-list">
-                                ${optionsHtml}
-                            </div>
-                            
-                            <div style="display: ${isAttempted ? 'none' : 'block'};" id="action-bar-${index}">
-                                <button class="btn-primary" id="btn-check-${index}" onclick="evaluateItem(${index})" disabled>SAVE & CHECK ANSWER</button>
-                            </div>
-
-                            <div class="solution-box" id="solution-${index}" style="display: ${isAttempted ? 'block' : 'none'};">
-                                <div class="solution-title"><i class="fa-solid fa-lightbulb"></i> Rationalized Solution Explanation</div>
-                                <div class="solution-text">${q.explanation}</div>
-                            </div>
-                        </div>
+                const rowHtml = `
+                    <div class="index-row" onclick="openFocusQuestion(${index})">
+                        <div class="index-q-text"><span style="color:var(--brand-blue); font-weight:700;">Q${index + 1}.</span> ${q.q}</div>
+                        ${badgeHtml}
                     </div>
                 `;
-                listContainer.insertAdjacentHTML('beforeend', cardHtml);
+                container.insertAdjacentHTML('beforeend', rowHtml);
             });
 
-            document.getElementById('progress-tracker').innerText = `${completedCount} / ${filteredPracticeSet.length} Completed`;
-            
+            document.getElementById('list-progress-tracker').innerText = `${completedCount} / ${filteredPracticeSet.length} Completed`;
             if(window.MathJax) MathJax.typesetPromise();
         }
 
-        window.toggleCard = (index) => {
-            const card = document.getElementById(`card-${index}`);
-            card.classList.toggle('open');
+        // --- SCREEN 4: OPEN SINGLE QUESTION ---
+        window.openFocusQuestion = (index) => {
+            currentFocusIndex = index;
+            isFocusAnswerChecked = false;
+            selectedOptionIndex = null;
+            
+            const q = filteredPracticeSet[index];
+            const isCorrect = correctIds.includes(q.uid);
+            const isWrong = wrongIds.includes(q.uid);
+            const isAttempted = isCorrect || isWrong;
+
+            // UI Resets
+            document.getElementById('btn-check-focus').style.display = 'block';
+            document.getElementById('btn-check-focus').disabled = true;
+            document.getElementById('btn-next-focus').style.display = 'none';
+            document.getElementById('focus-explanation-box').style.display = 'none';
+            document.getElementById('focus-result-status').innerHTML = "";
+            
+            document.getElementById('focus-progress-tracker').innerText = `Question ${index + 1} of ${filteredPracticeSet.length}`;
+            document.getElementById('focus-q-text').innerText = q.q;
+
+            // Render Options
+            const optContainer = document.getElementById('focus-options-container');
+            optContainer.innerHTML = "";
+
+            q.options.forEach((opt, optIdx) => {
+                const codeMarker = String.fromCharCode(65 + optIdx);
+                const div = document.createElement('div');
+                div.className = `marks-option ${isAttempted ? 'locked' : ''}`;
+                div.id = `focus-opt-${optIdx}`;
+                div.innerHTML = `
+                    <div class="opt-letter">${codeMarker}</div>
+                    <div class="opt-text">${opt}</div>
+                    <i class="fa-solid fa-circle-check opt-icon check-icon" id="focus-check-${optIdx}"></i>
+                    <i class="fa-solid fa-circle-xmark opt-icon cross-icon" id="focus-cross-${optIdx}"></i>
+                `;
+
+                if (!isAttempted) {
+                    div.onclick = () => selectFocusOption(optIdx);
+                }
+                optContainer.appendChild(div);
+            });
+
+            // If already attempted, pre-fill the correct UI state
+            if (isAttempted) {
+                document.getElementById('btn-check-focus').style.display = 'none';
+                document.getElementById('btn-next-focus').style.display = 'block';
+                document.getElementById('focus-explanation-text').innerText = q.explanation;
+                document.getElementById('focus-explanation-box').style.display = 'block';
+                
+                // Show Correct Answer
+                document.getElementById(`focus-opt-${q.answer}`).classList.add('correct');
+                document.getElementById(`focus-check-${q.answer}`).style.display = 'block';
+                
+                if (isCorrect) {
+                    document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--success-green);"><i class="fa-solid fa-check"></i> Solved Correctly</span>`;
+                } else {
+                    document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--error-red);"><i class="fa-solid fa-xmark"></i> Solved Incorrectly</span>`;
+                }
+            }
+
+            // Switch Screen
+            screenList.style.display = 'none';
+            screenFocus.style.display = 'block';
+            window.scrollTo(0,0);
+            if(window.MathJax) MathJax.typesetPromise();
         };
 
-        window.selectOption = (qIndex, optIndex) => {
-            const q = filteredPracticeSet[qIndex];
-            if (correctIds.includes(q.uid) || wrongIds.includes(q.uid)) return; 
-
-            activeSelections[qIndex] = optIndex;
+        window.selectFocusOption = (optIndex) => {
+            if (isFocusAnswerChecked) return;
+            selectedOptionIndex = optIndex;
             
-            document.querySelectorAll(`.opt-row-${qIndex}`).forEach(el => el.classList.remove('selected'));
-            document.getElementById(`opt-${qIndex}-${optIndex}`).classList.add('selected');
-            document.getElementById(`btn-check-${qIndex}`).disabled = false;
+            document.querySelectorAll('#focus-options-container .marks-option').forEach(el => el.classList.remove('selected'));
+            document.getElementById(`focus-opt-${optIndex}`).classList.add('selected');
+            document.getElementById('btn-check-focus').disabled = false;
         };
 
-        window.evaluateItem = async (qIndex) => {
-            const selectedOpt = activeSelections[qIndex];
-            if (selectedOpt === undefined) return;
+        window.evaluateFocusQuestion = async () => {
+            if (selectedOptionIndex === null) return;
+            isFocusAnswerChecked = true;
 
-            const q = filteredPracticeSet[qIndex];
-            const isCorrect = (selectedOpt === q.answer);
+            const q = filteredPracticeSet[currentFocusIndex];
+            const isCorrect = (selectedOptionIndex === q.answer);
 
-            document.querySelectorAll(`.opt-row-${qIndex}`).forEach(el => el.classList.add('locked'));
+            // Lock all options
+            document.querySelectorAll('#focus-options-container .marks-option').forEach(el => el.classList.add('locked'));
             
+            document.getElementById('btn-check-focus').style.display = 'none';
+            document.getElementById('btn-next-focus').style.display = 'block';
+
             if (isCorrect) {
-                document.getElementById(`opt-${qIndex}-${selectedOpt}`).classList.add('correct');
-                document.getElementById(`check-${qIndex}-${selectedOpt}`).style.display = 'block';
-                document.getElementById(`badge-${qIndex}`).outerHTML = `<div class="status-badge badge-correct" id="badge-${qIndex}"><i class="fa-solid fa-check"></i> Correct</div>`;
+                document.getElementById(`focus-opt-${selectedOptionIndex}`).classList.add('correct');
+                document.getElementById(`focus-check-${selectedOptionIndex}`).style.display = 'block';
+                document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--success-green);"><i class="fa-solid fa-check"></i> Correct Verification (+8 XP)</span>`;
                 await updateFirebaseProgress(q.uid, true);
             } else {
-                document.getElementById(`opt-${qIndex}-${selectedOpt}`).classList.add('wrong');
-                document.getElementById(`cross-${qIndex}-${selectedOpt}`).style.display = 'block';
+                document.getElementById(`focus-opt-${selectedOptionIndex}`).classList.add('wrong');
+                document.getElementById(`focus-cross-${selectedOptionIndex}`).style.display = 'block';
                 
-                document.getElementById(`opt-${qIndex}-${q.answer}`).classList.add('correct');
-                document.getElementById(`check-${qIndex}-${q.answer}`).style.display = 'block';
+                document.getElementById(`focus-opt-${q.answer}`).classList.add('correct');
+                document.getElementById(`focus-check-${q.answer}`).style.display = 'block';
                 
-                document.getElementById(`badge-${qIndex}`).outerHTML = `<div class="status-badge badge-wrong" id="badge-${qIndex}"><i class="fa-solid fa-xmark"></i> Incorrect</div>`;
+                document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--error-red);"><i class="fa-solid fa-xmark"></i> Differential Mismatch (-2 XP)</span>`;
                 await updateFirebaseProgress(q.uid, false);
             }
 
-            document.getElementById(`action-bar-${qIndex}`).style.display = 'none';
-            document.getElementById(`solution-${qIndex}`).style.display = 'block';
+            document.getElementById('focus-explanation-text').innerText = q.explanation;
+            document.getElementById('focus-explanation-box').style.display = 'block';
+            if(window.MathJax) MathJax.typesetPromise();
+        };
 
-            const completedCount = correctIds.length + wrongIds.length;
-            document.getElementById('progress-tracker').innerText = `${completedCount} / ${filteredPracticeSet.length} Completed`;
+        window.advanceToNextQuestion = () => {
+            if (currentFocusIndex + 1 < filteredPracticeSet.length) {
+                openFocusQuestion(currentFocusIndex + 1);
+            } else {
+                returnToList();
+            }
         };
 
         async function updateFirebaseProgress(questionUid, isCorrect) {
@@ -489,9 +549,7 @@
             const documentTargetRef = doc(db, "users", currentUser.uid);
             const xpGain = isCorrect ? 8 : -2;
 
-            const updateData = {
-                xp: increment(xpGain)
-            };
+            const updateData = { xp: increment(xpGain) };
             if(isCorrect) updateData.correctIds = arrayUnion(questionUid);
             else updateData.wrongIds = arrayUnion(questionUid);
 
