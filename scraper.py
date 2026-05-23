@@ -22,8 +22,9 @@ if __name__ == "__main__":
     print("Booting up the Turbo Engine Browser...")
     options = Options()
     options.add_argument("--headless=new")
-    options.page_load_strategy = 'eager'
+    options.page_load_strategy = 'eager' # Don't wait for heavy images
     
+    # Aggressively block heavy resources to minimize lag
     prefs = {
         "profile.managed_default_content_settings.images": 2,
         "profile.managed_default_content_settings.stylesheets": 2,
@@ -53,42 +54,37 @@ if __name__ == "__main__":
             for i, link in enumerate(question_links):
                 try:
                     driver.get(link)
-                    wait = WebDriverWait(driver, 4)
                     
-                    check_btn = wait.until(EC.presence_of_element_located((By.XPATH, "//button[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'check')]")))
-                    options_buttons = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div[role='button']")))
+                    # FASTER: We no longer wait for clicks. We just wait for the DOM to load the main container.
+                    WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.CLASS_SELECTOR if False else By.XPATH, "//div[contains(@class, 'question')]")))
                     
-                    driver.execute_script("arguments[0].click();", options_buttons[0])
-                    driver.execute_script("arguments[0].click();", check_btn)
-                    
-                    wait.until(EC.presence_of_element_located((By.XPATH, "//h2[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'explanation')]")))
-                    
+                    # Instantly parse the raw HTML (even if elements are hidden by CSS)
                     soup = BeautifulSoup(driver.page_source, 'html.parser')
-                    container = soup.find('div', class_='question-component')
+                    container = soup.find('div', class_='question-component') or soup.find('div', class_=re.compile(r'question', re.I))
                     
                     if container:
-                        
                         # ==========================================
-                        # NEW: MATHJAX LATEX EXTRACTION PROTOCOL
+                        # LATEX PRESERVATION PROTOCOL
                         # ==========================================
-                        # 1. Destroy flattened HTML visuals so they don't corrupt our text
-                        for mj in container.find_all(class_=['MathJax_Preview', 'MathJax', 'MathJax_Display', 'katex']):
-                            mj.decompose()
-                            
-                        # 2. Extract hidden LaTeX scripts and wrap them in $ signs
+                        # 1. Recover KaTeX raw TeX (Modern React Apps)
+                        for annotation in container.find_all('annotation', encoding=re.compile(r'application/x-tex', re.I)):
+                            raw_tex = annotation.text.strip()
+                            math_wrapper = annotation.find_parent('span', class_='katex') or annotation.find_parent('math')
+                            if math_wrapper:
+                                math_wrapper.replace_with(f" ${raw_tex}$ ")
+                                
+                        # 2. Recover MathJax raw TeX (Standard Apps)
                         for script in container.find_all('script', type=re.compile(r'math/tex', re.I)):
-                            latex_code = script.string
-                            if latex_code:
+                            raw_tex = script.text.strip() if script.text else ""
+                            if raw_tex:
                                 if 'display' in script.get('type', ''):
-                                    script.replace_with(f" $${latex_code}$$ ")
+                                    script.replace_with(f" $${raw_tex}$$ ")
                                 else:
-                                    script.replace_with(f" ${latex_code}$ ")
-                                    
-                        # 3. Catch any raw HTML superscripts/subscripts and format them safely
-                        for sup in container.find_all('sup'):
-                            sup.replace_with(f"^{sup.text}")
-                        for sub in container.find_all('sub'):
-                            sub.replace_with(f"_{sub.text}")
+                                    script.replace_with(f" ${raw_tex}$ ")
+
+                        # 3. Destroy leftover flattened visual math so it doesn't corrupt our text
+                        for math_visual in container.find_all(class_=['MathJax_Preview', 'MathJax', 'MathJax_Display', 'katex-html']):
+                            math_visual.decompose()
                         # ==========================================
 
                         q_text = container.find('div', class_='question').text.strip()
