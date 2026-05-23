@@ -36,8 +36,11 @@
         .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 2rem 1rem; flex-grow: 1; }
         .btn-text { background: transparent; border: none; color: var(--text-secondary); cursor: pointer; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: 0.2s; margin-bottom: 1.5rem; }
         .btn-text:hover { color: var(--text-primary); }
+        .btn-primary { background: var(--brand-blue); color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary:hover:not(:disabled) { background: var(--brand-blue-hover); }
+        .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
 
-        /* --- SCREENS 1-3 STYLES REMAIN THE SAME --- */
+        /* --- SCREEN 1: EXAM GATEWAY --- */
         #exam-gateway-screen { display: block; }
         .gateway-title { text-align: center; font-size: 2.2rem; font-weight: 800; margin-top: 3rem; margin-bottom: 0.5rem; }
         .gateway-subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1rem; }
@@ -48,6 +51,7 @@
         .gateway-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; }
         .gateway-card p { font-size: 0.9rem; color: var(--text-secondary); }
 
+        /* --- SCREEN 2: CHAPTER EXPLORER --- */
         #chapter-explorer-screen { display: none; }
         .explorer-layout { display: flex; gap: 2rem; margin-top: 1.5rem; }
         .subject-sidebar { width: 240px; flex-shrink: 0; display: flex; flex-direction: column; gap: 0.5rem; }
@@ -57,24 +61,14 @@
         
         .chapter-container { flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem; }
         .chapter-row { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; }
-        .chapter-row:hover { border-color: var(--text-secondary); background: var(--bg-surface-elevated); }
+        .chapter-row:hover { border-color: var(--brand-blue); background: var(--bg-surface-elevated); }
         .chapter-title-wrapper { display: flex; align-items: center; gap: 0.8rem; }
         .chapter-title-wrapper i { color: var(--brand-blue); font-size: 0.95rem; }
         .chapter-name { font-size: 0.95rem; font-weight: 600; }
         .chapter-stats { font-size: 0.8rem; color: var(--text-secondary); display: flex; gap: 1rem; font-weight: 500; }
         .stat-highlight { color: var(--gold); font-weight: 600; }
 
-        #filter-screen { display: none; }
-        .filter-panel { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 2rem; max-width: 600px; margin: 2rem auto 0 auto; }
-        .filter-group { margin-bottom: 1.5rem; }
-        .filter-group label { display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-        .marks-select { width: 100%; background: var(--bg-base); border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.8rem 1rem; border-radius: 6px; font-size: 0.95rem; outline: none; cursor: pointer; }
-        .marks-select:focus { border-color: var(--brand-blue); }
-        .btn-primary { background: var(--brand-blue); color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; }
-        .btn-primary:hover:not(:disabled) { background: var(--brand-blue-hover); }
-        .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
-
-        /* --- NEW SCREEN 4: LIST WORKSPACE STYLES --- */
+        /* --- SCREEN 3: LIST WORKSPACE --- */
         #list-engine-screen { display: none; }
         .test-header { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); }
         .test-meta { display: flex; gap: 0.6rem; align-items: center; }
@@ -158,7 +152,7 @@
             <button class="btn-text" onclick="navigateToGateway()"><i class="fa-solid fa-arrow-left"></i> Change Target</button>
             <div class="page-header">
                 <h1 class="page-title" id="explorer-title">JEE Main Workspace</h1>
-                <p class="page-subtitle" style="margin-bottom: 1.5rem;">Select a topic path from the inventory below to inspect content allocations.</p>
+                <p class="page-subtitle" style="margin-bottom: 1.5rem;">Select a topic path from the inventory below to launch the question bank.</p>
             </div>
             <div class="explorer-layout">
                 <div class="subject-sidebar" id="subject-sidebar-container"></div>
@@ -166,30 +160,13 @@
             </div>
         </div>
 
-        <div id="filter-screen">
-            <button class="btn-text" onclick="restoreExplorer()"><i class="fa-solid fa-arrow-left"></i> Topics Inventory</button>
-            <div class="page-header">
-                <h1 class="page-title" id="filter-heading">Topic Setup</h1>
-                <p class="page-subtitle">Configure scope boundaries before initialization.</p>
-            </div>
-            <div class="filter-panel">
-                <div class="filter-group">
-                    <label>Paper Instance Year</label>
-                    <select id="select-year" class="marks-select">
-                        <option value="All">All Years</option>
-                    </select>
-                </div>
-                <button class="btn-primary" style="width: 100%; justify-content: center; margin-top: 1rem;" onclick="launchSession()">CONFIRM & START</button>
-            </div>
-        </div>
-
-        <!-- NEW LIST VIEW SCREEN -->
+        <!-- LIST VIEW SCREEN (Now directly accessed from Explorer) -->
         <div id="list-engine-screen">
             <button class="btn-text" onclick="abortSession()"><i class="fa-solid fa-arrow-left"></i> Back to Inventory</button>
             
             <div class="test-header">
                 <div class="test-meta">
-                    <span class="marks-tag tag-year" id="badge-year">2024</span>
+                    <span class="marks-tag tag-year" id="badge-year">ALL YEARS</span>
                     <span class="marks-tag tag-subject" id="badge-subject">Physics</span>
                     <span class="marks-tag tag-chapter" id="badge-chapter">Kinematics</span>
                 </div>
@@ -246,17 +223,15 @@
         let selectedChapterId = ""; 
         let activeMetadata = null; 
         let filteredPracticeSet = [];
-        let activeSelections = {}; // Tracks currently selected option for each question before checking
+        let activeSelections = {}; 
 
         const screenGateway = document.getElementById('exam-gateway-screen');
         const screenExplorer = document.getElementById('chapter-explorer-screen');
-        const screenFilter = document.getElementById('filter-screen');
         const screenList = document.getElementById('list-engine-screen');
 
         window.navigateToGateway = () => {
             screenGateway.style.display = 'block';
             screenExplorer.style.display = 'none';
-            screenFilter.style.display = 'none';
             screenList.style.display = 'none';
         };
 
@@ -313,7 +288,7 @@
                 divRow.className = "chapter-row";
                 divRow.innerHTML = `
                     <div class="chapter-title-wrapper">
-                        <i class="fa-regular fa-folder-open"></i>
+                        <i class="fa-solid fa-book-open"></i>
                         <span class="chapter-name">${ch.name}</span>
                     </div>
                     <div class="chapter-stats">
@@ -321,37 +296,17 @@
                         <span>Total: ${ch.total} Qs</span>
                     </div>
                 `;
-                divRow.onclick = () => showFilterPanel(ch.name, ch.id, Object.keys(ch.breakdown));
+                // Direct jump to the question list, bypassing the old filter screen
+                divRow.onclick = () => launchSession(ch.name, ch.id);
                 container.appendChild(divRow);
             });
         }
-
-        function showFilterPanel(chapterName, chapterFileId, availableYears) {
-            selectedActiveChapter = chapterName;
-            selectedChapterId = chapterFileId; 
-            document.getElementById('filter-heading').innerText = chapterName;
-            
-            const selYear = document.getElementById('select-year');
-            selYear.innerHTML = '<option value="All">All Structural Tracking Years</option>';
-            availableYears.sort((a,b) => b - a).forEach(y => {
-                selYear.innerHTML += `<option value="${y}">Exam Cycle Season Year ${y}</option>`;
-            });
-
-            screenExplorer.style.display = 'none';
-            screenFilter.style.display = 'block';
-        }
-
-        window.restoreExplorer = () => {
-            screenFilter.style.display = 'none';
-            screenExplorer.style.display = 'block';
-        };
 
         window.abortSession = () => {
             screenList.style.display = 'none';
             screenExplorer.style.display = 'block';
         };
 
-        // Custom Hash Function to give each question a unique ID based on its text
         function generateQuestionId(qText) {
             let hash = 0;
             for (let i = 0; i < qText.length; i++) {
@@ -361,11 +316,19 @@
             return Math.abs(hash).toString();
         }
 
-        window.launchSession = async () => {
-            const startBtn = document.querySelector('#filter-screen .btn-primary');
-            const originalText = startBtn.innerHTML;
-            startBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> FETCHING DATABASE...';
-            startBtn.disabled = true;
+        // Modified to trigger directly from the chapter click
+        window.launchSession = async (chapterName, chapterFileId) => {
+            selectedActiveChapter = chapterName;
+            selectedChapterId = chapterFileId;
+
+            // Optional: Provide instant visual feedback before the fetch completes
+            const listContainer = document.getElementById('questions-list-container');
+            document.getElementById('badge-subject').innerText = selectedActiveSubject;
+            document.getElementById('badge-chapter').innerText = selectedActiveChapter;
+            
+            screenExplorer.style.display = 'none';
+            screenList.style.display = 'block';
+            listContainer.innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--text-secondary);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><br><br>Loading Question Bank...</div>';
 
             try {
                 const targetFile = `/data/questions/${selectedChapterId}.json`;
@@ -373,40 +336,26 @@
                 if (!response.ok) throw new Error("Question file missing.");
                 
                 const rawChapterQuestions = await response.json();
-                const evaluationYearFilter = document.getElementById('select-year').value;
-
-                filteredPracticeSet = rawChapterQuestions.filter(q => {
-                    return evaluationYearFilter === "All" || q.year === evaluationYearFilter;
-                });
+                
+                // Directly utilize all questions from the file
+                filteredPracticeSet = rawChapterQuestions;
 
                 if(filteredPracticeSet.length === 0) {
-                    alert("No questions match standard targeting fields.");
+                    listContainer.innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--error-red);">No questions available for this topic yet.</div>';
                     return;
                 }
 
-                // Inject stable IDs into our local dataset
                 filteredPracticeSet = filteredPracticeSet.map(q => ({
                     ...q,
                     uid: `${selectedChapterId}_${generateQuestionId(q.q)}`
                 }));
 
-                activeSelections = {}; // Clear previous selections
-                
-                document.getElementById('badge-year').innerText = evaluationYearFilter === "All" ? "ALL YEARS" : `YEAR: ${evaluationYearFilter}`;
-                document.getElementById('badge-subject').innerText = selectedActiveSubject;
-                document.getElementById('badge-chapter').innerText = selectedActiveChapter;
-
-                screenFilter.style.display = 'none';
-                screenList.style.display = 'block';
-                
+                activeSelections = {}; 
                 renderFullQuestionList();
 
             } catch (error) {
                 console.error(error);
-                alert("Could not load questions.");
-            } finally {
-                startBtn.innerHTML = originalText;
-                startBtn.disabled = false;
+                listContainer.innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--error-red);">Failed to load the dataset. Please ensure the JSON file is uploaded to the server.</div>';
             }
         };
 
@@ -426,12 +375,10 @@
                 if (isCorrect) badgeHtml = `<div class="status-badge badge-correct" id="badge-${index}"><i class="fa-solid fa-check"></i> Correct</div>`;
                 if (isWrong) badgeHtml = `<div class="status-badge badge-wrong" id="badge-${index}"><i class="fa-solid fa-xmark"></i> Incorrect</div>`;
 
-                // Build Options HTML
                 let optionsHtml = '';
                 q.options.forEach((opt, optIdx) => {
                     const codeMarker = String.fromCharCode(65 + optIdx);
                     
-                    // Pre-calculate classes if already attempted
                     let optClass = `marks-option opt-row-${index}`;
                     let checkDisplay = 'none';
                     let crossDisplay = 'none';
@@ -441,9 +388,6 @@
                         if (optIdx === q.answer) {
                             optClass += ' correct';
                             checkDisplay = 'block';
-                        } else if (isWrong && q.userAnswer === optIdx) {
-                            // If we track exact wrong answers later, we can color it. 
-                            // For now, if it's wrong, we just highlight the correct one.
                         }
                     }
 
@@ -485,7 +429,6 @@
 
             document.getElementById('progress-tracker').innerText = `${completedCount} / ${filteredPracticeSet.length} Completed`;
             
-            // Trigger MathJax if present
             if(window.MathJax) MathJax.typesetPromise();
         }
 
@@ -496,11 +439,10 @@
 
         window.selectOption = (qIndex, optIndex) => {
             const q = filteredPracticeSet[qIndex];
-            if (correctIds.includes(q.uid) || wrongIds.includes(q.uid)) return; // Locked
+            if (correctIds.includes(q.uid) || wrongIds.includes(q.uid)) return; 
 
             activeSelections[qIndex] = optIndex;
             
-            // UI Update
             document.querySelectorAll(`.opt-row-${qIndex}`).forEach(el => el.classList.remove('selected'));
             document.getElementById(`opt-${qIndex}-${optIndex}`).classList.add('selected');
             document.getElementById(`btn-check-${qIndex}`).disabled = false;
@@ -513,10 +455,8 @@
             const q = filteredPracticeSet[qIndex];
             const isCorrect = (selectedOpt === q.answer);
 
-            // Lock Options
             document.querySelectorAll(`.opt-row-${qIndex}`).forEach(el => el.classList.add('locked'));
             
-            // Highlight Correct/Wrong logic
             if (isCorrect) {
                 document.getElementById(`opt-${qIndex}-${selectedOpt}`).classList.add('correct');
                 document.getElementById(`check-${qIndex}-${selectedOpt}`).style.display = 'block';
@@ -526,7 +466,6 @@
                 document.getElementById(`opt-${qIndex}-${selectedOpt}`).classList.add('wrong');
                 document.getElementById(`cross-${qIndex}-${selectedOpt}`).style.display = 'block';
                 
-                // Show the actual correct answer
                 document.getElementById(`opt-${qIndex}-${q.answer}`).classList.add('correct');
                 document.getElementById(`check-${qIndex}-${q.answer}`).style.display = 'block';
                 
@@ -534,11 +473,9 @@
                 await updateFirebaseProgress(q.uid, false);
             }
 
-            // Hide action bar, show explanation
             document.getElementById(`action-bar-${qIndex}`).style.display = 'none';
             document.getElementById(`solution-${qIndex}`).style.display = 'block';
 
-            // Update Header Progress
             const completedCount = correctIds.length + wrongIds.length;
             document.getElementById('progress-tracker').innerText = `${completedCount} / ${filteredPracticeSet.length} Completed`;
         };
@@ -546,7 +483,6 @@
         async function updateFirebaseProgress(questionUid, isCorrect) {
             if(!currentUser) return;
             
-            // Update local state arrays immediately for UI feel
             if (isCorrect) correctIds.push(questionUid);
             else wrongIds.push(questionUid);
 
