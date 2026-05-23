@@ -430,36 +430,42 @@
             container.innerHTML = "";
             let completedCount = 0;
 
-            filteredPracticeSet.forEach((q, index) => {
-                const isCorrect = correctIds.includes(q.uid);
-                const isWrong = wrongIds.includes(q.uid);
-                
-                if (isCorrect || isWrong) completedCount++;
+            filteredPracticeSet.sort((a, b) => {
+    // 1. Helper to convert your date strings into a comparable number (YYYYMMDD)
+    const getTimestamp = (q) => {
+        const year = parseInt(q.year) || 0;
+        // Simple map for months to ensure chronological order
+        const months = { 'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6, 
+                         'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12 };
+        
+        let month = 0;
+        let day = 0;
+        
+        if (q.date) {
+            const dateParts = q.date.toLowerCase();
+            for (let m in months) {
+                if (dateParts.includes(m)) month = months[m];
+            }
+            const dayMatch = dateParts.match(/\d+/);
+            if (dayMatch) day = parseInt(dayMatch[0]);
+        }
+        
+        // Return a YYYYMMDD integer for perfect sorting
+        return (year * 10000) + (month * 100) + day;
+    };
 
-                let badgeHtml = `<div class="status-badge badge-pending"><i class="fa-solid fa-circle-minus"></i> Pending</div>`;
-                if (isCorrect) badgeHtml = `<div class="status-badge badge-correct"><i class="fa-solid fa-check"></i> Correct</div>`;
-                if (isWrong) badgeHtml = `<div class="status-badge badge-wrong"><i class="fa-solid fa-xmark"></i> Incorrect</div>`;
+    const timeA = getTimestamp(a);
+    const timeB = getTimestamp(b);
 
-                // Robust Date and Shift compiler
-                const dText = (q.date && q.date !== "Unknown" && q.date !== "Unknown Date") ? q.date : "";
-                const yText = (q.year && q.year !== "Unknown" && q.year !== "Unknown Year") ? q.year : "";
-                const fullDateStr = [dText, yText].filter(Boolean).join(" ") || "Date Unknown";
-                const shiftStr = (q.shift && q.shift !== "Unknown" && q.shift !== "Unknown Shift") ? q.shift + " Shift" : "Shift Unknown";
+    // 2. Sort Descending (Newest First)
+    if (timeB !== timeA) return timeB - timeA;
 
-                const rowHtml = `
-                    <div class="index-row" onclick="openFocusQuestion(${index})">
-                        <div class="index-q-wrapper">
-                            <div class="index-q-text"><span style="color:var(--brand-blue); font-weight:700;">Q${index + 1}.</span> ${getCleanPreview(q.q)}</div>
-                            <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 8px; display: flex; gap: 12px; align-items: center; font-weight: 600;">
-                                <span style="color: var(--gold); background: rgba(251, 191, 36, 0.1); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(251, 191, 36, 0.2);"><i class="fa-regular fa-calendar"></i> ${fullDateStr}</span>
-                                <span style="background: rgba(255, 255, 255, 0.05); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1);"><i class="fa-regular fa-clock"></i> ${shiftStr}</span>
-                            </div>
-                        </div>
-                        ${badgeHtml}
-                    </div>
-                `;
-                container.insertAdjacentHTML('beforeend', rowHtml);
-            });
+    // 3. If dates are equal, sort by shift (Morning before Evening)
+    const shiftOrder = { "morning": 1, "afternoon": 2, "evening": 3 };
+    const shiftA = shiftOrder[a.shift?.toLowerCase()] || 4;
+    const shiftB = shiftOrder[b.shift?.toLowerCase()] || 4;
+    return shiftA - shiftB;
+});
 
             document.getElementById('list-progress-tracker').innerText = `${completedCount} / ${filteredPracticeSet.length} Completed`;
         }
