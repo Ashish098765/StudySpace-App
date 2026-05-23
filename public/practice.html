@@ -562,6 +562,10 @@
                 MathJax.typesetPromise([document.getElementById('quiz-focus-screen')]).catch(err => console.log(err));
             }
         };
+        // Add this at the bottom of the openFocusQuestion function
+if(window.MathJax) {
+    MathJax.typesetPromise([document.getElementById('quiz-focus-screen')]).catch(err => console.log(err));
+}
 
         window.selectFocusOption = (optIndex) => {
             if (isFocusAnswerChecked) return;
