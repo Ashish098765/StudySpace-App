@@ -79,7 +79,7 @@
 
         .test-header { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1.5rem; }
         .test-meta { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
-        .marks-tag { font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+        .marks-tag { font-size: 0.7rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.3px; display: inline-flex; align-items: center; gap: 6px; }
         .tag-year { background: rgba(251, 191, 36, 0.12); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.25); }
         .tag-subject { background: rgba(99, 102, 241, 0.15); color: var(--brand-blue); border: 1px solid rgba(99, 102, 241, 0.25); }
         .tag-chapter { background: rgba(255,255,255,0.06); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.1); }
@@ -171,8 +171,8 @@
             
             <div class="test-header">
                 <div class="test-meta">
-                    <span class="marks-tag tag-subject" id="list-badge-subject">Physics</span>
-                    <span class="marks-tag tag-chapter" id="list-badge-chapter">Kinematics</span>
+                    <span class="marks-tag tag-subject" id="list-badge-subject"><i class="fa-solid fa-book"></i> Physics</span>
+                    <span class="marks-tag tag-chapter" id="list-badge-chapter"><i class="fa-solid fa-list"></i> Kinematics</span>
                 </div>
                 <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);" id="list-progress-tracker">0 / 0 Completed</div>
             </div>
@@ -186,14 +186,14 @@
             
             <div class="test-header" style="border-radius: 8px 8px 0 0; border-bottom: none; margin-bottom: 0;">
                 <div class="test-meta">
-                    <span class="marks-tag tag-subject" id="focus-badge-subject">Physics</span>
-                    <span class="marks-tag tag-chapter" id="focus-badge-chapter">Kinematics</span>
+                    <span class="marks-tag tag-subject" id="focus-badge-subject"><i class="fa-solid fa-book"></i> Physics</span>
+                    <span class="marks-tag tag-chapter" id="focus-badge-chapter"><i class="fa-solid fa-list"></i> Kinematics</span>
                 </div>
                 <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);" id="focus-progress-tracker">Q 1 of 1</div>
             </div>
 
             <div class="question-container" style="border-radius: 0 0 8px 8px;">
-                <div id="focus-q-meta" style="display: flex; gap: 8px; margin-bottom: 1.5rem;"></div>
+                <div id="focus-q-meta" style="display: flex; gap: 10px; margin-bottom: 1.5rem; flex-wrap: wrap;"></div>
                 
                 <div class="q-text" id="focus-q-text">Loading...</div>
                 <div class="options-list" id="focus-options-container"></div>
@@ -359,10 +359,10 @@
             selectedActiveChapter = chapterName;
             selectedChapterId = chapterFileId;
 
-            document.getElementById('list-badge-subject').innerText = selectedActiveSubject;
-            document.getElementById('list-badge-chapter').innerText = selectedActiveChapter;
-            document.getElementById('focus-badge-subject').innerText = selectedActiveSubject;
-            document.getElementById('focus-badge-chapter').innerText = selectedActiveChapter;
+            document.getElementById('list-badge-subject').innerHTML = `<i class="fa-solid fa-book"></i> ${selectedActiveSubject}`;
+            document.getElementById('list-badge-chapter').innerHTML = `<i class="fa-solid fa-list"></i> ${selectedActiveChapter}`;
+            document.getElementById('focus-badge-subject').innerHTML = `<i class="fa-solid fa-book"></i> ${selectedActiveSubject}`;
+            document.getElementById('focus-badge-chapter').innerHTML = `<i class="fa-solid fa-list"></i> ${selectedActiveChapter}`;
             
             screenExplorer.style.display = 'none';
             screenList.style.display = 'block';
@@ -440,16 +440,19 @@
                 if (isCorrect) badgeHtml = `<div class="status-badge badge-correct"><i class="fa-solid fa-check"></i> Correct</div>`;
                 if (isWrong) badgeHtml = `<div class="status-badge badge-wrong"><i class="fa-solid fa-xmark"></i> Incorrect</div>`;
 
-                const dateText = q.date && q.date !== "Unknown Date" ? q.date : (q.year && q.year !== "Unknown Year" ? q.year : 'Date Unknown');
-                const shiftText = q.shift && q.shift !== "Unknown Shift" ? q.shift : 'Shift Unknown';
+                // Robust Date and Shift compiler
+                const dText = (q.date && q.date !== "Unknown" && q.date !== "Unknown Date") ? q.date : "";
+                const yText = (q.year && q.year !== "Unknown" && q.year !== "Unknown Year") ? q.year : "";
+                const fullDateStr = [dText, yText].filter(Boolean).join(" ") || "Date Unknown";
+                const shiftStr = (q.shift && q.shift !== "Unknown" && q.shift !== "Unknown Shift") ? q.shift + " Shift" : "Shift Unknown";
 
                 const rowHtml = `
                     <div class="index-row" onclick="openFocusQuestion(${index})">
                         <div class="index-q-wrapper">
                             <div class="index-q-text"><span style="color:var(--brand-blue); font-weight:700;">Q${index + 1}.</span> ${getCleanPreview(q.q)}</div>
-                            <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 6px; display: flex; gap: 12px;">
-                                <span><i class="fa-regular fa-calendar"></i> ${dateText}</span>
-                                <span><i class="fa-regular fa-clock"></i> ${shiftText}</span>
+                            <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 8px; display: flex; gap: 12px; align-items: center; font-weight: 600;">
+                                <span style="color: var(--gold); background: rgba(251, 191, 36, 0.1); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(251, 191, 36, 0.2);"><i class="fa-regular fa-calendar"></i> ${fullDateStr}</span>
+                                <span style="background: rgba(255, 255, 255, 0.05); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1);"><i class="fa-regular fa-clock"></i> ${shiftStr}</span>
                             </div>
                         </div>
                         ${badgeHtml}
@@ -479,13 +482,16 @@
             
             document.getElementById('focus-progress-tracker').innerText = `Question ${index + 1} of ${filteredPracticeSet.length}`;
             
-            // --- FIX IS HERE: Correctly load q.date instead of q.year ---
-            const dateText = q.date && q.date !== "Unknown Date" ? q.date : (q.year && q.year !== "Unknown Year" ? q.year : 'Date Unknown');
-            const shiftText = q.shift && q.shift !== "Unknown Shift" ? q.shift : 'Shift Unknown';
-            
+            // Generate beautiful, combined metadata tags
+            const dText = (q.date && q.date !== "Unknown" && q.date !== "Unknown Date") ? q.date : "";
+            const yText = (q.year && q.year !== "Unknown" && q.year !== "Unknown Year") ? q.year : "";
+            const fullDateStr = [dText, yText].filter(Boolean).join(" ") || "Date Unknown";
+            const shiftStr = (q.shift && q.shift !== "Unknown" && q.shift !== "Unknown Shift") ? q.shift + " Shift" : "Shift Unknown";
+
             document.getElementById('focus-q-meta').innerHTML = `
-                <span class="marks-tag tag-year"><i class="fa-regular fa-calendar"></i> ${dateText}</span>
-                <span class="marks-tag tag-chapter" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-secondary);"><i class="fa-regular fa-clock"></i> ${shiftText}</span>
+                <span class="marks-tag tag-subject" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); color: var(--brand-blue);"><i class="fa-solid fa-graduation-cap"></i> ${selectedTargetExam}</span>
+                <span class="marks-tag tag-year"><i class="fa-regular fa-calendar"></i> ${fullDateStr}</span>
+                <span class="marks-tag tag-chapter" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-secondary);"><i class="fa-regular fa-clock"></i> ${shiftStr}</span>
             `;
             
             document.getElementById('focus-q-text').innerText = q.q;
