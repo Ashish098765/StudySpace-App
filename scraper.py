@@ -9,22 +9,23 @@ from bs4 import BeautifulSoup
 import json
 import os
 import re
+import time
 
 if __name__ == "__main__":
     
-    # Map the Target URL to your desired Output Filename
     chapters_to_scrape = {
         "https://questions.examside.com/past-years/jee/jee-main/physics/units-and-measurements": "public/data/questions/jee_phy_units.json"
     }
     
     os.makedirs('public/data/questions', exist_ok=True)
     
-    print("Booting up the Turbo Engine Browser...")
+    print("Booting up the Hyper-Drive Engine...")
     options = Options()
     options.add_argument("--headless=new")
-    options.page_load_strategy = 'eager' # Don't wait for heavy images
     
-    # Aggressively block heavy resources to minimize lag
+    # --- HYPER-DRIVE MODE ---
+    options.page_load_strategy = 'none' 
+    
     prefs = {
         "profile.managed_default_content_settings.images": 2,
         "profile.managed_default_content_settings.stylesheets": 2,
@@ -35,7 +36,6 @@ if __name__ == "__main__":
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
     
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-    driver.set_page_load_timeout(10) 
     
     try:
         for chapter_url, output_file in chapters_to_scrape.items():
@@ -43,7 +43,21 @@ if __name__ == "__main__":
             print(f"STARTING: {output_file}")
             
             driver.get(chapter_url)
-            WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "a")))
+            
+            # --- THE FIX: Wait for the <body> to exist before we try to scroll it ---
+            print("Waiting for page structure to initialize...")
+            WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
+            time.sleep(1) # Give React exactly 1 second to mount the initial list
+            
+            print("Scrolling to extract all links...")
+            last_height = driver.execute_script("return document.body.scrollHeight")
+            while True:
+                driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                time.sleep(1.2) 
+                new_height = driver.execute_script("return document.body.scrollHeight")
+                if new_height == last_height:
+                    break 
+                last_height = new_height
             
             all_links = driver.find_elements(By.TAG_NAME, "a")
             question_links = list(set([l.get_attribute("href") for l in all_links if l.get_attribute("href") and "/past-years/jee/question/" in l.get_attribute("href")]))
@@ -54,26 +68,26 @@ if __name__ == "__main__":
             for i, link in enumerate(question_links):
                 try:
                     driver.get(link)
+                    wait = WebDriverWait(driver, 3) 
                     
-                    # FASTER: We no longer wait for clicks. We just wait for the DOM to load the main container.
-                    WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.CLASS_SELECTOR if False else By.XPATH, "//div[contains(@class, 'question')]")))
+                    check_btn = wait.until(EC.presence_of_element_located((By.XPATH, "//button[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'check')]")))
+                    options_buttons = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div[role='button']")))
                     
-                    # Instantly parse the raw HTML (even if elements are hidden by CSS)
+                    driver.execute_script("arguments[0].click();", options_buttons[0])
+                    driver.execute_script("arguments[0].click();", check_btn)
+                    
+                    wait.until(lambda d: len(d.find_elements(By.XPATH, "//h2[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'explanation')]/following-sibling::div")) > 0)
+                    
                     soup = BeautifulSoup(driver.page_source, 'html.parser')
                     container = soup.find('div', class_='question-component') or soup.find('div', class_=re.compile(r'question', re.I))
                     
                     if container:
-                        # ==========================================
-                        # LATEX PRESERVATION PROTOCOL
-                        # ==========================================
-                        # 1. Recover KaTeX raw TeX (Modern React Apps)
                         for annotation in container.find_all('annotation', encoding=re.compile(r'application/x-tex', re.I)):
                             raw_tex = annotation.text.strip()
                             math_wrapper = annotation.find_parent('span', class_='katex') or annotation.find_parent('math')
                             if math_wrapper:
                                 math_wrapper.replace_with(f" ${raw_tex}$ ")
                                 
-                        # 2. Recover MathJax raw TeX (Standard Apps)
                         for script in container.find_all('script', type=re.compile(r'math/tex', re.I)):
                             raw_tex = script.text.strip() if script.text else ""
                             if raw_tex:
@@ -82,10 +96,8 @@ if __name__ == "__main__":
                                 else:
                                     script.replace_with(f" ${raw_tex}$ ")
 
-                        # 3. Destroy leftover flattened visual math so it doesn't corrupt our text
                         for math_visual in container.find_all(class_=['MathJax_Preview', 'MathJax', 'MathJax_Display', 'katex-html']):
                             math_visual.decompose()
-                        # ==========================================
 
                         q_text = container.find('div', class_='question').text.strip()
                         
@@ -106,13 +118,11 @@ if __name__ == "__main__":
                         explanation = explanation_header.find_next_sibling('div').text.strip() if explanation_header else "Not Available"
                         
                         body_text = soup.get_text(" ")
-                        
                         year = "Unknown Year"
                         exact_date = "Unknown Date"
                         shift = "Unknown Shift"
                         
                         match = re.search(r'(20[0-2]\d)\s*\(\s*(\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]+)\s*(Shift\s*\d|Morning|Evening)\s*\)', body_text, re.IGNORECASE)
-                        
                         if match:
                             year = match.group(1)
                             clean_day = re.sub(r'(st|nd|rd|th)', '', match.group(2), flags=re.IGNORECASE).strip()
@@ -145,7 +155,7 @@ if __name__ == "__main__":
                         print(f"\rScraping Progress: [{i+1}/{len(question_links)}] completed...", end="")
                         
                 except Exception as e:
-                    print(f"\n[!] Skipped question {i+1} due to a page load error.")
+                    print(f"\n[!] Skipped question {i+1} due to network timeout.")
                     continue 
 
             print("\nSaving to JSON...")
