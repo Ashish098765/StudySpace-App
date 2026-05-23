@@ -379,23 +379,23 @@
                     return;
                 }
 
-                // Inject stable IDs
                 filteredPracticeSet = rawQuestions.map(q => ({
                     ...q,
                     uid: `${selectedChapterId}_${generateQuestionId(q.q)}`
                 }));
 
-                // --- NEW: SORT QUESTIONS CHRONOLOGICALLY (NEWEST FIRST) ---
+                // --- ADVANCED DATE SORTING ---
                 filteredPracticeSet.sort((a, b) => {
-                    let yearA = parseInt(a.year) || 0;
-                    let yearB = parseInt(b.year) || 0;
+                    // Parse "24 Jan 2024" into a real JS timestamp. 
+                    let timestampA = Date.parse(a.date) || Date.parse(a.year) || 0;
+                    let timestampB = Date.parse(b.date) || Date.parse(b.year) || 0;
 
-                    // Sort Year Descending (2024 -> 2023)
-                    if (yearB !== yearA) {
-                        return yearB - yearA; 
+                    // 1. Sort by Exact Date (Newest first)
+                    if (timestampB !== timestampA) {
+                        return timestampB - timestampA; 
                     }
                     
-                    // If Years match, Sort Shift Descending (Shift 2 -> Shift 1)
+                    // 2. If dates are identical, sort Shift Descending (Shift 2 -> Shift 1)
                     let shiftA = a.shift ? a.shift.toString().toLowerCase() : "";
                     let shiftB = b.shift ? b.shift.toString().toLowerCase() : "";
                     
@@ -408,7 +408,7 @@
 
             } catch (error) {
                 console.error(error);
-                document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--error-red);">Failed to load the dataset.</div>';
+                document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--error-red);">Failed to load the dataset. Ensure the JSON was pushed to the server.</div>';
             }
         };
 
@@ -444,7 +444,8 @@
                 if (isCorrect) badgeHtml = `<div class="status-badge badge-correct"><i class="fa-solid fa-check"></i> Correct</div>`;
                 if (isWrong) badgeHtml = `<div class="status-badge badge-wrong"><i class="fa-solid fa-xmark"></i> Incorrect</div>`;
 
-                const yearText = q.year && q.year !== "Unknown Year" ? q.year : 'Date Unknown';
+                // Render the Exact Date
+                const dateText = q.date && q.date !== "Unknown Year" ? q.date : 'Date Unknown';
                 const shiftText = q.shift && q.shift !== "Unknown Shift" ? q.shift : 'Shift Unknown';
 
                 const rowHtml = `
@@ -452,7 +453,7 @@
                         <div class="index-q-wrapper">
                             <div class="index-q-text"><span style="color:var(--brand-blue); font-weight:700;">Q${index + 1}.</span> ${getCleanPreview(q.q)}</div>
                             <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 6px; display: flex; gap: 12px;">
-                                <span><i class="fa-regular fa-calendar"></i> ${yearText}</span>
+                                <span><i class="fa-regular fa-calendar"></i> ${dateText}</span>
                                 <span><i class="fa-regular fa-clock"></i> ${shiftText}</span>
                             </div>
                         </div>
@@ -483,11 +484,12 @@
             
             document.getElementById('focus-progress-tracker').innerText = `Question ${index + 1} of ${filteredPracticeSet.length}`;
             
-            const yearText = q.year && q.year !== "Unknown Year" ? q.year : 'Date Unknown';
+            // Generate Badges for the specific question
+            const dateText = q.date && q.date !== "Unknown Year" ? q.date : 'Date Unknown';
             const shiftText = q.shift && q.shift !== "Unknown Shift" ? q.shift : 'Shift Unknown';
             
             document.getElementById('focus-q-meta').innerHTML = `
-                <span class="marks-tag tag-year"><i class="fa-regular fa-calendar"></i> ${yearText}</span>
+                <span class="marks-tag tag-year"><i class="fa-regular fa-calendar"></i> ${dateText}</span>
                 <span class="marks-tag tag-chapter" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-secondary);"><i class="fa-regular fa-clock"></i> ${shiftText}</span>
             `;
             
