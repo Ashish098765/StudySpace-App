@@ -517,6 +517,11 @@
             
             document.getElementById('focus-q-text').innerText = q.q;
 
+            if (window.MathJax) {
+    MathJax.typesetPromise([document.getElementById('quiz-focus-screen')])
+        .catch((err) => console.log('MathJax typeset error:', err));
+}
+
             const optContainer = document.getElementById('focus-options-container');
             optContainer.innerHTML = "";
 
@@ -607,6 +612,11 @@ if(window.MathJax) {
             document.getElementById('focus-explanation-text').innerText = q.explanation;
             document.getElementById('focus-explanation-box').style.display = 'block';
             
+            if (window.MathJax) {
+    MathJax.typesetPromise([document.getElementById('focus-explanation-box')])
+        .catch((err) => console.log('MathJax typeset error:', err));
+}
+
             if(window.MathJax) {
                 MathJax.typesetPromise([document.getElementById('focus-explanation-box')]).catch(err => console.log(err));
             }
