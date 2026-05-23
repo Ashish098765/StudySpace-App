@@ -485,93 +485,18 @@
             document.getElementById('list-progress-tracker').innerText = `${completedCount} / ${filteredPracticeSet.length} Completed`;
         }
 
-        window.openFocusQuestion = (index) => {
-            currentFocusIndex = index;
-            isFocusAnswerChecked = false;
-            selectedOptionIndex = null;
-            
-            const q = filteredPracticeSet[index];
-            const isCorrect = correctIds.includes(q.uid);
-            const isWrong = wrongIds.includes(q.uid);
-            const isAttempted = isCorrect || isWrong;
-
-            document.getElementById('btn-check-focus').style.display = 'block';
-            document.getElementById('btn-check-focus').disabled = true;
-            document.getElementById('btn-next-focus').style.display = 'none';
-            document.getElementById('focus-explanation-box').style.display = 'none';
-            document.getElementById('focus-result-status').innerHTML = "";
-            
-            document.getElementById('focus-progress-tracker').innerText = `Question ${index + 1} of ${filteredPracticeSet.length}`;
-            
-            // Generate beautiful, combined metadata tags
-            const dText = (q.date && q.date !== "Unknown" && q.date !== "Unknown Date") ? q.date : "";
-            const yText = (q.year && q.year !== "Unknown" && q.year !== "Unknown Year") ? q.year : "";
-            const fullDateStr = [dText, yText].filter(Boolean).join(" ") || "Date Unknown";
-            const shiftStr = (q.shift && q.shift !== "Unknown" && q.shift !== "Unknown Shift") ? q.shift + " Shift" : "Shift Unknown";
-
-            document.getElementById('focus-q-meta').innerHTML = `
-                <span class="marks-tag tag-subject" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); color: var(--brand-blue);"><i class="fa-solid fa-graduation-cap"></i> ${selectedTargetExam}</span>
-                <span class="marks-tag tag-year"><i class="fa-regular fa-calendar"></i> ${fullDateStr}</span>
-                <span class="marks-tag tag-chapter" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-secondary);"><i class="fa-regular fa-clock"></i> ${shiftStr}</span>
-            `;
-            
-            document.getElementById('focus-q-text').innerText = q.q;
-
-            if (window.MathJax) {
-    MathJax.typesetPromise([document.getElementById('quiz-focus-screen')])
-        .catch((err) => console.log('MathJax typeset error:', err));
-}
-
-            const optContainer = document.getElementById('focus-options-container');
-            optContainer.innerHTML = "";
-
-            q.options.forEach((opt, optIdx) => {
-                const codeMarker = String.fromCharCode(65 + optIdx);
-                const div = document.createElement('div');
-                div.className = `marks-option ${isAttempted ? 'locked' : ''}`;
-                div.id = `focus-opt-${optIdx}`;
-                div.innerHTML = `
-                    <div class="opt-letter">${codeMarker}</div>
-                    <div class="opt-text">${opt}</div>
-                    <i class="fa-solid fa-circle-check opt-icon check-icon" id="focus-check-${optIdx}"></i>
-                    <i class="fa-solid fa-circle-xmark opt-icon cross-icon" id="focus-cross-${optIdx}"></i>
-                `;
-
-                if (!isAttempted) {
-                    div.onclick = () => selectFocusOption(optIdx);
-                }
-                optContainer.appendChild(div);
-            });
-
-            if (isAttempted) {
-                document.getElementById('btn-check-focus').style.display = 'none';
-                document.getElementById('btn-next-focus').style.display = 'block';
-                document.getElementById('focus-explanation-text').innerText = q.explanation;
-                document.getElementById('focus-explanation-box').style.display = 'block';
-                
-                document.getElementById(`focus-opt-${q.answer}`).classList.add('correct');
-                document.getElementById(`focus-check-${q.answer}`).style.display = 'block';
-                
-                if (isCorrect) {
-                    document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--success-green);"><i class="fa-solid fa-check"></i> Solved Correctly</span>`;
-                } else {
-                    document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--error-red);"><i class="fa-solid fa-xmark"></i> Solved Incorrectly</span>`;
-                }
-            }
-
-            screenList.style.display = 'none';
-            screenFocus.style.display = 'block';
-            window.scrollTo(0,0);
-            
-            if(window.MathJax) {
-                MathJax.typesetPromise([document.getElementById('quiz-focus-screen')]).catch(err => console.log(err));
-            }
-        };
-        triggerMathTypeset();
-        // Add this at the bottom of the openFocusQuestion function
-if(window.MathJax) {
-    MathJax.typesetPromise([document.getElementById('quiz-focus-screen')]).catch(err => console.log(err));
-}
+       screenList.style.display = 'none';
+    screenFocus.style.display = 'block';
+    window.scrollTo(0, 0);
+    
+    // THE FIX: Staggered rendering to prevent main-thread freeze
+    if(window.MathJax) {
+        // Delay the MathJax render slightly so the UI finishes painting first
+        setTimeout(() => {
+            MathJax.typesetPromise([document.getElementById('quiz-focus-screen')])
+                .catch(err => console.log("MathJax Freeze Prevented:", err));
+        }, 150); // 150ms delay is invisible to users but saves the browser
+    }
 
         window.selectFocusOption = (optIndex) => {
             if (isFocusAnswerChecked) return;
