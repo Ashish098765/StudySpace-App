@@ -384,18 +384,14 @@
                     uid: `${selectedChapterId}_${generateQuestionId(q.q)}`
                 }));
 
-                // --- ADVANCED DATE SORTING ---
                 filteredPracticeSet.sort((a, b) => {
-                    // Parse "24 Jan 2024" into a real JS timestamp. 
                     let timestampA = Date.parse(a.date) || Date.parse(a.year) || 0;
                     let timestampB = Date.parse(b.date) || Date.parse(b.year) || 0;
 
-                    // 1. Sort by Exact Date (Newest first)
                     if (timestampB !== timestampA) {
                         return timestampB - timestampA; 
                     }
                     
-                    // 2. If dates are identical, sort Shift Descending (Shift 2 -> Shift 1)
                     let shiftA = a.shift ? a.shift.toString().toLowerCase() : "";
                     let shiftB = b.shift ? b.shift.toString().toLowerCase() : "";
                     
@@ -444,8 +440,7 @@
                 if (isCorrect) badgeHtml = `<div class="status-badge badge-correct"><i class="fa-solid fa-check"></i> Correct</div>`;
                 if (isWrong) badgeHtml = `<div class="status-badge badge-wrong"><i class="fa-solid fa-xmark"></i> Incorrect</div>`;
 
-                // Render the Exact Date
-                const dateText = q.date && q.date !== "Unknown Year" ? q.date : 'Date Unknown';
+                const dateText = q.date && q.date !== "Unknown Date" ? q.date : (q.year && q.year !== "Unknown Year" ? q.year : 'Date Unknown');
                 const shiftText = q.shift && q.shift !== "Unknown Shift" ? q.shift : 'Shift Unknown';
 
                 const rowHtml = `
@@ -484,8 +479,8 @@
             
             document.getElementById('focus-progress-tracker').innerText = `Question ${index + 1} of ${filteredPracticeSet.length}`;
             
-            // Generate Badges for the specific question
-            const dateText = q.date && q.date !== "Unknown Year" ? q.date : 'Date Unknown';
+            // --- FIX IS HERE: Correctly load q.date instead of q.year ---
+            const dateText = q.date && q.date !== "Unknown Date" ? q.date : (q.year && q.year !== "Unknown Year" ? q.year : 'Date Unknown');
             const shiftText = q.shift && q.shift !== "Unknown Shift" ? q.shift : 'Shift Unknown';
             
             document.getElementById('focus-q-meta').innerHTML = `
