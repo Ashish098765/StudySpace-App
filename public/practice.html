@@ -385,52 +385,6 @@
                 }));
 
                 filteredPracticeSet.sort((a, b) => {
-                    let timestampA = Date.parse(a.date) || Date.parse(a.year) || 0;
-                    let timestampB = Date.parse(b.date) || Date.parse(b.year) || 0;
-
-                    if (timestampB !== timestampA) {
-                        return timestampB - timestampA; 
-                    }
-                    
-                    let shiftA = a.shift ? a.shift.toString().toLowerCase() : "";
-                    let shiftB = b.shift ? b.shift.toString().toLowerCase() : "";
-                    
-                    if (shiftA > shiftB) return -1;
-                    if (shiftA < shiftB) return 1;
-                    return 0;
-                });
-
-                renderIndexList();
-
-            } catch (error) {
-                console.error(error);
-                document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--error-red);">Failed to load the dataset. Ensure the JSON was pushed to the server.</div>';
-            }
-        };
-
-        window.abortSession = () => {
-            screenList.style.display = 'none';
-            screenExplorer.style.display = 'block';
-        };
-
-        window.returnToList = () => {
-            renderIndexList(); 
-            screenFocus.style.display = 'none';
-            screenList.style.display = 'block';
-        };
-
-        function getCleanPreview(text) {
-            let clean = text.replace(/\\\[/g, '').replace(/\\\]/g, '').replace(/\\\(/g, '').replace(/\\\)/g, '').replace(/\$\$/g, '').replace(/\$/g, '');
-            clean = clean.replace(/\s+/g, ' ').trim();
-            return clean.length > 85 ? clean.substring(0, 85) + "..." : clean;
-        }
-
-        function renderIndexList() {
-            const container = document.getElementById('index-list-container');
-            container.innerHTML = "";
-            let completedCount = 0;
-
-            filteredPracticeSet.sort((a, b) => {
     // 1. Helper to convert your date strings into a comparable number (YYYYMMDD)
     const getTimestamp = (q) => {
         const year = parseInt(q.year) || 0;
@@ -466,6 +420,67 @@
     const shiftB = shiftOrder[b.shift?.toLowerCase()] || 4;
     return shiftA - shiftB;
 });
+
+                renderIndexList();
+
+            } catch (error) {
+                console.error(error);
+                document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--error-red);">Failed to load the dataset. Ensure the JSON was pushed to the server.</div>';
+            }
+        };
+
+        window.abortSession = () => {
+            screenList.style.display = 'none';
+            screenExplorer.style.display = 'block';
+        };
+
+        window.returnToList = () => {
+            renderIndexList(); 
+            screenFocus.style.display = 'none';
+            screenList.style.display = 'block';
+        };
+
+        function getCleanPreview(text) {
+            let clean = text.replace(/\\\[/g, '').replace(/\\\]/g, '').replace(/\\\(/g, '').replace(/\\\)/g, '').replace(/\$\$/g, '').replace(/\$/g, '');
+            clean = clean.replace(/\s+/g, ' ').trim();
+            return clean.length > 85 ? clean.substring(0, 85) + "..." : clean;
+        }
+
+        function renderIndexList() {
+            const container = document.getElementById('index-list-container');
+            container.innerHTML = "";
+            let completedCount = 0;
+
+            filteredPracticeSet.forEach((q, index) => {
+                const isCorrect = correctIds.includes(q.uid);
+                const isWrong = wrongIds.includes(q.uid);
+                
+                if (isCorrect || isWrong) completedCount++;
+
+                let badgeHtml = `<div class="status-badge badge-pending"><i class="fa-solid fa-circle-minus"></i> Pending</div>`;
+                if (isCorrect) badgeHtml = `<div class="status-badge badge-correct"><i class="fa-solid fa-check"></i> Correct</div>`;
+                if (isWrong) badgeHtml = `<div class="status-badge badge-wrong"><i class="fa-solid fa-xmark"></i> Incorrect</div>`;
+
+                // Robust Date and Shift compiler
+                const dText = (q.date && q.date !== "Unknown" && q.date !== "Unknown Date") ? q.date : "";
+                const yText = (q.year && q.year !== "Unknown" && q.year !== "Unknown Year") ? q.year : "";
+                const fullDateStr = [dText, yText].filter(Boolean).join(" ") || "Date Unknown";
+                const shiftStr = (q.shift && q.shift !== "Unknown" && q.shift !== "Unknown Shift") ? q.shift + " Shift" : "Shift Unknown";
+
+                const rowHtml = `
+                    <div class="index-row" onclick="openFocusQuestion(${index})">
+                        <div class="index-q-wrapper">
+                            <div class="index-q-text"><span style="color:var(--brand-blue); font-weight:700;">Q${index + 1}.</span> ${getCleanPreview(q.q)}</div>
+                            <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 8px; display: flex; gap: 12px; align-items: center; font-weight: 600;">
+                                <span style="color: var(--gold); background: rgba(251, 191, 36, 0.1); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(251, 191, 36, 0.2);"><i class="fa-regular fa-calendar"></i> ${fullDateStr}</span>
+                                <span style="background: rgba(255, 255, 255, 0.05); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1);"><i class="fa-regular fa-clock"></i> ${shiftStr}</span>
+                            </div>
+                        </div>
+                        ${badgeHtml}
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', rowHtml);
+            });
 
             document.getElementById('list-progress-tracker').innerText = `${completedCount} / ${filteredPracticeSet.length} Completed`;
         }
