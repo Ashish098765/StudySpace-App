@@ -567,6 +567,7 @@
                 MathJax.typesetPromise([document.getElementById('quiz-focus-screen')]).catch(err => console.log(err));
             }
         };
+        triggerMathTypeset();
         // Add this at the bottom of the openFocusQuestion function
 if(window.MathJax) {
     MathJax.typesetPromise([document.getElementById('quiz-focus-screen')]).catch(err => console.log(err));
@@ -662,5 +663,31 @@ if(window.MathJax) {
             }
         }
     </script>
+    <script>
+    // This watches for content changes inside your question and explanation containers
+    const targetNodes = [
+        document.getElementById('focus-q-text'),
+        document.getElementById('focus-explanation-text')
+    ];
+
+    const observer = new MutationObserver((mutations) => {
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
+    });
+
+    targetNodes.forEach(node => {
+        if (node) {
+            observer.observe(node, { childList: true, subtree: true, characterData: true });
+        }
+    });
+
+    // Also trigger it manually whenever you load a new question
+    function triggerMathTypeset() {
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
+    }
+</script>
 </body>
 </html>
