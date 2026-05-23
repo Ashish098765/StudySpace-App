@@ -65,7 +65,6 @@
         .chapter-title-wrapper i { color: var(--brand-blue); font-size: 0.95rem; }
         .chapter-name { font-size: 0.95rem; font-weight: 600; }
         .chapter-stats { font-size: 0.8rem; color: var(--text-secondary); display: flex; gap: 1rem; font-weight: 500; }
-        .stat-highlight { color: var(--gold); font-weight: 600; }
 
         /* Shared Header/Tags */
         .test-header { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1.5rem; }
@@ -74,17 +73,20 @@
         .tag-subject { background: rgba(99, 102, 241, 0.15); color: var(--brand-blue); border: 1px solid rgba(99, 102, 241, 0.25); }
         .tag-chapter { background: rgba(255,255,255,0.06); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.1); }
 
-        /* --- SCREEN 3: LIST INDEX VIEW --- */
+        /* --- SCREEN 3: LIST INDEX VIEW (FIXED FLEXBOX) --- */
         #list-index-screen { display: none; }
         .index-list-container { display: flex; flex-direction: column; gap: 0.5rem; }
         
-        /* FIXED CSS: Prevent badge wrapping and ellipsis truncation */
-        .index-row { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; gap: 1.5rem; }
+        /* BULLETPROOF FLEX LAYOUT */
+        .index-row { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.5rem; display: flex; flex-direction: row; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; gap: 1.5rem; width: 100%; box-sizing: border-box; }
         .index-row:hover { background: var(--bg-surface-elevated); border-color: var(--text-secondary); }
         
-        .index-q-text { flex: 1; min-width: 0; font-weight: 500; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        /* Forces the text to shrink and truncate with "..." */
+        .index-q-text { flex: 1 1 auto; min-width: 0; font-weight: 500; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         
-        .status-badge { flex-shrink: 0; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+        /* Forces the badge to maintain exact size and never shrink or wrap */
+        .status-badge { flex: 0 0 auto; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+        
         .badge-pending { background: rgba(255, 255, 255, 0.05); color: var(--text-secondary); border: 1px solid rgba(255, 255, 255, 0.1); }
         .badge-correct { background: var(--success-bg); color: var(--success-green); border: 1px solid var(--success-green); }
         .badge-wrong { background: var(--error-bg); color: var(--error-red); border: 1px solid var(--error-red); }
@@ -102,7 +104,6 @@
         .opt-text { flex-grow: 1; font-size: 0.95rem; }
         .opt-icon { margin-left: 1rem; font-size: 1.1rem; display: none; }
 
-        /* Option States */
         .marks-option.selected { border-color: var(--brand-blue); background: rgba(99, 102, 241, 0.08); }
         .marks-option.selected .opt-letter { background: var(--brand-blue); border-color: var(--brand-blue); color: white; }
         .marks-option.correct { border-color: var(--success-green); background: var(--success-bg); }
@@ -231,8 +232,10 @@
         const db = getFirestore(app);
         
         let currentUser = null;
-        let correctIds = []; 
-        let wrongIds = [];
+        
+        // --- NEW: INITIALIZE FROM SESSION STORAGE (SURVIVES REFRESH) ---
+        let correctIds = JSON.parse(sessionStorage.getItem('correctIds')) || [];
+        let wrongIds = JSON.parse(sessionStorage.getItem('wrongIds')) || [];
         
         onAuthStateChanged(auth, async (user) => {
             if (user) {
@@ -240,8 +243,21 @@
                 const userRef = doc(db, "users", user.uid);
                 const snap = await getDoc(userRef);
                 if (snap.exists()) {
-                    correctIds = snap.data().correctIds || [];
-                    wrongIds = snap.data().wrongIds || [];
+                    // Merge Firebase data with current session data
+                    const fbCorrect = snap.data().correctIds || [];
+                    const fbWrong = snap.data().wrongIds || [];
+                    
+                    correctIds = [...new Set([...correctIds, ...fbCorrect])];
+                    wrongIds = [...new Set([...wrongIds, ...fbWrong])];
+                    
+                    // Sync back to session storage
+                    sessionStorage.setItem('correctIds', JSON.stringify(correctIds));
+                    sessionStorage.setItem('wrongIds', JSON.stringify(wrongIds));
+                    
+                    // Update UI if we are currently looking at the list
+                    if (document.getElementById('list-index-screen').style.display === 'block') {
+                        renderIndexList();
+                    }
                 }
             }
         });
@@ -345,12 +361,10 @@
             return Math.abs(hash).toString();
         }
 
-        // --- CORE LOGIC: LAUNCH THE LIST ---
         window.launchSession = async (chapterName, chapterFileId) => {
             selectedActiveChapter = chapterName;
             selectedChapterId = chapterFileId;
 
-            // Update Badges
             document.getElementById('list-badge-subject').innerText = selectedActiveSubject;
             document.getElementById('list-badge-chapter').innerText = selectedActiveChapter;
             document.getElementById('focus-badge-subject').innerText = selectedActiveSubject;
@@ -371,7 +385,6 @@
                     return;
                 }
 
-                // Inject stable IDs
                 filteredPracticeSet = rawQuestions.map(q => ({
                     ...q,
                     uid: `${selectedChapterId}_${generateQuestionId(q.q)}`
@@ -391,12 +404,11 @@
         };
 
         window.returnToList = () => {
-            renderIndexList(); // Re-render to update badges with newly completed questions
+            renderIndexList(); 
             screenFocus.style.display = 'none';
             screenList.style.display = 'block';
         };
 
-        // --- SCREEN 3: RENDER THE CLICKABLE LIST ---
         function renderIndexList() {
             const container = document.getElementById('index-list-container');
             container.innerHTML = "";
@@ -425,7 +437,6 @@
             if(window.MathJax) MathJax.typesetPromise();
         }
 
-        // --- SCREEN 4: OPEN SINGLE QUESTION ---
         window.openFocusQuestion = (index) => {
             currentFocusIndex = index;
             isFocusAnswerChecked = false;
@@ -436,7 +447,6 @@
             const isWrong = wrongIds.includes(q.uid);
             const isAttempted = isCorrect || isWrong;
 
-            // UI Resets
             document.getElementById('btn-check-focus').style.display = 'block';
             document.getElementById('btn-check-focus').disabled = true;
             document.getElementById('btn-next-focus').style.display = 'none';
@@ -446,7 +456,6 @@
             document.getElementById('focus-progress-tracker').innerText = `Question ${index + 1} of ${filteredPracticeSet.length}`;
             document.getElementById('focus-q-text').innerText = q.q;
 
-            // Render Options
             const optContainer = document.getElementById('focus-options-container');
             optContainer.innerHTML = "";
 
@@ -468,14 +477,12 @@
                 optContainer.appendChild(div);
             });
 
-            // If already attempted, pre-fill the correct UI state
             if (isAttempted) {
                 document.getElementById('btn-check-focus').style.display = 'none';
                 document.getElementById('btn-next-focus').style.display = 'block';
                 document.getElementById('focus-explanation-text').innerText = q.explanation;
                 document.getElementById('focus-explanation-box').style.display = 'block';
                 
-                // Show Correct Answer
                 document.getElementById(`focus-opt-${q.answer}`).classList.add('correct');
                 document.getElementById(`focus-check-${q.answer}`).style.display = 'block';
                 
@@ -486,7 +493,6 @@
                 }
             }
 
-            // Switch Screen
             screenList.style.display = 'none';
             screenFocus.style.display = 'block';
             window.scrollTo(0,0);
@@ -509,7 +515,6 @@
             const q = filteredPracticeSet[currentFocusIndex];
             const isCorrect = (selectedOptionIndex === q.answer);
 
-            // Lock all options
             document.querySelectorAll('#focus-options-container .marks-option').forEach(el => el.classList.add('locked'));
             
             document.getElementById('btn-check-focus').style.display = 'none';
@@ -544,20 +549,24 @@
             }
         };
 
-        // FIXED: The UI will now locally track correctness even if user is not logged in!
+        // --- NEW: ALWAYS SAVE TO LOCAL SESSION REGARDLESS OF FIREBASE LOGIN ---
         async function updateFirebaseProgress(questionUid, isCorrect) {
             
-            // 1. ALWAYS push to local arrays immediately to make UI updates instant
+            // 1. Immediately update arrays
             if (isCorrect && !correctIds.includes(questionUid)) {
                 correctIds.push(questionUid);
             } else if (!isCorrect && !wrongIds.includes(questionUid)) {
                 wrongIds.push(questionUid);
             }
 
-            // 2. If the user is NOT logged in, stop here. The UI still works locally!
-            if(!currentUser) return; 
+            // 2. Save directly to the browser's session storage so it survives refreshes
+            sessionStorage.setItem('correctIds', JSON.stringify(correctIds));
+            sessionStorage.setItem('wrongIds', JSON.stringify(wrongIds));
 
-            // 3. Only run Firebase save logic if user is authenticated
+            // 3. Stop here if user is a guest (UI will still work perfectly locally)
+            if(!currentUser) return; 
+            
+            // 4. Proceed with Firebase Save if logged in
             const documentTargetRef = doc(db, "users", currentUser.uid);
             const xpGain = isCorrect ? 8 : -2;
 
