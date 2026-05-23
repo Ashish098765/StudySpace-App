@@ -7,6 +7,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- NEW: MATHJAX CONFIGURATION FOR LATEX SUPPORT -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         :root { 
             --bg-base: #0f111a; 
@@ -28,7 +41,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background-color: var(--bg-base); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
 
-        /* Navigation Header */
         nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: var(--bg-surface); border-bottom: 1px solid var(--border-color); }
         .logo-text { font-size: 1.2rem; font-weight: 800; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
         .logo-text i { color: var(--brand-blue); }
@@ -40,7 +52,6 @@
         .btn-primary:hover:not(:disabled) { background: var(--brand-blue-hover); }
         .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
 
-        /* --- SCREEN 1 & 2: GATEWAY & EXPLORER --- */
         #exam-gateway-screen { display: block; }
         .gateway-title { text-align: center; font-size: 2.2rem; font-weight: 800; margin-top: 3rem; margin-bottom: 0.5rem; }
         .gateway-subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1rem; }
@@ -66,21 +77,19 @@
         .chapter-name { font-size: 0.95rem; font-weight: 600; }
         .chapter-stats { font-size: 0.8rem; color: var(--text-secondary); display: flex; gap: 1rem; font-weight: 500; }
 
-        /* Shared Header/Tags */
         .test-header { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1.5rem; }
         .test-meta { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
         .marks-tag { font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+        .tag-year { background: rgba(251, 191, 36, 0.12); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.25); }
         .tag-subject { background: rgba(99, 102, 241, 0.15); color: var(--brand-blue); border: 1px solid rgba(99, 102, 241, 0.25); }
         .tag-chapter { background: rgba(255,255,255,0.06); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.1); }
 
-        /* --- SCREEN 3: LIST INDEX VIEW (BULLETPROOF LAYOUT) --- */
         #list-index-screen { display: none; }
         .index-list-container { display: flex; flex-direction: column; gap: 0.6rem; }
         
         .index-row { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; gap: 1rem; }
         .index-row:hover { background: var(--bg-surface-elevated); border-color: var(--text-secondary); }
         
-        /* 2-Layer Wrapper forces text to clip properly without breaking the box */
         .index-q-wrapper { flex: 1; min-width: 0; }
         .index-q-text { font-weight: 500; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
         
@@ -89,7 +98,6 @@
         .badge-correct { background: var(--success-bg); color: var(--success-green); border: 1px solid var(--success-green); }
         .badge-wrong { background: var(--error-bg); color: var(--error-red); border: 1px solid var(--error-red); }
 
-        /* --- SCREEN 4: SINGLE QUESTION FOCUS VIEW --- */
         #quiz-focus-screen { display: none; }
         .question-container { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 2rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; }
         .q-number { font-size: 0.85rem; color: var(--text-secondary); font-weight: 700; margin-bottom: 1rem; display: block; }
@@ -119,8 +127,6 @@
         .solution-title { font-size: 0.8rem; color: var(--brand-blue); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; }
         .solution-text { font-size: 0.95rem; line-height: 1.6; color: var(--text-primary); overflow-x: auto; }
     </style>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -187,6 +193,9 @@
             </div>
 
             <div class="question-container" style="border-radius: 0 0 8px 8px;">
+                <!-- NEW: METADATA CONTAINER FOR YEAR AND SHIFT -->
+                <div id="focus-q-meta" style="display: flex; gap: 8px; margin-bottom: 1.5rem;"></div>
+                
                 <div class="q-text" id="focus-q-text">Loading...</div>
                 <div class="options-list" id="focus-options-container"></div>
 
@@ -226,7 +235,6 @@
         
         let currentUser = null;
         
-        // --- UPGRADED: PERSISTENT LOCAL STORAGE ---
         let correctIds = JSON.parse(localStorage.getItem('studySpace_correctIds')) || [];
         let wrongIds = JSON.parse(localStorage.getItem('studySpace_wrongIds')) || [];
         
@@ -396,17 +404,11 @@
             screenList.style.display = 'block';
         };
 
-        // --- NEW: CLEAN TEXT PREVIEW GENERATOR ---
-        // This strips formulas out so the list view never explodes
+        // Removes formulas from text so the list preview looks neat
         function getCleanPreview(text) {
-            let clean = text.replace(/\\\[/g, '').replace(/\\\]/g, '')
-                            .replace(/\\\(/g, '').replace(/\\\)/g, '')
-                            .replace(/\$\$/g, '').replace(/\$/g, '');
+            let clean = text.replace(/\\\[/g, '').replace(/\\\]/g, '').replace(/\\\(/g, '').replace(/\\\)/g, '').replace(/\$\$/g, '').replace(/\$/g, '');
             clean = clean.replace(/\s+/g, ' ').trim();
-            if (clean.length > 85) {
-                return clean.substring(0, 85) + "...";
-            }
-            return clean;
+            return clean.length > 85 ? clean.substring(0, 85) + "..." : clean;
         }
 
         function renderIndexList() {
@@ -424,10 +426,17 @@
                 if (isCorrect) badgeHtml = `<div class="status-badge badge-correct"><i class="fa-solid fa-check"></i> Correct</div>`;
                 if (isWrong) badgeHtml = `<div class="status-badge badge-wrong"><i class="fa-solid fa-xmark"></i> Incorrect</div>`;
 
+                const yearText = q.year ? q.year : 'Unknown Year';
+                const shiftText = q.shift ? q.shift : 'Unknown Shift';
+
                 const rowHtml = `
                     <div class="index-row" onclick="openFocusQuestion(${index})">
                         <div class="index-q-wrapper">
                             <div class="index-q-text"><span style="color:var(--brand-blue); font-weight:700;">Q${index + 1}.</span> ${getCleanPreview(q.q)}</div>
+                            <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 6px; display: flex; gap: 12px;">
+                                <span><i class="fa-regular fa-calendar"></i> ${yearText}</span>
+                                <span><i class="fa-regular fa-clock"></i> ${shiftText}</span>
+                            </div>
                         </div>
                         ${badgeHtml}
                     </div>
@@ -455,6 +464,15 @@
             document.getElementById('focus-result-status').innerHTML = "";
             
             document.getElementById('focus-progress-tracker').innerText = `Question ${index + 1} of ${filteredPracticeSet.length}`;
+            
+            // Generate Badges for the specific question
+            const yearText = q.year ? q.year : 'Unknown Year';
+            const shiftText = q.shift ? q.shift : 'Unknown Shift';
+            document.getElementById('focus-q-meta').innerHTML = `
+                <span class="marks-tag tag-year"><i class="fa-regular fa-calendar"></i> ${yearText}</span>
+                <span class="marks-tag tag-chapter" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-secondary);"><i class="fa-regular fa-clock"></i> ${shiftText}</span>
+            `;
+            
             document.getElementById('focus-q-text').innerText = q.q;
 
             const optContainer = document.getElementById('focus-options-container');
@@ -498,7 +516,7 @@
             screenFocus.style.display = 'block';
             window.scrollTo(0,0);
             
-            // --- NEW: ONLY RENDER MATHJAX ON THE FOCUS PAGE ---
+            // Force MathJax to render LaTeX on the question view
             if(window.MathJax) {
                 MathJax.typesetPromise([document.getElementById('quiz-focus-screen')]).catch(err => console.log(err));
             }
@@ -565,7 +583,6 @@
                 wrongIds.push(questionUid);
             }
 
-            // Save directly to the browser so it SURVIVES tab refreshes and closes
             localStorage.setItem('studySpace_correctIds', JSON.stringify(correctIds));
             localStorage.setItem('studySpace_wrongIds', JSON.stringify(wrongIds));
 

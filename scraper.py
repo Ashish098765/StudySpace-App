@@ -100,16 +100,30 @@ if __name__ == "__main__":
                             clean_text = " ".join(clean_text.split()) # Fix weird spacing
                             options_text.append(clean_text)
                         
+                        # ... (your previous code that cleans the options) ...
+                        
                         # Extract explanation
                         explanation_header = container.find('h2', string=re.compile(r'Explanation', re.IGNORECASE))
                         explanation = explanation_header.find_next_sibling('div').text.strip() if explanation_header else "Not Available"
                         
-                        # Save Data
+                        # --- NEW: EXTRACT YEAR AND SHIFT (REGEX STRATEGY) ---
+                        # We search the raw text of the entire container to find the year and shift.
+                        raw_container_text = container.text
+                        
+                        year_match = re.search(r'(20[1-2][0-9])', raw_container_text)
+                        year = year_match.group(1) if year_match else "Unknown Year"
+                        
+                        shift_match = re.search(r'(Shift \d|Shift [IV]+|Morning|Evening)', raw_container_text, re.IGNORECASE)
+                        shift = shift_match.group(1).title() if shift_match else "Unknown Shift"
+                        
+                        # Save Data with the new keys included!
                         all_data.append({
                             "q": q_text, 
                             "options": options_text, 
                             "answer": correct_index, 
-                            "explanation": explanation
+                            "explanation": explanation,
+                            "year": year,           # <--- NEW
+                            "shift": shift          # <--- NEW
                         })
                         
                         # Print progress on the same line so it doesn't spam your terminal
