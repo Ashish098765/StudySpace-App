@@ -77,10 +77,14 @@
         /* --- SCREEN 3: LIST INDEX VIEW --- */
         #list-index-screen { display: none; }
         .index-list-container { display: flex; flex-direction: column; gap: 0.5rem; }
-        .index-row { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; }
+        
+        /* FIXED CSS: Prevent badge wrapping and ellipsis truncation */
+        .index-row { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; gap: 1.5rem; }
         .index-row:hover { background: var(--bg-surface-elevated); border-color: var(--text-secondary); }
-        .index-q-text { font-weight: 500; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 75%; }
-        .status-badge { font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
+        
+        .index-q-text { flex: 1; min-width: 0; font-weight: 500; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        
+        .status-badge { flex-shrink: 0; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
         .badge-pending { background: rgba(255, 255, 255, 0.05); color: var(--text-secondary); border: 1px solid rgba(255, 255, 255, 0.1); }
         .badge-correct { background: var(--success-bg); color: var(--success-green); border: 1px solid var(--success-green); }
         .badge-wrong { background: var(--error-bg); color: var(--error-red); border: 1px solid var(--error-red); }
@@ -112,8 +116,8 @@
         .bottom-bar { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; min-height: 4.5rem; }
         .status-msg { font-size: 0.9rem; font-weight: 600; }
         
-        .solution-box { display: none; margin-top: 1.5rem; padding: 1.5rem; border-radius: 6px; border: 1px solid var(--success-green); background: var(--success-bg); }
-        .solution-title { font-size: 0.8rem; color: var(--success-green); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; }
+        .solution-box { display: none; margin-top: 1.5rem; padding: 1.5rem; border-radius: 6px; border: 1px solid var(--brand-blue); background: rgba(99, 102, 241, 0.05); }
+        .solution-title { font-size: 0.8rem; color: var(--brand-blue); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; }
         .solution-text { font-size: 0.95rem; line-height: 1.6; color: var(--text-primary); overflow-x: auto; }
     </style>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -201,7 +205,7 @@
             <div class="bottom-bar">
                 <div class="status-msg" id="focus-result-status"></div>
                 <button class="btn-primary" id="btn-check-focus" onclick="evaluateFocusQuestion()" disabled>SAVE & CHECK ANSWER</button>
-                <button class="btn-primary" id="btn-next-focus" onclick="advanceToNextQuestion()" style="display: none; background: var(--success-green);">CONTINUE <i class="fa-solid fa-arrow-right"></i></button>
+                <button class="btn-primary" id="btn-next-focus" onclick="advanceToNextQuestion()" style="display: none; background: var(--success-green);">NEXT QUESTION <i class="fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
 
@@ -523,7 +527,7 @@
                 document.getElementById(`focus-opt-${q.answer}`).classList.add('correct');
                 document.getElementById(`focus-check-${q.answer}`).style.display = 'block';
                 
-                document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--error-red);"><i class="fa-solid fa-xmark"></i> Differential Mismatch (-2 XP)</span>`;
+                document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--error-red);"><i class="fa-solid fa-xmark"></i> Incorrect Answer (-2 XP)</span>`;
                 await updateFirebaseProgress(q.uid, false);
             }
 
@@ -540,12 +544,20 @@
             }
         };
 
+        // FIXED: The UI will now locally track correctness even if user is not logged in!
         async function updateFirebaseProgress(questionUid, isCorrect) {
-            if(!currentUser) return;
             
-            if (isCorrect) correctIds.push(questionUid);
-            else wrongIds.push(questionUid);
+            // 1. ALWAYS push to local arrays immediately to make UI updates instant
+            if (isCorrect && !correctIds.includes(questionUid)) {
+                correctIds.push(questionUid);
+            } else if (!isCorrect && !wrongIds.includes(questionUid)) {
+                wrongIds.push(questionUid);
+            }
 
+            // 2. If the user is NOT logged in, stop here. The UI still works locally!
+            if(!currentUser) return; 
+
+            // 3. Only run Firebase save logic if user is authenticated
             const documentTargetRef = doc(db, "users", currentUser.uid);
             const xpGain = isCorrect ? 8 : -2;
 
