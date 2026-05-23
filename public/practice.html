@@ -73,20 +73,18 @@
         .tag-subject { background: rgba(99, 102, 241, 0.15); color: var(--brand-blue); border: 1px solid rgba(99, 102, 241, 0.25); }
         .tag-chapter { background: rgba(255,255,255,0.06); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.1); }
 
-        /* --- SCREEN 3: LIST INDEX VIEW (FIXED FLEXBOX) --- */
+        /* --- SCREEN 3: LIST INDEX VIEW (BULLETPROOF LAYOUT) --- */
         #list-index-screen { display: none; }
-        .index-list-container { display: flex; flex-direction: column; gap: 0.5rem; }
+        .index-list-container { display: flex; flex-direction: column; gap: 0.6rem; }
         
-        /* BULLETPROOF FLEX LAYOUT */
-        .index-row { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.5rem; display: flex; flex-direction: row; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; gap: 1.5rem; width: 100%; box-sizing: border-box; }
+        .index-row { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; gap: 1rem; }
         .index-row:hover { background: var(--bg-surface-elevated); border-color: var(--text-secondary); }
         
-        /* Forces the text to shrink and truncate with "..." */
-        .index-q-text { flex: 1 1 auto; min-width: 0; font-weight: 500; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        /* 2-Layer Wrapper forces text to clip properly without breaking the box */
+        .index-q-wrapper { flex: 1; min-width: 0; }
+        .index-q-text { font-weight: 500; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
         
-        /* Forces the badge to maintain exact size and never shrink or wrap */
-        .status-badge { flex: 0 0 auto; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
-        
+        .status-badge { flex-shrink: 0; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
         .badge-pending { background: rgba(255, 255, 255, 0.05); color: var(--text-secondary); border: 1px solid rgba(255, 255, 255, 0.1); }
         .badge-correct { background: var(--success-bg); color: var(--success-green); border: 1px solid var(--success-green); }
         .badge-wrong { background: var(--error-bg); color: var(--error-red); border: 1px solid var(--error-red); }
@@ -133,7 +131,6 @@
 
     <div class="container">
         
-        <!-- Screen 1: Gateway -->
         <div id="exam-gateway-screen">
             <h1 class="gateway-title">Target Exam</h1>
             <p class="gateway-subtitle">Select your preference to unlock structured historical test items.</p>
@@ -151,7 +148,6 @@
             </div>
         </div>
 
-        <!-- Screen 2: Explorer -->
         <div id="chapter-explorer-screen">
             <button class="btn-text" onclick="navigateToGateway()"><i class="fa-solid fa-arrow-left"></i> Change Target</button>
             <div class="page-header">
@@ -164,7 +160,6 @@
             </div>
         </div>
 
-        <!-- Screen 3: List Index View -->
         <div id="list-index-screen">
             <button class="btn-text" onclick="abortSession()"><i class="fa-solid fa-arrow-left"></i> Back to Inventory</button>
             
@@ -177,11 +172,9 @@
             </div>
 
             <div class="index-list-container" id="index-list-container">
-                <!-- Clickable rows injected here -->
             </div>
         </div>
 
-        <!-- Screen 4: Single Question Focus View -->
         <div id="quiz-focus-screen">
             <button class="btn-text" onclick="returnToList()"><i class="fa-solid fa-list"></i> Back to Question List</button>
             
@@ -233,9 +226,9 @@
         
         let currentUser = null;
         
-        // --- NEW: INITIALIZE FROM SESSION STORAGE (SURVIVES REFRESH) ---
-        let correctIds = JSON.parse(sessionStorage.getItem('correctIds')) || [];
-        let wrongIds = JSON.parse(sessionStorage.getItem('wrongIds')) || [];
+        // --- UPGRADED: PERSISTENT LOCAL STORAGE ---
+        let correctIds = JSON.parse(localStorage.getItem('studySpace_correctIds')) || [];
+        let wrongIds = JSON.parse(localStorage.getItem('studySpace_wrongIds')) || [];
         
         onAuthStateChanged(auth, async (user) => {
             if (user) {
@@ -243,18 +236,15 @@
                 const userRef = doc(db, "users", user.uid);
                 const snap = await getDoc(userRef);
                 if (snap.exists()) {
-                    // Merge Firebase data with current session data
                     const fbCorrect = snap.data().correctIds || [];
                     const fbWrong = snap.data().wrongIds || [];
                     
                     correctIds = [...new Set([...correctIds, ...fbCorrect])];
                     wrongIds = [...new Set([...wrongIds, ...fbWrong])];
                     
-                    // Sync back to session storage
-                    sessionStorage.setItem('correctIds', JSON.stringify(correctIds));
-                    sessionStorage.setItem('wrongIds', JSON.stringify(wrongIds));
+                    localStorage.setItem('studySpace_correctIds', JSON.stringify(correctIds));
+                    localStorage.setItem('studySpace_wrongIds', JSON.stringify(wrongIds));
                     
-                    // Update UI if we are currently looking at the list
                     if (document.getElementById('list-index-screen').style.display === 'block') {
                         renderIndexList();
                     }
@@ -262,7 +252,6 @@
             }
         });
 
-        // Global State
         let selectedTargetExam = "";
         let selectedActiveSubject = "";
         let selectedActiveChapter = "";
@@ -270,12 +259,10 @@
         let activeMetadata = null; 
         let filteredPracticeSet = [];
         
-        // Single Question Focus State
         let currentFocusIndex = 0;
         let selectedOptionIndex = null;
         let isFocusAnswerChecked = false;
 
-        // Screen Pointers
         const screenGateway = document.getElementById('exam-gateway-screen');
         const screenExplorer = document.getElementById('chapter-explorer-screen');
         const screenList = document.getElementById('list-index-screen');
@@ -409,6 +396,19 @@
             screenList.style.display = 'block';
         };
 
+        // --- NEW: CLEAN TEXT PREVIEW GENERATOR ---
+        // This strips formulas out so the list view never explodes
+        function getCleanPreview(text) {
+            let clean = text.replace(/\\\[/g, '').replace(/\\\]/g, '')
+                            .replace(/\\\(/g, '').replace(/\\\)/g, '')
+                            .replace(/\$\$/g, '').replace(/\$/g, '');
+            clean = clean.replace(/\s+/g, ' ').trim();
+            if (clean.length > 85) {
+                return clean.substring(0, 85) + "...";
+            }
+            return clean;
+        }
+
         function renderIndexList() {
             const container = document.getElementById('index-list-container');
             container.innerHTML = "";
@@ -426,7 +426,9 @@
 
                 const rowHtml = `
                     <div class="index-row" onclick="openFocusQuestion(${index})">
-                        <div class="index-q-text"><span style="color:var(--brand-blue); font-weight:700;">Q${index + 1}.</span> ${q.q}</div>
+                        <div class="index-q-wrapper">
+                            <div class="index-q-text"><span style="color:var(--brand-blue); font-weight:700;">Q${index + 1}.</span> ${getCleanPreview(q.q)}</div>
+                        </div>
                         ${badgeHtml}
                     </div>
                 `;
@@ -434,7 +436,6 @@
             });
 
             document.getElementById('list-progress-tracker').innerText = `${completedCount} / ${filteredPracticeSet.length} Completed`;
-            if(window.MathJax) MathJax.typesetPromise();
         }
 
         window.openFocusQuestion = (index) => {
@@ -496,7 +497,11 @@
             screenList.style.display = 'none';
             screenFocus.style.display = 'block';
             window.scrollTo(0,0);
-            if(window.MathJax) MathJax.typesetPromise();
+            
+            // --- NEW: ONLY RENDER MATHJAX ON THE FOCUS PAGE ---
+            if(window.MathJax) {
+                MathJax.typesetPromise([document.getElementById('quiz-focus-screen')]).catch(err => console.log(err));
+            }
         };
 
         window.selectFocusOption = (optIndex) => {
@@ -538,7 +543,10 @@
 
             document.getElementById('focus-explanation-text').innerText = q.explanation;
             document.getElementById('focus-explanation-box').style.display = 'block';
-            if(window.MathJax) MathJax.typesetPromise();
+            
+            if(window.MathJax) {
+                MathJax.typesetPromise([document.getElementById('focus-explanation-box')]).catch(err => console.log(err));
+            }
         };
 
         window.advanceToNextQuestion = () => {
@@ -549,24 +557,20 @@
             }
         };
 
-        // --- NEW: ALWAYS SAVE TO LOCAL SESSION REGARDLESS OF FIREBASE LOGIN ---
         async function updateFirebaseProgress(questionUid, isCorrect) {
             
-            // 1. Immediately update arrays
             if (isCorrect && !correctIds.includes(questionUid)) {
                 correctIds.push(questionUid);
             } else if (!isCorrect && !wrongIds.includes(questionUid)) {
                 wrongIds.push(questionUid);
             }
 
-            // 2. Save directly to the browser's session storage so it survives refreshes
-            sessionStorage.setItem('correctIds', JSON.stringify(correctIds));
-            sessionStorage.setItem('wrongIds', JSON.stringify(wrongIds));
+            // Save directly to the browser so it SURVIVES tab refreshes and closes
+            localStorage.setItem('studySpace_correctIds', JSON.stringify(correctIds));
+            localStorage.setItem('studySpace_wrongIds', JSON.stringify(wrongIds));
 
-            // 3. Stop here if user is a guest (UI will still work perfectly locally)
             if(!currentUser) return; 
             
-            // 4. Proceed with Firebase Save if logged in
             const documentTargetRef = doc(db, "users", currentUser.uid);
             const xpGain = isCorrect ? 8 : -2;
 
