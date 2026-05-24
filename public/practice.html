@@ -15,7 +15,8 @@
                 displayMath: [['$$', '$$'], ['\\[', '\\]']],
                 processEscapes: true
             },
-            svg: { fontCache: 'global' }
+            svg: { fontCache: 'global' },
+            startup: { typeset: false } // Prevent initial auto-typesetting to control it manually
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -92,12 +93,14 @@
         
         .index-q-wrapper { flex: 1; min-width: 0; }
         
-        /* THE FIX: CSS Truncation preserves MathJax formatting instead of JS slicing */
+        /* CSS Truncation preserves MathJax formatting instead of JS slicing */
+        /* CSS Truncation preserves MathJax formatting instead of JS slicing */
         .index-q-text { 
             font-weight: 500; 
             font-size: 0.95rem; 
             display: -webkit-box;
             -webkit-line-clamp: 2;
+            line-clamp: 2; /* <--- Add this line to make VS Code happy! */
             -webkit-box-orient: vertical;
             overflow: hidden; 
             white-space: normal;
@@ -455,6 +458,11 @@
             screenList.style.display = 'block';
         };
 
+        // THE FIX: Do not slice or strip text strings here so LaTeX tags stay intact.
+        function getCleanPreview(text) {
+            return text.replace(/\s+/g, ' ').trim();
+        }
+
         function renderIndexList() {
             const container = document.getElementById('index-list-container');
             container.innerHTML = "";
@@ -480,11 +488,10 @@
                     shiftBadgeHtml = `<span style="background: rgba(255, 255, 255, 0.05); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1);"><i class="fa-regular fa-clock"></i> ${q.shift} Shift</span>`;
                 }
 
-                // THE FIX: Provide un-sliced text so MathJax boundary tags ($$) aren't accidentally cut off
                 const rowHtml = `
                     <div class="index-row" onclick="openFocusQuestion(${index})">
                         <div class="index-q-wrapper">
-                            <div class="index-q-text"><span style="color:var(--brand-blue); font-weight:700;">Q${index + 1}.</span> ${q.q.trim()}</div>
+                            <div class="index-q-text"><span style="color:var(--brand-blue); font-weight:700;">Q${index + 1}.</span> ${getCleanPreview(q.q)}</div>
                             <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 8px; display: flex; gap: 12px; align-items: center; font-weight: 600;">
                                 <span style="color: var(--gold); background: rgba(251, 191, 36, 0.1); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(251, 191, 36, 0.2);"><i class="fa-regular fa-calendar"></i> ${fullDateStr}</span>
                                 ${shiftBadgeHtml}

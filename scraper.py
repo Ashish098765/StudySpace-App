@@ -95,17 +95,25 @@ try:
             if not container:
                 continue
 
-            # Math Extraction (Flawless logic)
+            # ==========================================
+            # UPGRADED MATH EXTRACTION
+            # ==========================================
             for math_el in container.find_all(['mjx-container', 'script', 'span', 'img']):
                 latex = None
                 if math_el.name == 'script' and 'math/tex' in math_el.get('type', ''):
                     latex = math_el.get_text(strip=True)
                 elif math_el.name == 'mjx-container':
-                    math_tag = math_el.find('math')
-                    if math_tag and math_tag.has_attr('alttext'):
-                        latex = math_tag['alttext']
+                    # NEW: ExamSide's primary hidden LaTeX storage
+                    if math_el.has_attr('data-tex'):
+                        latex = math_el['data-tex']
                     else:
-                        latex = math_el.get_text(strip=True)
+                        math_tag = math_el.find('math')
+                        if math_tag and math_tag.has_attr('alttext'):
+                            latex = math_tag['alttext']
+                        elif math_el.find('annotation'):
+                            latex = math_el.find('annotation').get_text(strip=True)
+                        else:
+                            latex = math_el.get_text(strip=True)
                 elif 'katex' in math_el.get('class', []):
                     ann = math_el.find('annotation')
                     if ann:
@@ -117,13 +125,14 @@ try:
                         latex = math_el['alt']
                 
                 if latex is not None:
-                    math_el.replace_with(soup.new_string(f" ${latex}$ "))
+                    math_el.replace_with(soup.new_string(f" ${latex.strip()}$ "))
 
+            # NEW: Safely wrap generic superscripts/subscripts in isolated math blocks
             for sup in container.find_all('sup'):
-                sup.replace_with(soup.new_string(f"^{sup.get_text(strip=True)}"))
+                sup.replace_with(soup.new_string(f"$^{{{sup.get_text(strip=True)}}}$"))
             for sub in container.find_all('sub'):
-                sub.replace_with(soup.new_string(f"_{sub.get_text(strip=True)}"))
-                
+                sub.replace_with(soup.new_string(f"$_{{{sub.get_text(strip=True)}}}$"))
+            # ==========================================
             # Metadata Extraction
             full_text = container.get_text(" ", strip=True)
             year_match = re.search(r'\b(19\d{2}|20[0-2]\d)\b', full_text)
