@@ -1,16 +1,16 @@
 [
    {
-    "q": "If mass is written as$m = k c$PG$- 1 / 2 h^{1} / 2 then the value of$P$will be : (Constants have their usual meaning with k a dimensionless constant)$",
+    "q": "In the equation$[$X$+ a$Y$^{2} ][$Y$- b ]$=$RT$,$X$is pressure,$Y$is volume,$R$is universal gas constant and$T$is temperature. The physical quantity equivalent to the ratio a b is:",
     "options": [
-        "1/3",
-        "- 1/3",
-        "1/2",
-        "2"
+        "Impulse",
+        "Energy",
+        "Pressure gradient",
+        "Coefficient of viscosity"
     ],
-    "answer": 2,
-    "explanation": "$m = kc$PG$- 1 / 2 h^{1} / 2$M$1$L$0  \\t\\text{$T$}^{0}  =[ LT - 1 ]P[$M$- 1$L$3$T$- 2 ]$- 1 / 2$[ ML 2$T$- 1 ]$1 / 2 By comparing$P = 1 / 2$",
-    "year": "2024",
-    "date": "30th January",
+    "answer": 1,
+    "explanation": "Given that,$[$X$+ a$Y$^{2} ][$Y$- b ]$=$RT$∴$X$and a$Y$^{2} have the same dimensions and$Y$and b have the same dimensions, let's analyze the dimensions of a b . Since$X$represents pressure, it has dimensions of$[$ML$- 1$T$- 2 ]$. Since$X$and a$Y$^{2} have the same dimensions, we have:$[ a$Y$^{2} ]$=$[$ML$- 1$T$- 2 ]$Then, the dimensions of a are:$[ a ]$=$[$ML$- 1$T$- 2 ][$Y$^{2} ]$=$[$ML$^{5}$T$- 2 ]$Now, since$Y$and b have the same dimensions and$Y$represents volume, we have:$[ b ]$=$[$L$^{3} ]$Now, let's find the dimensions of the ratio a b :$[ a ][ b ]$=$[$ML$^{5}$T$- 2 ][$L$^{3} ]$=$[$ML$^{2}$T$- 2 ]$Indeed, the dimensions of a b are$[$ML$^{2}$T$- 2 ]$, which corresponds to the dimensions of energy.",
+    "year": "2023",
+    "date": "13th April",
     "shift": "Evening"
 }
 ]

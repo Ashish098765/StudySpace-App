@@ -11,11 +11,16 @@ import random
 
 def normalize_text(text):
     if not text: return ""
+    # Remove tabs, newlines and multiple spaces
+    text = text.replace('\t', ' ').replace('\n', ' ').replace('\r', ' ')
+    text = " ".join(text.split())
     return text.replace('\u2013', '-').replace('\u2014', '-').replace('\u2212', '-').replace('\u00a0', ' ')
 
 def setup_driver():
     options = uc.ChromeOptions()
     options.add_argument("--headless=new") # Headless mode enabled
+    options.add_argument("--window-size=1920,1080")
+    options.add_argument("--disable-gpu")
     options.page_load_strategy = 'eager' 
     
     prefs = {
@@ -163,31 +168,31 @@ try:
                 'θ': r'\theta ', 'α': r'\alpha ', 'β': r'\beta ', 'γ': r'\gamma ',
                 'Δ': r'\Delta ', '±': r'\pm ', '×': r'\times ', 'Ω': r'\Omega ',
                 'Φ': r'\Phi ', 'Ψ': r'\Psi ', 'Σ': r'\Sigma ', '∞': r'\infty ',
-                '√': r'\sqrt '
+                '√': r'\sqrt ', '·': r'\cdot '
             }
             for char, latex in sym_map.items():
                 text = text.replace(char, latex)
             
-            # A. Convert Units: "kg m -1 s -1" -> "$\text{kg m}^{-1}\text{s}^{-1}$"
-            unit_pattern = r'\b(kg|m|s|A|K|mol|cd|N|Pa|J|W|C|V|F|T|H|Wb)\s+(-?\d+)\b'
+            # A. GREEDY EQUATION DETECTOR: Capture whole formulas with '=' and ops before single-letter logic breaks them
+            # This captures things like "m = k c P G - 1 / 2" as a single block
+            text = re.sub(r'(?<!\$)\b([a-zA-Z]\s*=\s*[^.!?\n$]{3,})\b(?!\$)', r' $\1$ ', text)
+
+            # B. Fractions & Fractional Powers: "1 / 2" -> "1/2", "x 3 / 2" -> "x^{3/2}"
+            text = re.sub(r'(\d+)\s*/\s*(\d+)', r'\1/\2', text)
+            # Powers with potential fractions
+            text = re.sub(r'\b([a-zA-Z])\s+(-?\d+(?:/\d+)?)\b', r'\1^{\2}', text)
+
+            # C. Units: "kg m -1 s -1"
+            unit_pattern = r'\b(kg|m|s|A|K|mol|cd|N|Pa|J|W|C|V|F|T|H|Wb)\s+(-?\d+(?:/\d+)?)\b'
             text = re.sub(unit_pattern, r' \\text{\1}^{\2} ', text)
 
-            # B. Detect Fractions/Roots in plain text: "1 2" -> "1/2" or "sqrt l" -> "\sqrt{l}"
-            text = re.sub(r'\bsqrt\s+([a-zA-Z0-9]+)', r'\\sqrt{\1}', text, flags=re.I)
-            # Handle common physics fraction "1 2" -> "1/2"
-            text = re.sub(r'\b1\s+2\b', r'1/2', text)
-            
-            # C. Fix plain-text powers: ONLY for single letters (excluding Roman Numerals)
-            text = re.sub(r'\b([a-df-hj-uw-z])\s+(-?\d+)\b', r'\1^{\2}', text)
-            
-            # D. Wrap dimensions: "[M L T]" -> "$[M L T]$"
+            # D. Dimensions & Roots
             text = re.sub(r'(?<!\$)(\[[^\]]{2,}\])(?!\$)', r' $\1$ ', text)
+            text = re.sub(r'\bsqrt\s+([a-zA-Z0-9]+)', r'\\sqrt{\1}', text, flags=re.I)
             
-            # E. Wrap potential equations: "v = At^2"
-            text = re.sub(r'(?<!\$)\b([a-zA-Z]\s*=[^.!?\n$]+)(?!\$)', r' $\1$ ', text)
-            
-            # F. Wrap standalone variables (excluding Roman Numerals and common articles)
-            text = re.sub(r'(?<![\$\w])([v-zBCDE-NP-RT-Z])(?![\$\w])', r' $\1$ ', text)
+            # E. Standalone Variables: ONLY if not already inside $ or {}
+            # Exclude common articles 'a' and Roman Numeral 'I'
+            text = re.sub(r'(?<![\$\w\\{])([v-zBCDE-NP-RT-Z])(?![\$\w\\}])', r' $\1$ ', text)
             
             return text
 
@@ -195,26 +200,27 @@ try:
             if not text: return ""
             text = text.replace('&', r'\&')
             
-            # 1. Formatting "Match List" or structure
+            # 1. Structural Formatting
             text = re.sub(r'\b(List\s*-\s*II|List\s*II)\b', r'\n\1', text)
             text = re.sub(r'(\([a-d]\))', r'\n\1', text)
             text = re.sub(r'(\(i{1,3}|iv\))', r'\n\1', text)
             
-            # 2. Prevent $ from breaking numbers/decimals (e.g., "0$.1$" -> "$0.1$")
+            # 2. Aggressive Math Merger: Merge fragmented $ blocks ($m$ = $k$ -> $m = k$)
+            # Run multiple times to collapse sequences
+            for _ in range(3):
+                text = re.sub(r'\$\s*\$', '', text)
+                text = re.sub(r'\s+(\$)', r'\1', text)
+                text = re.sub(r'(\$)\s+', r'\1', text)
+
+            # 3. Decimal & Brace Protection
             text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
+            text = re.sub(r'(\$\b[^$]+\^\{\d+(?:/\d+)?)(?!\})', r'\1}', text)
             
-            # 3. Ensure closing brace inside $ if we created a power
-            text = re.sub(r'(\$\b[^$]+\^\{\d+)(?!\})', r'\1}', text)
-            
-            # 4. Spacing cleanup for LaTeX blocks
-            text = re.sub(r'\s+(\$)', r'\1', text)
-            text = re.sub(r'(\$)\s+', r'\1', text)
-            text = re.sub(r'\$\s*\$', '', text)
-            
-            # 5. Fix \text artifact and unit merging
+            # 4. Final Cleanup
             text = text.replace('} \\text{', r'} \cdot \text{')
-            # Final safety for \text escaping
             text = text.replace('ext{', r'\text{')
+            # Remove any double dollar artifacts from merging
+            text = text.replace('$$', '$')
             
             return text.strip()
 
