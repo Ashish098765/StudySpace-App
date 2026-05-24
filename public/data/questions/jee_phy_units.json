@@ -1,15 +1,17 @@
 [
 {
-    "q": "The time period of a simple harmonic oscillator is$T=2$\\pi  k m . Measured value of mass ( m ) of the object is 10 g with an accuracy of 10 mg and time for 50 oscillations of the spring is found to be 60  s  using a watch of 2  s  resolution. Percentage error in determination of spring constant ( k ) is ________%.",
+    "q": "In a vernier callipers, 50 vernier scale divisions are equal to 48 main scale divisions. If one main scale$division=0.05 mm , then the least count of the vernier callipers is _ _ _ _ mm.",
+    "type": "mcq",
     "options": [
-        "3.43",
-        "7.60",
-        "3.35",
-        "6.76"
+        "0.002",
+        "0.02",
+        "0.05",
+        "0.005"
     ],
-    "answer": 3,
-    "explanation": "The formula for the time period of simple harmonic oscillator is$T=2$\\pi  k m . ⇒  T$2=( 2 \\pi  ) 2 ( k m ) ⇒ k=T$2 ⋅  \\t\\text{m}^{4}  \\pi  2 Using propagation of error, when quantities are multiplied or divided, their relative errors (percentage errors) are added. The constants have no error. \\Delta  k k \\times$100=( \\Delta  m m+2 ⋅ \\Delta   T   T  ) \\times  100 The measured value of mass is, m=10gA ccuracy/Erro r$in measurement of mass is, \\Delta$m=10mg=0.01 g So, percentage error in measurement of mass \\Delta  m m \\times  100 % = 0.01 10 \\times$100=0.1 % The percentage error in the time period (  T  ) is the same as the percentage error in the total time ( t ) measured for n oscillations. Total time measured is,$t=60$s   Resolution/Error  in measurement of time is, \\Delta$t=2$s  So, percentage error in measurement of time is, \\Delta$t^{t} \\times  100 %=2 60 \\times  100 %=3.33 % So, using propagation formula: Percentage error in$k=( % error in m )+2 \\times  ( % error in t )=0.1 % + 2 \\times  3.33 % = 6.76 % Therefore, the correct option is ( D ).",
+    "answer": 0,
+    "explanation": "Value of one Main Scale Division, 1$MSD=0.05 mm Number of Vernier Scale Divisions$m=50 Number of Main Scale Divisions is n=48 50 VSD=48 MSD ⇒ 1 VSD=48 50 MSD The Least Count of a Vernier instrument is the smallest measurement that can be taken accurately$. Least Count (LC) of Vernier$scale=1 MSD-1 VSD Using the least count formula, LC=1 MSD-1 VSD ⇒ LC=1 MSD-( 48 50 ) MSD ⇒ LC=( 1-48 50 ) MSD ⇒ LC=( 50-48 50 ) MSD ⇒ LC=2 50 MSD=2 50 \\times  0.05mm=0.002 mm Therefore, the smallest measurement that this Vernier calliper can record is 0.002 mm . Hence, the correct option is (A).",
     "year": "2026",
-    "date": "28th January",
-    "shift": "Evening"}
+    "date": "24th January",
+    "shift": "Evening"
+}
 ]

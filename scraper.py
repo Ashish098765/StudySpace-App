@@ -11,14 +11,15 @@ import random
 
 def normalize_text(text):
     if not text: return ""
-    # Remove tabs, newlines and multiple spaces
+    # Remove literal tabs and consolidate spaces
     text = text.replace('\t', ' ').replace('\n', ' ').replace('\r', ' ')
     text = " ".join(text.split())
+    # Standardize physics characters
     return text.replace('\u2013', '-').replace('\u2014', '-').replace('\u2212', '-').replace('\u00a0', ' ')
 
 def setup_driver():
     options = uc.ChromeOptions()
-    options.add_argument("--headless=new") # Headless mode enabled
+    options.add_argument("--headless=new") 
     options.add_argument("--window-size=1920,1080")
     options.add_argument("--disable-gpu")
     options.page_load_strategy = 'eager' 
@@ -35,11 +36,75 @@ def setup_driver():
     driver.__class__.__del__ = lambda self: None 
     return driver
 
-print("--- BOOTING 1-QUESTION TEST ENGINE ---")
+# ===================================================================
+# THE PERFECT LATEX ENGINE
+# ===================================================================
+
+def latexify(text):
+    if not text: return ""
+    
+    # 0. Protection Map
+    sym_map = {
+        'μ': r'\mu ', 'η': r'\eta ', 'λ': r'\lambda ', 'π': r'\pi ', 
+        'θ': r'\theta ', 'α': r'\alpha ', 'β': r'\beta ', 'γ': r'\gamma ',
+        'Δ': r'\Delta ', '±': r'\pm ', '×': r'\times ', 'Ω': r'\Omega ',
+        'Φ': r'\Phi ', 'Ψ': r'\Psi ', 'Σ': r'\Sigma ', '∞': r'\infty ',
+        '√': r'\sqrt ', '·': r'\cdot ', '∴': r'\therefore ', 'ℓ': r'l',
+        'ω': r'\omega ', 'τ': r'\tau ', 'ρ': r'\rho ', 'σ': r'\sigma ',
+        'ϵ': r'\epsilon ', 'ε': r'\epsilon ', '≈': r'\approx ', '∠': r'\angle '
+    }
+    for char, latex in sym_map.items():
+        text = text.replace(char, latex)
+
+    # A. Fractions (Simple)
+    text = re.sub(r'\b(\d+)\s*/\s*(\d+)\b', r'\1/\2', text)
+
+    # B. Dimensional Formula Shield
+    def shield_dim(match):
+        inner = match.group(1)
+        inner = re.sub(r'([MLTA])\s*(-?\d+)', r'\1^{\2}', inner)
+        inner = re.sub(r'\s+', '', inner)
+        return f' $[{inner}]$ '
+    text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', shield_dim, text)
+
+    # C. Greedy Equation Detector (Capture multi-op expressions)
+    text = re.sub(r'(?<!\$)([[{(]?[a-zA-Z0-9\\]+\s*[=+\-*/^]\s*[^.!?\n$]{2,})([\]})]?)(?!\$)', r' $\1\2$ ', text)
+
+    # D. Units with Powers (Surgical)
+    unit_pattern = r'\b(kg|m|s|A|K|mol|cd|N|Pa|J|W|C|V|F|T|H|Wb)\s+(-?\d+(?:/\d+)?)\b'
+    text = re.sub(unit_pattern, r' \text{\1}^{\2} ', text)
+
+    # E. Standalone Variables
+    text = re.sub(r'(?<![\$\w\\{])([v-zBCDE-NP-RT-Zp-s])(?![\$\w\\}])', r' $\1$ ', text)
+
+    # F. Nuclear Merger (The Collapse)
+    for _ in range(5):
+        text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:a-zA-Z0-9\\]+)\s*\$', r'\1', text)
+        text = re.sub(r'\$\s*\$', '', text)
+        text = re.sub(r'\s+(\$)', r'\1', text)
+        text = re.sub(r'(\$)\s+', r'\1', text)
+
+    # G. Inner Cleanup (NO HACKS, ONLY REGEX)
+    def inner_tidy(match):
+        m = match.group(1)
+        m = re.sub(r'\s*([=+\-*/])\s*', r'\1', m)
+        return f'${m.strip()}$'
+    text = re.sub(r'\$([^$]+)\$', inner_tidy, text)
+
+    # H. Decimal Fix
+    text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
+    
+    # Remove redundant labels like (A) (A)
+    text = re.sub(r'(\([A-D]\))\s*\1', r'\1', text)
+    
+    return text.strip()
+
+# ===================================================================
+
+print("--- BOOTING EXAMSIDE PRO ENGINE ---")
 driver = setup_driver()
 
 try:
-    # 1. Grab a valid link dynamically
     chapter_url = "https://questions.examside.com/past-years/jee/jee-main/physics/units-and-measurements"
     print("Fetching dynamic link from chapter...")
     driver.get(chapter_url)
@@ -50,256 +115,113 @@ try:
     valid_links = [l.get_attribute("href") for l in all_links if l.get_attribute("href") and "/past-years/jee/question/" in l.get_attribute("href")]
     
     if not valid_links:
-        print("[!] No valid question links found on the page.")
+        print("[!] No valid question links found.")
         driver.quit()
         exit()
 
     test_link = random.choice(valid_links)
     print(f"Testing Question URL: {test_link}\n")
     
-    # 2. Navigate to the question
     driver.get(test_link)
     wait = WebDriverWait(driver, 10)
     wait.until(EC.presence_of_element_located((By.CLASS_NAME, "question-component")))
-    time.sleep(1) # Let React hydrate
+    time.sleep(1) 
     
-    # Reveal options/answers
+    # Reveal Logic
     try:
-        # 1. Click the first option to ensure "Check Answer" or "Show Answer" appears
-        options_buttons = driver.find_elements(By.CSS_SELECTOR, "div[role='button']")
-        if len(options_buttons) > 0:
-            driver.execute_script("arguments[0].click();", options_buttons[0])
+        opt_btns = driver.find_elements(By.CSS_SELECTOR, "div[role='button']")
+        if opt_btns:
+            driver.execute_script("arguments[0].click();", opt_btns[0])
             time.sleep(0.5)
             
-        # 2. Find and click "Check Answer" or "Show Answer"
-        found_btn = False
         for btn in driver.find_elements(By.TAG_NAME, "button"):
-            btn_text = btn.text.lower()
-            if any(x in btn_text for x in ["check", "show", "answer"]):
+            t = btn.text.lower()
+            if "check" in t or "show" in t or "answer" in t:
                 driver.execute_script("arguments[0].click();", btn)
-                found_btn = True
-                print(f"Clicked button: {btn.text}")
                 break
         
-        if not found_btn:
-            # Try a broader selector if no button was found by text
-            btns = driver.find_elements(By.CSS_SELECTOR, ".question-component button")
-            if btns:
-                driver.execute_script("arguments[0].click();", btns[-1])
-                print("Clicked last button in component as fallback")
-
-        # 3. Wait for explanation to actually render in the DOM
-        WebDriverWait(driver, 5).until(
-            lambda d: len(d.find_elements(By.XPATH, "//*[contains(text(), 'Explanation')]")) > 0 or
-                      len(d.find_elements(By.CLASS_NAME, "explanation")) > 0
-        )
-    except Exception as e:
-        print(f"Note: Could not explicitly trigger answer revelation: {e}")
+        WebDriverWait(driver, 5).until(lambda d: len(d.find_elements(By.XPATH, "//*[contains(text(), 'Explanation')]")) > 0)
+    except: pass
             
-    time.sleep(3) # Extra time for MathJax and dynamic text
+    time.sleep(3) 
     
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     container = soup.find('div', class_='question-component')
     
     if container:
-        # ===================================================================
-        # THE FIX: SURGICAL MATH & IMAGE REPLACEMENT
-        # ===================================================================
-        
-        # 1. Cleanup Garbage (Hidden elements that cause duplication)
+        # Pre-Extraction Replacement of Complex Math
         for garbage in container.find_all(class_=['MathJax_Preview', 'katex-html', 'mjx-assistive-mml']):
             garbage.decompose()
 
-        # 2. Handle MathJax 3 (mjx-container)
         for mjx in container.find_all('mjx-container'):
-            latex = mjx.get('data-tex')
-            if not latex:
-                math_tag = mjx.find('math')
-                if math_tag: latex = math_tag.get('alttext')
-            
-            # Fallback to assistive MML text if available (sometimes contains TeX)
-            if not latex:
-                assist = mjx.find(class_='mjx-assistive-mml')
-                if assist: latex = assist.get_text(strip=True)
+            latex = mjx.get('data-tex') or (mjx.find('math').get('alttext') if mjx.find('math') else None)
+            if latex: mjx.replace_with(soup.new_string(f" ${latex.strip()}$ "))
 
-            if latex:
-                mjx.replace_with(soup.new_string(f" ${latex.strip()}$ "))
-
-        # 3. Handle MathJax 2 (script math/tex)
         for script in container.find_all('script', type=re.compile(r'math/tex', re.I)):
-            latex = script.string or script.get_text()
-            if latex:
-                script.replace_with(soup.new_string(f" ${latex.strip()}$ "))
-                
-        # 4. Handle KaTeX (annotation)
-        for katex in container.find_all(class_='katex'):
-            ann = katex.find('annotation')
-            latex = ann.get_text(strip=True) if ann else None
-            if latex:
-                katex.replace_with(soup.new_string(f" ${latex}$ "))
+            script.replace_with(soup.new_string(f" ${script.string.strip()}$ "))
 
-        # 5. Handle Images (The most common fail point)
-        for img in container.find_all('img'):
-            latex = img.get('data-tex') or img.get('alt')
-            # Filter out generic UI alt texts like "Question Image"
-            if latex and not any(x in latex.lower() for x in ["image", "logo", "icon", "loading"]) or len(latex or "") > 30:
-                clean_latex = (latex or "").replace('$', '').strip()
-                img.replace_with(soup.new_string(f" ${clean_latex}$ "))
-            else:
-                img.decompose()
-
-        # 6. HTML Superscripts & Subscripts (Tighter integration)
         for sup in container.find_all('sup'):
-            txt = sup.get_text(strip=True)
-            if txt: sup.replace_with(soup.new_string(f"$^{{{txt}}}$"))
+            sup.replace_with(soup.new_string(f"$^{{{sup.get_text(strip=True)}}}$"))
         for sub in container.find_all('sub'):
-            txt = sub.get_text(strip=True)
-            if txt: sub.replace_with(soup.new_string(f"$_{{{txt}}}$"))
-            
-        # ===================================================================
+            sub.replace_with(soup.new_string(f"$_{{{sub.get_text(strip=True)}}}$"))
 
-        # 3. Extract Metadata and Clean Data
-        def latexify_plain_text(text):
-            if not text: return ""
-            
-            # 0. Ultimate Symbol Map
-            sym_map = {
-                'μ': r'\mu ', 'η': r'\eta ', 'λ': r'\lambda ', 'π': r'\pi ', 
-                'θ': r'\theta ', 'α': r'\alpha ', 'β': r'\beta ', 'γ': r'\gamma ',
-                'Δ': r'\Delta ', '±': r'\pm ', '×': r'\times ', 'Ω': r'\Omega ',
-                'Φ': r'\Phi ', 'Ψ': r'\Psi ', 'Σ': r'\Sigma ', '∞': r'\infty ',
-                '√': r'\sqrt ', '·': r'\cdot ', '∴': r'\therefore ', 'ℓ': r'l',
-                'ω': r'\omega ', 'τ': r'\tau ', 'ρ': r'\rho ', 'σ': r'\sigma ',
-                'ϵ': r'\epsilon ', 'ε': r'\epsilon ', '≈': r'\approx '
-            }
-            for char, latex in sym_map.items():
-                text = text.replace(char, latex)
-            
-            # A. ATOMIC DIMENSION SHIELD: Capture [M...L...T...A] and fix powers
-            def shield_dim(match):
-                inner = match.group(1)
-                # Capture patterns like "L -1" or "M 1" inside brackets
-                inner = re.sub(r'([MLTA])\s*(-?\d+)', r'\1^{\2}', inner)
-                inner = re.sub(r'\s+', '', inner)
-                return f' $[{inner}]$ '
-            text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', shield_dim, text)
-
-            # B. VARIABLE POWER ENGINE: "x p", "c r", "M -q+r" -> "x^{p}", "c^{r}", "M^{-q+r}"
-            # This handles cases where exponents are rendered as trailing variables/expressions
-            text = re.sub(r'\b([a-zA-Z])\s+([pqrstn])\b', r'\1^{\2}', text)
-            text = re.sub(r'([MLTA])\s*(-[a-z][+\-][a-z])', r'\1^{\2}', text) # M -q+r
-
-            # C. SCIENTIFIC FRACTION & FORMULA DETECTOR: Capture E/B=c, F=qE
-            text = re.sub(r'(?<!\$)\b([a-zA-Z0-9\\]+\s*[/=]\s*[a-zA-Z0-9\\]+)\b(?!\$)', r' $\1$ ', text)
-
-            # D. GREEDY CHAIN DETECTOR: Capture multi-variable chains as single blocks
-            # e.g., "H = x^p \epsilon^q E^r t^s"
-            text = re.sub(r'(?<!\$)([[{(]?[a-zA-Z0-9\\]+\s*[=+\-*/^]\s*[^.!?\n$]{2,})([\]})]?)(?!\$)', r' $\1\2$ ', text)
-
-            # E. UNITS & STANDALONE VARIABLES
-            unit_pattern = r'\b(kg|m|s|A|K|mol|cd|N|Pa|J|W|C|V|F|T|H|Wb)\s+(-?\d+(?:/\d+)?)\b'
-            text = re.sub(unit_pattern, r' \\text{\1}^{\2} ', text)
-            
-            # Standalone vars, excluding common articles and roman numerals
-            text = re.sub(r'(?<![\$\w\\{])([v-zBCDE-NP-RT-Zp-s])(?![\$\w\\}])', r' $\1$ ', text)
-            
-            return text
-
-        def clean_math_spacing(text):
-            if not text: return ""
-            text = text.replace('&', r'\&')
-            
-            # 1. STRUCTURAL LAYOUT
-            text = re.sub(r'\b(List\s*[-–]?\s*[I|1|A])\b', r'\n\1', text)
-            text = re.sub(r'\b(List\s*[-–]?\s*[II|2|B])\b', r'\n\1', text)
-            text = re.sub(r'(\([A-D]\))', r'\n\1', text)
-            
-            # 2. NUCLEAR MATH MERGER (Recursive)
-            for _ in range(8):
-                # Merge across all physics separators and alphanumeric strings
-                text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:a-zA-Z0-9\\]+)\s*\$', r'\1', text)
-                text = re.sub(r'\$\s*\$', '', text)
-                # Tighten $ around text
-                text = re.sub(r'\s+(\$)', r'\1', text)
-                text = re.sub(r'(\$)\s+', r'\1', text)
-
-            # 3. INNER MATH CLEANUP
-            def tidy_math(match):
-                m = match.group(1)
-                m = re.sub(r'\s*([=+\-*/])\s*', r'\1', m)
-                return f'${m.strip()}$'
-            text = re.sub(r'\$([^$]+)\$', tidy_math, text)
-
-            # 4. FINAL ARTIFACT & DUPLICATION REMOVAL
-            text = text.replace('} \\text{', r'} \cdot \text{')
-            text = text.replace('ext{', r'\text{')
-            text = text.replace('$$', '$')
-            # Fix decimal breaks
-            text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
-            # Remove redundant labels like "(A)(A)" or "(A) (A)"
-            text = re.sub(r'(\([A-D]\))\s*\1', r'\1', text)
-            
-            return text.strip()
-
+        # DATA EXTRACTION
         full_text = container.get_text(" ", strip=True)
         
-        # Metadata Extraction
-        year_match = re.search(r'\b(19\d{2}|20[0-2]\d)\b', full_text)
-        year = year_match.group(1) if year_match else "N/A"
-        shift_match = re.search(r'(Morning|Evening|Afternoon)\s*Shift', full_text, re.IGNORECASE)
-        shift = shift_match.group(1).capitalize() if shift_match else "N/A"
-        date_match = re.search(r'\d{1,2}(?:st|nd|rd|th)?\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*', full_text, re.IGNORECASE)
-        date = date_match.group(0) if date_match else "N/A"
+        # Metadata
+        year = (re.search(r'\b(20[0-2]\d)\b', full_text) or re.search(r'', '')).group(0) or "N/A"
+        shift = (re.search(r'(Morning|Evening|Afternoon)\s*Shift', full_text, re.I) or re.search(r'', '')).group(1) or "N/A"
+        date = (re.search(r'\d{1,2}(?:st|nd|rd|th)?\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*', full_text, re.I) or re.search(r'', '')).group(0) or "N/A"
 
-        # Question text
+        # Question Text
         q_div = container.find('div', class_='question')
-        q_text_raw = q_div.get_text(separator=" ", strip=True) if q_div else ""
-        q_text_raw = re.split(r'(JEE Main|NEET|JEE Advanced)\s+\d{4}', q_text_raw, flags=re.IGNORECASE)[0]
+        q_raw = q_div.get_text(separator=" ", strip=True) if q_div else "N/A"
+        q_clean = re.split(r'(JEE Main|NEET|JEE Advanced)\s+\d{4}', q_raw, flags=re.I)[0]
+        q_text = latexify(normalize_text(q_clean))
         
-        q_text = clean_math_spacing(latexify_plain_text(normalize_text(q_text_raw)))
-        
-        options_text = []
-        correct_index = "N/A"
-        
-        # Options
+        # Determine Question Type
         raw_options = container.find_all('div', role='button')
-        if not raw_options:
-            raw_options = container.find_all('div', class_=re.compile(r'option|choice', re.I))
-            
-        for idx, opt in enumerate(raw_options):
-            badge = opt.find(string=re.compile(r'Correct Answer', re.IGNORECASE))
-            if badge: 
-                correct_index = idx
-                badge.extract()
-            
-            # STRIP LABEL BEFORE PROCESSING: Remove "A. ", "(A) ", etc.
-            opt_raw = opt.get_text(separator=" ", strip=True).replace("Correct Answer", "").strip()
-            opt_raw = re.sub(r'^([A-D])[\.\)\s]+', '', opt_raw).strip()
-            
-            clean_text = clean_math_spacing(latexify_plain_text(normalize_text(opt_raw)))
-            if clean_text: options_text.append(clean_text)
+        if not raw_options: raw_options = container.find_all('div', class_=re.compile(r'option|choice', re.I))
+        
+        q_type = "mcq" # Default
+        options = []
+        answer = "N/A"
 
-        if not options_text:
-             options_text = ["Options could not be detected"]
+        if raw_options:
+            correct_indices = []
+            for idx, opt in enumerate(raw_options):
+                badge = opt.find(string=re.compile(r'Correct Answer', re.I))
+                if badge: 
+                    correct_indices.append(idx)
+                    badge.extract()
+                
+                opt_txt = re.sub(r'^([A-D])[\.\)\s]+', '', opt.get_text(separator=" ", strip=True)).strip()
+                options.append(latexify(normalize_text(opt_txt)))
+            
+            if len(correct_indices) > 1:
+                q_type = "multi_select"
+                answer = correct_indices
+            elif len(correct_indices) == 1:
+                answer = correct_indices[0]
+        else:
+            # Numerical/Integer Type Detection
+            q_type = "integer"
+            # Find the answer in the text "Answer: 13" or similar
+            ans_match = re.search(r'Answer\s*[:\-]\s*(\d+\.?\d*)', full_text, re.I)
+            if ans_match: answer = ans_match.group(1)
 
         # Explanation
-        explanation = "No Explanation Available"
-        exp_headers = container.find_all(['h2', 'h3', 'strong', 'div'], string=re.compile(r'Explanation', re.IGNORECASE))
-        for header in exp_headers:
-            sibling = header.find_next_sibling('div')
-            if not sibling: sibling = header.parent.find_next_sibling('div')
-            
-            if sibling:
-                exp_raw = sibling.get_text(separator=" ", strip=True)
-                exp_raw = re.sub(r'([a-z]\.)([A-Z])', r'\1 \2', exp_raw) 
-                explanation = clean_math_spacing(latexify_plain_text(normalize_text(exp_raw)))
-                break
+        explanation = "N/A"
+        exp_header = container.find(['h2', 'h3', 'strong'], string=re.compile(r'Explanation', re.I))
+        if exp_header:
+            sib = exp_header.find_next_sibling('div') or exp_header.parent.find_next_sibling('div')
+            if sib: explanation = latexify(normalize_text(sib.get_text(separator=" ", strip=True)))
 
-        # Result structure
         result = {
             "q": q_text,
-            "options": options_text,
-            "answer": correct_index,
+            "type": q_type,
+            "options": options,
+            "answer": answer,
             "explanation": explanation,
             "year": year,
             "date": date,
@@ -309,11 +231,7 @@ try:
         print("--- EXTRACTED DATA ---")
         print(json.dumps(result, indent=4, ensure_ascii=False))
 
-    else:
-        print("[!] Could not find question container.")
-
 except Exception as e:
     print(f"[!] Error: {e}")
-
 finally:
     driver.quit()

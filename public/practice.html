@@ -126,12 +126,25 @@
 
         .marks-option.selected { border-color: var(--brand-blue); background: rgba(99, 102, 241, 0.08); }
         .marks-option.selected .opt-letter { background: var(--brand-blue); border-color: var(--brand-blue); color: white; }
+        
+        /* Multiple Choice Specific Lettering */
+        .multi-select-option .opt-letter { border-radius: 4px; }
+        
         .marks-option.correct { border-color: var(--success-green); background: var(--success-bg); }
         .marks-option.correct .opt-letter { background: var(--success-green); border-color: var(--success-green); color: white; }
         .marks-option.correct .opt-icon.check-icon { color: var(--success-green); display: block; }
+        
         .marks-option.wrong { border-color: var(--error-red); background: var(--error-bg); }
         .marks-option.wrong .opt-letter { background: var(--error-red); border-color: var(--error-red); color: white; }
         .marks-option.wrong .opt-icon.cross-icon { color: var(--error-red); display: block; }
+        
+        /* Integer Input Styles */
+        .integer-input-container { margin-top: 1rem; }
+        .integer-field { background: var(--bg-surface-elevated); border: 1px solid var(--border-color); color: var(--text-primary); padding: 1rem; border-radius: 8px; font-size: 1.2rem; font-weight: 700; width: 100%; outline: none; text-align: center; }
+        .integer-field:focus { border-color: var(--brand-blue); }
+        .integer-field.correct { border-color: var(--success-green); background: var(--success-bg); }
+        .integer-field.wrong { border-color: var(--error-red); background: var(--error-bg); }
+
         .marks-option.locked { cursor: default; }
 
         .bottom-bar { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; min-height: 4.5rem; }
@@ -512,7 +525,8 @@
         window.openFocusQuestion = (index) => {
             currentFocusIndex = index;
             isFocusAnswerChecked = false;
-            selectedOptionIndex = null;
+            selectedOptionIndex = null; // Used for MCQ
+            window.selectedOptions = []; // Used for Multi-Select
             
             const q = filteredPracticeSet[index];
             const isCorrect = correctIds.includes(q.uid);
@@ -531,7 +545,6 @@
             const yText = (q.year && q.year !== "Unknown" && q.year !== "Unknown Year") ? q.year : "";
             const fullDateStr = [dText, yText].filter(Boolean).join(" ") || "Date Unknown";
             
-            // THE FIX: Hide shift entirely if unknown
             let shiftBadgeFocus = '';
             if (q.shift && q.shift !== "Unknown" && q.shift !== "Unknown Shift") {
                 shiftBadgeFocus = `<span class="marks-tag tag-chapter" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-secondary);"><i class="fa-regular fa-clock"></i> ${q.shift} Shift</span>`;
@@ -543,37 +556,58 @@
                 ${shiftBadgeFocus}
             `;
             
-            document.getElementById('focus-q-text').innerText = q.q;
+            document.getElementById('focus-q-text').innerHTML = q.q;
 
             const optContainer = document.getElementById('focus-options-container');
             optContainer.innerHTML = "";
 
-            q.options.forEach((opt, optIdx) => {
-                const codeMarker = String.fromCharCode(65 + optIdx);
-                const div = document.createElement('div');
-                div.className = `marks-option ${isAttempted ? 'locked' : ''}`;
-                div.id = `focus-opt-${optIdx}`;
-                div.innerHTML = `
-                    <div class="opt-letter">${codeMarker}</div>
-                    <div class="opt-text">${opt}</div>
-                    <i class="fa-solid fa-circle-check opt-icon check-icon" id="focus-check-${optIdx}"></i>
-                    <i class="fa-solid fa-circle-xmark opt-icon cross-icon" id="focus-cross-${optIdx}"></i>
+            if (q.type === "integer") {
+                const inputDiv = document.createElement('div');
+                inputDiv.className = "integer-input-container";
+                inputDiv.innerHTML = `
+                    <p style="margin-bottom: 0.8rem; color: var(--text-secondary); font-size: 0.9rem; font-weight: 600;">ENTER NUMERICAL VALUE:</p>
+                    <input type="number" step="any" class="integer-field" id="focus-integer-input" placeholder="0.00" oninput="handleIntegerInput()">
                 `;
-
-                if (!isAttempted) {
-                    div.onclick = () => selectFocusOption(optIdx);
+                optContainer.appendChild(inputDiv);
+                if (isAttempted) {
+                    const field = document.getElementById('focus-integer-input');
+                    field.value = localStorage.getItem(`answer_${q.uid}`) || q.answer;
+                    field.disabled = true;
+                    field.classList.add(isCorrect ? 'correct' : 'wrong');
                 }
-                optContainer.appendChild(div);
-            });
+            } else {
+                q.options.forEach((opt, optIdx) => {
+                    const codeMarker = String.fromCharCode(65 + optIdx);
+                    const div = document.createElement('div');
+                    div.className = `marks-option ${isAttempted ? 'locked' : ''} ${q.type === 'multi_select' ? 'multi-select-option' : ''}`;
+                    div.id = `focus-opt-${optIdx}`;
+                    div.innerHTML = `
+                        <div class="opt-letter">${codeMarker}</div>
+                        <div class="opt-text">${opt}</div>
+                        <i class="fa-solid fa-circle-check opt-icon check-icon" id="focus-check-${optIdx}"></i>
+                        <i class="fa-solid fa-circle-xmark opt-icon cross-icon" id="focus-cross-${optIdx}"></i>
+                    `;
+
+                    if (!isAttempted) {
+                        div.onclick = () => q.type === 'multi_select' ? toggleMultiOption(optIdx) : selectFocusOption(optIdx);
+                    }
+                    optContainer.appendChild(div);
+                });
+            }
 
             if (isAttempted) {
                 document.getElementById('btn-check-focus').style.display = 'none';
                 document.getElementById('btn-next-focus').style.display = 'block';
-                document.getElementById('focus-explanation-text').innerText = q.explanation;
+                document.getElementById('focus-explanation-text').innerHTML = q.explanation;
                 document.getElementById('focus-explanation-box').style.display = 'block';
                 
-                document.getElementById(`focus-opt-${q.answer}`).classList.add('correct');
-                document.getElementById(`focus-check-${q.answer}`).style.display = 'block';
+                if (q.type !== "integer") {
+                    const correctAnswers = Array.isArray(q.answer) ? q.answer : [q.answer];
+                    correctAnswers.forEach(ansIdx => {
+                        document.getElementById(`focus-opt-${ansIdx}`).classList.add('correct');
+                        document.getElementById(`focus-check-${ansIdx}`).style.display = 'block';
+                    });
+                }
                 
                 if (isCorrect) {
                     document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--success-green);"><i class="fa-solid fa-check"></i> Solved Correctly</span>`;
@@ -585,52 +619,98 @@
             screenList.style.display = 'none';
             screenFocus.style.display = 'block';
             window.scrollTo(0, 0);
-            
-            // Stagger MathJax to prevent freezing
             setTimeout(() => triggerMathRender('quiz-focus-screen'), 100);
+        };
+
+        window.handleIntegerInput = () => {
+            const val = document.getElementById('focus-integer-input').value;
+            document.getElementById('btn-check-focus').disabled = val === "";
+        };
+
+        window.toggleMultiOption = (optIndex) => {
+            if (isFocusAnswerChecked) return;
+            const idx = window.selectedOptions.indexOf(optIndex);
+            if (idx > -1) window.selectedOptions.splice(idx, 1);
+            else window.selectedOptions.push(optIndex);
+            
+            document.getElementById(`focus-opt-${optIndex}`).classList.toggle('selected');
+            document.getElementById('btn-check-focus').disabled = window.selectedOptions.length === 0;
         };
 
         window.selectFocusOption = (optIndex) => {
             if (isFocusAnswerChecked) return;
             selectedOptionIndex = optIndex;
-            
             document.querySelectorAll('#focus-options-container .marks-option').forEach(el => el.classList.remove('selected'));
             document.getElementById(`focus-opt-${optIndex}`).classList.add('selected');
             document.getElementById('btn-check-focus').disabled = false;
         };
 
         window.evaluateFocusQuestion = async () => {
-            if (selectedOptionIndex === null) return;
             isFocusAnswerChecked = true;
-
             const q = filteredPracticeSet[currentFocusIndex];
-            const isCorrect = (selectedOptionIndex === q.answer);
+            let isCorrect = false;
 
-            document.querySelectorAll('#focus-options-container .marks-option').forEach(el => el.classList.add('locked'));
-            
+            if (q.type === "mcq") {
+                isCorrect = (selectedOptionIndex === q.answer);
+            } else if (q.type === "multi_select") {
+                isCorrect = Array.isArray(q.answer) && 
+                            window.selectedOptions.length === q.answer.length &&
+                            window.selectedOptions.every(val => q.answer.includes(val));
+            } else if (q.type === "integer") {
+                const userVal = parseFloat(document.getElementById('focus-integer-input').value);
+                const correctVal = parseFloat(q.answer);
+                isCorrect = Math.abs(userVal - correctVal) < 0.01; // Tiny tolerance for decimals
+                localStorage.setItem(`answer_${q.uid}`, userVal);
+            }
+
             document.getElementById('btn-check-focus').style.display = 'none';
             document.getElementById('btn-next-focus').style.display = 'block';
 
-            if (isCorrect) {
-                document.getElementById(`focus-opt-${selectedOptionIndex}`).classList.add('correct');
-                document.getElementById(`focus-check-${selectedOptionIndex}`).style.display = 'block';
-                document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--success-green);"><i class="fa-solid fa-check"></i> Correct Verification (+8 XP)</span>`;
-                await updateFirebaseProgress(q.uid, true);
+            if (q.type === "integer") {
+                const field = document.getElementById('focus-integer-input');
+                field.disabled = true;
+                field.classList.add(isCorrect ? 'correct' : 'wrong');
             } else {
-                document.getElementById(`focus-opt-${selectedOptionIndex}`).classList.add('wrong');
-                document.getElementById(`focus-cross-${selectedOptionIndex}`).style.display = 'block';
+                document.querySelectorAll('#focus-options-container .marks-option').forEach(el => el.classList.add('locked'));
+                const correctAnswers = Array.isArray(q.answer) ? q.answer : [q.answer];
                 
-                document.getElementById(`focus-opt-${q.answer}`).classList.add('correct');
-                document.getElementById(`focus-check-${q.answer}`).style.display = 'block';
+                // Show correctness on selected ones
+                if (q.type === "mcq") {
+                    if (isCorrect) {
+                        document.getElementById(`focus-opt-${selectedOptionIndex}`).classList.add('correct');
+                        document.getElementById(`focus-check-${selectedOptionIndex}`).style.display = 'block';
+                    } else {
+                        document.getElementById(`focus-opt-${selectedOptionIndex}`).classList.add('wrong');
+                        document.getElementById(`focus-cross-${selectedOptionIndex}`).style.display = 'block';
+                    }
+                } else {
+                    window.selectedOptions.forEach(optIdx => {
+                        if (correctAnswers.includes(optIdx)) {
+                            document.getElementById(`focus-opt-${optIdx}`).classList.add('correct');
+                            document.getElementById(`focus-check-${optIdx}`).style.display = 'block';
+                        } else {
+                            document.getElementById(`focus-opt-${optIdx}`).classList.add('wrong');
+                            document.getElementById(`focus-cross-${optIdx}`).style.display = 'block';
+                        }
+                    });
+                }
                 
-                document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--error-red);"><i class="fa-solid fa-xmark"></i> Incorrect Answer (-2 XP)</span>`;
-                await updateFirebaseProgress(q.uid, false);
+                // Always highlight true correct answers
+                correctAnswers.forEach(ansIdx => {
+                    document.getElementById(`focus-opt-${ansIdx}`).classList.add('correct');
+                    document.getElementById(`focus-check-${ansIdx}`).style.display = 'block';
+                });
             }
 
-            document.getElementById('focus-explanation-text').innerText = q.explanation;
+            if (isCorrect) {
+                document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--success-green);"><i class="fa-solid fa-check"></i> Correct (+8 XP)</span>`;
+            } else {
+                document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--error-red);"><i class="fa-solid fa-xmark"></i> Incorrect Answer (-2 XP)</span>`;
+            }
+
+            await updateFirebaseProgress(q.uid, isCorrect);
+            document.getElementById('focus-explanation-text').innerHTML = q.explanation;
             document.getElementById('focus-explanation-box').style.display = 'block';
-            
-            // Stagger MathJax to prevent freezing
             setTimeout(() => triggerMathRender('focus-explanation-box'), 100);
         };
 
