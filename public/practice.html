@@ -15,8 +15,7 @@
                 displayMath: [['$$', '$$'], ['\\[', '\\]']],
                 processEscapes: true
             },
-            svg: { fontCache: 'global' },
-            startup: { typeset: false } // Prevent initial auto-typesetting to control it manually
+            svg: { fontCache: 'global' }
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -92,7 +91,17 @@
         .index-row:hover { background: var(--bg-surface-elevated); border-color: var(--text-secondary); }
         
         .index-q-wrapper { flex: 1; min-width: 0; }
-        .index-q-text { font-weight: 500; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+        
+        /* THE FIX: CSS Truncation preserves MathJax formatting instead of JS slicing */
+        .index-q-text { 
+            font-weight: 500; 
+            font-size: 0.95rem; 
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden; 
+            white-space: normal;
+        }
         
         .status-badge { flex-shrink: 0; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
         .badge-pending { background: rgba(255, 255, 255, 0.05); color: var(--text-secondary); border: 1px solid rgba(255, 255, 255, 0.1); }
@@ -103,7 +112,6 @@
         .question-container { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 2rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; }
         .q-number { font-size: 0.85rem; color: var(--text-secondary); font-weight: 700; margin-bottom: 1rem; display: block; }
         
-        /* Performance boost: contain limits re-layout calculations to prevent freezing */
         .q-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-weight: 500; overflow-x: auto; contain: content; }
         
         .options-list { display: flex; flex-direction: column; gap: 0.8rem; contain: content; }
@@ -278,6 +286,16 @@
         const screenList = document.getElementById('list-index-screen');
         const screenFocus = document.getElementById('quiz-focus-screen');
 
+        // Safe MathJax Trigger to prevent Browser Freezing
+        window.triggerMathRender = (elementId) => {
+            if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+                const el = document.getElementById(elementId);
+                if (el) {
+                    MathJax.typesetPromise([el]).catch(err => console.warn('MathJax Error:', err));
+                }
+            }
+        };
+
         window.navigateToGateway = () => {
             screenGateway.style.display = 'block';
             screenExplorer.style.display = 'none';
@@ -437,12 +455,6 @@
             screenList.style.display = 'block';
         };
 
-        function getCleanPreview(text) {
-            let clean = text.replace(/\\\[/g, '').replace(/\\\]/g, '').replace(/\\\(/g, '').replace(/\\\)/g, '').replace(/\$\$/g, '').replace(/\$/g, '');
-            clean = clean.replace(/\s+/g, ' ').trim();
-            return clean.length > 85 ? clean.substring(0, 85) + "..." : clean;
-        }
-
         function renderIndexList() {
             const container = document.getElementById('index-list-container');
             container.innerHTML = "";
@@ -461,15 +473,21 @@
                 const dText = (q.date && q.date !== "Unknown" && q.date !== "Unknown Date") ? q.date : "";
                 const yText = (q.year && q.year !== "Unknown" && q.year !== "Unknown Year") ? q.year : "";
                 const fullDateStr = [dText, yText].filter(Boolean).join(" ") || "Date Unknown";
-                const shiftStr = (q.shift && q.shift !== "Unknown" && q.shift !== "Unknown Shift") ? q.shift + " Shift" : "Shift Unknown";
+                
+                // THE FIX: Hide shift entirely if unknown
+                let shiftBadgeHtml = '';
+                if (q.shift && q.shift !== "Unknown" && q.shift !== "Unknown Shift") {
+                    shiftBadgeHtml = `<span style="background: rgba(255, 255, 255, 0.05); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1);"><i class="fa-regular fa-clock"></i> ${q.shift} Shift</span>`;
+                }
 
+                // THE FIX: Provide un-sliced text so MathJax boundary tags ($$) aren't accidentally cut off
                 const rowHtml = `
                     <div class="index-row" onclick="openFocusQuestion(${index})">
                         <div class="index-q-wrapper">
-                            <div class="index-q-text"><span style="color:var(--brand-blue); font-weight:700;">Q${index + 1}.</span> ${getCleanPreview(q.q)}</div>
+                            <div class="index-q-text"><span style="color:var(--brand-blue); font-weight:700;">Q${index + 1}.</span> ${q.q.trim()}</div>
                             <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 8px; display: flex; gap: 12px; align-items: center; font-weight: 600;">
                                 <span style="color: var(--gold); background: rgba(251, 191, 36, 0.1); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(251, 191, 36, 0.2);"><i class="fa-regular fa-calendar"></i> ${fullDateStr}</span>
-                                <span style="background: rgba(255, 255, 255, 0.05); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1);"><i class="fa-regular fa-clock"></i> ${shiftStr}</span>
+                                ${shiftBadgeHtml}
                             </div>
                         </div>
                         ${badgeHtml}
@@ -480,13 +498,8 @@
 
             document.getElementById('list-progress-tracker').innerText = `${completedCount} / ${filteredPracticeSet.length} Completed`;
             
-            // Render MathJax silently on the list preview
-            if (window.MathJax) {
-                setTimeout(() => {
-                    MathJax.typesetClear();
-                    MathJax.typesetPromise([document.getElementById('index-list-container')]).catch(e => console.log(e));
-                }, 50);
-            }
+            // Stagger MathJax to prevent freezing
+            setTimeout(() => triggerMathRender('index-list-container'), 100);
         }
 
         window.openFocusQuestion = (index) => {
@@ -510,12 +523,17 @@
             const dText = (q.date && q.date !== "Unknown" && q.date !== "Unknown Date") ? q.date : "";
             const yText = (q.year && q.year !== "Unknown" && q.year !== "Unknown Year") ? q.year : "";
             const fullDateStr = [dText, yText].filter(Boolean).join(" ") || "Date Unknown";
-            const shiftStr = (q.shift && q.shift !== "Unknown" && q.shift !== "Unknown Shift") ? q.shift + " Shift" : "Shift Unknown";
+            
+            // THE FIX: Hide shift entirely if unknown
+            let shiftBadgeFocus = '';
+            if (q.shift && q.shift !== "Unknown" && q.shift !== "Unknown Shift") {
+                shiftBadgeFocus = `<span class="marks-tag tag-chapter" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-secondary);"><i class="fa-regular fa-clock"></i> ${q.shift} Shift</span>`;
+            }
 
             document.getElementById('focus-q-meta').innerHTML = `
                 <span class="marks-tag tag-subject" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); color: var(--brand-blue);"><i class="fa-solid fa-graduation-cap"></i> ${selectedTargetExam}</span>
                 <span class="marks-tag tag-year"><i class="fa-regular fa-calendar"></i> ${fullDateStr}</span>
-                <span class="marks-tag tag-chapter" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-secondary);"><i class="fa-regular fa-clock"></i> ${shiftStr}</span>
+                ${shiftBadgeFocus}
             `;
             
             document.getElementById('focus-q-text').innerText = q.q;
@@ -559,15 +577,10 @@
 
             screenList.style.display = 'none';
             screenFocus.style.display = 'block';
-            window.scrollTo(0,0);
+            window.scrollTo(0, 0);
             
-            // Clean MathJax re-render to prevent freezing
-            if(window.MathJax) {
-                setTimeout(() => {
-                    MathJax.typesetClear();
-                    MathJax.typesetPromise([document.getElementById('quiz-focus-screen')]).catch(err => console.log(err));
-                }, 50);
-            }
+            // Stagger MathJax to prevent freezing
+            setTimeout(() => triggerMathRender('quiz-focus-screen'), 100);
         };
 
         window.selectFocusOption = (optIndex) => {
@@ -610,13 +623,8 @@
             document.getElementById('focus-explanation-text').innerText = q.explanation;
             document.getElementById('focus-explanation-box').style.display = 'block';
             
-            // Staggered execution for explanation MathJax rendering
-            if (window.MathJax) {
-                setTimeout(() => {
-                    MathJax.typesetClear();
-                    MathJax.typesetPromise([document.getElementById('focus-explanation-box')]).catch((err) => console.log('MathJax typeset error:', err));
-                }, 50);
-            }
+            // Stagger MathJax to prevent freezing
+            setTimeout(() => triggerMathRender('focus-explanation-box'), 100);
         };
 
         window.advanceToNextQuestion = () => {
