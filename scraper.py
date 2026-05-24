@@ -27,10 +27,14 @@ def setup_driver():
     driver.__class__.__del__ = lambda self: None 
     return driver
 
-def latexify(text):
+# ===================================================================
+# THE FINAL PERFECTION ENGINE
+# ===================================================================
+
+def latexify(text, is_explanation=False):
     if not text: return ""
     
-    # 0. High-Fidelity Symbol Map
+    # 0. Ultimate Symbol Map
     sym_map = {
         'μ': r'\mu ', 'η': r'\eta ', 'λ': r'\lambda ', 'π': r'\pi ', 
         'θ': r'\theta ', 'α': r'\alpha ', 'β': r'\beta ', 'γ': r'\gamma ',
@@ -43,61 +47,57 @@ def latexify(text):
     for char, latex in sym_map.items():
         text = text.replace(char, latex)
 
-    # A. ATOMIC DIMENSION SHIELD: Capture [MLT] and also MLT without brackets in explanations
+    # A. PRE-PROCESS MATH-HEAVY STRINGS (Specific for Explanations)
+    # If a string has multiple math operators and numbers, wrap the whole thing
+    if is_explanation:
+        # Catch multi-step relations: "50 V = 49 S" or "LC = 1 MSD - 1 VSD"
+        text = re.sub(r'\b(\d+\s*[A-Z]\s*[=+\-*/]\s*[^.!?]+)\b', r' $\1$ ', text)
+
+    # B. ATOMIC DIMENSION SHIELD
     def polish_dim(match):
         inner = match.group(1)
-        # Convert powers: "L 2" -> "L^{2}", "T -1" -> "T^{-1}"
         inner = re.sub(r'([MLTA])\s*(-?\d+)', r'\1^{\2}', inner)
         inner = re.sub(r'\s+', '', inner)
         return f' $[{inner}]$ '
-    
-    # Target both [MLT] and standalone MLT sequences
     text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', polish_dim, text)
-    # Target standalone dimension chains in explanations like "ML 2 T -1"
-    text = re.sub(r'\b([MLTA](?:\s*-?\d+)?(?:\s*[MLTA](?:\s*-?\d+)?)*)\b', 
-                  lambda m: f' ${m.group(1).replace(" ", "")}$ ' if len(m.group(1)) > 1 and any(x in m.group(1) for x in "MLTA") else m.group(0), 
-                  text)
-
-    # B. POSSESSIVE & LABEL PROTECTION
-    # Prevent "Planck's" from becoming "Planck' $s$"
-    text = re.sub(r"([a-zA-Z])'s\b", r"\1's", text)
-    # Prevent "Statement I" or "(I)" from being mathified
-    text = re.sub(r'\b(Statement|List)\s+([IVX]+)\b', r'\1 \2', text)
 
     # C. SCIENTIFIC FRACTIONS & ABBREVIATIONS
     text = re.sub(r'\b(\d+)\s*/\s*(\d+)\b', r'\1/\2', text)
     text = re.sub(r'\b(MSD|VSD|LC)\b', r' \text{\1} ', text)
 
-    # D. GREEDY EQUATION DETECTOR
+    # D. GREEDY EQUATION DETECTOR (Tighter Boundaries)
     text = re.sub(r'(?<!\$)\b([a-zA-Z0-9\\]{1,4}\s*[=+\-*/^]\s*[^.!?\n$]{1,})\b(?!\$)', r' $\1$ ', text)
 
-    # E. STANDALONE VARIABLES (Surgical - exclude Roman Numerals and common words)
-    # Now explicitly excludes I, V, X and single-letter articles
+    # E. STANDALONE VARIABLES (Exclude articles/labels)
     text = re.sub(r'(?<![\$\w\\{])([v-zBCDE-NP-RST-Zp-r])(?![\$\w\\}])', r' $\1$ ', text)
 
-    # F. NUCLEAR MATH MERGER
-    for _ in range(5):
-        text = re.sub(r'\$\s*([=+\-*/^\[\](){}])\s*\$', r'\1', text)
+    # F. NUCLEAR MATH MERGER (Recursive)
+    for _ in range(6):
+        # Merge across ALL physics operators to keep formulas continuous
+        text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:])\s*\$', r'\1', text)
+        # Merge adjacent math blocks
         text = re.sub(r'\$\s*\$', '', text)
 
     # G. INNER MATH CLEANUP
     def inner_tidy(match):
         m = match.group(1)
         m = re.sub(r'\s*([=+\-*/])\s*', r'\1', m)
-        # Fix missing powers after merging: "ML2" -> "ML^{2}"
+        # Restore powers: "ML2" -> "ML^{2}"
         m = re.sub(r'([MLTA])(\d+)', r'\1^{\2}', m)
         m = re.sub(r'([MLTA])-(\d+)', r'\1^{-\2}', m)
         return f'${m.strip()}$'
     text = re.sub(r'\$([^$]+)\$', inner_tidy, text)
 
-    # H. FINAL SPACING PASS
+    # H. FINAL REFINEMENTS
     text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
     text = text.replace('ext{', r'\text{')
-    # Ensure every math block has one space around it if touching words
+    # Force spaces around $ blocks
     text = re.sub(r'([a-zA-Z0-9])(\$)', r'\1 \2', text)
     text = re.sub(r'(\$)([a-zA-Z0-9])', r'\1 \2', text)
     
     return " ".join(text.split()).strip()
+
+# ===================================================================
 
 print("--- BOOTING EXAMSIDE PRO ENGINE ---")
 driver = setup_driver()
@@ -132,7 +132,7 @@ try:
     container = soup.find('div', class_='question-component')
     
     if container:
-        # Pre-Extraction Replacement
+        # Pre-Extraction Math Preservation
         for garbage in container.find_all(class_=['MathJax_Preview', 'katex-html', 'mjx-assistive-mml']): garbage.decompose()
         for mjx in container.find_all('mjx-container'):
             latex = mjx.get('data-tex') or (mjx.find('math').get('alttext') if mjx.find('math') else None)
@@ -156,10 +156,7 @@ try:
         raw_options = container.find_all('div', role='button')
         if not raw_options: raw_options = container.find_all('div', class_=re.compile(r'option|choice', re.I))
         
-        q_type = "mcq"
-        options = []
-        answer = "N/A"
-
+        q_type, options, answer = "mcq", [], "N/A"
         if raw_options:
             correct_indices = []
             for idx, opt in enumerate(raw_options):
@@ -180,7 +177,7 @@ try:
         exp_header = container.find(['h2', 'h3', 'strong'], string=re.compile(r'Explanation', re.I))
         if exp_header:
             sib = exp_header.find_next_sibling('div') or exp_header.parent.find_next_sibling('div')
-            if sib: explanation = latexify(normalize_text(sib.get_text(separator=" ", strip=True)))
+            if sib: explanation = latexify(normalize_text(sib.get_text(separator=" ", strip=True)), is_explanation=True)
 
         result = {"q": q_text, "type": q_type, "options": options, "answer": answer, "explanation": explanation, "year": year, "date": date, "shift": shift}
         print("--- EXTRACTED DATA ---")

@@ -1,17 +1,17 @@
 [
 {
-    "q": "If 50 Vernier divisions are equal to 49 main scale divisions of a traveling microscope and one smallest reading of main scale is 0.5 mm , the Vernier constant of traveling microscope is",
+    "q": "If $ E,L,M $ and $ G $ denote the quantities as energy, angular momentum, mass and constant of gravitation respectively, then the dimensions of $ P $ in the formula $ P=EL^{2}M^{-5}G^{-2}$ are :",
     "type": "mcq",
     "options": [
-        "0.01 mm",
-        "0.01 cm",
-        "0.1 mm",
-        "0.1 cm"
+        "[ $ M^{0}L^{1}T^{0}$ ]",
+        "[ $ M^{-1}L^{-1}T^{2}$ ]",
+        "[ $ M^{1}L^{1}T^{-2}$ ]",
+        "[ $ M^{0}L^{0}T^{0}$ ]"
     ],
-    "answer": 0,
-    "explanation": "50 $ V+$ S $=49 $ S+SS $=50 ($ S-V $) 5=50 ($ S-V)S-V $=0.5 $ 50=1 100=0.01 mm",
-    "year": "2024",
-    "date": "30th January",
-    "shift": "Evening"
+    "answer": 3,
+    "explanation": "$ E=ML^{2}T^{-2}L=ML^{2}T^{-1}m=$ MG $=M^{-1}L^{+3}T^{-2}P=$ EL $ 2 $ M $ 5 $ G $ 2 [$ P $]=($ M $ L^{2}$ T - 2 ) ( $ M $ 2 $ L $ 4 $ T $ - 2 ) $ M $ 5 ( $ M $ - 2 $ L $ 6 $ T $ - 4 ) = $ M $ 0 $ L $ 0 $ T 0 $",
+    "year": "2021",
+    "date": "26th August",
+    "shift": "Morning"
 }
 ]
