@@ -1,17 +1,17 @@
 [
 {
-    "q": "In a vernier callipers, 50 vernier scale divisions are equal to 48 main scale divisions. If one main scale$division=0.05 mm , then the least count of the vernier callipers is _ _ _ _ mm.",
+    "q": "Given below are two statements : Statement ( $I$ ) : Planck' $s$ constant and angular momentum have same dimensions. Statement (II) : Linear momentum and moment of force have same dimensions. In the light of the above statements, choose the correct answer from the options given below :",
     "type": "mcq",
     "options": [
-        "0.002",
-        "0.02",
-        "0.05",
-        "0.005"
+        "Statement $I$ is true but Statement II is false",
+        "Both Statement $I$ and Statement II are false",
+        "Both Statement $I$ and Statement II are true",
+        "Statement $I$ is false but Statement II is true"
     ],
     "answer": 0,
-    "explanation": "Value of one Main Scale Division, 1$MSD=0.05 mm Number of Vernier Scale Divisions$m=50 Number of Main Scale Divisions is n=48 50 VSD=48 MSD ⇒ 1 VSD=48 50 MSD The Least Count of a Vernier instrument is the smallest measurement that can be taken accurately$. Least Count (LC) of Vernier$scale=1 MSD-1 VSD Using the least count formula, LC=1 MSD-1 VSD ⇒ LC=1 MSD-( 48 50 ) MSD ⇒ LC=( 1-48 50 ) MSD ⇒ LC=( 50-48 50 ) MSD ⇒ LC=2 50 MSD=2 50 \\times  0.05mm=0.002 mm Therefore, the smallest measurement that this Vernier calliper can record is 0.002 mm . Hence, the correct option is (A).",
-    "year": "2026",
-    "date": "24th January",
-    "shift": "Evening"
+    "explanation": "[ h ] = ML 2 $T-1$ [L] = ML 2 $T-1 [$ P $]=MLT-1 [ \\tau ]=ML 2$ T $-2 (Here h is Planck'$ s $constant,$ L $is angular momentum,$ P $is linear momentum and \\tau is moment of force$ )",
+    "year": "2024",
+    "date": "27th January",
+    "shift": "Morning"
 }
 ]

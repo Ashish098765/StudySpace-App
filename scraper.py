@@ -67,37 +67,44 @@ def latexify(text):
         return f' $[{inner}]$ '
     text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', shield_dim, text)
 
-    # C. Greedy Equation Detector (Capture multi-op expressions)
-    text = re.sub(r'(?<!\$)([[{(]?[a-zA-Z0-9\\]+\s*[=+\-*/^]\s*[^.!?\n$]{2,})([\]})]?)(?!\$)', r' $\1\2$ ', text)
+    # C. Scientific Abbreviations (MSD, VSD, LC)
+    text = re.sub(r'\b(MSD|VSD|LC)\b', r' \text{\1} ', text)
 
-    # D. Units with Powers (Surgical)
+    # D. Greedy Equation Detector (Capture multi-op expressions)
+    # Refined: Avoid long words and require word boundary
+    text = re.sub(r'(?<!\$)\b([a-zA-Z0-9\\]{1,4}\s*[=+\-*/^]\s*[^.!?\n$]{1,})\b(?!\$)', r' $\1$ ', text)
+
+    # E. Units with Powers (Surgical)
     unit_pattern = r'\b(kg|m|s|A|K|mol|cd|N|Pa|J|W|C|V|F|T|H|Wb)\s+(-?\d+(?:/\d+)?)\b'
     text = re.sub(unit_pattern, r' \text{\1}^{\2} ', text)
 
-    # E. Standalone Variables
+    # F. Standalone Variables
     text = re.sub(r'(?<![\$\w\\{])([v-zBCDE-NP-RT-Zp-s])(?![\$\w\\}])', r' $\1$ ', text)
 
-    # F. Nuclear Merger (The Collapse)
+    # G. Nuclear Merger (The Collapse)
     for _ in range(5):
-        text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:a-zA-Z0-9\\]+)\s*\$', r'\1', text)
+        # Merge adjacent $ blocks with any non-word characters in between (like operators)
+        text = re.sub(r'\$\s*([=+\-*/^\[\](){}])\s*\$', r'\1', text)
         text = re.sub(r'\$\s*\$', '', text)
-        text = re.sub(r'\s+(\$)', r'\1', text)
-        text = re.sub(r'(\$)\s+', r'\1', text)
+        # NOTE: DO NOT eat spaces outside $ to avoid scale$division issue
 
-    # G. Inner Cleanup (NO HACKS, ONLY REGEX)
+    # H. Inner Cleanup
     def inner_tidy(match):
         m = match.group(1)
         m = re.sub(r'\s*([=+\-*/])\s*', r'\1', m)
         return f'${m.strip()}$'
     text = re.sub(r'\$([^$]+)\$', inner_tidy, text)
 
-    # H. Decimal Fix
+    # I. Decimal Fix
     text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
+    
+    # Ensure math is separated from text by at least one space
+    text = re.sub(r'(\$[^$]+\$)', r' \1 ', text)
     
     # Remove redundant labels like (A) (A)
     text = re.sub(r'(\([A-D]\))\s*\1', r'\1', text)
     
-    return text.strip()
+    return " ".join(text.split()).strip()
 
 # ===================================================================
 
