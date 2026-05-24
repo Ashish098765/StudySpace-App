@@ -23,15 +23,8 @@ os.makedirs(output_dir, exist_ok=True)
 
 try:
     options = Options()
-    # 1. HEADLESS & STEALTH MODE
     options.add_argument("--headless=new")
     options.add_argument("--window-size=1920,1080")
-    options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36")
-    options.add_argument('--disable-blink-features=AutomationControlled')
-    options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    options.add_experimental_option('useAutomationExtension', False)
-    
-    # 2. SPEED OPTIMIZATIONS (Block assets to save bandwidth/time)
     options.page_load_strategy = 'eager'
     prefs = {
         "profile.managed_default_content_settings.images": 2,
@@ -39,6 +32,11 @@ try:
         "profile.managed_default_content_settings.stylesheets": 2
     }
     options.add_experimental_option("prefs", prefs)
+    
+    options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36")
+    options.add_argument('--disable-blink-features=AutomationControlled')
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option('useAutomationExtension', False)
     
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     
@@ -69,25 +67,63 @@ try:
         try:
             driver.get(link)
             
-            # TIME-BOUND: Wait max 10s for the question to exist
             WebDriverWait(driver, 10).until(
                 lambda d: len(d.find_elements(By.CLASS_NAME, "question")) > 0 and 
                           len(d.find_element(By.CLASS_NAME, "question").text.strip()) > 0
             )
             
-            # Reveal explanation
             for btn in driver.find_elements(By.TAG_NAME, "button"):
                 if any(x in btn.text.lower() for x in ["check", "show", "answer"]):
                     driver.execute_script("arguments[0].click();", btn)
                     break
                     
-            # TIME-BOUND: Wait max 4s for explanation to render (prevents Answer: 0 bug)
             try:
                 WebDriverWait(driver, 4).until(
                     EC.presence_of_element_located((By.XPATH, "//h2[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'explanation')]"))
                 )
             except:
-                pass # If no explanation exists, just keep moving
+                pass 
+                
+            time.sleep(0.3) 
+
+            # =======================================================
+            # THE FIX: BROWSER-SIDE MATHJAX DE-RENDERER
+            # Extracts pure LaTeX code directly from MathJax's memory
+            # =======================================================
+            driver.execute_script("""
+                // MathJax v3
+                document.querySelectorAll('mjx-container').forEach(el => {
+                    try {
+                        let tex = '';
+                        if (el.MathJax && el.MathJax.math && el.MathJax.math.math) {
+                            tex = el.MathJax.math.math;
+                        } else if (el.querySelector('math') && el.querySelector('math').getAttribute('alttext')) {
+                            tex = el.querySelector('math').getAttribute('alttext');
+                        } else if (el.getAttribute('data-tex')) {
+                            tex = el.getAttribute('data-tex');
+                        }
+                        
+                        if (tex) {
+                            let textNode = document.createTextNode(' $' + tex.trim() + '$ ');
+                            el.parentNode.replaceChild(textNode, el);
+                        }
+                    } catch(e) {}
+                });
+                
+                // MathJax v2
+                document.querySelectorAll('script[type^="math/tex"]').forEach(el => {
+                    try {
+                        let tex = el.innerText;
+                        let textNode = document.createTextNode(' $' + tex.trim() + '$ ');
+                        let next = el.nextElementSibling;
+                        if (next && next.classList.contains('MathJax_Preview')) next.remove();
+                        next = el.nextElementSibling;
+                        if (next && next.classList.contains('MathJax')) next.remove();
+                        el.parentNode.replaceChild(textNode, el);
+                    } catch(e) {}
+                });
+            """)
+            # =======================================================
                 
             soup = BeautifulSoup(driver.page_source, 'html.parser')
             container = soup.find('div', class_='question-component')
@@ -95,60 +131,15 @@ try:
             if not container:
                 continue
 
-            # ==========================================
-            # UPGRADED MATH EXTRACTION
-            # ==========================================
-            for math_el in container.find_all(['mjx-container', 'script', 'span', 'img']):
-                latex = None
-                if math_el.name == 'script' and 'math/tex' in math_el.get('type', ''):
-                    latex = math_el.get_text(strip=True)
-                elif math_el.name == 'mjx-container':
-                    # NEW: ExamSide's primary hidden LaTeX storage
-                    if math_el.has_attr('data-tex'):
-                        latex = math_el['data-tex']
-                    else:
-                        math_tag = math_el.find('math')
-                        if math_tag and math_tag.has_attr('alttext'):
-                            latex = math_tag['alttext']
-                        elif math_el.find('annotation'):
-                            latex = math_el.find('annotation').get_text(strip=True)
-                        else:
-                            latex = math_el.get_text(strip=True)
-                elif 'katex' in math_el.get('class', []):
-                    ann = math_el.find('annotation')
-                    if ann:
-                        latex = ann.get_text(strip=True)
-                    else:
-                        latex = math_el.get_text(strip=True)
-                elif math_el.name == 'img' and math_el.has_attr('alt'):
-                    if '\\' in math_el['alt'] or '^' in math_el['alt']:
-                        latex = math_el['alt']
-                
-                if latex is not None:
-                    math_el.replace_with(soup.new_string(f" ${latex.strip()}$ "))
-
-            # NEW: Safely wrap generic superscripts/subscripts in isolated math blocks
+            # Fallback wrapper for raw HTML superscripts/subscripts
             for sup in container.find_all('sup'):
                 sup.replace_with(soup.new_string(f"$^{{{sup.get_text(strip=True)}}}$"))
             for sub in container.find_all('sub'):
                 sub.replace_with(soup.new_string(f"$_{{{sub.get_text(strip=True)}}}$"))
-            # ==========================================
-            # Metadata Extraction
-            full_text = container.get_text(" ", strip=True)
-            year_match = re.search(r'\b(19\d{2}|20[0-2]\d)\b', full_text)
-            year = year_match.group(1) if year_match else "Unknown"
-
-            shift_match = re.search(r'(Morning|Evening|Afternoon)\s*Shift', full_text, re.IGNORECASE)
-            shift = shift_match.group(1).capitalize() if shift_match else "Unknown"
-
-            date_match = re.search(r'\d{1,2}(?:st|nd|rd|th)?\s+(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)', full_text, re.IGNORECASE)
-            date = date_match.group(0) if date_match else "Unknown"
                 
-            # Question
             q_div = container.find('div', class_='question')
             q_text = normalize_text(q_div.get_text(" ", strip=True)) if q_div else ""
             
-            # Options and Answer Index
             options_text = []
             correct_index = 0
             for idx, opt in enumerate(container.find_all('div', role='button')):
@@ -164,9 +155,22 @@ try:
                      clean_opt = f"{clean_opt[0]}. {clean_opt[1:].strip()}"
                 options_text.append(clean_opt)
                 
-            # Explanation
             exp_header = container.find('h2', string=re.compile(r'Explanation', re.IGNORECASE))
             explanation = normalize_text(exp_header.find_next_sibling('div').get_text(" ", strip=True)) if exp_header and exp_header.find_next_sibling('div') else "No Explanation"
+
+            page_title = driver.title
+            page_url = driver.current_url
+            
+            year_match = re.search(r'\b(19\d{2}|20[0-2]\d)\b', page_title)
+            if not year_match:
+                year_match = re.search(r'\b(19\d{2}|20[0-2]\d)\b', page_url)
+            year = year_match.group(1) if year_match else "Unknown"
+
+            shift_match = re.search(r'(Morning|Evening|Afternoon)', page_title, re.IGNORECASE)
+            shift = shift_match.group(1).capitalize() if shift_match else "Unknown"
+
+            date_match = re.search(r'\d{1,2}(?:st|nd|rd|th)?\s+(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)', page_title, re.IGNORECASE)
+            date = date_match.group(0) if date_match else "Unknown"
 
             all_data.append({
                 "q": q_text,
@@ -184,10 +188,14 @@ try:
             error_msg = str(e).split('\n')[0][:40]
             print(f"\n[!] Skipped Q{i+1}: {error_msg}")
 
+    print("\n\n[+] Scraping complete. Sorting questions chronologically...")
+    
+    all_data.sort(key=lambda x: int(x["year"]) if x["year"].isdigit() else 0, reverse=True)
+
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(all_data, f, indent=4, ensure_ascii=False)
         
-    print(f"\n\n[+] DONE! Scraped {len(all_data)} questions perfectly and saved to {output_file}")
+    print(f"[+] DONE! Saved {len(all_data)} perfectly formatted questions to {output_file}")
 
 except Exception as e:
     print(f"\n[!] FATAL ERROR: {e}")
