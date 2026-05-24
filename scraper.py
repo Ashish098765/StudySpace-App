@@ -2,7 +2,6 @@ import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
 from bs4 import BeautifulSoup
 import json
 import re
@@ -13,6 +12,7 @@ def normalize_text(text):
     if not text: return ""
     text = text.replace('\t', ' ').replace('\n', ' ').replace('\r', ' ')
     text = " ".join(text.split())
+    # Standardize physics characters
     return text.replace('\u2013', '-').replace('\u2014', '-').replace('\u2212', '-').replace('\u00a0', ' ')
 
 def setup_driver():
@@ -28,7 +28,7 @@ def setup_driver():
     return driver
 
 # ===================================================================
-# THE PERFECT LaTeX ENGINE (Final Refinement)
+# THE DEFINITIVE LaTeX & SEMANTIC PARSER
 # ===================================================================
 
 def latexify(text):
@@ -47,51 +47,59 @@ def latexify(text):
     for char, latex in sym_map.items():
         text = text.replace(char, latex)
 
-    # A. AUTO-DELIMIT LaTeX: Wrap \alpha, \times, etc.
-    text = re.sub(r'(?<!\$)\\([a-zA-Z]+)(?!\$)', r' $\\\1$ ', text)
+    # 1. SEMANTIC FORMULA BINDER (Stress, Strain, Area, etc.)
+    # Identifies whole blocks that are scientific derivations
+    def semantic_wrap(match):
+        inner = match.group(1)
+        # Tighten operators
+        inner = re.sub(r'\s*([=+\-*/^])\s*', r'\1', inner)
+        # Fix exponents inside
+        inner = re.sub(r'(\d+)\s*(-?\d+)', r'\1^{\2}', inner)
+        return f' ${inner}$ '
+    
+    # Match strings with alphanumeric vars and multiple operators
+    text = re.sub(r'\b([a-zA-Z]{1,2}\s*[=+\-*/^]\s*[^.!?\n$]{4,})\b', semantic_wrap, text)
 
-    # B. POWER & EXPONENT SHIELD: "10 -6", "L 2", "10 -3"
-    # Handles numbers with negative exponents rendered as spaces
+    # 2. NUMERICAL UNIT PROTECTOR: "0.08 cm", "10 N", "10 -4 m"
+    # Prevents $ splitting between number and unit
+    text = re.sub(r'\b(\d+\.?\d*)\s*(cm|mm|m|kg|s|N|Pa|J|W|C|V)\b', r'$\1\text{\2}$', text)
     text = re.sub(r'\b(10)\s*(-?\d+)\b', r'\1^{\2}', text)
-    text = re.sub(r'\b([MLTA])\s*(-?\d+)\b', r'\1^{\2}', text)
 
-    # C. ATOMIC DIMENSION SHIELD: Capture [MLT]
-    def polish_dim(match):
+    # 3. ATOMIC DIMENSION SHIELD: Capture [MLT]
+    def shield_dim(match):
         inner = match.group(1)
         inner = re.sub(r'([MLTA])\s*(-?\d+)', r'\1^{\2}', inner)
         inner = re.sub(r'\s+', '', inner)
         return f' $[{inner}]$ '
-    text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', polish_dim, text)
+    text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', shield_dim, text)
 
-    # D. GREEDY EQUATION DETECTOR
-    # Targets mathematical relations with =, +, -, /
-    text = re.sub(r'(?<!\$)\b([a-zA-Z0-9\\]{1,4}\s*[=+\-*/^]\s*[^.!?\n$]{1,})\b(?!\$)', r' $\1$ ', text)
+    # 4. SCIENTIFIC LaTeX COMMAND WRAPPER
+    text = re.sub(r'(?<!\$)\\([a-zA-Z]+)(?!\$)', r' $\\\1$ ', text)
 
-    # E. STANDALONE VARIABLES (Surgical)
-    text = re.sub(r'(?<![\$\w\\{])([v-zBCDE-NP-RST-Zp-r])(?![\$\w\\}])', r' $\1$ ', text)
-
-    # F. CONTROLLED MATH MERGER (Recursive)
-    for _ in range(6):
-        # Merge across ALL math separators including alphanumeric strings
+    # 5. NUCLEAR MATH MERGER (10x Recursive for maximum healing)
+    for _ in range(10):
+        # Bridge across ALL physics separators and operators
         text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:a-zA-Z0-9\\]+)\s*\$', r'\1', text)
         text = re.sub(r'\$\s*\$', '', text)
 
-    # G. INNER MATH CLEANUP
-    def inner_tidy(match):
+    # 6. INNER MATH CLEANUP & POWER NORMALIZATION
+    def math_polish(match):
         m = match.group(1)
-        m = re.sub(r'\s*([=+\-*/])\s*', r'\1', m)
-        # Restore powers: "ML2" -> "ML^{2}"
+        # Fix the 10 -4 artifact
+        m = re.sub(r'\b(10)\s*(-?\d+)\b', r'\1^{\2}', m)
+        # Fix ML2, L2 etc.
         m = re.sub(r'([MLTA])(\d+)', r'\1^{\2}', m)
         m = re.sub(r'([MLTA])-(\d+)', r'\1^{-\2}', m)
-        # Fix 10-6 -> 10^{-6}
-        m = re.sub(r'(10)-(\d+)', r'\1^{-\2}', m)
+        # Tighten operators
+        m = re.sub(r'\s*([=+\-*/])\s*', r'\1', m)
         return f'${m.strip()}$'
-    text = re.sub(r'\$([^$]+)\$', inner_tidy, text)
+    text = re.sub(r'\$([^$]+)\$', math_polish, text)
 
-    # H. FINAL SPACING & DECIMALS
+    # 7. FINAL REFINEMENTS
+    # Decimal Heal: "0 . 08" -> "0.08"
     text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
     text = text.replace('ext{', r'\text{')
-    # Ensure every math block has one space around it
+    # Ensure one space around every isolated $ block
     text = re.sub(r'([a-zA-Z0-9])(\$)', r'\1 \2', text)
     text = re.sub(r'(\$)([a-zA-Z0-9])', r'\1 \2', text)
     
@@ -107,6 +115,7 @@ try:
     print("Fetching dynamic link from chapter...")
     driver.get(chapter_url)
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
+    
     all_links = driver.find_elements(By.TAG_NAME, "a")
     valid_links = [l.get_attribute("href") for l in all_links if l.get_attribute("href") and "/past-years/jee/question/" in l.get_attribute("href")]
     if not valid_links: exit()
@@ -170,14 +179,8 @@ try:
             elif len(correct_indices) == 1: answer = correct_indices[0]
         else:
             q_type = "integer"
-            # ENHANCED NUMERICAL EXTRACTOR
-            ans_pattern = r'(?:Answer|Ans|Value)\s*[:\-]?\s*(\d+\.?\d*)'
-            ans_match = re.search(ans_pattern, full_text, re.I)
+            ans_match = re.search(r'(?:Answer|Value)\s*[:\-]?\s*(\d+\.?\d*)', full_text, re.I)
             if ans_match: answer = ans_match.group(1)
-            # Fallback to the very last number in explanation if clearly marked
-            elif "correct answer is" in full_text.lower():
-                fall_match = re.search(r'correct answer is\s*(\d+\.?\d*)', full_text, re.I)
-                if fall_match: answer = fall_match.group(1)
 
         explanation = "N/A"
         exp_header = container.find(['h2', 'h3', 'strong'], string=re.compile(r'Explanation', re.I))
