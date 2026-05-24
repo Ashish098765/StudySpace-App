@@ -1,16 +1,16 @@
 [
-    {
-    "q": "If the length of the pendulum in pendulum clock increases by 0.1%, then the error in time per day is :",
+   {
+    "q": "If mass is written as$m = k c$PG$- 1 / 2 h^{1} / 2 then the value of$P$will be : (Constants have their usual meaning with k a dimensionless constant)$",
     "options": [
-        "ext{A}^{86} .4 s",
-        "$B$4.32 s",
-        "ext{$C$}^{43} .2 s",
-        "$D$8.64 s"
+        "1/3",
+        "- 1/3",
+        "1/2",
+        "2"
     ],
     "answer": 2,
-    "explanation": "$T = 2 \\pi  l g \\Delta$TT$= 1 2 \\Delta  l l \\Delta$T$= 1 2 \\times  0$.1 100 \\times  24 \\times  3600 \\Delta$T = 43$.2",
-    "year": "2021",
-    "date": "26th August",
+    "explanation": "$m = kc$PG$- 1 / 2 h^{1} / 2$M$1$L$0  \\t\\text{$T$}^{0}  =[ LT - 1 ]P[$M$- 1$L$3$T$- 2 ]$- 1 / 2$[ ML 2$T$- 1 ]$1 / 2 By comparing$P = 1 / 2$",
+    "year": "2024",
+    "date": "30th January",
     "shift": "Evening"
 }
 ]

@@ -157,32 +157,36 @@ try:
         def latexify_plain_text(text):
             if not text: return ""
             
-            # 0. Replace Greek letters and common symbols
-            greek_map = {
+            # 0. High-Priority Symbol Map
+            sym_map = {
                 'μ': r'\mu ', 'η': r'\eta ', 'λ': r'\lambda ', 'π': r'\pi ', 
                 'θ': r'\theta ', 'α': r'\alpha ', 'β': r'\beta ', 'γ': r'\gamma ',
                 'Δ': r'\Delta ', '±': r'\pm ', '×': r'\times ', 'Ω': r'\Omega ',
-                'Φ': r'\Phi ', 'Ψ': r'\Psi ', 'Σ': r'\Sigma '
+                'Φ': r'\Phi ', 'Ψ': r'\Psi ', 'Σ': r'\Sigma ', '∞': r'\infty ',
+                '√': r'\sqrt '
             }
-            for char, latex in greek_map.items():
+            for char, latex in sym_map.items():
                 text = text.replace(char, latex)
             
             # A. Convert Units: "kg m -1 s -1" -> "$\text{kg m}^{-1}\text{s}^{-1}$"
-            # Detects common unit strings with powers
             unit_pattern = r'\b(kg|m|s|A|K|mol|cd|N|Pa|J|W|C|V|F|T|H|Wb)\s+(-?\d+)\b'
-            text = re.sub(unit_pattern, r' \text{\1}^{\2} ', text)
+            text = re.sub(unit_pattern, r' \\text{\1}^{\2} ', text)
 
-            # B. Fix plain-text powers: ONLY for single letters (excluding Roman Numerals)
-            # Avoids mathifying 'I', 'V', 'X' in "List I"
+            # B. Detect Fractions/Roots in plain text: "1 2" -> "1/2" or "sqrt l" -> "\sqrt{l}"
+            text = re.sub(r'\bsqrt\s+([a-zA-Z0-9]+)', r'\\sqrt{\1}', text, flags=re.I)
+            # Handle common physics fraction "1 2" -> "1/2"
+            text = re.sub(r'\b1\s+2\b', r'1/2', text)
+            
+            # C. Fix plain-text powers: ONLY for single letters (excluding Roman Numerals)
             text = re.sub(r'\b([a-df-hj-uw-z])\s+(-?\d+)\b', r'\1^{\2}', text)
             
-            # C. Wrap dimensions: "[M L T]" -> "$[M L T]$"
+            # D. Wrap dimensions: "[M L T]" -> "$[M L T]$"
             text = re.sub(r'(?<!\$)(\[[^\]]{2,}\])(?!\$)', r' $\1$ ', text)
             
-            # D. Wrap potential equations: "v = At^2"
+            # E. Wrap potential equations: "v = At^2"
             text = re.sub(r'(?<!\$)\b([a-zA-Z]\s*=[^.!?\n$]+)(?!\$)', r' $\1$ ', text)
             
-            # E. Wrap standalone variables (excluding Roman Numerals and Articles)
+            # F. Wrap standalone variables (excluding Roman Numerals and common articles)
             text = re.sub(r'(?<![\$\w])([v-zBCDE-NP-RT-Z])(?![\$\w])', r' $\1$ ', text)
             
             return text
@@ -191,21 +195,26 @@ try:
             if not text: return ""
             text = text.replace('&', r'\&')
             
-            # Formatting "Match List" or structure
+            # 1. Formatting "Match List" or structure
             text = re.sub(r'\b(List\s*-\s*II|List\s*II)\b', r'\n\1', text)
             text = re.sub(r'(\([a-d]\))', r'\n\1', text)
             text = re.sub(r'(\(i{1,3}|iv\))', r'\n\1', text)
             
-            # Ensure closing brace inside $ if we created a power
+            # 2. Prevent $ from breaking numbers/decimals (e.g., "0$.1$" -> "$0.1$")
+            text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
+            
+            # 3. Ensure closing brace inside $ if we created a power
             text = re.sub(r'(\$\b[^$]+\^\{\d+)(?!\})', r'\1}', text)
             
-            # Spacing cleanup
+            # 4. Spacing cleanup for LaTeX blocks
             text = re.sub(r'\s+(\$)', r'\1', text)
             text = re.sub(r'(\$)\s+', r'\1', text)
             text = re.sub(r'\$\s*\$', '', text)
             
-            # Add spaces between units if they were merged awkwardly
-            text = text.replace('} \text{', '} \cdot \text{')
+            # 5. Fix \text artifact and unit merging
+            text = text.replace('} \\text{', r'} \cdot \text{')
+            # Final safety for \text escaping
+            text = text.replace('ext{', r'\text{')
             
             return text.strip()
 
@@ -240,10 +249,11 @@ try:
                 correct_index = idx
                 badge.extract()
             
+            # STRIP LABEL BEFORE PROCESSING: Remove "A. ", "(A) ", etc.
             opt_raw = opt.get_text(separator=" ", strip=True).replace("Correct Answer", "").strip()
-            clean_text = clean_math_spacing(latexify_plain_text(normalize_text(opt_raw)))
-            clean_text = re.sub(r'^([A-D])[\.\)\s]+', '', clean_text).strip()
+            opt_raw = re.sub(r'^([A-D])[\.\)\s]+', '', opt_raw).strip()
             
+            clean_text = clean_math_spacing(latexify_plain_text(normalize_text(opt_raw)))
             if clean_text: options_text.append(clean_text)
 
         if not options_text:
@@ -257,9 +267,8 @@ try:
             if not sibling: sibling = header.parent.find_next_sibling('div')
             
             if sibling:
-                # Add spaces before common sentence starters in explanation
                 exp_raw = sibling.get_text(separator=" ", strip=True)
-                exp_raw = re.sub(r'([a-z]\.)([A-Z])', r'\1 \2', exp_raw) # Space after period
+                exp_raw = re.sub(r'([a-z]\.)([A-Z])', r'\1 \2', exp_raw) 
                 explanation = clean_math_spacing(latexify_plain_text(normalize_text(exp_raw)))
                 break
 
