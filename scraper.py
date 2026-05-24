@@ -32,7 +32,7 @@ def scrape_single_question():
     }
     
     os.makedirs('public/data/questions', exist_ok=True)
-    print("--- BOOTING UP THE JAVASCRIPT MATH ENGINE ---")
+    print("--- BOOTING UP THE JAVASCRIPT MATH ENGINE v3 ---")
     driver = setup_driver()
     
     try:
@@ -77,19 +77,16 @@ def scrape_single_question():
                         wait.until(EC.presence_of_element_located((By.CLASS_NAME, "question-component")))
                         time.sleep(0.5) 
                         
-                        # Click option to trigger answer layout (if MCQ)
                         options_buttons = driver.find_elements(By.CSS_SELECTOR, "div[role='button']")
                         if len(options_buttons) > 0:
                             driver.execute_script("arguments[0].click();", options_buttons[0])
                         
-                        # Click Check/Show Answer
                         buttons = driver.find_elements(By.TAG_NAME, "button")
                         for btn in buttons:
                             if "check" in btn.text.lower() or "show" in btn.text.lower():
                                 driver.execute_script("arguments[0].click();", btn)
                                 break
                         
-                        # Wait for API Explanation/Answer
                         try:
                             WebDriverWait(driver, 4).until(
                                 lambda d: "Correct Answer" in d.page_source or "Explanation" in d.page_source
@@ -100,49 +97,80 @@ def scrape_single_question():
                         time.sleep(0.5) 
                         
                         # ==========================================
-                        # THE JAVASCRIPT MATH FLATTENER
-                        # Offloads math extraction to Chrome directly
+                        # THE JAVASCRIPT MATH FLATTENER v3
+                        # Extracts TeX from modern MathJax structures
                         # ==========================================
                         js_math_flattener = """
-                        // 1. Handle MathJax v2
-                        document.querySelectorAll('script[type^="math/tex"]').forEach(function(el) {
-                            var tex = el.textContent || el.innerText;
-                            var isDisplay = el.type.includes('display');
-                            var wrapper = isDisplay ? ' $$' + tex + '$$ ' : ' $' + tex + '$ ';
-                            if (el.parentNode) {
-                                el.parentNode.insertBefore(document.createTextNode(wrapper), el);
-                            }
-                        });
-
-                        // 2. Handle KaTeX
-                        document.querySelectorAll('span.katex').forEach(function(el) {
-                            var annotation = el.querySelector('annotation[encoding="application/x-tex"]');
-                            if (annotation) {
-                                var tex = annotation.textContent || annotation.innerText;
-                                if (el.parentNode) {
-                                    el.parentNode.insertBefore(document.createTextNode(' $' + tex + '$ '), el);
+                        // 1. MathJax v3 (<mjx-container>)
+                        document.querySelectorAll('mjx-container').forEach(mjx => {
+                            let tex = '';
+                            const mml = mjx.querySelector('annotation[encoding="application/x-tex"]');
+                            if (mml) {
+                                tex = mml.textContent || mml.innerText;
+                            } else {
+                                const prev = mjx.previousElementSibling;
+                                if (prev && prev.tagName === 'SCRIPT' && prev.type.includes('math/tex')) {
+                                    tex = prev.textContent || prev.innerText;
+                                    prev.remove();
                                 }
                             }
+                            if (tex) {
+                                const isDisplay = mjx.hasAttribute('display') && mjx.getAttribute('display') === 'true';
+                                const wrapper = isDisplay ? ' $$' + tex.trim() + '$$ ' : ' $' + tex.trim() + '$ ';
+                                mjx.insertAdjacentText('beforebegin', wrapper);
+                            }
+                            mjx.remove();
                         });
 
-                        // 3. Remove all visual junk safely
-                        document.querySelectorAll('.MathJax_Preview, .MathJax, .MathJax_Display, .katex, mjx-container, script[type^="math/tex"]').forEach(function(el) {
-                            el.remove();
+                        // 2. KaTeX (<span class="katex">)
+                        document.querySelectorAll('.katex').forEach(katex => {
+                            const mml = katex.querySelector('annotation[encoding="application/x-tex"]');
+                            if (mml) {
+                                const tex = mml.textContent || mml.innerText;
+                                const isDisplay = katex.parentNode && katex.parentNode.classList.contains('katex-display');
+                                const wrapper = isDisplay ? ' $$' + tex.trim() + '$$ ' : ' $' + tex.trim() + '$ ';
+                                katex.insertAdjacentText('beforebegin', wrapper);
+                            }
+                            katex.remove();
                         });
+
+                        // 3. MathJax v2 (<span class="MathJax">)
+                        document.querySelectorAll('.MathJax').forEach(mj => {
+                            const next = mj.nextElementSibling;
+                            if (next && next.tagName === 'SCRIPT' && next.type.includes('math/tex')) {
+                                const tex = next.textContent || next.innerText;
+                                const isDisplay = next.type.includes('display');
+                                const wrapper = isDisplay ? ' $$' + tex.trim() + '$$ ' : ' $' + tex.trim() + '$ ';
+                                mj.insertAdjacentText('beforebegin', wrapper);
+                                next.remove();
+                            }
+                            mj.remove();
+                        });
+
+                        // 4. Leftover raw scripts
+                        document.querySelectorAll('script[type^="math/tex"]').forEach(script => {
+                            const tex = script.textContent || script.innerText;
+                            const isDisplay = script.type.includes('display');
+                            const wrapper = isDisplay ? ' $$' + tex.trim() + '$$ ' : ' $' + tex.trim() + '$ ';
+                            script.insertAdjacentText('beforebegin', wrapper);
+                            script.remove();
+                        });
+
+                        // 5. Visual junk
+                        document.querySelectorAll('.MathJax_Preview').forEach(el => el.remove());
                         """
                         driver.execute_script(js_math_flattener)
                         # ==========================================
                         
-                        # Now pass the clean, text-only HTML to BeautifulSoup
                         soup = BeautifulSoup(driver.page_source, 'html.parser')
                         container = soup.find('div', class_='question-component')
                         
                         if not container:
                             raise ValueError("React Hydration Failed")
 
-                        # Extract Q Text (Preserving Newlines)
+                        # Extract Q Text
                         q_div = container.find('div', class_='question')
-                        q_text = q_div.get_text(separator="\n", strip=True) if q_div else "Question text missing"
+                        q_text = q_div.get_text(separator=" ", strip=True) if q_div else "Question text missing"
                         
                         raw_options = container.find_all('div', role='button')
                         options_text = []
@@ -150,16 +178,12 @@ def scrape_single_question():
                         
                         if len(raw_options) > 0:
                             for idx, opt in enumerate(raw_options):
-                                # Using separator " " prevents math formulas from mashing into text
                                 raw_text = opt.get_text(separator=" ", strip=True)
                                 if "Correct Answer" in raw_text: correct_answers.append(idx)
                                 clean_text = " ".join(raw_text.replace("Correct Answer", "").replace("Wrong Answer", "").strip().split())
-                                
-                                # Strip ABCD prefixes reliably
-                                clean_text = re.sub(r'^([A-D])[\.\)\s]*', '', clean_text).strip()
+                                clean_text = re.sub(r'^([A-D])[\.\)\s]+', '', clean_text).strip()
                                 if clean_text: options_text.append(clean_text)
                             
-                            # Handle Multi-Correct
                             if len(correct_answers) == 1:
                                 correct_index = correct_answers[0]
                             elif len(correct_answers) > 1:
@@ -167,14 +191,12 @@ def scrape_single_question():
                             else:
                                 correct_index = "N/A"
                         else:
-                            # Numerical/Integer Type Extraction
                             num_ans_match = re.search(r'Correct Answer\s*:?\s*(-?\d+\.?\d*)', container.text, re.IGNORECASE)
                             if num_ans_match: 
                                 correct_index = num_ans_match.group(1)
                             else:
                                 correct_index = "N/A"
 
-                        # Extract Explanation (Preserving Newlines)
                         explanation = "No Explanation Available"
                         exp_headers = container.find_all(['h2', 'h3', 'strong', 'div'], string=re.compile(r'Explanation', re.IGNORECASE))
                         for header in exp_headers:
@@ -183,7 +205,6 @@ def scrape_single_question():
                                 explanation = sibling.get_text(separator="\n", strip=True)
                                 break
 
-                        # Meta Extraction
                         body_text = soup.get_text(" ")
                         year, exact_date, shift = "Unknown Year", "Unknown Date", "Unknown Shift"
                         
@@ -191,7 +212,7 @@ def scrape_single_question():
                         if match:
                             year = match.group(1)
                             clean_day = re.sub(r'(st|nd|rd|th)', '', match.group(2), flags=re.IGNORECASE).strip().title()
-                            exact_date = f"{clean_day} {year}" # Fixed: Appends year back to the date
+                            exact_date = f"{clean_day} {year}"
                             shift = match.group(3).title()
                         else:
                             year_match = re.search(r'\b(20[0-2]\d)\b', body_text)

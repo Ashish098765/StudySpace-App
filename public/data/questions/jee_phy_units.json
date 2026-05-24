@@ -1,16 +1,16 @@
 [
     {
-        "q": "To find the spring constant  of a spring experimentally, a student commits  positive error in the measurement of time and  negative error in measurement of mass. The percentage error in determining value of  is :",
+        "q": "The time period of a simple harmonic oscillator is . Measured value of mass  of the object is 10 g with an accuracy of 10 mg and time for 50 oscillations of the spring is found to be 60 s using a watch of 2 s resolution. Percentage error in determination of spring constant  is ________%.",
         "options": [
-            "5%",
-            "3%",
-            "1%",
-            "4%"
+            "3.43",
+            "7.60",
+            "3.35",
+            "6.76"
         ],
-        "answer": 0,
-        "explanation": "To determine the spring constant  of a spring experimentally, we can use the formula derived from Hooke's Law and the period of oscillation for a mass-spring system:\nHere,  is the period of oscillation,  is the mass, and  is the spring constant. Rearranging the formula to solve for , we get:\nTo find the error in , we have to consider the errors in both the measurements of  and . Let's denote the percentage errors as follows:\n(positive error)\n(negative error)\nAccording to the rules of error propagation, the relative error in  can be found by adding the relative errors in the measurements, each multiplied by the respective powers to which they affect . Since  is squared in the denominator and  is linear in the numerator, the calculation is as follows:\nSubstituting the percentage errors:\nThus, the percentage error in determining the value of  is:\nThe correct answer is Option A: 5%",
-        "date": "6 April 2024",
-        "year": "2024",
-        "shift": "Morning"
+        "answer": 3,
+        "explanation": "The formula for the time period of simple harmonic oscillator is\n$\\mathrm{T}=2 \\pi \\sqrt{\\frac{\\mathrm{k}}{\\mathrm{m}}}$.\n$$\\Rightarrow $$ $$ \\mathrm{T}^2=(2 \\pi)^2\\left(\\frac{\\mathrm{k}}{\\mathrm{~m}}\\right) $$\n$\\Rightarrow \\mathrm{k}=\\frac{\\mathrm{T}^2 \\cdot \\mathrm{~m}}{4 \\pi^2}$\nUsing propagation of error, when quantities are multiplied or divided, their relative errors (percentage errors) are added. The constants have no error.\n$$ \\frac{\\Delta \\mathrm{k}}{\\mathrm{k}} \\times 100=\\left(\\frac{\\Delta \\mathrm{m}}{\\mathrm{~m}}+2 \\cdot \\frac{\\Delta \\mathrm{~T}}{\\mathrm{~T}}\\right) \\times 100 $$\nThe measured value of mass is, $\\mathrm{m}=10 \\mathrm{~g}$\nAccuracy/Error in measurement of mass is, $\\Delta \\mathrm{m}=10 \\mathrm{mg}=0.01 \\mathrm{~g}$\nSo, percentage error in measurement of mass $\\frac{\\Delta \\mathrm{m}}{\\mathrm{m}} \\times 100 \\%=\\frac{0.01}{10} \\times 100=0.1 \\%$\nThe percentage error in the time period ( $T$ ) is the same as the percentage error in the total time ( $t$ ) measured for n oscillations.\nTotal time measured is, $\\mathrm{t}=60 \\mathrm{~s}$\nResolution/Error in measurement of time is, $\\Delta t=2 \\mathrm{~s}$\nSo, percentage error in measurement of time is, $\\frac{\\Delta t}{t} \\times 100 \\%=\\frac{2}{60} \\times 100 \\%=3.33 \\%$\nSo, using propagation formula:\nPercentage error in $\\mathrm{k}=(\\%$ error in m$)+2 \\times(\\%$ error in t$)=0.1 \\%+2 \\times 3.33 \\%=6.76 \\%$\nTherefore, the correct option is (D).",
+        "date": "28 January 2026",
+        "year": "2026",
+        "shift": "Evening"
     }
 ]
