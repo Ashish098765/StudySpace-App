@@ -28,13 +28,13 @@ def setup_driver():
     return driver
 
 # ===================================================================
-# THE NUCLEAR PERFECTION ENGINE
+# THE PRECISION LaTeX ENGINE
 # ===================================================================
 
-def latexify(text, is_explanation=False):
+def latexify(text):
     if not text: return ""
     
-    # 0. Protection Map
+    # 0. Ultimate Symbol Map
     sym_map = {
         'μ': r'\mu ', 'η': r'\eta ', 'λ': r'\lambda ', 'π': r'\pi ', 
         'θ': r'\theta ', 'α': r'\alpha ', 'β': r'\beta ', 'γ': r'\gamma ',
@@ -47,10 +47,9 @@ def latexify(text, is_explanation=False):
     for char, latex in sym_map.items():
         text = text.replace(char, latex)
 
-    # A. PRE-PROCESSING: Turn "L 2" into "L^2" and "L -1" into "L^{-1}" BEFORE wrapping
-    # This prevents the splitting that creates "L $ 2 $"
-    text = re.sub(r'\b([MLTA])\s*(-?\d+)\b', r'\1^{\2}', text)
-    
+    # A. WRAP EXISTING LaTeX: Any \command like \alpha, \times, \Delta
+    text = re.sub(r'(?<!\$)\\([a-zA-Z]+)(?!\$)', r' $\\\1$ ', text)
+
     # B. ATOMIC DIMENSION SHIELD: Capture [MLT]
     def polish_dim(match):
         inner = match.group(1)
@@ -59,30 +58,29 @@ def latexify(text, is_explanation=False):
         return f' $[{inner}]$ '
     text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', polish_dim, text)
 
-    # C. GREEDY LINE DETECTOR: If a block has = and symbols, wrap it entirely
-    # e.g., "E = ML^2 T^-2" -> "$E = ML^2 T^-2$"
-    text = re.sub(r'(?<!\$)\b([a-zA-Z]\s*=\s*[^.!?\n$]{3,})\b(?!\$)', r' $\1$ ', text)
+    # C. PRE-CONSOLIDATE POWERS: "L 2" -> "L^2"
+    text = re.sub(r'\b([MLTA])\s*(-?\d+)\b', r'\1^{\2}', text)
 
-    # D. UNIT & RATIO CONSOLIDATION
-    text = re.sub(r'\b(\d+)\s*/\s*(\d+)\b', r'\1/\2', text)
-    text = re.sub(r'\b(MSD|VSD|LC)\b', r' \text{\1} ', text)
+    # D. GREEDY EQUATION DETECTOR: Only for ACTUAL equations
+    # Targeted at strings with =, +, -, *, ^ and short variables
+    text = re.sub(r'(?<!\$)\b([a-zA-Z]{1,3}\s*=\s*[^.!?\n$]{3,})\b(?!\$)', r' $\1$ ', text)
 
     # E. STANDALONE VARIABLES (Exclude articles/labels)
+    # Target common variables like c, v, t, x, y, z
     text = re.sub(r'(?<![\$\w\\{])([v-zBCDE-NP-RST-Zp-r])(?![\$\w\\}])', r' $\1$ ', text)
 
-    # F. NUCLEAR MATH MERGER (Recursive)
-    # This loop is crucial: it bridges the gap between variables and operators
-    for _ in range(8):
-        # Merge across ALL math separators including alphanumeric sequences
-        text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:a-zA-Z0-9\\]+)\s*\$', r'\1', text)
-        # Merge adjacent blocks
+    # F. CONTROLLED MATH MERGER (Recursive)
+    # Merges ONLY across operators and punctuation, NOT across words
+    for _ in range(5):
+        # Bridge operators: $E$ = $mc^2$ -> $E=mc^2$
+        text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:])\s*\$', r'\1', text)
         text = re.sub(r'\$\s*\$', '', text)
 
     # G. INNER MATH CLEANUP
     def inner_tidy(match):
         m = match.group(1)
         m = re.sub(r'\s*([=+\-*/])\s*', r'\1', m)
-        # Final power check inside consolidated blocks
+        # Restore powers: "ML2" -> "ML^{2}"
         m = re.sub(r'([MLTA])(\d+)', r'\1^{\2}', m)
         m = re.sub(r'([MLTA])-(\d+)', r'\1^{-\2}', m)
         return f'${m.strip()}$'
@@ -94,14 +92,12 @@ def latexify(text, is_explanation=False):
     # Force spaces around $ blocks to avoid "scale$division"
     text = re.sub(r'([a-zA-Z0-9])(\$)', r'\1 \2', text)
     text = re.sub(r'(\$)([a-zA-Z0-9])', r'\1 \2', text)
-    # Remove redundant labels
-    text = re.sub(r'(\([A-D]\))\s*\1', r'\1', text)
     
     return " ".join(text.split()).strip()
 
 # ===================================================================
 
-print("--- BOOTING EXAMSIDE NUCLEAR ENGINE ---")
+print("--- BOOTING EXAMSIDE PRO ENGINE ---")
 driver = setup_driver()
 
 try:
@@ -179,7 +175,7 @@ try:
         exp_header = container.find(['h2', 'h3', 'strong'], string=re.compile(r'Explanation', re.I))
         if exp_header:
             sib = exp_header.find_next_sibling('div') or exp_header.parent.find_next_sibling('div')
-            if sib: explanation = latexify(normalize_text(sib.get_text(separator=" ", strip=True)), is_explanation=True)
+            if sib: explanation = latexify(normalize_text(sib.get_text(separator=" ", strip=True)))
 
         result = {"q": q_text, "type": q_type, "options": options, "answer": answer, "explanation": explanation, "year": year, "date": date, "shift": shift}
         print("--- EXTRACTED DATA ---")
