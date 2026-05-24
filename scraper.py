@@ -10,7 +10,8 @@ import random
 
 def normalize_text(text):
     if not text: return ""
-    text = text.replace('\t', ' ').replace('\n', ' ').replace('\r', ' ')
+    # Strip tabs and carriage returns, consolidate spaces
+    text = text.replace('\t', ' ').replace('\r', ' ').replace('\n', ' ')
     text = " ".join(text.split())
     # Standardize physics characters
     return text.replace('\u2013', '-').replace('\u2014', '-').replace('\u2212', '-').replace('\u00a0', ' ')
@@ -28,13 +29,13 @@ def setup_driver():
     return driver
 
 # ===================================================================
-# THE DEFINITIVE LaTeX & SEMANTIC PARSER
+# THE PERFECT LaTeX ENGINE (Escape-Safe Version)
 # ===================================================================
 
 def latexify(text):
     if not text: return ""
     
-    # 0. Ultimate Symbol Map
+    # 0. Ultimate Symbol Map (Used with .replace() - single backslash is safe)
     sym_map = {
         'μ': r'\mu ', 'η': r'\eta ', 'λ': r'\lambda ', 'π': r'\pi ', 
         'θ': r'\theta ', 'α': r'\alpha ', 'β': r'\beta ', 'γ': r'\gamma ',
@@ -42,30 +43,30 @@ def latexify(text):
         'Φ': r'\Phi ', 'Ψ': r'\Psi ', 'Σ': r'\Sigma ', '∞': r'\infty ',
         '√': r'\sqrt ', '·': r'\cdot ', '∴': r'\therefore ', 'ℓ': r'l',
         'ω': r'\omega ', 'τ': r'\tau ', 'ρ': r'\rho ', 'σ': r'\sigma ',
-        'ϵ': r'\epsilon ', 'ε': r'\epsilon ', '≈': r'\approx ', '∠': r'\angle '
+        'ϵ': r'\epsilon ', 'ε': r'\epsilon ', '≈': r'\approx ', '∠': r'\angle ',
+        '→': r'\to '
     }
     for char, latex in sym_map.items():
         text = text.replace(char, latex)
 
-    # 1. SEMANTIC FORMULA BINDER (Stress, Strain, Area, etc.)
-    # Identifies whole blocks that are scientific derivations
-    def semantic_wrap(match):
-        inner = match.group(1)
-        # Tighten operators
-        inner = re.sub(r'\s*([=+\-*/^])\s*', r'\1', inner)
-        # Fix exponents inside
-        inner = re.sub(r'(\d+)\s*(-?\d+)', r'\1^{\2}', inner)
-        return f' ${inner}$ '
-    
-    # Match strings with alphanumeric vars and multiple operators
-    text = re.sub(r'\b([a-zA-Z]{1,2}\s*[=+\-*/^]\s*[^.!?\n$]{4,})\b', semantic_wrap, text)
+    # 1. MATCH LIST RECONSTRUCTOR (Structural - raw strings safe)
+    text = re.sub(r'\b(List\s*[I|V|X|A-D])\b', r'\n\1', text)
+    text = re.sub(r'\b([A-D])\.\s*', r'\n\1. ', text)
+    text = re.sub(r'\b(I{1,3}|IV)\.\s*', r'\n\1. ', text)
 
-    # 2. NUMERICAL UNIT PROTECTOR: "0.08 cm", "10 N", "10 -4 m"
-    # Prevents $ splitting between number and unit
-    text = re.sub(r'\b(\d+\.?\d*)\s*(cm|mm|m|kg|s|N|Pa|J|W|C|V)\b', r'$\1\text{\2}$', text)
-    text = re.sub(r'\b(10)\s*(-?\d+)\b', r'\1^{\2}', text)
+    # 2. UNIT ENGINE (Consolidate units with powers - USE DOUBLE BACKSLASH FOR REGEX SUB)
+    unit_base = r'(kg|m|s|A|K|mol|cd|N|Pa|J|W|C|V|F|T|H|Wb|nm|mm|cm|km|g)'
+    # Note: Using \\text for \text to avoid escape errors
+    text = re.sub(rf'\b{unit_base}\s*(-?\d+)\b', r'\\text{\1}^{\2}', text)
+    text = re.sub(rf'\b{unit_base}/{unit_base}\b', r'\\text{\1/\2}', text)
+    text = re.sub(rf'\b{unit_base}\s+{unit_base}\b', r'\\text{\1 \\cdot \2}', text)
 
-    # 3. ATOMIC DIMENSION SHIELD: Capture [MLT]
+    # 3. RELATION WEAVER
+    text = re.sub(r'\b([A-D])\s*[-]\s*(I{1,3}|IV)\b', r' $\1-\2$ ', text)
+    # Using \\to for \to
+    text = re.sub(r'([a-zA-Z\s]{2,})\s*\\to\s*([a-zA-Z0-9\s/^\-]+)', r'\n\1 \\to \2', text)
+
+    # 4. ATOMIC DIMENSION SHIELD
     def shield_dim(match):
         inner = match.group(1)
         inner = re.sub(r'([MLTA])\s*(-?\d+)', r'\1^{\2}', inner)
@@ -73,37 +74,43 @@ def latexify(text):
         return f' $[{inner}]$ '
     text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', shield_dim, text)
 
-    # 4. SCIENTIFIC LaTeX COMMAND WRAPPER
+    # 5. AUTO-DELIMIT LaTeX COMMANDS (Wrap existing \alpha etc in $)
+    # Using \\\\ to represent a literal \ followed by a backreference
     text = re.sub(r'(?<!\$)\\([a-zA-Z]+)(?!\$)', r' $\\\1$ ', text)
 
-    # 5. NUCLEAR MATH MERGER (10x Recursive for maximum healing)
-    for _ in range(10):
-        # Bridge across ALL physics separators and operators
-        text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:a-zA-Z0-9\\]+)\s*\$', r'\1', text)
+    # 6. BOUNDARY-SAFE GREEDY DETECTOR
+    def safe_math(match):
+        m = match.group(0)
+        if len(m) > 30 and ' ' in m and '=' not in m: return m 
+        return f' ${m}$ '
+    text = re.sub(r'(?<!\$)\b([a-zA-Z0-9\\]{1,4}\s*[=+\-*/^]\s*[a-zA-Z0-9\\]+)\b(?!\$)', safe_math, text)
+
+    # 7. NUCLEAR MATH MERGER (Recursive)
+    for _ in range(8):
+        text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:])\s*\$', r'\1', text)
         text = re.sub(r'\$\s*\$', '', text)
 
-    # 6. INNER MATH CLEANUP & POWER NORMALIZATION
-    def math_polish(match):
+    # 8. INNER CLEANUP & POWER NORMALIZATION
+    def final_polish(match):
         m = match.group(1)
-        # Fix the 10 -4 artifact
-        m = re.sub(r'\b(10)\s*(-?\d+)\b', r'\1^{\2}', m)
-        # Fix ML2, L2 etc.
+        # Fix exponents inside consolidated blocks
         m = re.sub(r'([MLTA])(\d+)', r'\1^{\2}', m)
         m = re.sub(r'([MLTA])-(\d+)', r'\1^{-\2}', m)
-        # Tighten operators
+        m = re.sub(r'(10)-(\d+)', r'\1^{-\2}', m)
         m = re.sub(r'\s*([=+\-*/])\s*', r'\1', m)
+        # Restore units inside math
+        m = re.sub(rf'\b{unit_base}(\d+)\b', r'\\text{\1}^{\2}', m)
         return f'${m.strip()}$'
-    text = re.sub(r'\$([^$]+)\$', math_polish, text)
+    text = re.sub(r'\$([^$]+)\$', final_polish, text)
 
-    # 7. FINAL REFINEMENTS
-    # Decimal Heal: "0 . 08" -> "0.08"
+    # 9. FINAL REFINEMENTS
     text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
-    text = text.replace('ext{', r'\text{')
-    # Ensure one space around every isolated $ block
+    text = text.replace('ext{', r'\text{').replace('$$', '$')
+    # Ensure math is separated from words
     text = re.sub(r'([a-zA-Z0-9])(\$)', r'\1 \2', text)
     text = re.sub(r'(\$)([a-zA-Z0-9])', r'\1 \2', text)
     
-    return " ".join(text.split()).strip()
+    return text.strip()
 
 # ===================================================================
 
@@ -115,7 +122,6 @@ try:
     print("Fetching dynamic link from chapter...")
     driver.get(chapter_url)
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
-    
     all_links = driver.find_elements(By.TAG_NAME, "a")
     valid_links = [l.get_attribute("href") for l in all_links if l.get_attribute("href") and "/past-years/jee/question/" in l.get_attribute("href")]
     if not valid_links: exit()
@@ -141,7 +147,7 @@ try:
     container = soup.find('div', class_='question-component')
     
     if container:
-        # Pre-Extraction Math Preservation
+        # Pre-Extraction Replacement
         for garbage in container.find_all(class_=['MathJax_Preview', 'katex-html', 'mjx-assistive-mml']): garbage.decompose()
         for mjx in container.find_all('mjx-container'):
             latex = mjx.get('data-tex') or (mjx.find('math').get('alttext') if mjx.find('math') else None)

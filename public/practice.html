@@ -556,7 +556,7 @@
                 ${shiftBadgeFocus}
             `;
             
-            document.getElementById('focus-q-text').innerHTML = q.q;
+            document.getElementById('focus-q-text').innerHTML = q.q.replace(/\n/g, '<br>');
 
             const optContainer = document.getElementById('focus-options-container');
             optContainer.innerHTML = "";
@@ -598,7 +598,7 @@
             if (isAttempted) {
                 document.getElementById('btn-check-focus').style.display = 'none';
                 document.getElementById('btn-next-focus').style.display = 'block';
-                document.getElementById('focus-explanation-text').innerHTML = q.explanation;
+                document.getElementById('focus-explanation-text').innerHTML = q.explanation.replace(/\n/g, '<br>');
                 document.getElementById('focus-explanation-box').style.display = 'block';
                 
                 if (q.type !== "integer") {
