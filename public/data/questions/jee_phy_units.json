@@ -1,15 +1,10 @@
 [
-   {
-    "q": "If momentum [P], area [ A ] and time [ T ] are taken as fundamental quantities, then the dimensional formula for coefficient of viscosity is :",
-    "options": [
-        "[ P A - 1 T 0 ]",
-        "[ P A T - 1 ]",
-        "[ P A - 1 T ]",
-        "[ P A - 1 T - 1 ]"
-    ],
-    "answer": 0,
-    "explanation": "[ η ] = [ M L - 1 T - 1 ] Now if [ η ] = [ P ] a [ A ] b [ T ] c ⇒ [ M L - 1 T - 1 ] = [ M L 1 T - 1 ] a [ L 2 ] b [ T ] c ⇒ a = 1 , a + 2 b = - 1 , - a + c = - 1 ⇒ a = 1 , b = - 1 , c = 0 ⇒ [ η ] = [ P ] [ A ] - 1 [ T ] 0 = [ P A - 1 T 0 ]",
-    "year": "2022",
+    {
+    "q": "Student A and student B used two screw gauges of equal pitch and 100 equal circular divisions to measure the radius of a given wire. The actual value of the radius of the wire is 0.322 cm. The absolute value of the difference between the final circular scale readings observed by the students A and B is ______________. [Figure shows position of reference 'O' when jaws of screw gauge are closed] Given pitch = 0.1 cm.$JEE Main 2021 (Online) 25th July Morning Shift Physics - Units & Measurements Question 155 English$",
+    "options": [],
+    "answer": "N/A",
+    "explanation": "Zero error occurs when the screw gauge does not read zero when its jaws are closed. This error needs to be accounted for in the final measurement. The least count (LC) of a screw gauge, calculated as the pitch (p) divided by the number of divisions (N) on the circular scale, helps us determine the value of this error. The least count of both screw gauges is LC = p / N = 0.1 / 100 = 0.001 cm . For screw gauge A, the zero error is calculated by adding the main scale reading (MSR) at zero and the circular scale reading (CSR) at zero, multiplied by the least count. Screw gauge A's MSR at zero is 0 and its CSR at zero is 5. Therefore, its zero error is ( 0 + 5 × 0.001 = 0.005 ) cm. For screw gauge B, the zero error involves a negative main scale reading and a circular scale reading. The MSR at zero is -1 (since the main scale is 0.1 cm per division, this corresponds to -0.1 cm) and the CSR at zero is 92. Thus, the zero error for B is ( (-1 × 0.1) + 92 × 0.001 = -0.008 ) cm. To find the difference between the final circular scale readings of screw gauges A and B, we look at the difference in their zero errors. The absolute difference is ( |0.005 - (-0.008)| = |0.005 + 0.008| = 0.013 ) cm. This value represents the absolute difference in the final readings of the two screw gauges, accounting for their individual zero errors. However, to express this difference in terms of the circular scale divisions (since the least count is 0.001 cm per division), we multiply this difference by 1000 (since 1 cm = 1000 mm and each division represents 0.001 cm) : Difference in Divisions cm Difference in Divisions = 0.013 cm × 1000 divisions = 13 divisions",
+    "year": "2021",
     "date": "25th July",
     "shift": "Morning"
 }

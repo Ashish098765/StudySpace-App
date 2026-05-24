@@ -120,17 +120,25 @@ try:
             else:
                 img.decompose()
 
-        # 6. HTML Superscripts & Subscripts
+        # 6. HTML Superscripts & Subscripts (Tighter integration)
         for sup in container.find_all('sup'):
             txt = sup.get_text(strip=True)
-            if txt: sup.replace_with(soup.new_string(f" $^{{{txt}}}$ "))
+            if txt: sup.replace_with(soup.new_string(f"$^{{{txt}}}$"))
         for sub in container.find_all('sub'):
             txt = sub.get_text(strip=True)
-            if txt: sub.replace_with(soup.new_string(f" $_{{{txt}}}$ "))
+            if txt: sub.replace_with(soup.new_string(f"$_{{{txt}}}$"))
             
         # ===================================================================
 
         # 3. Extract Metadata and Clean Data
+        def clean_math_spacing(text):
+            # Remove spaces around math delimiters that break formatting
+            text = re.sub(r'\s+(\$)', r'\1', text)
+            text = re.sub(r'(\$)\s+', r'\1', text)
+            # Merge adjacent math blocks: "$x$ $^2$" -> "$x^2$"
+            text = re.sub(r'\$\s*\$', '', text)
+            return " ".join(text.split())
+
         full_text = container.get_text(" ", strip=True)
         
         # Metadata: Year
@@ -145,9 +153,8 @@ try:
         date_match = re.search(r'\d{1,2}(?:st|nd|rd|th)?\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*', full_text, re.IGNORECASE)
         date = date_match.group(0) if date_match else "N/A"
 
-        # Question
         q_div = container.find('div', class_='question')
-        q_text = normalize_text(" ".join(q_div.get_text(separator=" ", strip=True).split())) if q_div else "Question missing"
+        q_text = clean_math_spacing(normalize_text(q_div.get_text(separator=" ", strip=True))) if q_div else "Question missing"
         
         options_text = []
         correct_index = "N/A"
@@ -160,7 +167,7 @@ try:
                 correct_index = idx
                 badge.extract()
             
-            clean_text = normalize_text(" ".join(opt.get_text(separator=" ", strip=True).replace("Correct Answer", "").strip().split()))
+            clean_text = clean_math_spacing(normalize_text(opt.get_text(separator=" ", strip=True).replace("Correct Answer", "").strip()))
             clean_text = re.sub(r'^([A-D])[\.\)\s]+', '', clean_text).strip()
             
             if not clean_text: clean_text = "Option unreadable"
@@ -172,7 +179,7 @@ try:
         for header in exp_headers:
             sibling = header.find_next_sibling('div')
             if sibling:
-                explanation = normalize_text(" ".join(sibling.get_text(separator=" ", strip=True).split()))
+                explanation = clean_math_spacing(normalize_text(sibling.get_text(separator=" ", strip=True)))
                 break
 
         # Result structure
