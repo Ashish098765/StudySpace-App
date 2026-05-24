@@ -7,6 +7,11 @@ from bs4 import BeautifulSoup
 import json
 import re
 import time
+import random
+
+def normalize_text(text):
+    if not text: return ""
+    return text.replace('\u2013', '-').replace('\u2014', '-').replace('\u2212', '-').replace('\u00a0', ' ')
 
 def setup_driver():
     options = uc.ChromeOptions()
@@ -39,7 +44,12 @@ try:
     all_links = driver.find_elements(By.TAG_NAME, "a")
     valid_links = [l.get_attribute("href") for l in all_links if l.get_attribute("href") and "/past-years/jee/question/" in l.get_attribute("href")]
     
-    test_link = valid_links[2] # Picking the 3rd link just to be safe
+    if not valid_links:
+        print("[!] No valid question links found on the page.")
+        driver.quit()
+        exit()
+
+    test_link = random.choice(valid_links)
     print(f"Testing Question URL: {test_link}\n")
     
     # 2. Navigate to the question
@@ -58,7 +68,7 @@ try:
             driver.execute_script("arguments[0].click();", btn)
             break
             
-    time.sleep(1) 
+    time.sleep(2) # Give MathJax extra time to render
     
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     container = soup.find('div', class_='question-component')
@@ -66,75 +76,95 @@ try:
     if container:
         # ===================================================================
         # THE FIX: SURGICAL MATH & IMAGE REPLACEMENT
-        # Convert all visual math into pure text $strings$ before extracting
         # ===================================================================
         
-        # A. Handle Images (Often used for older equations and options)
-        for img in container.find_all('img'):
-            latex = img.get('data-tex') or img.get('alt')
-            if latex and any(c in latex for char in ['\\', '^', '_', '=', 'frac'] for c in char):
-                img.replace_with(soup.new_string(f" ${latex.strip()}$ "))
-            else:
-                img.decompose() # Remove useless UI images
+        # 1. Cleanup Garbage (Hidden elements that cause duplication)
+        for garbage in container.find_all(class_=['MathJax_Preview', 'katex-html', 'mjx-assistive-mml']):
+            garbage.decompose()
 
-        # B. Handle MathJax 3 (Modern ExamSide)
+        # 2. Handle MathJax 3 (mjx-container)
         for mjx in container.find_all('mjx-container'):
             latex = mjx.get('data-tex')
             if not latex:
                 math_tag = mjx.find('math')
                 if math_tag: latex = math_tag.get('alttext')
+            
+            # Fallback to assistive MML text if available (sometimes contains TeX)
             if not latex:
-                latex = mjx.get_text(strip=True)
-                
-            if latex: mjx.replace_with(soup.new_string(f" ${latex.strip()}$ "))
+                assist = mjx.find(class_='mjx-assistive-mml')
+                if assist: latex = assist.get_text(strip=True)
 
-        # C. Handle MathJax 2 & KaTeX Scripts
-        for script in container.find_all('script', type=re.compile(r'math/tex', re.I)):
-            latex = script.string
             if latex:
-                target = script.parent if script.parent and 'MathJax' in script.parent.get('class', []) else script
-                target.replace_with(soup.new_string(f" ${latex.strip()}$ "))
+                mjx.replace_with(soup.new_string(f" ${latex.strip()}$ "))
+
+        # 3. Handle MathJax 2 (script math/tex)
+        for script in container.find_all('script', type=re.compile(r'math/tex', re.I)):
+            latex = script.string or script.get_text()
+            if latex:
+                script.replace_with(soup.new_string(f" ${latex.strip()}$ "))
                 
+        # 4. Handle KaTeX (annotation)
         for katex in container.find_all(class_='katex'):
             ann = katex.find('annotation')
-            latex = ann.text if ann else katex.get_text(strip=True)
-            katex.replace_with(soup.new_string(f" ${latex.strip()}$ "))
+            latex = ann.get_text(strip=True) if ann else None
+            if latex:
+                katex.replace_with(soup.new_string(f" ${latex}$ "))
 
-        # D. Sweep leftovers
-        for garbage in container.find_all(class_=['MathJax_Preview', 'katex-html']):
-            garbage.decompose()
+        # 5. Handle Images (The most common fail point)
+        for img in container.find_all('img'):
+            latex = img.get('data-tex') or img.get('alt')
+            # Filter out generic UI alt texts like "Question Image"
+            if latex and not any(x in latex.lower() for x in ["image", "logo", "icon", "loading"]) or len(latex or "") > 30:
+                clean_latex = (latex or "").replace('$', '').strip()
+                img.replace_with(soup.new_string(f" ${clean_latex}$ "))
+            else:
+                img.decompose()
 
-        # E. HTML Superscripts & Subscripts (Crucial for $x^p$ or Dimensions $ML^2$)
+        # 6. HTML Superscripts & Subscripts
         for sup in container.find_all('sup'):
-            sup.replace_with(soup.new_string(f"$^{{{sup.get_text(strip=True)}}}$"))
+            txt = sup.get_text(strip=True)
+            if txt: sup.replace_with(soup.new_string(f" $^{{{txt}}}$ "))
         for sub in container.find_all('sub'):
-            sub.replace_with(soup.new_string(f"$_{{{sub.get_text(strip=True)}}}$"))
+            txt = sub.get_text(strip=True)
+            if txt: sub.replace_with(soup.new_string(f" $_{{{txt}}}$ "))
             
         # ===================================================================
 
-        # 3. Extract perfectly clean data
+        # 3. Extract Metadata and Clean Data
+        full_text = container.get_text(" ", strip=True)
+        
+        # Metadata: Year
+        year_match = re.search(r'\b(19\d{2}|20[0-2]\d)\b', full_text)
+        year = year_match.group(1) if year_match else "N/A"
+
+        # Metadata: Shift
+        shift_match = re.search(r'(Morning|Evening|Afternoon)\s*Shift', full_text, re.IGNORECASE)
+        shift = shift_match.group(1).capitalize() if shift_match else "N/A"
+
+        # Metadata: Date
+        date_match = re.search(r'\d{1,2}(?:st|nd|rd|th)?\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*', full_text, re.IGNORECASE)
+        date = date_match.group(0) if date_match else "N/A"
+
+        # Question
         q_div = container.find('div', class_='question')
-        q_text = " ".join(q_div.get_text(separator=" ", strip=True).split()) if q_div else "Question missing"
+        q_text = normalize_text(" ".join(q_div.get_text(separator=" ", strip=True).split())) if q_div else "Question missing"
         
         options_text = []
         correct_index = "N/A"
         
-        # Check options
+        # Options
         raw_options = container.find_all('div', role='button')
-        if len(raw_options) > 0:
-            for idx, opt in enumerate(raw_options):
-                # Isolate correct badge
-                badge = opt.find(string=re.compile(r'Correct Answer', re.IGNORECASE))
-                if badge: 
-                    correct_index = idx
-                    badge.extract()
-                
-                # Because we replaced images/mjx above, get_text() will now perfectly catch the math!
-                clean_text = " ".join(opt.get_text(separator=" ", strip=True).replace("Correct Answer", "").strip().split())
-                clean_text = re.sub(r'^([A-D])[\.\)\s]+', '', clean_text).strip()
-                
-                if not clean_text: clean_text = "Option was unreadable empty image"
-                options_text.append(clean_text)
+        for idx, opt in enumerate(raw_options):
+            badge = opt.find(string=re.compile(r'Correct Answer', re.IGNORECASE))
+            if badge: 
+                correct_index = idx
+                badge.extract()
+            
+            clean_text = normalize_text(" ".join(opt.get_text(separator=" ", strip=True).replace("Correct Answer", "").strip().split()))
+            clean_text = re.sub(r'^([A-D])[\.\)\s]+', '', clean_text).strip()
+            
+            if not clean_text: clean_text = "Option unreadable"
+            options_text.append(clean_text)
 
         # Explanation
         explanation = "No Explanation Available"
@@ -142,7 +172,7 @@ try:
         for header in exp_headers:
             sibling = header.find_next_sibling('div')
             if sibling:
-                explanation = " ".join(sibling.get_text(separator=" ", strip=True).split())
+                explanation = normalize_text(" ".join(sibling.get_text(separator=" ", strip=True).split()))
                 break
 
         # Result structure
@@ -150,7 +180,10 @@ try:
             "q": q_text,
             "options": options_text,
             "answer": correct_index,
-            "explanation": explanation
+            "explanation": explanation,
+            "year": year,
+            "date": date,
+            "shift": shift
         }
 
         print("--- EXTRACTED DATA ---")

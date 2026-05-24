@@ -1,13 +1,16 @@
 [
-    {
-    "q": "A, B, C and D are four different physical quantities having different dimensions. None of them is dimensionless. But we know that the equation AD = C ln (BD) holds true. Then which of the combination is not a meaningful quantity ?",
+   {
+    "q": "If momentum [P], area [ A ] and time [ T ] are taken as fundamental quantities, then the dimensional formula for coefficient of viscosity is :",
     "options": [
-        "A $^{2}$ $−$ B $^{2}$ C $^{2}$",
-        "$(A−C)D$",
-        "$AB−C$",
-        "$CBD−AD2C$"
+        "[ P A - 1 T 0 ]",
+        "[ P A T - 1 ]",
+        "[ P A - 1 T ]",
+        "[ P A - 1 T - 1 ]"
     ],
-    "answer": 3,
-    "explanation": "Given, AD = c ln (BD) As log is dimensionless. So, [BD] = 1 $⇒$ [B] = $1[D]$ And [AD] = [C] Now checking options one by one (a) [B $^{2}$ C $^{2}$ ] = [B $^{2}$ ] [A $^{2}$ D $^{2}$ ] = [A $^{2}$ ] [B $^{2}$ D $^{2}$ ] = [A $^{2}$ ] $∴$ This is meaningful. (b) $(A−CD)$ is not meaningful. As dimension of A $≠$ dimension of C Hence (A $−$ C) is not possible. (c) $[AB]$ = [AD] = [C] $∴$ $AB$ $−$ C is meaningful. (d) $[CBD]$ = $[C][BD]$ = $[C]1$ = [C] $[AD2C]$ = $[AD][D][C]$ = $[C][D][C]$ = [D] As dimension of C and D are not same so it is not meaning ful."
+    "answer": 0,
+    "explanation": "[ η ] = [ M L - 1 T - 1 ] Now if [ η ] = [ P ] a [ A ] b [ T ] c ⇒ [ M L - 1 T - 1 ] = [ M L 1 T - 1 ] a [ L 2 ] b [ T ] c ⇒ a = 1 , a + 2 b = - 1 , - a + c = - 1 ⇒ a = 1 , b = - 1 , c = 0 ⇒ [ η ] = [ P ] [ A ] - 1 [ T ] 0 = [ P A - 1 T 0 ]",
+    "year": "2022",
+    "date": "25th July",
+    "shift": "Morning"
 }
 ]
