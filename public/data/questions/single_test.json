@@ -1,11 +1,16 @@
 [
     {
-        "q": "A physical quantity C is related to four other quantities  and s as follows\n\nThe percentage errors in the measurement of  and s are  and , respectively. The percentage error in the measurement of  will be__________%",
-        "options": [],
-        "answer": "N/A",
-        "explanation": "No Explanation Available",
-        "date": "3 April",
-        "year": "2025",
-        "shift": "Evening"
+        "q": "To find the spring constant  of a spring experimentally, a student commits  positive error in the measurement of time and  negative error in measurement of mass. The percentage error in determining value of  is :",
+        "options": [
+            "5%",
+            "3%",
+            "1%",
+            "4%"
+        ],
+        "answer": 0,
+        "explanation": "To determine the spring constant  of a spring experimentally, we can use the formula derived from Hooke's Law and the period of oscillation for a mass-spring system:\nHere,  is the period of oscillation,  is the mass, and  is the spring constant. Rearranging the formula to solve for , we get:\nTo find the error in , we have to consider the errors in both the measurements of  and . Let's denote the percentage errors as follows:\n(positive error)\n(negative error)\nAccording to the rules of error propagation, the relative error in  can be found by adding the relative errors in the measurements, each multiplied by the respective powers to which they affect . Since  is squared in the denominator and  is linear in the numerator, the calculation is as follows:\nSubstituting the percentage errors:\nThus, the percentage error in determining the value of  is:\nThe correct answer is Option A: 5%",
+        "date": "6 April 2024",
+        "year": "2024",
+        "shift": "Morning"
     }
 ]

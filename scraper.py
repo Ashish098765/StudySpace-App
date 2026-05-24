@@ -22,13 +22,8 @@ def setup_driver():
     }
     options.add_experimental_option("prefs", prefs)
     
-    # Initialize driver
     driver = uc.Chrome(options=options, version_main=148)
-    
-    # --- WINERROR 6 FIX ---
-    # This safely suppresses the "invalid handle" error when the script finishes.
-    driver.__class__.__del__ = lambda self: None
-    
+    driver.__class__.__del__ = lambda self: None # Suppress WinError 6
     return driver
 
 def scrape_single_question():
@@ -37,7 +32,7 @@ def scrape_single_question():
     }
     
     os.makedirs('public/data/questions', exist_ok=True)
-    print("--- BOOTING UP THE BULLETPROOF ENGINE ---")
+    print("--- BOOTING UP THE JAVASCRIPT MATH ENGINE ---")
     driver = setup_driver()
     
     try:
@@ -47,7 +42,6 @@ def scrape_single_question():
             
             driver.get(chapter_url)
             
-            print("Scrolling to extract links...")
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
             
             last_height = driver.execute_script("return document.body.scrollHeight")
@@ -62,11 +56,8 @@ def scrape_single_question():
             all_links = driver.find_elements(By.TAG_NAME, "a")
             question_links = list(set([l.get_attribute("href") for l in all_links if l.get_attribute("href") and "/past-years/jee/question/" in l.get_attribute("href")]))
             
-            # ==========================================
-            # EXACTLY ONE QUESTION OVERRIDE
-            # ==========================================
             if len(question_links) > 0:
-                print(f"Found {len(question_links)} unique questions. Slicing array to exactly 1 for testing.\n")
+                print(f"Found {len(question_links)} unique questions. Testing exactly 1.\n")
                 question_links = question_links[:1]
             else:
                 print("No questions found.")
@@ -86,16 +77,19 @@ def scrape_single_question():
                         wait.until(EC.presence_of_element_located((By.CLASS_NAME, "question-component")))
                         time.sleep(0.5) 
                         
+                        # Click option to trigger answer layout (if MCQ)
                         options_buttons = driver.find_elements(By.CSS_SELECTOR, "div[role='button']")
                         if len(options_buttons) > 0:
                             driver.execute_script("arguments[0].click();", options_buttons[0])
                         
+                        # Click Check/Show Answer
                         buttons = driver.find_elements(By.TAG_NAME, "button")
                         for btn in buttons:
                             if "check" in btn.text.lower() or "show" in btn.text.lower():
                                 driver.execute_script("arguments[0].click();", btn)
                                 break
                         
+                        # Wait for API Explanation/Answer
                         try:
                             WebDriverWait(driver, 4).until(
                                 lambda d: "Correct Answer" in d.page_source or "Explanation" in d.page_source
@@ -105,83 +99,99 @@ def scrape_single_question():
                         
                         time.sleep(0.5) 
                         
+                        # ==========================================
+                        # THE JAVASCRIPT MATH FLATTENER
+                        # Offloads math extraction to Chrome directly
+                        # ==========================================
+                        js_math_flattener = """
+                        // 1. Handle MathJax v2
+                        document.querySelectorAll('script[type^="math/tex"]').forEach(function(el) {
+                            var tex = el.textContent || el.innerText;
+                            var isDisplay = el.type.includes('display');
+                            var wrapper = isDisplay ? ' $$' + tex + '$$ ' : ' $' + tex + '$ ';
+                            if (el.parentNode) {
+                                el.parentNode.insertBefore(document.createTextNode(wrapper), el);
+                            }
+                        });
+
+                        // 2. Handle KaTeX
+                        document.querySelectorAll('span.katex').forEach(function(el) {
+                            var annotation = el.querySelector('annotation[encoding="application/x-tex"]');
+                            if (annotation) {
+                                var tex = annotation.textContent || annotation.innerText;
+                                if (el.parentNode) {
+                                    el.parentNode.insertBefore(document.createTextNode(' $' + tex + '$ '), el);
+                                }
+                            }
+                        });
+
+                        // 3. Remove all visual junk safely
+                        document.querySelectorAll('.MathJax_Preview, .MathJax, .MathJax_Display, .katex, mjx-container, script[type^="math/tex"]').forEach(function(el) {
+                            el.remove();
+                        });
+                        """
+                        driver.execute_script(js_math_flattener)
+                        # ==========================================
+                        
+                        # Now pass the clean, text-only HTML to BeautifulSoup
                         soup = BeautifulSoup(driver.page_source, 'html.parser')
                         container = soup.find('div', class_='question-component')
                         
                         if not container:
                             raise ValueError("React Hydration Failed")
 
-                        # ==========================================
-                        # BULLETPROOF LATEX PRESERVATION (FIXED)
-                        # ==========================================
-                        # 1. Process MathJax Scripts
-                        for script in container.find_all('script', type=re.compile(r'math/tex', re.I)):
-                            latex = script.string if script.string else ""
-                            if latex:
-                                wrapper = f" $${latex.strip()}$$ " if 'display' in script.get('type', '') else f" ${latex.strip()}$ "
-                                
-                                # Walk up the DOM to find the outermost visual container
-                                target = script
-                                for parent in script.parents:
-                                    if parent.name == 'div' and ('question' in parent.get('class', []) or 'question-component' in parent.get('class', [])):
-                                        break
-                                    if any(cls in parent.get('class', []) for cls in ['MathJax_Preview', 'MathJax', 'MathJax_Display', 'katex']):
-                                        target = parent
-                                
-                                # Drop the text OUTSIDE the visual container before we delete it
-                                target.insert_after(wrapper)
-                                
-                        # 2. Process KaTeX Annotations
-                        for annotation in container.find_all('annotation', encoding=re.compile(r'application/x-tex', re.I)):
-                            latex = annotation.text.strip()
-                            if latex:
-                                target = annotation
-                                for parent in annotation.parents:
-                                    if parent.name == 'div' and ('question' in parent.get('class', []) or 'question-component' in parent.get('class', [])):
-                                        break
-                                    if 'katex' in parent.get('class', []):
-                                        target = parent
-                                target.insert_after(f" ${latex}$ ")
-
-                        # 3. Nuke the visual wrappers so text doesn't duplicate
-                        for mj in container.find_all(class_=re.compile(r'(MathJax|katex)', re.I)):
-                            if mj.name != 'script': 
-                                mj.decompose()
-                        # ==========================================
-
-                        q_text = container.find('div', class_='question').text.strip() if container.find('div', class_='question') else "Question text missing"
+                        # Extract Q Text (Preserving Newlines)
+                        q_div = container.find('div', class_='question')
+                        q_text = q_div.get_text(separator="\n", strip=True) if q_div else "Question text missing"
                         
                         raw_options = container.find_all('div', role='button')
                         options_text = []
-                        correct_index = "N/A"
+                        correct_answers = []
                         
                         if len(raw_options) > 0:
                             for idx, opt in enumerate(raw_options):
-                                raw_text = opt.text.strip()
-                                if "Correct Answer" in raw_text: correct_index = idx
+                                # Using separator " " prevents math formulas from mashing into text
+                                raw_text = opt.get_text(separator=" ", strip=True)
+                                if "Correct Answer" in raw_text: correct_answers.append(idx)
                                 clean_text = " ".join(raw_text.replace("Correct Answer", "").replace("Wrong Answer", "").strip().split())
                                 
-                                # FIX: Strip "A ", "B. ", "C) " prefixes from options
-                                clean_text = re.sub(r'^[A-D][\.\)\s]+', '', clean_text).strip()
-                                
+                                # Strip ABCD prefixes reliably
+                                clean_text = re.sub(r'^([A-D])[\.\)\s]*', '', clean_text).strip()
                                 if clean_text: options_text.append(clean_text)
+                            
+                            # Handle Multi-Correct
+                            if len(correct_answers) == 1:
+                                correct_index = correct_answers[0]
+                            elif len(correct_answers) > 1:
+                                correct_index = correct_answers
+                            else:
+                                correct_index = "N/A"
                         else:
+                            # Numerical/Integer Type Extraction
                             num_ans_match = re.search(r'Correct Answer\s*:?\s*(-?\d+\.?\d*)', container.text, re.IGNORECASE)
-                            if num_ans_match: correct_index = num_ans_match.group(1)
+                            if num_ans_match: 
+                                correct_index = num_ans_match.group(1)
+                            else:
+                                correct_index = "N/A"
 
-                        explanation_header = container.find('h2', string=re.compile(r'Explanation', re.IGNORECASE))
-                        explanation = explanation_header.find_next_sibling('div').text.strip() if explanation_header and explanation_header.find_next_sibling('div') else "No Explanation Available"
-                        
+                        # Extract Explanation (Preserving Newlines)
+                        explanation = "No Explanation Available"
+                        exp_headers = container.find_all(['h2', 'h3', 'strong', 'div'], string=re.compile(r'Explanation', re.IGNORECASE))
+                        for header in exp_headers:
+                            sibling = header.find_next_sibling('div')
+                            if sibling:
+                                explanation = sibling.get_text(separator="\n", strip=True)
+                                break
+
+                        # Meta Extraction
                         body_text = soup.get_text(" ")
                         year, exact_date, shift = "Unknown Year", "Unknown Date", "Unknown Shift"
                         
                         match = re.search(r'(20[0-2]\d)\s*\(\s*(\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]+)\s*(Shift\s*\d|Morning|Evening)\s*\)', body_text, re.IGNORECASE)
                         if match:
                             year = match.group(1)
-                            clean_day = re.sub(r'(st|nd|rd|th)', '', match.group(2), flags=re.IGNORECASE).strip()
-                            
-                            # FIX: exact_date is only the Day/Month so the UI doesn't print "2023 2023"
-                            exact_date = clean_day.title() 
+                            clean_day = re.sub(r'(st|nd|rd|th)', '', match.group(2), flags=re.IGNORECASE).strip().title()
+                            exact_date = f"{clean_day} {year}" # Fixed: Appends year back to the date
                             shift = match.group(3).title()
                         else:
                             year_match = re.search(r'\b(20[0-2]\d)\b', body_text)
@@ -189,8 +199,8 @@ def scrape_single_question():
                             
                             date_match = re.search(r'\b(\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,})\b', body_text)
                             if date_match and year != "Unknown Year":
-                                clean_day = re.sub(r'(st|nd|rd|th)', '', date_match.group(1), flags=re.IGNORECASE).strip()
-                                exact_date = clean_day.title()
+                                clean_day = re.sub(r'(st|nd|rd|th)', '', date_match.group(1), flags=re.IGNORECASE).strip().title()
+                                exact_date = f"{clean_day} {year}"
                             else:
                                 exact_date = year
                                 
