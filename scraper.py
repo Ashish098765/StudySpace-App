@@ -162,41 +162,46 @@ try:
         def latexify_plain_text(text):
             if not text: return ""
             
-            # 0. High-Fidelity Symbol Map
+            # 0. Ultimate Symbol Map
             sym_map = {
                 'μ': r'\mu ', 'η': r'\eta ', 'λ': r'\lambda ', 'π': r'\pi ', 
                 'θ': r'\theta ', 'α': r'\alpha ', 'β': r'\beta ', 'γ': r'\gamma ',
                 'Δ': r'\Delta ', '±': r'\pm ', '×': r'\times ', 'Ω': r'\Omega ',
                 'Φ': r'\Phi ', 'Ψ': r'\Psi ', 'Σ': r'\Sigma ', '∞': r'\infty ',
                 '√': r'\sqrt ', '·': r'\cdot ', '∴': r'\therefore ', 'ℓ': r'l',
-                'ω': r'\omega ', 'τ': r'\tau ', 'ρ': r'\rho ', 'σ': r'\sigma '
+                'ω': r'\omega ', 'τ': r'\tau ', 'ρ': r'\rho ', 'σ': r'\sigma ',
+                'ϵ': r'\epsilon ', 'ε': r'\epsilon ', '≈': r'\approx '
             }
             for char, latex in sym_map.items():
                 text = text.replace(char, latex)
             
-            # A. DIMENSIONAL FORMULA SHIELD: Capture [M...L...T...] before anything else
+            # A. ATOMIC DIMENSION SHIELD: Capture [M...L...T...A] and fix powers
             def shield_dim(match):
                 inner = match.group(1)
-                # Fix powers and spacing inside [ ]
-                inner = re.sub(r'([MLT])\s*(-?\d+)', r'\1^{\2}', inner)
+                # Capture patterns like "L -1" or "M 1" inside brackets
+                inner = re.sub(r'([MLTA])\s*(-?\d+)', r'\1^{\2}', inner)
                 inner = re.sub(r'\s+', '', inner)
                 return f' $[{inner}]$ '
-            text = re.sub(r'\[\s*([MLT\s\d\-\^]{2,})\s*\]', shield_dim, text)
+            text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', shield_dim, text)
 
-            # B. DERIVATIVE & RATIO DETECTOR: Capture dv/dy, d/dt, a/b
-            text = re.sub(r'\b([a-zA-Z])\s*/\s*([a-zA-Z])\b', r' \1/\2 ', text)
+            # B. VARIABLE POWER ENGINE: "x p", "c r", "M -q+r" -> "x^{p}", "c^{r}", "M^{-q+r}"
+            # This handles cases where exponents are rendered as trailing variables/expressions
+            text = re.sub(r'\b([a-zA-Z])\s+([pqrstn])\b', r'\1^{\2}', text)
+            text = re.sub(r'([MLTA])\s*(-[a-z][+\-][a-z])', r'\1^{\2}', text) # M -q+r
 
-            # C. GREEDY EQUATION DETECTOR: Capture formulas with ops
-            # Targeted at strings with =, +, -, *, ^
+            # C. SCIENTIFIC FRACTION & FORMULA DETECTOR: Capture E/B=c, F=qE
+            text = re.sub(r'(?<!\$)\b([a-zA-Z0-9\\]+\s*[/=]\s*[a-zA-Z0-9\\]+)\b(?!\$)', r' $\1$ ', text)
+
+            # D. GREEDY CHAIN DETECTOR: Capture multi-variable chains as single blocks
+            # e.g., "H = x^p \epsilon^q E^r t^s"
             text = re.sub(r'(?<!\$)([[{(]?[a-zA-Z0-9\\]+\s*[=+\-*/^]\s*[^.!?\n$]{2,})([\]})]?)(?!\$)', r' $\1\2$ ', text)
 
-            # D. UNITS & FRACTIONS
-            text = re.sub(r'(\d+)\s*/\s*(\d+)', r'\1/\2', text)
+            # E. UNITS & STANDALONE VARIABLES
             unit_pattern = r'\b(kg|m|s|A|K|mol|cd|N|Pa|J|W|C|V|F|T|H|Wb)\s+(-?\d+(?:/\d+)?)\b'
             text = re.sub(unit_pattern, r' \\text{\1}^{\2} ', text)
-
-            # E. STANDALONE VARIABLES (Excluding Roman Numerals and Articles)
-            text = re.sub(r'(?<![\$\w\\{])([v-zBCDE-NP-RT-Zp])(?![\$\w\\}])', r' $\1$ ', text)
+            
+            # Standalone vars, excluding common articles and roman numerals
+            text = re.sub(r'(?<![\$\w\\{])([v-zBCDE-NP-RT-Zp-s])(?![\$\w\\}])', r' $\1$ ', text)
             
             return text
 
@@ -204,19 +209,15 @@ try:
             if not text: return ""
             text = text.replace('&', r'\&')
             
-            # 1. STRUCTURE-FIRST LAYOUT ENGINE
-            # Force newlines for Match List items and List headers
+            # 1. STRUCTURAL LAYOUT
             text = re.sub(r'\b(List\s*[-–]?\s*[I|1|A])\b', r'\n\1', text)
             text = re.sub(r'\b(List\s*[-–]?\s*[II|2|B])\b', r'\n\1', text)
-            text = re.sub(r'(\([A-D]\))', r'\n\1\1', text) # Double newline for A, B, C, D
-            text = re.sub(r'(\([I|V|X]+\))', r' \1 ', text) # Ensure space around Roman Numerals
+            text = re.sub(r'(\([A-D]\))', r'\n\1', text)
             
-            # 2. HYPER-AGGRESSIVE MATH MERGER (Recursive Collapsing)
-            for _ in range(6):
-                # Merge across all physics separators
-                text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:])\s*\$', r'\1', text)
-                # Merge adjacent math blocks containing variables
-                text = re.sub(r'\$\s*([a-zA-Z0-9\\]+)\s*\$', r'\1', text)
+            # 2. NUCLEAR MATH MERGER (Recursive)
+            for _ in range(8):
+                # Merge across all physics separators and alphanumeric strings
+                text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:a-zA-Z0-9\\]+)\s*\$', r'\1', text)
                 text = re.sub(r'\$\s*\$', '', text)
                 # Tighten $ around text
                 text = re.sub(r'\s+(\$)', r'\1', text)
@@ -229,12 +230,14 @@ try:
                 return f'${m.strip()}$'
             text = re.sub(r'\$([^$]+)\$', tidy_math, text)
 
-            # 4. FINAL ARTIFACT REMOVAL
+            # 4. FINAL ARTIFACT & DUPLICATION REMOVAL
             text = text.replace('} \\text{', r'} \cdot \text{')
             text = text.replace('ext{', r'\text{')
             text = text.replace('$$', '$')
             # Fix decimal breaks
             text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
+            # Remove redundant labels like "(A)(A)" or "(A) (A)"
+            text = re.sub(r'(\([A-D]\))\s*\1', r'\1', text)
             
             return text.strip()
 
