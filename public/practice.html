@@ -15,7 +15,8 @@
                 displayMath: [['$$', '$$'], ['\\[', '\\]']],
                 processEscapes: true
             },
-            svg: { fontCache: 'global' }
+            svg: { fontCache: 'global' },
+            startup: { typeset: false } // Prevent initial auto-typesetting to control it manually
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -101,9 +102,11 @@
         #quiz-focus-screen { display: none; }
         .question-container { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 2rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; }
         .q-number { font-size: 0.85rem; color: var(--text-secondary); font-weight: 700; margin-bottom: 1rem; display: block; }
-        .q-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-weight: 500; overflow-x: auto; }
         
-        .options-list { display: flex; flex-direction: column; gap: 0.8rem; }
+        /* Performance boost: contain limits re-layout calculations to prevent freezing */
+        .q-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-weight: 500; overflow-x: auto; contain: content; }
+        
+        .options-list { display: flex; flex-direction: column; gap: 0.8rem; contain: content; }
         .marks-option { display: flex; align-items: center; padding: 0.9rem 1.2rem; border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; transition: 0.15s; background: rgba(0,0,0,0.15); }
         .marks-option:hover:not(.locked) { border-color: var(--text-secondary); background: var(--bg-surface-elevated); }
         .opt-letter { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; margin-right: 1rem; flex-shrink: 0; background: var(--bg-base); transition: 0.15s; }
@@ -123,7 +126,7 @@
         .bottom-bar { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; min-height: 4.5rem; }
         .status-msg { font-size: 0.9rem; font-weight: 600; }
         
-        .solution-box { display: none; margin-top: 1.5rem; padding: 1.5rem; border-radius: 6px; border: 1px solid var(--brand-blue); background: rgba(99, 102, 241, 0.05); }
+        .solution-box { display: none; margin-top: 1.5rem; padding: 1.5rem; border-radius: 6px; border: 1px solid var(--brand-blue); background: rgba(99, 102, 241, 0.05); contain: content; }
         .solution-title { font-size: 0.8rem; color: var(--brand-blue); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; }
         .solution-text { font-size: 0.95rem; line-height: 1.6; color: var(--text-primary); overflow-x: auto; }
     </style>
@@ -385,41 +388,35 @@
                 }));
 
                 filteredPracticeSet.sort((a, b) => {
-    // 1. Helper to convert your date strings into a comparable number (YYYYMMDD)
-    const getTimestamp = (q) => {
-        const year = parseInt(q.year) || 0;
-        // Simple map for months to ensure chronological order
-        const months = { 'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6, 
-                         'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12 };
-        
-        let month = 0;
-        let day = 0;
-        
-        if (q.date) {
-            const dateParts = q.date.toLowerCase();
-            for (let m in months) {
-                if (dateParts.includes(m)) month = months[m];
-            }
-            const dayMatch = dateParts.match(/\d+/);
-            if (dayMatch) day = parseInt(dayMatch[0]);
-        }
-        
-        // Return a YYYYMMDD integer for perfect sorting
-        return (year * 10000) + (month * 100) + day;
-    };
+                    const getTimestamp = (q) => {
+                        const year = parseInt(q.year) || 0;
+                        const months = { 'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6, 
+                                         'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12 };
+                        
+                        let month = 0;
+                        let day = 0;
+                        
+                        if (q.date) {
+                            const dateParts = q.date.toLowerCase();
+                            for (let m in months) {
+                                if (dateParts.includes(m)) month = months[m];
+                            }
+                            const dayMatch = dateParts.match(/\d+/);
+                            if (dayMatch) day = parseInt(dayMatch[0]);
+                        }
+                        return (year * 10000) + (month * 100) + day;
+                    };
 
-    const timeA = getTimestamp(a);
-    const timeB = getTimestamp(b);
+                    const timeA = getTimestamp(a);
+                    const timeB = getTimestamp(b);
 
-    // 2. Sort Descending (Newest First)
-    if (timeB !== timeA) return timeB - timeA;
+                    if (timeB !== timeA) return timeB - timeA;
 
-    // 3. If dates are equal, sort by shift (Morning before Evening)
-    const shiftOrder = { "morning": 1, "afternoon": 2, "evening": 3 };
-    const shiftA = shiftOrder[a.shift?.toLowerCase()] || 4;
-    const shiftB = shiftOrder[b.shift?.toLowerCase()] || 4;
-    return shiftA - shiftB;
-});
+                    const shiftOrder = { "morning": 1, "afternoon": 2, "evening": 3 };
+                    const shiftA = shiftOrder[a.shift?.toLowerCase()] || 4;
+                    const shiftB = shiftOrder[b.shift?.toLowerCase()] || 4;
+                    return shiftA - shiftB;
+                });
 
                 renderIndexList();
 
@@ -461,7 +458,6 @@
                 if (isCorrect) badgeHtml = `<div class="status-badge badge-correct"><i class="fa-solid fa-check"></i> Correct</div>`;
                 if (isWrong) badgeHtml = `<div class="status-badge badge-wrong"><i class="fa-solid fa-xmark"></i> Incorrect</div>`;
 
-                // Robust Date and Shift compiler
                 const dText = (q.date && q.date !== "Unknown" && q.date !== "Unknown Date") ? q.date : "";
                 const yText = (q.year && q.year !== "Unknown" && q.year !== "Unknown Year") ? q.year : "";
                 const fullDateStr = [dText, yText].filter(Boolean).join(" ") || "Date Unknown";
@@ -483,20 +479,96 @@
             });
 
             document.getElementById('list-progress-tracker').innerText = `${completedCount} / ${filteredPracticeSet.length} Completed`;
+            
+            // Render MathJax silently on the list preview
+            if (window.MathJax) {
+                setTimeout(() => {
+                    MathJax.typesetClear();
+                    MathJax.typesetPromise([document.getElementById('index-list-container')]).catch(e => console.log(e));
+                }, 50);
+            }
         }
 
-       screenList.style.display = 'none';
-    screenFocus.style.display = 'block';
-    window.scrollTo(0, 0);
-    
-    // THE FIX: Staggered rendering to prevent main-thread freeze
-    if(window.MathJax) {
-        // Delay the MathJax render slightly so the UI finishes painting first
-        setTimeout(() => {
-            MathJax.typesetPromise([document.getElementById('quiz-focus-screen')])
-                .catch(err => console.log("MathJax Freeze Prevented:", err));
-        }, 150); // 150ms delay is invisible to users but saves the browser
-    }
+        window.openFocusQuestion = (index) => {
+            currentFocusIndex = index;
+            isFocusAnswerChecked = false;
+            selectedOptionIndex = null;
+            
+            const q = filteredPracticeSet[index];
+            const isCorrect = correctIds.includes(q.uid);
+            const isWrong = wrongIds.includes(q.uid);
+            const isAttempted = isCorrect || isWrong;
+
+            document.getElementById('btn-check-focus').style.display = 'block';
+            document.getElementById('btn-check-focus').disabled = true;
+            document.getElementById('btn-next-focus').style.display = 'none';
+            document.getElementById('focus-explanation-box').style.display = 'none';
+            document.getElementById('focus-result-status').innerHTML = "";
+            
+            document.getElementById('focus-progress-tracker').innerText = `Question ${index + 1} of ${filteredPracticeSet.length}`;
+            
+            const dText = (q.date && q.date !== "Unknown" && q.date !== "Unknown Date") ? q.date : "";
+            const yText = (q.year && q.year !== "Unknown" && q.year !== "Unknown Year") ? q.year : "";
+            const fullDateStr = [dText, yText].filter(Boolean).join(" ") || "Date Unknown";
+            const shiftStr = (q.shift && q.shift !== "Unknown" && q.shift !== "Unknown Shift") ? q.shift + " Shift" : "Shift Unknown";
+
+            document.getElementById('focus-q-meta').innerHTML = `
+                <span class="marks-tag tag-subject" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); color: var(--brand-blue);"><i class="fa-solid fa-graduation-cap"></i> ${selectedTargetExam}</span>
+                <span class="marks-tag tag-year"><i class="fa-regular fa-calendar"></i> ${fullDateStr}</span>
+                <span class="marks-tag tag-chapter" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-secondary);"><i class="fa-regular fa-clock"></i> ${shiftStr}</span>
+            `;
+            
+            document.getElementById('focus-q-text').innerText = q.q;
+
+            const optContainer = document.getElementById('focus-options-container');
+            optContainer.innerHTML = "";
+
+            q.options.forEach((opt, optIdx) => {
+                const codeMarker = String.fromCharCode(65 + optIdx);
+                const div = document.createElement('div');
+                div.className = `marks-option ${isAttempted ? 'locked' : ''}`;
+                div.id = `focus-opt-${optIdx}`;
+                div.innerHTML = `
+                    <div class="opt-letter">${codeMarker}</div>
+                    <div class="opt-text">${opt}</div>
+                    <i class="fa-solid fa-circle-check opt-icon check-icon" id="focus-check-${optIdx}"></i>
+                    <i class="fa-solid fa-circle-xmark opt-icon cross-icon" id="focus-cross-${optIdx}"></i>
+                `;
+
+                if (!isAttempted) {
+                    div.onclick = () => selectFocusOption(optIdx);
+                }
+                optContainer.appendChild(div);
+            });
+
+            if (isAttempted) {
+                document.getElementById('btn-check-focus').style.display = 'none';
+                document.getElementById('btn-next-focus').style.display = 'block';
+                document.getElementById('focus-explanation-text').innerText = q.explanation;
+                document.getElementById('focus-explanation-box').style.display = 'block';
+                
+                document.getElementById(`focus-opt-${q.answer}`).classList.add('correct');
+                document.getElementById(`focus-check-${q.answer}`).style.display = 'block';
+                
+                if (isCorrect) {
+                    document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--success-green);"><i class="fa-solid fa-check"></i> Solved Correctly</span>`;
+                } else {
+                    document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--error-red);"><i class="fa-solid fa-xmark"></i> Solved Incorrectly</span>`;
+                }
+            }
+
+            screenList.style.display = 'none';
+            screenFocus.style.display = 'block';
+            window.scrollTo(0,0);
+            
+            // Clean MathJax re-render to prevent freezing
+            if(window.MathJax) {
+                setTimeout(() => {
+                    MathJax.typesetClear();
+                    MathJax.typesetPromise([document.getElementById('quiz-focus-screen')]).catch(err => console.log(err));
+                }, 50);
+            }
+        };
 
         window.selectFocusOption = (optIndex) => {
             if (isFocusAnswerChecked) return;
@@ -538,13 +610,12 @@
             document.getElementById('focus-explanation-text').innerText = q.explanation;
             document.getElementById('focus-explanation-box').style.display = 'block';
             
+            // Staggered execution for explanation MathJax rendering
             if (window.MathJax) {
-    MathJax.typesetPromise([document.getElementById('focus-explanation-box')])
-        .catch((err) => console.log('MathJax typeset error:', err));
-}
-
-            if(window.MathJax) {
-                MathJax.typesetPromise([document.getElementById('focus-explanation-box')]).catch(err => console.log(err));
+                setTimeout(() => {
+                    MathJax.typesetClear();
+                    MathJax.typesetPromise([document.getElementById('focus-explanation-box')]).catch((err) => console.log('MathJax typeset error:', err));
+                }, 50);
             }
         };
 
@@ -588,31 +659,5 @@
             }
         }
     </script>
-    <script>
-    // This watches for content changes inside your question and explanation containers
-    const targetNodes = [
-        document.getElementById('focus-q-text'),
-        document.getElementById('focus-explanation-text')
-    ];
-
-    const observer = new MutationObserver((mutations) => {
-        if (window.MathJax) {
-            MathJax.typesetPromise();
-        }
-    });
-
-    targetNodes.forEach(node => {
-        if (node) {
-            observer.observe(node, { childList: true, subtree: true, characterData: true });
-        }
-    });
-
-    // Also trigger it manually whenever you load a new question
-    function triggerMathTypeset() {
-        if (window.MathJax) {
-            MathJax.typesetPromise();
-        }
-    }
-</script>
 </body>
 </html>
