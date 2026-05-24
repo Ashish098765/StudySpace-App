@@ -85,45 +85,6 @@ try:
                 pass 
                 
             time.sleep(0.3) 
-
-            # =======================================================
-            # THE FIX: BROWSER-SIDE MATHJAX DE-RENDERER
-            # Extracts pure LaTeX code directly from MathJax's memory
-            # =======================================================
-            driver.execute_script("""
-                // MathJax v3
-                document.querySelectorAll('mjx-container').forEach(el => {
-                    try {
-                        let tex = '';
-                        if (el.MathJax && el.MathJax.math && el.MathJax.math.math) {
-                            tex = el.MathJax.math.math;
-                        } else if (el.querySelector('math') && el.querySelector('math').getAttribute('alttext')) {
-                            tex = el.querySelector('math').getAttribute('alttext');
-                        } else if (el.getAttribute('data-tex')) {
-                            tex = el.getAttribute('data-tex');
-                        }
-                        
-                        if (tex) {
-                            let textNode = document.createTextNode(' $' + tex.trim() + '$ ');
-                            el.parentNode.replaceChild(textNode, el);
-                        }
-                    } catch(e) {}
-                });
-                
-                // MathJax v2
-                document.querySelectorAll('script[type^="math/tex"]').forEach(el => {
-                    try {
-                        let tex = el.innerText;
-                        let textNode = document.createTextNode(' $' + tex.trim() + '$ ');
-                        let next = el.nextElementSibling;
-                        if (next && next.classList.contains('MathJax_Preview')) next.remove();
-                        next = el.nextElementSibling;
-                        if (next && next.classList.contains('MathJax')) next.remove();
-                        el.parentNode.replaceChild(textNode, el);
-                    } catch(e) {}
-                });
-            """)
-            # =======================================================
                 
             soup = BeautifulSoup(driver.page_source, 'html.parser')
             container = soup.find('div', class_='question-component')
@@ -131,11 +92,46 @@ try:
             if not container:
                 continue
 
-            # Fallback wrapper for raw HTML superscripts/subscripts
+            # =======================================================
+            # THE FIX: BULLETPROOF PYTHON MATH EXTRACTOR
+            # Handles Images, MathJax, KaTeX, and raw HTML formatting
+            # =======================================================
+            
+            # 1. Images (ExamSide often uses images for fractions/equations)
+            for img in container.find_all('img'):
+                latex = None
+                if img.has_attr('data-tex'):
+                    latex = img['data-tex']
+                elif img.has_attr('alt') and any(char in img['alt'] for char in ['\\', '^', '_', '=', '+', '-']):
+                    latex = img['alt']
+                
+                if latex:
+                    img.replace_with(soup.new_string(f" ${latex.strip()}$ "))
+
+            # 2. MathJax and KaTeX blocks
+            for math_el in container.find_all(['mjx-container', 'script', 'span']):
+                latex = None
+                if math_el.name == 'script' and 'math/tex' in math_el.get('type', ''):
+                    latex = math_el.get_text(strip=True)
+                elif math_el.name == 'mjx-container':
+                    if math_el.has_attr('data-tex'):
+                        latex = math_el['data-tex']
+                    elif math_el.find('math') and math_el.find('math').has_attr('alttext'):
+                        latex = math_el.find('math')['alttext']
+                elif 'katex' in math_el.get('class', []):
+                    ann = math_el.find('annotation')
+                    if ann:
+                        latex = ann.get_text(strip=True)
+                        
+                if latex:
+                    math_el.replace_with(soup.new_string(f" ${latex.strip()}$ "))
+
+            # 3. HTML Superscripts/Subscripts (Used for dimensions like M L^2)
             for sup in container.find_all('sup'):
                 sup.replace_with(soup.new_string(f"$^{{{sup.get_text(strip=True)}}}$"))
             for sub in container.find_all('sub'):
                 sub.replace_with(soup.new_string(f"$_{{{sub.get_text(strip=True)}}}$"))
+            # =======================================================
                 
             q_div = container.find('div', class_='question')
             q_text = normalize_text(q_div.get_text(" ", strip=True)) if q_div else ""
