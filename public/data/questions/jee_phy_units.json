@@ -1,17 +1,17 @@
 [
 {
-    "q": "Given below are two statements : Statement ( $I$ ) : Planck' $s$ constant and angular momentum have same dimensions. Statement (II) : Linear momentum and moment of force have same dimensions. In the light of the above statements, choose the correct answer from the options given below :",
+    "q": "If 50 Vernier divisions are equal to 49 main scale divisions of a traveling microscope and one smallest reading of main scale is 0.5 mm , the Vernier constant of traveling microscope is",
     "type": "mcq",
     "options": [
-        "Statement $I$ is true but Statement II is false",
-        "Both Statement $I$ and Statement II are false",
-        "Both Statement $I$ and Statement II are true",
-        "Statement $I$ is false but Statement II is true"
+        "0.01 mm",
+        "0.01 cm",
+        "0.1 mm",
+        "0.1 cm"
     ],
     "answer": 0,
-    "explanation": "[ h ] = ML 2 $T-1$ [L] = ML 2 $T-1 [$ P $]=MLT-1 [ \\tau ]=ML 2$ T $-2 (Here h is Planck'$ s $constant,$ L $is angular momentum,$ P $is linear momentum and \\tau is moment of force$ )",
+    "explanation": "50 $ V+$ S $=49 $ S+SS $=50 ($ S-V $) 5=50 ($ S-V)S-V $=0.5 $ 50=1 100=0.01 mm",
     "year": "2024",
-    "date": "27th January",
-    "shift": "Morning"
+    "date": "30th January",
+    "shift": "Evening"
 }
 ]
