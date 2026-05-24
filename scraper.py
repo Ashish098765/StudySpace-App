@@ -28,13 +28,13 @@ def setup_driver():
     return driver
 
 # ===================================================================
-# THE FINAL PERFECTION ENGINE
+# THE NUCLEAR PERFECTION ENGINE
 # ===================================================================
 
 def latexify(text, is_explanation=False):
     if not text: return ""
     
-    # 0. Ultimate Symbol Map
+    # 0. Protection Map
     sym_map = {
         'μ': r'\mu ', 'η': r'\eta ', 'λ': r'\lambda ', 'π': r'\pi ', 
         'θ': r'\theta ', 'α': r'\alpha ', 'β': r'\beta ', 'γ': r'\gamma ',
@@ -47,13 +47,11 @@ def latexify(text, is_explanation=False):
     for char, latex in sym_map.items():
         text = text.replace(char, latex)
 
-    # A. PRE-PROCESS MATH-HEAVY STRINGS (Specific for Explanations)
-    # If a string has multiple math operators and numbers, wrap the whole thing
-    if is_explanation:
-        # Catch multi-step relations: "50 V = 49 S" or "LC = 1 MSD - 1 VSD"
-        text = re.sub(r'\b(\d+\s*[A-Z]\s*[=+\-*/]\s*[^.!?]+)\b', r' $\1$ ', text)
-
-    # B. ATOMIC DIMENSION SHIELD
+    # A. PRE-PROCESSING: Turn "L 2" into "L^2" and "L -1" into "L^{-1}" BEFORE wrapping
+    # This prevents the splitting that creates "L $ 2 $"
+    text = re.sub(r'\b([MLTA])\s*(-?\d+)\b', r'\1^{\2}', text)
+    
+    # B. ATOMIC DIMENSION SHIELD: Capture [MLT]
     def polish_dim(match):
         inner = match.group(1)
         inner = re.sub(r'([MLTA])\s*(-?\d+)', r'\1^{\2}', inner)
@@ -61,28 +59,30 @@ def latexify(text, is_explanation=False):
         return f' $[{inner}]$ '
     text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', polish_dim, text)
 
-    # C. SCIENTIFIC FRACTIONS & ABBREVIATIONS
+    # C. GREEDY LINE DETECTOR: If a block has = and symbols, wrap it entirely
+    # e.g., "E = ML^2 T^-2" -> "$E = ML^2 T^-2$"
+    text = re.sub(r'(?<!\$)\b([a-zA-Z]\s*=\s*[^.!?\n$]{3,})\b(?!\$)', r' $\1$ ', text)
+
+    # D. UNIT & RATIO CONSOLIDATION
     text = re.sub(r'\b(\d+)\s*/\s*(\d+)\b', r'\1/\2', text)
     text = re.sub(r'\b(MSD|VSD|LC)\b', r' \text{\1} ', text)
-
-    # D. GREEDY EQUATION DETECTOR (Tighter Boundaries)
-    text = re.sub(r'(?<!\$)\b([a-zA-Z0-9\\]{1,4}\s*[=+\-*/^]\s*[^.!?\n$]{1,})\b(?!\$)', r' $\1$ ', text)
 
     # E. STANDALONE VARIABLES (Exclude articles/labels)
     text = re.sub(r'(?<![\$\w\\{])([v-zBCDE-NP-RST-Zp-r])(?![\$\w\\}])', r' $\1$ ', text)
 
     # F. NUCLEAR MATH MERGER (Recursive)
-    for _ in range(6):
-        # Merge across ALL physics operators to keep formulas continuous
-        text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:])\s*\$', r'\1', text)
-        # Merge adjacent math blocks
+    # This loop is crucial: it bridges the gap between variables and operators
+    for _ in range(8):
+        # Merge across ALL math separators including alphanumeric sequences
+        text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:a-zA-Z0-9\\]+)\s*\$', r'\1', text)
+        # Merge adjacent blocks
         text = re.sub(r'\$\s*\$', '', text)
 
     # G. INNER MATH CLEANUP
     def inner_tidy(match):
         m = match.group(1)
         m = re.sub(r'\s*([=+\-*/])\s*', r'\1', m)
-        # Restore powers: "ML2" -> "ML^{2}"
+        # Final power check inside consolidated blocks
         m = re.sub(r'([MLTA])(\d+)', r'\1^{\2}', m)
         m = re.sub(r'([MLTA])-(\d+)', r'\1^{-\2}', m)
         return f'${m.strip()}$'
@@ -91,15 +91,17 @@ def latexify(text, is_explanation=False):
     # H. FINAL REFINEMENTS
     text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
     text = text.replace('ext{', r'\text{')
-    # Force spaces around $ blocks
+    # Force spaces around $ blocks to avoid "scale$division"
     text = re.sub(r'([a-zA-Z0-9])(\$)', r'\1 \2', text)
     text = re.sub(r'(\$)([a-zA-Z0-9])', r'\1 \2', text)
+    # Remove redundant labels
+    text = re.sub(r'(\([A-D]\))\s*\1', r'\1', text)
     
     return " ".join(text.split()).strip()
 
 # ===================================================================
 
-print("--- BOOTING EXAMSIDE PRO ENGINE ---")
+print("--- BOOTING EXAMSIDE NUCLEAR ENGINE ---")
 driver = setup_driver()
 
 try:
@@ -116,7 +118,7 @@ try:
     driver.get(test_link)
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "question-component")))
     
-    # Reveal
+    # Reveal Logic
     try:
         opt_btns = driver.find_elements(By.CSS_SELECTOR, "div[role='button']")
         if opt_btns: driver.execute_script("arguments[0].click();", opt_btns[0])

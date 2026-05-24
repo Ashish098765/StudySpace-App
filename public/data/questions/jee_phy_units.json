@@ -1,17 +1,17 @@
 [
 {
-    "q": "If $ E,L,M $ and $ G $ denote the quantities as energy, angular momentum, mass and constant of gravitation respectively, then the dimensions of $ P $ in the formula $ P=EL^{2}M^{-5}G^{-2}$ are :",
+    "q": "A new unit ( \\alpha ) of length is chosen such that it is equal to the speed of light in vacuum. What is the distance between Venus and Earth in terms of \\alpha units if light takes 6 min. 40 s to cover this distance?",
     "type": "mcq",
     "options": [
-        "[ $ M^{0}L^{1}T^{0}$ ]",
-        "[ $ M^{-1}L^{-1}T^{2}$ ]",
-        "[ $ M^{1}L^{1}T^{-2}$ ]",
-        "[ $ M^{0}L^{0}T^{0}$ ]"
+        "200 \\alpha",
+        "400 \\alpha",
+        "300 \\alpha",
+        "500 \\alpha"
     ],
-    "answer": 3,
-    "explanation": "$ E=ML^{2}T^{-2}L=ML^{2}T^{-1}m=$ MG $=M^{-1}L^{+3}T^{-2}P=$ EL $ 2 $ M $ 5 $ G $ 2 [$ P $]=($ M $ L^{2}$ T - 2 ) ( $ M $ 2 $ L $ 4 $ T $ - 2 ) $ M $ 5 ( $ M $ - 2 $ L $ 6 $ T $ - 4 ) = $ M $ 0 $ L $ 0 $ T 0 $",
-    "year": "2021",
-    "date": "26th August",
-    "shift": "Morning"
+    "answer": 1,
+    "explanation": "To find the distance between two points when an object moves at a constant speed, we use formula, Distance = Speed \\times Time \\alpha is a new unit of length such that 1 unit ( \\alpha ) = speed of light in vacuum (c). The speed of light c is the distance light travels per unit of time (usually meters per second). second 1 \\alpha = c \\times ( 1 second ) The time taken for light to travel from Venus to Earth is 6 minutes and 40 seconds. 1 minute = 60 seconds 6 minutes = 6 \\times 60 = 360 seconds Total time $ t=360 s+40 s=400 seconds Using distance formula: Distance=Speed of light \\times Time Distance=c \\times 400 seconds Since 1 \\alpha is the distance light travels in 1 second ( c \\times 1 s ), we can substitute c with our new unit, Distance=400 \\times ( c \\times 1 s ) Distance=400 \\alpha Therefore, the distance between Venus and Earth is 400 \\alpha $ . Hence, the correct option is ( B ).",
+    "year": "2026",
+    "date": "8th April",
+    "shift": "Evening"
 }
 ]
