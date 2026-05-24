@@ -59,16 +59,39 @@ try:
     time.sleep(1) # Let React hydrate
     
     # Reveal options/answers
-    options_buttons = driver.find_elements(By.CSS_SELECTOR, "div[role='button']")
-    if len(options_buttons) > 0:
-        driver.execute_script("arguments[0].click();", options_buttons[0])
-        
-    for btn in driver.find_elements(By.TAG_NAME, "button"):
-        if "check" in btn.text.lower() or "show" in btn.text.lower():
-            driver.execute_script("arguments[0].click();", btn)
-            break
+    try:
+        # 1. Click the first option to ensure "Check Answer" or "Show Answer" appears
+        options_buttons = driver.find_elements(By.CSS_SELECTOR, "div[role='button']")
+        if len(options_buttons) > 0:
+            driver.execute_script("arguments[0].click();", options_buttons[0])
+            time.sleep(0.5)
             
-    time.sleep(2) # Give MathJax extra time to render
+        # 2. Find and click "Check Answer" or "Show Answer"
+        found_btn = False
+        for btn in driver.find_elements(By.TAG_NAME, "button"):
+            btn_text = btn.text.lower()
+            if any(x in btn_text for x in ["check", "show", "answer"]):
+                driver.execute_script("arguments[0].click();", btn)
+                found_btn = True
+                print(f"Clicked button: {btn.text}")
+                break
+        
+        if not found_btn:
+            # Try a broader selector if no button was found by text
+            btns = driver.find_elements(By.CSS_SELECTOR, ".question-component button")
+            if btns:
+                driver.execute_script("arguments[0].click();", btns[-1])
+                print("Clicked last button in component as fallback")
+
+        # 3. Wait for explanation to actually render in the DOM
+        WebDriverWait(driver, 5).until(
+            lambda d: len(d.find_elements(By.XPATH, "//*[contains(text(), 'Explanation')]")) > 0 or
+                      len(d.find_elements(By.CLASS_NAME, "explanation")) > 0
+        )
+    except Exception as e:
+        print(f"Note: Could not explicitly trigger answer revelation: {e}")
+            
+    time.sleep(3) # Extra time for MathJax and dynamic text
     
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     container = soup.find('div', class_='question-component')
@@ -131,55 +154,89 @@ try:
         # ===================================================================
 
         # 3. Extract Metadata and Clean Data
+        def latexify_plain_text(text):
+            if not text: return ""
+            # A. Fix plain-text powers: "At 2" -> "At^2", "T -2" -> "T^{-2}"
+            # This handles cases where the site uses spaces or specific fonts instead of <sup>
+            text = re.sub(r'([a-zA-Z])\s+(-?\d+)\b', r'\1^{\2}', text)
+            
+            # B. Wrap dimensions: "[M L T]" -> "$[M L T]$"
+            # Only if not already inside $
+            text = re.sub(r'(?<!\$)(\[[^\]]+\])(?!\$)', r' $\1$ ', text)
+            
+            # C. Wrap potential equations: "v = At^2 + Bt" -> "$v = At^2 + Bt$"
+            # Matches strings with '=' and math operators
+            text = re.sub(r'(?<!\$)\b([a-zA-Z]\s*=[^.!?\n]+)\b(?!\$)', r' $\1$ ', text)
+            
+            # D. Wrap standalone variables often used in physics (v, t, x, y, z, A, B, C)
+            # Only if they are single letters surrounded by spaces/punctuation
+            text = re.sub(r'(?<![\$\w])([vtx yzABCDE])(?![\$\w])', r' $\1$ ', text)
+            
+            return text
+
         def clean_math_spacing(text):
-            # Remove spaces around math delimiters that break formatting
+            if not text: return ""
+            # Escape & for LaTeX
+            text = text.replace('&', r'\&')
+            # Fix double dollars and spaces
             text = re.sub(r'\s+(\$)', r'\1', text)
             text = re.sub(r'(\$)\s+', r'\1', text)
-            # Merge adjacent math blocks: "$x$ $^2$" -> "$x^2$"
             text = re.sub(r'\$\s*\$', '', text)
+            # Remove redundant curly braces if they are empty
+            text = text.replace('^{}', '')
             return " ".join(text.split())
 
         full_text = container.get_text(" ", strip=True)
         
-        # Metadata: Year
+        # Metadata Extraction
         year_match = re.search(r'\b(19\d{2}|20[0-2]\d)\b', full_text)
         year = year_match.group(1) if year_match else "N/A"
-
-        # Metadata: Shift
         shift_match = re.search(r'(Morning|Evening|Afternoon)\s*Shift', full_text, re.IGNORECASE)
         shift = shift_match.group(1).capitalize() if shift_match else "N/A"
-
-        # Metadata: Date
         date_match = re.search(r'\d{1,2}(?:st|nd|rd|th)?\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*', full_text, re.IGNORECASE)
         date = date_match.group(0) if date_match else "N/A"
 
+        # Question text - Isolate, Mathify, and Clean
         q_div = container.find('div', class_='question')
-        q_text = clean_math_spacing(normalize_text(q_div.get_text(separator=" ", strip=True))) if q_div else "Question missing"
+        q_text_raw = q_div.get_text(separator=" ", strip=True) if q_div else ""
+        q_text_raw = re.split(r'(JEE Main|NEET|JEE Advanced)\s+\d{4}', q_text_raw, flags=re.IGNORECASE)[0]
+        
+        # Sequence: Normalize -> Latexify -> Clean Spacing
+        q_text = clean_math_spacing(latexify_plain_text(normalize_text(q_text_raw)))
         
         options_text = []
         correct_index = "N/A"
         
-        # Options
+        # Options - Enhanced Search
         raw_options = container.find_all('div', role='button')
+        if not raw_options:
+            raw_options = container.find_all('div', class_=re.compile(r'option|choice', re.I))
+            
         for idx, opt in enumerate(raw_options):
             badge = opt.find(string=re.compile(r'Correct Answer', re.IGNORECASE))
             if badge: 
                 correct_index = idx
                 badge.extract()
             
-            clean_text = clean_math_spacing(normalize_text(opt.get_text(separator=" ", strip=True).replace("Correct Answer", "").strip()))
+            opt_raw = opt.get_text(separator=" ", strip=True).replace("Correct Answer", "").strip()
+            clean_text = clean_math_spacing(latexify_plain_text(normalize_text(opt_raw)))
             clean_text = re.sub(r'^([A-D])[\.\)\s]+', '', clean_text).strip()
             
-            if not clean_text: clean_text = "Option unreadable"
-            options_text.append(clean_text)
+            if clean_text: options_text.append(clean_text)
 
-        # Explanation
+        if not options_text:
+             options_text = ["Options could not be detected"]
+
+        # Explanation - Apply same Latexify logic
         explanation = "No Explanation Available"
         exp_headers = container.find_all(['h2', 'h3', 'strong', 'div'], string=re.compile(r'Explanation', re.IGNORECASE))
         for header in exp_headers:
             sibling = header.find_next_sibling('div')
+            if not sibling: sibling = header.parent.find_next_sibling('div')
+            
             if sibling:
-                explanation = clean_math_spacing(normalize_text(sibling.get_text(separator=" ", strip=True)))
+                exp_raw = sibling.get_text(separator=" ", strip=True)
+                explanation = clean_math_spacing(latexify_plain_text(normalize_text(exp_raw)))
                 break
 
         # Result structure
