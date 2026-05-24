@@ -1,16 +1,11 @@
 [
     {
-        "q": "A cylindrical wire of mass  has length  and radius . The maximum error in its density will be:",
-        "options": [
-            "A 1%",
-            "B 5%",
-            "C 4%",
-            "D 3.5%"
-        ],
-        "answer": 2,
-        "explanation": "The density of a cylindrical wire is given by the formula:\n$$\\rho = \\frac{m}{V} = \\frac{m}{\\pi r^2 l}$$\nwhere $m$ is the mass, $r$ is the radius, and $l$ is the length. \nThe relative error in a calculated quantity is the sum of the relative errors in the quantities it depends on. For the density, this is given by:\n$$\\frac{\\Delta \\rho}{\\rho} = \\frac{\\Delta m}{m} + 2\\frac{\\Delta r}{r} + \\frac{\\Delta l}{l}$$\nGiven that $\\Delta m = 0.01$ g, $m = 0.4$ g, $\\Delta r = 0.03$ mm, $r = 6$ mm, $\\Delta l = 0.04$ cm, and $l = 8$ cm, we can substitute these values into the formula to find the relative error in the density:\n$$\\frac{\\Delta \\rho}{\\rho} = \\frac{0.01}{0.4} + 2\\frac{0.03}{6} + \\frac{0.04}{8} = 0.025 + 0.01 + 0.005 = 0.04$$\nSo the relative error in the density is 0.04, or 4%.",
-        "date": "8 April 2023",
-        "year": "2023",
-        "shift": "Morning"
+        "q": "A physical quantity C is related to four other quantities  and s as follows\n\nThe percentage errors in the measurement of  and s are  and , respectively. The percentage error in the measurement of  will be__________%",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "No Explanation Available",
+        "date": "3 April",
+        "year": "2025",
+        "shift": "Evening"
     }
 ]

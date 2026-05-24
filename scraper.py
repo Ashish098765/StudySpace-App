@@ -14,7 +14,6 @@ def setup_driver():
     options.add_argument("--headless=new")
     options.page_load_strategy = 'eager' 
     
-    # Block heavy assets to speed up scraping
     prefs = {
         "profile.managed_default_content_settings.images": 2,
         "profile.managed_default_content_settings.stylesheets": 2,
@@ -23,7 +22,14 @@ def setup_driver():
     }
     options.add_experimental_option("prefs", prefs)
     
-    return uc.Chrome(options=options, version_main=148)
+    # Initialize driver
+    driver = uc.Chrome(options=options, version_main=148)
+    
+    # --- WINERROR 6 FIX ---
+    # This safely suppresses the "invalid handle" error when the script finishes.
+    driver.__class__.__del__ = lambda self: None
+    
+    return driver
 
 def scrape_single_question():
     chapters_to_scrape = {
@@ -41,8 +47,7 @@ def scrape_single_question():
             
             driver.get(chapter_url)
             
-            # --- SCROLL AND EXTRACT ALL LINKS ---
-            print("Scrolling to extract links (Bypassing Lazy Load)...")
+            print("Scrolling to extract links...")
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
             
             last_height = driver.execute_script("return document.body.scrollHeight")
@@ -58,44 +63,39 @@ def scrape_single_question():
             question_links = list(set([l.get_attribute("href") for l in all_links if l.get_attribute("href") and "/past-years/jee/question/" in l.get_attribute("href")]))
             
             # ==========================================
-            # SINGLE QUESTION OVERRIDE
+            # EXACTLY ONE QUESTION OVERRIDE
             # ==========================================
             if len(question_links) > 0:
-                print(f"Found {len(question_links)} unique questions, but restricting scrape to EXACTLY 1 for testing.\n")
-                question_links = question_links[:1]  # Slice the array to only keep the first link
+                print(f"Found {len(question_links)} unique questions. Slicing array to exactly 1 for testing.\n")
+                question_links = question_links[:1]
             else:
                 print("No questions found.")
                 continue
             
             all_data = []
             
-            # --- SCRAPE THE QUESTION ---
             for i, link in enumerate(question_links):
                 success = False
                 last_error = ""
                 
-                for attempt in range(3): # 3 Retries to prevent Network Timeouts
+                for attempt in range(3):
                     try:
                         driver.get(link)
                         wait = WebDriverWait(driver, 6)
                         
-                        # Wait for DOM
                         wait.until(EC.presence_of_element_located((By.CLASS_NAME, "question-component")))
-                        time.sleep(0.5) # React listener buffer
+                        time.sleep(0.5) 
                         
-                        # Click option (if MCQ) to trigger answer layout
                         options_buttons = driver.find_elements(By.CSS_SELECTOR, "div[role='button']")
                         if len(options_buttons) > 0:
                             driver.execute_script("arguments[0].click();", options_buttons[0])
                         
-                        # Click Check/Show Answer
                         buttons = driver.find_elements(By.TAG_NAME, "button")
                         for btn in buttons:
                             if "check" in btn.text.lower() or "show" in btn.text.lower():
                                 driver.execute_script("arguments[0].click();", btn)
                                 break
                         
-                        # Wait for API Explanation
                         try:
                             WebDriverWait(driver, 4).until(
                                 lambda d: "Correct Answer" in d.page_source or "Explanation" in d.page_source
@@ -103,38 +103,54 @@ def scrape_single_question():
                         except TimeoutException:
                             pass 
                         
-                        time.sleep(0.5) # DOM render buffer
+                        time.sleep(0.5) 
                         
                         soup = BeautifulSoup(driver.page_source, 'html.parser')
                         container = soup.find('div', class_='question-component')
                         
                         if not container:
-                            raise ValueError("React Hydration Failed - container missing")
+                            raise ValueError("React Hydration Failed")
 
                         # ==========================================
-                        # BULLETPROOF LATEX PRESERVATION
+                        # BULLETPROOF LATEX PRESERVATION (FIXED)
                         # ==========================================
+                        # 1. Process MathJax Scripts
                         for script in container.find_all('script', type=re.compile(r'math/tex', re.I)):
                             latex = script.string if script.string else ""
                             if latex:
-                                wrapper = f" $${latex}$$ " if 'display' in script.get('type', '') else f" ${latex}$ "
-                                script.insert_after(wrapper)
+                                wrapper = f" $${latex.strip()}$$ " if 'display' in script.get('type', '') else f" ${latex.strip()}$ "
                                 
+                                # Walk up the DOM to find the outermost visual container
+                                target = script
+                                for parent in script.parents:
+                                    if parent.name == 'div' and ('question' in parent.get('class', []) or 'question-component' in parent.get('class', [])):
+                                        break
+                                    if any(cls in parent.get('class', []) for cls in ['MathJax_Preview', 'MathJax', 'MathJax_Display', 'katex']):
+                                        target = parent
+                                
+                                # Drop the text OUTSIDE the visual container before we delete it
+                                target.insert_after(wrapper)
+                                
+                        # 2. Process KaTeX Annotations
                         for annotation in container.find_all('annotation', encoding=re.compile(r'application/x-tex', re.I)):
                             latex = annotation.text.strip()
                             if latex:
-                                katex_wrapper = annotation.find_parent(class_='katex')
-                                if katex_wrapper:
-                                    katex_wrapper.insert_after(f" ${latex}$ ")
-                                    
-                        for mj in container.find_all(class_=['MathJax_Preview', 'MathJax', 'MathJax_Display', 'katex']):
-                            mj.decompose()
+                                target = annotation
+                                for parent in annotation.parents:
+                                    if parent.name == 'div' and ('question' in parent.get('class', []) or 'question-component' in parent.get('class', [])):
+                                        break
+                                    if 'katex' in parent.get('class', []):
+                                        target = parent
+                                target.insert_after(f" ${latex}$ ")
+
+                        # 3. Nuke the visual wrappers so text doesn't duplicate
+                        for mj in container.find_all(class_=re.compile(r'(MathJax|katex)', re.I)):
+                            if mj.name != 'script': 
+                                mj.decompose()
                         # ==========================================
 
-                        # Extract Q text
                         q_text = container.find('div', class_='question').text.strip() if container.find('div', class_='question') else "Question text missing"
                         
-                        # Extract Options & Answer
                         raw_options = container.find_all('div', role='button')
                         options_text = []
                         correct_index = "N/A"
@@ -144,16 +160,18 @@ def scrape_single_question():
                                 raw_text = opt.text.strip()
                                 if "Correct Answer" in raw_text: correct_index = idx
                                 clean_text = " ".join(raw_text.replace("Correct Answer", "").replace("Wrong Answer", "").strip().split())
+                                
+                                # FIX: Strip "A ", "B. ", "C) " prefixes from options
+                                clean_text = re.sub(r'^[A-D][\.\)\s]+', '', clean_text).strip()
+                                
                                 if clean_text: options_text.append(clean_text)
                         else:
                             num_ans_match = re.search(r'Correct Answer\s*:?\s*(-?\d+\.?\d*)', container.text, re.IGNORECASE)
                             if num_ans_match: correct_index = num_ans_match.group(1)
 
-                        # Extract Explanation
                         explanation_header = container.find('h2', string=re.compile(r'Explanation', re.IGNORECASE))
                         explanation = explanation_header.find_next_sibling('div').text.strip() if explanation_header and explanation_header.find_next_sibling('div') else "No Explanation Available"
                         
-                        # Extract Meta (Year, Date, Shift)
                         body_text = soup.get_text(" ")
                         year, exact_date, shift = "Unknown Year", "Unknown Date", "Unknown Shift"
                         
@@ -161,7 +179,9 @@ def scrape_single_question():
                         if match:
                             year = match.group(1)
                             clean_day = re.sub(r'(st|nd|rd|th)', '', match.group(2), flags=re.IGNORECASE).strip()
-                            exact_date = f"{clean_day} {year}"
+                            
+                            # FIX: exact_date is only the Day/Month so the UI doesn't print "2023 2023"
+                            exact_date = clean_day.title() 
                             shift = match.group(3).title()
                         else:
                             year_match = re.search(r'\b(20[0-2]\d)\b', body_text)
@@ -170,7 +190,7 @@ def scrape_single_question():
                             date_match = re.search(r'\b(\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,})\b', body_text)
                             if date_match and year != "Unknown Year":
                                 clean_day = re.sub(r'(st|nd|rd|th)', '', date_match.group(1), flags=re.IGNORECASE).strip()
-                                exact_date = f"{clean_day} {year}"
+                                exact_date = clean_day.title()
                             else:
                                 exact_date = year
                                 
@@ -199,7 +219,6 @@ def scrape_single_question():
                 if not success:
                     print(f"\n[!] Skipped question after 3 attempts. Error: {last_error}")
 
-            # --- SAVE DATA ---
             print("\nSaving to JSON...")
             with open(output_file, 'w', encoding='utf-8') as f:
                 json.dump(all_data, f, indent=4, ensure_ascii=False)
@@ -211,7 +230,6 @@ def scrape_single_question():
         print("\n--- CLOSING BROWSER ---")
         try:
             driver.quit()
-            driver.__class__.__del__ = lambda self: None
         except Exception:
             pass
         print("--- SCRIPT FINISHED SUCCESSFULLY ---")
