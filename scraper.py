@@ -28,7 +28,7 @@ def setup_driver():
     return driver
 
 # ===================================================================
-# THE PRECISION LaTeX ENGINE
+# THE PERFECT LaTeX ENGINE (Final Refinement)
 # ===================================================================
 
 def latexify(text):
@@ -47,10 +47,15 @@ def latexify(text):
     for char, latex in sym_map.items():
         text = text.replace(char, latex)
 
-    # A. WRAP EXISTING LaTeX: Any \command like \alpha, \times, \Delta
+    # A. AUTO-DELIMIT LaTeX: Wrap \alpha, \times, etc.
     text = re.sub(r'(?<!\$)\\([a-zA-Z]+)(?!\$)', r' $\\\1$ ', text)
 
-    # B. ATOMIC DIMENSION SHIELD: Capture [MLT]
+    # B. POWER & EXPONENT SHIELD: "10 -6", "L 2", "10 -3"
+    # Handles numbers with negative exponents rendered as spaces
+    text = re.sub(r'\b(10)\s*(-?\d+)\b', r'\1^{\2}', text)
+    text = re.sub(r'\b([MLTA])\s*(-?\d+)\b', r'\1^{\2}', text)
+
+    # C. ATOMIC DIMENSION SHIELD: Capture [MLT]
     def polish_dim(match):
         inner = match.group(1)
         inner = re.sub(r'([MLTA])\s*(-?\d+)', r'\1^{\2}', inner)
@@ -58,22 +63,17 @@ def latexify(text):
         return f' $[{inner}]$ '
     text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', polish_dim, text)
 
-    # C. PRE-CONSOLIDATE POWERS: "L 2" -> "L^2"
-    text = re.sub(r'\b([MLTA])\s*(-?\d+)\b', r'\1^{\2}', text)
+    # D. GREEDY EQUATION DETECTOR
+    # Targets mathematical relations with =, +, -, /
+    text = re.sub(r'(?<!\$)\b([a-zA-Z0-9\\]{1,4}\s*[=+\-*/^]\s*[^.!?\n$]{1,})\b(?!\$)', r' $\1$ ', text)
 
-    # D. GREEDY EQUATION DETECTOR: Only for ACTUAL equations
-    # Targeted at strings with =, +, -, *, ^ and short variables
-    text = re.sub(r'(?<!\$)\b([a-zA-Z]{1,3}\s*=\s*[^.!?\n$]{3,})\b(?!\$)', r' $\1$ ', text)
-
-    # E. STANDALONE VARIABLES (Exclude articles/labels)
-    # Target common variables like c, v, t, x, y, z
+    # E. STANDALONE VARIABLES (Surgical)
     text = re.sub(r'(?<![\$\w\\{])([v-zBCDE-NP-RST-Zp-r])(?![\$\w\\}])', r' $\1$ ', text)
 
     # F. CONTROLLED MATH MERGER (Recursive)
-    # Merges ONLY across operators and punctuation, NOT across words
-    for _ in range(5):
-        # Bridge operators: $E$ = $mc^2$ -> $E=mc^2$
-        text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:])\s*\$', r'\1', text)
+    for _ in range(6):
+        # Merge across ALL math separators including alphanumeric strings
+        text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:a-zA-Z0-9\\]+)\s*\$', r'\1', text)
         text = re.sub(r'\$\s*\$', '', text)
 
     # G. INNER MATH CLEANUP
@@ -83,13 +83,15 @@ def latexify(text):
         # Restore powers: "ML2" -> "ML^{2}"
         m = re.sub(r'([MLTA])(\d+)', r'\1^{\2}', m)
         m = re.sub(r'([MLTA])-(\d+)', r'\1^{-\2}', m)
+        # Fix 10-6 -> 10^{-6}
+        m = re.sub(r'(10)-(\d+)', r'\1^{-\2}', m)
         return f'${m.strip()}$'
     text = re.sub(r'\$([^$]+)\$', inner_tidy, text)
 
-    # H. FINAL REFINEMENTS
+    # H. FINAL SPACING & DECIMALS
     text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
     text = text.replace('ext{', r'\text{')
-    # Force spaces around $ blocks to avoid "scale$division"
+    # Ensure every math block has one space around it
     text = re.sub(r'([a-zA-Z0-9])(\$)', r'\1 \2', text)
     text = re.sub(r'(\$)([a-zA-Z0-9])', r'\1 \2', text)
     
@@ -97,7 +99,7 @@ def latexify(text):
 
 # ===================================================================
 
-print("--- BOOTING EXAMSIDE PRO ENGINE ---")
+print("--- BOOTING EXAMSIDE FINAL PRO ENGINE ---")
 driver = setup_driver()
 
 try:
@@ -168,8 +170,14 @@ try:
             elif len(correct_indices) == 1: answer = correct_indices[0]
         else:
             q_type = "integer"
-            ans_match = re.search(r'Answer\s*[:\-]\s*(\d+\.?\d*)', full_text, re.I)
+            # ENHANCED NUMERICAL EXTRACTOR
+            ans_pattern = r'(?:Answer|Ans|Value)\s*[:\-]?\s*(\d+\.?\d*)'
+            ans_match = re.search(ans_pattern, full_text, re.I)
             if ans_match: answer = ans_match.group(1)
+            # Fallback to the very last number in explanation if clearly marked
+            elif "correct answer is" in full_text.lower():
+                fall_match = re.search(r'correct answer is\s*(\d+\.?\d*)', full_text, re.I)
+                if fall_match: answer = fall_match.group(1)
 
         explanation = "N/A"
         exp_header = container.find(['h2', 'h3', 'strong'], string=re.compile(r'Explanation', re.I))

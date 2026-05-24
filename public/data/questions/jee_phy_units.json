@@ -1,12 +1,17 @@
 [
 {
-    "q": "A travelling microscope is used to determine the refractive index of a glass slab. If 40 divisions are there in 1 cm on main scale and 50 Vernier scale divisions are equal to 49 main scale divisions, then least count of the travelling microscope is __________ $\\times $ 10 $^{-6}$ m.",
-    "type": "integer",
-    "options": [],
-    "answer": "N/A",
-    "explanation": "40 $ M=1 cm ⇒$ M $=0.025 cm .......... (1) Also, 50 $ V=49 $ M $⇒ Least count=$ M-V=M $-49 50 $ M=M $^{50} ⇒ LC=0.025 50 $ cm=250 50\\times $ 10 $^{-6}$ m ⇒ LC = 5 $\\times $ 10 $^{-6}$ m",
-    "year": "2022",
-    "date": "26th June",
-    "shift": "Evening"
+    "q": "The diameter of a wire measured by a screw gauge of least count 0.001 cm is 0.08 cm. The length measured by a scale of least count 0.1 cm is 150 cm. When a weight of 10^{0}N $ is applied to the wire, the extension in length is 0.5 cm, measured by a micrometer of least count 0.001 cm. The error in the measured Young’s modulus is \\alpha \\times 10^{9}N $/m 2 $ . The value of \\alpha is ________. (Ignore the contribution of the load to Young’s modulus error calculation)",
+    "type": "mcq",
+    "options": [
+        "1.3",
+        "1.65",
+        "0.13",
+        "0.25"
+    ],
+    "answer": 1,
+    "explanation": "Young's modulus ( Y ) is defined as the ratio of longitudinal stress to longitudinal strain. Let F be the force, L the original length, A the cross-sectional area, and \\Delta L the extension. Stress Strain $ Y=Stress Strain=F/A\\DeltaL/L=F L A $ \\Delta L For a wire of diameter D , the area A = \\pi D 2 4 . Substituting this into the formula: $ Y=F L(\\pi $ D 2 4 ) \\Delta $ L=4 F L $ \\pi D 2 \\Delta L To find the absolute error in Y , we need to find the relative error. Since F and \\pi are constants, the relative error in Y is: scale \\Delta Y Y = \\Delta L scale $ L+2 $ \\Delta D D + \\Delta ( \\Delta L ) \\Delta L Where scale \\Delta L scale , \\Delta D , and \\Delta ( \\Delta L ) are the least counts of the respective measuring instruments. The applied tensile force is N $ F=10^{0} N , The length of wire is cm m L=150 cm=1.5 m , The diameter of wire is cm m $ D=0.08cm=8\\times10^{-4} m , The extension in the length of wire is cm m\\DeltaL=0.5cm=5\\times10^{-3} m.Y=4 $ \\times 10^{0 } \\times 1.5 \\pi \\times ( 8 \\times $ 10^{-4} ) 2 $ \\times 5 \\times $ 10^{-3} Y=600 $ \\pi \\times 64 \\times $ 10^{-8}$ \\times 5 \\times $ 10^{-3}=600 $ \\pi \\times 320 \\times $ 10^{-11}=6\\times10^{11} 3.2\\piN/m Y $ \\approx 5.96 \\times 10^{10}N $/m 2 So, the error in measurement of Young’s modulus is(\\Delta $ Y ) : \\Delta $ Y=Y [ 0.1150+2 ( 0.001 0.08 ) + 0.001 0.5 ] \\Delta $ Y=Y [ 0.00066 + 0. $ 025+0.002 ] = Y [ 0.02766 ] N/m \\Delta $ Y=( 5.96\\times $ 10^{10 } ) \\times 0.02766 \\approx 1.65 \\times 10^{9}N $/m 2 Therefore, the value of $ \\alpha is 1.65 . Thus, the correct option is ( B ).",
+    "year": "2026",
+    "date": "2nd April",
+    "shift": "Morning"
 }
 ]
