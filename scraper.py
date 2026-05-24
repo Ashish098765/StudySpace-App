@@ -15,7 +15,7 @@ def normalize_text(text):
 
 def setup_driver():
     options = uc.ChromeOptions()
-    # options.add_argument("--headless=new") # Commented out so you can watch it if needed
+    options.add_argument("--headless=new") # Headless mode enabled
     options.page_load_strategy = 'eager' 
     
     prefs = {
@@ -26,7 +26,7 @@ def setup_driver():
     }
     options.add_experimental_option("prefs", prefs)
     
-    driver = uc.Chrome(options=options, version_main=148) # Adjust version_main to your Chrome version if needed
+    driver = uc.Chrome(options=options, version_main=148) 
     driver.__class__.__del__ = lambda self: None 
     return driver
 
@@ -156,35 +156,58 @@ try:
         # 3. Extract Metadata and Clean Data
         def latexify_plain_text(text):
             if not text: return ""
-            # A. Fix plain-text powers: "At 2" -> "At^2", "T -2" -> "T^{-2}"
-            # This handles cases where the site uses spaces or specific fonts instead of <sup>
-            text = re.sub(r'([a-zA-Z])\s+(-?\d+)\b', r'\1^{\2}', text)
             
-            # B. Wrap dimensions: "[M L T]" -> "$[M L T]$"
-            # Only if not already inside $
-            text = re.sub(r'(?<!\$)(\[[^\]]+\])(?!\$)', r' $\1$ ', text)
+            # 0. Replace Greek letters and common symbols
+            greek_map = {
+                'μ': r'\mu ', 'η': r'\eta ', 'λ': r'\lambda ', 'π': r'\pi ', 
+                'θ': r'\theta ', 'α': r'\alpha ', 'β': r'\beta ', 'γ': r'\gamma ',
+                'Δ': r'\Delta ', '±': r'\pm ', '×': r'\times ', 'Ω': r'\Omega ',
+                'Φ': r'\Phi ', 'Ψ': r'\Psi ', 'Σ': r'\Sigma '
+            }
+            for char, latex in greek_map.items():
+                text = text.replace(char, latex)
             
-            # C. Wrap potential equations: "v = At^2 + Bt" -> "$v = At^2 + Bt$"
-            # Matches strings with '=' and math operators
-            text = re.sub(r'(?<!\$)\b([a-zA-Z]\s*=[^.!?\n]+)\b(?!\$)', r' $\1$ ', text)
+            # A. Convert Units: "kg m -1 s -1" -> "$\text{kg m}^{-1}\text{s}^{-1}$"
+            # Detects common unit strings with powers
+            unit_pattern = r'\b(kg|m|s|A|K|mol|cd|N|Pa|J|W|C|V|F|T|H|Wb)\s+(-?\d+)\b'
+            text = re.sub(unit_pattern, r' \text{\1}^{\2} ', text)
+
+            # B. Fix plain-text powers: ONLY for single letters (excluding Roman Numerals)
+            # Avoids mathifying 'I', 'V', 'X' in "List I"
+            text = re.sub(r'\b([a-df-hj-uw-z])\s+(-?\d+)\b', r'\1^{\2}', text)
             
-            # D. Wrap standalone variables often used in physics (v, t, x, y, z, A, B, C)
-            # Only if they are single letters surrounded by spaces/punctuation
-            text = re.sub(r'(?<![\$\w])([vtx yzABCDE])(?![\$\w])', r' $\1$ ', text)
+            # C. Wrap dimensions: "[M L T]" -> "$[M L T]$"
+            text = re.sub(r'(?<!\$)(\[[^\]]{2,}\])(?!\$)', r' $\1$ ', text)
+            
+            # D. Wrap potential equations: "v = At^2"
+            text = re.sub(r'(?<!\$)\b([a-zA-Z]\s*=[^.!?\n$]+)(?!\$)', r' $\1$ ', text)
+            
+            # E. Wrap standalone variables (excluding Roman Numerals and Articles)
+            text = re.sub(r'(?<![\$\w])([v-zBCDE-NP-RT-Z])(?![\$\w])', r' $\1$ ', text)
             
             return text
 
         def clean_math_spacing(text):
             if not text: return ""
-            # Escape & for LaTeX
             text = text.replace('&', r'\&')
-            # Fix double dollars and spaces
+            
+            # Formatting "Match List" or structure
+            text = re.sub(r'\b(List\s*-\s*II|List\s*II)\b', r'\n\1', text)
+            text = re.sub(r'(\([a-d]\))', r'\n\1', text)
+            text = re.sub(r'(\(i{1,3}|iv\))', r'\n\1', text)
+            
+            # Ensure closing brace inside $ if we created a power
+            text = re.sub(r'(\$\b[^$]+\^\{\d+)(?!\})', r'\1}', text)
+            
+            # Spacing cleanup
             text = re.sub(r'\s+(\$)', r'\1', text)
             text = re.sub(r'(\$)\s+', r'\1', text)
             text = re.sub(r'\$\s*\$', '', text)
-            # Remove redundant curly braces if they are empty
-            text = text.replace('^{}', '')
-            return " ".join(text.split())
+            
+            # Add spaces between units if they were merged awkwardly
+            text = text.replace('} \text{', '} \cdot \text{')
+            
+            return text.strip()
 
         full_text = container.get_text(" ", strip=True)
         
@@ -196,18 +219,17 @@ try:
         date_match = re.search(r'\d{1,2}(?:st|nd|rd|th)?\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*', full_text, re.IGNORECASE)
         date = date_match.group(0) if date_match else "N/A"
 
-        # Question text - Isolate, Mathify, and Clean
+        # Question text
         q_div = container.find('div', class_='question')
         q_text_raw = q_div.get_text(separator=" ", strip=True) if q_div else ""
         q_text_raw = re.split(r'(JEE Main|NEET|JEE Advanced)\s+\d{4}', q_text_raw, flags=re.IGNORECASE)[0]
         
-        # Sequence: Normalize -> Latexify -> Clean Spacing
         q_text = clean_math_spacing(latexify_plain_text(normalize_text(q_text_raw)))
         
         options_text = []
         correct_index = "N/A"
         
-        # Options - Enhanced Search
+        # Options
         raw_options = container.find_all('div', role='button')
         if not raw_options:
             raw_options = container.find_all('div', class_=re.compile(r'option|choice', re.I))
@@ -227,7 +249,7 @@ try:
         if not options_text:
              options_text = ["Options could not be detected"]
 
-        # Explanation - Apply same Latexify logic
+        # Explanation
         explanation = "No Explanation Available"
         exp_headers = container.find_all(['h2', 'h3', 'strong', 'div'], string=re.compile(r'Explanation', re.IGNORECASE))
         for header in exp_headers:
@@ -235,7 +257,9 @@ try:
             if not sibling: sibling = header.parent.find_next_sibling('div')
             
             if sibling:
+                # Add spaces before common sentence starters in explanation
                 exp_raw = sibling.get_text(separator=" ", strip=True)
+                exp_raw = re.sub(r'([a-z]\.)([A-Z])', r'\1 \2', exp_raw) # Space after period
                 explanation = clean_math_spacing(latexify_plain_text(normalize_text(exp_raw)))
                 break
 
