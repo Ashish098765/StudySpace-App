@@ -14,6 +14,7 @@ def setup_driver():
     options.add_argument("--headless=new")
     options.page_load_strategy = 'eager' 
     
+    # Block heavy assets to significantly speed up scraping
     prefs = {
         "profile.managed_default_content_settings.images": 2,
         "profile.managed_default_content_settings.stylesheets": 2,
@@ -26,13 +27,13 @@ def setup_driver():
     driver.__class__.__del__ = lambda self: None # Suppress WinError 6
     return driver
 
-def scrape_single_question():
+def scrape_chapters():
     chapters_to_scrape = {
-        "https://questions.examside.com/past-years/jee/jee-main/physics/units-and-measurements": "public/data/questions/single_test.json"
+        "https://questions.examside.com/past-years/jee/jee-main/physics/units-and-measurements": "public/data/questions/jee_phy_units.json"
     }
     
     os.makedirs('public/data/questions', exist_ok=True)
-    print("--- BOOTING UP THE JAVASCRIPT MATH ENGINE v3 ---")
+    print("--- BOOTING UP THE JAVASCRIPT MATH ENGINE v4 ---")
     driver = setup_driver()
     
     try:
@@ -44,6 +45,7 @@ def scrape_single_question():
             
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
             
+            print("Scrolling to extract all links (Bypassing Lazy Load)...")
             last_height = driver.execute_script("return document.body.scrollHeight")
             while True:
                 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -57,10 +59,9 @@ def scrape_single_question():
             question_links = list(set([l.get_attribute("href") for l in all_links if l.get_attribute("href") and "/past-years/jee/question/" in l.get_attribute("href")]))
             
             if len(question_links) > 0:
-                print(f"Found {len(question_links)} unique questions. Testing exactly 1.\n")
-                question_links = question_links[:1]
+                print(f"Found {len(question_links)} unique questions in this chapter.\n")
             else:
-                print("No questions found.")
+                print("No questions found. Skipping chapter.")
                 continue
             
             all_data = []
@@ -69,7 +70,7 @@ def scrape_single_question():
                 success = False
                 last_error = ""
                 
-                for attempt in range(3):
+                for attempt in range(3): # 3 Retries per question for network stability
                     try:
                         driver.get(link)
                         wait = WebDriverWait(driver, 6)
@@ -77,16 +78,19 @@ def scrape_single_question():
                         wait.until(EC.presence_of_element_located((By.CLASS_NAME, "question-component")))
                         time.sleep(0.5) 
                         
+                        # Click option to trigger answer layout (if MCQ)
                         options_buttons = driver.find_elements(By.CSS_SELECTOR, "div[role='button']")
                         if len(options_buttons) > 0:
                             driver.execute_script("arguments[0].click();", options_buttons[0])
                         
+                        # Click Check/Show Answer
                         buttons = driver.find_elements(By.TAG_NAME, "button")
                         for btn in buttons:
                             if "check" in btn.text.lower() or "show" in btn.text.lower():
                                 driver.execute_script("arguments[0].click();", btn)
                                 break
                         
+                        # Wait for API Explanation/Answer
                         try:
                             WebDriverWait(driver, 4).until(
                                 lambda d: "Correct Answer" in d.page_source or "Explanation" in d.page_source
@@ -97,66 +101,80 @@ def scrape_single_question():
                         time.sleep(0.5) 
                         
                         # ==========================================
-                        # THE JAVASCRIPT MATH FLATTENER v3
-                        # Extracts TeX from modern MathJax structures
+                        # THE JAVASCRIPT MATH FLATTENER v4
+                        # Aggressive attribute extraction for MathJax 3
                         # ==========================================
                         js_math_flattener = """
                         // 1. MathJax v3 (<mjx-container>)
                         document.querySelectorAll('mjx-container').forEach(mjx => {
-                            let tex = '';
-                            const mml = mjx.querySelector('annotation[encoding="application/x-tex"]');
-                            if (mml) {
-                                tex = mml.textContent || mml.innerText;
-                            } else {
-                                const prev = mjx.previousElementSibling;
+                            let tex = mjx.getAttribute('aria-label') || '';
+                            if (!tex) {
+                                let mathNode = mjx.querySelector('math');
+                                if (mathNode) tex = mathNode.getAttribute('alttext') || '';
+                            }
+                            if (!tex) {
+                                let mml = mjx.querySelector('annotation[encoding="application/x-tex"]');
+                                if (mml) tex = mml.textContent || mml.innerText;
+                            }
+                            if (!tex) {
+                                let prev = mjx.previousElementSibling;
                                 if (prev && prev.tagName === 'SCRIPT' && prev.type.includes('math/tex')) {
                                     tex = prev.textContent || prev.innerText;
                                     prev.remove();
                                 }
                             }
                             if (tex) {
-                                const isDisplay = mjx.hasAttribute('display') && mjx.getAttribute('display') === 'true';
-                                const wrapper = isDisplay ? ' $$' + tex.trim() + '$$ ' : ' $' + tex.trim() + '$ ';
+                                let isDisplay = mjx.hasAttribute('display') && mjx.getAttribute('display') === 'true';
+                                let wrapper = isDisplay ? ' $$' + tex.trim() + '$$ ' : ' $' + tex.trim() + '$ ';
                                 mjx.insertAdjacentText('beforebegin', wrapper);
                             }
                             mjx.remove();
                         });
 
-                        // 2. KaTeX (<span class="katex">)
+                        // 2. Examside Image Fallbacks (Sometimes they use SVGs with TeX in the alt attribute)
+                        document.querySelectorAll('img').forEach(img => {
+                            let alt = img.getAttribute('alt') || '';
+                            if (alt && (alt.includes('\\\\') || alt.includes('^') || alt.includes('_'))) {
+                                img.insertAdjacentText('beforebegin', ' $' + alt.trim() + '$ ');
+                                img.remove(); // Remove image only if we successfully grabbed math
+                            }
+                        });
+
+                        // 3. KaTeX
                         document.querySelectorAll('.katex').forEach(katex => {
-                            const mml = katex.querySelector('annotation[encoding="application/x-tex"]');
+                            let mml = katex.querySelector('annotation[encoding="application/x-tex"]');
                             if (mml) {
-                                const tex = mml.textContent || mml.innerText;
-                                const isDisplay = katex.parentNode && katex.parentNode.classList.contains('katex-display');
-                                const wrapper = isDisplay ? ' $$' + tex.trim() + '$$ ' : ' $' + tex.trim() + '$ ';
+                                let tex = mml.textContent || mml.innerText;
+                                let isDisplay = katex.parentNode && katex.parentNode.classList.contains('katex-display');
+                                let wrapper = isDisplay ? ' $$' + tex.trim() + '$$ ' : ' $' + tex.trim() + '$ ';
                                 katex.insertAdjacentText('beforebegin', wrapper);
                             }
                             katex.remove();
                         });
 
-                        // 3. MathJax v2 (<span class="MathJax">)
+                        // 4. MathJax v2
                         document.querySelectorAll('.MathJax').forEach(mj => {
-                            const next = mj.nextElementSibling;
+                            let next = mj.nextElementSibling;
                             if (next && next.tagName === 'SCRIPT' && next.type.includes('math/tex')) {
-                                const tex = next.textContent || next.innerText;
-                                const isDisplay = next.type.includes('display');
-                                const wrapper = isDisplay ? ' $$' + tex.trim() + '$$ ' : ' $' + tex.trim() + '$ ';
+                                let tex = next.textContent || next.innerText;
+                                let isDisplay = next.type.includes('display');
+                                let wrapper = isDisplay ? ' $$' + tex.trim() + '$$ ' : ' $' + tex.trim() + '$ ';
                                 mj.insertAdjacentText('beforebegin', wrapper);
                                 next.remove();
                             }
                             mj.remove();
                         });
 
-                        // 4. Leftover raw scripts
+                        // 5. Leftover raw scripts
                         document.querySelectorAll('script[type^="math/tex"]').forEach(script => {
-                            const tex = script.textContent || script.innerText;
-                            const isDisplay = script.type.includes('display');
-                            const wrapper = isDisplay ? ' $$' + tex.trim() + '$$ ' : ' $' + tex.trim() + '$ ';
+                            let tex = script.textContent || script.innerText;
+                            let isDisplay = script.type.includes('display');
+                            let wrapper = isDisplay ? ' $$' + tex.trim() + '$$ ' : ' $' + tex.trim() + '$ ';
                             script.insertAdjacentText('beforebegin', wrapper);
                             script.remove();
                         });
 
-                        // 5. Visual junk
+                        // 6. Visual junk sweep
                         document.querySelectorAll('.MathJax_Preview').forEach(el => el.remove());
                         """
                         driver.execute_script(js_math_flattener)
@@ -181,7 +199,14 @@ def scrape_single_question():
                                 raw_text = opt.get_text(separator=" ", strip=True)
                                 if "Correct Answer" in raw_text: correct_answers.append(idx)
                                 clean_text = " ".join(raw_text.replace("Correct Answer", "").replace("Wrong Answer", "").strip().split())
+                                
+                                # Strip A, B, C, D prefixes if they are followed by space/punctuation
                                 clean_text = re.sub(r'^([A-D])[\.\)\s]+', '', clean_text).strip()
+                                
+                                # If the option literally just says "A" (because the math failed), don't append a useless letter
+                                if clean_text in ["A", "B", "C", "D"]:
+                                    clean_text = "Data Missing"
+                                    
                                 if clean_text: options_text.append(clean_text)
                             
                             if len(correct_answers) == 1:
@@ -238,7 +263,7 @@ def scrape_single_question():
                             "shift": shift
                         })
                         
-                        print(f"\rScraping Progress: [1/1] completed...", end="")
+                        print(f"\rScraping Progress: [{i+1}/{len(question_links)}] completed...", end="", flush=True)
                         success = True
                         break 
                         
@@ -248,14 +273,13 @@ def scrape_single_question():
                         continue 
 
                 if not success:
-                    print(f"\n[!] Skipped question after 3 attempts. Error: {last_error}")
+                    print(f"\n[!] Skipped question {i+1} after 3 attempts. Error: {last_error}")
 
             print("\nSaving to JSON...")
             with open(output_file, 'w', encoding='utf-8') as f:
                 json.dump(all_data, f, indent=4, ensure_ascii=False)
             
-            print(f"SUCCESS! Saved the question to {output_file}")
-            print(json.dumps(all_data, indent=4, ensure_ascii=False))
+            print(f"SUCCESS! Saved {len(all_data)} questions to {output_file}")
 
     finally:
         print("\n--- CLOSING BROWSER ---")
@@ -266,4 +290,4 @@ def scrape_single_question():
         print("--- SCRIPT FINISHED SUCCESSFULLY ---")
 
 if __name__ == "__main__":
-    scrape_single_question()
+    scrape_chapters()
