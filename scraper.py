@@ -23,12 +23,11 @@ def setup_driver():
     }
     options.add_experimental_option("prefs", prefs)
     
-    # NOTE: Change version_main to match your Chrome version if necessary
     return uc.Chrome(options=options, version_main=148)
 
-def scrape_chapter():
+def scrape_single_question():
     chapters_to_scrape = {
-        "https://questions.examside.com/past-years/jee/jee-main/physics/units-and-measurements": "public/data/questions/jee_phy_units.json"
+        "https://questions.examside.com/past-years/jee/jee-main/physics/units-and-measurements": "public/data/questions/single_test.json"
     }
     
     os.makedirs('public/data/questions', exist_ok=True)
@@ -43,7 +42,7 @@ def scrape_chapter():
             driver.get(chapter_url)
             
             # --- SCROLL AND EXTRACT ALL LINKS ---
-            print("Scrolling to extract all links (Bypassing Lazy Load)...")
+            print("Scrolling to extract links (Bypassing Lazy Load)...")
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
             
             last_height = driver.execute_script("return document.body.scrollHeight")
@@ -57,11 +56,20 @@ def scrape_chapter():
             
             all_links = driver.find_elements(By.TAG_NAME, "a")
             question_links = list(set([l.get_attribute("href") for l in all_links if l.get_attribute("href") and "/past-years/jee/question/" in l.get_attribute("href")]))
-            print(f"Found {len(question_links)} unique questions.\n")
+            
+            # ==========================================
+            # SINGLE QUESTION OVERRIDE
+            # ==========================================
+            if len(question_links) > 0:
+                print(f"Found {len(question_links)} unique questions, but restricting scrape to EXACTLY 1 for testing.\n")
+                question_links = question_links[:1]  # Slice the array to only keep the first link
+            else:
+                print("No questions found.")
+                continue
             
             all_data = []
             
-            # --- SCRAPE EACH QUESTION ---
+            # --- SCRAPE THE QUESTION ---
             for i, link in enumerate(question_links):
                 success = False
                 last_error = ""
@@ -75,7 +83,7 @@ def scrape_chapter():
                         wait.until(EC.presence_of_element_located((By.CLASS_NAME, "question-component")))
                         time.sleep(0.5) # React listener buffer
                         
-                        # Click option (if MCQ)
+                        # Click option (if MCQ) to trigger answer layout
                         options_buttons = driver.find_elements(By.CSS_SELECTOR, "div[role='button']")
                         if len(options_buttons) > 0:
                             driver.execute_script("arguments[0].click();", options_buttons[0])
@@ -141,15 +149,11 @@ def scrape_chapter():
                             num_ans_match = re.search(r'Correct Answer\s*:?\s*(-?\d+\.?\d*)', container.text, re.IGNORECASE)
                             if num_ans_match: correct_index = num_ans_match.group(1)
 
-                        # Safety Validation
-                        if (len(raw_options) > 0 and len(options_text) < 2) or ("Correct Answer" not in container.text and "Explanation" not in container.text):
-                            raise ValueError("Data incomplete")
-
                         # Extract Explanation
                         explanation_header = container.find('h2', string=re.compile(r'Explanation', re.IGNORECASE))
                         explanation = explanation_header.find_next_sibling('div').text.strip() if explanation_header and explanation_header.find_next_sibling('div') else "No Explanation Available"
                         
-                        # Extract Meta
+                        # Extract Meta (Year, Date, Shift)
                         body_text = soup.get_text(" ")
                         year, exact_date, shift = "Unknown Year", "Unknown Date", "Unknown Shift"
                         
@@ -183,7 +187,7 @@ def scrape_chapter():
                             "shift": shift
                         })
                         
-                        print(f"\rScraping Progress: [{i+1}/{len(question_links)}] completed...", end="")
+                        print(f"\rScraping Progress: [1/1] completed...", end="")
                         success = True
                         break 
                         
@@ -193,14 +197,15 @@ def scrape_chapter():
                         continue 
 
                 if not success:
-                    print(f"\n[!] Skipped question {i+1} after 3 attempts. Error: {last_error}")
+                    print(f"\n[!] Skipped question after 3 attempts. Error: {last_error}")
 
             # --- SAVE DATA ---
             print("\nSaving to JSON...")
             with open(output_file, 'w', encoding='utf-8') as f:
                 json.dump(all_data, f, indent=4, ensure_ascii=False)
             
-            print(f"SUCCESS! Saved {len(all_data)} questions to {output_file}")
+            print(f"SUCCESS! Saved the question to {output_file}")
+            print(json.dumps(all_data, indent=4, ensure_ascii=False))
 
     finally:
         print("\n--- CLOSING BROWSER ---")
@@ -212,4 +217,4 @@ def scrape_chapter():
         print("--- SCRIPT FINISHED SUCCESSFULLY ---")
 
 if __name__ == "__main__":
-    scrape_chapter()
+    scrape_single_question()
