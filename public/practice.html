@@ -705,7 +705,17 @@
             if (isCorrect) {
                 document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--success-green);"><i class="fa-solid fa-check"></i> Correct (+8 XP)</span>`;
             } else {
-                document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--error-red);"><i class="fa-solid fa-xmark"></i> Incorrect Answer (-2 XP)</span>`;
+                let displayCorrect = q.answer;
+                if (q.type === "multi_select") {
+                    displayCorrect = q.answer.map(idx => String.fromCharCode(65 + idx)).join(", ");
+                } else if (q.type === "mcq") {
+                    displayCorrect = String.fromCharCode(65 + q.answer);
+                }
+                
+                document.getElementById('focus-result-status').innerHTML = `
+                    <div style="color: var(--error-red); margin-bottom: 4px;"><i class="fa-solid fa-xmark"></i> Incorrect Answer (-2 XP)</div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Correct Answer: <span style="color: var(--success-green); font-weight: 700;">${displayCorrect}</span></div>
+                `;
             }
 
             await updateFirebaseProgress(q.uid, isCorrect);

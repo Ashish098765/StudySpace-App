@@ -10,10 +10,8 @@ import random
 
 def normalize_text(text):
     if not text: return ""
-    # Strip tabs and carriage returns, consolidate spaces
     text = text.replace('\t', ' ').replace('\r', ' ').replace('\n', ' ')
     text = " ".join(text.split())
-    # Standardize physics characters
     return text.replace('\u2013', '-').replace('\u2014', '-').replace('\u2212', '-').replace('\u00a0', ' ')
 
 def setup_driver():
@@ -29,13 +27,12 @@ def setup_driver():
     return driver
 
 # ===================================================================
-# THE PERFECT LaTeX ENGINE (Escape-Safe Version)
+# THE PERFECT LaTeX ENGINE
 # ===================================================================
 
 def latexify(text):
     if not text: return ""
     
-    # 0. Ultimate Symbol Map (Used with .replace() - single backslash is safe)
     sym_map = {
         'μ': r'\mu ', 'η': r'\eta ', 'λ': r'\lambda ', 'π': r'\pi ', 
         'θ': r'\theta ', 'α': r'\alpha ', 'β': r'\beta ', 'γ': r'\gamma ',
@@ -49,24 +46,15 @@ def latexify(text):
     for char, latex in sym_map.items():
         text = text.replace(char, latex)
 
-    # 1. MATCH LIST RECONSTRUCTOR (Structural - raw strings safe)
-    text = re.sub(r'\b(List\s*[I|V|X|A-D])\b', r'\n\1', text)
-    text = re.sub(r'\b([A-D])\.\s*', r'\n\1. ', text)
-    text = re.sub(r'\b(I{1,3}|IV)\.\s*', r'\n\1. ', text)
+    # A. UNIT PROTECTOR: "1.7 cm", "10 -2", "0.1 mm"
+    # Matches numbers followed by common physics units or powers
+    text = re.sub(r'\b(\d+\.?\d*)\s*(cm|mm|m|kg|s|N|Pa|J|W|C|V)\b', r'$\1\text{\2}$', text)
+    text = re.sub(r'\b(10)\s*(-?\d+)\b', r'\1^{\2}', text)
 
-    # 2. UNIT ENGINE (Consolidate units with powers - USE DOUBLE BACKSLASH FOR REGEX SUB)
-    unit_base = r'(kg|m|s|A|K|mol|cd|N|Pa|J|W|C|V|F|T|H|Wb|nm|mm|cm|km|g)'
-    # Note: Using \\text for \text to avoid escape errors
-    text = re.sub(rf'\b{unit_base}\s*(-?\d+)\b', r'\\text{\1}^{\2}', text)
-    text = re.sub(rf'\b{unit_base}/{unit_base}\b', r'\\text{\1/\2}', text)
-    text = re.sub(rf'\b{unit_base}\s+{unit_base}\b', r'\\text{\1 \\cdot \2}', text)
+    # B. AUTO-DELIMIT LaTeX
+    text = re.sub(r'(?<!\$)\\([a-zA-Z]+)(?!\$)', r' $\\\1$ ', text)
 
-    # 3. RELATION WEAVER
-    text = re.sub(r'\b([A-D])\s*[-]\s*(I{1,3}|IV)\b', r' $\1-\2$ ', text)
-    # Using \\to for \to
-    text = re.sub(r'([a-zA-Z\s]{2,})\s*\\to\s*([a-zA-Z0-9\s/^\-]+)', r'\n\1 \\to \2', text)
-
-    # 4. ATOMIC DIMENSION SHIELD
+    # C. ATOMIC DIMENSION SHIELD
     def shield_dim(match):
         inner = match.group(1)
         inner = re.sub(r'([MLTA])\s*(-?\d+)', r'\1^{\2}', inner)
@@ -74,43 +62,31 @@ def latexify(text):
         return f' $[{inner}]$ '
     text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', shield_dim, text)
 
-    # 5. AUTO-DELIMIT LaTeX COMMANDS (Wrap existing \alpha etc in $)
-    # Using \\\\ to represent a literal \ followed by a backreference
-    text = re.sub(r'(?<!\$)\\([a-zA-Z]+)(?!\$)', r' $\\\1$ ', text)
+    # D. GREEDY EQUATION DETECTOR
+    text = re.sub(r'(?<!\$)\b([a-zA-Z0-9\\]{1,4}\s*[=+\-*/^]\s*[a-zA-Z0-9\\]+)\b(?!\$)', r' $\1$ ', text)
 
-    # 6. BOUNDARY-SAFE GREEDY DETECTOR
-    def safe_math(match):
-        m = match.group(0)
-        if len(m) > 30 and ' ' in m and '=' not in m: return m 
-        return f' ${m}$ '
-    text = re.sub(r'(?<!\$)\b([a-zA-Z0-9\\]{1,4}\s*[=+\-*/^]\s*[a-zA-Z0-9\\]+)\b(?!\$)', safe_math, text)
-
-    # 7. NUCLEAR MATH MERGER (Recursive)
+    # E. NUCLEAR MATH MERGER (8x Recursive)
     for _ in range(8):
-        text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:])\s*\$', r'\1', text)
+        text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:a-zA-Z0-9\\]+)\s*\$', r'\1', text)
         text = re.sub(r'\$\s*\$', '', text)
 
-    # 8. INNER CLEANUP & POWER NORMALIZATION
+    # F. INNER CLEANUP
     def final_polish(match):
         m = match.group(1)
-        # Fix exponents inside consolidated blocks
         m = re.sub(r'([MLTA])(\d+)', r'\1^{\2}', m)
         m = re.sub(r'([MLTA])-(\d+)', r'\1^{-\2}', m)
         m = re.sub(r'(10)-(\d+)', r'\1^{-\2}', m)
         m = re.sub(r'\s*([=+\-*/])\s*', r'\1', m)
-        # Restore units inside math
-        m = re.sub(rf'\b{unit_base}(\d+)\b', r'\\text{\1}^{\2}', m)
         return f'${m.strip()}$'
     text = re.sub(r'\$([^$]+)\$', final_polish, text)
 
-    # 9. FINAL REFINEMENTS
+    # G. FINAL SPACING
     text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
     text = text.replace('ext{', r'\text{').replace('$$', '$')
-    # Ensure math is separated from words
     text = re.sub(r'([a-zA-Z0-9])(\$)', r'\1 \2', text)
     text = re.sub(r'(\$)([a-zA-Z0-9])', r'\1 \2', text)
     
-    return text.strip()
+    return " ".join(text.split()).strip()
 
 # ===================================================================
 
@@ -176,17 +152,23 @@ try:
             correct_indices = []
             for idx, opt in enumerate(raw_options):
                 badge = opt.find(string=re.compile(r'Correct Answer', re.I))
-                if badge: 
-                    correct_indices.append(idx)
-                    badge.extract()
+                if badge: correct_indices.append(idx); badge.extract()
                 opt_txt = re.sub(r'^([A-D])[\.\)\s]+', '', opt.get_text(separator=" ", strip=True)).strip()
                 options.append(latexify(normalize_text(opt_txt)))
             if len(correct_indices) > 1: q_type, answer = "multi_select", correct_indices
             elif len(correct_indices) == 1: answer = correct_indices[0]
         else:
             q_type = "integer"
-            ans_match = re.search(r'(?:Answer|Value)\s*[:\-]?\s*(\d+\.?\d*)', full_text, re.I)
+            # ENHANCED NUMERICAL EXTRACTOR
+            # 1. Check for "Answer: X" or "Ans: X"
+            ans_match = re.search(r'(?:Answer|Ans|Value)\s*[:\-]?\s*(\d+\.?\d*)', full_text, re.I)
             if ans_match: answer = ans_match.group(1)
+            # 2. Look for "corrected diameter will be 180" pattern
+            else:
+                last_sentence = full_text.split('.')[-2:] # Check last two sentences
+                for sent in last_sentence:
+                    num_match = re.search(r'(\d+)\s*(?:cm|mm|m)?\s*$', sent.strip())
+                    if num_match: answer = num_match.group(1); break
 
         explanation = "N/A"
         exp_header = container.find(['h2', 'h3', 'strong'], string=re.compile(r'Explanation', re.I))

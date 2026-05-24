@@ -1,12 +1,17 @@
 [
 {
-    "q": "The Vernier constant of Vernier callipers is 0.1 mm and it has zero error of ( - 0.05) cm. While measuring diameter of a sphere, the main scale reading is 1.7 cm and coinciding vernier division is 5. The corrected diameter will be _________  $\\times $   10 $^{-2}$ cm.",
-    "type": "integer",
-    "options": [],
-    "answer": "N/A",
-    "explanation": "Since zero error is negative, we will add 0.05 cm. ⇒ Corrected reading = 1.7  $ cm+5\\times $   0.1  $ mm+0.05  $ cm=180\\times $   10 $^{-2}$ cm",
-    "year": "2022",
-    "date": "29th June",
-    "shift": "Evening"
+    "q": "Which of the following is not a dimensionless quantity?",
+    "type": "mcq",
+    "options": [
+        "Relative magnetic permeability ( \\mu $_{r}$ )",
+        "Power factor",
+        "Permeability of free space ( \\mu $_{0}$ )",
+        "Quality factor"
+    ],
+    "answer": 2,
+    "explanation": "[ \\mu $_{r}$ ] = 1 as \\mu $_{r}=\\mu $ \\mu m [power factor (cos ϕ )] = 1 \\mu $ 0=B $ 0 H ( $ unit=NA $ ^{-2} ) : Not dimensionless [ \\mu $_{0}$ ] = [MLT ^{-2} A ^{-2} ] quality factor ( Q ) = E n e r g y s t o r e d E n e r g y d i s s i p a t e d p e r c y c l e So Q is unitless & dimensionless.",
+    "year": "2021",
+    "date": "27th August",
+    "shift": "Morning"
 }
 ]
