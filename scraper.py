@@ -168,40 +168,36 @@ try:
                 'θ': r'\theta ', 'α': r'\alpha ', 'β': r'\beta ', 'γ': r'\gamma ',
                 'Δ': r'\Delta ', '±': r'\pm ', '×': r'\times ', 'Ω': r'\Omega ',
                 'Φ': r'\Phi ', 'Ψ': r'\Psi ', 'Σ': r'\Sigma ', '∞': r'\infty ',
-                '√': r'\sqrt ', '·': r'\cdot '
+                '√': r'\sqrt ', '·': r'\cdot ', '∴': r'\therefore '
             }
             for char, latex in sym_map.items():
                 text = text.replace(char, latex)
             
-            # A. Ratio Detector: "ratio a b" -> "$a/b$"
-            text = re.sub(r'\bratio\s+([a-zA-Z])\s+([a-zA-Z])\b', r'ratio $\1/\2$', text, flags=re.I)
-            # Handle "a b" as a ratio if it follows "of" or "ratio"
-            text = re.sub(r'(\b(?:ratio|of)\b)\s+([a-zA-Z])\s+([a-zA-Z])\b', r'\1 $\2/\3$', text, flags=re.I)
+            # A. PRE-PROCESS FRACTIONS: "1 / 2" -> "1/2"
+            text = re.sub(r'(\d+)\s*/\s*(\d+)', r'\1/\2', text)
 
-            # B. GREEDY EQUATION DETECTOR: Include brackets and operators
-            # Captures "[X + a/Y^2] [Y - b] = RT"
-            text = re.sub(r'(?<!\$)([[{(]?[a-zA-Z0-9]\s*[=+\-*/^]\s*[^.!?\n$]{3,})([\]})]?)(?!\$)', r' $\1\2$ ', text)
+            # B. GREEDY EQUATION DETECTOR: Capture formulas before single-letter logic
+            # Target strings with symbols and assignment/equality
+            text = re.sub(r'(?<!\$)([[{(]?[a-zA-Z0-9]\s*[=+\-*/^]\s*[^.!?\n$]{2,})([\]})]?)(?!\$)', r' $\1\2$ ', text)
 
-            # C. Dimension Polisher: Fix "[M L T -2]" -> "[ML^{-2}T^{-2}]"
-            # This handles both spaces and plain text within brackets
+            # C. Dimension Polisher: "[M L T -2]" -> "[ML^{-2}T^{-2}]"
             def polish_dim(match):
                 inner = match.group(1)
-                # Fix powers inside dimensions
                 inner = re.sub(r'([MLT])\s*(-?\d+)', r'\1^{\2}', inner)
-                # Remove spaces between letters
                 inner = re.sub(r'\s+', '', inner)
                 return f' $[{inner}]$ '
             text = re.sub(r'(?<!\$)\[\s*([MLT\s\d\-\^]+)\s*\](?!\$)', polish_dim, text)
 
-            # D. Fractions & Fractional Powers
-            text = re.sub(r'(\d+)\s*/\s*(\d+)', r'\1/\2', text)
-            text = re.sub(r'\b([a-zA-Z])\s+(-?\d+(?:/\d+)?)\b', r'\1^{\2}', text)
-
-            # E. Units and Standalone Variables
+            # D. Units and Powers
             unit_pattern = r'\b(kg|m|s|A|K|mol|cd|N|Pa|J|W|C|V|F|T|H|Wb)\s+(-?\d+(?:/\d+)?)\b'
             text = re.sub(unit_pattern, r' \\text{\1}^{\2} ', text)
             
-            text = re.sub(r'(?<![\$\w\\{])([v-zBCDE-NP-RT-Z])(?![\$\w\\}])', r' $\1$ ', text)
+            # Powers for single variables: "S 1/2" -> "S^{1/2}"
+            text = re.sub(r'\b([a-zA-Z])\s+(-?\d+(?:/\d+)?)\b', r'\1^{\2}', text)
+
+            # E. Standalone Variables
+            # Exclude 'A' (article) and 'I' (roman numeral)
+            text = re.sub(r'(?<![\$\w\\{])([v-zBCDE-NP-RT-Zp])(?![\$\w\\}])', r' $\1$ ', text)
             
             return text
 
@@ -214,27 +210,27 @@ try:
             text = re.sub(r'(\([a-d]\))', r'\n\1', text)
             text = re.sub(r'(\(i{1,3}|iv\))', r'\n\1', text)
             
-            # 2. Aggressive Math Merger (Run 4 times for deep collapsing)
-            for _ in range(4):
-                # Merge adjacent $ blocks with any non-word characters in between (like +, -, [, ])
-                text = re.sub(r'\$\s*([=+\-*/^\[\](){}])\s*\$', r'\1', text)
+            # 2. HYPER-AGGRESSIVE MATH MERGER
+            # Collapses blocks across all standard physics operators
+            for _ in range(5):
+                # Merge across operators: $S$ ^ {$1/2$} -> $S^{1/2}$
+                text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:])\s*\$', r'\1', text)
+                # Merge adjacent variables: $M$ $L$ -> $ML$
                 text = re.sub(r'\$\s*\$', '', text)
                 # Collapse spaces around $
                 text = re.sub(r'\s+(\$)', r'\1', text)
                 text = re.sub(r'(\$)\s+', r'\1', text)
 
-            # 3. Inner Math Cleanup (Remove spaces around operators inside $)
+            # 3. Inner Math Cleanup
             def tidy_math(match):
                 m = match.group(1)
+                # Remove spaces around ops inside $
                 m = re.sub(r'\s*([=+\-*/])\s*', r'\1', m)
-                return f'${m}$'
+                return f'${m.strip()}$'
             text = re.sub(r'\$([^$]+)\$', tidy_math, text)
 
-            # 4. Decimal & Brace Protection
+            # 4. Final Spacing and Artifact Cleanup
             text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
-            text = re.sub(r'(\$\b[^$]+\^\{\d+(?:/\d+)?)(?!\})', r'\1}', text)
-            
-            # 5. Final Safety
             text = text.replace('} \\text{', r'} \cdot \text{')
             text = text.replace('ext{', r'\text{')
             text = text.replace('$$', '$')
