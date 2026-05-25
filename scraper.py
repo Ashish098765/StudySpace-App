@@ -6,207 +6,248 @@ from bs4 import BeautifulSoup
 import json
 import re
 import time
+import os
+import sys
 import random
+
+# Disable annoying system logs
+os.environ['WDM_LOG_LEVEL'] = '0'
+
+# CONFIG
+CHAPTER_URL = "https://questions.examside.com/past-years/jee/jee-main/physics/units-and-measurements"
+OUTPUT_FILE = "public/data/questions/jee_phy_units.json"
+MAX_QUESTIONS = 230
+
+# Ensure the output directory exists before we start
+os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
 
 def normalize_text(text):
     if not text: return ""
-    # Consolidate spaces but preserve structure for Match Lists
-    text = text.replace('\t', ' ').replace('\r', ' ')
-    text = re.sub(r' +', ' ', text)
-    return text.replace('\u2013', '-').replace('\u2014', '-').replace('\u2212', '-').replace('\u00a0', ' ')
+    return text.replace('\t', ' ').replace('\r', ' ').replace('\u2013', '-').replace('\u2014', '-').replace('\u2212', '-').replace('\u00a0', ' ').strip()
 
 def setup_driver():
+    # 1. Create the options object first
     options = uc.ChromeOptions()
+    
+    # 2. Add all your configurations
     options.add_argument("--headless=new") 
     options.add_argument("--window-size=1920,1080")
     options.add_argument("--disable-gpu")
-    options.page_load_strategy = 'eager' 
-    prefs = {"profile.managed_default_content_settings.images": 2}
-    options.add_experimental_option("prefs", prefs)
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--log-level=3")
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+    options.page_load_strategy = 'eager'
+    
+    # 3. Instantiate Chrome using the options we just built (Forcing version 148)
     driver = uc.Chrome(options=options, version_main=148) 
-    driver.__class__.__del__ = lambda self: None 
+    
+    # 4. Apply final driver settings
+    driver.set_page_load_timeout(30)
+    driver.__class__.__del__ = lambda self: None # Fixes the Windows OSError [WinError 6]
+    
+    # 5. Return the finished product
     return driver
 
-# ===================================================================
-# THE PERFECT LaTeX ENGINE (v2 - Lexical Consistency)
-# ===================================================================
+def nuke_ads(driver):
+    """Aggressive background ad removal."""
+    try:
+        css = "ins.adsbygoogle, .adsbygoogle, iframe, [id^='google_ads'], [class*='ads'], .fixed-bottom, .sticky-ads, .video-ad, [id*='vignette'], [class*='vignette'], .modal-backdrop { display: none !important; visibility: hidden !important; height: 0 !important; width: 0 !important; pointer-events: none !important; }"
+        driver.execute_script(f"var s=document.createElement('style'); s.innerHTML='{css}'; document.head.appendChild(s);")
+        driver.execute_script("document.querySelectorAll('iframe').forEach(i => i.remove());")
+    except: pass
 
 def latexify(text):
+    """The Perfect LaTeX Engine v4."""
     if not text: return ""
-    
-    # 0. Ultimate Symbol Map (Space-aware)
-    sym_map = {
-        'μ': r'\mu', 'η': r'\eta', 'λ': r'\lambda', 'π': r'\pi', 
-        'θ': r'\theta', 'α': r'\alpha', 'β': r'\beta', 'γ': r'\gamma',
-        'Δ': r'\Delta', '±': r'\pm', '×': r'\times', 'Ω': r'\Omega',
-        'Φ': r'\Phi', 'Ψ': r'\Psi', 'Σ': r'\Sigma', '∞': r'\infty',
-        '√': r'\sqrt', '·': r'\cdot', '∴': r'\therefore', 'ℓ': r'l',
-        'ω': r'\omega', 'τ': r'\tau', 'ρ': r'\rho', 'σ': r'\sigma',
-        'ϵ': r'\epsilon', 'ε': r'\epsilon', '≈': r'\approx', '∠': r'\angle',
-        '→': r'\to', 'ϕ': r'\phi', 'φ': r'\phi', 'χ': r'\chi'
-    }
-    for char, latex in sym_map.items():
-        text = text.replace(char, f' {latex} ')
-
-    # 1. Protection Pass: Shield existing math blocks
+    sym_map = {'μ': r'\\mu', 'η': r'\\eta', 'λ': r'\\lambda', 'π': r'\\pi', 'θ': r'\\theta', 'α': r'\\alpha', 'β': r'\\beta', 'γ': r'\\gamma', 'Δ': r'\\Delta', '±': r'\\pm', '×': r'\\times', 'Ω': r'\\Omega', 'Φ': r'\\Phi', 'Ψ': r'\\Psi', 'Σ': r'\\Sigma', '∞': r'\\infty', '√': r'\\sqrt', '·': r'\\cdot', '∴': r'\\therefore', 'ℓ': r'l', 'ω': r'\\omega', 'τ': r'\\tau', 'ρ': r'\\rho', 'σ': r'\\sigma', 'ϵ': r'\\epsilon', 'ε': r'\\epsilon', '≈': r'\\approx', '∠': r'\\angle', '→': r'\\to', 'ϕ': r'\\phi', 'φ': r'\\phi', 'χ': r'\\chi'}
+    for char, latex in sym_map.items(): text = text.replace(char, f' {latex} ')
     parts = re.split(r'(\$[^$]+\$)', text)
-    processed_parts = []
-    
-    for part in parts:
-        if part.startswith('$') and part.endswith('$'):
-            inner = part[1:-1]
-            # Clean common scraper artifacts (e.g., "$ 1 ext{ T} $" -> "$ \text{T} $")
+    processed = []
+    for p in parts:
+        if p.startswith('$'):
+            inner = p[1:-1]
             inner = re.sub(r'(\d*)\s*ext\{\s*([a-zA-Z])\}', r'\1\\text{\2}', inner)
-            inner = re.sub(r'\\text\{\s*([a-zA-Z])\}', r'\\text{\1}', inner)
-            # Fix fragmented dimensions like [M 1 L 2 T - 2] inside existing math
-            inner = re.sub(r'([MLTAθ])\s*(\-?\d+)', r'\1^{\2}', inner)
-            inner = re.sub(r'\s+', ' ', inner)
-            processed_parts.append(f'${inner.strip()}$')
+            inner = re.sub(r'([MLTAθI])\s*(\-?\d+)', r'\1^{\2}', inner)
+            processed.append(f'${inner.strip()}$')
         else:
-            # 2. Logic Pass: Handle symbols and structures in plain text
-            # Fix fragmented vertical text (e.g., "Q \n / \n V" -> "Q/V")
-            part = re.sub(r'(\w)\s*\n\s*([/\-+*])\s*\n\s*(\w)', r'\1\2\3', part)
-            
-            # Dimension Engine: [M-2 L-4 I3 T7] -> $[M^{-2} L^{-4} I^{3} T^{7}]$
-            def fix_dims(m):
-                d = m.group(1)
-                # Handle variants like M-2 or M - 2 or M 2
-                d = re.sub(r'([MLTAθI])\s*(\-?\d+)', r'\1^{\2}', d)
+            p = re.sub(r'(\w)\s*\n\s*([/\-+*])\s*\n\s*(\w)', r'\1\2\3', p)
+            def fd(m):
+                d = re.sub(r'([MLTAθI])\s*(\-?\d+)', r'\1^{\2}', m.group(1))
                 d = re.sub(r'([MLTAθI])\s+(\d+)', r'\1^{\2}', d)
                 d = re.sub(r'([MLTAθI])(?![0-9\^])', r'\1', d)
                 return f' $[{d.replace(" ", "")}]$ '
-            part = re.sub(r'\[\s*([MLTAIθ\s\d\-\^]{1,})\s*\]', fix_dims, part)
-
-            # Symbol subscripts
-            part = re.sub(r'\b(\\mu|[BHE])\s*([0rn])\b', r' $\1_{\2}$ ', part)
-            # Units
-            part = re.sub(r'\b(\d+\.?\d*)\s*(cm|mm|m|kg|s|N|Pa|J|W|C|V|A|T|H)\b', r' $\1 \text{ \2}$ ', part)
-            
-            processed_parts.append(part)
-
-    text = "".join(processed_parts)
-
-    # 3. Structural Pass: Format tables and lists
+            p = re.sub(r'\[\s*([MLTAIθ\s\d\-\^]{1,})\s*\]', fd, p)
+            p = re.sub(r'\b(\\mu|[BHE])\s*([0rn])\b', r' $\1_{\2}$ ', p)
+            p = re.sub(r'\b(\d+\.?\d*)\s*(cm|mm|m|kg|s|N|Pa|J|W|C|V|A|T|H|ms|s-1|s-2)\b', r' $\1 \\text{ \2}$ ', p)
+            processed.append(p)
+    text = "".join(processed)
     if "List - I" in text and "List - II" in text:
-        list1 = re.findall(r'([A-D])\.\s+([^A-DI-V|]+?)(?=\s+[A-D]\.|\s+List|I\.|II\.|III\.|IV\.|$)', text)
-        list2 = re.findall(r'([I|V]+)\.\s+([^|A-D]+?)(?=\s+[I|V]+\.|\s+Choose|List|$)', text)
-        if list1 and list2:
+        l1 = re.findall(r'([A-D])\.\s+([^A-DI-V|]+?)(?=\s+[A-D]\.|\s+List|I\.|II\.|III\.|IV\.|$)', text)
+        l2 = re.findall(r'([I|V]+)\.\s+([^|A-D]+?)(?=\s+[I|V]+\.|\s+Choose|List|$)', text)
+        if l1 and l2:
             table = "\n\n| List - I | List - II |\n| :--- | :--- |\n"
-            for i in range(max(len(list1), len(list2))):
-                l1 = f"{list1[i][0]}. {list1[i][1].strip()}" if i < len(list1) else ""
-                l2 = f"{list2[i][0]}. {list2[i][1].strip()}" if i < len(list2) else ""
-                table += f"| {l1} | {l2} |\n"
+            for i in range(max(len(l1), len(l2))):
+                row1 = f"{l1[i][0]}. {l1[i][1].strip()}" if i < len(l1) else ""
+                row2 = f"{l2[i][0]}. {l2[i][1].strip()}" if i < len(l2) else ""
+                table += f"| {row1} | {row2} |\n"
             text = re.sub(r'List\s*-\s*I.*?List\s*-\s*II.*?(?=Choose|$)', table + "\n", text, flags=re.DOTALL)
-
-    # 4. Refinement Pass: Clean up formatting
-    text = re.sub(r'([a-z])([A-Z])', r'\1 \2', text) # Word splitting
-    text = re.sub(r'[^\S\n]+', ' ', text) # Consolidate spaces, keep newlines
-    
-    # Sentence and block formatting
+    text = re.sub(r'([a-z])([A-Z])', r'\1 \2', text)
+    text = re.sub(r'[^\S\n]+', ' ', text)
     text = re.sub(r'\.\s+([A-Z])', r'.\n\1', text)
     text = re.sub(r'(Therefore|So,|Hence,|Using|Substituting|From|We know)', r'\n\1', text)
-    text = re.sub(r'\n+', '\n', text)
-    
-    return text.strip()
+    return re.sub(r'\n+', '\n', text).strip()
 
-# ===================================================================
-
-print("--- BOOTING EXAMSIDE PRO ENGINE ---")
-driver = setup_driver()
-
-try:
-    chapter_url = "https://questions.examside.com/past-years/jee/jee-main/physics/units-and-measurements"
-    print("Fetching dynamic link from chapter...")
-    driver.get(chapter_url)
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
-    all_links = driver.find_elements(By.TAG_NAME, "a")
-    valid_links = [l.get_attribute("href") for l in all_links if l.get_attribute("href") and "/past-years/jee/question/" in l.get_attribute("href")]
-    if not valid_links: exit()
-
-    test_link = random.choice(valid_links)
-    print(f"Testing Question URL: {test_link}\n")
-    driver.get(test_link)
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "question-component")))
-    
-    # Reveal Logic
+def scrape_question(driver, url):
     try:
-        opt_btns = driver.find_elements(By.CSS_SELECTOR, "div[role='button']")
-        if opt_btns: driver.execute_script("arguments[0].click();", opt_btns[0])
-        for btn in driver.find_elements(By.TAG_NAME, "button"):
-            if any(x in btn.text.lower() for x in ["check", "show", "answer"]):
-                driver.execute_script("arguments[0].click();", btn)
-                break
-        WebDriverWait(driver, 5).until(lambda d: len(d.find_elements(By.XPATH, "//*[contains(text(), 'Explanation')]")) > 0)
-    except: pass
+        driver.get(url)
+        nuke_ads(driver)
+        if any(x in driver.title.lower() for x in ["just a moment", "access denied"]) or "cf-challenge" in driver.page_source:
+            return "BLOCK"
+        
+        WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".question-component, .question-card, .question-container, #question-card")))
+        
+        # SMART BUTTON CLICKER - Fixed to only click actual solution buttons
+        try:
+            buttons = driver.find_elements(By.TAG_NAME, "button")
+            for btn in buttons:
+                b_text = btn.text.lower()
+                if "check" in b_text or "show" in b_text or "answer" in b_text or "solution" in b_text:
+                    driver.execute_script("arguments[0].click();", btn)
+                    time.sleep(2) # Give the solution 2 full seconds to drop down!
+                    break
+        except: pass
+        
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
+        cont = soup.find('div', class_='question-component') or soup.find('div', class_='question-card') or soup.find('div', id='question-card') or soup.find('div', class_='question-container')
+        if not cont: return "ERROR"
+        
+        for g in cont.find_all(class_=['MathJax_Preview', 'katex-html', 'mjx-assistive-mml']): g.decompose()
+        for m in cont.find_all(['mjx-container', 'span'], class_='mathjax-latex'):
+            tex = m.get('data-tex') or (m.find('math').get('alttext') if m.find('math') else "")
+            m.replace_with(soup.new_string(f" ${tex.strip()}$ "))
+        for s in cont.find_all('script', type=re.compile(r'math/tex', re.I)): 
+            s.replace_with(soup.new_string(f" ${s.string.strip()}$ "))
+        for s in cont.find_all('sup'): 
+            s.replace_with(soup.new_string(f"^{{{s.get_text(strip=True)}}}"))
+        for s in cont.find_all('sub'): 
+            s.replace_with(soup.new_string(f"_{{{s.get_text(strip=True)}}}"))
             
-    time.sleep(3) 
-    soup = BeautifulSoup(driver.page_source, 'html.parser')
-    container = soup.find('div', class_='question-component')
-    
-    if container:
-        # Pre-Extraction Replacement: Protect MathJax early
-        for garbage in container.find_all(class_=['MathJax_Preview', 'katex-html', 'mjx-assistive-mml']): garbage.decompose()
+        full = cont.get_text(" ", strip=True)
+        q_div = cont.find('div', class_='question') or cont.find('div', class_='question-text')
+        q_raw = q_div.get_text(separator=" ", strip=True) if q_div else cont.get_text(separator=" ", strip=True).split('Options')[0]
+        q_text = latexify(normalize_text(re.split(r'(JEE Main|NEET|JEE Advanced)\s+\d{4}', q_raw, flags=re.I)[0]))
         
-        for mjx in container.find_all('mjx-container'):
-            latex = mjx.get('data-tex') or (mjx.find('math').get('alttext') if mjx.find('math') else None)
-            if latex: mjx.replace_with(soup.new_string(f" ${latex.strip()}$ "))
-            
-        for script in container.find_all('script', type=re.compile(r'math/tex', re.I)):
-            script.replace_with(soup.new_string(f" ${script.string.strip()}$ "))
-            
-        for sup in container.find_all('sup'): 
-            txt = sup.get_text(strip=True)
-            sup.replace_with(soup.new_string(f"^{{{txt}}}"))
-        for sub in container.find_all('sub'): 
-            txt = sub.get_text(strip=True)
-            sub.replace_with(soup.new_string(f"_{{{txt}}}"))
-
-        # DATA EXTRACTION
-        full_text = container.get_text(" ", strip=True)
-        # Fix spaces inserted by get_text before exponents/subscripts
-        full_text = re.sub(r'\s+([\^_])', r'\1', full_text)
-        
-        year = (re.search(r'\b(20[0-2]\d)\b', full_text) or re.search(r'', '')).group(0) or "N/A"
-        shift = (re.search(r'(Morning|Evening|Afternoon)\s*Shift', full_text, re.I) or re.search(r'', '')).group(1) or "N/A"
-        date = (re.search(r'\d{1,2}(?:st|nd|rd|th)?\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*', full_text, re.I) or re.search(r'', '')).group(0) or "N/A"
-
-        q_div = container.find('div', class_='question')
-        q_raw = q_div.get_text(separator=" ", strip=True) if q_div else "N/A"
-        q_clean = re.split(r'(JEE Main|NEET|JEE Advanced)\s+\d{4}', q_raw, flags=re.I)[0]
-        q_text = latexify(normalize_text(q_clean))
-        
-        raw_options = container.find_all('div', role='button')
-        if not raw_options: raw_options = container.find_all('div', class_=re.compile(r'option|choice', re.I))
-        
+        opts_raw = cont.find_all('div', role='button') or cont.find_all('div', class_=re.compile(r'option|choice', re.I)) or cont.find_all('li', class_=re.compile(r'option', re.I))
         q_type, options, answer = "mcq", [], "N/A"
-        if raw_options:
-            correct_indices = []
-            for idx, opt in enumerate(raw_options):
-                badge = opt.find(string=re.compile(r'Correct Answer', re.I))
-                if badge: correct_indices.append(idx); badge.extract()
-                opt_txt = re.sub(r'^([A-D])[\.\)\s]+', '', opt.get_text(separator=" ", strip=True)).strip()
-                options.append(latexify(normalize_text(opt_txt)))
-            if len(correct_indices) > 1: q_type, answer = "multi_select", correct_indices
-            elif len(correct_indices) == 1: answer = correct_indices[0]
+        
+        if opts_raw:
+            c_idx = []
+            for i, o in enumerate(opts_raw):
+                if "Correct Answer" in o.get_text() or "correct" in o.get('class', []): c_idx.append(i)
+                options.append(latexify(normalize_text(re.sub(r'^([A-D])[\.\)\s]+', '', o.get_text(separator=" ", strip=True)).replace("Correct Answer", "").strip())))
+            if len(c_idx) > 1: q_type, answer = "multi_select", c_idx
+            elif len(c_idx) == 1: answer = c_idx[0]
         else:
             q_type = "integer"
-            ans_match = re.search(r'(?:Answer|Value)\s*[:\-]?\s*(\d+\.?\d*)', full_text, re.I)
-            if ans_match: answer = ans_match.group(1)
-            else:
-                last_sentence = full_text.split('.')[-2:] 
-                for sent in last_sentence:
-                    num_match = re.search(r'(\d+)\s*(?:cm|mm|m)?\s*$', sent.strip())
-                    if num_match: answer = num_match.group(1); break
+            am = re.search(r'(?:Answer|Value)\s*[:\-]?\s*(\d+\.?\d*)', full, re.I)
+            answer = am.group(1) if am else "N/A"
+            
+        exp_div = cont.find(['div', 'section'], class_=re.compile(r'explanation|solution|answer-details', re.I))
+        if not exp_div:
+            eh = cont.find(['h2', 'h3', 'strong'], string=re.compile(r'Explanation|Solution', re.I))
+            if eh: exp_div = eh.find_next_sibling('div') or eh.parent.find_next_sibling('div')
+        exp_text = latexify(normalize_text(exp_div.get_text(separator="\n", strip=True))) if exp_div else "N/A"
+        
+        year_match = re.search(r'\b(20[0-2]\d)\b', full)
+        shift_match = re.search(r'(Morning|Evening|Afternoon)\s*Shift', full, re.I)
+        date_match = re.search(r'\d{1,2}(?:st|nd|rd|th)?\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*', full, re.I)
+        
+        return {
+            "q": q_text, 
+            "type": q_type, 
+            "options": options, 
+            "answer": answer, 
+            "explanation": exp_text, 
+            "url": url,
+            "year": year_match.group(1) if year_match else "N/A",
+            "shift": shift_match.group(1) if shift_match else "N/A",
+            "date": date_match.group(0) if date_match else "N/A"
+        }
+    except Exception as e: 
+        return f"TIMEOUT: {str(e)}"
 
-        explanation = "N/A"
-        exp_header = container.find(['h2', 'h3', 'strong'], string=re.compile(r'Explanation', re.I))
-        if exp_header:
-            sib = exp_header.find_next_sibling('div') or exp_header.parent.find_next_sibling('div')
-            if sib: explanation = latexify(normalize_text(sib.get_text(separator="\n", strip=True)))
+def show_progress(current, total, prefix='', suffix='', length=30):
+    total = max(total, 1)
+    percent = f"{100 * (current / float(total)):.1f}"
+    filled_length = int(length * current // total)
+    bar = '█' * filled_length + '░' * (length - filled_length)
+    sys.stdout.write(f'\r{prefix} |{bar}| {percent}% ({current}/{total}) {suffix}')
+    sys.stdout.flush()
 
-        result = {"q": q_text, "type": q_type, "options": options, "answer": answer, "explanation": explanation, "year": year, "date": date, "shift": shift}
-        print("--- EXTRACTED DATA ---")
-        print(json.dumps(result, indent=4, ensure_ascii=False))
+# RUN
+print("\n🚀 EXAMSIDE SPEED-SCRAPER (CLEAN SWEEP MODE)")
+driver = setup_driver()
+try:
+    print(f"🔍 Discovery: {CHAPTER_URL}")
+    driver.get(CHAPTER_URL)
+    nuke_ads(driver)
+    lc, sc, links = 0, 0, []
+    
+    while True:
+        links = sorted(list(set([l.get_attribute("href") for l in driver.find_elements(By.TAG_NAME, "a") if l.get_attribute("href") and "/past-years/jee/question/" in l.get_attribute("href")])))
+        show_progress(min(len(links), MAX_QUESTIONS), MAX_QUESTIONS, prefix='Discovery ', suffix='links found...')
+        
+        if len(links) >= MAX_QUESTIONS or (len(links) == lc and lc > 50 and sc >= 5): 
+            break
+            
+        sc = sc + 1 if len(links) == lc else 0
+        lc = len(links)
+        
+        for _ in range(4):
+            driver.execute_script("window.scrollBy(0, 800);")
+            time.sleep(0.5)
+            
+        try:
+            load_more = driver.find_elements(By.XPATH, "//button[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'load more') or contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'next')]")
+            if load_more:
+                driver.execute_script("arguments[0].click();", load_more[0])
+        except: pass
+            
+        time.sleep(2)
+    
+    print("\n\n📦 Extracting (Starting from zero)...")
+    results = [] # Always start empty
+    total_links = len(links)
+    
+    for i, u in enumerate(links):
+        show_progress(len(results), total_links, prefix='Extraction', suffix=f'Scraping...{u[-15:]}')
+        
+        data = scrape_question(driver, u)
+        
+        if data == "BLOCK":
+            print("\n[!] Block detected. Re-starting driver in 45s...")
+            driver.quit()
+            time.sleep(45)
+            driver = setup_driver()
+            continue
+            
+        if isinstance(data, dict):
+            results.append(data)
+            # Save every 5 questions so you don't lose data if it crashes!
+            if len(results) % 5 == 0:
+                with open(OUTPUT_FILE, 'w', encoding='utf-8') as f: json.dump(results, f, indent=4, ensure_ascii=False)
+                
+        time.sleep(random.uniform(1.5, 3.0))
 
-except Exception as e: print(f"[!] Error: {e}")
-finally: driver.quit()
+    # Final save
+    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f: 
+        json.dump(results, f, indent=4, ensure_ascii=False)
+        
+    show_progress(len(results), total_links, prefix='Extraction', suffix='Complete!          ')
+    print(f"\n\n🎉 Done! Saved {len(results)} questions to {OUTPUT_FILE}\n")
+
+finally:
+    try: driver.quit()
+    except: pass
