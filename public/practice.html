@@ -15,8 +15,14 @@
                 displayMath: [['$$', '$$'], ['\\[', '\\]']],
                 processEscapes: true
             },
-            svg: { fontCache: 'global' },
-            startup: { typeset: false } // Prevent initial auto-typesetting to control it manually
+            options: {
+                enableMenu: false
+            },
+            chtml: {
+                scale: 1.05, // Slightly scale up to match Inter better
+                minScale: 0.5
+            },
+            startup: { typeset: false }
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -40,6 +46,12 @@
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        /* MathJax Adjustments */
+        mjx-container { display: inline-block; vertical-align: middle; margin: 0 2px; }
+        .q-text mjx-container { font-size: 1.1em; }
+        .opt-text mjx-container { font-size: 1.05em; }
+        
         body { background-color: var(--bg-base); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
 
         nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: var(--bg-surface); border-bottom: 1px solid var(--border-color); }
