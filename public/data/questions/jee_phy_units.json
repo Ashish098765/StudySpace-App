@@ -1,17 +1,17 @@
 [
 {
-    "q": "Match List - I with List - II . List - I List - II A. Coefficient of viscosity B. Surface tension C. Pressure D. Surface energy I. [ML $^{-1}$ T $^{-2}$ ] II. [ML $^{2}$ T $^{-2}$ ] III. [ML $^{0}$ T $^{-2}$ ] IV. [ML $^{-1}$ T $^{-1}$ ] Choose the correct answer from the options given below :",
+    "q": "Consider the equation H = x p \\epsilon q $E_{r}$ t s Where H = magnetic field; E = electric field, \\epsilon = permittivity, x = distance, t = time The values of p , q , r and s respectively are :",
     "type": "mcq",
     "options": [
-        "A-I, B-II, C-IV, D-III",
-        "A-IV, B-III, C-I, D-II",
-        "A-IV, B-I, C-II, D-III",
-        "A-I, B-III, C-II, D-IV"
+        "1 , 1 , 1 , 1",
+        "- 1 , 1 , 2 , 1",
+        "1 , - 1 , - 2 , 1",
+        "- 1 , - 2 , - 2 , 1"
     ],
-    "answer": 1,
-    "explanation": "From Newton's law of viscosity, the force is F = \\eta A ( \\Delta v \\Delta x ) , where A is area and \\Delta v \\Delta x is the velocity gradient. \\eta = F A ⋅ ( \\Delta v \\Delta x ) ⇒ [ \\eta ] = $[M^{1}L^{1}T^{1} - 2 ]$ $[L^{2} ]$ ⋅ ( $[L^{1}T^{1} - 1 ]$ $[L^{1} ]$ ) = $[M^{1}L^{1}T^{1} - 2 ]$ $[L^{2} ]$ ⋅ $[T^{1} - 1 ]$ = $[M^{1}L^{1} - $1 ext{ T}$ ^{1} - 1 ]$ A \\to IV Surface tension is defined as the force acting per unit length. Force Length T = Force Length $[T^{1} ]$ = $[M^{1}L^{1}T^{1} - 2 ]$ $[L^{1} ]$ = $[M^{1}L^{0} T^{1} - 2 ]$ B \\to III Pressure is defined as force acting per unit area. Force Area P = Force Area [ P ] = $[M^{1}L^{1}T^{1} - 2 ]$ $[L^{2} ]$ = $[M^{1}L^{1} - $1 ext{ T}$ ^{1} - 2 ]$ C \\to I Surface energy ( U s ) is defined as the work done by surface tension in changing the surface area U s = T ⋅ ( \\Delta A ) ⇒ [ U S ] = [ Surface Tension ] ⋅ [ Area ] ⇒ [ U S ] = $[M^{1}L^{0} T^{1} - 2 ]$ ⋅ [ $[M^{0} L^{2} T^{0} ]$ ] = [ $[M^{1}L^{2} T^{1} - 2 ]$ ] D \\to II List - I List - II A. Coefficient of viscosity IV. B. Surface tension III. C. Pressure I. D. Surface energy II. Hence, the correct option is (B). List - I List - II A. Coefficient of viscosity IV. $[M^{1}L^{1} - $1 ext{ T}$ ^{1} - 1 ]$ B. Surface tension III. $[M^{1}L^{0} T^{1} - 2 ]$ C. Pressure I. $[M^{1}L^{1} - $1 ext{ T}$ ^{1} - 2 ]$ D. Surface energy II. $[M^{1}L^{2} T^{1} - 2 ]$ Hence, the correct option is (B).",
+    "answer": 0,
+    "explanation": "To find the values of the exponents p , q , r , and s , we will use dimensional analysis. Both sides of the equation must have the same fundamental dimensions. The dimension of distance ( x ) is the dimension of length [ x ] = L The dimension is time [ t ] = T The dimension of electric field ( E ) can be derived from the formula for force on a charge, F = q E . Therefore, E = F / q . The dimensions of force is [ F ] = $[MLT^{-2} ]$ Charge ( q ) = Current \\times Time So, the dimensions of charge is, [ q ] = $[AT ]$ So, the dimensions of electric field is, [ E ] = $[MLT^{-2} ]$ $[AT ]$ = $[MLT^{-3} A^{-1} ]$ Using relationship between electric field (E) and and magnetic field (H) in electromagnetic waves. In a vacuum, the ratio of the magnitudes of the electric field to the magnetic field (B) is the speed of light (c), E / B = c Using the formula of magnetic force on a current-carrying conductor: F = BIL Where, F = force B = magnetic field (flux density), I = current and L = length B = F IL Substituting the dimensions, [ B ] = $[MLT^{-2} ]$ $[LA ]$ ⇒ [ B ] = [ M T - 2 I - 1 ] The relation between B and H is B = \\mu H ⇒ B \\mu = H . Where \\mu = permeability. Using the formula of magnetic field, B = \\mu i 2 \\pi r ⇒ [ B \\mu ] = [ i r ] , here r is distance from straight conductor carrying current i. [ B \\mu ] = [ H ] = $[A ]$ $[L ]$ = $[L^{-1} A ]$ Putting the dimensions of electric field and speed of light, the dimensions of magnetic field is, [ H ] = $[MLT^{-3} A^{-1} ]$ $[LT^{-1} ]$ = $[MT^{-2} A^{-1} ]$ We can derive the dimensions of permittivity ( \\epsilon ) from Coulomb's Law, F = 1 4 \\pi \\epsilon q 1 q 2 r 2 . [ \\epsilon ] = [ q 2 Fr 2 ] [ \\epsilon ] = $[AT ]$ 2 $[MLT^{-2} ]$ $[L^{2}]$ = $[M^{-1} L^{-3} T^{4}A^{2}]$ Substituting the dimensions into the given equation, [ H ] = [ x ] p [ \\epsilon ] q [ E ] r [ t ] s ⇒ $[L^{-1} A ]$ = $[L ]$ p $[M^{-1} L^{-3} T^{4}A^{2}]$ q $[M L T^{-3} A^{-1} ]$ r $[T ]$ s $[L^{-1} A ]$ = [ M - q + r L p - 3 q + r T 4 q - 3 r - s A 2 q - r ] On comparing the powers of M , L , T , and A on both sides, For M , - q + r = 0 … (i) For A , 2 q - r = 1 . Since r = q , then 2 q - q = 1 , so q = 1 and r = 1 . For L , p - 3 q + r = - 1 … (ii). p - 3 ( 1 ) + 1 = - 1 p - 2 = - 1 ⇒ p = 1 For T, 4 q - 3 r - s = 0 … (iii) 4 ( 1 ) - 3 ( 1 ) - s = 0 1 - s = 0 ⇒ s = 1 Therefore, the values are p = 1 , q = 1 , r = 1 , s = 1 . Hence, the correct option is (A).",
     "year": "2026",
-    "date": "28th January",
+    "date": "8th April",
     "shift": "Evening"
 }
 ]

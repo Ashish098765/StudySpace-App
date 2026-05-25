@@ -48,41 +48,59 @@ def latexify(text):
     for char, latex in sym_map.items():
         text = text.replace(char, f' {latex} ')
 
-    # 1. Protect existing Math (anything between $)
+    # 1. Protect and Clean existing Math
     parts = re.split(r'(\$[^$]+\$)', text)
     processed_parts = []
     
     for part in parts:
         if part.startswith('$') and part.endswith('$'):
-            # Existing math block: Clean up common artifacts but keep as math
             inner = part[1:-1]
+            # Clean artifacts like "$ [M^{1}L^{1}T^{1} - 2 ] $" or "$ 1 ext{ T} $"
+            inner = re.sub(r'(\d+)\s*ext\{\s*([a-zA-Z])\}', r'\1 \\text{\2}', inner)
+            inner = re.sub(r'ext\{\s*([a-zA-Z])\}', r'\\text{\1}', inner)
+            inner = re.sub(r'([MLT])\^?\{?(\d+)\s*T\^?\{?(\d+)\s*-\s*(\d+)\s*\}?', r'\1^{\2} T^{-\3}', inner) # Fix [MLT-2] fragments
             inner = re.sub(r'\\ ', r' ', inner)
+            inner = re.sub(r'\s+', ' ', inner)
             processed_parts.append(f'${inner.strip()}$')
         else:
-            # Plain text block: Apply targeted LaTeX conversion
-            # Dimension handling: [MLT-2] -> $[M L T^{-2}]$
+            # Dimension handling: [M 1 L 1 T - 2] -> $[M L T^{-2}]$
             def fix_dims(m):
                 d = m.group(1)
-                d = re.sub(r'([MLTAθ])\s*(\-?\d+)', r'\1^{\2}', d)
-                d = re.sub(r'([MLTAθ])(?![0-9\^])', r'\1^{1}', d) # Implicit 1
+                # Handle fragments like "M 1 L 1 T 1 - 2"
+                d = re.sub(r'([MLTAθ])\s*(\d+)\s*(?=[MLTAθ]|$)', r'\1^{\2}', d)
+                d = re.sub(r'([MLTAθ])\s*(\d+)\s*-\s*(\d+)', r'\1^{-\3}', d)
+                d = re.sub(r'([MLTAθ])\s*-\s*(\d+)', r'\1^{-\2}', d)
+                d = re.sub(r'([MLTAθ])\s*(\d+)', r'\1^{\2}', d)
+                d = re.sub(r'([MLTAθ])(?![0-9\^])', r'\1', d)
                 return f' $[{d.replace(" ", "")}]$ '
             part = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', fix_dims, part)
 
-            # Subscript handling for common physics symbols
+            # Unit/Symbol handling
             part = re.sub(r'\b(\\mu|[BHE])\s*([0rn])\b', r' $\1_{\2}$ ', part)
-            
-            # Unit handling: "52.01 m" -> "$52.01 \text{ m}$"
             part = re.sub(r'\b(\d+\.?\d*)\s*(cm|mm|m|kg|s|N|Pa|J|W|C|V|A|T|H)\b', r' $\1 \text{ \2}$ ', part)
-            
-            # log handling
-            part = part.replace('log e', r' $\log_e$ ')
-            
+            part = part.replace('log e', r' $\log_e$ ').replace('ln', r' $\ln$ ')
             processed_parts.append(part)
 
     text = "".join(processed_parts)
     
+    # 2. Advanced Match List to Markdown Table
+    if "List - I" in text and "List - II" in text:
+        # Extract List items
+        list1 = re.findall(r'([A-D])\.\s+([^A-DI-V|]+?)(?=\s+[A-D]\.|\s+List|I\.|II\.|III\.|IV\.|$)', text)
+        list2 = re.findall(r'([I|V]+)\.\s+([^|A-D]+?)(?=\s+[I|V]+\.|\s+Choose|List|$)', text)
+        
+        if list1 and list2:
+            table = "\n\n| List - I | List - II |\n| :--- | :--- |\n"
+            for i in range(max(len(list1), len(list2))):
+                l1 = f"{list1[i][0]}. {list1[i][1].strip()}" if i < len(list1) else ""
+                l2 = f"{list2[i][0]}. {list2[i][1].strip()}" if i < len(list2) else ""
+                table += f"| {l1} | {l2} |\n"
+            
+            # Replace the messy list area with the table
+            text = re.sub(r'List\s*-\s*I.*?List\s*-\s*II.*?(?=Choose|$)', table + "\n", text, flags=re.DOTALL)
+
     # Final Cleanup
-    text = re.sub(r'([a-z])([A-Z])', r'\1 \2', text) # Split merged words
+    text = re.sub(r'([a-z])([A-Z])', r'\1 \2', text)
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
 
