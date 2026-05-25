@@ -117,6 +117,13 @@
         
         .q-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-weight: 500; overflow-x: auto; contain: content; }
         
+        /* TABLE STYLES */
+        .q-text table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: rgba(255,255,255,0.03); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
+        .q-text th { background: rgba(99, 102, 241, 0.1); color: var(--brand-blue); font-weight: 700; text-align: left; padding: 12px 15px; border-bottom: 2px solid var(--border-color); }
+        .q-text td { padding: 12px 15px; border-bottom: 1px solid var(--border-color); color: var(--text-primary); }
+        .q-text tr:last-child td { border-bottom: none; }
+        .q-text tr:hover { background: rgba(255,255,255,0.05); }
+
         .options-list { display: flex; flex-direction: column; gap: 0.8rem; contain: content; }
         .marks-option { display: flex; align-items: center; padding: 0.9rem 1.2rem; border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; transition: 0.15s; background: rgba(0,0,0,0.15); }
         .marks-option:hover:not(.locked) { border-color: var(--text-secondary); background: var(--bg-surface-elevated); }
@@ -311,6 +318,52 @@
                 }
             }
         };
+
+        function markdownTableToHTML(text) {
+            if (!text.includes('|')) return text;
+            
+            const lines = text.split('\n');
+            let result = [];
+            let inTable = false;
+            let tableRows = [];
+
+            for (let line of lines) {
+                if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
+                    if (!inTable) {
+                        inTable = true;
+                        tableRows = [];
+                    }
+                    tableRows.push(line);
+                } else {
+                    if (inTable) {
+                        result.push(renderHTMLTable(tableRows));
+                        inTable = false;
+                    }
+                    result.push(line);
+                }
+            }
+            if (inTable) result.push(renderHTMLTable(tableRows));
+
+            return result.join('\n');
+        }
+
+        function renderHTMLTable(rows) {
+            let html = '<table>';
+            rows.forEach((row, idx) => {
+                const cells = row.split('|').filter(c => c.trim() !== '' || row.indexOf('|'+c+'|') !== -1).map(c => c.trim());
+                // Skip separator rows like |---|---|
+                if (cells.every(c => c.match(/^[ :\-\s]+$/))) return;
+
+                html += '<tr>';
+                cells.forEach(cell => {
+                    const tag = idx === 0 ? 'th' : 'td';
+                    html += `<${tag}>${cell}</${tag}>`;
+                });
+                html += '</tr>';
+            });
+            html += '</table>';
+            return html;
+        }
 
         window.navigateToGateway = () => {
             screenGateway.style.display = 'block';
@@ -556,7 +609,7 @@
                 ${shiftBadgeFocus}
             `;
             
-            document.getElementById('focus-q-text').innerHTML = q.q.replace(/\n/g, '<br>');
+            document.getElementById('focus-q-text').innerHTML = markdownTableToHTML(q.q).replace(/\n/g, '<br>');
 
             const optContainer = document.getElementById('focus-options-container');
             optContainer.innerHTML = "";
@@ -583,7 +636,7 @@
                     div.id = `focus-opt-${optIdx}`;
                     div.innerHTML = `
                         <div class="opt-letter">${codeMarker}</div>
-                        <div class="opt-text">${opt}</div>
+                        <div class="opt-text">${markdownTableToHTML(opt)}</div>
                         <i class="fa-solid fa-circle-check opt-icon check-icon" id="focus-check-${optIdx}"></i>
                         <i class="fa-solid fa-circle-xmark opt-icon cross-icon" id="focus-cross-${optIdx}"></i>
                     `;
@@ -598,7 +651,7 @@
             if (isAttempted) {
                 document.getElementById('btn-check-focus').style.display = 'none';
                 document.getElementById('btn-next-focus').style.display = 'block';
-                document.getElementById('focus-explanation-text').innerHTML = q.explanation.replace(/\n/g, '<br>');
+                document.getElementById('focus-explanation-text').innerHTML = markdownTableToHTML(q.explanation).replace(/\n/g, '<br>');
                 document.getElementById('focus-explanation-box').style.display = 'block';
                 
                 if (q.type !== "integer") {
@@ -719,7 +772,7 @@
             }
 
             await updateFirebaseProgress(q.uid, isCorrect);
-            document.getElementById('focus-explanation-text').innerHTML = q.explanation;
+            document.getElementById('focus-explanation-text').innerHTML = markdownTableToHTML(q.explanation).replace(/\n/g, '<br>');
             document.getElementById('focus-explanation-box').style.display = 'block';
             setTimeout(() => triggerMathRender('focus-explanation-box'), 100);
         };
