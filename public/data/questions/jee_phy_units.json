@@ -131,16 +131,16 @@
         "date": "4th September"
     },
     {
-        "q": "A screw gauge gives the following reading when used to measure the diameter of a wire.\nMain scale reading : $0 \\text{ mm}$ Circular scale reading : 52 divisions Given that $1 \\text{ mm}$ on main scale corresponds to 100 divisions of the circular scale.\nThe diameter of wire from the above date is:",
+        "q": "A screw gauge gives the following reading when used to measure the diameter of a wire. Main scale reading : 0 mm Circular scale reading : 52 divisions Given that 1 mm on main scale corresponds to 100 divisions of the circular scale. The diameter of wire from the above date is:",
         "type": "mcq",
         "options": [
-            "$0.052 \\text{ cm}$",
-            "$0.026 \\text{ cm}$",
-            "$0.005 \\text{ cm}$",
-            "$0.52 \\text{ cm}$"
+            "0.052 cm",
+            "0.026 cm",
+            "0.005 cm",
+            "0.52 cm"
         ],
         "answer": 0,
-        "explanation": "Least count of screw gauge\n=\nP\ni\nt\nc\nh\nN\nu\nm\nb\ne\nr\no\nf\nd\ni\nv\ni\ns\ni\no\nn\no\nn\nc\ni\nr\nc\nu\nl\na\nr\ns\nc\na\nl\ne\n=\n1\n $100 \\text{ m}$ \nm\n= $0.01 \\text{ mm}$ \nDiameter of the wire = M.S.R + C.S.R\n \\\\times \nL.C\n= 0 + 52\n \\\\times \n0.01\n= $0.52 \\text{ mm}$ \n= $0.052 \\text{ cm}$",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/a-screw-gauge-gives-the-following-reading-when-used-to-measu-2011-marks-4-4fugumz5cfmhghk4.htm",
         "year": "2011",
         "shift": "N/A",
@@ -163,23 +163,23 @@
         "date": "6th September"
     },
     {
-        "q": "A screw gauge with a pitch of $0.5 \\text{ mm}$ and a circular scale with 50 divisions is used to measure the\nthickness of a thin sheet of Aluminium.\nBefore starting the measurement, it is found that when the two jaws of the screw gauge are brought in contact, the 45 ^{th} division coincides with the main scale line and that the zero of the main scale is barely visible.\nWhat is the thickness of the sheet if the main scale reading is $0.5 \\text{ mm}$ and the 25 ^{th} division coincides with the main scale line?",
+        "q": "A screw gauge with a pitch of 0.5 mm and a circular scale with 50 divisions is used to measure the\nthickness of a thin sheet of Aluminium. Before starting the measurement, it is found that when the two jaws of the screw gauge are brought in contact, the 45 th division coincides with the main scale line and that the zero of the main scale is barely visible. What is the thickness of the sheet if the main scale reading is 0.5 mm and the 25 th division coincides with the main scale line?",
         "type": "mcq",
         "options": [
-            "$0.70 \\text{ mm}$",
-            "$0.50 \\text{ mm}$",
-            "$0.75 \\text{ mm}$",
-            "$0.80 \\text{ mm}$"
+            "0.70 mm",
+            "0.50 mm",
+            "0.75 mm",
+            "0.80 mm"
         ],
         "answer": 3,
-        "explanation": "Least count =\n0.5\n50\n= $0.01 \\text{ mm}$ \nZero error = (45 - 50)\n \\\\times \n $0.01 \\text{ mm}$ = - $0.05 \\text{ mm}$ \nThickness of sheet = (0.5 + 25\n \\\\times \n0.01) - (-0.05)\n= 0.50 + 0.30 = $0.80 \\text{ mm}$",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/a-screw-gauge-with-a-pitch-of-05-mm-and-a-circular-scale-wi-2016-marks-4-qfvr1fzqi7vpo6pr.htm",
         "year": "2016",
         "shift": "N/A",
         "date": "N/A"
     },
     {
-        "q": "A spectrometer gives the following reading when used to measure the angle of a prism.\nMain scale reading: 58.5 degree Vernier scale reading : 09 divisions Given that 1 division on main scale corresponds to 0.5 degree.\nTotal divisions on the vernier scale is 30 and match with 29 divisions of the main scale.\nThe angle of the prism from the above data",
+        "q": "A spectrometer gives the following reading when used to measure the angle of a prism. Main scale reading: 58.5 degree Vernier scale reading : 09 divisions Given that 1 division on main scale corresponds to 0.5 degree. Total divisions on the vernier scale is 30 and match with 29 divisions of the main scale. The angle of the prism from the above data",
         "type": "mcq",
         "options": [
             "58.59 degree",
@@ -188,7 +188,7 @@
             "59 degree"
         ],
         "answer": 2,
-        "explanation": "30 vernier scale divisions coincide with 29 main scale divisions.\nTherefore $1 \\text{ V}$ .S.D =\n29\n30\nM.S.D\nLeast count = 1 M.S.D - $1 \\text{ V}$ .S.D\n= 1 M.S.D -\n29\n30\nM.S.D\n=\n1\n30\nM.S.D\n=\n1\n30\n \\\\times \n0.5\n^{o}\nReading of Vernier = Main Scale Reading + Vernier scale reading\n \\\\times \nLeast count\nGiven that,\nMain Scale Reading = 58.5\nVernier scale reading = 09 division\n \\\\therefore \nReading of Vernier = 58.5\n^{o}\n+ 9\n \\\\times \n0.5\n∘\n30\n= 58.65\n^{o}",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/a-spectrometer-gives-the-following-reading-when-used-to-meas-2012-marks-4-f4htszuiybnf9crq.htm",
         "year": "2012",
         "shift": "N/A",
@@ -211,31 +211,31 @@
         "date": "1st September"
     },
     {
-        "q": "A student measured the length of a rod and wrote it as $3.50 \\text{ cm}$ .\nWhich instrument did he use to measure it?",
+        "q": "A student measured the length of a rod and wrote it as 3.50 cm. Which instrument did he use to measure it?",
         "type": "mcq",
         "options": [
-            "A screw gauge having 100 divisions in the circular scale and pitch as $1 \\text{ mm}$ .",
-            "A screw gauge having 50 divisions in the circular scale and pitch as $1 \\text{ mm}$ .",
+            "A screw gauge having 100 divisions in the circular scale and pitch as 1 mm.",
+            "A screw gauge having 50 divisions in the circular scale and pitch as 1 mm.",
             "A meter scale.",
-            "A vernier calliper where the 10 divisions in vernier scale matches with 9 division in main scale and main scale has 10 divisions in $1 \\text{ cm}$ ."
+            "A vernier calliper where the 10 divisions in vernier scale matches with 9 division in main scale and main scale has 10 divisions in 1 cm."
         ],
         "answer": 3,
-        "explanation": "Measured length of rod = $3.50 \\text{ cm}$ \nThat means least count of the measuring instrument should be $0.01 \\text{ cm}$ = $0.1 \\text{ mm}$ \nFor vernier scale 1 main scale division = $1 \\text{ mm}$ \nAnd 9 MSD = 10 VSD\nLeast count = 1 MSD - 1 VSD\n= 1 - 0.9 = $0.1 \\text{ mm}$",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/a-student-measured-the-length-of-a-rod-and-wrote-it-as-350-2014-marks-4-1rspf8uv4g4qh6kv.htm",
         "year": "2014",
         "shift": "N/A",
         "date": "N/A"
     },
     {
-        "q": "A student measures the time period of 100 oscillations of a simple pendulum four times.\nThe data set is $90 \\text{ s}$ , $91 \\text{ s}$ , $95 \\text{ s}$ and $92 \\text{ s}$ .\nIf the minimum division in the measuring clock is $1 \\text{ s}$ , then the reported mean time should be :",
+        "q": "A student measures the time period of 100 oscillations of a simple pendulum four times. The data set is 90 s, 91 s, 95 s and 92 s. If the minimum division in the measuring clock is 1 s, then the reported mean time should be :",
         "type": "mcq",
         "options": [
-            "92 \\\\pm $1.8 \\text{ s}$",
-            "92 \\\\pm $3 \\text{ s}$",
-            "92 \\\\pm $2 \\text{ s}$",
-            "92 \\\\pm $5.0 \\text{ s}$"
+            "92  \\\\pm  1.8 s",
+            "92  \\\\pm  3 s",
+            "92  \\\\pm  2 s",
+            "92  \\\\pm  5.0 s"
         ],
-        "answer": "N/A",
+        "answer": 2,
         "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/a-student-measures-the-time-period-of-100-oscillations-of-a-2016-marks-4-rnk6nsjy2atvlzuw.htm",
         "year": "2016",
@@ -275,7 +275,7 @@
         "date": "3rd September"
     },
     {
-        "q": "An experiment is performed to find the refractive index of glass using a travelling microscope.\nIn this experiment distances are measured by",
+        "q": "An experiment is performed to find the refractive index of glass using a travelling microscope. In this experiment distances are measured by",
         "type": "mcq",
         "options": [
             "a vernier scale provided on the microscope",
@@ -284,7 +284,7 @@
             "a screw gauge provided on the microscope"
         ],
         "answer": 0,
-        "explanation": "To find the refractive index of glass using a travelling microscope, a vernier scale is provided on the microscope",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/an-experiment-is-performed-to-find-the-refractive-index-of-g-2008-marks-4-ulzo7sy9gbkyvoh0.htm",
         "year": "2008",
         "shift": "N/A",
@@ -323,16 +323,16 @@
         "date": "4th September"
     },
     {
-        "q": "Dimensions of 1 \\\\mu 0 \\\\epsilon 0 , where symbols have their usual meaning, are",
+        "q": "Dimensions of 1  \\\\mu  0 ε 0 , where symbols have their usual meaning, are",
         "type": "mcq",
         "options": [
-            "[ L ^{-1} T ]",
-            "[ L ^{-2} T ^{2} ]",
-            "[ L ^{2} T ^{-2} ]",
-            "[ LT ^{-1} ]"
+            "$[L^{-1}T]$",
+            "$[L^{-2}T^{2}]$",
+            "$[L^{2}T^{-2}]$",
+            "$[LT^{-1}]$"
         ],
         "answer": 2,
-        "explanation": "The velocity of light in vacuum is\nc =\n1\n \\\\mu \n0\n \\\\epsilon \n0\n;\n \\\\therefore \n[\n1\n \\\\mu \n0\n \\\\epsilon \n0\n]\n= [c\n^{2}\n] = [L\n^{2}\nT\n^{-2}\n]\n \\\\therefore \nDimension of\n1\n \\\\mu \n0\n \\\\epsilon \n0\n= [L\n^{2}\nT\n^{-2}\n]",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/dimensions-of-1-over-mu-0varepsilon-0-wher-2003-marks-4-07fb9a0w1swcoymv.htm",
         "year": "2003",
         "shift": "N/A",
@@ -396,7 +396,7 @@
             "force and work"
         ],
         "answer": 0,
-        "explanation": "To determine which pairs have equivalent dimensions, we examine the respective dimensional formulas.\nFor work (W) specified as\nF\n \\\\to \n⋅\ns\n \\\\to \n:\nW\n=\nF\ns\ncos\n⁡\n \\\\theta \nThe dimensions are:\nW\n=\n $[M\nL\nT^{-2}\n]$ \n $[L\n]$ \n=\n $[M\nL^{2}\nT^{-2}\n]$ \nFor torque (\n \\\\tau \n \\\\to \n) given as\nr\n \\\\to \n \\\\times \nF\n \\\\to \n:\n \\\\tau \n=\nr\nF\nsin\n⁡\n \\\\theta \nThe dimensions are:\n \\\\tau \n=\n $[L\n]$ \n $[M\nL\nT^{-2}\n]$ \n=\n $[M\nL^{2}\nT^{-2}\n]$ \nTherefore, the dimensions of torque and work are identical.",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/identify-the-pair-whose-dimensions-are-equal-2002-marks-4-vfmpnzyqwdwrns7q.htm",
         "year": "2002",
         "shift": "N/A",
@@ -691,7 +691,7 @@
         "date": "26th February"
     },
     {
-        "q": "In an experiment the angles are required to be measured using an instrument, 29 divisions of the\nmain scale exactly coincide with the 30 divisions of the vernier scale.\nIf the smallest division of the\nmain scale is half-a degree(= 0.5 ∘ ), then the least count of the instrument is:",
+        "q": "In an experiment the angles are required to be measured using an instrument, 29 divisions of the\nmain scale exactly coincide with the 30 divisions of the vernier scale. If the smallest division of the\nmain scale is half-a degree(= 0.5 ∘ ), then the least count of the instrument is:",
         "type": "mcq",
         "options": [
             "one minute",
@@ -700,7 +700,7 @@
             "half degree"
         ],
         "answer": 0,
-        "explanation": "30 vernier scale divisions coincide with 29 main scale divisions.\nTherefore $1 \\text{ V}$ .S.D =\n29\n30\nM.S.D\nLeast count = 1 M.S.D - $1 \\text{ V}$ .S.D\n= 1 M.S.D -\n29\n30\nM.S.D\n=\n1\n30\nM.S.D\n=\n1\n30\n \\\\times \n0.5\n^{o}\n=\n1\n30\n \\\\times \n1\n2\n^{o}\n=\n1\n60\n^{o}\n= 1 min",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/in-an-experiment-the-angles-are-required-to-be-measured-usin-2009-marks-4-jonkaflxcrfblo7m.htm",
         "year": "2009",
         "shift": "N/A",
@@ -771,15 +771,15 @@
         "date": "9th April"
     },
     {
-        "q": "In the formula X = 5YZ ^{2} , X and Z have dimensions of capacitance and magnetic field, respectively.\nWhat are\nthe dimensions of Y in SI units?",
+        "q": "In the formula X = 5YZ 2 , X and Z have dimensions of capacitance and magnetic field, respectively. What are\nthe dimensions of Y in SI units?",
         "type": "mcq",
         "options": [
-            "[M ^{-3} L ^{-2} T ^{8} A ^{4} ]",
-            "[M ^{-2} L ^{-2} T ^{6} A ^{3} ]",
-            "[M ^{-1} L ^{-2} T ^{4} A ^{2} ]",
-            "[M ^{-2} L ^{0} T ^{-4} A ^{-2} ]"
+            "$[M^{-3}L^{-2}T^{8}A^{4}]$",
+            "$[M^{-2}L^{-2}T^{6}A^{3}]$",
+            "$[M^{-1}L^{-2}T^{4}A^{2}]$",
+            "$[M^{-2}L^{0}T^{-4}A^{-2}]$"
         ],
-        "answer": "N/A",
+        "answer": 0,
         "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/in-the-formula-x--5yzsup2sup--x-and-z-have-dimensions-jee-main-physics-units-and-measurements-250sw1jtsuvccopz",
         "year": "2019",
@@ -819,23 +819,23 @@
         "date": "12th January"
     },
     {
-        "q": "Let [ \\\\epsilon 0 ] denote the dimensional formula of the permittivity of vacuum.\nIf M = mass, L = length, T = time\nand A = electric current, then:",
+        "q": "Let [ ε 0 ] denote the dimensional formula of the permittivity of vacuum. If M = mass, L = length, T = time\nand A = electric current, then:",
         "type": "mcq",
         "options": [
-            "\\\\epsilon 0 = $[M-1L- $3 \\text{ T}$ ^{2}A]$",
-            "\\\\epsilon 0 = $[M-1L- $3 \\text{ T}$ ^{4}A^{2}]$",
-            "\\\\epsilon 0 = $[M^{1}L^{2}T^{1}A^{2}]$",
-            "\\\\epsilon 0 = $[M^{1}L^{2}T^{1}A]$"
+            "ε 0 = [ M − 1 L − 3 T 2 A ]",
+            "ε 0 = [ M − 1 L − 3 T 4 A 2 ]",
+            "ε 0 =  $[M^{1}L^{2}T^{1}A^{2}]$",
+            "ε 0 =  $[M^{1}L^{2}T^{1}A]$"
         ],
         "answer": 1,
-        "explanation": "From Coulomb's law we know,\nF\n=\n1\n4\n \\\\pi \n∈\n0\nq\n1\nq\n2\nr\n2\n \\\\therefore \n∈\n0\n=\n1\n4\n \\\\pi \nq\n1\nq\n2\nF\nr\n2\nHence,\n[\n∈\n0\n]\n=\n $[A\nT\n]$ \n $[A\nT\n]$ \n $[M\nL\nT^{-2}\n]$ \n $[L^{2}\n]$ \n=\n $[M^{-1}\nL^{-3}\nT^{4}\nA^{2}\n]$",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/let-varepsilon-0-denote-the-dimensional-formula-of-2013-marks-4-jsyfxzwcg2nbvfip.htm",
         "year": "2013",
         "shift": "N/A",
         "date": "N/A"
     },
     {
-        "q": "Match List - I with List - II .\nList I (Number) List II (Significant figure) (A) 1001 (I) 3 (B) 010.1 (II) 4 (C) 100.100 (III) 5 (D) 0.0010010 (IV) 6 Choose the correct answer from the options given below :",
+        "q": "Match List -  with List -  List  (Number) List  (Significant figure)   0.000  Choose the correct answer from the options given below :\nChoose the correct answer from the options given below :",
         "type": "mcq",
         "options": [
             "(A)-(II), (B)-(I), (C)-(IV), (D)-(III)",
@@ -851,7 +851,7 @@
         "date": "1st February"
     },
     {
-        "q": "Match List I with List II LIST I LIST II A.\nAngular momentum I. $[ML^{2}T-2]$ B.\nTorque II. $[ML- $2 \\text{ T}$ -2]$ C.\nStress III $[ML^{2}T-1]$ D.\nPressure gradient IV. $[ML- $1 \\text{ T}$ -2]$ Choose the correct answer from the options given below:",
+        "q": "Match List  with List  LIST  LIST   Choose the correct answer from the options given below:\nChoose the correct answer from the options given below:",
         "type": "mcq",
         "options": [
             "A - I, B - IV, C - III, D - II",
@@ -915,7 +915,7 @@
         "date": "31st August"
     },
     {
-        "q": "Match List - I with List - II.\nList - I List - II (a) R H (Rydberg constant) (i) k g m - $1 \\text{ s}$ - 1 (b) h (Planck's constant) (ii) k g m $2 \\text{ s}$ - 1 (c) \\\\mu B (Magnetic field energy density) (iii) m - 1 (d) \\\\eta (coefficient of viscocity) (iv) k g m - $1 \\text{ s}$ - 2 Choose the most appropriate answer from the options given below :",
+        "q": "Match List - I with List - II.\nList - I List - II (a) R H (Rydberg constant) (i) k g m - $1 \\text{ s}$ - 1 (b) h (Planck's constant) (ii) k g m $2 \\text{ s}$ - 1 (c) \\\\mu B (Magnetic field energy density) (iii) m - 1 (d) \\\\eta (coefficient of viscocity) (iv) k g m - $1 \\text{ s}$ - 2 Choose the most appropriate answer from the options given below :\n\n\n| List I | List II |\n| :--- | :--- |\n| (B)  | (I)  |\n|  | (II) (I |\n|  | (III) (II |\n|  | (IV) (I |\n\nChoose the most appropriate answer from the options given below :",
         "type": "mcq",
         "options": [
             "(a)-(ii), (b)-(iii), (c)-(iv), (d)-(i)",
@@ -956,14 +956,14 @@
             "work and torque"
         ],
         "answer": 2,
-        "explanation": "Moment of inertia, I = Mr\n^{2}\n \\\\therefore \n $[I]$ = [ML\n^{2}\n]\nMoment of force,\n \\\\tau \n \\\\to \n=\nr\n \\\\to \n \\\\times \nF\n \\\\to \n \\\\therefore \n[\n \\\\tau \n \\\\to \n]\n=\n $[L\n]$ \n $[M\nL\nT^{-2}\n]$ \n=\n $[M\nL^{2}\nT^{-2}\n]$",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/out-of-the-following-pair-which-one-does-not-have-identical-2005-marks-4-ibkmppxnilojy8cd.htm",
         "year": "2005",
         "shift": "N/A",
         "date": "N/A"
     },
     {
-        "q": "Match List - I with List - II.\nMatch List - I with List - II.\nList - I List - I List - II List - II A.\nMeter (L) I. h c G B.\nSecond (S) II.\nG h c $5 \\text{ C}$ .\nKilogram (M) III.\nK 2 L 2 c 3 G h D.\nKelvin (K) IV.\nG h c 3 where h (Planck's constant), G (gravitational constant) and c (speed of light in vacuum) as fundamental units.\nChoose the correct answer from the options given below :",
+        "q": "Match List -  with List -  Match List -  with List -  List -  List -  List -  List -   Choose the correct answer from the options given below :\nChoose the correct answer from the options given below :",
         "type": "mcq",
         "options": [
             "A-II, B-IV, C-I, D-III",
@@ -995,7 +995,7 @@
         "date": "6th April"
     },
     {
-        "q": "Match the LIST-I with LIST-II Match the LIST-I with LIST-II LIST-I LIST-II A.\nBoltzmann constant Boltzmann constant I ML $2 \\text{ T}$ - 1 B Coefficient of viscosity Coefficient of viscosity II MLT - 3 K - $1 \\text{ C}$ Planck's constant Planck's constant III ML $2 \\text{ T}$ - 2 K - 1 D Thermal conductivity Thermal conductivity IV ML - $1 \\text{ T}$ - 1 Choose the correct answer from the options given below:",
+        "q": "Match the\n\n\n| List I | List II |\n| :--- | :--- |\n| (A)  | (I)  |\n| (B)  | (II) (I |\n| (D)  | (III) (II |\n|  | (IV) (I |\n\nChoose the correct answer from the options given below:",
         "type": "mcq",
         "options": [
             "A - III, B - IV, C - I, D - II",
@@ -1011,7 +1011,7 @@
         "date": "3rd April"
     },
     {
-        "q": "Match the LIST-I with LIST-II Match the LIST-I with LIST-II List - I List - II A.\nPlanck's constant I.\nML $2 \\text{ T}$ - 2 B.\nStopping potential II.\nT - $1 \\text{ C}$ .\nWork function III.\nML $2 \\text{ T}$ - 1 D.\nThreshold frequency IV.\nML $2 \\text{ T}$ - $3 \\text{ A}$ - 1 Choose the correct answer from the options given below:",
+        "q": "Match the LIST- with LIST- Match the LIST- with LIST- List -  List -   Choose the correct answer from the options given below:\n\n\n| List I | List II |\n| :--- | :--- |\n| (A) Planck's constant | (I) ML $2 \\text{ T}$ - 2 |\n| (B) Stopping potential II.\nT - $1 \\text{ C}$ .\nWork function III.\nML $2 \\text{ T}$ - 1 | (II) T - $1 \\text{ C}$ .\nWork function III.\nML $2 \\text{ T}$ - 1 |\n| (D) Threshold frequency IV.\nML $2 \\text{ T}$ - $3 \\text{ A}$ - 1 | (IV) ML $2 \\text{ T}$ - $3 \\text{ A}$ - 1 |\n\nChoose the correct answer from the options given below:",
         "type": "mcq",
         "options": [
             "A-III, B-IV, C-I, D-II",
@@ -1027,7 +1027,7 @@
         "date": "4th April"
     },
     {
-        "q": "Match the LIST-I with LIST-II Match the LIST-I with LIST-II List-I List-II A.\nSpring constant I.\nM L $2 \\text{ T}$ - 2 K - 1 M L $2 \\text{ T}$ - 2 K - 1 ML^(2)T^(-2)K^(-1) B.\nThermal conductivity II.\nML $0 \\text{ T}$ - 2 ML $0 \\text{ T}$ - 2 ML^(0)T^(-2) C.\nBoltzmann constant III.\nM L $2 \\text{ T}$ - $3 \\text{ A}$ - 2 M L $2 \\text{ T}$ - $3 \\text{ A}$ - 2 ML^(2)T^(-3)A^(-2) D.\nInductive reactance IV.\nM L T - 3 K - 1 M L T - 3 K - 1 MLT^(-3)K^(-1) Choose the correct answer from the options given below:",
+        "q": "Match the LIST- with LIST- Match the LIST- with LIST- List- List-  Choose the correct answer from the options given below:\n\n\n| List I | List II |\n| :--- | :--- |\n| (A) Spring constant | (I) M L $2 \\text{ T}$ - 2 K - 1 M L $2 \\text{ T}$ - 2 K - 1 ML^(2)T^(-2)K^(-1) |\n| (B) Thermal conductivity II.\nML $0 \\text{ T}$ - 2 ML $0 \\text{ T}$ - 2 ML^(0)T^(-2) | (II) ML $0 \\text{ T}$ - 2 ML $0 \\text{ T}$ - 2 ML^(0)T^(-2) |\n| (C) Boltzmann constant III.\nM L $2 \\text{ T}$ - $3 \\text{ A}$ - 2 M L $2 \\text{ T}$ - $3 \\text{ A}$ - 2 ML^(2)T^(-3)A^(-2) | (III) M L $2 \\text{ T}$ - $3 \\text{ A}$ - 2 M L $2 \\text{ T}$ - $3 \\text{ A}$ - 2 ML^(2)T^(-3)A^(-2) |\n| (D) Inductive reactance IV.\nM L T - 3 K - 1 M L T - 3 K - 1 MLT^(-3)K^(-1) | (IV) M L T - 3 K - 1 M L T - 3 K - 1 MLT^(-3)K^(-1) |\n\nChoose the correct answer from the options given below:",
         "type": "mcq",
         "options": [
             "A-III, B-II, C-IV, D-I",
@@ -1123,11 +1123,11 @@
         "date": "3rd April"
     },
     {
-        "q": "A physical quantity C is related to four other quantities p , q , r and s as follows C = p q 2 r $3 \\text{ s}$ The percentage errors in the measurement of p , q , r and s are 1 % , 2 % , 3 % and 2 % , respectively.\nThe percentage error in the measurement of C will be__________%",
+        "q": "A physical quantity C is related to four other quantities p , q , r and s as follows C = p q 2 r 3 s The percentage errors in the measurement of p , q , r and s are 1 % , 2 % , 3 % and 2 % , respectively. The percentage error in the measurement of C will be__________%",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "To determine the percentage error in the measurement of\nC\n, which is related to\np\n,\nq\n,\nr\n, and\ns\nas:\nC\n=\np\nq\n2\nr\n $3 \\text{ s}$ \nwe first express it in terms of powers:\nC\n=\np\n1\nq\n2\nr- $3 \\text{ s}$ -1\n/\n2\nThe percentage error in\nC\ncan be calculated using the formula for the propagation of error, which is:\n(\n \\\\Delta \nC\nC\n)\nmax\n=\n|\n \\\\Delta \np\np\n|\n+\n2\n|\n \\\\Delta \nq\nq\n|\n+\n3\n|\n \\\\Delta \nr\nr\n|\n+\n1\n2\n|\n \\\\Delta \ns\ns\n|\nGiven the percentage errors for\np\n,\nq\n,\nr\n, and\ns\nare\n1\n%\n,\n2\n%\n,\n3\n%\n, and\n2\n%\nrespectively, we substitute these values into the formula:\n(\n \\\\Delta \nC\nC\n)\nmax\n=\n1\n%\n+\n2\n \\\\times \n2\n%\n+\n3\n \\\\times \n3\n%\n+\n1\n2\n \\\\times \n2\n%\nCalculating each part:\nContribution from\np\n:\n1\n%\nContribution from\nq\n:\n4\n%\n(since\n2\n \\\\times \n2\n%\n=\n4\n%\n)\nContribution from\nr\n:\n9\n%\n(since\n3\n \\\\times \n3\n%\n=\n9\n%\n)\nContribution from\ns\n:\n1\n%\n(since\n1\n2\n \\\\times \n2\n%\n=\n1\n%\n)\nAdding these contributions together:\n1\n%\n+\n4\n%\n+\n9\n%\n+\n1\n%\n=\n15\n%\nThus, the maximum percentage error in the measurement of\nC\nis\n15\n%\n.",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/pa-physical-quantity-c-is-related-to-four-other-quantities-jee-main-physics-units-and-measurements-j6zahftz4til6dnw",
         "year": "2025",
         "shift": "Morning",
@@ -1230,22 +1230,22 @@
         "date": "21st January"
     },
     {
-        "q": "A student in the laboratory measures thickness of a wire using screw gauge.\nThe readings are $1.22 \\text{ mm}$ , $1.23 \\text{ mm}$ , $1.19 \\text{ mm}$ and $1.20 \\text{ mm}$ .\nThe percentage error is x 121 % .\nThe value of x is ____________.",
+        "q": "A student in the laboratory measures thickness of a wire using screw gauge. The readings are 1.22 mm, 1.23 mm, 1.19 mm and 1.20 mm. The percentage error is x 121 % . The value of x is ____________.",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "I\nm\ne\na\nn\n=\n1.22+1.23+1.19+1.20\n4\n=\n1.21\n \\\\Delta \nI\nm\ne\na\nn\n=\n0.01+0.02+0.02+0.01\n4\n=\n0.015\nSo %\nI\n=\n \\\\Delta \nI\nm\ne\na\nn\nI\nm\ne\na\nn\n \\\\times \n100\n=\n0.015\n1.21\n \\\\times \n100\n=\n150\n121\n%\nx\n=\n150",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/pa-student-in-the-laboratory-measures-thickness-of-a-wire-jee-main-physics-motion-j1zphrpaqhvpxzau",
         "year": "2022",
         "shift": "Morning",
         "date": "28th June"
     },
     {
-        "q": "A tiny metallic rectangular sheet has length and breadth of $5 \\text{ mm}$ and $2.5 \\text{ mm}$ , respectively.\nUsing a specially designed screw gauge which has pitch of $0.75 \\text{ mm}$ and 15 divisions in the circular scale, you are asked to find the area of the sheet.\nIn this measurement, the maximum fractional error will be x 100 where x is _______ .",
+        "q": "A tiny metallic rectangular sheet has length and breadth of 5 mm and 2.5 mm , respectively. Using a specially designed screw gauge which has pitch of 0.75 mm and 15 divisions in the circular scale, you are asked to find the area of the sheet. In this measurement, the maximum fractional error will be x 100 where x is _______ .",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "Given, L = $5 \\text{ mm}$ , B = $2.5 \\text{ mm}$ \nWe know, least count of a screw gauge,\nPitch length\nNo. of division on circular scale\nL\n.\nC\n.\n=\nPitch length\nNo. of division on circular scale\n⇒\nL\n.\nC\n.\n=\n0.75\n15\n=\n $0.05 \\text{ m}$ \nm\nWe know,\nA\n=\nL\nB\nBy taking\nl\nn\non both sides,\n⇒\nln\n⁡\nA\n=\nln\n⁡\nL+ln\n⁡\nB\nby differentiating both sides,\n⇒\nd\nA\nA\n=\nd\nL\nL+d\nB\nB\nHere,\nd\nL\n=\nd\nB\n=\n $0.05 \\text{ m}$ \nm\n(L.C.)\nSo fractional error,\nd\nA\nA\n=\n0.05\n5+0.05\n2.5\n=\n1\n100+2\n100\n=\n3\n100\n=\nx\n100\n(given)\nHence,\nx\n=\n3\n.",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/pa-tiny-metallic-rectangular-sheet-has-length-and-breadth-jee-main-physics-units-and-measurements-kjf9tolqm4qkpz5g",
         "year": "2025",
         "shift": "Morning",
@@ -1284,11 +1284,11 @@
         "date": "29th July"
     },
     {
-        "q": "A travelling microscope is used to determine the refractive index of a glass slab.\nIf 40 divisions are there in $1 \\text{ cm}$ on main scale and 50 Vernier scale divisions are equal to 49 main scale divisions, then least count of the travelling microscope is __________ \\\\times 10 ^{-6} m.",
+        "q": "A travelling microscope is used to determine the refractive index of a glass slab. If 40 divisions are there in 1 cm on main scale and 50 Vernier scale divisions are equal to 49 main scale divisions, then least count of the travelling microscope is __________  \\\\times  10 − 6 m.",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "40 M = $1 \\text{ cm}$ \n⇒\nM = $0.025 \\text{ cm}$ .......... (1)\nAlso, $50 \\text{ V}$ = 49 M\n⇒\nLeast count = M-V = M-49\n50\nM =\nM\n50\n⇒\nLC =\n0.025\n $50 \\text{ cm}$ \n=\n250\n50\n \\\\times \n10\n^{-6}\nm\n⇒\nLC = 5\n \\\\times \n10\n^{-6}\nm",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/pa-travelling-microscope-is-used-to-determine-the-refracti-jee-main-physics-motion-dbmvgv2egstr068l",
         "year": "2022",
         "shift": "Morning",
@@ -1487,11 +1487,11 @@
         "date": "4th April"
     },
     {
-        "q": "For z = a 2 x 3 y 1 2 , where 'a' is a constant.\nIf percentage error in measurement of 'x' and 'y' are 4% and 12% respectively, then the percentage error for 'z' will be _______________%.",
+        "q": "For z = a 2 x 3 y 1 2 , where 'a' is a constant. If percentage error in measurement of 'x' and 'y' are 4% and 12% respectively, then the percentage error for 'z' will be _______________%.",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "% error in\nz\n=\n3\n \\\\times \n4+1\n2\n \\\\times \n12\n=\n12+6\n=\n18\n%",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/pfor-z--a2x3y1-over-2-where-a-is-a-c-jee-main-physics-motion-ktkhoc6ztygbzung",
         "year": "2022",
         "shift": "Morning",
@@ -1834,11 +1834,11 @@
         "date": "23rd January"
     },
     {
-        "q": "In a screw gauge, there are 100 divisions on the circular scale and the main scale moves by $0.5 \\text{ mm}$ on a complete rotation of the circular scale.\nThe zero of circular scale lies 6 divisions below the line of graduation when two studs are brought in contact with each other.\nWhen a wire is placed between the studs, 4 linear scale divisions are clearly visible while th 46 th division the circular scale coincide with the reference line.\nThe diameter of the wire is ______________ \\\\times 10 - $2 \\text{ mm}$ .",
+        "q": "In a screw gauge, there are 100 divisions on the circular scale and the main scale moves by 0.5 mm on a complete rotation of the circular scale. The zero of circular scale lies 6 divisions below the line of graduation when two studs are brought in contact with each other. When a wire is placed between the studs, 4 linear scale divisions are clearly visible while th 46 th division the circular scale coincide with the reference line. The diameter of the wire is ______________  \\\\times  10 − 2 mm .",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "Least count of screw gauge\n=\n0.5\n $100 \\text{ mm}$ \n=\n1\n $200 \\text{ mm}$ \nZero error of screw gauge\n=\n+\n6\n $200 \\text{ mm}$ \n=\n+\n3\n100\n=\n $0.03 \\text{ mm}$ \nReading of screw gauge\n=\n4\n \\\\times \n0.5+46\n $200 \\text{ mm}$ \n=\n2+23\n $100 \\text{ mm}$ \n=\n $2.23 \\text{ mm}$ \nSo diameter of wire\n=\n $2.23 \\text{ mm}$ - $0.03 \\text{ mm}$ \n=\n $2.20 \\text{ mm}$ \n=\n220\n \\\\times \n10- $2 \\text{ mm}$",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/pin-a-screw-gauge-there-are-100-divisions-on-the-circular-jee-main-physics-motion-pii33vyhgiegfssl",
         "year": "2023",
         "shift": "Morning",
@@ -1925,11 +1925,11 @@
         "date": "24th January"
     },
     {
-        "q": "In a vernier callipers, each cm on the main scale is divided into 20 equal parts.\nIf tenth vernier scale division coincides with nineth main scale division.\nThen the value of vernier constant will be _________ \\\\times 10 ^{-2} mm.",
+        "q": "In a vernier callipers, each cm on the main scale is divided into 20 equal parts. If tenth vernier scale division coincides with nineth main scale division. Then the value of vernier constant will be _________  \\\\times  10 − 2 mm.",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "1 MSD =\n1\n $20 \\text{ cm}$ \n∵\n10 VSD = 9 MSD\n1 VSD =\n9\n10\n \\\\times \n1\n $20 \\text{ cm}$ =\n9\n200\n \\\\times \n $10 \\text{ mm}$ = $0.45 \\text{ mm}$ \nNow, 1 MSD =\n1\n20\n \\\\times \n $10 \\text{ mm}$ = $0.50 \\text{ mm}$ \nLC = (0.50-0.45) mm = $0.05 \\text{ mm}$ \n= 5\n \\\\times \n10\n^{-2}\nmm",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/pin-a-vernier-callipers-each-cm-on-the-main-scale-is-divi-jee-main-physics-motion-el1bnwchq3sj3su1",
         "year": "2022",
         "shift": "Morning",
@@ -2016,11 +2016,11 @@
         "date": "5th April"
     },
     {
-        "q": "In an experiment to find acceleration due to gravity (g) using simple pendulum, time period of $0.5 \\text{ s}$ is measured from time of 100 oscillation with a watch of $1 \\text{ s}$ resolution.\nIf measured value of length is $10 \\text{ cm}$ known to $1 \\text{ mm}$ accuracy, The accuracy in the determination of g is found to be x % .\nThe value of x is ___________.",
+        "q": "In an experiment to find acceleration due to gravity (g) using simple pendulum, time period of 0.5 s is measured from time of 100 oscillation with a watch of 1 s resolution. If measured value of length is 10 cm known to 1 mm accuracy, The accuracy in the determination of g is found to be x % . The value of x is ___________.",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "T\n=\n2\n \\\\pi \nl\ng\nd\ng\ng\n \\\\times \n100\n=\n2\nd\nT\nT\n \\\\times \n100+d\nl\nl\n \\\\times \n100\n=\n2\n \\\\times \n1\n50\n \\\\times \n100+1\n100\n \\\\times \n100\n=\n5\n%",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/pin-an-experiment-to-find-acceleration-due-to-gravity-g-jee-main-physics-motion-jfuulied5io7soaj",
         "year": "2022",
         "shift": "Morning",
@@ -2155,7 +2155,7 @@
         "date": "8th April"
     },
     {
-        "q": "Match List - I with List - II .\nList - I List - II (A) Young’s Modulus (I) M L ^{-1} T ^{-1} (B) Torque (II) M L ^{-1} T ^{-2} (C) Coefficient of Viscosity (III) M ^{-1} L ^{3} T ^{-2} (D) Gravitational Constant (IV) M L ^{2} T ^{-2} Choose the correct answer from the options given below :",
+        "q": "Match List -  with List -  List -  List -   Choose the correct answer from the options given below :\nChoose the correct answer from the options given below :",
         "type": "mcq",
         "options": [
             "(A)-(I), (B)-(III), (C)-(II), (D)-(IV)",
@@ -2171,7 +2171,7 @@
         "date": "29th January"
     },
     {
-        "q": "Match List - I with List - II .\nList - I List - II (A) Mass density (I) [ML ^{2} T ^{-3} ] (B) Impulse (II) [MLT ^{-1} ] (C) Power (III) [ML ^{2} T ^{0} ] (D) Moment of inertia (IV) [ML ^{-3} T ^{0} ] Choose the correct answer from the options given below :",
+        "q": "Match List -  with List -  List -  List -   Choose the correct answer from the options given below :\nChoose the correct answer from the options given below :",
         "type": "mcq",
         "options": [
             "(A)-(IV), (B)-(II), (C)-(III), (D)-(I)",
@@ -2187,7 +2187,7 @@
         "date": "7th April"
     },
     {
-        "q": "Match List - I with List - II .\nList - I List - II A.\nCoefficient of viscosity B.\nSurface tension C.\nPressure D.\nSurface energy I. [ML ^{-1} T ^{-2} ] II. [ML ^{2} T ^{-2} ] III. [ML ^{0} T ^{-2} ] IV. [ML ^{-1} T ^{-1} ] Choose the correct answer from the options given below :",
+        "q": "Match List -  with List -  List -  List -   Choose the correct answer from the options given below :\nChoose the correct answer from the options given below :",
         "type": "mcq",
         "options": [
             "A-I, B-II, C-IV, D-III",
@@ -2203,7 +2203,7 @@
         "date": "28th January"
     },
     {
-        "q": "Match List I with List II : List I List II A.\nTorque I. kg m - $1 \\text{ s}$ - 2 B.\nEnergy density II. kg ms - $1 \\text{ C}$ .\nPressure gradient III. kg m - $2 \\text{ s}$ - 2 D.\nImpulse IV. kg m $2 \\text{ s}$ - 2 Choose the correct answer from the options given below:",
+        "q": "Match List  with List  : List  List   Choose the correct answer from the options given below:\nChoose the correct answer from the options given below:",
         "type": "mcq",
         "options": [
             "A-IV, B-I, C-III, D-II",
@@ -2219,7 +2219,7 @@
         "date": "30th January"
     },
     {
-        "q": "Match List I with List II : List I (Physical Quantity) List II (Dimensional Formula) A.\nPressure gradient I. [ M ∘ L $2 \\text{ T}$ - 2 ] B.\nEnergy density II. $[M^{1}L- $1 \\text{ T}$ -2]$ C.\nElectric Field III. $[M^{1}L- $2 \\text{ T}$ -2]$ D.\nLatent heat IV. $[M^{1}L^{1}T- $3 \\text{ A}$ -1]$ Choose the correct answer from the options given below:",
+        "q": "Match List  with List  : List  (Physical Quantity) List  (Dimensional Formula)   Choose the correct answer from the options given below:\nChoose the correct answer from the options given below:",
         "type": "mcq",
         "options": [
             "A-III, B-II, C-IV, D-I",
@@ -2235,7 +2235,7 @@
         "date": "29th January"
     },
     {
-        "q": "Match List - I with List - II List - I List - II (A) Permeability of free space (I) $[ML^{2}T-2]$ (B) Magnetic field (II) $[MT- $2 \\text{ A}$ -1]$ (C) Magnetic moment (III) $[MLT- $2 \\text{ A}$ -2]$ (D) Torsional constant (IV) $[L^{2}A]$ Choose the correct answer from the options given below :",
+        "q": "Match List -  with List -  List -  List -   Choose the correct answer from the options given below :\nChoose the correct answer from the options given below :",
         "type": "mcq",
         "options": [
             "(A)-(III), (B)-(II), (C)-(IV), (D)-(I)",
@@ -2251,7 +2251,7 @@
         "date": "23rd January"
     },
     {
-        "q": "Match List I with List II.\nList I List II A.\nTorque I.\nNms - 1 B.\nStress II.\nJ kg - $1 \\text{ C}$ .\nLatent Heat III.\nNm D.\nPower IV.\nNm - 2 Choose the correct answer from the options given below :",
+        "q": "Match List  with List  List  List   Choose the correct answer from the options given below :\nChoose the correct answer from the options given below :",
         "type": "mcq",
         "options": [
             "A-III, B-II, C-I, D-IV",
@@ -2267,7 +2267,7 @@
         "date": "29th July"
     },
     {
-        "q": "Match List I with List II LIST I LIST II A.\nTorque I.\nML - $2 \\text{ T}$ - 2 B.\nStress II.\nML $2 \\text{ T}$ - $2 \\text{ C}$ .\nPressure gradient III.\nML - $1 \\text{ T}$ - 1 D.\nCoefficient of viscosity IV.\nML - $1 \\text{ T}$ - 2 Choose the correct answer from the options given below:",
+        "q": "Match List  with List  LIST  LIST   Choose the correct answer from the options given below:\nChoose the correct answer from the options given below:",
         "type": "mcq",
         "options": [
             "A-II, B-I, C-IV, D-III",
@@ -2283,7 +2283,7 @@
         "date": "8th April"
     },
     {
-        "q": "Match List I with List II LIST I LIST II A.\nSpring constant I. $[T-1]$ B.\nAngular speed II. $[MT-2]$ C.\nAngular momentum III. $[ML^{2}]$ D.\nMoment of inertia IV. $[ML^{2}T-1]$ Choose the correct answer from the options given below:",
+        "q": "Match List  with List  LIST  LIST   Choose the correct answer from the options given below:\nChoose the correct answer from the options given below:",
         "type": "mcq",
         "options": [
             "A-IV, B-I, C-III, D-II",
@@ -2299,7 +2299,7 @@
         "date": "12th April"
     },
     {
-        "q": "Match List I with List II List-I List-II A.\nPlanck's constant (h) I. $[M^{1}L^{2}T-2]$ B.\nStopping potential (Vs) II. $[M^{1}L^{1}T-1]$ C.\nWork function ( \\\\phi ) III. $[M^{1}L^{2}T-1]$ D.\nMomentum (p) IV. $[M^{1}L^{2}T- $3 \\text{ A}$ -1]$ Choose the correct answer from the options given below :",
+        "q": "Match List  with List  List- List-  Choose the correct answer from the options given below :\nChoose the correct answer from the options given below :",
         "type": "mcq",
         "options": [
             "A-I, B-III, C-IV, D-II",
@@ -2315,7 +2315,7 @@
         "date": "24th January"
     },
     {
-        "q": "Match List I with List II LIST I LIST II A.\nTorque I. $[M^{1}L^{1}T- $2 \\text{ A}$ -2]$ B.\nMagnetic field II. $[L^{2}A^{1}]$ C.\nMagnetic moment III. $[M^{1}T- $2 \\text{ A}$ -1]$ D.\nPermeability of free space IV. $[M^{1}L^{2}T-2]$ Choose the correct answer from the options given below:",
+        "q": "Match List  with List  LIST  LIST   Choose the correct answer from the options given below:\nChoose the correct answer from the options given below:",
         "type": "mcq",
         "options": [
             "A-I, B-III, C-II, D-IV",
@@ -2331,7 +2331,7 @@
         "date": "6th April"
     },
     {
-        "q": "Match List I with List II List I List II A.\nYoung's Modulus (Y) I. $[ML- $1 \\text{ T}$ -1]$ B.\nCo-efficient of Viscosity ( \\\\eta ) II. $[ML^{2}T-1]$ C.\nPlanck's Constant (h) III. $[ML- $1 \\text{ T}$ -2]$ D.\nWork function ( \\\\phi ) IV. $[ML^{2}T-2]$ Choose the correct answer from the options given below :",
+        "q": "Match List  with List  List  List   Choose the correct answer from the options given below :\nChoose the correct answer from the options given below :",
         "type": "mcq",
         "options": [
             "A-II, B-III, C-IV, D-I",
@@ -2347,7 +2347,7 @@
         "date": "25th January"
     },
     {
-        "q": "Match List I with List II.\nList I List II (A) Coefficient of viscosity (I) $[ML^{2}T-2]$ (B) Surface tension (II) $[ML^{2}T-1]$ (C) Angular momentum (III) $[ML- $1 \\text{ T}$ -1]$ (D) Rotational kinetic energy (IV) $[ML^{0}T-2]$ Choose the correct answer from the options given below :",
+        "q": "Match List  with List  List  List   Choose the correct answer from the options given below :\nChoose the correct answer from the options given below :",
         "type": "mcq",
         "options": [
             "(A)-(II), (B)-(I), (C)-(IV), (D)-(III)",
@@ -2363,7 +2363,7 @@
         "date": "30th January"
     },
     {
-        "q": "Match List I with List II.\nList - I List - II (A) Coefficient of viscosity (I) $[ML^{0}T-3]$ (B) Intensity of wave (II) $[ML- $2 \\text{ T}$ -2]$ (C) Pressure gradient (III) $[M-1LT^{2}]$ (D) Compressibility (IV) $[ML- $1 \\text{ T}$ -1]$ Choose the correct answer from the options given below:",
+        "q": "Match List  with List  List -  List -   Choose the correct answer from the options given below:\nChoose the correct answer from the options given below:",
         "type": "mcq",
         "options": [
             "(A)-(II), (B)-(III), (C)-(IV), (D)-(I)",
@@ -2379,7 +2379,7 @@
         "date": "2nd April"
     },
     {
-        "q": "Match List - I with List - II.\nList - I List - II (A) Angular Impulse (I) M ^{0} L ^{2} T ^{-2} (B) Latent Heat (II) M L ^{2} T ^{-3} A ^{-1} (C) Electrical resistivity (III) M L ^{2} T ^{-1} (D) Electromotive force (IV) M L ^{3} T ^{-3} A ^{-2} Choose the correct answer from the options given below:",
+        "q": "Match List -  with List -  List -  List -   Choose the correct answer from the options given below:\nChoose the correct answer from the options given below:",
         "type": "mcq",
         "options": [
             "(A)-(II), (B)-(I), (C)-(IV), (D)-(III)",
@@ -2411,11 +2411,11 @@
         "date": "9th April"
     },
     {
-        "q": "A physical quantity is related to four observables as follows : A physical quantity Q is related to four observables a , b , c , d as follows : Q = a b 4 c d where, a = ( 60 \\\\pm 3 ) Pa ; b = ( 20 \\\\pm 0.1 ) m ; c = ( 40 \\\\pm 0.2 ) Nsm - 2 and d = ( 50 \\\\pm 0.1 ) m , then the percentage error in Q is x 1000 , where x = _________ .",
+        "q": "A physical quantity is related to four observables as follows : A physical quantity Q is related to four observables a , b , c , d as follows : Q = a b 4 c d where, a = ( 60  \\\\pm  3 ) Pa ; b = ( 20  \\\\pm  0.1 ) m ; c = ( 40  \\\\pm  0.2 ) Nsm − 2 and d = ( 50  \\\\pm  0.1 ) m , then the percentage error in Q is x 1000 , where x = _________ .",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "Given, $$Q = {{a{b^4}} \\over {cd}}$$$$a = (60 \\pm 3)\\,Pa \\Rightarrow a = 60\\,Pa,\\,\\Delta a = 3Pa$$$$b = (20 \\pm 0.1)\\,m \\Rightarrow b = 20m,\\,\\Delta b = 0.1\\,m$$$$c = (40 \\pm 0.2)\\,Ns{m^{ - 2}} \\Rightarrow c = 40\\,Ns{m^{ - 2}},\\,\\Delta c = 0.2\\,Ns{m^{ - 2}}$$$$d = (50 \\pm 0.1)\\,m \\Rightarrow \\,d = 50\\,m,\\,\\Delta d = 0.1m$$As,$$Q = {{a{b^4}} \\over {cd}}$$by taking ln on both sides,$$\\ln Q = \\ln a + u\\ln b - \\ln c - \\ln d$$Now, by differentiating,$${{d Q} \\over Q} = {{da} \\over a} + 4{{db} \\over b} - {{dc} \\over c} - {{dd} \\over d}$$\nSo, maximum fractional error in Q is given by,$${{\\Delta Q} \\over Q} = {{\\Delta a} \\over a} + 4{{\\Delta b} \\over b} + {{\\Delta c} \\over c} + {{\\Delta d} \\over d}$$$$\\Rightarrow {{\\Delta Q} \\over Q} = {3 \\over {60}} + 4\\left( {{{0.1} \\over {20}}} \\right) + {{0.2} \\over {40}} + {{0.1} \\over {40}}$$$$= {1 \\over {20}} + {1 \\over {50}} + {1 \\over {200}} + {1 \\over {500}}$$$$\\Rightarrow {{\\Delta Q} \\over Q} = {{50 + 20 + 5 + 2} \\over {1000}} = {{77} \\over {1000}}$$Hence the % error in$$Q = {{\\Delta Q} \\over Q} \\times 100\\%$$$$= {{7700} \\over {1000}}\\% = {x \\over {1000}}$$(given)\nSo,$$x = 7700$$$",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/ptext--a-physical-quantity--q-text--is-related-to-fo-jee-main-physics-pik17mypblqpwhnc",
         "year": "2025",
         "shift": "Morning",
@@ -2630,11 +2630,11 @@
         "date": "29th January"
     },
     {
-        "q": "The least count of a screw guage is $0.01 \\text{ mm}$ .\nIf the pitch is increased by 75 % and number of divisions on the circular scale is reduced by 50 % , the new least count will be ________ \\\\times 10 - $3 \\text{ mm}$",
+        "q": "The least count of a screw guage is 0.01 mm . If the pitch is increased by 75 % and number of divisions on the circular scale is reduced by 50 % , the new least count will be ________  \\\\times  10 − 3 mm",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "The least count (L.C.) of a screw gauge is given by:\nL.C.\nPitch\nNumber of Divisions on Circular Scale\nL.C.\n=\nPitch\nNumber of Divisions on Circular Scale\nLet the original pitch be\np\nand the original number of divisions be\nn\n.\nThen, the original least count is:\nmm\np\nn\n=\n $0.01 \\text{ mm}$ \nAfter modifications:\nThe pitch is increased by 75%, so the new pitch is:\nnew\np\nnew\n=\np+0.75\np\n=\n1.75\np\nThe number of divisions is reduced by 50%, so the new number of divisions is:\nnew\nn\nnew\n=\n0.5\nn\nThe new least count is then:\nL.C.\nnew\nnew\nnew\nL.C.\nnew\n=\np\nnew\nn\nnew\n=\n1.75\np\n0.5\nn\n=\n1.75\n0.5\n \\\\times \np\nn\n=\n3.5\n \\\\times \np\nn\nSubstitute the original least count:\nL.C.\nnew\nmm\nmm\nL.C.\nnew\n=\n3.5\n \\\\times \n $0.01 \\text{ mm}$ \n=\n $0.035 \\text{ mm}$ \nExpressed in the form\nmm\n \\\\times \n10- $3 \\text{ mm}$ \n, this becomes:\nmm\nmm\n $0.035 \\text{ mm}$ \n=\n35\n \\\\times \n10- $3 \\text{ mm}$ \nThus, the new least count is:\nmm\n35\n \\\\times \n10- $3 \\text{ mm}$",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-least-count-of-a-screw-guage-is-001-mm--if-the-pitc-jee-main-physics-units-and-measurements-97v49ptoahmrvrvs",
         "year": "2025",
         "shift": "Morning",
@@ -2689,11 +2689,11 @@
         "date": "31st January"
     },
     {
-        "q": "The one division of main scale of Vernier callipers reads $1 \\text{ mm}$ and 10 divisions of Vernier scale is equal to the 9 divisions on main scale.\nWhen the two jaws of the instrument touch each other, the zero of the Vernier lies to the right of zero of the main scale and its fourth division coincides with a main scale division.\nWhen a spherical bob is tightly placed between the two jaws, the zero of the Vernier scale lies in between $4.1 \\text{ cm}$ and $4.2 \\text{ cm}$ and th 6 th Vernier division coincides scale division.\nThe diameter of the bob will be ____________ \\\\times 10 ^{-2} cm.",
+        "q": "The one division of main scale of Vernier callipers reads 1 mm and 10 divisions of Vernier scale is equal to the 9 divisions on main scale. When the two jaws of the instrument touch each other, the zero of the Vernier lies to the right of zero of the main scale and its fourth division coincides with a main scale division. When a spherical bob is tightly placed between the two jaws, the zero of the Vernier scale lies in between 4.1 cm and 4.2 cm and th 6 th Vernier division coincides scale division. The diameter of the bob will be ____________  \\\\times  10 − 2 cm.",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "1 MSD = $1 \\text{ mm}$ \n10 VSD = 9 MSD\nLC =\n1\n $10 \\text{ mm}$ \n0 + 4\n(\n1\n10\n)\nmm = $0.4 \\text{ mm}$ \nReading = 41 + 6\n(\n1\n10\n)\n= 41 + 0.6\n= $41.6 \\text{ mm}$ \nTrue reading = $41.2 \\text{ mm}$ \n= 412\n \\\\times \n10\n^{-2}\ncm",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-one-division-of-main-scale-of-vernier-callipers-reads-jee-main-physics-motion-dr5rkf4lg0lpvut7",
         "year": "2022",
         "shift": "Morning",
@@ -2796,7 +2796,7 @@
         "date": "27th June"
     },
     {
-        "q": "The speed of a longitudinal wave in a metallic bar is $400 \\text{ m}$ /s.\nIf the density and Young's modulus of the bar material are increased by 0.5% and 1%, respectively then the speed of the wave is changed approximately to ______ m/s.",
+        "q": "The speed of a longitudinal wave in a metallic bar is 400 m/s. If the density and Young's modulus of the bar material are increased by 0.5% and 1%, respectively then the speed of the wave is changed approximately to ______ m/s.",
         "type": "mcq",
         "options": [
             "398",
@@ -2804,7 +2804,7 @@
             "401",
             "399"
         ],
-        "answer": "N/A",
+        "answer": 2,
         "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-speed-of-a-longitudinal-wave-in-a-metallic-bar-is-400-jee-main-physics-owovbm4ukowo46uk",
         "year": "2026",
@@ -2828,11 +2828,11 @@
         "date": "28th January"
     },
     {
-        "q": "The Vernier constant of Vernier callipers is $0.1 \\text{ mm}$ and it has zero error of ( - 0.05) cm.\nWhile measuring diameter of a sphere, the main scale reading is $1.7 \\text{ cm}$ and coinciding vernier division is 5.\nThe corrected diameter will be _________ \\\\times 10 ^{-2} cm.",
+        "q": "The Vernier constant of Vernier callipers is 0.1 mm and it has zero error of ( − 0.05) cm. While measuring diameter of a sphere, the main scale reading is 1.7 cm and coinciding vernier division is 5. The corrected diameter will be _________  \\\\times  10 − 2 cm.",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "Since zero error is negative, we will add $0.05 \\text{ cm}$ .\n⇒\nCorrected reading = $1.7 \\text{ cm}$ + 5\n \\\\times \n $0.1 \\text{ mm}$ + $0.05 \\text{ cm}$ \n= 180\n \\\\times \n10\n^{-2}\ncm",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-vernier-constant-of-vernier-callipers-is-01-mm-and-i-jee-main-physics-motion-eigb7oxmceqbajui",
         "year": "2022",
         "shift": "Morning",
@@ -2855,15 +2855,15 @@
         "date": "8th April"
     },
     {
-        "q": "Time periods of oscillation of the same simple pendulum measured using four different measuring clocks were recorded as $4.62 \\text{ s}$ , $4.632 \\text{ s}$ , $4.6 \\text{ s}$ and $4.64 \\text{ s}$ .\nThe arithmetic mean of these readings in correct significant figure is :",
+        "q": "Time periods of oscillation of the same simple pendulum measured using four different measuring clocks were recorded as 4.62 s , 4.632 s , 4.6 s and 4.64 s . The arithmetic mean of these readings in correct significant figure is :",
         "type": "mcq",
         "options": [
-            "$5 \\text{ s}$",
-            "$4.6 \\text{ s}$",
-            "$4.62 \\text{ s}$",
-            "$4.623 \\text{ s}$"
+            "5 s",
+            "4.6 s",
+            "4.62 s",
+            "4.623 s"
         ],
-        "answer": "N/A",
+        "answer": 1,
         "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/ptime-periods-of-oscillation-of-the-same-simple-pendulum-m-jee-main-physics-motion-ogkdydpiepgwaafw",
         "year": "2024",
@@ -2967,7 +2967,7 @@
         "date": "6th April"
     },
     {
-        "q": "Resistance of a given wire is obtained by measuring the current flowing in it and the voltage difference\napplied across it.\nIf the percentage errors in the measurement of the current and the voltage difference\nare 3% each, then error in the value of resistance of the wire is",
+        "q": "Resistance of a given wire is obtained by measuring the current flowing in it and the voltage difference\napplied across it. If the percentage errors in the measurement of the current and the voltage difference\nare 3% each, then error in the value of resistance of the wire is",
         "type": "mcq",
         "options": [
             "6 %",
@@ -2976,29 +2976,29 @@
             "3 %"
         ],
         "answer": 0,
-        "explanation": "We know R =\nV\nI\n \\\\therefore \n \\\\Delta \nR\nR\n=\n \\\\Delta \nV\nV\n+\n \\\\Delta \nI\nI\nPercentage error in R =\n \\\\Delta \nR\nR\n \\\\times \n100\n=\n \\\\Delta \nV\nV\n \\\\times \n100\n+\n \\\\Delta \nI\nI\n \\\\times \n100\n \\\\therefore \n \\\\Delta \nR\nR\n \\\\times \n100\n=\n3% + 3 % = 6%",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/resistance-of-a-given-wire-is-obtained-by-measuring-the-curr-2012-marks-4-1wo1ukabshemiybw.htm",
         "year": "2012",
         "shift": "N/A",
         "date": "N/A"
     },
     {
-        "q": "Student A and student B used two screw gauges of equal pitch and 100 equal circular divisions to measure the radius of a given wire.\nThe actual value of the radius of the wire is $0.322 \\text{ cm}$ .\nThe absolute value of the difference between the final circular scale readings observed by the students A and B is ______________. [Figure shows position of reference 'O' when jaws of screw gauge are closed] Given pitch = $0.1 \\text{ cm}$ .",
+        "q": "Student A and student B used two screw gauges of equal pitch and 100 equal circular divisions to measure the radius of a given wire. The actual value of the radius of the wire is 0.322 cm. The absolute value of the difference between the final circular scale readings observed by the students A and B is ______________. [Figure shows position of reference 'O' when jaws of screw gauge are closed] Given pitch = 0.1 cm.",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "Zero error occurs when the screw gauge does not read zero when its jaws are closed.\nThis error needs to be accounted for in the final measurement.\nThe least count (LC) of a screw gauge, calculated as the pitch (p) divided by the number of divisions (N) on the circular scale, helps us determine the value of this error.\nThe least count of both screw gauges is LC =\np/N\n=\n0.1/100\n=\n $0.001 \\text{ cm}$ \n.\nFor screw gauge A, the zero error is calculated by adding the main scale reading (MSR) at zero and the circular scale reading (CSR) at zero, multiplied by the least count.\nScrew gauge A's MSR at zero is 0 and its CSR at zero is 5.\nTherefore, its zero error is ( 0 + 5\n \\\\times \n0.001 = 0.005 ) cm.\nFor screw gauge B, the zero error involves a negative main scale reading and a circular scale reading.\nThe MSR at zero is -1 (since the main scale is $0.1 \\text{ cm}$ per division, this corresponds to - $0.1 \\text{ cm}$ ) and the CSR at zero is 92.\nThus, the zero error for B is ( (-1\n \\\\times \n0.1) + 92\n \\\\times \n0.001 = -0.008 ) cm.\nTo find the difference between the final circular scale readings of screw gauges A and B, we look at the difference in their zero errors.\nThe absolute difference is ( |0.005 - (-0.008)| = |0.005 + 0.008| = 0.013 ) cm.\nThis value represents the absolute difference in the final readings of the two screw gauges, accounting for their individual zero errors.\nHowever, to express this difference in terms of the circular scale divisions (since the least count is $0.001 \\text{ cm}$ per division), we multiply this difference by 1000 (since $1 \\text{ cm}$ = $1000 \\text{ mm}$ and each division represents $0.001 \\text{ cm}$ ) :\nDifference in Divisions\ncm\nDifference in Divisions\n=\n $0.013 \\text{ cm}$ \n \\\\times \n1000\ndivisions\n=\n13\ndivisions",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/student-a-and-student-b-used-two-screw-gauges-of-equal-pitch-jee-main-physics-units-and-measurements-rdlzrmu1gm95xfot",
         "year": "2021",
         "shift": "Morning",
         "date": "25th July"
     },
     {
-        "q": "The acceleration due to gravity is found upto an accuracy of 4% on a planet.\nThe energy supplied to a simple pendulum to known mass 'm' to undertake oscillations of time period T is being estimated.\nIf time period is measured to an accuracy of 3%, the accuracy to which E is known as ..............%",
+        "q": "The acceleration due to gravity is found upto an accuracy of 4% on a planet. The energy supplied to a simple pendulum to known mass 'm' to undertake oscillations of time period T is being estimated. If time period is measured to an accuracy of 3%, the accuracy to which E is known as ..............%",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "T\n=\n2\n \\\\pi \nl\ng\n⇒\nl\n=\nT\n2\ng\n4\n \\\\pi \n2\nE\n=\nm\ng\nl\n \\\\theta \n2\n2\n=\nm\ng\n $2 \\text{ T}$ \n2\n \\\\theta \n2\n8\n \\\\pi \n2\nd\nE\nE\n=\n2\n(\nd\ng\ng+d\nT\nT\n)\n=\n(\n4+3\n)\n=\n14\n%",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/the-acceleration-due-to-gravity-is-found-upto-an-accuracy-of-jee-main-physics-units-and-measurements-reqj6krzk30kv8n4",
         "year": "2021",
         "shift": "Morning",
@@ -3053,7 +3053,7 @@
         "date": "10th January"
     },
     {
-        "q": "The density of a material in the shape of a cube is determined by measuring three sides of the cube and its\nmass.\nIf the relative errors in measuring the mass and length are respectively 1.5% and 1%, the maximum\nerror in determining the density is:",
+        "q": "The density of a material in the shape of a cube is determined by measuring three sides of the cube and its\nmass. If the relative errors in measuring the mass and length are respectively 1.5% and 1%, the maximum\nerror in determining the density is:",
         "type": "mcq",
         "options": [
             "6%",
@@ -3062,18 +3062,18 @@
             "4.5%"
         ],
         "answer": 3,
-        "explanation": "Density of a material (d) =\nM\nL\n3\n \\\\therefore \nError in density,\n \\\\Delta \nd\nd\n=\n \\\\Delta \nM\nM+3\n \\\\Delta \nL\nL\n \\\\Delta \nd\nd\n \\\\times \n100\n=\n \\\\Delta \nM\nM\n \\\\times \n100+3\n \\\\Delta \nL\nL\n \\\\times \n100\n⇒\n \\\\Delta \nd\nd\n \\\\times \n100\n=\n1.5\n%\n+\n3\n(\n1\n)\n%\n= 4.5 %",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/the-density-of-a-material-in-the-shape-of-a-cube-is-determin-2018-marks-4-jzriatnhbyjwerrd.htm",
         "year": "2018",
         "shift": "N/A",
         "date": "N/A"
     },
     {
-        "q": "The density of a solid metal sphere is determined by measuring its mass and its diameter.\nThe\nmaximum error in the density of the sphere is ( x 100 ) %.\nIf the relative errors in measuring the mass\nand the diameter are 6.0% and 1.5% respectively, the value of x is_______.",
+        "q": "The density of a solid metal sphere is determined by measuring its mass and its diameter. The\nmaximum error in the density of the sphere is ( x 100 ) %.  If the relative errors in measuring the mass\nand the diameter are 6.0% and 1.5% respectively, the value of x is_______.",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "\\\\rho \n=\nM\nV\n=\nM\n4\n3\n \\\\pi \n(\nD\n2\n)\n3\n⇒\n \\\\rho \n=\n6\n \\\\pi \nM\nD-3\nFor maximum error\nd\n \\\\rho \n \\\\rho \n \\\\times \n100\n=\nd\nM\nM\n \\\\times \n100+3\nd\nD\nD\n \\\\times \n100\n= 6 + 3\n \\\\times \n1.5\n= 10.5 %\n=\n(\n1050\n100\n)\n%\n \\\\therefore \nx = 1050",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/the-density-of-a-solid-metal-sphere-is-determined-by-measuri-jee-main-physics-units-and-measurements-w8a0hgtljeuz394a",
         "year": "2020",
         "shift": "Morning",
@@ -3096,11 +3096,11 @@
         "date": "10th January"
     },
     {
-        "q": "The diameter of a spherical bob is measured using a vernier callipers. 9 divisions of the main scale, in the vernier callipers, are equal to 10 divisions of vernier scale.\nOne main scale division is $1 \\text{ mm}$ .\nThe main scale reading is $10 \\text{ mm}$ and 8 ^{th} division of vernier scale was found to coincide exactly with one of the main scale division.\nIf the given vernier callipers has positive zero error of $0.04 \\text{ cm}$ , then the radius of the bob is ___________ \\\\times 10 ^{-2} cm.",
+        "q": "The diameter of a spherical bob is measured using a vernier callipers. 9 divisions of the main scale, in the vernier callipers, are equal to 10 divisions of vernier scale. One main scale division is 1 mm. The main scale reading is 10 mm and 8 th division of vernier scale was found to coincide exactly with one of the main scale division. If the given vernier callipers has positive zero error of 0.04 cm, then the radius of the bob is ___________  \\\\times  10 − 2 cm.",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "To understand the measurement of the spherical bob's diameter using Vernier calipers, let's break it down step by step:\nVernier Scale Calculation:\nWe are given that 9 divisions on the main scale (MSD) are equivalent to 10 divisions on the Vernier scale (VSD).\nOne main scale division is $1 \\text{ mm}$ .\nTherefore, 9 MSD = $9 \\text{ mm}$ .\nSince $9 \\text{ mm}$ = 10 VSD, one VSD equals\nmm\n9\n10\n=\n $0.9 \\text{ mm}$ \n.\nLeast Count (LC) of the Vernier Callipers:\nThe least count is the smallest measurable value and is calculated as:\nLC\nMSD\nVSD\nmm\nmm\nmm\nLC\n=\n1\nMSD-1\nVSD\n=\n $1 \\text{ mm}$ - $0.9 \\text{ mm}$ \n=\n $0.1 \\text{ mm}$ \nCalculate the Initial Reading:\nThe main scale reading (MSR) is $10 \\text{ mm}$ .\nThe 8th division of the Vernier scale coincides with the main scale division, meaning the Vernier scale reading (VSR) is 8.\nTotal reading before zero error correction = MSR + VSR \\\\times LC:\nmm\nmm\nmm\n $10 \\text{ mm}$ +8\n \\\\times \n $0.1 \\text{ mm}$ \n=\n $10.8 \\text{ mm}$ \nAdjust for the Zero Error:\nThe Vernier calipers have a positive zero error of $0.04 \\text{ cm}$ (or $0.4 \\text{ mm}$ , as $1 \\text{ cm}$ = $10 \\text{ mm}$ ).\nTo get the correct measurement, subtract the zero error:\nmm\nmm\nmm\n $10.8 \\text{ mm}$ - $0.4 \\text{ mm}$ \n=\n $10.4 \\text{ mm}$ \nCompute the Radius:\nThe diameter calculated is $10.4 \\text{ mm}$ .\nTo find the radius, divide by 2:\nradius\nmm\nmm\nradius\n=\n $10.4 \\text{ mm}$ \n2\n=\n $5.2 \\text{ mm}$ \nConvert the radius from millimeters to centimeters:\nmm\ncm\ncm\n $5.2 \\text{ mm}$ \n=\n $0.52 \\text{ cm}$ \n=\n52\n \\\\times \n10- $2 \\text{ cm}$ \nThe radius of the spherical bob is\n52\n \\\\times \n10- $2 \\text{ cm}$ .",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/the-diameter-of-a-spherical-bob-is-measured-using-a-vernier-jee-main-physics-units-and-measurements-qpdb1rftshcgnlv7",
         "year": "2021",
         "shift": "Morning",
@@ -3126,13 +3126,13 @@
         "q": "The dimension of magnetic field in M, L, T and C (coulomb) is given as",
         "type": "mcq",
         "options": [
-            "MLT ^{-1} C ^{-1}",
-            "MT ^{2} C ^{-2}",
-            "MT ^{-1} C ^{-1}",
-            "MT ^{-2} C ^{-1}"
+            "MLT -1 C -1",
+            "MT 2 C -2",
+            "MT -1 C -1",
+            "MT -2 C -1"
         ],
         "answer": 2,
-        "explanation": "We know that,\nLorentz force\n|\nF\n \\\\to \n|\n=\n|\nq\nv\n \\\\to \n \\\\times \nB\n \\\\to \n|\n \\\\therefore \n[\nB\n]\n=\n[\nF\n]\n[\nq\n]\n[\nv\n]\n=\n $[M\nL\nT^{-2}\n]$ \n[\nC\n]\n \\\\times \n $[L\nT^{-1}\n]$ \n= [\nM\nT- $1 \\text{ C}$ -1\n]",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/the-dimension-of-magnetic-field-in-m-l-t-and-c-coulomb-i-2008-marks-4-vkn4f98zxejlgquz.htm",
         "year": "2008",
         "shift": "N/A",
@@ -3171,7 +3171,7 @@
         "date": "1st February"
     },
     {
-        "q": "The following observations were taken for determining surface tension T of water by capillary method: diameter of capillary, D = 1.25 \\\\times 10 ^{-2} m rise of water, h = 1.45 \\\\times 10 ^{-2} m \nUsing g = $9.80 \\text{ m}$ /s ^{2} and the simplified relation T = r h g 2 \\\\times 10 $3 \\text{ N}$ / m , the possible error in surface tension is closest to :",
+        "q": "The following observations were taken for determining surface tension T of water by capillary method: diameter of capillary, D = 1.25  \\\\times  10 -2 m rise of water, h = 1.45  \\\\times  10 -2 m Using g = 9.80 m/s 2 and the simplified relation T = r h g 2  \\\\times  10 3 N / m ,  the possible error in surface tension is closest to :",
         "type": "mcq",
         "options": [
             "10 %",
@@ -3180,7 +3180,7 @@
             "2.4 %"
         ],
         "answer": 2,
-        "explanation": "Surface tension,\nT =\nr\nh\ng\n2\n \\\\times \n10\n $3 \\text{ N}$ /m\nRelative error,\n \\\\Delta \nT\nT\n=\n \\\\Delta \nr\nr\n+\n \\\\Delta \nh\nh\nPercentage error,\n \\\\Delta \nT\nT\n \\\\times \n100\n=\n \\\\Delta \nr\nr\n \\\\times \n100\n+\n \\\\Delta \nh\nh\n \\\\times \n100\n \\\\Delta \nT\nT\n \\\\times \n100\n=\n(\n10-2\n \\\\times \n0.01\n1.25\n \\\\times \n10-2\n+\n10-2\n \\\\times \n0.01\n1.45\n \\\\times \n10-2\n)\n \\\\times \n100\n= (0.8 + 0.689) = 1.489 % = 1.5 %",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/the-following-observations-were-taken-for-determining-surfac-2017-marks-4-wiwmkyyfbarmefoz.htm",
         "year": "2017",
         "shift": "N/A",
@@ -3273,10 +3273,10 @@
             "torque and work",
             "momentum and Planck's constant",
             "stress and Young's modulus",
-            "speed and ( \\\\mu 0 \\\\epsilon 0 ) - 1 / 2"
+            "speed and (  \\\\mu  0 ε 0 ) − 1 / 2"
         ],
         "answer": 1,
-        "explanation": "Momentum = mv = $[M\nL\nT^{-1}\n]$ \nPlanck's constant, h =\nE\nv\n=\n $[M\nL^{2}\nT^{-2}\n]$ \n $[T^{-1}\n]$ \n=\n $[M\nL^{2}\nT^{-1}\n]$ \nSo Momentum and Planck's constant do not have same dimensions.",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/the-physical-quantities-not-having-same-dimensions-are-2003-marks-4-02536silfkvdskvh.htm",
         "year": "2003",
         "shift": "N/A",
@@ -3347,11 +3347,11 @@
         "date": "1st February"
     },
     {
-        "q": "The radius of a sphere is measured to be (7.50 \\\\pm 0.85) cm.\nSuppose the percentage error in its volume is x.\nThe value of x, to the nearest x, is __________.",
+        "q": "The radius of a sphere is measured to be (7.50  \\\\pm  0.85) cm. Suppose the percentage error in its volume is x. The value of x, to the nearest x, is __________.",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "Given, radius of sphere = (7.50\n \\\\pm \n0.85) cm\n \\\\therefore \nr = 7.50 and dr = 0.85\nWe know, volume of a sphere\nv\n=\n4\n3\n \\\\pi \nr\n3\ntaking log both sides, we get\nln\n⁡\nv\n=\nln\n⁡\n4\n \\\\pi \n3+3\nln\n⁡\nr\nDifferentiating both sides,\nd\nv\nv\n=\n0+3\nd\nr\nr\n \\\\therefore \nFractional error in volume\nd\nv\nv\n=\n3\nd\nr\nr\n \\\\therefore \n% error in volume,\nd\nv\nv\n \\\\times \n100\n=\n3\nd\nr\nr\n \\\\times \n100\n=\n3\n \\\\times \n0.85\n7.50\n \\\\times \n100\n= 34%",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/the-radius-of-a-sphere-is-measured-to-be-750-pm-085-jee-main-physics-units-and-measurements-pfiond5c0pkcyb3g",
         "year": "2021",
         "shift": "Morning",
@@ -3390,18 +3390,18 @@
         "date": "16th April"
     },
     {
-        "q": "The resistance R = V I , where V = (50 \\\\pm 2)V and I = (20 \\\\pm 0.2)A.\nThe percentage error in R is 'x'%.\nThe value of 'x' to the nearest integer is _________.",
+        "q": "The resistance R = V I , where V = (50  \\\\pm  2)V and I = (20  \\\\pm  0.2)A. The percentage error in R is 'x'%. The value of 'x' to the nearest integer is _________.",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "R\n=\nV\nI\n \\\\Delta \nR\nR\n \\\\times \n100\n=\n \\\\Delta \nV\nV\n \\\\times \n100\n+\n \\\\Delta \nI\nI\n \\\\times \n100\n% error in\nR\n=\n2\n50\n \\\\times \n100+0.2\n20\n \\\\times \n100\n% error in R = 4 + 1\n \\\\therefore \n% error in R = 5%",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/the-resistance-r--v-over-i-where-v--50-pm-2-jee-main-physics-units-and-measurements-uaf3agncookny3zv",
         "year": "2021",
         "shift": "Morning",
         "date": "16th March"
     },
     {
-        "q": "The respective number of significant figures for the numbers 23.023, 0.0003 and 2.1 \\\\times 10 ^{-3} are",
+        "q": "The respective number of significant figures for the numbers 23.023, 0.0003 and 2.1  \\\\times  10 -3 are",
         "type": "mcq",
         "options": [
             "5, 1, 2",
@@ -3410,7 +3410,7 @@
             "4, 4, 2"
         ],
         "answer": 0,
-        "explanation": "23.023 has 5 significant figures.\n0.0003 has 1 significant figure.\n2.1\n \\\\times \n10\n^{-3}\nhas 2 significant figures.",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/the-respective-number-of-significant-figures-for-the-numbers-2010-marks-4-qj0wnabg6uwris74.htm",
         "year": "2010",
         "shift": "N/A",
@@ -3465,11 +3465,11 @@
         "date": "24th February"
     },
     {
-        "q": "Three students S _{1} , S _{2} and S _{3} perform an experiment for determining the acceleration due to gravity (g) using a simple pendulum.\nThey use different lengths of pendulum and record time for different number of oscillations.\nThe observations are as shown in the table.\nStudent No.\nLength of Pendulum (cm) No. of oscillations (n) Total time for n oscillations Time period (s) 1 64.0 8 128.0 16.0 2 64.0 4 64.0 16.0 3 20.0 4 36.0 9.0 (Least count of length = $0.1 \\text{ cm}$ and Least count for time = $0.1 \\text{ s}$ ) If E _{1} , E _{2} and E _{3} are the percentage errors in 'g' for students 1, 2 and 3 respectively, then the minimum percentage error is obtained by student no. ______________.",
+        "q": "Three students S 1 , S 2 and S 3 perform an experiment for determining the acceleration due to gravity (g) using a simple pendulum. They use different lengths of pendulum and record time for different number of oscillations. The observations are as shown in the table. Student No. Length of Pendulum (cm) No. of oscillations (n) Total time for n oscillations Time period (s) 1 64.0 8 128.0 16.0 2 64.0 4 64.0 16.0 3 20.0 4 36.0 9.0 (Least count of length = 0.1 cm and Least count for time = 0.1 s) If E 1 , E 2 and E 3 are the percentage errors in 'g' for students 1, 2 and 3 respectively, then the minimum percentage error is obtained by student no. ______________.",
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "T\n=\nt\nn\n=\n2\n \\\\pi \nl\ng\n⇒\ng\n=\n4\n \\\\pi \n2\nl\nT\n2\n⇒\n \\\\Delta \ng\ng\n \\\\times \n100\n=\n \\\\Delta \nl\nl\n \\\\times \n100+2\n \\\\Delta \nT\nT\n \\\\times \n100\n=\n(\n \\\\Delta \nl\nl+2\n \\\\Delta \nT\nT\n)\n100\n%\nE\n1\n=\n20\n64\n%\nE\n2\n=\n30\n64\n%\nE\n3\n=\n19\n18\n%",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/three-students-ssub1sub-ssub2sub-and-ssub3sub-jee-main-physics-units-and-measurements-hmtskaghl1kxk1yt",
         "year": "2021",
         "shift": "Morning",
@@ -3492,16 +3492,16 @@
         "date": "8th April"
     },
     {
-        "q": "Two full turns of the circular scale of a screw gauge cover a distance of $1 \\text{ mm}$ on its main scale.\nThe\ntotal number of divisions on the circular scale is 50.\nFurther, it is found that the screw gauge has a\nzero error of - $0.03 \\text{ mm}$ while measuring the diameter of a thin wire, a student notes the main scale\nreading of $3 \\text{ mm}$ and the number of circular scale divisions in line with the main scale as 35.\nThe\ndiameter of the wire is",
+        "q": "Two full turns of the circular scale of a screw gauge cover a distance of 1 mm on its main scale. The\ntotal number of divisions on the circular scale is 50. Further, it is found that the screw gauge has a\nzero error of − 0.03 mm while measuring the diameter of a thin wire, a student notes the main scale\nreading of 3 mm and the number of circular scale divisions in line with the main scale as 35. The\ndiameter of the wire is",
         "type": "mcq",
         "options": [
-            "$3.32 \\text{ mm}$",
-            "$3.73 \\text{ mm}$",
-            "$3.67 \\text{ mm}$",
-            "$3.38 \\text{ mm}$"
+            "3.32 mm",
+            "3.73 mm",
+            "3.67 mm",
+            "3.38 mm"
         ],
         "answer": 3,
-        "explanation": "Least count of screw gauge =\n0.5\n $50 \\text{ m}$ \nm\n= $0.01 \\text{ mm}$ \nMain scale reading = $3 \\text{ mm}$ \nVernier scale reading = 35\n \\\\therefore \nReading = [Main scale reading + circular scale reading\n \\\\times \nL.C] - (zero error)\n= [3 + 35\n \\\\times \n0.01] - (-0.03) = $3.38 \\text{ mm}$",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/two-full-turns-of-the-circular-scale-of-a-screw-gauge-cover-2008-marks-4-d2kspusvkhn8jqi8.htm",
         "year": "2008",
         "shift": "N/A",
@@ -3575,13 +3575,13 @@
         "q": "Which one of the following represents the correct dimensions of the coefficient of viscosity?",
         "type": "mcq",
         "options": [
-            "ML ^{-1} T ^{-1}",
-            "MLT ^{-1}",
-            "ML ^{-1} T ^{-2}",
-            "ML ^{-2} T ^{-2}"
+            "ML -1 T -1",
+            "MLT -1",
+            "ML -1 T -2",
+            "ML -2 T -2"
         ],
         "answer": 0,
-        "explanation": "From stokes law, Viscous force F =\n6\n \\\\pi \n \\\\eta \nr\nv\n⇒\n \\\\eta \n=\nF\n6\n \\\\pi \nr\nv\n \\\\therefore \n[\n \\\\eta \n]\n=\n $[M\nL\nT^{-2}\n]$ \n $[L\n]$ \n $[L\nT^{-1}\n]$ \n⇒\n[\n \\\\eta \n]\n=\n $[M\nL^{-1}\nT^{-1}\n]$",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/which-one-of-the-following-represents-the-correct-dimensions-2004-marks-4-lvccefmk67vpwsni.htm",
         "year": "2004",
         "shift": "N/A",
