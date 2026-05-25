@@ -31,7 +31,7 @@
         "explanation": "Given,\nAD = c ln (BD)\nAs log is dimensionless.\nSo, [BD] = 1\n⇒\n[B] =\n1\n[\nD\n]\nAnd [AD] = [C]\nNow checking options one by one\n(a) [B\n^{2}\nC\n^{2}\n] = [B\n^{2}\n] [A\n^{2}\nD\n^{2}\n] = [A\n^{2}\n] [B\n^{2}\nD\n^{2}\n] = [A\n^{2}\n]\n \\\\therefore \nThis is meaningful.\n(b)\n(\nA-C\nD\n)\nis not meaningful.\nAs dimension of A\n≠\ndimension of C\nHence (A-C) is not possible.\n(c)\n[\nA\nB\n]\n= [AD] = [C]\n \\\\therefore \nA\nB-C is meaningful.\n(d)\n[\nC\nB\nD\n]\n=\n[\nC\n]\n[\nB\nD\n]\n=\n[\nC\n]\n1\n= [C]\n[\nA\nD\n $2 \\text{ C}$ \n]\n=\n[\nA\nD\n]\n[\nD\n]\n[\nC\n]\n=\n[\nC\n]\n[\nD\n]\n[\nC\n]\n= [D]\nAs dimension of C and D are not same so it is not meaning ful.",
         "url": "https://questions.examside.com/past-years/jee/question/a-b-c-and-d-are-four-different-physical-quantities-having-jee-main-physics-units-and-measurements-cgaxdyei03s9guzk",
         "year": "2016",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "10th April"
     },
     {
@@ -47,8 +47,8 @@
         "explanation": "Momentum, p = m\n \\\\times \nv\n= 3.513\n \\\\times \n5.00 = $17.565 \\text{ kg}$ m/s\n≃\n $17.6 \\text{ kg}$ m/s\nHere number of significant digits in m is 4 and in v is 3, so, p must have minimum (which is 3) significant digit.\nNote :\nIn this case, since we are calculating the magnitude of momentum, which is given by the absolute value of the product of mass and velocity, we should follow the rules for significant figures as if we were multiplying the two values together.\nThe least precise value in the calculation has three significant figures (the velocity), so we should round the answer to three significant figures as well.\nTherefore, the correct answer with three significant figures is $17.6 \\text{ kg}$ m/s.",
         "url": "https://questions.examside.com/past-years/jee/question/a-body-of-mass-m-3513-kg-is-moving-along-the-x-axis-with-2008-marks-4-bg5j7nfuaxdarcvv.htm",
         "year": "2008",
-        "shift": "N/A",
-        "date": "N/A"
+        "shift": "Morning",
+        "date": "8th April"
     },
     {
         "q": "A physical quantity P is described by the relation P = a 1 / 2 b ^{2} c ^{3} d ^{-4} If the relative errors in the measurement of a, b, c and d respectively, are 2%, 1%, 3% and 5%, then the relative error in P will be :",
@@ -63,7 +63,7 @@
         "explanation": "Given,\nP = a\n1\n2\nb\n^{2}\n^{}\nc\n^{3}\nd\n^{-4}\nRelative error =\n \\\\Delta \nP\nP\n \\\\times \n100 = (\n1\n2\n \\\\times \n \\\\Delta \na\na\n+ 2\n \\\\Delta \nb\nb\n+ 3\n \\\\Delta \nc\nc\n+ 4\n \\\\Delta \nd\nd\n)\n \\\\times \n100\n=\n1\n2\n \\\\times \n2 + 2\n \\\\times \n1 + 3\n \\\\times \n3 + 4\n \\\\times \n5\n= 32%",
         "url": "https://questions.examside.com/past-years/jee/question/a-physical-quantity-p-is-described-by-the-relation-p-a-jee-main-physics-units-and-measurements-8cxbqwvqjxzo5bsd",
         "year": "2017",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "9th April"
     },
     {
@@ -79,7 +79,7 @@
         "explanation": "\\\\Delta \ny\ny\n=\n2\n \\\\Delta \nm\nm+4\n \\\\Delta \nr\nr+x\n \\\\Delta \ng\ng+3\n2\n \\\\Delta \nl\nl\n18\n=\n2\n(\n1\n)\n+\n4\n(\n0.5\n)\n+\nx\np+3\n2\n(\n4\n)\n⇒\n8 = xp\nBy checking from options.\nx\n=\n16\n3\n,\np\n=\n \\\\pm \n3\n2",
         "url": "https://questions.examside.com/past-years/jee/question/a-physical-quantity-y-is-represented-by-the-formula-y--jee-main-physics-units-and-measurements-c8zoknxexiuhfnrp",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "27th July"
     },
     {
@@ -95,7 +95,7 @@
         "explanation": "z =\na\n2\nb\n2\n3\nc\nd\n3\n⇒\nd\nz\nz\n \\\\times \n100\n=\n(\n2\nd\na\na+2\n3\nd\nb\nb+1\n2\nd\nc\nc+3\nd\n(\nd\n)\nd\n)\n \\\\times \n100\n% error in z\n=\n(\n2\n \\\\times \n2+2\n3\n \\\\times \n1.5+1\n2\n \\\\times \n4+3\n \\\\times \n2.5\n)\n%\n= ( 4 + 1 + 2 + 7.5 ) %\n= 14.5 %",
         "url": "https://questions.examside.com/past-years/jee/question/a-physical-quantity-z-depends-on-four-observables-bra-b-jee-main-physics-units-and-measurements-b7f1pjf3apymveu5",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "5th September"
     },
     {
@@ -111,7 +111,7 @@
         "explanation": "[h] = M\n^{1}\nL\n^{2}\nT\n^{-1}\n[C] = L\n^{1}\nT\n^{-1}\n[G] = M\n^{-1}\nL\n^{3}\nT\n^{-2}\n[f] =\nM\nL\n $2 \\text{ T}$ -1\n \\\\times \nL\n $5 \\text{ T}$ -5\nM-1\nL\n $3 \\text{ T}$ -2\n= M\n^{1}\nL\n^{2}\nT\n^{-2}",
         "url": "https://questions.examside.com/past-years/jee/question/a-quantity-f-is-given-by-f--sqrt-hc5-over-g--jee-main-physics-units-and-measurements-6jd7rfixp6kmryte",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "9th January"
     },
     {
@@ -127,7 +127,7 @@
         "explanation": "x =\n(\nI\nF\nv\n $2 \\text{ W}$ \nL\n4\n)\n \\\\therefore \n[x] =\n $[M\nL^{2}\n]$ \n $[M\nL\nT^{-2}\n]$ \n $[L\nT^{-1}\n]$ \n2\n $[M\nL^{2}\nT^{-2}\n]$ \n $[L\n]$ \n4\n= [ML\n^{-1}\nT\n^{-2}\n]\n= [Energy density]",
         "url": "https://questions.examside.com/past-years/jee/question/a-quantity-x-is-given-by-left-ifv2-over-wl4-jee-main-physics-units-and-measurements-4u0zjtlbaa0ar1nx",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "4th September"
     },
     {
@@ -159,7 +159,7 @@
         "explanation": "Least count of screw gauge\n=\n0.5\n50\n= 1\n \\\\times \n10\n^{-5}\nm\n= 10\n \\\\mu \nm\nZero error in positive.",
         "url": "https://questions.examside.com/past-years/jee/question/a-screw-gauge-has-50-divisions-on-its-circular-scale-the-ci-jee-main-physics-units-and-measurements-d8qjn0wbodc1bhkq",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "6th September"
     },
     {
@@ -207,7 +207,7 @@
         "explanation": "y\n=\nM\ng\nL\n3\n4\nb\nd\n3\nδ\n \\\\Delta \ny\ny\n=\n \\\\Delta \nM\nM+3\n \\\\Delta \nL\nL\n+\n \\\\Delta \nb\nb+3\n \\\\Delta \nd\nd\n+\n \\\\Delta \nδ\nδ\n \\\\Delta \ny\ny\n=\n10-3\n2+3\n \\\\times \n10-3\n1+10-2\n4+3\n \\\\times \n10-2\n4+10-2\n5\n=\n10-3\n[\n0.5+3\n+\n2.5+7.5+2\n]\n=\n0.0155\nOption (b)",
         "url": "https://questions.examside.com/past-years/jee/question/a-student-determined-youngs-modulus-of-elasticity-using-the-jee-main-physics-units-and-measurements-4d3nidtrv5yookjg",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "1st September"
     },
     {
@@ -255,7 +255,7 @@
         "explanation": "Given, d\n_{av}\n= $5.5375 \\text{ mm}$ \n \\\\Delta \nd = $0.07395 \\text{ mm}$ \nSignificant rule says that reading should has same significant figure as that of reading given.\n∵\nMeasured data are up to two digits after\ndecimal.\n \\\\therefore \n5.5375 rounded to\n \\\\to \n5.54",
         "url": "https://questions.examside.com/past-years/jee/question/a-student-measuring-the-diameter-of-a-pencil-of-circular-cro-jee-main-physics-units-and-measurements-2xwobsaqzqow7dmz",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "6th September"
     },
     {
@@ -271,7 +271,7 @@
         "explanation": "Solar constant =\nE\nA\nT\n=\n $[M^{1}\nL^{2}\nT^{-2}\n]$ \n $[L^{2}\nT\n]$ \n= [ ML\n^{0}\nT\n^{-3}\n]",
         "url": "https://questions.examside.com/past-years/jee/question/amount-of-solar-energy-received-on-the-earths-surface-per-u-jee-main-physics-units-and-measurements-xs6eazjfdbar684q",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "3rd September"
     },
     {
@@ -319,7 +319,7 @@
         "explanation": "\\\\therefore \nd\n \\\\theta \nd\nt\n=\nk\nA\nd\nT\nd\nx\n⇒\nk =\n(\nd\n \\\\theta \nd\nt\n)\nA\n(\nd\nT\nd\nx\n)\n⇒\n[k] =\n $[M\nL^{2}\nT^{-3}\n]$ \n $[L^{2}\n]$ \n[\nK\nL-1\n]\n= [MLT\n^{-3}\nK\n^{-1}\n]",
         "url": "https://questions.examside.com/past-years/jee/question/dimensional-formula-for-thermal-conductivity-is-here-k-deno-jee-main-physics-units-and-measurements-dzotqvpghgbire09",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "4th September"
     },
     {
@@ -351,7 +351,7 @@
         "explanation": "Let t\n∝\nG\n^{x}\nh\n^{y}\nc\n^{z}\n \\\\therefore \n[t] = [G]\n^{x}\n[h]\n^{y}\n[c]\n^{z}\n. . . . . (1)\nWe know,\nF =\nG\nM\n2\nR\n2\n⇒\nG =\nF\nR\n2\nM\n2\n \\\\therefore \n[G] =\n $[M\nL\nT^{-2}\n]$ \n $[L^{2}\n]$ \n $[M^{2}\n]$ \n[G] =\n $[M^{-1}\nL^{3}\nT^{-2}\n]$ \nAlso,\nE = hf\n \\\\therefore \n[h] =\n[\nE\n]\n[\nF\n]\n=\n $[M\nL^{2}\nT^{-2}\n]$ \n $[T^{-1}\n]$ \n=\n $[M\nL^{2}\nT^{-1}\n]$ \n[C] =\n[\nM\no\nL\nT-1\n]\nFrom equation (1) we get,\n[\nM\no\nL\no\nT\n1\n]\n=\n $[M^{-1}\nL^{3}\nT^{-2}\n]$ \nx\n $[M\nL^{2}\nT^{-1}\n]$ \ny\n[\nM\no\nL\nT-1\n]\nz\n[\nM\no\nL\no\nT\n1\n]\n=\n[\nM-x\n+\ny\nL\n3\nx+2\ny\nz\nT-2\nx-y\n-\nz\n]\nBy comparing the power of M, L, T-x + y = 0\n⇒\nx = y\n3x + 2y + z = 0\n⇒\n5x + z = 0 . . . . . (2)\n-\n2x-y\n-\nz = 1\n⇒\n-\n3x-z = 1 . . . . (3)\nBy solving (2) and (3), we get,\nx =\n1\n2\n= y and z =\n-\n5\n2\n \\\\therefore \nt\n∝\nG\nh\nC\n5",
         "url": "https://questions.examside.com/past-years/jee/question/expression-for-time-in-terms-of-guniversal-gravitional-cons-jee-main-physics-units-and-measurements-o3c8x8eyaqihlzxl",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "9th January"
     },
     {
@@ -367,7 +367,7 @@
         "explanation": "A\n_{1}\n+ B\n_{1}\n+ C\n_{1}\n= 24.36 + 0.0724 + 256.2\n= 280.6324\n= 280.6 (After rounding off)\nA\n_{2}\n+ B\n_{2}\n+ C\n_{2}\n= 24.44 + 16.082 + 240.2\n= 280.722\n= 280.7 (After rounding off)\nA\n_{3}\n+ B\n_{3}\n+ C\n_{3}\n= 25.2 + 19.2812 + 236.183\n= 280.6642\n= 280.7 (After rounding off)\nA\n_{4}\n+ B\n_{4}\n+ C\n_{4}\n= 25 + 236.191 + 19.5\n= 280.691\n= 281 (After rounding off)",
         "url": "https://questions.examside.com/past-years/jee/question/for-the-four-sets-of-three-measured-physical-quantities-as-g-jee-main-physics-units-and-measurements-6gops77jqx8kzmy3",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "9th January"
     },
     {
@@ -383,7 +383,7 @@
         "explanation": "Let's look at the units (dimensions) of the given quantities:\nCharge\nQ\nhas units of ampere \\\\times time\n(\nA\n⋅\nT\n)\nCurrent\nI\nhas units of ampere\n(\nA\n)\nPermeability of vacuum\n \\\\mu \n0\nhas units of mass \\\\times length \\\\times time-2\n \\\\times ampere-2\n(\nM\nL\nT- $2 \\text{ A}$ -2\n)\nMomentum has units of mass \\\\times length \\\\times time-1\n(\nM\nL\nT-1\n)\nWe want to combine\nQ\n,\n \\\\mu \n0\n, and\nI\nso that the result has the same units as momentum\n(\nM\nL\nT-1\n)\n.\nSuppose the answer is\nQ\nx\n \\\\mu \n0\ny\nI\nz\n.\nLet's write out the units for this:\nQ\nx\n \\\\mu \n0\ny\nI\nz\n=\n(\nA\nT\n)\nx\n(\nM\nL\nT- $2 \\text{ A}$ -2\n)\ny\n(\nA\n)\nz\nCombine the powers of each unit:\nMass (M): exponent =\ny\nLength (L): exponent =\ny\nTime (T): exponent =\nx-2\ny\nAmpere (A): exponent =\nx-2\ny+z\nWe want these to match the units of momentum,\nM\n1\nL\n $1 \\text{ T}$ -1\n:\nSo we set up:\ny\n=\n1\n(so mass and length exponents match momentum)\nx-2\ny\n=\n-\n1\n(time exponent)\nx-2\ny+z\n=\n0\n(ampere exponent cancels out)\nSolve these equations:\nFirst,\ny\n=\n1\n.\nSecond,\nx-2\n(\n1\n)\n=\n-\n1\n⟹\nx\n=\n1\n.\nThird,\nx-2\n(\n1\n)\n+\nz\n=\n0\n⟹\n1-2\n+\nz\n=\n0\n⟹\nz\n=\n1\n.\nThe required combination is\nx\n=\n1\n,\ny\n=\n1\n,\nz\n=\n1\n:\nSo, the quantity with the dimension of momentum is\nQ\n \\\\mu \n0\nI\n.",
         "url": "https://questions.examside.com/past-years/jee/question/given-a-charge-q--current-i-and-permeability-of-vacuum-mu-jee-main-physics-units-and-measurements-flhvox36ruvrv2i6",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "2nd April"
     },
     {
@@ -415,7 +415,7 @@
         "explanation": "\\\\lambda \n=\nC\nV\n=\nQ/V\nV\n=\nQ\nV\n $2 \\text{ V}$ \n=\nw\no\nr\nk\nQ\n \\\\lambda \n=\nQ\n3\n(\nw\no\nr\nk\n)\n2\n=\n(\nI\nt\n)\n3\n(\nF\n.\ns\n)\n2\n=\n $[I^{3}\nT^{3}\n]$ \n $[M\nL^{2}\nT^{-2}\n]$ \n2\n=\n $[M^{-2}\nL^{-4}\nI^{3}\nT^{7}\n]$",
         "url": "https://questions.examside.com/past-years/jee/question/if-c-and-v-represent-capacity-and-voltage-respectively-t-jee-main-physics-units-and-measurements-4kjszzwmi3w6ngoo",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "26th February"
     },
     {
@@ -447,7 +447,7 @@
         "explanation": "Given\ne = electronic charge\nc = speed of light in free space\nh = Planck's constant\nWe know, E =\nh\nc\n \\\\lambda \nand\nF\n=\n1\n4\n \\\\pi \n \\\\epsilon \n0\nq\n2\nd\n2\n⇒\nq\n2\n4\n \\\\pi \n \\\\epsilon \n0\n=\nF\nd\n2\n1\n4\n \\\\pi \n \\\\epsilon \n0\ne\n2\nh\nc\n=\nF\nd\n2\nE\n \\\\lambda \n=\nF\nd\n.\nd\nE\n \\\\lambda \n=\nd\n \\\\lambda \n=\ndimensionless\n=\n $[M^{0}\nL^{0}\nT^{0}\n]$",
         "url": "https://questions.examside.com/past-years/jee/question/if-e-is-the-electronic-charge-c-is-the-speed-of-light-in-fr-jee-main-physics-units-and-measurements-abxajwfd5kahnddw",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "25th February"
     },
     {
@@ -479,7 +479,7 @@
         "explanation": "Density = [F\n^{a}\nL\n^{b}\nT\n^{c}\n]\n[ML\n^{-3}\n] = [M\n^{a}\nL\n^{a+b}\nT\n^{-2a}\nL\n^{b}\nT\n^{c}\n]\n[M\n^{1}\nL\n^{-3}\n] = [M\n^{a}\nL\n^{a+b}\nT\n^{-2a+c}\n]\na\n=\n1\n;\na+b\n=\n-\n3\n;\n-\n2\na+c\n=\n0\n1+b\n=\n-\n3\nc\n=\n2\na\nb\n=\n-\n4\nc\n=\n2\nSo, density = [F\n^{1}\nL\n^{-4}\nT\n^{2}\n]",
         "url": "https://questions.examside.com/past-years/jee/question/if-force-f-length-l-and-time-t-are-taken-as-the-funda-jee-main-physics-units-and-measurements-md6a4yr2mfttslk5",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "27th August"
     },
     {
@@ -495,7 +495,7 @@
         "explanation": "Let\n[E] =\nK[P]\n^{x}\n $[A]$ \n^{y}\n $[T]$ \n^{z}\n[ML\n^{2}\nT\n^{-2}\n] = [MLT\n^{-1}\n]\n^{x}\n[L\n^{2}\n]\n^{y}\n $[T]$ \n^{z}\n[ML\n^{2}\nT\n^{-2}\n] = [M\n^{x}\n][L\n^{x+2y}\n][T\n^{-x+z}\n]\nComparing both side we get,\nx = 1\nx + 2y = 2\n⇒\n1 + 2y= 2 or y =\n1\n2\nz - x = -2\n⇒\nz-1 = -2 or z = -1\n \\\\therefore \n[E] =\n[\nP\nA\n1\n $2 \\text{ T}$ -1\n]",
         "url": "https://questions.examside.com/past-years/jee/question/if-momentum-p-area-a-and-time-t-are-taken-to-be-the-f-jee-main-physics-units-and-measurements-mkxbffrgkrmw99ko",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "2nd September"
     },
     {
@@ -511,7 +511,7 @@
         "explanation": "The expression\n1\n \\\\mu \n0\n \\\\epsilon \n0\nis related to the speed of light\nc\n, given by the equation:\nc\n=\n1\n \\\\mu \n0\n \\\\epsilon \n0\nTherefore, we have:\n1\n \\\\mu \n0\n \\\\epsilon \n0\n=\nc\n2\nThe speed of light\nc\nhas the dimensions of\nL T\nL T-1\n, where\nL\nL\nis the dimension of length and\nT\nT\nis the dimension of time.\nThus, when squared, the dimensions become:\nL T\nL\nT\nc\n2\n=\n(\nL T-1\n)\n2\n=\nL\n $2 \\text{ T}$ -2\nHence, the dimensions of\n1\n \\\\mu \n0\n \\\\epsilon \n0\nare\nL\nT\nL\n $2 \\text{ T}$ -2\n.",
         "url": "https://questions.examside.com/past-years/jee/question/if-mu0-and-epsilon0-are-the-permeability-and-permitt-jee-main-physics-units-and-measurements-iskngtbdz5tf87fp",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "2nd April"
     },
     {
@@ -527,7 +527,7 @@
         "explanation": "We know,\nYoung's modulus (Y) =\nF\nA\n \\\\Delta \nl\nl\n \\\\therefore \n[Y] =\n $[M\nL\nT^{-2}\n]$ \n $[L^{2}\n]$ \n= [ ML\n^{-1}\nT\n^{-2}\n]\nLet [Y] = [V]\n^{x}\n $[A]$ \n^{y}\n[F]\n^{z}\n \\\\therefore \n[ ML\n^{-1}\nT\n^{-2}\n] =\n[LT\n^{-1}\n]\n^{x}\n[LT\n^{-2}\n]\n^{y}\n[MLT\n^{-2}\n]\n^{z}\n⇒\n[ ML\n^{-1}\nT\n^{-2}\n] =\n[ M\n^{z}\nL\n^{x + y + z}\nT\n^{-x -2y - 2z}\nFor dimensional balance, the dimension on both sides should be same.\nSo, z = 1\nx + y + z = -1\n⇒\nx + y = -2 ........(1)\nand -x -2y - 2z = -2\n⇒\nx + 2y = 0 ...........(2)\nBy solving those two equations we get,\nx = -4 and y = 2\n \\\\therefore \n[Y] = V\n^{-4}\nA\n^{2}\nF\n^{1}",
         "url": "https://questions.examside.com/past-years/jee/question/if-speed-v-acceleration-a-and-force-f-are-considered-jee-main-physics-units-and-measurements-uqyhwet7tetfm9up",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "11th January"
     },
     {
@@ -543,7 +543,7 @@
         "explanation": "Y = k [F]\n^{x}\n $[A]$ \n^{y}\n[V]\n^{z}\n[M\n^{1}\nL\n^{1}\nT\n^{-2}\n] = [MLT\n^{-2}\n]\n^{x}\n[L\n^{2}\n]\n^{y}\n[LT\n^{-1}\n]\n^{z}\n[M\n^{1}\nL\n^{1}\nT\n^{-2}\n] = $[M]$ \n^{x}\n $[L]$ \n^{x+2y+z}\n $[T]$ \n^{-2x-z}\nComparing power of M, L and T\nx = 1 ……(1)\nx + 2y + z = -1 ……(2)\n-2x - z = -2 ……(3)\nAfter solving\nx = 1\ny = -1\nz = 0\n \\\\therefore \nY = FA\n^{-1}\nV\n^{0}",
         "url": "https://questions.examside.com/past-years/jee/question/if-speed-v-area-a-and-force-f-are-chosen-as-fundamental-un-jee-main-physics-units-and-measurements-gp9hkrhqhnqooxse",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "2nd September"
     },
     {
@@ -559,7 +559,7 @@
         "explanation": "We know,\nsurface tension (S) =\nF\nL\n=\n $[M\nL\nT^{-2}\n]$ \n $[L\n]$ \n \\\\therefore \n[S] =\n $[M\nT^{-2}\n]$ \nMoment of inertia (I) = mr\n^{2}\n \\\\therefore \n $[I]$ =\n $[M\nL^{2}\n]$ \nPlanck's constant (h) =\nE\nf\n= Et\n \\\\therefore \n[h] =\n $[M\nL^{2}\nT^{-1}\n]$ \nAlso linear momentum (p) = mv =\n $[M\nL\nT^{-1}\n]$ \nNow we have to express p in terms of s, I and h.\n \\\\therefore \nLet, [P] = [S\n^{a}\nI\n^{b}\nh\n^{c}\n]\n⇒\n $[M\nL\nT^{-1}\n]$ \n=\n $[M\nT^{-2}\n]$ \n^{a}\n $[M\nL^{2}\n]$ \n^{b}\n $[M\nL^{2}\nT^{-1}\n]$ \n^{c}\n⇒\n $[M\nL\nT^{-1}\n]$ \n= [ M\n^{a + b + c}\nL\n^{2b +2c}\nT\n^{- 2a - c}\n]\nBy comparing the dimensions of both sides, we get\na + b + c = 1 .........(1)\n2b +2c = 1 ..............(2)\n- 2a - c = -1 ...................(3)\nBy solving those three equations we get,\na =\n1\n2\nb =\n1\n2\nc = 0\n \\\\therefore \nlinear momentum [p] = [S\n^{1/2}\nI\n^{1/2}\nh\n^{0}\n]",
         "url": "https://questions.examside.com/past-years/jee/question/if-surface-tension-s-moment-of-inertia-i-and-plancks-c-jee-main-physics-units-and-measurements-ypqjroixwfqna4cf",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "8th April"
     },
     {
@@ -575,7 +575,7 @@
         "explanation": "T\n=\n2\n \\\\pi \nl\ng\n \\\\Delta \nT\nT\n=\n1\n2\n \\\\Delta \nl\nl\n \\\\Delta \nT\n=\n1\n2\n \\\\times \n0.1\n100\n \\\\times \n24\n \\\\times \n3600\n \\\\Delta \nT\n=\n43.2",
         "url": "https://questions.examside.com/past-years/jee/question/if-the-length-of-the-pendulum-in-pendulum-clock-increases-by-jee-main-physics-units-and-measurements-9stcgoazx0gmrfhc",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "26th August"
     },
     {
@@ -591,7 +591,7 @@
         "explanation": "Pitch =\n3\n $6 \\text{ mm}$ = $0.5 \\text{ mm}$ \nLeast count =\n0.5\n $50 \\text{ mm}$ \n=\n1\n100\n= $0.01 \\text{ mm}$ = $0.001 \\text{ cm}$",
         "url": "https://questions.examside.com/past-years/jee/question/if-the-screw-on-a-screw-gauge-is-given-six-rotations-it-mov-jee-main-physics-units-and-measurements-iveud90yfhdw2sli",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "9th January"
     },
     {
@@ -607,7 +607,7 @@
         "explanation": "m\n∝\nt\na\nv\nb\nl\nc\nm\n∝\n $[T\n]$ \na\n $[L\nT^{-1}\n]$ \nb\n $[M\nL^{2}\nT^{-1}\n]$ \nc\nM\n1\nL\n $0 \\text{ T}$ \n0\n=\nM\nc\nL\nb+2\nc\nT\na-b\n-\nc\ncomparing powers\nc = 1, b =\n-\n2, a =\n-\n $1 \\text{ m}$ \n∝\nt-1\nv-2\nl\n1",
         "url": "https://questions.examside.com/past-years/jee/question/if-time-t-velocity-v-and-angular-momentum-l-are-take-jee-main-physics-units-and-measurements-ze9mpz0qdr6utnsb",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "20th July"
     },
     {
@@ -623,7 +623,7 @@
         "explanation": "$[M]$ = K[F]\n^{a}\n $[T]$ \n^{b}\n[V]\n^{c}\n[M\n^{1}\n] = [M\n^{1}\nL\n^{1}\nT\n^{-2}\n]\n^{a}\n[T\n^{1}\n]\n^{b}\n[L\n^{1}\nT\n^{-1}\n]\n^{c}\na = 1, b = 1, c =\n-\n1\n \\\\therefore \n $[M]$ = [FTV\n^{-1}\n]",
         "url": "https://questions.examside.com/past-years/jee/question/if-velocity-v-time-t-and-force-f-are-chosen-as-the-ba-jee-main-physics-units-and-measurements-b662el5vmg75jkft",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "31st August"
     },
     {
@@ -639,7 +639,7 @@
         "explanation": "5 complete rotations = 0.25 cms\nSo, 1 complete rotation of screw = $0.05 \\text{ cm}$ \n$$\\therefore\\,\\,\\,\\,$$1 main scale division = 0.05 cm\n1 circular scale =$${{0.05} \\over {100}}$$= 5$$\\times$$10\n^{$$-$$4}\ncm\nThickness of a wire\n= 4 main scale and 30 circular scale divisions\n= 4$$\\times$$0.05 + 30$$\\times$$5$$\\times$$10\n^{$$-$$4}\n= 0.2150 cm$",
         "url": "https://questions.examside.com/past-years/jee/question/in-a-screw-gauge-5-complete-rotations-of-the-screw-caus-jee-main-physics-units-and-measurements-tecofi6vajtrfswg",
         "year": "2018",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "15th April"
     },
     {
@@ -671,7 +671,7 @@
         "explanation": "Time period of a pendulum (T) =\n2\n \\\\pi \nl\ng\n⇒\nT\n^{2}\n=\n4\n \\\\pi \n2\nl\ng\n⇒\ng\n=\n4\n \\\\pi \n2\nl\nT\n2\nFractional change\n(\nd\ng\ng\n)\n \\\\times \n100\n=\n(\nd\nl\nl\n)\n \\\\times \n100\n-\n(\n2\nd\nT\nT\n)\n \\\\times \n100\n \\\\therefore \nMaximum possible percentage error,\n(\nd\ng\ng\n)\n \\\\times \n100\n=\n(\nd\nl\nl\n)\n \\\\times \n100\n+\n(\n2\nd\nT\nT\n)\n \\\\times \n100\nError in time period(d T) = least count of time = 1 second\nand T = 30 second\nError in length(dl) = least count of length = $1 \\text{ mm}$ \nand\nl\n= $55.0 \\text{ cm}$ \n \\\\therefore \n(\nd\ng\ng\n)\n \\\\times \n100\n=\n(\n0.1\n55\n)\n \\\\times \n100+2\n(\n1\n30\n)\n \\\\times \n100\n= 6.8%",
         "url": "https://questions.examside.com/past-years/jee/question/in-a-simple-pendulum-experiment-for-determination-of-acceler-jee-main-physics-units-and-measurements-jzhzrx9lxs3grywe",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "8th April"
     },
     {
@@ -719,7 +719,7 @@
         "explanation": "\\\\Delta \nY\nY\n=\n(\n \\\\Delta \nm\nm\n)\n+\n(\n \\\\Delta \ng\ng\n)\n+\n(\n \\\\Delta \nA\nA\n)\n+\n(\n \\\\Delta \nl\nl\n)\n+\n(\n \\\\Delta \nL\nL\n)\n=\n(\n1\ng\n1\nk\ng\n)\n+\n0+2\n(\n \\\\Delta \nr\nr\n)\n+\n(\n \\\\Delta \nl\nl\n)\n+\n(\n \\\\Delta \nL\nL\n)\n=\n(\n1\ng\n1\nk\ng\n)\n+\n2\n(\n0.001\nc\nm\n0.2\nc\nm\n)\n+\n(\n0.001\nc\nm\n0.5\nc\nm\n)\n+\n(\n $0.001 \\text{ m}$ \n $1 \\text{ m}$ \n)\n=\n(\n1\n1000\n)\n+\n2\n(\n1\n \\\\times \n10\n2\n \\\\times \n10\n3\n)\n+\n(\n1\n5\n \\\\times \n10\n2\n10\n3\n)\n+\n(\n1\n10\n3\n)\n=\n1\n1000+1\n100+2\n10\n3+1\n10\n3\n=\n1+10+2\n+\n1\n1000\n=\n14\n1000\n \\\\times \n100\n%\n=\n1.4\n%",
         "url": "https://questions.examside.com/past-years/jee/question/in-order-to-determine-the-youngs-modulus-of-a-wire-of-radiu-jee-main-physics-units-and-measurements-jaaz02rkzl63bll8",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "16th March"
     },
     {
@@ -735,7 +735,7 @@
         "explanation": "∈\n0\n \\\\mu \n0\n=\n∈\n0\n \\\\mu \n0\n∈\n0\n= c\n \\\\times \n∈\n0\n \\\\therefore \n[\n∈\n0\n \\\\mu \n0\n]\n=\n $[L\nT^{-1}\n]$ \n \\\\times \n[\n∈\n0\n]\nWe know, F =\n1\n4\n \\\\pi \n∈\n0\nq\n2\nr\n2\n \\\\therefore \n∈\n0\n=\nq\n2\n4\n \\\\pi \nr\n2\nF\n⇒\n[\n∈\n0\n]\n=\n $[A\nT\n]$ \n2\n $[M\nL\nT^{-2}\n]$ \n \\\\times \n $[L^{2}\n]$ \n=\n $[A^{2}\nM^{-1}\nL^{-3}\nT^{4}\n]$ \n \\\\therefore \n[\n∈\n0\n \\\\mu \n0\n]\n=\n $[L\nT^{-1}\n]$ \n \\\\times \n $[A^{2}\nM^{-1}\nL^{-3}\nT^{4}\n]$ \n= [A\n^{2}\nT\n^{3}\nM\n^{-1}\nL\n^{-2}\n]",
         "url": "https://questions.examside.com/past-years/jee/question/in-si-units-the-dimesions-of-sqrt-in-0-over-jee-main-physics-units-and-measurements-pnhwgiww0bxt3nd4",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "8th April"
     },
     {
@@ -751,7 +751,7 @@
         "explanation": "Mass (m) = (10.00 \\\\pm 0.10) kg\nEdge length (\nl\n) = (0.10 \\\\pm 0.01) m\nVolume of the cube (V) =\nl\n3\nDensity,\n \\\\rho \n=\nm\nV\nd\n \\\\rho \n \\\\rho \n=\nd\nm\nm+d\nV\nV\n⇒\nd\n \\\\rho \n \\\\rho \n=\nd\nm\nm+3\nd\nl\nl\n⇒\nd\n \\\\rho \n \\\\rho \n=\n0.10\n10.00+3\n0.01\n0.10\n= 0.31",
         "url": "https://questions.examside.com/past-years/jee/question/in-the-density-measurement-of-a-cube-the-mass-and-edge-leng-jee-main-physics-units-and-measurements-o2go4sgas7vvwxkc",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "9th April"
     },
     {
@@ -767,7 +767,7 @@
         "explanation": "We know. resistivity (\n \\\\rho \n) =\nR\nA\nL\nand conductivity =\n1\n \\\\rho \n=\n1\nR\nA\nAs R =\nV\nI\n \\\\therefore \nconductivity =\nL\nI\nV\nA\nAlso V =\n \\\\omega \nq\n=\n \\\\omega \ni\nt\n=\n $[M\nL^{2}\nT^{-2}\n]$ \n $[I\n]$ \n $[T\n]$ \n=\n $[M\nL^{2}\nT^{-3}\nI^{-1}\n]$ \n \\\\therefore \nConductivity =\n $[L\n]$ \n $[I\n]$ \n $[M\nL^{2}\nT^{-3}\nI^{-1}\n]$ \n $[L^{2}\n]$ \n=\n $[M^{-1}\nL^{-3}\nT^{3}\nI^{2}\n]$",
         "url": "https://questions.examside.com/past-years/jee/question/in-the-following-i-refers-to-current-and-other-symbols-jee-main-physics-units-and-measurements-ii4xjq2asar9dwmp",
         "year": "2016",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "9th April"
     },
     {
@@ -783,7 +783,7 @@
         "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/in-the-formula-x--5yzsup2sup--x-and-z-have-dimensions-jee-main-physics-units-and-measurements-250sw1jtsuvccopz",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "10th April"
     },
     {
@@ -799,7 +799,7 @@
         "explanation": "We know,\nR\n=\n \\\\rho \nl\nA\nand Volume (V) = A\nl\n⇒\nA\n=\nV\nl\n \\\\therefore \nR\n=\n \\\\rho \nl\n2\nv\n \\\\therefore \n \\\\Delta \nR\nR\n=\n2\n \\\\Delta \nl\nl\n=\n2\n \\\\times \n0.5\n=\n1%",
         "url": "https://questions.examside.com/past-years/jee/question/length-of-a-conducting-wire-is-increased-by-05-keeping-its-jee-main-physics-units-and-measurements-iupugwg3mvfoeesd",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "9th January"
     },
     {
@@ -815,7 +815,7 @@
         "explanation": "[\n l \nr\n]\n=\nT\n[CV]\n=\nAT\nSo,\n[\n l \nr\nC\nV\n]\n=\nT\nA\nT\n= [A\n^{-1}\n]",
         "url": "https://questions.examside.com/past-years/jee/question/let-ell-r-c-and-upsilon-represent-inductance-jee-main-physics-units-and-measurements-k3vpvfi3tngdqukg",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "12th January"
     },
     {
@@ -847,7 +847,7 @@
         "explanation": "Significant figures in a number represent the digits that carry meaning contributing to its precision.\nThis includes all digits except:\nAll leading zeros.\nTrailing zeros only when they are merely placeholders to indicate the scale of the number (they must not be significant if there is no decimal point).\nHere is the explanation for the significant figures of each number in List I:\n(A) 1001\n- All the digits in this number are significant because there are no leading or trailing zeros acting as placeholders.\nHence, this number has\n4 significant figures\n.\n(B) 010.1\n- The leading zero is not significant, but the zero between 1 and the decimal point, the 1 itself, and the 1 after the decimal point are all significant.\nSo, this number has\n3 significant figures\n.\n(C) 100.100\n- Here, the number has zeros which are significant since they are between significant digits or after the decimal point.\nThis makes all the zeros and the $1 \\text{ s}$ significant.\nTherefore, the number has\n6 significant figures\n.\n(D) 0.0010010\n- The leading zeros are not significant, but the three zeros within and at the end of the number are significant because they are between significant digits or at the end of the number after the decimal.\nTherefore, this number has\n5 significant figures\n.\nGiven List I and List II, the correct matching based on the explanation of significant figures is as follows:\nOption A\n(A) -\nII\n(1001 has 4 significant figures)\n(B) -\nI\n(010.1 has 3 significant figures)\n(C) -\nIV\n(100.100 has 6 significant figures)\n(D) -\nIII\n(0.0010010 has 5 significant figures)\nThus, the correct answer is Option A.",
         "url": "https://questions.examside.com/past-years/jee/question/match-blist-ib-with-blist-iib-brbrstyl-jee-main-physics-xcyfzewnnvwjgpoo",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "1st February"
     },
     {
@@ -863,7 +863,7 @@
         "explanation": "L\n \\\\to \n=\nr\n \\\\to \n \\\\times \np\n \\\\to \n⇒\n $[L\n]$ \n=\n $[M^{0}\nL^{1}\nT^{0}\n]$ \n $[M^{1}\nL^{1}\nT^{-1}\n]$ \n=\n $[M^{1}\nL^{2}\nT^{-1}\n]$ \n \\\\tau \n \\\\to \n=\nr\n \\\\to \n \\\\times \nF\n \\\\to \n⇒\n[\n \\\\tau \n]\n=\n $[L^{1}\n]$ \n $[MLT^{-2}\n]$ \n=\n $[ML^{2}\nT^{-2}\n]$ \nStress\n≡\nPressure\n=\nF\nA\n⇒\n[\nStress\n]\n=\n $[ML^{-1}\nT^{-2}\n]$ \nPressure Gradient\n=\nd\nP\nd\nx\n⇒\n[\nPressure Gradient\n]\n=\n $[ML^{-2}\nT^{-2}\n]$",
         "url": "https://questions.examside.com/past-years/jee/question/match-list-bib-with-list-biibbrbr-style-typ-jee-main-physics-goq6pnuooce0an9s",
         "year": "2023",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "31st January"
     },
     {
@@ -895,7 +895,7 @@
         "explanation": "(a) Magnetic Induction = MT\n^{-2}\nA\n^{-1}\n(b) Magnetic Flux = ML\n^{2}\nT\n^{-2}\nA\n^{-1}\n(c) Magnetic Permeability = MLT\n^{-2}\nA\n^{-2}\n(d) Magnetization = M\n^{0}\nL\n^{-1}\nA",
         "url": "https://questions.examside.com/past-years/jee/question/match-list-i-with-list-iibrbrimagebrbrchoose-jee-main-physics-units-and-measurements-jxv6x3kvoz4q1itv",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "26th August"
     },
     {
@@ -927,7 +927,7 @@
         "explanation": "SI unit of Rydberg const. = m\n^{-1}\nSI unit of Plank's const. = kg m\n^{2}\ns\n^{-1}\nSI unit of Magnetic field energy density = kg m\n^{-1}\ns\n^{-2}\nSI unit of coeff. of viscosity = kg m\n^{-1}\ns\n^{-1}",
         "url": "https://questions.examside.com/past-years/jee/question/match-list-i-with-list-iibrbrtable-thead-t-jee-main-physics-units-and-measurements-rioo3ppumtvmru1v",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "27th August"
     },
     {
@@ -975,7 +975,7 @@
         "explanation": "The speed of light (c) is\ndistance\ntime\ndistance\ntime\n.\nSo, the dimensions of speed of light is\n[\nc\n]\n=\n $[L\nT^{-1}\n]$ \nFrom\nE\n=\nh\nν\n, where E is energy\n $[ML^{2}\nT^{-2}\n]$ \nand\nν\nis frequency\n $[T^{-1}\n]$ \n.\nSo, the dimensions of Planck's constant is,\n[\nh\n]\n=\n[\nE\n]\n[\nv\n]\n=\n $[ML^{2}\nT^{-2}\n]$ \n $[T^{-1}\n]$ \n=\n $[ML^{2}\nT^{-1}\n]$ \nFrom Newton's law of gravitation,\nF\n=\nGm\n $1 \\text{ m}$ \n2\nr\n2\n, where F is gravitational force\n[\nF\n]\n=\n $[MLT^{-2}\n]$ \n,\nG\nis the universal gravitational constant, m is the mass\n[\nm\n]\n=\n $[M^{1}\nL^{0}\nT^{0}\n]$ \nand r is the distance\n[\nr\n]\n=\n $[M^{0}\nLT^{0}\n]$ \nSo, the dimensions of G is,\n[\nG\n]\n=\n[\nF\n]\n[\nr\n2\n]\n[\nm\n2\n]\n=\n $[MLT^{-2}\n]$ \n $[L^{2}\n]$ \n $[M^{2}\n]$ \n=\n $[M^{-1}\nL^{3}\nT^{-2}\n]$ \nLet a physical quantity Q be proportional to\nh\nx\nG\ny\nc\nz\n.\nUsing principle of dimensional homogeneity\n[\nQ\n]\n=\n[\nh\n]\nx\n[\nG\n]\ny\n[\nc\n]\nz\n⇒\n[\nQ\n]\n=\n $[M\nL^{2}\nT^{-1}\n]$ \nx\n $[M^{-1}\nL^{3}\nT^{-2}\n]$ \ny\n $[L\nT^{-1}\n]$ \nz\n⇒\n[\nQ\n]\n=\nM\nx-y\nL\n2\nx+3\ny+z\nT-x\n-\n2\ny-z\nFor Kilogram (mass), dimensions are\n $[M^{1}\nL^{0}\nT^{0}\n]$ \n.\nOn comparing the powers of dimensions,\n(i)\nx-y\n=\n1\n⇒\nx\n=\n1+y\n…\n(i)\n2\nx+3\ny+z\n=\n0\n…\n(\ni\ni\n)\n-\nx-2\ny-z\n=\n0\n⇒\nz\n=\n-\nx-2\ny\n....(iii)\nSubstituting z into equation (i):\n2\nx+3\ny\n+\n(\n-\nx-2\ny\n)\n=\n0\n⇒\nx+y\n=\n0\n⇒\nx\n=\n-\ny\nFrom equation (i),\n-\ny\n=\n1+y\n⇒\n2\ny\n=\n-\n1\n⇒\ny\n=\n-\n1/2\nThen\nx\n=\n1/2\n.\nAnd\nz\n=\n-\n(\n1\n2\n)\n-\n2\n(\n-\n1\n2\n)\n=\n-\n1\n2+1\n=\n1\n2\nkilogram\nkilogram\n=\nh\n1/2\nG-1\n/\n2\nc\n1/2\n=\nh\nc\nG\nSo,\nM\n∝\nhc\nG\n⇒\n(\nC\n)\n \\\\to \n(\nI\n)\nFor meter (length), the dimensions are\n $[M^{0}\nL^{1}\nT^{0}\n]$ \n=\n[\nM\nx-y\nL\n2\nx+3\ny+z\nT-x\n-\n2\ny-z\n]\nOn comparing the powers of dimensions,\nx-y\n=\n0\n⇒\nx\n=\ny\n....(i)\n2\nx+3\ny+z\n=\n1\n…\n(ii)\n-\nx-2\ny-z\n=\n0\n⇒\nz\n=\n-\nx-2\ny\n.....(iii)\nSubstituting z into equation (ii):\n2\nx+3\ny-x\n-\n2\ny\n=\n1\n⇒\nx+y\n=\n1\nSince\nx\n=\ny\n, then\n2\nx\n=\n1\n⇒\nx\n=\n1\n2\n,\ny\n=\n1\n2\n.\nThen\nz\n=\n-\n1\n2-2\n(\n1\n2\n)\n=\n-\n3\n2\nThus, Meter (L)\n=\n[\nh\n]\n1/2\n[\nG\n]\n1/2\n[\nc\n]\n-\n3/2\nSo,\nL\n∝\nGh\nc\n3\n⇒\n(\nA\n)\n \\\\to \n(\nIV\n)\nFor Second (time), the dimensions are\n $[M^{0}\nL^{0}\nT^{1}\n]$ \n.\nOn comparing the powers of dimensions,\nx-y\n=\n0\n⇒\nx\n=\ny\n....(i)\n2\nx+3\ny+z\n=\n0\n⇒\n2\nx+3\nx+z\n=\n0\n⇒\nz\n=\n-\n5\nx\n…\n(\ni\ni\n)\n-\nx-2\ny-z\n=\n1\n⇒\n-\nx-2\nx-z\n=\n1\n⇒\n-\n3\nx-z\n=\n1.\n.\n.\n.\n.\n.\n(\ni\ni\ni\n)\nSubstituting z :\n-\n3\nx\n-\n(\n-\n5\nx\n)\n=\n1\n⇒\n2\nx\n=\n1\n⇒\nx\n=\n1\n2\n,\ny\n=\n1\n2\nThen\nz\n=\n-\n5\n(\n1\n2\n)\n=\n-\n5\n2\n.\nThus, Second\n(\nS\n)\n=\n[\nh\n]\n1/2\n[\nG\n]\n1/2\n[\nc\n]\n-\n5/2\nSo,\nS\n∝\nGh\nc\n5\n⇒\n(\nB\n)\n \\\\to \n(\nII\n)\nLet a physical quantity\n \\\\theta \nrepresent the Kelvin be proportional to\nh\nx\nG\ny\nc\nz\nK\nw\n.\nUsing principle of dimensional homogeneity\n[\n \\\\theta \n]\n=\n[\nh\n]\nx\n[\nG\n]\ny\n[\nc\n]\nz\n[\nK\n]\nw\n⇒\n[\n \\\\theta \n]\n=\n $[ML^{2}\nT^{-1}\n]$ \nx\n $[M^{-1}\nL^{3}\nT^{-2}\n]$ \ny\n $[LT^{-1}\n]$ \nz\n[\nK\n]\nw\n⇒\n[\n \\\\theta \n]\n=\nM\nx-y\nL\n2\nx+3\ny+z\nT-x\n-\n2\ny-z\nK\nw\nThe dimensions of temperature is\n[\n \\\\theta \n]\n=\n[\nM\n0\nL\n $0 \\text{ T}$ \n0\nK\n1\n]\n=\n[\nM\nx-y\nL\n2\nx+3\ny+z\nT-x\n-\n2\ny-z\nK\nw\n]\nOn comparing the powers,\nx-y\n=\n0\n⇒\nx\n=\ny\n…\n(\ni\n)\n2\nx+3\ny+z\n=\n0\n⇒\n2\nx+3\nx+z\n=\n0\n⇒\nz\n=\n-\n5\nx\n…\n(\ni\ni\n)\n-\nx-2\ny-z\n=\n0\n…\n(iii)\n(iv)\nw\n=\n1\n…\n(iv)\nOn simplifying\nK\n2\nL\n2\nc\n3\nGh\n=\nK\n2\nL\n2\n $[LT^{-1}\n]$ \n2\n(\nM-1\nL\n $3 \\text{ T}$ -2\n)\n[\n $[ML^{2}\nT^{-1}\n]$ \n]\n=\nK\n2\n=\nK\nwhich is kelvin.\nThus, Kelvin\n(\nK\n)\n=\nK\n2\nL\n2\nc\n3\nGh\n⇒\n(\nD\n)\n \\\\to \n(\nIII\n)\nA - IV, B - II, C - I, D - III\nTherefore, the correct option is (B).",
         "url": "https://questions.examside.com/past-years/jee/question/p-text--match-list-i-with-list-ii--p-style-jee-main-physics-units-and-measurements-rq2wmoz2zygo0xpv",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "5th April"
     },
     {
@@ -991,7 +991,7 @@
         "explanation": "For the dimensional equation of Boltzmann Constant\n(\nk\nB\n)\nThe average kinetic energy (E) of a gas molecule is related to temperature (T) by the equation :\nE\n=\n3\n2\nk\nB\nT\nTo find the dimensions of\nk\nB\n:\n[\nk\nB\n]\n=\n[\nE\n]\n $[T\n]$ \nUsing the formula Work\n=\nForce \\\\times Distance, dimensions of energy is\n[\nE\n]\n=\n $[ML^{2}\nT^{-2}\n]$ \nThe dimensions of temperature is\n $[T\n]$ \n=\n[\nK\n]\nSo,\n[\nk\nB\n]\n=\n $[ML^{2}\nT^{-2}\n]$ \n[\nK\n]\n=\n[\nML\n $2 \\text{ T}$ -2\nK-1\n]\nThus, (A) Boltzmann constant \\\\to (III) [\nML\n $2 \\text{ T}$ -2\nK-1\n]\nFor the dimensions of Stefan's Constant (\n \\\\sigma \n)\nAccording to Stefan-Boltzmann law, the energy radiated per unit area per unit time\n(\nP\n)\nis:\nP\n=\n \\\\sigma \nT\n4\nWhere\nEnergy\nArea \\\\times Time\nP\n=\nEnergy\nArea \\\\times Time\nDimensions of\n[\nP\n]\n=\n $[ML^{2}\nT^{-2}\n]$ \n $[L^{2}\n]$ \n $[T\n]$ \n=\n $[MT^{-3}\n]$ \nDimensions of\nT\n4\nis\n[\nK\n4\n]\nSo, the dimensions of Stefan's constant is\n[\n \\\\sigma \n]\n=\n[\nP\n]\n $[T^{4}\n]$ \n=\n $[MT^{-3}\n]$ \n[\nK\n4\n]\n=\n[\nMT-3\nK-4\n]\n=\n[\nML\n $0 \\text{ T}$ -3\nK-4\n]\nThus, (B) Stefan's constant \\\\to (IV)[\nML\n $0 \\text{ T}$ -3\nK-4\n]\nFor the dimensions of Planck's Constant (h):\nThe energy (E) of a photon is given by\nE\n=\nh\nν\n, where\nν\nis frequency (Time-1\n).\nSo, the dimension of Planck's constant is\n[\nh\n]\n=\n[\nE\n]\n[\nv\n]\n=\n $[ML^{2}\nT^{-2}\n]$ \n $[T^{-1}\n]$ \n⇒\n[\nh\n]\n=\n $[ML^{2}\nT^{-1}\n]$ \nThus, (C) Planck's constant \\\\to (II) $[ML^{2}\nT^{-1}\n]$ \nFor the dimensions of Gravitational Constant (G):\nFrom Newton's law of gravitation\nF\n=\nG\nm\n $1 \\text{ m}$ \n2\nr\n2\n⇒\nG\n=\nF\nr\n $2 \\text{ m}$ \n $1 \\text{ m}$ \n2\nThe dimensions of Force is\n[\nF\n]\n=\n $[MLT^{-2}\n]$ \nThe dimensions of Distance squared is\n[\nr\n2\n]\n=\n $[L^{2}\n]$ \nThe dimensions of mass squared is\n[\nm\n $1 \\text{ m}$ \n2\n]\n=\n $[M^{2}\n]$ \nSo, the dimensions of Gravitational constant is\n[\nG\n]\n=\n $[MLT^{-2}\n]$ \n $[L^{2}\n]$ \n $[M^{2}\n]$ \n=\n $[M^{-1}\nL^{3}\nT^{-2}\n]$ \nThus (D) Gravitational constant\n \\\\to \n(I)\n $[M^{-1}\nL^{3}\nT^{-2}\n]$ \nA\n \\\\to \nIII\n,\nB\n \\\\to \nIV\n,\nC\n \\\\to \nII\n,\nD\n \\\\to \nI\nTherefore, the correct option is (C).",
         "url": "https://questions.examside.com/past-years/jee/question/p-text--match-list-i-with-list-ii--p-style-jee-main-physics-units-and-measurements-xbcpkrgy9nokahmb",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "6th April"
     },
     {
@@ -1007,7 +1007,7 @@
         "explanation": "Explanation of Dimensional Analysis\nIn order to match the quantities from LIST-I with their respective dimensions in LIST-II, we need to analyze their dimensional formulas:\n(A) Boltzmann Constant [k]:\nThe equation relating pressure (P), volume (V), number of moles (N), and temperature (T) gives us:\n[\nk\n]\n=\nPV\nNT\n=\nML\n $2 \\text{ T}$ -2\nK\n=\nML\n $2 \\text{ T}$ -2\nK-1\nThis corresponds to option III.\n(B) Coefficient of Viscosity [ \\\\eta ]:\nThe coefficient of viscosity can be defined using the relation:\n[\n \\\\eta \n]\n=\nF\n6\n \\\\pi \nrv\n=\nMLT-2\nL\n $2 \\text{ T}$ -1\n=\nML- $1 \\text{ T}$ -1\nThis corresponds to option IV.\n(C) Planck's Constant [h]:\nThe relationship between energy (E) and frequency (f) gives the dimensional formula:\n[\nh\n]\n=\nE\nf\n=\nML\n $2 \\text{ T}$ - $2 \\text{ T}$ -1\n=\nML\n $2 \\text{ T}$ -1\nThis corresponds to option I.\n(D) Thermal Conductivity [k]:\nFrom the heat conduction equation, we get:\nk\n=\n(\nML\n $2 \\text{ T}$ -3\n)\nL\nL\n2\n⋅\nK\n=\nMLT-3\nK-1\nThis corresponds to option II.\nTo conclude, the correct matches are:\nA - III\nB - IV\nC - I\nD - II\nThis analysis ensures each physical quantity is aligned with its correct dimensional representation.",
         "url": "https://questions.examside.com/past-years/jee/question/p-text--match-the-list-i-with-list-ii--p-style-jee-main-physics-units-and-measurements-k7of42eui6qgf50i",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "3rd April"
     },
     {
@@ -1023,7 +1023,7 @@
         "explanation": "For the dimensions of Planck's Constant (h)\nAccording to the photon energy equation\nE\n=\nh\nν\n, where E is energy and\nν\nis frequency.\nPlanck's constant is given by\nh\n=\nE\nv\nThe dimensions of energy (E) are\n[\nE\n]\n=\n $[ML^{2}\nT^{-2}\n]$ \n.\nThe dimensions of frequency (\nv\n) are\n[\nv\n]\n=\n $[T^{-1}\n]$ \n.\nTherefore, dimensions of h :\n[\nh\n]\n=\n $[ML^{2}\nT^{-2}\n]$ \n $[T^{-1}\n]$ \n=\n $[ML^{2}\nT^{-1}\n]$ \nThus, A \\\\to III\nFor the dimensions of stopping potential (\nV\n0\n)\nStopping potential is defined as the potential difference required to stop the fastest moving electrons.\nThe work done by the potential is equal to the kinetic energy,\nW\n=\nq V\n0\n, where q is charge.\nSo, stopping potential is\nV\n0\n=\nw\nq\n.\nThe dimensions of work ( W ) are\n[\nW\n]\n=\n $[ML^{2}\nT^{-2}\n]$ \n.\nThe dimensions of charge (\nq\n=\nI\n \\\\times \nt\n) are\n[\nq\n]\n=\n $[AT\n]$ \n.\nTherefore, dimensions of stopping potential is:\n[\nV\n0\n]\n=\n $[ML^{2}\nT^{-2}\n]$ \n $[AT\n]$ \n=\n $[ML^{2}\nT^{-3}\nA^{-1}\n]$ \nThus,\nB\n \\\\to \nIV.\nFor the dimensions of work function (\n \\\\phi \n)\nThe work function is the minimum energy required to eject an electron from a metal surface.\nSince it is a form of energy, its dimensions are the same as energy (E).\nSo, the dimensions of work function is\n[\n \\\\phi \n]\n=\n $[ML^{2}\nT^{-2}\n]$ \nThus,\nC\n \\\\to \nI\n.\nFor the dimensions of threshold frequency (\nv\n0\n)\nThreshold frequency is the minimum frequency of incident radiation required for photoelectric emission.\nFrequency is defined as the reciprocal of the time period\n(\nv\n=\n $1 \\text{ T}$ \n)\n.\nSo, the dimensions of threshold frequency is\n[\nv\n0\n]\n=\n $[T^{-1}\n]$ \nThus,\nC\n \\\\to \nII.\nTherefore, the correct match is A - III, B - IV, C - I, D - II.\nHence, the correct option is (A).",
         "url": "https://questions.examside.com/past-years/jee/question/p-text--match-the-list-i-with-list-ii--p-style-jee-main-physics-units-and-measurements-p3mrklr0i0lagp2e",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "4th April"
     },
     {
@@ -1103,7 +1103,7 @@
         "explanation": "To find the distance between two points when an object moves at a constant speed, we use formula,\nDistance\n=\nSpeed \\\\times Time\n \\\\alpha \nis a new unit of length such that 1 unit\n(\n \\\\alpha \n)\n=\nspeed of light in vacuum (c).\nThe speed of light c is the distance light travels per unit of time (usually meters per second).\nsecond\n1\n \\\\alpha \n=\nc\n \\\\times \n(\n1\nsecond\n)\nThe time taken for light to travel from Venus to Earth is 6 minutes and 40 seconds.\n1 minute\n=\n60\nseconds\n6 minutes\n=\n6\n \\\\times \n60\n=\n360\nseconds\nTotal time\nt\n=\n $360 \\text{ s}$ + $40 \\text{ s}$ \n=\n400\nseconds\nUsing distance formula:\nDistance\n=\nSpeed of light \\\\times Time\nDistance\n=\nc\n \\\\times \n400\nseconds\nSince\n1\n \\\\alpha \nis the distance light travels in 1 second (\nc\n \\\\times \n $1 \\text{ s}$ \n), we can substitute c with our new unit,\nDistance\n=\n400\n \\\\times \n(\nc\n \\\\times \n $1 \\text{ s}$ \n)\nDistance\n=\n400\n \\\\alpha \nTherefore, the distance between Venus and Earth is\n400\n \\\\alpha \n.\nHence, the correct option is (B).",
         "url": "https://questions.examside.com/past-years/jee/question/pa-new-unit--alpha--of-length-is-chosen-such-that-it-jee-main-physics-units-and-measurements-bmoapcrwhuqsejpo",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "8th April"
     },
     {
@@ -1130,7 +1130,7 @@
         "explanation": "To determine the percentage error in the measurement of\nC\n, which is related to\np\n,\nq\n,\nr\n, and\ns\nas:\nC\n=\np\nq\n2\nr\n $3 \\text{ s}$ \nwe first express it in terms of powers:\nC\n=\np\n1\nq\n2\nr- $3 \\text{ s}$ -1\n/\n2\nThe percentage error in\nC\ncan be calculated using the formula for the propagation of error, which is:\n(\n \\\\Delta \nC\nC\n)\nmax\n=\n|\n \\\\Delta \np\np\n|\n+\n2\n|\n \\\\Delta \nq\nq\n|\n+\n3\n|\n \\\\Delta \nr\nr\n|\n+\n1\n2\n|\n \\\\Delta \ns\ns\n|\nGiven the percentage errors for\np\n,\nq\n,\nr\n, and\ns\nare\n1\n%\n,\n2\n%\n,\n3\n%\n, and\n2\n%\nrespectively, we substitute these values into the formula:\n(\n \\\\Delta \nC\nC\n)\nmax\n=\n1\n%\n+\n2\n \\\\times \n2\n%\n+\n3\n \\\\times \n3\n%\n+\n1\n2\n \\\\times \n2\n%\nCalculating each part:\nContribution from\np\n:\n1\n%\nContribution from\nq\n:\n4\n%\n(since\n2\n \\\\times \n2\n%\n=\n4\n%\n)\nContribution from\nr\n:\n9\n%\n(since\n3\n \\\\times \n3\n%\n=\n9\n%\n)\nContribution from\ns\n:\n1\n%\n(since\n1\n2\n \\\\times \n2\n%\n=\n1\n%\n)\nAdding these contributions together:\n1\n%\n+\n4\n%\n+\n9\n%\n+\n1\n%\n=\n15\n%\nThus, the maximum percentage error in the measurement of\nC\nis\n15\n%\n.",
         "url": "https://questions.examside.com/past-years/jee/question/pa-physical-quantity-c-is-related-to-four-other-quantities-jee-main-physics-units-and-measurements-j6zahftz4til6dnw",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "3rd April"
     },
     {
@@ -1162,7 +1162,7 @@
         "explanation": "Q\n=\na\n4\nb\n3\nc\n2\n \\\\Delta \nQ\nQ\n=\n4\n \\\\Delta \na\na+3\n \\\\Delta \nb\nb+2\n \\\\Delta \nc\nc\n \\\\Delta \nQ\nQ\n \\\\times \n100\n=\n4\n(\n \\\\Delta \na\na\n \\\\times \n100\n)\n+\n3\n(\n \\\\Delta \nb\nb\n \\\\times \n100\n)\n+\n2\n(\n \\\\Delta \nc\nc\n \\\\times \n100\n)\nerror in\n%\nerror in\nQ\n=\n4\n \\\\times \n3\n%\n+\n3\n \\\\times \n4\n%\n+\n2\n \\\\times \n5\n%\n=\n12\n%\n+\n12\n%\n+\n10\n%\n=\n34\n%",
         "url": "https://questions.examside.com/past-years/jee/question/pa-physical-quantity-q-is-found-to-depend-on-quantitie-jee-main-physics-motion-56qeqj63no971lhk",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "29th January"
     },
     {
@@ -1178,7 +1178,7 @@
         "explanation": "The quantity\nQ\nis expressed as\nQ\n=\nX-2\nY+3\n2\nZ-2\n5\n.\nThe variables\nX\n,\nY\n, and\nZ\nare independent parameters with fractional errors of 0.1, 0.2, and 0.5, respectively.\nTo determine the maximum fractional error in\nQ\n, we can use the following method:\nFractional error in\nFractional error in\nQ\n=\n|\n-\n2\n|\n \\\\Delta \nX\nX\n+\n|\n3\n2\n|\n \\\\Delta \nY\nY\n+\n|\n-\n2\n5\n|\n \\\\Delta \nZ\nZ\nSubstituting the fractional errors into the equation:\n=\n2\n \\\\times \n0.1+3\n2\n \\\\times \n0.2+2\n5\n \\\\times \n0.5\nCalculating each term gives:\n=\n0.2+0.3+0.2\nSumming these values results in:\n=\n0.7\nThus, the maximum fractional error in\nQ\nis 0.7.",
         "url": "https://questions.examside.com/past-years/jee/question/pa-quantity-q-is-formulated-as-x-2yfrac32z-jee-main-physics-alcnqpxc7dstmfnu",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "8th April"
     },
     {
@@ -1226,7 +1226,7 @@
         "explanation": "When a spherical body falls through a viscous liquid, the forces acting on it are,\nWeight ( W ) which is acting downwards.\nUp thrust (\nF\nb\n) is acting upwards (due to buoyancy).\nViscous Drag\n(\nF\nv\n)\nis acting upwards (opposing the motion).\nThe radius of the spherical body is\nr\n.\nThe density of the body is\n \\\\sigma \nSo, the weight of the spherical body is,\nW\n=\nmg\n=\n(\n \\\\sigma \nV\n)\ng\n=\n \\\\sigma \n[\n4\n3\n \\\\pi \nr\n3\n]\ng\nThe density of the liquid is\n \\\\rho \n, and when body is completely inside the liquid, the up thrust is,\nF\nB\n=\n \\\\rho \nVg\n=\n4\n3\n \\\\pi \nr\n3\n \\\\rho \ng\nThe viscous drag acting on the body is\nF\nv\n=\n6\n \\\\pi \n \\\\eta \nrv\nTerminal velocity is reached when the net force on the body becomes zero (acceleration is zero).\nW\n=\nF\nB+F\nv\n⇒\n4\n3\n \\\\pi \nr\n3\n \\\\sigma \ng\n=\n4\n3\n \\\\pi \nr\n3\n \\\\rho \ng+6\n \\\\pi \n \\\\eta \nr\nv\n0\n⇒\n6\n \\\\pi \n \\\\eta \nr\nv\n0\n=\n4\n3\n \\\\pi \nr\n3\ng\n(\n \\\\sigma \n-\n \\\\rho \n)\n⇒\n \\\\eta \n=\n4\n3\n \\\\pi \nr\n3\ng\n(\n \\\\sigma \n-\n \\\\rho \n)\n6\n \\\\pi \nr\nv\n0\n⇒\n \\\\eta \n=\n2\nr\n2\ng\n(\n \\\\sigma \n-\n \\\\rho \n)\n9\nv\n0\n⇒\n \\\\eta \n=\n[\n2\ng\n(\n \\\\sigma \n-\n \\\\rho \n)\n9\n]\nr\n2\nv\n0\nAs it is given to ignore errors associated with\n \\\\sigma \n,\n \\\\rho \n, and g .\nTherefore,\n[\n2\ng\n(\n \\\\sigma \n-\n \\\\rho \n)\n9\n]\nis a constant\n(\nk\n)\n.\n \\\\eta \n=\nk\n⋅\nr\n2\nv\n0\nTaking natural logarithm on both sides:\nln\n⁡\n(\n \\\\eta \n)\n=\nln\n⁡\n(\nk\n)\n+\n2\nln\n⁡\n(\nr\n)\n-\nln\n⁡\n(\nv\n0\n)\nOn differentiating both sides:\nd\n \\\\eta \n \\\\eta \n=\n0+2\nd\nr\nr-d\nv\n0\nv\n0\nFor maximum error, we sum the absolute values of the individual errors because errors always propagate in a way that maximizes the uncertainty:\nor\n \\\\Delta \n \\\\eta \n \\\\eta \n=\n2\n \\\\Delta \nr\nr\n+\n \\\\Delta \nv\n0\nv\n0\nor\n \\\\Delta \n \\\\eta \n \\\\eta \n=\n-\n2\n \\\\Delta \nr\nr\n-\n \\\\Delta \nv\n0\nv\n0\nTherefore, the correct option is (C).",
         "url": "https://questions.examside.com/past-years/jee/question/pa-spherical-body-of-radius-r-and-density-sigma-falls-jee-main-physics-3l4iqurfcgvv5y99",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "21st January"
     },
     {
@@ -1237,7 +1237,7 @@
         "explanation": "I\nm\ne\na\nn\n=\n1.22+1.23+1.19+1.20\n4\n=\n1.21\n \\\\Delta \nI\nm\ne\na\nn\n=\n0.01+0.02+0.02+0.01\n4\n=\n0.015\nSo %\nI\n=\n \\\\Delta \nI\nm\ne\na\nn\nI\nm\ne\na\nn\n \\\\times \n100\n=\n0.015\n1.21\n \\\\times \n100\n=\n150\n121\n%\nx\n=\n150",
         "url": "https://questions.examside.com/past-years/jee/question/pa-student-in-the-laboratory-measures-thickness-of-a-wire-jee-main-physics-motion-j1zphrpaqhvpxzau",
         "year": "2022",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "28th June"
     },
     {
@@ -1291,7 +1291,7 @@
         "explanation": "40 M = $1 \\text{ cm}$ \n⇒\nM = $0.025 \\text{ cm}$ .......... (1)\nAlso, $50 \\text{ V}$ = 49 M\n⇒\nLeast count = M-V = M-49\n50\nM =\nM\n50\n⇒\nLC =\n0.025\n $50 \\text{ cm}$ \n=\n250\n50\n \\\\times \n10\n^{-6}\nm\n⇒\nLC = 5\n \\\\times \n10\n^{-6}\nm",
         "url": "https://questions.examside.com/past-years/jee/question/pa-travelling-microscope-is-used-to-determine-the-refracti-jee-main-physics-motion-dbmvgv2egstr068l",
         "year": "2022",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "26th June"
     },
     {
@@ -1307,7 +1307,7 @@
         "explanation": "To determine the value of one main scale division (MSD) for the given vernier calipers, we'll analyze the relationship between the main scale divisions, vernier scale divisions, and the least count of the instrument.\nGiven:\nNumber of vernier scale divisions (n):\n20\nVernier scale coincides with the 19th division on the main scale.\nLeast count (LC):\nmm\n $0.1 \\text{ mm}$ \nUnderstanding the Vernier Calipers Configuration:\nRelation between Vernier and Main Scale Divisions:\nThe total length of the vernier scale (comprising 20 divisions) coincides with the length of 19 main scale divisions.\nMathematically, this is expressed as:\nVSD\nMSD\nn\n \\\\times \nVSD\n=\n(\nn-1\n)\n \\\\times \nMSD\nwhere:\nVSD\nVSD\nis the value of one vernier scale division.\nMSD\nMSD\nis the value of one main scale division.\nCalculating the Value of One Vernier Scale Division (\nVSD\nVSD\n):\nVSD\nMSD\nVSD\n=\n(\nn-1\n)\n \\\\times \nMSD\nn\nLeast Count (LC):\nThe least count is the smallest measurement that can be accurately read using the instrument.\nIt is calculated as:\nLC\nMSD\nVSD\nLC\n=\nMSD-VSD\nSubstituting\nVSD\nVSD\nfrom step 2:\nLC\nMSD\nMSD\nLC\n=\nMSD\n-\n(\n(\nn-1\n)\n \\\\times \nMSD\nn\n)\nLC\nMSD\nLC\n=\nMSD\n(\n1-n\n-\n1\nn\n)\nLC\nMSD\nLC\n=\nMSD\n(\nn\n-\n(\nn-1\n)\nn\n)\nLC\nMSD\nLC\n=\nMSD\n(\n1\nn\n)\nSolving for One Main Scale Division (\nMSD\nMSD\n):\nRearranging the equation:\nLC\nMSD\nLC\n=\nMSD\nn\nMSD\nLC\nMSD\n=\nLC\n \\\\times \nn\nSubstituting the given values (\nLC\nmm\nLC\n=\n $0.1 \\text{ mm}$ \n,\nn\n=\n20\n):\nMSD\nmm\nMSD\n=\n $0.1 \\text{ mm}$ \n \\\\times \n20\nMSD\nmm\nMSD\n=\n $2 \\text{ mm}$ \nConclusion:\nThe value of one main scale division is\n $2 \\text{ mm}$ \n, which corresponds to\nOption B\n.",
         "url": "https://questions.examside.com/past-years/jee/question/pa-vernier-callipers-has-20-divisions-on-the-vernier-scale-jee-main-physics-motion-ywkluwoct3pxh4lk",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "5th April"
     },
     {
@@ -1339,7 +1339,7 @@
         "explanation": "u\n=\n \\\\alpha \n \\\\beta \nsin\n⁡\n(\n \\\\alpha \nx\nk\nt\n)\n[\n \\\\alpha \n]\n=\n[\nk\nt\nx\n]\n=\n[\n $E_{n}$ \ne\nr\ng\ny\n]\n[\nD\ni\ns\ntan\n⁡\nc\ne\n]\n[\n \\\\beta \n]\n=\n[\n \\\\alpha \n]\n[\nu\n]\n=\n[\n $E_{n}$ \ne\nr\ng\ny\n]\n/\n[\nD\ni\ns\ntan\n⁡\nc\ne\n]\n[\n $E_{n}$ \ne\nr\ng\ny\n]\n/\n[\nV\no\nl\nu\nm\ne\n]\n=\n $[L^{2}\n]$",
         "url": "https://questions.examside.com/past-years/jee/question/pan-expression-of-energy-density-is-given-by-ufracal-jee-main-physics-motion-wclg9qup1jbjgmv2",
         "year": "2022",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "27th July"
     },
     {
@@ -1355,7 +1355,7 @@
         "explanation": "To determine which option is correct based on the principle of homogeneity of dimensions, we need to ensure that both sides of the equation have the same dimensions.\nThe time period (\nT\n) is measured in units of time (\nT\n), the gravitational constant (\nG\n) has units of\nm\nkg\ns\nm\n $3 \\text{ kg}$ - $1 \\text{ s}$ -2\n, mass (\nM\n) has units of mass (\nM\n), and the radius of orbit (\nr\n) has units of length (\nL\n).\nLet's analyze each option:\nOption A:\nT\n2\n=\n4\n \\\\pi \n2\nr\nG\nM\n2\nThe dimensions of the right-hand side of the equation are\nL\n(\nL\n3\nM\nT\n2\n)\nM\n2\n=\nL\nL\n3\nM- $1 \\text{ T}$ -2\nM\n2\n=\nL\nL\n $3 \\text{ T}$ -2\n=\nL- $2 \\text{ T}$ \n2\n, which do not match with\nT\n2\n(time squared).\nThus, Option A is incorrect.\nOption B:\nT\n2\n=\n4\n \\\\pi \n2\nr\n3\nThe dimensions of the right-hand side are\nL\n3\n, which clearly do not match the dimensions\nT\n2\nof the squared time period.\nSo, Option B is incorrect.\nOption C:\nT\n2\n=\n4\n \\\\pi \n2\nr\n3\nG\nM\nThe dimensions of the right-hand side of the equation are\nL\n3\n(\nL\n3\nM\nT\n2\n)\nM\n=\nL\n3\nL\n $3 \\text{ T}$ -2\n=\nT\n2\n, which match the dimensions of the squared time period\nT\n2\n.\nTherefore, Option C is correct based on the principle of homogeneity of dimensions.\nOption D:\nT\n2\n=\n4\n \\\\pi \n2\nr\n2\nG\nM\nThe dimensions of the right-hand side are\nL\n2\n(\nL\n3\nM\nT\n2\n)\nM\n=\nL\n2\nL\n3\nM- $1 \\text{ T}$ -2\nM\n=\nL- $1 \\text{ T}$ \n2\n, which do not match with\nT\n2\n(time squared).\nHence, Option D is incorrect.\nThus, based on the principle of homogeneity of dimensions, Option C is the correct one:\nT\n2\n=\n4\n \\\\pi \n2\nr\n3\nG\nM\n.\nThis equation also corresponds to Kepler's third law of planetary motion, which relates the orbital period of a planet to its orbital radius, considering the mass of the central body.",
         "url": "https://questions.examside.com/past-years/jee/question/papplying-the-principle-of-homogeneity-of-dimensions-dete-jee-main-physics-motion-5vrxehc7qsxmookm",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "4th April"
     },
     {
@@ -1387,7 +1387,7 @@
         "explanation": "Since, dimensions trigonometric function and logarithmic function are dimensionless quantities.\n \\\\therefore \n[\n \\\\eta \n]\n=\n $[M^{0}\nL^{0}\nT^{0}\n]$ \nAlso, dimensions of temperature,\n $[T\n]$ \n=\n[\nM\n0\nL\n $0 \\text{ T}$ \n0\nK\n]\nDimensions of Boltzmann constant,\n[\nk\n]\n=\n[\nML\n $2 \\text{ T}$ -2\nK-1\n]\nDimension of\nx\n=\n $[M^{0}\nLT^{0}\n]$ \n(A)\n[\n \\\\beta \n]\n=\n[\nk\nT\nx\n]\n=\n[\nE\nx\n]\n=\n $[M\nL\nT^{-2}\n]$ \n=\n[\nF\n]\n(B)\n[\n \\\\alpha \n \\\\beta \n]\n=\n $[M^{0}\nL^{0}\nT^{0}\n]$ \n[\n \\\\alpha \n]\n-\n1\n=\n[\n \\\\beta \n]\n=\n[\nk\nT\nx\n]\nSo\n[\n \\\\alpha \n]\n-\n1\n[\nx\n]\n=\n[\nk\nT\n]\n=\n $[M\nL^{2}\nT^{-2}\n]$ \n(C)\n \\\\eta \nsin\n⁡\n \\\\theta \n=\n \\\\alpha \n \\\\beta \nSo\n[\n \\\\eta \nsin\n⁡\n \\\\theta \n]\n=\n[\n \\\\alpha \n \\\\beta \n]\n[\n \\\\eta \n]\n=\n $[M^{0}\nL^{0}\nT^{0}\n]$ \nit is dimensionless quantity\n(D)\n[\n \\\\alpha \n]\n≠\n[\n \\\\beta \n]",
         "url": "https://questions.examside.com/past-years/jee/question/pconsider-the-efficiency-of-carnots-engine-is-given-by--jee-main-physics-motion-ea3vuwx95o3gjca6",
         "year": "2022",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "28th July"
     },
     {
@@ -1403,7 +1403,7 @@
         "explanation": "To find the values of the exponents\np\n,\nq\n,\nr\n, and\ns\n, we will use dimensional analysis.\nBoth sides of the equation must have the same fundamental dimensions.\nThe dimension of distance\n(\nx\n)\nis the dimension of length\n[\nx\n]\n=\nL\nThe dimension is time\n[\nt\n]\n=\nT\nThe dimension of electric field ( E ) can be derived from the formula for force on a charge,\nF\n=\nq E\n.\nTherefore,\nE\n=\nF/q\n.\nThe dimensions of force is\n[\nF\n]\n=\n $[MLT^{-2}\n]$ \nCharge\n(\nq\n)\n=\nCurrent\n \\\\times \nTime\nSo, the dimensions of charge is,\n[\nq\n]\n=\n $[AT\n]$ \nSo, the dimensions of electric field is,\n[\nE\n]\n=\n $[MLT^{-2}\n]$ \n $[AT\n]$ \n=\n $[MLT^{-3}\nA^{-1}\n]$ \nUsing relationship between electric field (E) and and magnetic field (H) in electromagnetic waves.\nIn a vacuum, the ratio of the magnitudes of the electric field to the magnetic field (B) is the speed of light (c),\nE/B\n=\nc\nUsing the formula of magnetic force on a current-carrying conductor:\nF\n=\nBIL\nWhere,\nF\n=\nforce\nB\n=\nmagnetic field (flux density),\nI\n=\ncurrent and\nL\n=\nlength\nB\n=\nF\nIL\nSubstituting the dimensions,\n[\nB\n]\n=\n $[MLT^{-2}\n]$ \n $[LA\n]$ \n⇒\n[\nB\n]\n=\n $[M\nT^{-2}\nI^{-1}\n]$ \nThe relation between B and H is\nB\n=\n \\\\mu \nH\n⇒\nB\n \\\\mu \n=\nH\n.\nWhere\n \\\\mu \n=\npermeability.\nUsing the formula of magnetic field,\nB\n=\n \\\\mu \ni\n2\n \\\\pi \nr\n⇒\n[\nB\n \\\\mu \n]\n=\n[\ni\nr\n]\n, here\nr\nis distance from straight conductor carrying current i.\n[\nB\n \\\\mu \n]\n=\n[\nH\n]\n=\n $[A\n]$ \n $[L\n]$ \n=\n $[L^{-1}\nA\n]$ \nPutting the dimensions of electric field and speed of light, the dimensions of magnetic field is,\n[\nH\n]\n=\n $[MLT^{-3}\nA^{-1}\n]$ \n $[LT^{-1}\n]$ \n=\n $[MT^{-2}\nA^{-1}\n]$ \nWe can derive the dimensions of permittivity (\n \\\\epsilon \n) from Coulomb's Law,\nF\n=\n1\n4\n \\\\pi \n \\\\epsilon \nq\n1\nq\n2\nr\n2\n.\n[\n \\\\epsilon \n]\n=\n[\nq\n2\nFr\n2\n]\n[\n \\\\epsilon \n]\n=\n $[AT\n]$ \n2\n $[MLT^{-2}\n]$ \n $[L^{2}\n]$ \n=\n $[M^{-1}\nL^{-3}\nT^{4}\nA^{2}\n]$ \nSubstituting the dimensions into the given equation,\n[\nH\n]\n=\n[\nx\n]\np\n[\n \\\\epsilon \n]\nq\n[\nE\n]\nr\n[\nt\n]\ns\n⇒\n $[L^{-1}\nA\n]$ \n=\n $[L\n]$ \np\n $[M^{-1}\nL^{-3}\nT^{4}\nA^{2}\n]$ \nq\n $[M\nL\nT^{-3}\nA^{-1}\n]$ \nr\n $[T\n]$ \ns\n $[L^{-1}\nA\n]$ \n=\n[\nM-q\n+\nr\nL\np-3\nq+r\nT\n4\nq-3\nr-s\nA\n2\nq-r\n]\nOn comparing the powers of\nM\n,\nL\n,\nT\n, and A on both sides,\nFor\nM\n,\n-\nq+r\n=\n0\n…\n(i)\nFor\nA\n,\n2\nq-r\n=\n1\n.\nSince\nr\n=\nq\n, then\n2\nq-q\n=\n1\n, so\nq\n=\n1\nand\nr\n=\n1\n.\nFor\nL\n,\np-3\nq+r\n=\n-\n1\n…\n(ii).\np-3\n(\n1\n)\n+\n1\n=\n-\n1\np-2\n=\n-\n1\n⇒\np\n=\n1\nFor T,\n4\nq-3\nr-s\n=\n0\n…\n(iii)\n4\n(\n1\n)\n-\n3\n(\n1\n)\n-\ns\n=\n0\n1-s\n=\n0\n⇒\ns\n=\n1\nTherefore, the values are\np\n=\n1\n,\nq\n=\n1\n,\nr\n=\n1\n,\ns\n=\n1\n.\nHence, the correct option is (A).",
         "url": "https://questions.examside.com/past-years/jee/question/pconsider-the-equation-hfracxp-epsilonq-erts-jee-main-physics-units-and-measurements-wmjpngtr8yy9iy5v",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "8th April"
     },
     {
@@ -1419,7 +1419,7 @@
         "explanation": "[\nB\n]\n=\nL\n $2 \\text{ A}$ \n=\nx\n2\nt E\n=\nL\n2\nTML\n $2 \\text{ T}$ -2\n=\n1\nMT-1\n $[A\n]$ \n=\nM- $1 \\text{ T}$ \n[\nAB\n]\n=\n $[L^{2}\nM^{-1}\nT^{1}\n]$",
         "url": "https://questions.examside.com/past-years/jee/question/pconsider-two-physical-quantities-a-and-b-related-jee-main-physics-motion-syuef12db9jzd6av",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "31st January"
     },
     {
@@ -1451,7 +1451,7 @@
         "explanation": "To find the dimensions of the universal gravitational constant G in terms of Planck's constant h , length L , mass M , and time T , we must first determine the base dimensions of both G and h in the standard MLT system.\nAccording to Newton's law of universal gravitation, the force F between two masses\nm\n1\nand\nm\n2\nseparated by a distance\nr\nis given by:\nF\n=\nGm\n $1 \\text{ m}$ \n2\nr\n2\n⇒\nG\n=\nFr\n $2 \\text{ m}$ \n $1 \\text{ m}$ \n2\nSubstituting the dimensions\n $[M\nL\nT^{-2}\n]$ \nfor force,\n $[L\n]$ \nfor distance\n(\nr\n)\n, and mass(\nm\n) as\n $[M\n]$ \n:\n[\nG\n]\n=\n $[MLT^{-2}\n]$ \n $[L^{2}\n]$ \n $[M\n]$ \n $[M\n]$ \n=\n $[M^{-1}\nL^{3}\nT^{-2}\n]$ \nPlanck's constant relates the energy\nE\nof a photon to its frequency\nv\nvia the equation:\nE\n=\nh\nν\nSince frequency\nv\nhas dimensions of inverse time $[T^{-1}\n]$ , and energy E (work done) has dimensions\n $[ML^{2}\nT^{-2}\n]$ \n, we have:\n[\nh\n]\n=\n[\nE\n]\n[\nv\n]\n=\n $[ML^{2}\nT^{-2}\n]$ \n $[T^{-1}\n]$ \n=\n $[ML^{2}\nT^{-1}\n]$ \nLet assume the relationship is of the form\nG\n=\nh\na\nL\nb\nM\nc\nT\nd\n.\nComparing the dimensions:\n $[M^{-1}\nL^{3}\nT^{-2}\n]$ \n=\n $[ML^{2}\nT^{-1}\n]$ \na\n $[L\n]$ \nb\n $[M\n]$ \nc\n $[T\n]$ \nd\n $[M^{-1}\nL^{3}\nT^{-2}\n]$ \n=\n[\nM\na+c\nL\n2\na+b\nT-a\n+\nd\n]\nBy equating the exponents of\nM\n,\nL\n, and T from both sides, we get a system of equations:\nFor\nM\n:\na+c\n=\n-\n1\n…\n(i)\nFor\nL\n:\n2\na+b\n=\n3\n…\n(ii)\nFor\nT\n:\n-\na+d\n=\n-\n2\n…\n(iii)\nLooking at the provided options, we see that h is with a power of\n1\n,\na\n=\n1\nLet's\na\n=\n1\n:\nFrom eq (i):\n1+c\n=\n-\n1\n⇒\nc\n=\n-\n2\nFrom eq (ii):\n2\n(\n1\n)\n+\nb\n=\n3\n⇒\nb\n=\n1\nFrom eq (iii):\n-\n1+d\n=\n-\n2\n⇒\nd\n=\n-\n1\nSubstituting these values, we get\nG\n∝\nh\n1\nL\n1\nM- $2 \\text{ T}$ -1\n.\nThis corresponds to the dimensional formula\n[\nh T-1\nLM-2\n]\n.\nHence, the correct option is (B).",
         "url": "https://questions.examside.com/past-years/jee/question/pdimensions-of-universal-gravitational-constant-g-in-t-jee-main-physics-5xbmpfcaz6bfmddz",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "2nd April"
     },
     {
@@ -1483,7 +1483,7 @@
         "explanation": "Determine one main scale division (msd):\nmsd\ncm\n300\nmsd\n=\n $15 \\text{ cm}$ \nTherefore,\nmsd\ncm\ncm\n1\nmsd\n=\n15\n $300 \\text{ cm}$ \n=\n $0.05 \\text{ cm}$ \nDetermine one vernier scale division (vsd):\nvsd\nmsd\n25\nvsd\n=\n24\nmsd\nTherefore,\nvsd\nmsd\n1\nvsd\n=\n24\n25\nmsd\nCalculate the least count (LC):\nThe least count is given by the difference between one main scale division and one vernier scale division:\nLC\nmsd\nvsd\nLC\n=\n1\nmsd-1\nvsd\nSubstitute the expression for 1 vsd:\nLC\nmsd\nmsd\nLC\n=\n1\nmsd-24\n25\n \\\\times \n1\nmsd\nThis simplifies to:\nLC\nmsd\nLC\n=\n1\n25\n \\\\times \n1\nmsd\nCalculate the LC in cm:\nSubstituting the value of 1 msd:\nLC\ncm\ncm\nLC\n=\n1\n25\n \\\\times \n $0.05 \\text{ cm}$ \n=\n $0.002 \\text{ cm}$ \nHence, the least count of the traveling microscope is $0.002 \\text{ cm}$ .",
         "url": "https://questions.examside.com/past-years/jee/question/pfor-the-determination-of-refractive-index-of-glass-slab-jee-main-physics-units-and-measurements-kgkbzgpqjxtkjnvh",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "4th April"
     },
     {
@@ -1494,7 +1494,7 @@
         "explanation": "% error in\nz\n=\n3\n \\\\times \n4+1\n2\n \\\\times \n12\n=\n12+6\n=\n18\n%",
         "url": "https://questions.examside.com/past-years/jee/question/pfor-z--a2x3y1-over-2-where-a-is-a-c-jee-main-physics-motion-ktkhoc6ztygbzung",
         "year": "2022",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "25th June"
     },
     {
@@ -1526,7 +1526,7 @@
         "explanation": "The provided statements (A) Assertion and (R) Reason have to be analyzed to determine their correctness and also whether Reason (R) correctly explains Assertion (A).\nAssertion (A) is addressing a scenario where a positive zero error occurs in a Vernier caliper.\nPositive zero error refers to the condition when the zero mark on the Vernier scale is to the right of the zero mark on the main scale when the jaws of the caliper are completely closed.\nIn this case, even when measuring a zero length, the Vernier caliper will show a positive reading, indicating an error.\nThis error is constant and will get added to actual measurements, causing the instrument to give readings that are more than the actual measurement.\nSo, Assertion (A) is true.\nReason (R) explains the possible causes of zero error in Vernier calipers.\nZero errors can indeed occur due to imperfect manufacturing processes, where the scales are not perfectly aligned.\nThey can also happen due to rough handling, for instance, if the instrument is dropped, which might cause a permanent deformation leading to a continuous zero error.\nHence, Reason (R) is true as well.\nFinally, we need to analyze whether Reason (R) is the correct explanation of Assertion (A).\nAlthough both statements are correct, the Reason (R) does not explain why a positive zero error would lead to the reading being more than the actual reading, it merely states the possible causes of zero errors.\nTherefore, the correct relationship between the statements is that they are both true, but (R) does not provide the correct explanation for (A).\nThe correct option is :\nOption B\nBoth (A) and (R) are correct but (R) is not the correct explanation of (A)",
         "url": "https://questions.examside.com/past-years/jee/question/pgiven-below-are-two-statements--one-is-labelled-as-asser-jee-main-physics-motion-jcakwwc7aes7yks0",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "27th January"
     },
     {
@@ -1606,7 +1606,7 @@
         "explanation": "Velocity gradient\n=\nd\nv\nd\nx\n⇒\nDimensions are\n $[L\nT^{-1}\n]$ \n $[L\n]$ \n=\n $[T^{-1}\n]$ \nDecay constant\n \\\\lambda \nhas dimensions of\n $[T^{-1}\n]$ \nbecause of the relation\nd\nN\nd\nt\n=\n-\n \\\\lambda \nN\n⇒\nVelocity gradient and decay constant have same dimensions.",
         "url": "https://questions.examside.com/past-years/jee/question/pidentify-the-pair-of-physical-quantities-that-have-same-d-jee-main-physics-motion-mb9986qnaqi5jyyl",
         "year": "2022",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "24th June"
     },
     {
@@ -1638,7 +1638,7 @@
         "explanation": "$50 \\text{ V}$ +S\n=\n49\nS+S\nS\n=\n50\n(\nS-V\n)\n5\n=\n50\n(\nS-V\n)\nS-V\n=\n0.5\n50\n=\n1\n100\n=\n $0.01 \\text{ mm}$",
         "url": "https://questions.examside.com/past-years/jee/question/pif-50-vernier-divisions-are-equal-to-49-main-scale-divisi-jee-main-physics-motion-l8snjhulva5awo1z",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "30th January"
     },
     {
@@ -1670,7 +1670,7 @@
         "explanation": "The SI unit of permittivity of free space (\n \\\\epsilon \n) is derived from Coulomb's law\n(\nF\n=\nq\n1\nq\n2\n4\n \\\\pi \n \\\\epsilon \n0\nr\n2\n)\n.\nThe SI unit is\nC\n2/N\n.\nm\n2\n.\nThe electric field (E) is defined as force per unit charge, so its SI unit is Newtons per Coulomb (N/C).\nThe standard SI unit is the second (s).\nThe given expression is\n \\\\epsilon \nE\nt\n.\nSo, the SI unit of given expression is,\nC\n $2 \\text{ N}$ \n⋅\nm\n2\n \\\\times \n(\nN\nC\n)\n=\nC\ns\n=\ns\ns\n⋅\nm\n2\nElectric current is defined as the rate of flow of electric charge over time.\nTherefore, 1 Ampere\n(\nA\n)\n=\n1 Coulomb per second\n(\nC\ns\n)\n.\nUnit of\n \\\\epsilon \nE\nt\n=\n(\nC\ns\n)\n \\\\times \n $1 \\text{ m}$ \n2\n=\nA\n \\\\times \n $1 \\text{ m}$ \n2\n=\nA/m\n2\nTherefore, the SI unit of\n \\\\epsilon \nE\nt\nis\nA/m\n2\n.\nHence, the correct option is (C).",
         "url": "https://questions.examside.com/past-years/jee/question/pif-epsilon-e-and-t-represent-the-free-space-permitt-jee-main-physics-units-and-measurements-12x9ahmfezmpqnkv",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "22nd January"
     },
     {
@@ -1686,7 +1686,7 @@
         "explanation": "To determine the dimensions of\n \\\\epsilon \no\nE\n2\n, we need to first understand the dimensional formulas of each component in the expression.\n1.\nPermittivity of free space,\n \\\\epsilon \no\n:\nThe permittivity of free space has the dimensions:\n[\n \\\\epsilon \no\n]\n=\n $[M^{-1}\nL^{-3}\nT^{4}\nA^{2}\n]$ \n.\n2.\nElectric field,\nE\n:\nThe electric field\nE\nhas the dimensions:\n[\nE\n]\n=\n $[M\nL\nT^{-3}\nA^{-1}\n]$ \n.\nNow, let's calculate the dimensions of\n \\\\epsilon \no\nE\n2\n:\n[\n \\\\epsilon \no\nE\n2\n]\n=\n[\n \\\\epsilon \no\n]\n[\nE\n]\n2\n=\n $[M^{-1}\nL^{-3}\nT^{4}\nA^{2}\n]$ \n(\n $[M\nL\nT^{-3}\nA^{-1}\n]$ \n2\n]\n=\n $[M^{-1}\nL^{-3}\nT^{4}\nA^{2}\n]$ \n(\n $[M^{2}\nL^{2}\nT^{-6}\nA^{-2}\n]$ \n]\nCombining the dimensions:\n[\n \\\\epsilon \no\nE\n2\n]\n=\n $[M^{-1}\nL^{-3}\nT^{4}\nA^{2}\n]$ \n $[M^{2}\nL^{2}\nT^{-6}\nA^{-2}\n]$ \n=\n[\nM-1\n+\n2\nL-3\n+\n $2 \\text{ T}$ \n4- $6 \\text{ A}$ \n2-2\n]\n=\n $[M\nL^{-1}\nT^{-2}\n]$ \nTherefore, the dimensions of\n \\\\epsilon \no\nE\n2\nare\n $[M\nL^{-1}\nT^{-2}\n]$ \n, which corresponds to Option A.\nHence, the correct answer is Option A:\n $[M\nL^{-1}\nT^{-2}\n]$ \n.",
         "url": "https://questions.examside.com/past-years/jee/question/pif-epsilonmathrmo-is-the-permittivity-of-free-jee-main-physics-motion-0lyytsma6eom86bh",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "8th April"
     },
     {
@@ -1702,7 +1702,7 @@
         "explanation": "We know that force (F) has dimensions of\nMLT-2\n, velocity (V) has dimensions of\nLT-1\n, and time (T) has dimensions of\nT\n.\nTo express density (\n \\\\rho \n), which has dimensions of\nML-3\n, in terms of F, V, and T, we need to find the exponents of F, V, and T.\nLet the dimensions of density be expressed as:\n $[M\n]$ \na\n $[L\n]$ \nb\n $[T\n]$ \nc\nSubstituting the dimensions of F, V, and T:\n[\nF\n]\na\n[\nV\n]\nb\n $[T\n]$ \nc\n=\n(\nMLT-2\n)\na\n(\nLT-1\n)\nb\n(\nT\n)\nc\nSince density has dimensions of\nML-3\n, we can set up the following equations:\na\n=\n1\n(for the mass term M)\na+b\n=\n-\n3\n(for the length term L)\n-\n2\na-b\n+\nc\n=\n0\n(for the time term T)\nSolving these equations, we get:\na\n=\n1\nb\n=\n-\n4\nc\n=\n-\n2\nThus, the dimensional formula of density in terms of F, V, and T is:\nFV- $4 \\text{ T}$ -2",
         "url": "https://questions.examside.com/past-years/jee/question/pif-force-f-velocity-v-and-time-t-are-considered-as-jee-main-physics-motion-kqtiledeoak6mx5w",
         "year": "2023",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "11th April"
     },
     {
@@ -1718,7 +1718,7 @@
         "explanation": "m\n=\nkc\nP\nG-1\n/\n2\nh\n1/2\nM\n1\nL\n $0 \\text{ T}$ \n0\n=\n $[LT^{-1}\n]$ \nP\n $[M^{-1}\nL^{3}\nT^{-2}\n]$ \n-\n1/2\n $[ML^{2}\nT^{-1}\n]$ \n1/2\nBy comparing\nP\n=\n1/2",
         "url": "https://questions.examside.com/past-years/jee/question/pif-mass-is-written-as-mk-mathrmcmathrmp-g-1-jee-main-physics-motion-jj0kdc2d2ymzcr3q",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "30th January"
     },
     {
@@ -1782,7 +1782,7 @@
         "explanation": "$[M\n]$ \n=\n[\nG\n]\nx\n[\nh\n]\ny\n[\nc\n]\nz\n $[M\n]$ \n=\n $[M^{-1}\nL^{3}\nT^{-2}\n]$ \nx\n $[ML^{2}\nT^{-1}\n]$ \ny\n $[LT^{-1}\n]$ \nz\n $[M^{1}\nL^{0}\nT^{0}\n]$ \n=\n[\nM-x\n+\ny\n]\n[\nL\n3\nx+2\ny+z\n]\n[\nT-2\nx-y\n-\nz\n]\ny-x\n=\n1\n.\n.\n.\n.\n.\n.\n(\n1\n)\n3\nx+2\ny+z\n=\n0\n.\n.\n.\n.\n.\n.\n.\n(\n2\n)\n-\n2\nx-y\n-\nz\n=\n0\n.\n.\n.\n.\n.\n.\n.\n.\n(\n3\n)\nOn solving,\nx\n=\n-\n1\n2\n,\ny\n=\n1\n2\n,\nz\n=\n1\n2\nSo\nm\n=\nhc\nG",
         "url": "https://questions.examside.com/past-years/jee/question/pif-the-velocity-of-light-mathrmc-universal-gravit-jee-main-physics-motion-9bxosmcss2qakns5",
         "year": "2023",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "1st February"
     },
     {
@@ -1814,7 +1814,7 @@
         "explanation": "The least count is the smallest distance the screw moves when the circular scale is rotated by one division.\nIt is defined as:\nLeast Count\nPitch\nNumber of divisions on circular scale\nLeast Count\n=\nPitch\nNumber of divisions on circular scale\nThe pitch is linear distance moved in one complete rotation.\nThe pitch of screw gauge is given as $0.1 \\text{ mm}$ and there are 100 divisions:\nSo, the least count is\nLC\n=\n $0.1 \\text{ mm}$ \n100\n=\n $0.001 \\text{ mm}$ \nWhen the studs are in contact, the 5th division of the circular scale coincides with the reference line.\nSince the zero of the circular scale has passed the reference line, the error is positive.\nZero Error\n=\n+\n(\nCoinciding division\n \\\\times \nLC\n)\n⇒\nZero Error\n=\n+\n(\n5\n \\\\times \n $0.001 \\text{ mm}$ \n)\n=\n+\n $0.005 \\text{ mm}$ \nThe total observed reading is the sum of the Main Scale Reading (MSR) and the Circular Scale Reading (CSR).\nMSR\n=\n $5 \\text{ mm}$ \nCSR\n=\nCoinciding circular division \\\\times LC\n=\n50\n \\\\times \n $0.001 \\text{ mm}$ \n=\n $0.05 \\text{ mm}$ \nSo, observed reading\n=\n $5 \\text{ mm}$ + $0.05 \\text{ mm}$ \n=\n $5.05 \\text{ mm}$ \nThe true diameter is obtained by subtracting the zero error from the observed reading:\nSo, the true diameter\n=\nObserved Reading - Zero Error\nTrue Diameter\n=\n $5.05 \\text{ mm}$ - $0.005 \\text{ mm}$ \n=\n $5.045 \\text{ mm}$ \nTherefore, the correct option is (A).",
         "url": "https://questions.examside.com/past-years/jee/question/pin-a-screw-gauge-the-zero-of-main-scale-reference-line-co-jee-main-physics-lzve1z4yf6whnob7",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "2nd April"
     },
     {
@@ -1873,7 +1873,7 @@
         "explanation": "Given, In Vernier calipers, 10 VSD\n=\n9\nMSD\n⇒\n1\nVSD\n=\n9\n10\nMSD\n \\\\therefore \nLeast count of vernier scale,\nLC\nMSD\nLC\n=\n1\nMSD-1\nVSD\n=\n1\nMSD-9\n10\nMSD\n=\nMSD\n(\n1-9\n10\n)\n=\nMSD\n10\n=\n $1 \\text{ mm}$ \n10\n[\n∵\n1\nMSD\n=\n $1 \\text{ mm}$ \n]\n=\n $0.1 \\text{ mm}$ \n=\n $0.01 \\text{ cm}$ \nAccording to given situation,\nNegative error\n=\nMain scale reading - Least count\n \\\\times \nNumber of coinciding main scale division\n=\n0.1-0.01\n \\\\times \n4\n=\n0.1-0.04\n=\n $0.06 \\text{ cm}$ \n \\\\therefore \nDiameter of spherical body\n=\n30\n \\\\times \n0.1+6\n \\\\times \n0.01+0.06\n=\n3.0+0.06+0.06\n=\n $3.12 \\text{ cm}$ \nWhich is closest to\n $3.10 \\text{ cm}$ \n.",
         "url": "https://questions.examside.com/past-years/jee/question/pin-a-vernier-calipers-10-divisions-of-vernier-scale-is-e-jee-main-physics-motion-0nr5br4zfo5zxidl",
         "year": "2022",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "26th July"
     },
     {
@@ -1905,7 +1905,7 @@
         "explanation": "L.\nC.)\nL.C\n0.04\n=\n4\n(\nL.\nC.)\n⇒\nL.C\n=\n $0.01 \\text{ mm}$ \n1\nMSD-49\n50\nM\nS\nD\n=\n $0.01 \\text{ mm}$ \n⇒\n1\nMSD\n=\n50\n \\\\times \n $0.01 \\text{ mm}$ \n=\n $0.5 \\text{ mm}$ \n⇒\n $1 \\text{ cm}$ \n=\n20\n(\n $0.5 \\text{ mm}$ \n)",
         "url": "https://questions.examside.com/past-years/jee/question/pin-a-vernier-calliper-when-both-jaws-touch-each-other-z-jee-main-physics-motion-ctsg7vpc41fwuyzk",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "6th April"
     },
     {
@@ -1921,7 +1921,7 @@
         "explanation": "Value of one Main Scale Division,\n1\nMSD\n=\n $0.05 \\text{ mm}$ \nNumber of Vernier Scale Divisions\nm\n=\n50\nNumber of Main Scale Divisions is\nn\n=\n48\n50\nVSD\n=\n48\nMSD\n⇒\n1\nVSD\n=\n48\n50\nMSD\nThe Least Count of a Vernier instrument is the smallest measurement that can be taken accurately.\nLeast Count (LC) of Vernier scale\n=\n1\nMSD -1 VSD\nUsing the least count formula,\nLC\n=\n1\nMSD-1\nVSD\n⇒\nLC\n=\n1\nMSD\n-\n(\n48\n50\n)\nMSD\n⇒\nLC\n=\n(\n1-48\n50\n)\nMSD\n⇒\nLC\n=\n(\n50-48\n50\n)\nMSD\n⇒\nLC\n=\n2\n50\nMSD\n=\n2\n50\n \\\\times \n $0.05 \\text{ mm}$ \n=\n $0.002 \\text{ mm}$ \nTherefore, the smallest measurement that this Vernier calliper can record is $0.002 \\text{ mm}$ .\nHence, the correct option is (A).",
         "url": "https://questions.examside.com/past-years/jee/question/pin-a-vernier-callipers-50-vernier-scale-divisions-are-eq-jee-main-physics-units-and-measurements-n3enc5edo26fksbd",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "24th January"
     },
     {
@@ -1948,7 +1948,7 @@
         "explanation": "Electric dipole moment\n(\nP\n \\\\to \n)\n=\nq\n \\\\times \n2\n l \nMagnetic dipole moment\n(\nM\n \\\\to \n)\n=\nIA\n[\nP\nM\n]\n=\n $[LTA\nL^{2}\nA\n]$ \n=\nL- $1 \\text{ T}$ \n=\nM\n0\nL- $1 \\text{ T}$ \n $1 \\text{ A}$ \n0\nAfter compering values of\nP\n&\nQ\nare\n0\n,\n-\n1\nCorrect Answer : Option 4",
         "url": "https://questions.examside.com/past-years/jee/question/pin-an-electromagnetic-system-a-quantity-defined-as-the-r-jee-main-physics-units-and-measurements-ll0g3rzv4a7bbzoq",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "4th April"
     },
     {
@@ -1980,7 +1980,7 @@
         "explanation": "The least count of an instrument is the smallest measurement that can be taken accurately with that instrument.\nThe least count is shown by the position of the last significant digit (the smallest decimal place) to which all readings are recorded.\nThe obtained readings are :\n1.\nReading 1 : $1.24 \\text{ mm}$ \n2.\nReading 2 : $1.25 \\text{ mm}$ \n3.\nReading 3 : $1.23 \\text{ mm}$ \n4.\nReading 4 : $1.21 \\text{ mm}$ \nAll the readings are recorded up to two decimal places.\nThe difference between consecutive possible readings\n $1.25 \\text{ mm}$ - $1.24 \\text{ mm}$ \n=\n $0.01 \\text{ mm}$ \n $1.24 \\text{ mm}$ - $1.23 \\text{ mm}$ \n=\n $0.01 \\text{ m}$ \nIf the least count were $0.1 \\text{ mm}$ (the smallest decimal place is 1 ), the readings would look like $1.2 \\text{ mm}$ or $1.3 \\text{ mm}$ .\nIf the least count were $0.001 \\text{ mm}$ (the smallest decimal place is 3 ), the readings would look like $1.240 \\text{ mm}$ .\nIf the least count were $0.05 \\text{ mm}$ , the readings would only end in .00 or .05 (e.g.,\n1.20\n,\n1.25\n).\nSince we have 1.24 and 1.23, this is not possible.\nTherefore, the least count of the instrument is $0.01 \\text{ mm}$ .\nHence, the correct option is (A).",
         "url": "https://questions.examside.com/past-years/jee/question/pin-an-experiment-a-set-of-reading-are-obtained-as-follow-jee-main-physics-xco12v1ifp8sxqx6",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "28th January"
     },
     {
@@ -2012,7 +2012,7 @@
         "explanation": "According to Ohm's law, the resistance R is given by the ratio of potential difference V to the current I :\nR\n=\nV\nI\nThe reading of voltmeter is\nV\n=\n $10 \\text{ V}$ \nand that of ammeter is\nI\n=\n $5 \\text{ A}$ \nThen resistance is\nR\n=\n10\n5\n=\n2\n \\\\Omega \nWhen a quantity is determined by the division of two other quantities\n(\nR\n=\nV\nI\n)\n, the relative error in the result is the sum of the relative errors of the individual quantities.\nThe relative error is,\n \\\\Delta \nR\nR\n=\n \\\\Delta \nV\nV\n+\n \\\\Delta \nI\nI\nWhere\n \\\\Delta \nR\nis the absolute error in resistance,\n \\\\Delta \nV\nis the error in voltage, and\n \\\\Delta \nI\nis the error in current.\nThe error in a measurement is taken as the least count of the instrument used.\nSo, error in voltmeter is\n \\\\Delta \nV\n=\n500\nm V\n=\n $0.5 \\text{ V}$ \nAnd the error in ammeter is\n \\\\Delta \nI\n=\n200\nm A\n=\n $0.2 \\text{ A}$ \nSubstituting values into the error equation\n \\\\Delta \nR\n2\n=\n0.5\n10+0.2\n5\n⇒\n \\\\Delta \nR\n2\n=\n0.05+0.04\n=\n0.09\n⇒\n \\\\Delta \nR\n=\n0.09\n \\\\times \n2\n=\n0.18\n \\\\Omega \nTherefore, the estimated error in the resistance measurement is\n0.18\n \\\\Omega \n.\nHence, the correct option is (D).",
         "url": "https://questions.examside.com/past-years/jee/question/pin-an-experiment-to-determine-the-resistance-of-a-given-w-jee-main-physics-units-and-measurements-pdom4hyamm1gprov",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "5th April"
     },
     {
@@ -2023,7 +2023,7 @@
         "explanation": "T\n=\n2\n \\\\pi \nl\ng\nd\ng\ng\n \\\\times \n100\n=\n2\nd\nT\nT\n \\\\times \n100+d\nl\nl\n \\\\times \n100\n=\n2\n \\\\times \n1\n50\n \\\\times \n100+1\n100\n \\\\times \n100\n=\n5\n%",
         "url": "https://questions.examside.com/past-years/jee/question/pin-an-experiment-to-find-acceleration-due-to-gravity-g-jee-main-physics-motion-jfuulied5io7soaj",
         "year": "2022",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "28th July"
     },
     {
@@ -2055,7 +2055,7 @@
         "explanation": "In this experiment, the vernier callipers have a least count of $0.1 \\text{ mm}$ , which is equal to $0.01 \\text{ cm}$ .\nFirst, let's calculate the zero error since the zero of the vernier scale does not coincide with the zero of the main scale when the two jaws are joined together.\nThe zero error can be found using the formula:\nZero Error = (Number of divisions coinciding) \\\\times Least Count\nZero Error = 6 \\\\times $0.01 \\text{ cm}$ = $0.06 \\text{ cm}$ \nSince the zero of the vernier scale lies to the right of the main scale zero, the zero error is positive.\nNow, let's find the main scale reading (MSR) when measuring the diameter of the spherical bob.\nThe MSR is the value just before the zero of the vernier scale, which is $3.2 \\text{ cm}$ in this case.\nNext, let's find the vernier scale reading (VSR) when measuring the diameter.\nThe VSR is the product of the coinciding division number and the least count:\nVSR = (Number of divisions coinciding) \\\\times Least Count\nVSR = 4 \\\\times $0.01 \\text{ cm}$ = $0.04 \\text{ cm}$ \nNow, we can find the total reading, which is the sum of the MSR and VSR:\nTotal Reading = MSR + VSR = $3.2 \\text{ cm}$ + $0.04 \\text{ cm}$ = $3.24 \\text{ cm}$ \nSince there is a positive zero error, we need to subtract it from the total reading to get the corrected diameter:\nCorrected Diameter = Total Reading - Zero Error = $3.24 \\text{ cm}$ - $0.06 \\text{ cm}$ = $3.18 \\text{ cm}$ \nSo, the diameter of the bob is measured as $3.18 \\text{ cm}$ .",
         "url": "https://questions.examside.com/past-years/jee/question/pin-an-experiment-with-vernier-callipers-of-least-count--jee-main-physics-motion-r1u4mp3wcacfudff",
         "year": "2023",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "10th April"
     },
     {
@@ -2087,7 +2087,7 @@
         "explanation": "To find the refractive index of the glass slab, we first need to calculate the actual readings using the Main Scale Reading (MSR) and Vernier Coincidence (VC), and understand how to translate these values into a measurement of the refractive index.\nWe will start by calculating the Least Count (LC) of the vernier calipers.\nThe least count (LC) of the traveling microscope is given by the formula:\nLC\nMSD\nVSD\nLC\n=\nMSD-VSD\nWhere MSD is the value of one main scale division and VSD is the value of one vernier scale division in terms of the main scale.\nWe are told 50 vernier scale divisions equal 49 main scale divisions (MSD), so 1 VSD is\n49\n50\nof an MSD.\nGiven that 20 divisions on the main scale represent $1 \\text{ cm}$ , each main scale division (MSD) represents:\nMSD\ncm\ncm\n1\nMSD\n=\n $1 \\text{ cm}$ \n20\n=\n $0.05 \\text{ cm}$ \nTherefore, the least count (LC) of the microscope is:\nLC\ncm\ncm\ncm\ncm\ncm\nLC\n=\n $0.05 \\text{ cm}$ \n-\n(\n49\n50\n \\\\times \n $0.05 \\text{ cm}$ \n)\n=\n $0.05 \\text{ cm}$ - $0.049 \\text{ cm}$ \n=\n $0.001 \\text{ cm}$ \nNow, using the least count to find the total reading (TR) from both supplied observations:\nFor the mark on paper, the total reading (TR) is:\nTR\nMSR\nVC\nLC\nTR\n=\nMSR\n+\n(\nVC\n \\\\times \nLC\n)\nTR\npaper\ncm\ncm\ncm\ncm\ncm\nTR\npaper\n=\n $8.45 \\text{ cm}$ \n+\n(\n26\n \\\\times \n $0.001 \\text{ cm}$ \n)\n=\n $8.45 \\text{ cm}$ + $0.026 \\text{ cm}$ \n=\n $8.476 \\text{ cm}$ \nFor the mark on the paper seen through the slab, the total reading is:\nTR\nseen through slab\ncm\ncm\ncm\ncm\ncm\nTR\nseen through slab\n=\n $7.12 \\text{ cm}$ \n+\n(\n41\n \\\\times \n $0.001 \\text{ cm}$ \n)\n=\n $7.12 \\text{ cm}$ + $0.041 \\text{ cm}$ \n=\n $7.161 \\text{ cm}$ \nFor the powder particle on the top surface of the glass slab:\nTR\ntop surface\ncm\ncm\ncm\ncm\ncm\nTR\ntop surface\n=\n $4.05 \\text{ cm}$ \n+\n(\n1\n \\\\times \n $0.001 \\text{ cm}$ \n)\n=\n $4.05 \\text{ cm}$ + $0.001 \\text{ cm}$ \n=\n $4.051 \\text{ cm}$ \nThe real depth (RD) observed directly is the difference between the first and third observations (mark on paper and powder particle on top surface):\nRD\nTR\npaper\nTR\ntop surface\ncm\ncm\ncm\nRD\n=\nTR\npaper-TR\ntop surface\n=\n $8.476 \\text{ cm}$ - $4.051 \\text{ cm}$ \n=\n $4.425 \\text{ cm}$ \nThe apparent depth (AD) when viewed through the slab is the difference between the second and third observations:\nAD\nTR\nseen through slab\nTR\ntop surface\ncm\ncm\ncm\nAD\n=\nTR\nseen through slab-TR\ntop surface\n=\n $7.161 \\text{ cm}$ - $4.051 \\text{ cm}$ \n=\n $3.11 \\text{ cm}$ \nThe refractive index (\nn\n) of the glass slab can be found using the formula:\nReal Depth (RD)\nApparent Depth (AD)\ncm\ncm\nn\n=\nReal Depth (RD)\nApparent Depth (AD)\n=\n $4.425 \\text{ cm}$ \n $3.11 \\text{ cm}$ \nCalculating this gives:\nn\n=\n4.425\n3.11\n \\\\approx \n1.42\nTherefore, the refractive index of the glass slab is approximately 1.42, which corresponds to Option D.",
         "url": "https://questions.examside.com/past-years/jee/question/pin-finding-out-refractive-index-of-glass-slab-the-followi-jee-main-physics-motion-kpdo6f12ygte0ewg",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "6th April"
     },
     {
@@ -2103,7 +2103,7 @@
         "explanation": "Given that,\n[\nX+a\nY\n2\n]\n[\nY-b\n]\n=\nR\nT\n \\\\therefore \nX\nand\na\nY\n2\nhave the same dimensions and\nY\nand\nb\nhave the same dimensions, let's analyze the dimensions of\na\nb\n.\nSince\nX\nrepresents pressure, it has dimensions of\n $[M\nL^{-1}\nT^{-2}\n]$ \n.\nSince\nX\nand\na\nY\n2\nhave the same dimensions, we have:\n[\na\nY\n2\n]\n=\n $[M\nL^{-1}\nT^{-2}\n]$ \nThen, the dimensions of\na\nare:\n[\na\n]\n=\n $[M\nL^{-1}\nT^{-2}\n]$ \n[\nY\n2\n]\n=\n $[M\nL^{5}\nT^{-2}\n]$ \nNow, since\nY\nand\nb\nhave the same dimensions and\nY\nrepresents volume, we have:\n[\nb\n]\n=\n $[L^{3}\n]$ \nNow, let's find the dimensions of the ratio\na\nb\n:\n[\na\n]\n[\nb\n]\n=\n $[M\nL^{5}\nT^{-2}\n]$ \n $[L^{3}\n]$ \n=\n $[M\nL^{2}\nT^{-2}\n]$ \nIndeed, the dimensions of\na\nb\nare\n $[M\nL^{2}\nT^{-2}\n]$ \n, which corresponds to the dimensions of energy.",
         "url": "https://questions.examside.com/past-years/jee/question/pin-the-equation-leftxfracay2righty-bma-jee-main-physics-motion-ifbunwmwxuwjynha",
         "year": "2023",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "13th April"
     },
     {
@@ -2119,7 +2119,7 @@
         "explanation": "In addition, or subtraction, the final result should be reported to the same number of decimal places as the measurement with the least number of decimal places.\nThis ensures the result is no more precise than the least precise measurement.\nThe given measured values are,\n $52.01 \\text{ m}$ \n:\n2\ndecimal places.\n $153.2 \\text{ m}$ : 1 decimal place.\n $0.123 \\text{ m}$ : 3 decimal places.\nThe measurement with the least number of decimal places is $153.2 \\text{ m}$ ( 1 decimal place).\nTherefore, our final answer must be rounded to one decimal place.\n52.01+153.2+0.123\n=\n $205.333 \\text{ m}$ \nNow, we round 205.333 to one decimal place :\nThe digit at the first decimal place is\n3\n \\\\to \n205.33\nThe digit following it is 3 (which is less than 5 ) \\\\to 205.3\nTherefore, the rounded result is $205.3 \\text{ m}$ .\nHence, the correct option is (A)",
         "url": "https://questions.examside.com/past-years/jee/question/pkeeping-the-significant-figures-in-view-the-sum-of-the-p-jee-main-physics-dawrguhvrm33nnp6",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "21st January"
     },
     {
@@ -2151,7 +2151,7 @@
         "explanation": "In a vernier caliper, the least count is the smallest distance measurable by the instrument.\nIt can be defined using the difference between one main scale division and one vernier scale division.\nGiven the least count, we can relate the number of divisions on the main scale to the divisions on the vernier scale.\nThe given least count of the vernier caliper is:\n1\n $20 \\text{ N}$ \ncm\nWe know that the value of one division on the main scale is:\n $1 \\text{ mm}$ \nTo find the number of divisions on the main scale that coincide with N divisions of the vernier scale, let’s denote:\nThe number of divisions on the main scale = M\nThe number of divisions on the vernier scale = N\nThe least count formula for a vernier caliper is given by:\nLeast Count\nValue of one main scale division\nValue of one vernier scale division\nLeast Count\n=\nValue of one main scale division-Value of one vernier scale division\nThe value of one main scale division is:\n $1 \\text{ mm}$ \nThe value of one vernier scale division can be expressed in terms of the number of divisions M and N:\nValue of one vernier scale division\nValue of one vernier scale division\n=\nM\nN\nmm\nGiven the least count:\n1\n $20 \\text{ N}$ \ncm\n=\n1\n $20 \\text{ N}$ \n⋅\n $10 \\text{ mm}$ \n=\n1\n $2 \\text{ N}$ \nmm\nUsing the least count formula, we have:\n1\n $2 \\text{ N}$ \n=\n1-M\nN\nRearranging the equation to solve for the number of main scale divisions (M), we get:\n1-1\n $2 \\text{ N}$ \n=\nM\nN\nSimplifying further:\n $2 \\text{ N}$ -1\n $2 \\text{ N}$ \n=\nM\nN\nMultiplying both sides by N, we get the value of M:\nM\n=\n $2 \\text{ N}$ -1\n2\nTherefore, the correct answer is option D:\n(\n $2 \\text{ N}$ -1\n2\n)",
         "url": "https://questions.examside.com/past-years/jee/question/pleast-count-of-a-vernier-caliper-is-frac120-mathrm-jee-main-physics-motion-miwupoc7abwa2lv0",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "8th April"
     },
     {
@@ -2167,7 +2167,7 @@
         "explanation": "We know, Young's modulus,\nE\n=\n \\\\sigma \n \\\\epsilon \n⇒\nE\n=\nF\nA\n \\\\Delta \nL\nL\n=\nF\nA\n(\nL\n \\\\Delta \nL\n)\n⇒\n[\nE\n]\n=\n[\nF\n]\n $[A\n]$ \n=\n $[M^{1}\nL^{1}\nT^{-2}\n]$ \n $[L^{2}\n]$ \n(A)\n⇒\n[\nE\n]\n=\n $[M^{1}\nL^{-1}\nT^{-2}\n]$ \n(B) we know, Torque =\nr\n \\\\times \nF\n[\n \\\\tau \n]\n=\n[\nr\n]\n[\nF\n]\n=\n $[L\n]$ \n $[M^{1}\nL^{1}\nT^{-2}\n]$ \n[\n \\\\tau \n]\n=\n $[M^{1}\nL^{2}\nT^{-2}\n]$ \n(C) \nWe know,\nF\n=\n \\\\mu \nA\nu\ny\nwhere, F = force,\n \\\\mu \n= coefficient of viscosity\nA = area\nu\ny\n= rate of shear deformation\n⇒\n \\\\mu \n=\nF\ny\nA\nu\n⇒\n[\n \\\\mu \n]\n=\n $[M^{1}\nL^{1}\nT^{-2}\n]$ \n $[L\n]$ \n $[L^{2}\n]$ \n $[L\nT^{-1}\n]$ \n⇒\n[\n \\\\mu \n]\n=\n $[M^{1}\nL^{-1}\nT^{-1}\n]$ \n(D) \nWe know,\nF\n=\nG\nm\n $1 \\text{ m}$ \n2\nr\n2\n(Newton's law of gravitation)\n⇒\nG\n=\nF\nr\n $2 \\text{ m}$ \n $1 \\text{ m}$ \n2\n<\n⇒\nG\n=\nF\nr\n $2 \\text{ m}$ \n $1 \\text{ m}$ \n2\n⇒\n[\nG\n]\n=\n $[M^{1}\nL^{1}\nT^{-2}\n]$ \n $[L^{2}\n]$ \n $[M^{2}\n]$ \n⇒\n[\nG\n]\n=\n $[M^{-1}\nL^{3}\nT^{-2}\n]$ \nHence, option D is correct.",
         "url": "https://questions.examside.com/past-years/jee/question/pmatch-blist-ib-with-blist-iibp-table-b-jee-main-physics-4ngo9dpsbdwgqngk",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "29th January"
     },
     {
@@ -2183,7 +2183,7 @@
         "explanation": "(A) Mass density:\nMass density is defined as mass per unit volume.\nThe dimension of mass is\n $[M\n]$ \n.\nThe dimension of volume is\n $[L^{3}\n]$ \n.\nTherefore, the dimension of mass density is\n $[M\n]$ \n $[L^{3}\n]$ \n=\n $[M\nL^{-3}\nT^{0}\n]$ \n.\nMatches with (IV).\n(B) Impulse:\nImpulse is defined as the change in momentum, or force multiplied by time.\nImpulse = Force x Time\nThe dimension of force is\n $[M\nL\nT^{-2}\n]$ \n.\nThe dimension of time is\n $[T\n]$ \n.\nTherefore, the dimension of impulse is\n $[M\nL\nT^{-2}\n]$ \n⋅\n $[T\n]$ \n=\n $[M\nL\nT^{-1}\n]$ \n.\nMatches with (II).\n(C) Power:\nPower is defined as the rate of doing work or energy per unit time.\nPower = Work / Time\nThe dimension of work (or energy) is\n $[M\nL^{2}\nT^{-2}\n]$ \n.\nThe dimension of time is\n $[T\n]$ \n.\nTherefore, the dimension of power is\n $[M\nL^{2}\nT^{-2}\n]$ \n $[T\n]$ \n=\n $[M\nL^{2}\nT^{-3}\n]$ \n.\nMatches with (I).\n(D) Moment of inertia:\nMoment of inertia is defined as\nI\n=\nm\nr\n2\n, where m is mass and r is the distance from the axis of rotation.\nThe dimension of mass is\n $[M\n]$ \n.\nThe dimension of distance squared is\n $[L^{2}\n]$ \n.\nTherefore, the dimension of moment of inertia is\n $[M\nL^{2}\nT^{0}\n]$ \n.\nMatches with (III).\nSo, the correct matches are:\n(A) - (IV)\n(B) - (II)\n(C) - (I)\n(D) - (III)\nTherefore, the correct option is\nD\n.",
         "url": "https://questions.examside.com/past-years/jee/question/pmatch-blist-ib-with-blist-iibp-table-jee-main-physics-ot6g5mfcgkp9ccfx",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "7th April"
     },
     {
@@ -2199,7 +2199,7 @@
         "explanation": "From Newton's law of viscosity, the force is\nF\n=\n \\\\eta \nA\n(\n \\\\Delta \nv\n \\\\Delta \nx\n)\n, where A is area and\n \\\\Delta \nv\n \\\\Delta \nx\nis the velocity gradient.\n \\\\eta \n=\nF\nA\n⋅\n(\n \\\\Delta \nv\n \\\\Delta \nx\n)\n⇒\n[\n \\\\eta \n]\n=\n $[MLT^{-2}\n]$ \n $[L^{2}\n]$ \n⋅\n(\n $[LT^{-1}\n]$ \n $[L\n]$ \n)\n=\n $[MLT^{-2}\n]$ \n $[L^{2}\n]$ \n⋅\n $[T^{-1}\n]$ \n=\n $[ML^{-1}\nT^{-1}\n]$ \nA\n \\\\to \nIV\nSurface tension is defined as the force acting per unit length.\nForce\nLength\nT\n=\nForce\nLength\n $[T\n]$ \n=\n $[MLT^{-2}\n]$ \n $[L\n]$ \n=\n $[ML^{0}\nT^{-2}\n]$ \nB\n \\\\to \nIII\nPressure is defined as force acting per unit area.\nForce\nArea\nP\n=\nForce\nArea\n[\nP\n]\n=\n $[MLT^{-2}\n]$ \n $[L^{2}\n]$ \n=\n $[ML^{-1}\nT^{-2}\n]$ \nC\n \\\\to \nI\nSurface energy\n(\nU\ns\n)\nis defined as the work done by surface tension in changing the surface area\nU\ns\n=\nT\n⋅\n(\n \\\\Delta \nA\n)\n⇒\n[\nU\nS\n]\n=\n[\nSurface Tension\n]\n⋅\n[\nArea\n]\n⇒\n[\nU\nS\n]\n=\n $[ML^{0}\nT^{-2}\n]$ \n⋅\n[\n $[M^{0}\nL^{2}\nT^{0}\n]$ \n]\n=\n[\n $[ML^{2}\nT^{-2}\n]$ \n]\nD\n \\\\to \nII\nList - I\nList - II\nA.\nCoefficient of viscosity\nIV.\nB.\nSurface tension\nIII.\nC.\nPressure\nI.\nD.\nSurface energy\nII.\nHence, the correct option is (B).\nList - I\nList - II\nA.\nCoefficient of viscosity\nIV.\n $[ML^{-1}\nT^{-1}\n]$ \nB.\nSurface tension\nIII.\n $[ML^{0}\nT^{-2}\n]$ \nC.\nPressure\nI.\n $[ML^{-1}\nT^{-2}\n]$ \nD.\nSurface energy\nII.\n $[ML^{2}\nT^{-2}\n]$ \nHence, the correct option is (B).",
         "url": "https://questions.examside.com/past-years/jee/question/pmatch-blist-ib-with-blist-iibtable-border-jee-main-physics-8rpvscyrfvp5j5so",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "28th January"
     },
     {
@@ -2215,7 +2215,7 @@
         "explanation": "Torque\n \\\\to \nkg m\n $2 \\text{ s}$ -2\n(IV)\nEnergy density\n \\\\to \nkg m- $1 \\text{ s}$ -2\n(I)\nPressure gradient\n \\\\to \nkg m- $2 \\text{ s}$ -2\n(III)\nImpulse\n \\\\to \nkg m s-1\n(II)",
         "url": "https://questions.examside.com/past-years/jee/question/pmatch-list-bib-with-list-biibp-style-type-jee-main-physics-evarmlbjjynrciog",
         "year": "2023",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "30th January"
     },
     {
@@ -2247,7 +2247,7 @@
         "explanation": "The correct matching is:\n(A) Permeability of free space has dimensions\n $[M\nL\nT^{-2}\nA^{-2}\n]$ \nwhich corresponds to entry\n(III)\n.\n(B) Magnetic field has dimensions\n $[M\nT^{-2}\nA^{-1}\n]$ \nwhich corresponds to entry\n(II)\n.\n(C) Magnetic moment in SI units is expressed in Ampere-square meters, i.e.,\n $[L^{2}\nA\n]$ \nwhich corresponds to entry\n(IV)\n.\n(D) Torsional constant (torque per unit angular displacement) has dimensions\n $[M\nL^{2}\nT^{-2}\n]$ \nwhich corresponds to entry\n(I)\n.\nThus, the correct answer is:\nOption A: (A)-(III), (B)-(II), (C)-(IV), (D)-(I)",
         "url": "https://questions.examside.com/past-years/jee/question/pmatch-list-i-with-list-iip-pstyle-typetextcs-jee-main-physics-units-and-measurements-vjekrmljnhqbue7g",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "23rd January"
     },
     {
@@ -2263,7 +2263,7 @@
         "explanation": "Torque\n \\\\to \nNm\nStress\n \\\\to \nN/m\n2\nLatent heat\n \\\\to \nJ/kg\nPower\n \\\\to \nN\nm/s\nA-III, B-IV, C-II, D-I",
         "url": "https://questions.examside.com/past-years/jee/question/pmatch-list-i-with-list-iip-pstyle-typetextcss-jee-main-physics-motion-7lskqlq55ficsr09",
         "year": "2022",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "29th July"
     },
     {
@@ -2279,7 +2279,7 @@
         "explanation": "Let's analyze the SI units of each quantity from List I:\nTorque: Torque ( \\\\tau ) is given by the cross product of the radius (r) and the force (F).\nTherefore, its SI units are Newton meter (Nm), which translates to\nML\n $2 \\text{ T}$ -2\nin fundamental units.\nStress: Stress is force per unit area.\nThe SI unit for force is the Newton (N) and for area is meter squared (m²).\nTherefore, the SI unit for stress is Pascal (Pa), which translates to\nML- $1 \\text{ T}$ -2\nin fundamental units.\nPressure gradient: The pressure gradient is the rate of increase or decrease in pressure.\nIt has units of pressure per distance.\nIn SI units, that's Pascal per meter (Pa/m), which translates to\nML- $2 \\text{ T}$ -2\nin fundamental units.\nCoefficient of viscosity: This is a measure of a fluid's resistance to shear or flow, and its SI units are the Pascal second (Pa.s), which translates to\nML- $1 \\text{ T}$ -1\nin fundamental units.\nTherefore, the correct matches are:\nA - II\nB - IV\nC - I\nD - III",
         "url": "https://questions.examside.com/past-years/jee/question/pmatch-list-i-with-list-iip-pstyle-typetextcss-jee-main-physics-motion-8vzoxjujh9cxca8u",
         "year": "2023",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "8th April"
     },
     {
@@ -2343,7 +2343,7 @@
         "explanation": "Stress\nStrain\nY\n=\nStress\nStrain\n=\nF/A\n \\\\Delta \n l/l \n=\n $[MLT^{-2}\n]$ \n $[L^{2}\n]$ \n=\n $[ML^{-1}\nT^{-2}\n]$ \nF\n=\n6\n \\\\pi \n \\\\eta \nrv\n⇒\n \\\\eta \n=\nF\n6\n \\\\pi \nrv\n[\n \\\\eta \n]\n=\n $[MLT^{-2}\n]$ \n $[L\n]$ \n $[LT^{-1}\n]$ \n=\n $[ML^{-1}\nT^{-1}\n]$ \nE\n=\nh\nv\n⇒\nh\n=\nE\nv\n=\n $[ML^{2}\nT^{-2}\n]$ \n $[T^{-1}\n]$ \n=\n $[ML^{2}\nT^{-1}\n]$ \nWork function has same dimension as that of energy, so\n[\n \\\\phi \n]\n=\n $[ML^{2}\nT^{-2}\n]$",
         "url": "https://questions.examside.com/past-years/jee/question/pmatch-list-i-with-list-iip-pstyle-typetextcss-jee-main-physics-motion-rfy12yjak0zwt03u",
         "year": "2023",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "25th January"
     },
     {
@@ -2391,7 +2391,7 @@
         "explanation": "Matching the quantities from List - I with their correct dimensions from List - II is crucial to understanding their physical significance.\nHere is the correct matching:\n(A) Angular Impulse:\nThe dimensions of angular impulse are equivalent to those of angular momentum, represented as\nM\nL\n $2 \\text{ T}$ -1\n.\nHence, (A) corresponds to (III).\n(B) Latent Heat:\nLatent heat has dimensions of energy per unit mass, which simplifies to\nM\n0\nL\n $2 \\text{ T}$ -2\n.\nHence, (B) corresponds to (I).\n(C) Electrical resistivity:\nElectrical resistivity has the dimensions of resistance multiplied by length, which can be represented as\nM\nL\n $3 \\text{ T}$ - $3 \\text{ A}$ -2\n.\nHence, (C) corresponds to (IV).\n(D) Electromotive force:\nElectromotive force (emf) is similar to electric potential difference and has dimensions\nM\nL\n $2 \\text{ T}$ - $3 \\text{ A}$ -1\n.\nHence, (D) corresponds to (II).\nTherefore, the correct answer is\nOption C\n:\n(A)-(III)\n(B)-(I)\n(C)-(IV)\n(D)-(II)",
         "url": "https://questions.examside.com/past-years/jee/question/pmatch-list-i-with-list-iiptable-border1-t-jee-main-physics-rvzjz8vwqflrj0x3",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "28th January"
     },
     {
@@ -2418,7 +2418,7 @@
         "explanation": "Given, $$Q = {{a{b^4}} \\over {cd}}$$$$a = (60 \\pm 3)\\,Pa \\Rightarrow a = 60\\,Pa,\\,\\Delta a = 3Pa$$$$b = (20 \\pm 0.1)\\,m \\Rightarrow b = 20m,\\,\\Delta b = 0.1\\,m$$$$c = (40 \\pm 0.2)\\,Ns{m^{ - 2}} \\Rightarrow c = 40\\,Ns{m^{ - 2}},\\,\\Delta c = 0.2\\,Ns{m^{ - 2}}$$$$d = (50 \\pm 0.1)\\,m \\Rightarrow \\,d = 50\\,m,\\,\\Delta d = 0.1m$$As,$$Q = {{a{b^4}} \\over {cd}}$$by taking ln on both sides,$$\\ln Q = \\ln a + u\\ln b - \\ln c - \\ln d$$Now, by differentiating,$${{d Q} \\over Q} = {{da} \\over a} + 4{{db} \\over b} - {{dc} \\over c} - {{dd} \\over d}$$\nSo, maximum fractional error in Q is given by,$${{\\Delta Q} \\over Q} = {{\\Delta a} \\over a} + 4{{\\Delta b} \\over b} + {{\\Delta c} \\over c} + {{\\Delta d} \\over d}$$$$\\Rightarrow {{\\Delta Q} \\over Q} = {3 \\over {60}} + 4\\left( {{{0.1} \\over {20}}} \\right) + {{0.2} \\over {40}} + {{0.1} \\over {40}}$$$$= {1 \\over {20}} + {1 \\over {50}} + {1 \\over {200}} + {1 \\over {500}}$$$$\\Rightarrow {{\\Delta Q} \\over Q} = {{50 + 20 + 5 + 2} \\over {1000}} = {{77} \\over {1000}}$$Hence the % error in$$Q = {{\\Delta Q} \\over Q} \\times 100\\%$$$$= {{7700} \\over {1000}}\\% = {x \\over {1000}}$$(given)\nSo,$$x = 7700$$$",
         "url": "https://questions.examside.com/past-years/jee/question/ptext--a-physical-quantity--q-text--is-related-to-fo-jee-main-physics-pik17mypblqpwhnc",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "29th January"
     },
     {
@@ -2434,7 +2434,7 @@
         "explanation": "To determine the dimensional formula for Planck's constant, we will start by analyzing the given de-Broglie wavelength equation:\n \\\\lambda \n=\nh\n $2 \\text{ m}$ \nE\nHere,\n \\\\lambda \nis the wavelength,\nh\nis the Planck's constant,\nm\nis the mass of the particle, and\nE\nis the energy of the particle.\nFirst, let's derive the dimensional formula for each term involved:\n1.\nWavelength\n \\\\lambda \nhas the dimensional formula of length\n $[L\n]$ \n.\n2.\nMass\nm\nhas the dimensional formula\nM\n $[M\n]$ \n.\n3.\nEnergy\nE\nhas the dimensional formula of work, which is force times distance:\nMLT\nML\nT\n[\nE\n]\n=\n[\nF\n]\n $[L\n]$ \n=\n $[MLT^{-2}\n]$ \n $[L\n]$ \n=\n $[ML^{2}\nT^{-2}\n]$ \n.\nNow, let's rewrite the equation in terms of the dimensions:\nM\nML\nT\n $[L\n]$ \n=\n[\nh\n]\n2\n $[M\n]$ \n $[ML^{2}\nT^{-2}\n]$ \nSimplifying inside the square root:\nM\nM\nL\nT\n $[L\n]$ \n=\n[\nh\n]\n2\n $[M\n]$ \n $[M\n]$ \n $[L^{2}\nT^{-2}\n]$ \nM\nL\nT\n $[L\n]$ \n=\n[\nh\n]\n2\n $[M^{2}\n]$ \n $[L^{2}\nT^{-2}\n]$ \nSince the constants like 2 do not affect the dimensional formula, we can simplify further:\nM L T\n $[L\n]$ \n=\n[\nh\n]\n $[MLT^{-1}\n]$ \nCross multiplying to solve for the dimensional formula of\nh\n:\nM L T\n[\nh\n]\n=\n $[L\n]$ \n $[MLT^{-1}\n]$ \nM L\nT\n[\nh\n]\n=\n $[ML^{2}\nT^{-1}\n]$ \nTherefore, the dimensional formula for Planck's constant\nh\nis:\nML\nT\n $[ML^{2}\nT^{-1}\n]$ \nHence, the correct option is:\nOption C\n $[ML^{2}\nT^{-1}\n]$",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-de-broglie-wavelength-associated-with-a-particle-of-m-jee-main-physics-motion-v4tpf3ffzl2qzjtd",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "9th April"
     },
     {
@@ -2498,7 +2498,7 @@
         "explanation": "The dimension of\n \\\\mu \n0\n \\\\epsilon \n0\ncan be understood as follows:\nVacuum permeability (\n \\\\mu \n0\n) and vacuum permittivity (\n \\\\epsilon \n0\n) relate to the properties of inductance and capacitance, respectively, in a vacuum.\nWe start by considering the formulas for inductance (\nL\n) and capacitance (\nC\n):\nInductance (\nL\n)\nis given by:\nNumber of turns\nArea\nLength\nL\n=\n \\\\mu \n0\n⋅\nNumber of turns\n⋅\nArea\nLength\nCapacitance (\nC\n)\nis given by:\nArea\nDistance\nC\n=\nArea\n⋅\n \\\\epsilon \n0\nDistance\nFrom these, the ratio\nL\nC\ncan be expressed as\n \\\\mu \n0\n \\\\epsilon \n0\n:\nL\nC\n∝\n \\\\mu \n0\n \\\\epsilon \n0\nTaking the square root of this ratio, we have:\n \\\\mu \n0\n \\\\epsilon \n0\n∝\nL\nC\nThis simplifies further to considering the relationship between time constant (\n \\\\tau \n) and resistance (\nR\n):\nL\nC\n=\n \\\\tau \nR\n(\n \\\\tau/R\n)\n=\nR\n2\nThus, by taking the square root:\n \\\\mu \n0\n \\\\epsilon \n0\n=\nR\nIn conclusion, the dimension of\n \\\\mu \n0\n \\\\epsilon \n0\nis equivalent to the dimension of resistance,\nR\n.",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-dimension-of--sqrtfracmu0epsilon0--is-e-jee-main-physics-6mwpuisydfwarraw",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "7th April"
     },
     {
@@ -2514,7 +2514,7 @@
         "explanation": "∵\nU\n=\n1\n2\nM\ni\n2\n⇒\n $[M\n]$ \n=\n[\nU\n]\n[\ni\n2\n]\n=\nM\nL\n $2 \\text{ T}$ - $2 \\text{ A}$ \n2\n=\n $[M\nL^{2}\nT^{-2}\nA^{-2}\n]$",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-dimension-of-mutual-inductance-is-p-jee-main-physics-motion-defavocn3cjn2hsl",
         "year": "2022",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "26th June"
     },
     {
@@ -2578,7 +2578,7 @@
         "explanation": "We start with the energy function:\nE\n(\nt\n)\n=\n \\\\alpha \n3\ne\n-\n \\\\beta \nt\n,\nwhere\ns\n \\\\beta \n=\n $0.3 \\text{ s}$ -1\n.\nStep 1.\nTake the Logarithm\nTaking the logarithm of both sides:\nln\n⁡\nE\n=\n3\nln\n⁡\n \\\\alpha \n-\n \\\\beta \nt\n.\nStep 2.\nDifferentiate to Find the Relative Error\nDifferentiate both sides:\nd\nE\nE\n=\n3\nd\n \\\\alpha \n \\\\alpha \n-\n \\\\beta \nd\nt\n.\nFor maximum error estimation, we consider the absolute values and sum the contributions:\n|\n \\\\Delta \nE\nE\n|\n \\\\approx \n3\n|\n \\\\Delta \n \\\\alpha \n \\\\alpha \n|\n+\n \\\\beta \n|\n \\\\Delta \nt\n|\n.\nStep 3.\nPlug in the Given Errors\nThe percentage error in\n \\\\alpha \nis\n1.2\n%\n(i.e.,\n \\\\Delta \n \\\\alpha \n/\n \\\\alpha \n=\n0.012\n).\nThe percentage error in\nt\nis\n1.6\n%\n, so for\ns\nt\n=\n $5 \\text{ s}$ \n:\ns\n \\\\Delta \nt\n=\n0.016\n \\\\times \n5\n=\n $0.08 \\text{ s}$ \n.\nNow substitute these values:\n|\n \\\\Delta \nE\nE\n|\n \\\\approx \n3\n(\n0.012\n)\n+\n0.3\n(\n0.08\n)\n.\nCalculating each term:\n3\n(\n0.012\n)\n=\n0.036\n(or\n3.6\n%\n),\n0.3\n(\n0.08\n)\n=\n0.024\n(or\n2.4\n%\n).\nStep 4.\nCompute the Total Maximum Percentage Error\nAdd the contributions:\n|\n \\\\Delta \nE\nE\n|\n \\\\approx \n0.036+0.024\n=\n0.06\n,\nwhich is\n6\n%\n.\nThus, the maximum percentage error in the energy at\ns\nt\n=\n $5 \\text{ s}$ \nis:\n6\n%\nAnswer: Option A (6%).",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-energy-of-a-system-is-given-as-mathrmemathrmt-jee-main-physics-units-and-measurements-tzahnkyovjod1yoy",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "23rd January"
     },
     {
@@ -2594,7 +2594,7 @@
         "explanation": "Here, At is distance, so dimensions of\n[\nA\nt\n]\n=\n[\nx\n]\n=\n $[L\n]$ \nGiven.\nThe dimensions of t is\n $[T^{-1}\n]$ \n[\nA\n \\\\times \nT-1\n]\n=\n $[L\n]$ \n⇒\n $[A\n]$ \n=\n $[LT\n]$ \n[\nt\nB\n]\n=\n[\ny\n]\n=\n $[L\n]$ \n⇒\nT-1\n[\nB\n]\n=\n $[L\n]$ \n⇒\nB\n=\n $[L^{-1}\nT^{-1}\n]$",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-equation-of-a-circle-is-given-by-x2y2a2-whe-jee-main-physics-motion-0obafaes3u2nbutw",
         "year": "2023",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "29th January"
     },
     {
@@ -2653,7 +2653,7 @@
         "explanation": "Given,\n \\\\Delta \nR\nR\n \\\\times \n100\n=\n1\n%\nand\n \\\\Delta \nF\nF\n \\\\times \n100\n=\n2\n%\nand\n \\\\Delta \nt\nt\n \\\\times \n100\n=\n3\n%\nWe know that, heat produced due to current flowing through a resistor\nR\n.\nH\n=\nI\n2\nR\nt\n⇒\n \\\\Delta \nH\nH\n=\n2\n \\\\Delta \nI\nI\n+\n \\\\Delta \nR\nR\n+\n \\\\Delta \nt\nt\n⇒\n \\\\Delta \nH\nH\n \\\\times \n100\n=\n2\n(\n \\\\Delta \nI\nI\n \\\\times \n100\n)\n+\n \\\\Delta \nR\nR\n \\\\times \n100\n+\n \\\\Delta \nt\nt\n \\\\times \n100\n=\n2\n \\\\times \n2\n%\n+\n1\n%\n+\n3\n%\n=\n8\n%",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-maximum-error-in-the-measurement-of-resistance-curre-jee-main-physics-motion-asgtwbp5pgm029sb",
         "year": "2022",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "25th July"
     },
     {
@@ -2669,7 +2669,7 @@
         "explanation": "To determine the maximum percentage error in the density of the wire, follow these steps:\nThe density of the wire is given by the formula for a cylinder:\n \\\\rho \n=\nm\n \\\\pi \nr\n2\nl\nWhen calculating the maximum percentage (relative) error, you add the relative errors from each variable, taking into account the power to which each variable is raised.\nThus, for density:\n \\\\Delta \n \\\\rho \n \\\\rho \n=\n \\\\Delta \nm\nm+2\n \\\\Delta \nr\nr\n+\n \\\\Delta \nl\nl\nHere:\n \\\\Delta \nm\nm\nis the relative error in the mass.\n2\n \\\\Delta \nr\nr\nis due to the radius being squared.\n \\\\Delta \nl\nl\nis the relative error in the length.\nNow plug in the given values:\nMass:\ng\nm\n=\n0.60\ng\nwith an error\ng\n \\\\Delta \nm\n=\n0.003\ng\n \\\\Delta \nm\nm\n=\n0.003\n0.60\n=\n0.005\nor 0.5%.\nRadius:\ncm\nr\n=\n $0.50 \\text{ cm}$ \nwith an error\ncm\n \\\\Delta \nr\n=\n $0.01 \\text{ cm}$ \n \\\\Delta \nr\nr\n=\n0.01\n0.50\n=\n0.02\nor 2%.\nSince the radius is squared in the formula, multiply by 2:\n2\n \\\\Delta \nr\nr\n=\n2\n \\\\times \n0.02\n=\n0.04\nor 4%.\nLength:\ncm\nl\n=\n $10.00 \\text{ cm}$ \nwith an error\ncm\n \\\\Delta \nl\n=\n $0.05 \\text{ cm}$ \n \\\\Delta \nl\nl\n=\n0.05\n10.00\n=\n0.005\nor 0.5%.\nSum these contributions to find the overall maximum relative error:\n \\\\Delta \n \\\\rho \n \\\\rho \n=\n0.005+0.04+0.005\n=\n0.05\nConverting this relative error into a percentage gives:\n0.05\n \\\\times \n100\n%\n=\n5\n%\nThus, the maximum percentage error in the density of the wire is 5%, which corresponds to Option C.",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-maximum-percentage-error-in-the-measurment-of-density-jee-main-physics-units-and-measurements-pqrruhcxizwzyomf",
         "year": "2025",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "22nd January"
     },
     {
@@ -2685,7 +2685,7 @@
         "explanation": "T\n=\n2\n \\\\pi \n l \ng\ng\n=\n4\n \\\\pi \n2\n l \nT\n2\n \\\\Delta \ng\ng\n=\n \\\\Delta \n l \n l+2\n \\\\Delta \nT\nT\n=\n0.2\n20+2\n(\n1\n40\n)\n=\n1.2\n20\nPercentage change\n=\n1.2\n20\n \\\\times \n100\n=\n6\n%",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-measured-value-of-the-length-of-a-simple-pendulum-is-jee-main-physics-motion-afbgjqvd6xxeuhrr",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "31st January"
     },
     {
@@ -2728,7 +2728,7 @@
         "explanation": "The volume\nV\nof a sphere is given by the formula\nV\n=\n4\n3\n \\\\pi \nr\n3\n, where\nr\nis the radius of the sphere.\nSince the error is given in terms of diameter (D), we express the radius as\nr\n=\nD\n2\n.\nSubstituting this into the volume formula:\nV\n=\n4\n3\n \\\\pi \n(\nD\n2\n)\n3\n⇒\nV\n=\n4\n3\n \\\\pi \n(\nD\n3\n8\n)\n⇒\nV\n=\n1\n6\n \\\\pi \nD\n3\nTo find the relative error, we take the natural logarithm\n(\nln\n)\non both sides of the equation :\nln\n⁡\n(\nV\n)\n=\nln\n⁡\n(\n \\\\pi \n6\n)\n+\nln\n⁡\n(\nD\n3\n)\n⇒\nln\n⁡\n(\nV\n)\n=\nln\n⁡\n(\n \\\\pi \n6\n)\n+\n3\nln\n⁡\n(\nD\n)\nNow, on differentiating both sides.\nd V\nV\n=\n0+3\n(\nd D\nD\n)\n⇒\nd V\nV\n=\n3\nd D\nD\nTo express this as a percentage error, we multiply both sides by 100 :\n(\nd V\nV\n \\\\times \n100\n)\n=\n3\n \\\\times \n(\nd D\nD\n \\\\times \n100\n)\nIt is given that the percentage error in the diameter is\n2\n%\n.\nd\nD\nD\n \\\\times \n100\n=\n2\n%\nSo, percentage error in Volume\n=\n3\n \\\\times \n2\n%\nPercentage error in Volume\n=\n6\n%\nTherefore, the correct option is (C).",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-percentage-error-in-the-calculated-volume-of-a-sphere-jee-main-physics-units-and-measurements-5h9tltwlmgoaxcmz",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "6th April"
     },
     {
@@ -2792,7 +2792,7 @@
         "explanation": "[pascal-second] = $${{ML{T^{ - 2}}} \\over {{L^2}}} \\times T$$$$= M{L^{ - 1}}{T^{ - 1}}$$$",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-si-unit-of-a-physical-quantity-is-pascal-second-the-jee-main-physics-motion-zifgmryzo36lfwmx",
         "year": "2022",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "27th June"
     },
     {
@@ -2808,7 +2808,7 @@
         "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-speed-of-a-longitudinal-wave-in-a-metallic-bar-is-400-jee-main-physics-owovbm4ukowo46uk",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "28th January"
     },
     {
@@ -2824,7 +2824,7 @@
         "explanation": "The formula for the time period of simple harmonic oscillator is\nT\n=\n2\n \\\\pi \nk\nm\n.\n⇒\nT\n2\n=\n(\n2\n \\\\pi \n)\n2\n(\nk\nm\n)\n⇒\nk\n=\nT\n2\n⋅\nm\n4\n \\\\pi \n2\nUsing propagation of error, when quantities are multiplied or divided, their relative errors (percentage errors) are added.\nThe constants have no error.\n \\\\Delta \nk\nk\n \\\\times \n100\n=\n(\n \\\\Delta \nm\nm+2\n⋅\n \\\\Delta \nT\nT\n)\n \\\\times \n100\nThe measured value of mass is,\nm\n=\n10\ng\nAccuracy/Error in measurement of mass is,\n \\\\Delta \nm\n=\n10\nmg\n=\n0.01\ng\nSo, percentage error in measurement of mass\n \\\\Delta \nm\nm\n \\\\times \n100\n%\n=\n0.01\n10\n \\\\times \n100\n=\n0.1\n%\nThe percentage error in the time period (\nT\n) is the same as the percentage error in the total time (\nt\n) measured for n oscillations.\nTotal time measured is,\nt\n=\n $60 \\text{ s}$ \nResolution/Error in measurement of time is,\n \\\\Delta \nt\n=\n $2 \\text{ s}$ \nSo, percentage error in measurement of time is,\n \\\\Delta \nt\nt\n \\\\times \n100\n%\n=\n2\n60\n \\\\times \n100\n%\n=\n3.33\n%\nSo, using propagation formula:\nPercentage error in\nk\n=\n(\n%\nerror in m\n)\n+\n2\n \\\\times \n(\n%\nerror in t\n)\n=\n0.1\n%\n+\n2\n \\\\times \n3.33\n%\n=\n6.76\n%\nTherefore, the correct option is (D).",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-time-period-of-a-simple-harmonic-oscillator-is-t--2-jee-main-physics-cfl6ybxme2hl3wwt",
         "year": "2026",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "28th January"
     },
     {
@@ -2835,7 +2835,7 @@
         "explanation": "Since zero error is negative, we will add $0.05 \\text{ cm}$ .\n⇒\nCorrected reading = $1.7 \\text{ cm}$ + 5\n \\\\times \n $0.1 \\text{ mm}$ + $0.05 \\text{ cm}$ \n= 180\n \\\\times \n10\n^{-2}\ncm",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-vernier-constant-of-vernier-callipers-is-01-mm-and-i-jee-main-physics-motion-eigb7oxmceqbajui",
         "year": "2022",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "29th June"
     },
     {
@@ -2851,7 +2851,7 @@
         "explanation": "Pitch of the screw gauge\n: $1 \\text{ mm}$ \nNumber of divisions on the circular scale\n: 100 divisions\nZero error\n: The zero of the circular scale lies 5 divisions below the reference line, indicating a positive zero error.\nMeasurement data\n:\n4 linear scale divisions are visible.\n60 divisions on the circular scale coincide with the reference line.\nStep-by-Step Calculation\nLeast Count of the screw gauge\n:\nLeast Count\nPitch\nNumber of Divisions on Circular Scale\nmm\nmm\nLeast Count\n=\nPitch\nNumber of Divisions on Circular Scale\n=\n $1 \\text{ mm}$ \n100\n=\n $0.01 \\text{ mm}$ \nMain Scale Reading (MSR)\n:\nThe linear scale shows 4 divisions, so the main scale reading is:\nMSR\nmm\nMSR\n=\n $4 \\text{ mm}$ \nCircular Scale Reading (CSR)\n:\n60 divisions coincide with the reference line, so the circular scale reading is:\nCSR\nLeast Count\nmm\nmm\nCSR\n=\n60\n \\\\times \nLeast Count\n=\n60\n \\\\times \n $0.01 \\text{ mm}$ \n=\n $0.60 \\text{ mm}$ \nZero Error\n:\nThe zero error is 5 divisions below the reference line, indicating a positive zero error:\nZero Error\nLeast Count\nmm\nmm\nZero Error\n=\n+\n5\n \\\\times \nLeast Count\n=\n+\n5\n \\\\times \n $0.01 \\text{ mm}$ \n=\n+\n $0.05 \\text{ mm}$ \nTotal Reading without considering zero error\n:\nTotal Reading (without zero error)\nMSR\nCSR\nmm\nmm\nmm\nTotal Reading (without zero error)\n=\nMSR+CSR\n=\n $4 \\text{ mm}$ + $0.60 \\text{ mm}$ \n=\n $4.60 \\text{ mm}$ \nCorrected Reading considering zero error\n:\nSince the zero error is positive, we subtract it from the total reading:\nCorrected Reading\nTotal Reading (without zero error)\nZero Error\nmm\nmm\nmm\nCorrected Reading\n=\nTotal Reading (without zero error)\n-\nZero Error\n=\n $4.60 \\text{ mm}$ - $0.05 \\text{ mm}$ \n=\n $4.55 \\text{ mm}$ \nConclusion\nThe diameter of the wire is:\nOption C: $4.55 \\text{ mm}$",
         "url": "https://questions.examside.com/past-years/jee/question/pthere-are-100-divisions-on-the-circular-scale-of-a-screw-jee-main-physics-motion-10dieufssszcjcyz",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "8th April"
     },
     {
@@ -2915,7 +2915,7 @@
         "explanation": "$[L\n]$ \n=\n[\nv\n2\n]\n[\na\n]\nso\n[\nv\n2\n]\n2\n[\na\n2\n]\n=\n[\nn\nm\n2\nv\n1\n]\n2\n[\na\n $1 \\text{ m}$ \nn\n]\n[\nv\n2\n]\n2\n[\na\n2\n]\n=\nn\n $3 \\text{ m}$ \n3\n[\nv\n1\n]\n2\n[\na\n1\n]\nor\n $[L^{2}\n]$ \n=\nn\n $3 \\text{ m}$ \n3\n $[L^{1}\n]$ \nSimilarly,\n $[T\n]$ \n=\n[\nv\n]\n[\na\n]\nSo,\n $[T^{2}\n]$ \n=\nn\n $2 \\text{ m}$ \n $[T^{1}\n]$",
         "url": "https://questions.examside.com/past-years/jee/question/pvelocity-v-and-acceleration-a-in-two-systems-of-units-jee-main-physics-motion-w8fvqcfkif64xtg9",
         "year": "2022",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "28th June"
     },
     {
@@ -2931,7 +2931,7 @@
         "explanation": "To find the dimensional formula of\na\nb-1\nin the equation given by\n(\nP+a\nV\n2\n)\n(\nV-b\n)\n=\nR\nT\n, where\nP\nis the pressure,\nV\nis the volume, and\nT\nis the temperature, we will first understand the dimensions of each term in the equation.\nThe variables mentioned have their usual meanings in the context of physics and chemistry, associated with the Ideal gas laws and the Van der Waals equation.\nThe dimensional formula for pressure (\nP\n) is\n $[M^{1}\nL^{-1}\nT^{-2}\n]$ \nassuming\nP\n=\nF\no\nr\nc\ne\nA\nr\ne\na\nand Force =\nM\na\ns\ns\n \\\\times \nA\nc\nc\ne\nl\ne\nr\na\nt\ni\no\nn\n.\nThe volume (\nV\n) has a dimensional formula of\n $[L^{3}\n]$ \n.\nTemperature (\nT\n) typically does not factor into the dimensional analysis directly in this context as we are considering the units it would be measured in (e.g., Kelvin), which doesn't directly convert into mass, length, and time.\nHowever,\nR\nT\nsuggests energy, and since the gas constant\nR\nhas dimensions including time, we consider energy's dimensions,\n $[M^{1}\nL^{2}\nT^{-2}\n]$ \n, but this will not directly affect the dimension we are solving for.\nGiven these, let's analyze the term\na\nV\n2\nto deduce\na\n's dimensions:\na\nV\n2\nmust have the same dimensions as pressure (\nP\n) for the equation to be dimensionally consistent, so\n[\na\n]\n $[L^{-6}\n]$ \n=\n $[M^{1}\nL^{-1}\nT^{-2}\n]$ \nThus,\na\nhas the dimensional formula\n $[M^{1}\nL^{5}\nT^{-2}\n]$ \n.\nThe term we're interested in is\na\nb-1\n, which requires finding the dimension of\nb\nas it's being subtracted from\nV\n, implying it shares dimensions with\nV\n:\nHence,\nb\nhas the dimensional formula\n $[L^{3}\n]$ \n.\nPutting it all together for\na\nb-1\n:\n[\na\nb-1\n]\n=\n $[M^{1}\nL^{5}\nT^{-2}\n]$ \n $[L^{-3}\n]$ \n=\n $[M^{1}\nL^{2}\nT^{-2}\n]$ \nThus, the correct answer is:\nOption D\n $[ML^{2}\nT^{-2}\n]$ \n.",
         "url": "https://questions.examside.com/past-years/jee/question/pwhat-is-the-dimensional-formula-of-a-b-1-in-the-eq-jee-main-physics-motion-wgrfo97g2crlybyw",
         "year": "2024",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "5th April"
     },
     {
@@ -3001,7 +3001,7 @@
         "explanation": "T\n=\n2\n \\\\pi \nl\ng\n⇒\nl\n=\nT\n2\ng\n4\n \\\\pi \n2\nE\n=\nm\ng\nl\n \\\\theta \n2\n2\n=\nm\ng\n $2 \\text{ T}$ \n2\n \\\\theta \n2\n8\n \\\\pi \n2\nd\nE\nE\n=\n2\n(\nd\ng\ng+d\nT\nT\n)\n=\n(\n4+3\n)\n=\n14\n%",
         "url": "https://questions.examside.com/past-years/jee/question/the-acceleration-due-to-gravity-is-found-upto-an-accuracy-of-jee-main-physics-units-and-measurements-reqj6krzk30kv8n4",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "26th August"
     },
     {
@@ -3017,7 +3017,7 @@
         "explanation": "The area of one square is 5.29 cm².\nTo find the area of 7 such squares, we can simply multiply the area of one square by 7:\n7 x 5.29 cm² = 37.03 cm²\nSince the given area has three significant figures, we need to round our answer to three significant figures as well.\nTherefore, the area of 7 such squares, taking into account the significant figures, is 37.0 cm².",
         "url": "https://questions.examside.com/past-years/jee/question/the-area-of-a-square-is-529-cm2-the-area-of-7-such-squares-jee-main-physics-units-and-measurements-iequ4p7bus9wbvvy",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "9th April"
     },
     {
@@ -3033,7 +3033,7 @@
         "explanation": "Plank length,\n l \n= k G\n^{p}\nℏ\n^{q}\nC\n^{r}\n[ M\n^{o}\nL T\n^{o}\n] = [ M\n^{-1}\nL\n^{3}\nT\n^{-2}\n]\n^{p}\n[ M L\n^{2}\nT\n^{-1}\n]\n^{q}\n[ L T\n^{-1}\n]\n^{r}\n[M\n^{o}\nL T\n^{o}\n] = [M\n^{-p + q}\nL\n^{(3p + 2q + r)}\nT\n^{-(2p + q + r)}\n]\nComparing both sides,\n-\np + q = 0\n3p + 2q + r = 1\n-\n(2p + q + r) = 0\nSolving those equation we get,\np =\n1\n2\n,\nq =\n1\n2\n,\nr\n=\n-\n3\n2\n \\\\therefore \n l \n= k G\n1\n2\nℏ\n1\n $2 \\text{ C}$ -3\n2\n=\n(\nG\nℏ\nC\n3\n)\n1\n2\n(assume k = 1)",
         "url": "https://questions.examside.com/past-years/jee/question/the-characteristic-distance-at-which-quantum-gravitational-e-jee-main-physics-units-and-measurements-ta8mydgm8c8a9lap",
         "year": "2018",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "15th April"
     },
     {
@@ -3049,7 +3049,7 @@
         "explanation": "Here given that\ndensity of a material in SI units is $128 \\text{ kg}$ m\n^{-3}\nAnd a new unit system is introduced where 1 unit of length = $25 \\text{ cm}$ and 1 unit of mass = 50 g\nYou should know that, physical quantity is same in any unit system.\nAnd to calculate a physical quantity yo should know two things\n(1) numerical value of the physical quantity (n)\n(2) unit of the physical quantity (u)\nAnd n\n \\\\times \nu = constant in any unit system.\nHere in SI unit system,\nn\n_{1}\n= 128\nu\n_{1}\n= kg/m\n^{3}\nAnd in new unit system,\nn\n_{2}\n= ?\nu\n_{2}\n= 50gm/( $25 \\text{ cm}$ )\n^{3}\nAs n\n_{1}\nu\n_{1}\n= n\n_{2}\nu\n_{2}\n \\\\therefore \n128\n \\\\times \n(kg/m\n^{3}\n) = n\n_{2}\n \\\\times \n50gm/( $25 \\text{ cm}$ )\n^{3}\n⇒\n128\n \\\\times \n1000\ng\nm\n(\n100\nc\nm\n)\n3\n= n\n_{2}\n \\\\times \n50\ng\nm\n(\n25\nc\nm\n)\n3\n⇒\nn\n_{2}\n= 128\n \\\\times \n20\n4\n3\n= 40",
         "url": "https://questions.examside.com/past-years/jee/question/the-density-of-a-material-in-si-units-is-128-kg-m3-in-c-jee-main-physics-units-and-measurements-wtcj44uvidl0axxy",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "10th January"
     },
     {
@@ -3076,7 +3076,7 @@
         "explanation": "\\\\rho \n=\nM\nV\n=\nM\n4\n3\n \\\\pi \n(\nD\n2\n)\n3\n⇒\n \\\\rho \n=\n6\n \\\\pi \nM\nD-3\nFor maximum error\nd\n \\\\rho \n \\\\rho \n \\\\times \n100\n=\nd\nM\nM\n \\\\times \n100+3\nd\nD\nD\n \\\\times \n100\n= 6 + 3\n \\\\times \n1.5\n= 10.5 %\n=\n(\n1050\n100\n)\n%\n \\\\therefore \nx = 1050",
         "url": "https://questions.examside.com/past-years/jee/question/the-density-of-a-solid-metal-sphere-is-determined-by-measuri-jee-main-physics-units-and-measurements-w8a0hgtljeuz394a",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "6th September"
     },
     {
@@ -3092,7 +3092,7 @@
         "explanation": "Volume of cylinder(V) =\n \\\\pi \nr\n^{2}\nh\n=\n \\\\pi \nd\n2\n4\nh\n=\n3.14\n \\\\times \n(\n12.6\n)\n2\n4\n \\\\times \n34.2\n= 4260\n \\\\Delta \nV\nV\n=\n2\n \\\\Delta \nd\nd\n+\n \\\\Delta \nh\nh\n=\n2\n(\n0.1\n12.6\n)\n+\n0.1\n34.2\n= 0.0188\n \\\\therefore \n \\\\Delta \nV = 0.0188\n \\\\times \n4260 = 80",
         "url": "https://questions.examside.com/past-years/jee/question/the-diameter-and-height-of-a-cylinder-are-measured-by-a-mete-jee-main-physics-units-and-measurements-zph5mvizvflrwtgh",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "10th January"
     },
     {
@@ -3103,7 +3103,7 @@
         "explanation": "To understand the measurement of the spherical bob's diameter using Vernier calipers, let's break it down step by step:\nVernier Scale Calculation:\nWe are given that 9 divisions on the main scale (MSD) are equivalent to 10 divisions on the Vernier scale (VSD).\nOne main scale division is $1 \\text{ mm}$ .\nTherefore, 9 MSD = $9 \\text{ mm}$ .\nSince $9 \\text{ mm}$ = 10 VSD, one VSD equals\nmm\n9\n10\n=\n $0.9 \\text{ mm}$ \n.\nLeast Count (LC) of the Vernier Callipers:\nThe least count is the smallest measurable value and is calculated as:\nLC\nMSD\nVSD\nmm\nmm\nmm\nLC\n=\n1\nMSD-1\nVSD\n=\n $1 \\text{ mm}$ - $0.9 \\text{ mm}$ \n=\n $0.1 \\text{ mm}$ \nCalculate the Initial Reading:\nThe main scale reading (MSR) is $10 \\text{ mm}$ .\nThe 8th division of the Vernier scale coincides with the main scale division, meaning the Vernier scale reading (VSR) is 8.\nTotal reading before zero error correction = MSR + VSR \\\\times LC:\nmm\nmm\nmm\n $10 \\text{ mm}$ +8\n \\\\times \n $0.1 \\text{ mm}$ \n=\n $10.8 \\text{ mm}$ \nAdjust for the Zero Error:\nThe Vernier calipers have a positive zero error of $0.04 \\text{ cm}$ (or $0.4 \\text{ mm}$ , as $1 \\text{ cm}$ = $10 \\text{ mm}$ ).\nTo get the correct measurement, subtract the zero error:\nmm\nmm\nmm\n $10.8 \\text{ mm}$ - $0.4 \\text{ mm}$ \n=\n $10.4 \\text{ mm}$ \nCompute the Radius:\nThe diameter calculated is $10.4 \\text{ mm}$ .\nTo find the radius, divide by 2:\nradius\nmm\nmm\nradius\n=\n $10.4 \\text{ mm}$ \n2\n=\n $5.2 \\text{ mm}$ \nConvert the radius from millimeters to centimeters:\nmm\ncm\ncm\n $5.2 \\text{ mm}$ \n=\n $0.52 \\text{ cm}$ \n=\n52\n \\\\times \n10- $2 \\text{ cm}$ \nThe radius of the spherical bob is\n52\n \\\\times \n10- $2 \\text{ cm}$ .",
         "url": "https://questions.examside.com/past-years/jee/question/the-diameter-of-a-spherical-bob-is-measured-using-a-vernier-jee-main-physics-units-and-measurements-qpdb1rftshcgnlv7",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "31st August"
     },
     {
@@ -3119,7 +3119,7 @@
         "explanation": "As\nB\n2\n2\n \\\\mu \n0\n= Energy per unit volume\n \\\\therefore \nDimension =\nM\nL\n $2 \\text{ T}$ -2\nL\n3\n= ML\n^{-1}\nT\n^{-2}",
         "url": "https://questions.examside.com/past-years/jee/question/the-dimension-of-b2-over-2mu-0-where-b-is-jee-main-physics-units-and-measurements-bf3ft0v9n5mbc82n",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "7th January"
     },
     {
@@ -3151,7 +3151,7 @@
         "explanation": "V\n_{0}\n∝\nh\n^{P}\nc\n^{Q}\nG\n^{R}\nI\n^{S}\n[V\n_{0}\n] = [M\n^{1}\nL\n^{2}\nT\n^{-3}\nA\n^{-1}\n]\n[c] = [L\n^{1}\nT\n^{-1}\n]\n[h] = [M\n^{1}\nL\n^{2}\nT\n^{-1}\n]\n[G] = [M\n^{-1}\nL\n^{3}\nT\n^{-2}\n]\n $[I]$ = $[A]$ \n \\\\therefore \n[M\n^{1}\nL\n^{2}\nT\n^{-3}\nA\n^{-1}\n] = [M\n^{P-R}\nL\n^{2P+Q+3R}\nT\n^{-P-Q-2R}\nA\n^{S}\n]\nComparing dimension of M, L, T, A, we get\nP - R = 1 ; 2P + Q + 3R = 2\n- P - Q - 2R = - 3 ; S = - 1\n⇒\nP = 0, Q = 5, R = -1, S = -1\n \\\\therefore \nV\n_{0}\n∝\nh\n^{0}\nc\n^{5}\nG\n^{-1}\nA\n^{-1}",
         "url": "https://questions.examside.com/past-years/jee/question/the-dimension-of-stopping-potential-vsub0sub-in-photoel-jee-main-physics-current-electricity-vgwsawhb9lqwgnqy",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "8th January"
     },
     {
@@ -3199,7 +3199,7 @@
         "explanation": "$[A\n]$ \n=\n $[M\nL\nT^{-2}\n]$ \n[\nB\n]\n=\n $[L^{-1}\n]$ \n[\nD\n]\n=\n $[T^{-1}\n]$ \n[\nA\nD\nB\n]\n=\n $[M\nL\nT^{-2}\n]$ \n $[T^{-1}\n]$ \n $[L^{-1}\n]$ \n[\nA\nD\nB\n]\n=\n $[M\nL^{2}\nT^{-3}\n]$",
         "url": "https://questions.examside.com/past-years/jee/question/the-force-is-given-in-terms-of-time-t-and-displacement-x-by-jee-main-physics-units-and-measurements-soa6xz4qudk1mrr5",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "25th July"
     },
     {
@@ -3215,7 +3215,7 @@
         "explanation": "F\n=\n \\\\alpha \n \\\\beta \ne\n(\n-\nx\n2\n \\\\alpha \nK\nT\n)\n[\nx\n2\n \\\\alpha \nK\nT\n]\n=\nM\no\nL\no\nT\no\nL\n2\n[\n \\\\alpha \n]\nM\nL\n $2 \\text{ T}$ -2\n=\nM\no\nL\no\nT\no\n⇒\n[\n \\\\alpha \n]\n=\nM- $1 \\text{ T}$ \n2\n[\nF\n]\n=\n[\n \\\\alpha \n]\n[\n \\\\beta \n]\nMLT\n^{-2}\n= M\n^{-1}\nT\n^{2}\n[\n \\\\beta \n]\n⇒\n[\n \\\\beta \n] = M\n^{2}\nLT\n^{-4}",
         "url": "https://questions.examside.com/past-years/jee/question/the-force-of-interaction-between-tow-atoms-is-given-by-f-jee-main-physics-units-and-measurements-5ea1ny7uipsu7pzt",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "11th January"
     },
     {
@@ -3231,7 +3231,7 @@
         "explanation": "Least count =\nP\ni\nt\nc\nh\nN\nu\nm\nb\ne\nr\no\nf\nd\ni\nv\ni\ns\ni\no\nn\no\nn\nc\ni\nr\nc\nu\nl\na\nr\ns\nc\na\nl\ne\n5\n \\\\times \n10\n^{-6}\n=\n10- $3 \\text{ N}$ \nN = 200",
         "url": "https://questions.examside.com/past-years/jee/question/the-least-count-of-the-main-scale-of-a-screw-gauge-is-1-mm-jee-main-physics-units-and-measurements-ezku5kt0d0thvisf",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "12th January"
     },
     {
@@ -3247,7 +3247,7 @@
         "explanation": "Least count = $1 \\text{ mm}$ or $0.01 \\text{ cm}$ \nZero error = 0 + 0.01 \\\\times 7 = $0.07 \\text{ cm}$ \nReading = 3.1 + (0.01 \\\\times 4) - 0.07\n= 3.1 + 0.04 - 0.07\n= 3.1 - 0.03\n= $3.07 \\text{ cm}$",
         "url": "https://questions.examside.com/past-years/jee/question/the-least-count-of-the-main-scale-of-a-vernier-callipers-is-jee-main-physics-units-and-measurements-r0wvccjlwepit4ap",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "2nd September"
     },
     {
@@ -3263,7 +3263,7 @@
         "explanation": "Given,\nA =\nP\n3\nQ\n2\nR\nS\n \\\\therefore \n \\\\Delta \nA\nA\n= 3\n \\\\Delta \nP\nP\n+ 2\n \\\\Delta \nQ\nQ+1\n2\n \\\\Delta \nR\nR\n+\n \\\\Delta \nS\nS\nMaximum percentage error in the value of A is\n \\\\Delta \nA\nA\n \\\\times \n100 = 3\n \\\\times \n0.5 + 2\n \\\\times \n1 +\n1\n2\n \\\\times \n3 + 1\n \\\\times \n1.5\n= 6.5 %",
         "url": "https://questions.examside.com/past-years/jee/question/the-percentage-errors-in-quantities-p-q-r-and-s-are-05-jee-main-physics-units-and-measurements-eznotcud5j5v0i0t",
         "year": "2018",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "16th April"
     },
     {
@@ -3295,7 +3295,7 @@
         "explanation": "We know,\nLeast count (LC) =\nP\ni\nt\nc\nh\nn\no\n.\no\nf\nd\ni\nv\ni\ns\ni\no\nn\ns\n \\\\therefore \nLC =\n0.5\n100\n= 0.5\n \\\\times \n10\n^{-2}\nmm\nReading = MSR + CSR-positive error\nGiven, Main scale reading (MSR) = $5.5 \\text{ mm}$ \nCircular scale reading (CSR)\n= 48\n \\\\times \n0.5\n \\\\times \n10\n^{-2}\nmm\n= 0.24\nAs zero of its circular scale lines 3 division below the mean line, it means error is position error.\n \\\\therefore \npositive error\n= 3\n \\\\times \n0.5\n \\\\times \n10\n^{-2}\nmm\n= $0.015 \\text{ mm}$ \n \\\\therefore \nReading = 5.5 + 0.24-0.015\n= $5.725 \\text{ mm}$",
         "url": "https://questions.examside.com/past-years/jee/question/the-pitch-and-the-number-of-divisions-on-the-circular-scal-jee-main-physics-units-and-measurements-hykhhibtgsru2qk4",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "9th January"
     },
     {
@@ -3327,7 +3327,7 @@
         "explanation": "x =\n1\n \\\\mu \n0\n \\\\epsilon \n0\n= speed\n \\\\therefore \n[x] = [L\n^{1}\nT\n^{-1}\n]\ny =\nE\nB\n= speed\n \\\\therefore \n[y] = [L\n^{1}\nT\n^{-1}\n]\nz =\nl\nC\nR\n=\nl\n \\\\tau \n⇒\n[z] = [L\n^{1}\nT\n^{-1}\n]\nSo, x, y, z all have the same dimensions.",
         "url": "https://questions.examside.com/past-years/jee/question/the-quantities-x--1-over-sqrt-mu-0varepsilon--jee-main-physics-magnetics-6fojafk4n1duy7ie",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "5th September"
     },
     {
@@ -3354,7 +3354,7 @@
         "explanation": "Given, radius of sphere = (7.50\n \\\\pm \n0.85) cm\n \\\\therefore \nr = 7.50 and dr = 0.85\nWe know, volume of a sphere\nv\n=\n4\n3\n \\\\pi \nr\n3\ntaking log both sides, we get\nln\n⁡\nv\n=\nln\n⁡\n4\n \\\\pi \n3+3\nln\n⁡\nr\nDifferentiating both sides,\nd\nv\nv\n=\n0+3\nd\nr\nr\n \\\\therefore \nFractional error in volume\nd\nv\nv\n=\n3\nd\nr\nr\n \\\\therefore \n% error in volume,\nd\nv\nv\n \\\\times \n100\n=\n3\nd\nr\nr\n \\\\times \n100\n=\n3\n \\\\times \n0.85\n7.50\n \\\\times \n100\n= 34%",
         "url": "https://questions.examside.com/past-years/jee/question/the-radius-of-a-sphere-is-measured-to-be-750-pm-085-jee-main-physics-units-and-measurements-pfiond5c0pkcyb3g",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "18th March"
     },
     {
@@ -3370,7 +3370,7 @@
         "explanation": "Relative error in the surface are of the sphere,\n \\\\Delta \nS\nS\n= 2\n \\\\times \n \\\\Delta \nr\nr\n=\n∝\n(given)\nRelative error in volume,\n \\\\Delta \nV\nV\n= 3\n \\\\times \n \\\\Delta \nr\nr\n= 3\n \\\\times \n1\n2\n \\\\times \n \\\\Delta \nS\nS\n=\n3\n2\n \\\\times \n∝\n=\n3\n2\n∝",
         "url": "https://questions.examside.com/past-years/jee/question/the-relative-error-in-the-determination-of-the-surface-area-jee-main-physics-units-and-measurements-skbc62vghddmcvtc",
         "year": "2018",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "15th April"
     },
     {
@@ -3386,7 +3386,7 @@
         "explanation": "From kepler's law,\nT = 2\n \\\\pi \nr\n3\nG\nM\n⇒\nT\n^{2}\n=\n4\n \\\\pi \n2\nG\nM\nr\n3\n⇒\nM =\n4\n \\\\pi \n2\nG\n \\\\times \nr\n $3 \\text{ T}$ \n2\n \\\\therefore \n \\\\Delta \nM\nM\n= 2\n \\\\Delta \nT\nT\n+ 3\n \\\\Delta \nr\nr\nas\n \\\\Delta \nr\nr\n≃\n0\n \\\\therefore \n|\n \\\\Delta \nM\nM\n|\n= 2\n \\\\Delta \nT\nT\n= 2\n \\\\times \n10\n^{-2}",
         "url": "https://questions.examside.com/past-years/jee/question/the-relative-uncertainly-in-the-period-of-a-satellite-orbiti-jee-main-physics-units-and-measurements-9encxxswgouprjm7",
         "year": "2018",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "16th April"
     },
     {
@@ -3472,7 +3472,7 @@
         "explanation": "T\n=\nt\nn\n=\n2\n \\\\pi \nl\ng\n⇒\ng\n=\n4\n \\\\pi \n2\nl\nT\n2\n⇒\n \\\\Delta \ng\ng\n \\\\times \n100\n=\n \\\\Delta \nl\nl\n \\\\times \n100+2\n \\\\Delta \nT\nT\n \\\\times \n100\n=\n(\n \\\\Delta \nl\nl+2\n \\\\Delta \nT\nT\n)\n100\n%\nE\n1\n=\n20\n64\n%\nE\n2\n=\n30\n64\n%\nE\n3\n=\n19\n18\n%",
         "url": "https://questions.examside.com/past-years/jee/question/three-students-ssub1sub-ssub2sub-and-ssub3sub-jee-main-physics-units-and-measurements-hmtskaghl1kxk1yt",
         "year": "2021",
-        "shift": "Evening",
+        "shift": "Morning",
         "date": "22th July"
     },
     {
@@ -3488,7 +3488,7 @@
         "explanation": "Let,\nM\n∝\nT\n^{x}\nC\n^{y}\nh\n^{z}\n \\\\therefore \n[M\n^{1}\nL\n^{o}\nT\n^{o}\n] = [T\n^{1}\n]\n^{x}\n[L\n^{1}\nT\n^{-1}\n]\n^{y}\n[M\n^{1}\nL\n^{2}\nT\n^{-1}\n]\n^{z}\n[M\n^{1}\nL\n^{o}\nT\n^{o}\n] = [M\n^{z}\nL\n^{y + 2z}\nT\n^{x-y-z}\n]\nBy comparing both sides we get,\nz = 1\ny + 2z = 0\nx-y\n-\nz = 0\n \\\\therefore \ny =\n-\n2z =\n-\n2\nx = y + z =\n-\n2 + 1 =\n-\n1\n \\\\therefore \n $[M]$ = [M\n^{-1}\nC\n^{-2}\nh\n^{1}\n]",
         "url": "https://questions.examside.com/past-years/jee/question/time-t-velocity-c-and-angular-momentum-h-are-chosen-a-jee-main-physics-units-and-measurements-e5v0byxm6xhp39tz",
         "year": "2017",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "8th April"
     },
     {
@@ -3520,7 +3520,7 @@
         "explanation": "Using a screw gauge of pitch $0.1 \\text{ cm}$ and 50 divisions on its circular scale, the thickness of an object is measured as:\nMeasurement = (Main scale reading) + (Circular scale reading \\\\times Least count)\nwhere the least count is calculated as the pitch of the screw gauge divided by the number of divisions on the circular scale:\nLeast count = (Pitch of screw gauge) / (Number of circular scale divisions)\nLeast count =\n0.1\n50\n= $0.002 \\text{ cm}$ \nNow if we multiply division of circular scale with least count then we get 0\n^{th}\ndigit of fraction part even.\nHere only option B has 0\n^{th}\ndigit of fraction part even.",
         "url": "https://questions.examside.com/past-years/jee/question/using-screw-gauge-of-pitch-01-cm-and-50-divisions-on-its-ci-jee-main-physics-units-and-measurements-xjbemzw37vkuhbgg",
         "year": "2020",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "3rd September"
     },
     {
@@ -3536,7 +3536,7 @@
         "explanation": "According to Coulomb's law\nF =\n1\n4\n \\\\pi \n∈\n0\nq\n2\nr\n2\n \\\\therefore \n∈\n0\n=\n1\n4\n \\\\pi \nq\n2\nF\nr\n2\n[\n∈\n0\n]\n=\n $[A\nT\n]$ \n2\n $[M\nL\nT^{-2}\n]$ \n $[L^{2}\n]$ \n=\n $[M^{-1}\nL^{-3}\nT^{4}\nA^{2}\n]$ \nForce between two parallel current carrying wires,\nF\nL\n=\n \\\\mu \n0\n2\n \\\\pi \ni\n2\nr\n \\\\therefore \n \\\\mu \n0\n=\n2\n \\\\pi \nr\nF\ni\n2\nL\n[\n \\\\mu \n0\n]\n=\n $[L\n]$ \n $[M\nL\nT^{-2}\n]$ \n $[A^{2}\n]$ \n $[L\n]$ \n=\n $[M\nL\nT^{-2}\nA^{-2}\n]$ \nFrom Ohm's law,\nV = IR\n \\\\therefore \nR\n=\nV\nI\n=\nU\nI\nt\n \\\\times \n1\nI\n[R] =\n[\nU\n]\n $[I\n]$ \n2\n[\nt\n]\n=\n $[M\nL^{2}\nT^{-2}\n]$ \n $[A^{2}\n]$ \n $[T\n]$ \n=\n $[M\nL^{2}\nT^{-3}\nA^{-2}\n]$ \nLet, R\n∝\n[\n∈\n0\n]\na\n[\n \\\\mu \n0\n]\nb\n⇒\n $[M\nL^{2}\nT^{-3}\nA^{-2}\n]$ \n=\n $[M^{-1}\nL^{-3}\nT^{4}\nA^{2}\n]$ \n^{a}\n $[M\nL\nT^{-2}\nA^{-2}\n]$ \n^{b}\n⇒\n $[M\nL^{2}\nT^{-3}\nA^{-2}\n]$ \n=\n[ M\n^{-a+ b}\nL\n^{-3a+ b}\nT\n^{4a- 2b}\nA\n^{2a- 2b}\n]\nBy comparing both sides we get,\n-\na\n+ b = 1\n- 3\na\n+ b = 2\nBy solving we get,\na\n=\n-\n1\n2\nand b =\n1\n2\n \\\\therefore \nR =\n[\n∈\n0\n]\n-\n1\n2\n[\n \\\\mu \n0\n]\n1\n2\n=\n \\\\mu \n0\n∈\n0",
         "url": "https://questions.examside.com/past-years/jee/question/which-of-the-following-combinations-has-the-dimension-of-ele-jee-main-physics-units-and-measurements-ik7osuhpfqkmfzqg",
         "year": "2019",
-        "shift": "N/A",
+        "shift": "Morning",
         "date": "12th April"
     },
     {
