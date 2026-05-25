@@ -1,17 +1,12 @@
 [
 {
-    "q": "Consider the equation H = x p \\epsilon q $E_{r}$ t s Where H = magnetic field; E = electric field, \\epsilon = permittivity, x = distance, t = time The values of p , q , r and s respectively are :",
-    "type": "mcq",
-    "options": [
-        "1 , 1 , 1 , 1",
-        "- 1 , 1 , 2 , 1",
-        "1 , - 1 , - 2 , 1",
-        "- 1 , - 2 , - 2 , 1"
-    ],
-    "answer": 0,
-    "explanation": "To find the values of the exponents p , q , r , and s , we will use dimensional analysis. Both sides of the equation must have the same fundamental dimensions. The dimension of distance ( x ) is the dimension of length [ x ] = L The dimension is time [ t ] = T The dimension of electric field ( E ) can be derived from the formula for force on a charge, F = q E . Therefore, E = F / q . The dimensions of force is [ F ] = $[MLT^{-2} ]$ Charge ( q ) = Current \\times Time So, the dimensions of charge is, [ q ] = $[AT ]$ So, the dimensions of electric field is, [ E ] = $[MLT^{-2} ]$ $[AT ]$ = $[MLT^{-3} A^{-1} ]$ Using relationship between electric field (E) and and magnetic field (H) in electromagnetic waves. In a vacuum, the ratio of the magnitudes of the electric field to the magnetic field (B) is the speed of light (c), E / B = c Using the formula of magnetic force on a current-carrying conductor: F = BIL Where, F = force B = magnetic field (flux density), I = current and L = length B = F IL Substituting the dimensions, [ B ] = $[MLT^{-2} ]$ $[LA ]$ ⇒ [ B ] = [ M T - 2 I - 1 ] The relation between B and H is B = \\mu H ⇒ B \\mu = H . Where \\mu = permeability. Using the formula of magnetic field, B = \\mu i 2 \\pi r ⇒ [ B \\mu ] = [ i r ] , here r is distance from straight conductor carrying current i. [ B \\mu ] = [ H ] = $[A ]$ $[L ]$ = $[L^{-1} A ]$ Putting the dimensions of electric field and speed of light, the dimensions of magnetic field is, [ H ] = $[MLT^{-3} A^{-1} ]$ $[LT^{-1} ]$ = $[MT^{-2} A^{-1} ]$ We can derive the dimensions of permittivity ( \\epsilon ) from Coulomb's Law, F = 1 4 \\pi \\epsilon q 1 q 2 r 2 . [ \\epsilon ] = [ q 2 Fr 2 ] [ \\epsilon ] = $[AT ]$ 2 $[MLT^{-2} ]$ $[L^{2}]$ = $[M^{-1} L^{-3} T^{4}A^{2}]$ Substituting the dimensions into the given equation, [ H ] = [ x ] p [ \\epsilon ] q [ E ] r [ t ] s ⇒ $[L^{-1} A ]$ = $[L ]$ p $[M^{-1} L^{-3} T^{4}A^{2}]$ q $[M L T^{-3} A^{-1} ]$ r $[T ]$ s $[L^{-1} A ]$ = [ M - q + r L p - 3 q + r T 4 q - 3 r - s A 2 q - r ] On comparing the powers of M , L , T , and A on both sides, For M , - q + r = 0 … (i) For A , 2 q - r = 1 . Since r = q , then 2 q - q = 1 , so q = 1 and r = 1 . For L , p - 3 q + r = - 1 … (ii). p - 3 ( 1 ) + 1 = - 1 p - 2 = - 1 ⇒ p = 1 For T, 4 q - 3 r - s = 0 … (iii) 4 ( 1 ) - 3 ( 1 ) - s = 0 1 - s = 0 ⇒ s = 1 Therefore, the values are p = 1 , q = 1 , r = 1 , s = 1 . Hence, the correct option is (A).",
-    "year": "2026",
-    "date": "8th April",
-    "shift": "Evening"
+    "q": "A tiny metallic rectangular sheet has length and breadth of $5 ext{ mm}$ and $2.5 ext{ mm}$ , respectively.\nUsing a specially designed screw gauge which has pitch of $0.75 ext{ mm}$ and 15 divisions in the circular scale, you are asked to find the area of the sheet.\nIn this measurement, the maximum fractional error will be x 100 where x is _______ .",
+    "type": "integer",
+    "options": [],
+    "answer": "3",
+    "explanation": "Given, L = $5 ext{ mm}$ , B = $2.5 ext{ mm}$ \nWe know, least count of a screw gauge,\nPitch length\nNo. of division on circular scale\nL\n.\nC\n.\n=\nPitch length\nNo. of division on circular scale\n⇒\nL\n.\nC\n.\n=\n0.75\n15\n=\n $0.05 ext{ m}$ \nm\nWe know,\nA\n=\nL\nB\nBy taking\nl\nn\non both sides,\n⇒\nln\n⁡\nA\n=\nln\n⁡\nL+ln\n⁡\nB\nby differentiating both sides,\n⇒\nd\nA\nA\n=\nd\nL\nL+d\nB\nB\nHere,\nd\nL\n=\nd\nB\n=\n $0.05 ext{ m}$ \nm\n(L.C.)\nSo fractional error,\nd\nA\nA\n=\n0.05\n5+0.05\n2.5\n=\n1\n100+2\n100\n=\n3\n100\n=\nx\n100\n(given)\nHence,\nx\n=\n3\n.",
+    "year": "2025",
+    "date": "28th January",
+    "shift": "Morning"
 }
 ]

@@ -34,7 +34,7 @@ def setup_driver():
 def latexify(text):
     if not text: return ""
     
-    # 0. Ultimate Symbol Map
+    # 0. Ultimate Symbol Map (Space-aware)
     sym_map = {
         'μ': r'\mu', 'η': r'\eta', 'λ': r'\lambda', 'π': r'\pi', 
         'θ': r'\theta', 'α': r'\alpha', 'β': r'\beta', 'γ': r'\gamma',
@@ -48,60 +48,65 @@ def latexify(text):
     for char, latex in sym_map.items():
         text = text.replace(char, f' {latex} ')
 
-    # 1. Protect and Clean existing Math
+    # 1. Protection Pass: Shield existing math blocks
     parts = re.split(r'(\$[^$]+\$)', text)
     processed_parts = []
     
     for part in parts:
         if part.startswith('$') and part.endswith('$'):
             inner = part[1:-1]
-            # Clean artifacts like "$ [M^{1}L^{1}T^{1} - 2 ] $" or "$ 1 ext{ T} $"
-            inner = re.sub(r'(\d+)\s*ext\{\s*([a-zA-Z])\}', r'\1 \\text{\2}', inner)
-            inner = re.sub(r'ext\{\s*([a-zA-Z])\}', r'\\text{\1}', inner)
-            inner = re.sub(r'([MLT])\^?\{?(\d+)\s*T\^?\{?(\d+)\s*-\s*(\d+)\s*\}?', r'\1^{\2} T^{-\3}', inner) # Fix [MLT-2] fragments
-            inner = re.sub(r'\\ ', r' ', inner)
+            # Clean common scraper artifacts (e.g., "$ 1 ext{ T} $" -> "$ \text{T} $")
+            inner = re.sub(r'(\d*)\s*ext\{\s*([a-zA-Z])\}', r'\1\\text{\2}', inner)
+            inner = re.sub(r'\\text\{\s*([a-zA-Z])\}', r'\\text{\1}', inner)
+            # Fix fragmented dimensions like [M 1 L 2 T - 2] inside existing math
+            inner = re.sub(r'([MLTAθ])\s*(\-?\d+)', r'\1^{\2}', inner)
             inner = re.sub(r'\s+', ' ', inner)
             processed_parts.append(f'${inner.strip()}$')
         else:
-            # Dimension handling: [M 1 L 1 T - 2] -> $[M L T^{-2}]$
+            # 2. Logic Pass: Handle symbols and structures in plain text
+            # Fix fragmented vertical text (e.g., "Q \n / \n V" -> "Q/V")
+            part = re.sub(r'(\w)\s*\n\s*([/\-+*])\s*\n\s*(\w)', r'\1\2\3', part)
+            
+            # Dimension Engine: [M-2 L-4 I3 T7] -> $[M^{-2} L^{-4} I^{3} T^{7}]$
             def fix_dims(m):
                 d = m.group(1)
-                # Handle fragments like "M 1 L 1 T 1 - 2"
-                d = re.sub(r'([MLTAθ])\s*(\d+)\s*(?=[MLTAθ]|$)', r'\1^{\2}', d)
-                d = re.sub(r'([MLTAθ])\s*(\d+)\s*-\s*(\d+)', r'\1^{-\3}', d)
-                d = re.sub(r'([MLTAθ])\s*-\s*(\d+)', r'\1^{-\2}', d)
-                d = re.sub(r'([MLTAθ])\s*(\d+)', r'\1^{\2}', d)
-                d = re.sub(r'([MLTAθ])(?![0-9\^])', r'\1', d)
+                # Handle variants like M-2 or M - 2 or M 2
+                d = re.sub(r'([MLTAθI])\s*(\-?\d+)', r'\1^{\2}', d)
+                d = re.sub(r'([MLTAθI])\s+(\d+)', r'\1^{\2}', d)
+                d = re.sub(r'([MLTAθI])(?![0-9\^])', r'\1', d)
                 return f' $[{d.replace(" ", "")}]$ '
-            part = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', fix_dims, part)
+            part = re.sub(r'\[\s*([MLTAIθ\s\d\-\^]{1,})\s*\]', fix_dims, part)
 
-            # Unit/Symbol handling
+            # Symbol subscripts
             part = re.sub(r'\b(\\mu|[BHE])\s*([0rn])\b', r' $\1_{\2}$ ', part)
+            # Units
             part = re.sub(r'\b(\d+\.?\d*)\s*(cm|mm|m|kg|s|N|Pa|J|W|C|V|A|T|H)\b', r' $\1 \text{ \2}$ ', part)
-            part = part.replace('log e', r' $\log_e$ ').replace('ln', r' $\ln$ ')
+            
             processed_parts.append(part)
 
     text = "".join(processed_parts)
-    
-    # 2. Advanced Match List to Markdown Table
+
+    # 3. Structural Pass: Format tables and lists
     if "List - I" in text and "List - II" in text:
-        # Extract List items
         list1 = re.findall(r'([A-D])\.\s+([^A-DI-V|]+?)(?=\s+[A-D]\.|\s+List|I\.|II\.|III\.|IV\.|$)', text)
         list2 = re.findall(r'([I|V]+)\.\s+([^|A-D]+?)(?=\s+[I|V]+\.|\s+Choose|List|$)', text)
-        
         if list1 and list2:
             table = "\n\n| List - I | List - II |\n| :--- | :--- |\n"
             for i in range(max(len(list1), len(list2))):
                 l1 = f"{list1[i][0]}. {list1[i][1].strip()}" if i < len(list1) else ""
                 l2 = f"{list2[i][0]}. {list2[i][1].strip()}" if i < len(list2) else ""
                 table += f"| {l1} | {l2} |\n"
-            
-            # Replace the messy list area with the table
             text = re.sub(r'List\s*-\s*I.*?List\s*-\s*II.*?(?=Choose|$)', table + "\n", text, flags=re.DOTALL)
 
-    # Final Cleanup
-    text = re.sub(r'([a-z])([A-Z])', r'\1 \2', text)
-    text = re.sub(r'\s+', ' ', text)
+    # 4. Refinement Pass: Clean up formatting
+    text = re.sub(r'([a-z])([A-Z])', r'\1 \2', text) # Word splitting
+    text = re.sub(r'[^\S\n]+', ' ', text) # Consolidate spaces, keep newlines
+    
+    # Sentence and block formatting
+    text = re.sub(r'\.\s+([A-Z])', r'.\n\1', text)
+    text = re.sub(r'(Therefore|So,|Hence,|Using|Substituting|From|We know)', r'\n\1', text)
+    text = re.sub(r'\n+', '\n', text)
+    
     return text.strip()
 
 # ===================================================================
@@ -150,12 +155,17 @@ try:
             script.replace_with(soup.new_string(f" ${script.string.strip()}$ "))
             
         for sup in container.find_all('sup'): 
-            sup.replace_with(soup.new_string(f" $^{{{sup.get_text(strip=True)}}}$ "))
+            txt = sup.get_text(strip=True)
+            sup.replace_with(soup.new_string(f"^{{{txt}}}"))
         for sub in container.find_all('sub'): 
-            sub.replace_with(soup.new_string(f" $_{{{sub.get_text(strip=True)}}}$ "))
+            txt = sub.get_text(strip=True)
+            sub.replace_with(soup.new_string(f"_{{{txt}}}"))
 
         # DATA EXTRACTION
         full_text = container.get_text(" ", strip=True)
+        # Fix spaces inserted by get_text before exponents/subscripts
+        full_text = re.sub(r'\s+([\^_])', r'\1', full_text)
+        
         year = (re.search(r'\b(20[0-2]\d)\b', full_text) or re.search(r'', '')).group(0) or "N/A"
         shift = (re.search(r'(Morning|Evening|Afternoon)\s*Shift', full_text, re.I) or re.search(r'', '')).group(1) or "N/A"
         date = (re.search(r'\d{1,2}(?:st|nd|rd|th)?\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*', full_text, re.I) or re.search(r'', '')).group(0) or "N/A"
