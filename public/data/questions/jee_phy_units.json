@@ -1,16 +1,17 @@
-[{
-    "q": "An expression for a dimensionless quantity P is given by P = \\alpha \\beta log e ( k t \\beta x ) ; where \\alpha and \\beta are constants, x is distance; k is Boltzmann constant and t is the temperature. Then the dimensions of \\alpha will be :",
+[
+{
+    "q": "Match List - I with List - II . List - I List - II A. Coefficient of viscosity B. Surface tension C. Pressure D. Surface energy I. [ML $^{-1}$ T $^{-2}$ ] II. [ML $^{2}$ T $^{-2}$ ] III. [ML $^{0}$ T $^{-2}$ ] IV. [ML $^{-1}$ T $^{-1}$ ] Choose the correct answer from the options given below :",
     "type": "mcq",
     "options": [
-        "[M ^{0} L ^{-1} T ^{0} ]",
-        "[M L ^{0} T ^{-2} ]",
-        "[M L T ^{-2} ]",
-        "[M L ^{2} T ^{-2} ]"
+        "A-I, B-II, C-IV, D-III",
+        "A-IV, B-III, C-I, D-II",
+        "A-IV, B-I, C-II, D-III",
+        "A-I, B-III, C-II, D-IV"
     ],
-    "answer": 2,
-    "explanation": "Given, P = \\alpha \\beta log e ⁡ [ k t \\beta x ] The logarithmic term is dimensionless. Thus, [ k t / \\beta x ] is also dimensionless. i.e. [ k ] [ t ] [ \\beta ] [ x ] = [M^{0}L^{0}T^{0}] .......(i) We have, E = k t Thus, Eq. (i) becomes, [M^{1}L^{2}T-2] [ \\beta ] [L^{1}] = [M^{0}L^{0}T^{0}] [ \\beta ] = [MLT-2] Since, P is also a dimensionless quantity. [ \\alpha ] [ \\beta ] = [M^{0}L^{0}T^{0}] [ \\alpha ] = [ \\beta ] [M^{0}L^{0}T^{0}] [ \\alpha ] = [M^{1}L^{1}T-2] = [MLT-2]",
-    "year": "2022",
-    "date": "26th June",
-    "shift": "Morning"
+    "answer": 1,
+    "explanation": "From Newton's law of viscosity, the force is F = \\eta A ( \\Delta v \\Delta x ) , where A is area and \\Delta v \\Delta x is the velocity gradient. \\eta = F A ⋅ ( \\Delta v \\Delta x ) ⇒ [ \\eta ] = $[M^{1}L^{1}T^{1} - 2 ]$ $[L^{2} ]$ ⋅ ( $[L^{1}T^{1} - 1 ]$ $[L^{1} ]$ ) = $[M^{1}L^{1}T^{1} - 2 ]$ $[L^{2} ]$ ⋅ $[T^{1} - 1 ]$ = $[M^{1}L^{1} - $1 ext{ T}$ ^{1} - 1 ]$ A \\to IV Surface tension is defined as the force acting per unit length. Force Length T = Force Length $[T^{1} ]$ = $[M^{1}L^{1}T^{1} - 2 ]$ $[L^{1} ]$ = $[M^{1}L^{0} T^{1} - 2 ]$ B \\to III Pressure is defined as force acting per unit area. Force Area P = Force Area [ P ] = $[M^{1}L^{1}T^{1} - 2 ]$ $[L^{2} ]$ = $[M^{1}L^{1} - $1 ext{ T}$ ^{1} - 2 ]$ C \\to I Surface energy ( U s ) is defined as the work done by surface tension in changing the surface area U s = T ⋅ ( \\Delta A ) ⇒ [ U S ] = [ Surface Tension ] ⋅ [ Area ] ⇒ [ U S ] = $[M^{1}L^{0} T^{1} - 2 ]$ ⋅ [ $[M^{0} L^{2} T^{0} ]$ ] = [ $[M^{1}L^{2} T^{1} - 2 ]$ ] D \\to II List - I List - II A. Coefficient of viscosity IV. B. Surface tension III. C. Pressure I. D. Surface energy II. Hence, the correct option is (B). List - I List - II A. Coefficient of viscosity IV. $[M^{1}L^{1} - $1 ext{ T}$ ^{1} - 1 ]$ B. Surface tension III. $[M^{1}L^{0} T^{1} - 2 ]$ C. Pressure I. $[M^{1}L^{1} - $1 ext{ T}$ ^{1} - 2 ]$ D. Surface energy II. $[M^{1}L^{2} T^{1} - 2 ]$ Hence, the correct option is (B).",
+    "year": "2026",
+    "date": "28th January",
+    "shift": "Evening"
 }
 ]

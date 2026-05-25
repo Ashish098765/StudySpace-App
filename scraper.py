@@ -34,73 +34,57 @@ def setup_driver():
 def latexify(text):
     if not text: return ""
     
-    # 0. Ultimate Symbol Map (Includes variants)
+    # 0. Ultimate Symbol Map
     sym_map = {
-        'μ': r'\mu ', 'η': r'\eta ', 'λ': r'\lambda ', 'π': r'\pi ', 
-        'θ': r'\theta ', 'α': r'\alpha ', 'β': r'\beta ', 'γ': r'\gamma ',
-        'Δ': r'\Delta ', '±': r'\pm ', '×': r'\times ', 'Ω': r'\Omega ',
-        'Φ': r'\Phi ', 'Ψ': r'\Psi ', 'Σ': r'\Sigma ', '∞': r'\infty ',
-        '√': r'\sqrt ', '·': r'\cdot ', '∴': r'\therefore ', 'ℓ': r'l',
-        'ω': r'\omega ', 'τ': r'\tau ', 'ρ': r'\rho ', 'σ': r'\sigma ',
-        'ϵ': r'\epsilon ', 'ε': r'\epsilon ', '≈': r'\approx ', '∠': r'\angle ',
-        '→': r'\to ', 'ϕ': r'\phi ', 'φ': r'\phi ', 'χ': r'\chi '
+        'μ': r'\mu', 'η': r'\eta', 'λ': r'\lambda', 'π': r'\pi', 
+        'θ': r'\theta', 'α': r'\alpha', 'β': r'\beta', 'γ': r'\gamma',
+        'Δ': r'\Delta', '±': r'\pm', '×': r'\times', 'Ω': r'\Omega',
+        'Φ': r'\Phi', 'Ψ': r'\Psi', 'Σ': r'\Sigma', '∞': r'\infty',
+        '√': r'\sqrt', '·': r'\cdot', '∴': r'\therefore', 'ℓ': r'l',
+        'ω': r'\omega', 'τ': r'\tau', 'ρ': r'\rho', 'σ': r'\sigma',
+        'ϵ': r'\epsilon', 'ε': r'\epsilon', '≈': r'\approx', '∠': r'\angle',
+        '→': r'\to', 'ϕ': r'\phi', 'φ': r'\phi', 'χ': r'\chi'
     }
     for char, latex in sym_map.items():
-        text = text.replace(char, latex)
+        text = text.replace(char, f' {latex} ')
 
-    # 1. SUBSCRIPT UNIFIER: Bind \mu 0, \mu r, B 0, H 0
-    # Capture patterns like "\mu 0" or "\mu r" or "B 0"
-    text = re.sub(r'(\\mu|[BHE])\s*([0rn])\b', r'\1_{\2}', text)
-    # Bind \mu followed by a space-separated letter: \mu r -> \mu_{r}
-    text = re.sub(r'(\\mu)\s+([a-zA-Z])\b', r'\1_{\2}', text)
-
-    # 2. ATOMIC DIMENSION SHIELD: Capture [MLT]
-    def polish_dim(match):
-        inner = match.group(1)
-        inner = re.sub(r'([MLTA])\s*(-?\d+)', r'\1^{\2}', inner)
-        inner = re.sub(r'\s+', '', inner)
-        return f' $[{inner}]$ '
-    text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', polish_dim, text)
-
-    # 3. UNIT & POWER CONSOLIDATION
-    text = re.sub(r'\b(\d+\.?\d*)\s*(cm|mm|m|kg|s|N|Pa|J|W|C|V|A|T|H)\b', r'$\1\text{\2}$', text)
-    text = re.sub(r'\b(10)\s*(-?\d+)\b', r'\1^{\2}', text)
-
-    # 4. AUTO-DELIMIT LaTeX: Wrap \alpha, \mu_{0}, etc.
-    # Matches \command possibly followed by _{sub} or ^{sup}
-    text = re.sub(r'(?<!\$)\\([a-zA-Z0-9_{}^]+)(?!\$)', r' $\\\1$ ', text)
-
-    # 5. NUCLEAR MATH MERGER (10x Recursive)
-    for _ in range(10):
-        # Bridge gaps between related math blocks
-        text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:a-zA-Z0-9\\]+)\s*\$', r'\1', text)
-        text = re.sub(r'\$\s*\$', '', text)
-
-    # 6. INNER MATH CLEANUP
-    def final_polish(match):
-        m = match.group(1)
-        # Fix exponents inside consolidated blocks
-        m = re.sub(r'([MLTA])(\d+)', r'\1^{\2}', m)
-        m = re.sub(r'([MLTA])-(\d+)', r'\1^{-\2}', m)
-        m = re.sub(r'(10)-(\d+)', r'\1^{-\2}', m)
-        # Tighten operators
-        m = re.sub(r'\s*([=+\-*/])\s*', r'\1', m)
-        return f'${m.strip()}$'
-    text = re.sub(r'\$([^$]+)\$', final_polish, text)
-
-    # 7. FINAL REFINEMENTS
-    text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
-    text = text.replace('ext{', r'\text{')
-    # Ensure math has spacing from words
-    text = re.sub(r'([a-zA-Z0-9])(\$)', r'\1 \2', text)
-    text = re.sub(r'(\$)([a-zA-Z0-9])', r'\1 \2', text)
+    # 1. Protect existing Math (anything between $)
+    parts = re.split(r'(\$[^$]+\$)', text)
+    processed_parts = []
     
-    # Restore spacing in phrases that might have been merged by bs4 separators
-    # (e.g., "Energy stored Energy dissipated" -> "Energy stored Energy dissipated")
-    # This specifically looks for merged Uppercase words in the middle of a string
-    text = re.sub(r'([a-z])([A-Z])', r'\1 \2', text)
+    for part in parts:
+        if part.startswith('$') and part.endswith('$'):
+            # Existing math block: Clean up common artifacts but keep as math
+            inner = part[1:-1]
+            inner = re.sub(r'\\ ', r' ', inner)
+            processed_parts.append(f'${inner.strip()}$')
+        else:
+            # Plain text block: Apply targeted LaTeX conversion
+            # Dimension handling: [MLT-2] -> $[M L T^{-2}]$
+            def fix_dims(m):
+                d = m.group(1)
+                d = re.sub(r'([MLTAθ])\s*(\-?\d+)', r'\1^{\2}', d)
+                d = re.sub(r'([MLTAθ])(?![0-9\^])', r'\1^{1}', d) # Implicit 1
+                return f' $[{d.replace(" ", "")}]$ '
+            part = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', fix_dims, part)
+
+            # Subscript handling for common physics symbols
+            part = re.sub(r'\b(\\mu|[BHE])\s*([0rn])\b', r' $\1_{\2}$ ', part)
+            
+            # Unit handling: "52.01 m" -> "$52.01 \text{ m}$"
+            part = re.sub(r'\b(\d+\.?\d*)\s*(cm|mm|m|kg|s|N|Pa|J|W|C|V|A|T|H)\b', r' $\1 \text{ \2}$ ', part)
+            
+            # log handling
+            part = part.replace('log e', r' $\log_e$ ')
+            
+            processed_parts.append(part)
+
+    text = "".join(processed_parts)
     
-    return " ".join(text.split()).strip()
+    # Final Cleanup
+    text = re.sub(r'([a-z])([A-Z])', r'\1 \2', text) # Split merged words
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()
 
 # ===================================================================
 
@@ -137,15 +121,20 @@ try:
     container = soup.find('div', class_='question-component')
     
     if container:
-        # Pre-Extraction Replacement
+        # Pre-Extraction Replacement: Protect MathJax early
         for garbage in container.find_all(class_=['MathJax_Preview', 'katex-html', 'mjx-assistive-mml']): garbage.decompose()
+        
         for mjx in container.find_all('mjx-container'):
             latex = mjx.get('data-tex') or (mjx.find('math').get('alttext') if mjx.find('math') else None)
-            if latex: mjx.replace_with(soup.new_string(f" {latex.strip()} "))
+            if latex: mjx.replace_with(soup.new_string(f" ${latex.strip()}$ "))
+            
         for script in container.find_all('script', type=re.compile(r'math/tex', re.I)):
-            script.replace_with(soup.new_string(f" {script.string.strip()} "))
-        for sup in container.find_all('sup'): sup.replace_with(soup.new_string(f"$^{{{sup.get_text(strip=True)}}}$"))
-        for sub in container.find_all('sub'): sub.replace_with(soup.new_string(f"$_{{{sub.get_text(strip=True)}}}$"))
+            script.replace_with(soup.new_string(f" ${script.string.strip()}$ "))
+            
+        for sup in container.find_all('sup'): 
+            sup.replace_with(soup.new_string(f" $^{{{sup.get_text(strip=True)}}}$ "))
+        for sub in container.find_all('sub'): 
+            sub.replace_with(soup.new_string(f" $_{{{sub.get_text(strip=True)}}}$ "))
 
         # DATA EXTRACTION
         full_text = container.get_text(" ", strip=True)
