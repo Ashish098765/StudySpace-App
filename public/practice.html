@@ -48,9 +48,14 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         
         /* MathJax Adjustments */
-        mjx-container { display: inline-block; vertical-align: middle; margin: 0 2px; }
-        .q-text mjx-container { font-size: 1.1em; }
-        .opt-text mjx-container { font-size: 1.05em; }
+        mjx-container { 
+            display: inline-block; 
+            vertical-align: baseline; 
+            margin: 0 1px; 
+            font-size: 100% !important; /* Force matching parent font size */
+        }
+        
+        .q-text mjx-container { vertical-align: middle; }
         
         body { background-color: var(--bg-base); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
 
