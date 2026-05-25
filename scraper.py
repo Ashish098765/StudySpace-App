@@ -10,8 +10,9 @@ import random
 
 def normalize_text(text):
     if not text: return ""
-    text = text.replace('\t', ' ').replace('\r', ' ').replace('\n', ' ')
-    text = " ".join(text.split())
+    # Consolidate spaces but preserve structure for Match Lists
+    text = text.replace('\t', ' ').replace('\r', ' ')
+    text = re.sub(r' +', ' ', text)
     return text.replace('\u2013', '-').replace('\u2014', '-').replace('\u2212', '-').replace('\u00a0', ' ')
 
 def setup_driver():
@@ -27,12 +28,13 @@ def setup_driver():
     return driver
 
 # ===================================================================
-# THE PERFECT LaTeX ENGINE
+# THE PERFECT LaTeX ENGINE (v2 - Lexical Consistency)
 # ===================================================================
 
 def latexify(text):
     if not text: return ""
     
+    # 0. Ultimate Symbol Map (Includes variants)
     sym_map = {
         'μ': r'\mu ', 'η': r'\eta ', 'λ': r'\lambda ', 'π': r'\pi ', 
         'θ': r'\theta ', 'α': r'\alpha ', 'β': r'\beta ', 'γ': r'\gamma ',
@@ -41,56 +43,68 @@ def latexify(text):
         '√': r'\sqrt ', '·': r'\cdot ', '∴': r'\therefore ', 'ℓ': r'l',
         'ω': r'\omega ', 'τ': r'\tau ', 'ρ': r'\rho ', 'σ': r'\sigma ',
         'ϵ': r'\epsilon ', 'ε': r'\epsilon ', '≈': r'\approx ', '∠': r'\angle ',
-        '→': r'\to '
+        '→': r'\to ', 'ϕ': r'\phi ', 'φ': r'\phi ', 'χ': r'\chi '
     }
     for char, latex in sym_map.items():
         text = text.replace(char, latex)
 
-    # A. UNIT PROTECTOR: "1.7 cm", "10 -2", "0.1 mm"
-    # Matches numbers followed by common physics units or powers
-    text = re.sub(r'\b(\d+\.?\d*)\s*(cm|mm|m|kg|s|N|Pa|J|W|C|V)\b', r'$\1\text{\2}$', text)
-    text = re.sub(r'\b(10)\s*(-?\d+)\b', r'\1^{\2}', text)
+    # 1. SUBSCRIPT UNIFIER: Bind \mu 0, \mu r, B 0, H 0
+    # Capture patterns like "\mu 0" or "\mu r" or "B 0"
+    text = re.sub(r'(\\mu|[BHE])\s*([0rn])\b', r'\1_{\2}', text)
+    # Bind \mu followed by a space-separated letter: \mu r -> \mu_{r}
+    text = re.sub(r'(\\mu)\s+([a-zA-Z])\b', r'\1_{\2}', text)
 
-    # B. AUTO-DELIMIT LaTeX
-    text = re.sub(r'(?<!\$)\\([a-zA-Z]+)(?!\$)', r' $\\\1$ ', text)
-
-    # C. ATOMIC DIMENSION SHIELD
-    def shield_dim(match):
+    # 2. ATOMIC DIMENSION SHIELD: Capture [MLT]
+    def polish_dim(match):
         inner = match.group(1)
         inner = re.sub(r'([MLTA])\s*(-?\d+)', r'\1^{\2}', inner)
         inner = re.sub(r'\s+', '', inner)
         return f' $[{inner}]$ '
-    text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', shield_dim, text)
+    text = re.sub(r'\[\s*([MLTA\s\d\-\^]{1,})\s*\]', polish_dim, text)
 
-    # D. GREEDY EQUATION DETECTOR
-    text = re.sub(r'(?<!\$)\b([a-zA-Z0-9\\]{1,4}\s*[=+\-*/^]\s*[a-zA-Z0-9\\]+)\b(?!\$)', r' $\1$ ', text)
+    # 3. UNIT & POWER CONSOLIDATION
+    text = re.sub(r'\b(\d+\.?\d*)\s*(cm|mm|m|kg|s|N|Pa|J|W|C|V|A|T|H)\b', r'$\1\text{\2}$', text)
+    text = re.sub(r'\b(10)\s*(-?\d+)\b', r'\1^{\2}', text)
 
-    # E. NUCLEAR MATH MERGER (8x Recursive)
-    for _ in range(8):
+    # 4. AUTO-DELIMIT LaTeX: Wrap \alpha, \mu_{0}, etc.
+    # Matches \command possibly followed by _{sub} or ^{sup}
+    text = re.sub(r'(?<!\$)\\([a-zA-Z0-9_{}^]+)(?!\$)', r' $\\\1$ ', text)
+
+    # 5. NUCLEAR MATH MERGER (10x Recursive)
+    for _ in range(10):
+        # Bridge gaps between related math blocks
         text = re.sub(r'\$\s*([=+\-*/^\[\](){},.:a-zA-Z0-9\\]+)\s*\$', r'\1', text)
         text = re.sub(r'\$\s*\$', '', text)
 
-    # F. INNER CLEANUP
+    # 6. INNER MATH CLEANUP
     def final_polish(match):
         m = match.group(1)
+        # Fix exponents inside consolidated blocks
         m = re.sub(r'([MLTA])(\d+)', r'\1^{\2}', m)
         m = re.sub(r'([MLTA])-(\d+)', r'\1^{-\2}', m)
         m = re.sub(r'(10)-(\d+)', r'\1^{-\2}', m)
+        # Tighten operators
         m = re.sub(r'\s*([=+\-*/])\s*', r'\1', m)
         return f'${m.strip()}$'
     text = re.sub(r'\$([^$]+)\$', final_polish, text)
 
-    # G. FINAL SPACING
+    # 7. FINAL REFINEMENTS
     text = re.sub(r'(\d)\s*\$\s*\.\s*(\d)', r'\1.\2', text)
-    text = text.replace('ext{', r'\text{').replace('$$', '$')
+    text = text.replace('ext{', r'\text{')
+    # Ensure math has spacing from words
     text = re.sub(r'([a-zA-Z0-9])(\$)', r'\1 \2', text)
     text = re.sub(r'(\$)([a-zA-Z0-9])', r'\1 \2', text)
+    
+    # Restore spacing in phrases that might have been merged by bs4 separators
+    # (e.g., "Energy stored Energy dissipated" -> "Energy stored Energy dissipated")
+    # This specifically looks for merged Uppercase words in the middle of a string
+    text = re.sub(r'([a-z])([A-Z])', r'\1 \2', text)
     
     return " ".join(text.split()).strip()
 
 # ===================================================================
 
-print("--- BOOTING EXAMSIDE FINAL PRO ENGINE ---")
+print("--- BOOTING EXAMSIDE PRO ENGINE ---")
 driver = setup_driver()
 
 try:
@@ -127,9 +141,9 @@ try:
         for garbage in container.find_all(class_=['MathJax_Preview', 'katex-html', 'mjx-assistive-mml']): garbage.decompose()
         for mjx in container.find_all('mjx-container'):
             latex = mjx.get('data-tex') or (mjx.find('math').get('alttext') if mjx.find('math') else None)
-            if latex: mjx.replace_with(soup.new_string(f" ${latex.strip()}$ "))
+            if latex: mjx.replace_with(soup.new_string(f" {latex.strip()} "))
         for script in container.find_all('script', type=re.compile(r'math/tex', re.I)):
-            script.replace_with(soup.new_string(f" ${script.string.strip()}$ "))
+            script.replace_with(soup.new_string(f" {script.string.strip()} "))
         for sup in container.find_all('sup'): sup.replace_with(soup.new_string(f"$^{{{sup.get_text(strip=True)}}}$"))
         for sub in container.find_all('sub'): sub.replace_with(soup.new_string(f"$_{{{sub.get_text(strip=True)}}}$"))
 
@@ -159,13 +173,10 @@ try:
             elif len(correct_indices) == 1: answer = correct_indices[0]
         else:
             q_type = "integer"
-            # ENHANCED NUMERICAL EXTRACTOR
-            # 1. Check for "Answer: X" or "Ans: X"
-            ans_match = re.search(r'(?:Answer|Ans|Value)\s*[:\-]?\s*(\d+\.?\d*)', full_text, re.I)
+            ans_match = re.search(r'(?:Answer|Value)\s*[:\-]?\s*(\d+\.?\d*)', full_text, re.I)
             if ans_match: answer = ans_match.group(1)
-            # 2. Look for "corrected diameter will be 180" pattern
             else:
-                last_sentence = full_text.split('.')[-2:] # Check last two sentences
+                last_sentence = full_text.split('.')[-2:] 
                 for sent in last_sentence:
                     num_match = re.search(r'(\d+)\s*(?:cm|mm|m)?\s*$', sent.strip())
                     if num_match: answer = num_match.group(1); break
@@ -174,7 +185,7 @@ try:
         exp_header = container.find(['h2', 'h3', 'strong'], string=re.compile(r'Explanation', re.I))
         if exp_header:
             sib = exp_header.find_next_sibling('div') or exp_header.parent.find_next_sibling('div')
-            if sib: explanation = latexify(normalize_text(sib.get_text(separator=" ", strip=True)))
+            if sib: explanation = latexify(normalize_text(sib.get_text(separator="\n", strip=True)))
 
         result = {"q": q_text, "type": q_type, "options": options, "answer": answer, "explanation": explanation, "year": year, "date": date, "shift": shift}
         print("--- EXTRACTED DATA ---")

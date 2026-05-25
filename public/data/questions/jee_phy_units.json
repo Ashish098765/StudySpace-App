@@ -3,13 +3,13 @@
     "q": "Which of the following is not a dimensionless quantity?",
     "type": "mcq",
     "options": [
-        "Relative magnetic permeability ( \\mu $_{r}$ )",
+        "Relative magnetic permeability ($\mu_r$)",
         "Power factor",
-        "Permeability of free space ( \\mu $_{0}$ )",
+        "Permeability of free space ($\mu_0$)",
         "Quality factor"
     ],
     "answer": 2,
-    "explanation": "[ \\mu $_{r}$ ] = 1 as \\mu $_{r}=\\mu $ \\mu m [power factor (cos ϕ )] = 1 \\mu $ 0=B $ 0 H ( $ unit=NA $ ^{-2} ) : Not dimensionless [ \\mu $_{0}$ ] = [MLT ^{-2} A ^{-2} ] quality factor ( Q ) = E n e r g y s t o r e d E n e r g y d i s s i p a t e d p e r c y c l e So Q is unitless & dimensionless.",
+    "explanation": "[$\mu_r$] = 1 as $\\mu_r = \\frac{\\mu}{\\mu_0}$. [Power factor ($\\cos \\phi$)] = 1. $\\mu_0 = \\frac{B}{H}$ (unit = $N A^{-2}$): Not dimensionless. [$\\mu_0$] = $[MLT^{-2} A^{-2}]$. Quality factor ($Q$) = $\\frac{\\text{Energy stored}}{\\text{Energy dissipated per cycle}}$. So $Q$ is unitless and dimensionless.",
     "year": "2021",
     "date": "27th August",
     "shift": "Morning"
