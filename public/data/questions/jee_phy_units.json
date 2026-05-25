@@ -1,17 +1,16 @@
-[
-{
-    "q": "Which of the following is not a dimensionless quantity?",
+[{
+    "q": "Keeping the significant figures in view, the sum of the physical quantities $ 52.01 \\text{m},153.2 \\text{m}and0.123 \\text{m}$ is :",
     "type": "mcq",
     "options": [
-        "Relative magnetic permeability ($\\mu_r$)",
-        "Power factor",
-        "Permeability of free space ($\\mu_0$)",
-        "Quality factor"
+        "$ 205.3 \\text{m}$",
+        "$ 205 \\text{m}$",
+        "$ 205.333 \\text{m}$",
+        "$ 205.33 \\text{m}$"
     ],
-    "answer": 2,
-    "explanation": "[$\\mu_r$] = 1 as $\\mu_r = \\frac{\\mu}{\\mu_0}$. [Power factor ($\\cos \\phi$)] = 1. $\\mu_0 = \\frac{B}{H}$ (unit = $N A^{-2}$): Not dimensionless. [$\\mu_0$] = $[MLT^{-2} A^{-2}]$. Quality factor ($Q$) = $\\frac{\\text{Energy stored}}{\\text{Energy dissipated per cycle}}$. So $Q$ is unitless and dimensionless.",
-    "year": "2021",
-    "date": "27th August",
-    "shift": "Morning"
+    "answer": 0,
+    "explanation": "In addition, or subtraction, the final result should be reported to the same number of decimal places as the measurement with the least number of decimal places. This ensures the result is no more precise than the least precise measurement. The given measured values are, $ 52.01 \\text{m}$ : 2 decimal places. $ 153.2 \\text{m}$ : 1 decimal place. $ 0.123 \\text{m}$ : 3 decimal places. The measurement with the least number of decimal places is $ 153.2 \\text{m}$ ( 1 decimal place). Therefore, our final answer must be rounded to one decimal place. 52.01 + 153.2 + 0.123 = $ 205.333 \\text{m}$ Now, we round 205.333 to one decimal place : The digit at the first decimal place is 3 \\to 205.33 The digit following it is 3 (which is less than 5 ) \\to 205.3 Therefore, the rounded result is $ 205.3 \\text{m}$ . Hence, the correct option is (A)",
+    "year": "2026",
+    "date": "21st January",
+    "shift": "Evening"
 }
 ]
