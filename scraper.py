@@ -26,10 +26,7 @@ def normalize_text(text):
     return text.replace('\t', ' ').replace('\r', ' ').replace('\u2013', '-').replace('\u2014', '-').replace('\u2212', '-').replace('\u00a0', ' ').strip()
 
 def setup_driver():
-    # 1. Create the options object first
     options = uc.ChromeOptions()
-    
-    # 2. Add all your configurations
     options.add_argument("--headless=new") 
     options.add_argument("--window-size=1920,1080")
     options.add_argument("--disable-gpu")
@@ -40,14 +37,10 @@ def setup_driver():
     options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
     options.page_load_strategy = 'eager'
     
-    # 3. Instantiate Chrome using the options we just built (Forcing version 148)
+    # Instantiate Chrome (Forcing version 148 to match your machine)
     driver = uc.Chrome(options=options, version_main=148) 
-    
-    # 4. Apply final driver settings
     driver.set_page_load_timeout(30)
     driver.__class__.__del__ = lambda self: None # Fixes the Windows OSError [WinError 6]
-    
-    # 5. Return the finished product
     return driver
 
 def nuke_ads(driver):
@@ -58,47 +51,6 @@ def nuke_ads(driver):
         driver.execute_script("document.querySelectorAll('iframe').forEach(i => i.remove());")
     except: pass
 
-def latexify(text):
-    """The Perfect LaTeX Engine v4."""
-    if not text: return ""
-    sym_map = {'μ': r'\\mu', 'η': r'\\eta', 'λ': r'\\lambda', 'π': r'\\pi', 'θ': r'\\theta', 'α': r'\\alpha', 'β': r'\\beta', 'γ': r'\\gamma', 'Δ': r'\\Delta', '±': r'\\pm', '×': r'\\times', 'Ω': r'\\Omega', 'Φ': r'\\Phi', 'Ψ': r'\\Psi', 'Σ': r'\\Sigma', '∞': r'\\infty', '√': r'\\sqrt', '·': r'\\cdot', '∴': r'\\therefore', 'ℓ': r'l', 'ω': r'\\omega', 'τ': r'\\tau', 'ρ': r'\\rho', 'σ': r'\\sigma', 'ϵ': r'\\epsilon', 'ε': r'\\epsilon', '≈': r'\\approx', '∠': r'\\angle', '→': r'\\to', 'ϕ': r'\\phi', 'φ': r'\\phi', 'χ': r'\\chi'}
-    for char, latex in sym_map.items(): text = text.replace(char, f' {latex} ')
-    parts = re.split(r'(\$[^$]+\$)', text)
-    processed = []
-    for p in parts:
-        if p.startswith('$'):
-            inner = p[1:-1]
-            inner = re.sub(r'(\d*)\s*ext\{\s*([a-zA-Z])\}', r'\1\\text{\2}', inner)
-            inner = re.sub(r'([MLTAθI])\s*(\-?\d+)', r'\1^{\2}', inner)
-            processed.append(f'${inner.strip()}$')
-        else:
-            p = re.sub(r'(\w)\s*\n\s*([/\-+*])\s*\n\s*(\w)', r'\1\2\3', p)
-            def fd(m):
-                d = re.sub(r'([MLTAθI])\s*(\-?\d+)', r'\1^{\2}', m.group(1))
-                d = re.sub(r'([MLTAθI])\s+(\d+)', r'\1^{\2}', d)
-                d = re.sub(r'([MLTAθI])(?![0-9\^])', r'\1', d)
-                return f' $[{d.replace(" ", "")}]$ '
-            p = re.sub(r'\[\s*([MLTAIθ\s\d\-\^]{1,})\s*\]', fd, p)
-            p = re.sub(r'\b(\\mu|[BHE])\s*([0rn])\b', r' $\1_{\2}$ ', p)
-            p = re.sub(r'\b(\d+\.?\d*)\s*(cm|mm|m|kg|s|N|Pa|J|W|C|V|A|T|H|ms|s-1|s-2)\b', r' $\1 \\text{ \2}$ ', p)
-            processed.append(p)
-    text = "".join(processed)
-    if "List - I" in text and "List - II" in text:
-        l1 = re.findall(r'([A-D])\.\s+([^A-DI-V|]+?)(?=\s+[A-D]\.|\s+List|I\.|II\.|III\.|IV\.|$)', text)
-        l2 = re.findall(r'([I|V]+)\.\s+([^|A-D]+?)(?=\s+[I|V]+\.|\s+Choose|List|$)', text)
-        if l1 and l2:
-            table = "\n\n| List - I | List - II |\n| :--- | :--- |\n"
-            for i in range(max(len(l1), len(l2))):
-                row1 = f"{l1[i][0]}. {l1[i][1].strip()}" if i < len(l1) else ""
-                row2 = f"{l2[i][0]}. {l2[i][1].strip()}" if i < len(l2) else ""
-                table += f"| {row1} | {row2} |\n"
-            text = re.sub(r'List\s*-\s*I.*?List\s*-\s*II.*?(?=Choose|$)', table + "\n", text, flags=re.DOTALL)
-    text = re.sub(r'([a-z])([A-Z])', r'\1 \2', text)
-    text = re.sub(r'[^\S\n]+', ' ', text)
-    text = re.sub(r'\.\s+([A-Z])', r'.\n\1', text)
-    text = re.sub(r'(Therefore|So,|Hence,|Using|Substituting|From|We know)', r'\n\1', text)
-    return re.sub(r'\n+', '\n', text).strip()
-
 def scrape_question(driver, url):
     try:
         driver.get(url)
@@ -108,7 +60,7 @@ def scrape_question(driver, url):
         
         WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".question-component, .question-card, .question-container, #question-card")))
         
-        # SMART BUTTON CLICKER - Fixed to only click actual solution buttons
+        # SMART BUTTON CLICKER
         try:
             buttons = driver.find_elements(By.TAG_NAME, "button")
             for btn in buttons:
@@ -123,21 +75,35 @@ def scrape_question(driver, url):
         cont = soup.find('div', class_='question-component') or soup.find('div', class_='question-card') or soup.find('div', id='question-card') or soup.find('div', class_='question-container')
         if not cont: return "ERROR"
         
-        for g in cont.find_all(class_=['MathJax_Preview', 'katex-html', 'mjx-assistive-mml']): g.decompose()
+        # --- PURE LATEX EXTRACTOR ---
+        # 1. Destroy visual MathJax rendering blocks (we don't want the raw text versions of equations)
+        for g in cont.find_all(class_=['MathJax_Preview', 'katex-html', 'mjx-assistive-mml']): 
+            g.decompose()
+            
+        # 2. Extract raw LaTeX from newer MathJax/KaTeX span elements
         for m in cont.find_all(['mjx-container', 'span'], class_='mathjax-latex'):
             tex = m.get('data-tex') or (m.find('math').get('alttext') if m.find('math') else "")
-            m.replace_with(soup.new_string(f" ${tex.strip()}$ "))
+            if tex:
+                m.replace_with(soup.new_string(f" ${tex.strip()}$ "))
+                
+        # 3. Extract raw LaTeX directly from hidden MathJax scripts
         for s in cont.find_all('script', type=re.compile(r'math/tex', re.I)): 
-            s.replace_with(soup.new_string(f" ${s.string.strip()}$ "))
+            if s.string:
+                s.replace_with(soup.new_string(f" ${s.string.strip()}$ "))
+                
+        # 4. Standardize standard HTML superscripts/subscripts
         for s in cont.find_all('sup'): 
             s.replace_with(soup.new_string(f"^{{{s.get_text(strip=True)}}}"))
         for s in cont.find_all('sub'): 
             s.replace_with(soup.new_string(f"_{{{s.get_text(strip=True)}}}"))
+        # ----------------------------
             
         full = cont.get_text(" ", strip=True)
         q_div = cont.find('div', class_='question') or cont.find('div', class_='question-text')
         q_raw = q_div.get_text(separator=" ", strip=True) if q_div else cont.get_text(separator=" ", strip=True).split('Options')[0]
-        q_text = latexify(normalize_text(re.split(r'(JEE Main|NEET|JEE Advanced)\s+\d{4}', q_raw, flags=re.I)[0]))
+        
+        # Notice we only use normalize_text now, NO latexify!
+        q_text = normalize_text(re.split(r'(JEE Main|NEET|JEE Advanced)\s+\d{4}', q_raw, flags=re.I)[0])
         
         opts_raw = cont.find_all('div', role='button') or cont.find_all('div', class_=re.compile(r'option|choice', re.I)) or cont.find_all('li', class_=re.compile(r'option', re.I))
         q_type, options, answer = "mcq", [], "N/A"
@@ -146,7 +112,7 @@ def scrape_question(driver, url):
             c_idx = []
             for i, o in enumerate(opts_raw):
                 if "Correct Answer" in o.get_text() or "correct" in o.get('class', []): c_idx.append(i)
-                options.append(latexify(normalize_text(re.sub(r'^([A-D])[\.\)\s]+', '', o.get_text(separator=" ", strip=True)).replace("Correct Answer", "").strip())))
+                options.append(normalize_text(re.sub(r'^([A-D])[\.\)\s]+', '', o.get_text(separator=" ", strip=True)).replace("Correct Answer", "").strip()))
             if len(c_idx) > 1: q_type, answer = "multi_select", c_idx
             elif len(c_idx) == 1: answer = c_idx[0]
         else:
@@ -158,11 +124,21 @@ def scrape_question(driver, url):
         if not exp_div:
             eh = cont.find(['h2', 'h3', 'strong'], string=re.compile(r'Explanation|Solution', re.I))
             if eh: exp_div = eh.find_next_sibling('div') or eh.parent.find_next_sibling('div')
-        exp_text = latexify(normalize_text(exp_div.get_text(separator="\n", strip=True))) if exp_div else "N/A"
+        exp_text = normalize_text(exp_div.get_text(separator="\n", strip=True)) if exp_div else "N/A"
         
-        year_match = re.search(r'\b(20[0-2]\d)\b', full)
-        shift_match = re.search(r'(Morning|Evening|Afternoon)\s*Shift', full, re.I)
-        date_match = re.search(r'\d{1,2}(?:st|nd|rd|th)?\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*', full, re.I)
+        # --- SAFE METADATA EXTRACTOR ---
+        safe_top_text = re.split(r'(Options|Explanation|Solution)', full, flags=re.IGNORECASE)[0]
+        
+        raw_shift_match = re.search(r'(Morning|Evening|Afternoon|Shift\s*1|Shift\s*2|Shift\s*I\b|Shift\s*II\b)', safe_top_text, re.I)
+        final_shift = "N/A"
+        if raw_shift_match:
+            val = raw_shift_match.group(1).lower()
+            if any(w in val for w in ['morning', '1', 'i']): final_shift = "Morning"
+            elif any(w in val for w in ['evening', 'afternoon', '2', 'ii']): final_shift = "Evening"
+            else: final_shift = raw_shift_match.group(1)
+
+        date_match = re.search(r'\b(\d{1,2}(?:st|nd|rd|th)?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*)\b', safe_top_text, re.I)
+        year_match = re.search(r'\b(20[0-2]\d)\b', safe_top_text)
         
         return {
             "q": q_text, 
@@ -172,8 +148,8 @@ def scrape_question(driver, url):
             "explanation": exp_text, 
             "url": url,
             "year": year_match.group(1) if year_match else "N/A",
-            "shift": shift_match.group(1) if shift_match else "N/A",
-            "date": date_match.group(0) if date_match else "N/A"
+            "shift": final_shift,
+            "date": date_match.group(1) if date_match else "N/A"
         }
     except Exception as e: 
         return f"TIMEOUT: {str(e)}"
@@ -187,7 +163,7 @@ def show_progress(current, total, prefix='', suffix='', length=30):
     sys.stdout.flush()
 
 # RUN
-print("\n🚀 EXAMSIDE SPEED-SCRAPER (CLEAN SWEEP MODE)")
+print("\n🚀 EXAMSIDE SPEED-SCRAPER (PURE LATEX MODE)")
 driver = setup_driver()
 try:
     print(f"🔍 Discovery: {CHAPTER_URL}")
