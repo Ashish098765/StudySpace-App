@@ -139,7 +139,7 @@
             <p class="hero-subtitle">Your central hub for collaborative learning, past year question practice, and cracking exams together.</p>
             
             <div class="session-dropdown-wrapper">
-                <button class="btn-start-session">
+                <button class="btn-start-session" onclick="this.nextElementSibling.style.visibility = this.nextElementSibling.style.visibility === 'visible' ? 'hidden' : 'visible'; this.nextElementSibling.style.opacity = this.nextElementSibling.style.opacity === '1' ? '0' : '1';">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"></path></svg>
                     Start a Live Session
                 </button>
@@ -160,21 +160,21 @@
                         <h4><i class="fa-solid fa-mug-hot" style="color: var(--gold); margin-right: 8px;"></i> General Study Lounge</h4>
                         <p style="font-size: 0.8rem; color: var(--text-muted);">Open to everyone. Mic off, Cam/Screen on.</p>
                     </div>
-                    <button class="btn-join" onclick="window.location.href='/room/public-general'">Join</button>
+                    <button class="btn-join" onclick="window.location.href='/room.html?id=public-general'">Join</button>
                 </div>
                 <div class="list-item">
                     <div>
                         <h4><i class="fa-solid fa-clock" style="color: var(--danger); margin-right: 8px;"></i> Pomodoro Focus</h4>
                         <p style="font-size: 0.8rem; color: var(--text-muted);">Strict 50/10 study timers.</p>
                     </div>
-                    <button class="btn-join" onclick="window.location.href='/room/public-pomodoro'">Join</button>
+                    <button class="btn-join" onclick="window.location.href='/room.html?id=public-pomodoro'">Join</button>
                 </div>
                 <div class="list-item">
                     <div>
                         <h4><i class="fa-solid fa-headphones" style="color: var(--accent); margin-right: 8px;"></i> Quiet Reading Room</h4>
                         <p style="font-size: 0.8rem; color: var(--text-muted);">Deep focus. No chatting allowed.</p>
                     </div>
-                    <button class="btn-join" onclick="window.location.href='/room/public-quiet'">Join</button>
+                    <button class="btn-join" onclick="window.location.href='/room.html?id=public-quiet'">Join</button>
                 </div>
             </div>
 
@@ -331,47 +331,54 @@
     </script>
 
     <script>
-        function checkLogin() {
-            if (!window.auth || !window.auth.currentUser) {
-                sessionStorage.setItem('returnUrl', window.location.href);
-                window.location.href = '/login.html';
-                return false;
-            }
-            return true;
+    function checkLogin() {
+        if (!window.auth || !window.auth.currentUser) {
+            sessionStorage.setItem('returnUrl', window.location.href);
+            window.location.href = '/login.html';
+            return false;
         }
+        return true;
+    }
 
-        function createPrivateRoom() {
-            if (!checkLogin()) return; 
-            const randomRoomId = Math.random().toString(36).substring(2, 10);
-            window.location.href = `/room/${randomRoomId}`;
+    function createPrivateRoom() {
+        if (!checkLogin()) return; 
+        const randomRoomId = Math.random().toString(36).substring(2, 10);
+        // FIXED: Pointing to room.html with the ID parameter
+        window.location.href = `/room.html?id=${randomRoomId}`;
+    }
+
+    function joinPrivateRoom() {
+        if (!checkLogin()) return; 
+        document.getElementById('join-modal').classList.add('active');
+        const input = document.getElementById('join-room-input');
+        if(input) input.focus();
+    }
+
+    function closeJoinModal() {
+        document.getElementById('join-modal').classList.remove('active');
+    }
+
+    function submitJoinRoom() {
+        if (!checkLogin()) return; 
+        const input = document.getElementById('join-room-input').value.trim();
+        if (!input) return;
+
+        let roomId = input;
+        
+        // Smarter ID extraction in case they paste a full link
+        if (input.includes('id=')) {
+            roomId = input.split('id=')[1].split('&')[0];
+        } else if (input.includes('/room/')) {
+            roomId = input.split('/room/').pop();
         }
+        
+        roomId = roomId.replace(/\//g, '');
 
-        function joinPrivateRoom() {
-            if (!checkLogin()) return; 
-            document.getElementById('join-modal').classList.add('active');
-            const input = document.getElementById('join-room-input');
-            if(input) input.focus();
+        if (roomId) {
+            // FIXED: Pointing to room.html with the ID parameter
+            window.location.href = `/room.html?id=${roomId}`;
         }
-
-        function closeJoinModal() {
-            document.getElementById('join-modal').classList.remove('active');
-        }
-
-        function submitJoinRoom() {
-            if (!checkLogin()) return; 
-            const input = document.getElementById('join-room-input').value.trim();
-            if (!input) return;
-
-            let roomId = input;
-            if (input.includes('/room/')) {
-                roomId = input.split('/room/').pop();
-            }
-            roomId = roomId.split('?')[0].replace(/\//g, '');
-
-            if (roomId) {
-                window.location.href = `/room/${roomId}`;
-            }
-        }
-    </script>
+    }
+</script>
 </body>
 </html>
