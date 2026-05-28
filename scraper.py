@@ -22,6 +22,9 @@ MAX_QUESTIONS = 230
 os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
 
 def normalize_text(text):
+    """
+    Cleans up basic text formatting issues without trying to parse LaTeX.
+    """
     if not text: return ""
     return text.replace('\t', ' ').replace('\r', ' ').replace('\u2013', '-').replace('\u2014', '-').replace('\u2212', '-').replace('\u00a0', ' ').strip()
 
@@ -84,6 +87,7 @@ def scrape_question(driver, url):
         for m in cont.find_all(['mjx-container', 'span'], class_='mathjax-latex'):
             tex = m.get('data-tex') or (m.find('math').get('alttext') if m.find('math') else "")
             if tex:
+                # Add spaces around it so it doesn't merge with adjacent words, but keep the $ tight to the code
                 m.replace_with(soup.new_string(f" ${tex.strip()}$ "))
                 
         # 3. Extract raw LaTeX directly from hidden MathJax scripts
@@ -193,8 +197,8 @@ try:
             
         time.sleep(2)
     
-    print("\n\n📦 Extracting (Starting from zero)...")
-    results = [] # Always start empty
+    print("\n\n📦 Extracting (Starting from zero to overwrite JSON)...")
+    results = [] # Always start empty to ensure a full overwrite
     total_links = len(links)
     
     for i, u in enumerate(links):
