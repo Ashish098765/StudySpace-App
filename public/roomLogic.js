@@ -341,15 +341,16 @@ chatInput.addEventListener('keypress', (e) => {
 });
 
 // --- 7. XP TRACKING ---
-window.onbeforeunload = async () => {
+// FIXED: Switched to 'pagehide' and removed async to prevent the "Leave site?" popup
+window.addEventListener('pagehide', () => {
     const user = window.auth?.currentUser;
     if (user && secondsSpent >= 60) {
         const xpEarned = Math.floor(secondsSpent / 60) * 10;
         const userRef = doc(db, "users", user.uid);
-        try {
-            await updateDoc(userRef, { xp: increment(xpEarned), lastActive: new Date() });
-        } catch (e) {
-            await setDoc(userRef, { name: user.displayName || 'Student', xp: xpEarned, lastActive: new Date() });
-        }
+        
+        // Fire and forget: We run this in the background without awaiting it
+        updateDoc(userRef, { xp: increment(xpEarned), lastActive: new Date() }).catch(() => {
+            setDoc(userRef, { name: user.displayName || 'Student', xp: xpEarned, lastActive: new Date() });
+        });
     }
-};
+});
