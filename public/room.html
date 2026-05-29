@@ -10,7 +10,6 @@
         :root { --bg-color: #0f111a; --card-bg: #1e2130; --text-main: #f8fafc; --text-muted: #94a3b8; --primary: #6366f1; --accent: #10b981; --danger: #ef4444; --btn-off: #334155; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         
-        /* Fallback to 100vh, override with 100dvh if supported */
         body { background-color: var(--bg-color); color: var(--text-main); height: 100vh; height: 100dvh; display: flex; overflow: hidden; position: relative; }
         
         /* Main Layout */
@@ -23,18 +22,21 @@
 
         /* Video Grid */
         #video-grid { flex-grow: 1; display: grid; gap: 1rem; padding: 1.5rem; padding-bottom: 120px; align-content: center; justify-content: center; overflow-y: auto; }
-        .video-container { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .name-badge { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); padding: 5px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; z-index: 2; }
+        .video-container { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 3px solid transparent; transition: all 0.2s ease; }
+        
+        /* SPEAKER HIGHLIGHT */
+        .video-container.speaking { border-color: var(--accent); box-shadow: 0 0 25px rgba(16, 185, 129, 0.5); transform: scale(1.02); z-index: 5; }
+
+        .name-badge { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); padding: 6px 14px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; z-index: 2; display: flex; align-items: center; gap: 8px; }
+        .badge-avatar { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; border: 1px solid var(--primary); background: var(--card-bg); }
 
         /* Controls */
-        /* FIXED: Changed to position: fixed and added safe-area-inset for mobile gesture bars */
         .controls-wrapper { position: fixed; bottom: max(20px, env(safe-area-inset-bottom)); left: 0; width: 100%; display: flex; justify-content: center; pointer-events: none; z-index: 999; }
         .control-bar { background: rgba(30, 33, 48, 0.95); backdrop-filter: blur(15px); padding: 1rem 1.5rem; border-radius: 100px; display: flex; gap: 1rem; pointer-events: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.15); align-items: center; }
         .btn-media { width: 50px; height: 50px; border-radius: 50%; border: none; font-size: 1.2rem; cursor: pointer; transition: all 0.2s ease; display: flex; justify-content: center; align-items: center; color: white; }
         .btn-on { background: var(--primary); }
         .btn-off { background: var(--btn-off); color: #cbd5e1; }
         .btn-danger { background: var(--danger); }
-        #btn-join { background: var(--accent); padding: 0 1.5rem; font-weight: 600; display: none; gap: 8px; border-radius: 100px; border: none; color: white; cursor: pointer; height: 50px; }
 
         /* Chat Panel */
         #chat-panel { width: 350px; background: var(--card-bg); border-left: 1px solid rgba(255,255,255,0.05); display: none; flex-direction: column; transition: transform 0.3s ease; z-index: 1000; }
@@ -48,17 +50,45 @@
         #chat-input { flex: 1; padding: 0.8rem; border-radius: 8px; border: none; background: rgba(0,0,0,0.3); color: white; outline: none; }
         #btn-send { background: var(--primary); border: none; color: white; padding: 0 1rem; border-radius: 8px; cursor: pointer; }
 
-        /* MOBILE RESPONSIVENESS */
+        /* --- LOBBY SCREEN --- */
+        #lobby-screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-color); z-index: 2000; display: flex; justify-content: center; align-items: center; padding: 1rem; }
+        .lobby-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; width: 100%; max-width: 500px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+        .lobby-profile { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+        .lobby-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary); }
+        .lobby-name { font-size: 1.5rem; font-weight: 800; }
+        .lobby-preview-box { width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 12px; margin-bottom: 1.5rem; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.1); }
+        #btn-join { background: var(--accent); padding: 1rem 2rem; font-weight: 600; font-size: 1.1rem; border-radius: 100px; border: none; color: white; cursor: pointer; width: 100%; margin-top: 1rem; transition: all 0.2s; }
+        #btn-join:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
         @media (max-width: 900px) {
             #chat-panel { position: fixed; top: 0; right: 0; height: 100%; width: 100%; max-width: 400px; box-shadow: -10px 0 30px rgba(0,0,0,0.7); border-left: none; }
             .room-header { padding: 1rem; }
             .control-bar { padding: 0.6rem 1rem; gap: 0.5rem; }
             .btn-media { width: 45px; height: 45px; font-size: 1rem; }
-            #btn-join { padding: 0 1rem; height: 45px; }
         }
     </style>
 </head>
 <body>
+
+    <div id="lobby-screen">
+        <div class="lobby-card">
+            <div class="lobby-profile">
+                <img id="lobby-avatar" class="lobby-avatar" src="https://www.gravatar.com/avatar/?d=mp" alt="Avatar">
+                <div id="lobby-name" class="lobby-name">Loading Profile...</div>
+                <div style="color: var(--text-muted); font-size: 0.9rem;">Ready to join the study session?</div>
+            </div>
+            
+            <div class="lobby-preview-box" id="lobby-video-preview">
+                </div>
+            
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <button id="lobby-btn-mic" class="btn-media btn-off"><i class="fa-solid fa-microphone-slash"></i></button>
+                <button id="lobby-btn-cam" class="btn-media btn-off"><i class="fa-solid fa-video-slash"></i></button>
+            </div>
+            
+            <button id="btn-join"><i class="fa-solid fa-right-to-bracket"></i> Join Room</button>
+        </div>
+    </div>
 
     <div id="main-content">
         <div id="activity-warning">⏳ You have 2 minutes to turn on a device, or you will be removed for inactivity.</div>
@@ -70,19 +100,18 @@
         <div id="video-grid">
             <div class="video-container" id="local-player-wrapper" style="display: none;">
                 <div id="local-player" style="width: 100%; height: 100%;"></div>
-                <div class="name-badge">You (Preview)</div>
+                <div class="name-badge">
+                    <img id="local-badge-avatar" class="badge-avatar" src="https://www.gravatar.com/avatar/?d=mp">
+                    <span id="local-badge-name">You</span>
+                </div>
             </div>
         </div>
 
         <div class="controls-wrapper">
             <div class="control-bar">
-                <button id="btn-mic" class="btn-media btn-off"><i class="fa-solid fa-microphone-slash"></i></button>
-                <button id="btn-cam" class="btn-media btn-off"><i class="fa-solid fa-video-slash"></i></button>
-                
+                <button id="main-btn-mic" class="btn-media btn-off"><i class="fa-solid fa-microphone-slash"></i></button>
+                <button id="main-btn-cam" class="btn-media btn-off"><i class="fa-solid fa-video-slash"></i></button>
                 <button id="btn-chat" class="btn-media btn-off"><i class="fa-solid fa-message"></i></button>
-                
-                <button id="btn-join"><i class="fa-solid fa-right-to-bracket"></i> Join Room</button>
-                
                 <div style="width: 2px; height: 30px; background: rgba(255,255,255,0.1); margin: 0 5px;"></div>
                 <button class="btn-media btn-danger" onclick="window.location.href='/'"><i class="fa-solid fa-phone-slash"></i></button>
             </div>
