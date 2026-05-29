@@ -1113,5 +1113,85 @@
         "year": "2024",
         "shift": "Morning",
         "date": "5th April"
+    },
+    {
+        "q": "Applying the principle of homogeneity of dimensions, determine which one is correct,\nwhere T is time period, G is gravitational constant, M is mass, r is radius of orbit.",
+        "type": "mcq",
+        "options": [
+            "T 2 = 4 π 2 r G M 2",
+            "T 2 = 4 π 2 r 3",
+            "T 2 = 4 π 2 r 3 G M",
+            "T 2 = 4 π 2 r 2 G M"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/papplying-the-principle-of-homogeneity-of-dimensions-dete-jee-main-physics-motion-5vrxehc7qsxmookm",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "4th April"
+    },
+    {
+        "q": "The equation of stationary wave is : . y = 2 a sin ⁡ ( 2 π nt λ ) cos ⁡ ( 2 π x λ ) . Which of the following is NOT correct :",
+        "type": "mcq",
+        "options": [
+            "The dimensions of nt is [L]",
+            "The dimensions of n is [ LT - 1 ]",
+            "The dimensions of x is [L]",
+            "The dimensions of n / λ is [T]"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-equation-of-stationary-wave-is-p-py2-mathrm-jee-main-physics-motion-th5hsvxabtocvv9h",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "4th April"
+    },
+    {
+        "q": "Match List - I with List - II . List I (Number) List II (Significant figure) (A) 1001 (I) 3 (B) 010.1 (II) 4 (C) 100.100 (III) 5 (D) 0.0010010 (IV) 6 Choose the correct answer from the options given below :",
+        "type": "mcq",
+        "options": [
+            "(A)-(II), (B)-(I), (C)-(IV), (D)-(III)",
+            "(A)-(IV), (B)-(III), (C)-(I), (D)-(II)",
+            "(A)-(I), (B)-(II), (C)-(III), (D)-(IV)",
+            "(A)-(III), (B)-(IV), (C)-(II), (D)-(I)"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/match-blist-ib-with-blist-iib-brbrstyl-jee-main-physics-xcyfzewnnvwjgpoo",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "1st February"
+    },
+    {
+        "q": "10 divisions on the main scale of a Vernier calliper coincide with 11 divisions on the Vernier scale. If each division on the main scale is of 5 units, the least count of the instrument is :",
+        "type": "mcq",
+        "options": [
+            "5 11",
+            "10 11",
+            "50 11",
+            "1 2"
+        ],
+        "answer": 0,
+        "explanation": "The least count of a Vernier caliper is the smallest measurement that can be obtained with it and is determined by the difference in the measurement of one main scale division and one Vernier scale division.\nIn this case, 10 divisions on the main scale coincide with 11 divisions on the Vernier scale. This means that 11 divisions on the Vernier scale are equal in length to 10 divisions on the main scale. Since each division on the main scale is 5 units, this is equal to:\n$$ 10 \\text{ divisions on main scale} \\times 5 \\text{ units per division} = 50 \\text{ units} $$\nThe length of 10 divisions on the main scale (or 50 units) is therefore equal to the length of 11 divisions on the Vernier scale. This means that:\n$$ 1 \\text{ division on the Vernier scale} = \\frac{50 \\text{ units}}{11} $$\nTherefore, the least count of the Vernier caliper, which is the difference between one division on the main scale and one division on the Vernier scale, can be calculated as follows:\n$$ \\text{Least count} = \\text{value of one main scale division} - \\text{value of one Vernier scale division} $$\n$$ \\text{Least count} = 5 \\text{ units} - \\frac{50 \\text{ units}}{11} $$\n$$ \\text{Least count} = \\frac{55 \\text{ units}}{11} - \\frac{50 \\text{ units}}{11} $$\n$$ \\text{Least count} = \\frac{5 \\text{ units}}{11} $$\nThus, the least count of the Vernier caliper is\n$$ \\frac{5 \\text{ units}}{11} $$\nTherefore, the correct answer is:\nOption A: $$ \\frac{5}{11} $$",
+        "url": "https://questions.examside.com/past-years/jee/question/10-divisions-on-the-main-scale-of-a-vernier-calliper-coincid-jee-main-physics-gdwr0wr3n0iroahy",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "1st February"
+    },
+    {
+        "q": "The dimensional formula of angular impulse is :",
+        "type": "mcq",
+        "options": [
+            "[ M L 2 T - 2 ]",
+            "[ M L - 2 T - 1 ]",
+            "[ M L 2 T - 1 ]",
+            "[ M L T - 1 ]"
+        ],
+        "answer": 2,
+        "explanation": "Angular impulse is given when a torque is applied for a certain amount of time. The angular impulse changes the angular momentum of an object and has the same dimensions as angular momentum.\nThe dimensional formula for torque $\\tau$ is the same as that for work, since torque is a kind of rotational work, which is given by force times distance (or in rotational terms, it can be considered as force times lever arm). The dimensional formula for force is $\\left[\\mathrm{M} \\mathrm{L} \\mathrm{T}^{-2}\\right]$, and when multiplied by distance $\\left[\\mathrm{L}\\right]$, we get:\n$\\left[\\mathrm{Torque}\\right] = \\left[\\mathrm{M} \\mathrm{L} \\mathrm{T}^{-2}\\right] \\times \\left[\\mathrm{L}\\right] = \\left[\\mathrm{M} \\mathrm{L}^2 \\mathrm{T}^{-2}\\right]$\nNow, angular impulse is torque times time, so we multiply the dimension of torque by time $\\left[\\mathrm{T}\\right]$:\n$\\left[\\mathrm{Angular\\ Impulse}\\right] = \\left[\\mathrm {M} \\mathrm{L}^2 \\mathrm{T}^{-2}\\right] \\times \\left[\\mathrm{T}\\right] = \\left[\\mathrm{M} \\mathrm{L}^2 \\mathrm{T}^{-1}\\right]$\nSo the correct dimensional formula for angular impulse is given by Option C, which is $\\left[\\mathrm{M} \\mathrm{L}^2 \\mathrm{T}^{-1}\\right]$.",
+        "url": "https://questions.examside.com/past-years/jee/question/the-dimensional-formula-of-angular-impulse-is--jee-main-physics-my77klulcoqydhap",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "1st February"
     }
 ]
