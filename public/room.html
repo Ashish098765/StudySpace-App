@@ -128,6 +128,29 @@
         grid-template-columns: 1fr !important;
     }
 }
+/* --- CHAT SYSTEM UI --- */
+#chat-panel { position: fixed; right: 0; top: 0; width: 350px; height: 100vh; background: var(--card-bg); border-left: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; z-index: 100; transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: -10px 0 30px rgba(0,0,0,0.5); }
+#chat-panel.open { transform: translateX(0); }
+.chat-header { padding: 1.5rem; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); display: flex; justify-content: space-between; align-items: center; }
+#chat-messages { flex-grow: 1; padding: 1rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.8rem; }
+.message { background: rgba(255,255,255,0.05); padding: 0.8rem; border-radius: 8px; font-size: 0.9rem; word-break: break-word; }
+.message.self { background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); align-self: flex-end; }
+.msg-sender { font-weight: 800; font-size: 0.75rem; color: var(--accent); margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.chat-input-area { padding: 1rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 0.5rem; background: rgba(0,0,0,0.2); padding-bottom: 2rem; }
+#chat-input { flex-grow: 1; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.8rem; border-radius: 8px; outline: none; }
+#chat-input:focus { border-color: var(--primary); }
+#btn-send { background: var(--primary); color: white; border: none; padding: 0 1.2rem; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+#btn-send:hover { background: var(--primary-hover); }
+
+/* Responsive adjustments */
+@media (min-width: 769px) {
+    /* Push the video grid out of the way when chat opens on desktop */
+    body:has(#chat-panel.open) #video-grid { padding-right: 350px; }
+    body:has(#chat-panel.open) .controls-wrapper { padding-right: 350px; }
+}
+@media (max-width: 768px) {
+    #chat-panel { width: 100%; } 
+}
     </style>
 </head>
 <body>
@@ -140,13 +163,25 @@
     </div>
 
     <div id="video-grid"></div>
+    <div id="chat-panel">
+    <div class="chat-header">
+        <span><i class="fa-solid fa-comments"></i> Room Chat</span>
+        <button id="btn-close-chat" style="background:transparent; border:none; color:white; font-size:1.2rem; cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="chat-messages"></div>
+    <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
+        <button id="btn-send"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+</div>
 
     <div class="controls-wrapper">
         <div class="control-bar">
             <button id="btn-mic" class="btn-media btn-off" title="Toggle Microphone"><i class="fa-solid fa-microphone-slash"></i></button>
             <button id="btn-cam" class="btn-media btn-off" title="Toggle Camera"><i class="fa-solid fa-video-slash"></i></button>
             <button id="btn-screen" class="btn-media btn-off" title="Share Screen"><i class="fa-solid fa-display"></i></button>
-            
+            <button id="btn-screen" class="btn-media btn-off" title="Share Screen"><i class="fa-solid fa-display"></i></button>
+            <button id="btn-chat" class="btn-media btn-off" title="Toggle Chat"><i class="fa-solid fa-message"></i></button>
             <button id="btn-join"><i class="fa-solid fa-right-to-bracket"></i> Join Room</button>
             
             <div style="width: 2px; height: 30px; background: rgba(255,255,255,0.1); margin: 0 5px;"></div>

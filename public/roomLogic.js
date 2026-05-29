@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-import { getFirestore, doc, updateDoc, setDoc, increment } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+// FIX: Imported all the necessary tools for Real-time Chat and Name Syncing
+import { getFirestore, doc, updateDoc, setDoc, getDoc, increment, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
 // ⚠️ YOUR FIREBASE CONFIG
 const firebaseConfig = {
@@ -32,7 +33,6 @@ const btnCam = document.getElementById('btn-cam');
 const btnScreen = document.getElementById('btn-screen');
 const btnJoin = document.getElementById('btn-join');
 
-// FIX 1: Force the Join button to be visible immediately on load!
 if (btnJoin) btnJoin.style.display = 'flex';
 
 let secondsSpent = 0;
@@ -71,17 +71,16 @@ function stopKickTimer() {
     if (activityWarning) activityWarning.style.display = 'none';
 }
 
-// --- 3. DISCORD GRID SCALING ---
 function adjustGrid() {
     const count = videoGrid.children.length;
-    // Lowered 300px to 250px so it perfectly fits mobile screens!
     if (count === 1) videoGrid.style.gridTemplateColumns = "minmax(250px, 800px)";
     else if (count === 2) videoGrid.style.gridTemplateColumns = "repeat(2, minmax(250px, 1fr))";
     else if (count <= 4) videoGrid.style.gridTemplateColumns = "repeat(2, minmax(250px, 1fr))";
     else videoGrid.style.gridTemplateColumns = "repeat(auto-fit, minmax(250px, 1fr))";
 }
-// --- 4. AGORA WEB-RTC ENGINE ---
-const AGORA_APP_ID = "8a735e3d22a7475babf205eab01d8859";
+
+// --- 3. AGORA ENGINE & NAME SYNC ---
+const AGORA_APP_ID = "1f9a1a3a5a584354981fd9477e3051c0";
 const client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
 
 let localAudioTrack = null;
@@ -92,6 +91,7 @@ let isMicOn = false;
 let isCamOn = false;
 let isConnected = false;
 let myUid = null;
+let myName = "Student"; 
 
 function updateButtonStates() {
     btnMic.className = isMicOn ? "btn-media btn-on" : "btn-media btn-off";
@@ -117,7 +117,6 @@ function createVideoWrapper(uid, label) {
     return wrapper; 
 }
 
-// 4a. Media Setup
 async function ensureMedia() {
     if (localVideoTrack) return true; 
     try {
@@ -134,14 +133,12 @@ async function ensureMedia() {
         updateButtonStates();
         return true;
     } catch(e) { 
-        console.error(e);
         alert("Camera and Microphone access is required to join the room."); 
         return false; 
     }
 }
 
-// --- BUTTON EVENTS ---
-
+// --- MEDIA BUTTONS ---
 btnCam.addEventListener('click', async () => {
     if (!(await ensureMedia())) return;
     isCamOn = !isCamOn;
@@ -159,92 +156,89 @@ btnMic.addEventListener('click', async () => {
     updateButtonStates();
 });
 
-// THE ACTUAL JOIN TRIGGER
+btnScreen.addEventListener('click', async () => {
+    if (!isConnected) return alert("Please click 'Join Room' before sharing your screen!");
+    try {
+        if (!localScreenTrack) {
+            const screenResult = await AgoraRTC.createScreenVideoTrack({}, "auto");
+            localScreenTrack = Array.isArray(screenResult) ? screenResult[0] : screenResult;
+            
+            await client.unpublish([localVideoTrack]);
+            await client.publish([localScreenTrack]);
+            
+            localVideoTrack.stop();
+            localScreenTrack.play('user-local');
+            btnScreen.className = "btn-media btn-on";
+
+            localScreenTrack.on("track-ended", async () => {
+                await client.unpublish([localScreenTrack]);
+                localScreenTrack.close();
+                localScreenTrack = null;
+                await client.publish([localVideoTrack]);
+                localVideoTrack.play('user-local');
+                btnScreen.className = "btn-media btn-off";
+            });
+        } else {
+            await client.unpublish([localScreenTrack]);
+            localScreenTrack.close();
+            localScreenTrack = null;
+            await client.publish([localVideoTrack]);
+            localVideoTrack.play('user-local');
+            btnScreen.className = "btn-media btn-off";
+        }
+    } catch (e) { console.error("Screenshare cancelled.", e); }
+});
+
+// --- THE ACTUAL JOIN TRIGGER ---
 btnJoin.addEventListener('click', async () => {
     if (isConnected) return;
     stopKickTimer();
     
-    // Ensure media exists before joining
-    const hasMedia = await ensureMedia();
-    if (!hasMedia) return;
+    if (!(await ensureMedia())) return;
     
     const originalText = btnJoin.innerHTML;
     btnJoin.innerHTML = "Joining...";
     btnJoin.disabled = true;
     
     try {
-        // Join the Agora Channel
+        // 1. Join Agora
         myUid = await client.join(AGORA_APP_ID, ROOM_ID, null, null);
         isConnected = true;
         
-        // Broadcast your video and audio to the room!
+        // 2. Write our exact Name and Agora UID to Firebase so others can identify us
+        myName = window.auth?.currentUser?.displayName || "Student";
+        await setDoc(doc(db, "rooms", ROOM_ID, "users", String(myUid)), { name: myName });
+        
         await client.publish([localAudioTrack, localVideoTrack]);
         
-        // Update UI
-        document.querySelector('#user-local .name-badge').innerText = "You";
+        document.querySelector('#user-local .name-badge').innerText = `${myName} (You)`;
         btnJoin.style.display = 'none'; 
         
     } catch (e) {
-        console.error("AGORA JOIN ERROR:", e);
-        alert("Failed to join room. Error: " + e.message + "\n\nCRITICAL FIX: If this says 'Token is invalid', you need to go to Agora.io, delete this project, and create a new one set to 'TESTING MODE' (App ID Only).");
+        alert("Failed to join room.");
         btnJoin.innerHTML = originalText;
         btnJoin.disabled = false;
     }
 });
 
-// THE SCREENSHARE ENGINE
-btnScreen.addEventListener('click', async () => {
-    if (!isConnected) return alert("Please click 'Join Room' before sharing your screen!");
-    
-    try {
-        if (!localScreenTrack) {
-            // FIX 2: Safely handle Agora arrays for Screensharing
-            const screenResult = await AgoraRTC.createScreenVideoTrack({}, "auto");
-            localScreenTrack = Array.isArray(screenResult) ? screenResult[0] : screenResult;
-            
-            // Swap what we are broadcasting
-            await client.unpublish([localVideoTrack]);
-            await client.publish([localScreenTrack]);
-            
-            // Swap what we see locally
-            localVideoTrack.stop();
-            localScreenTrack.play('user-local');
-            btnScreen.className = "btn-media btn-on";
 
-            // If the user clicks the native browser "Stop Sharing" popup
-            localScreenTrack.on("track-ended", async () => {
-                await client.unpublish([localScreenTrack]);
-                localScreenTrack.close();
-                localScreenTrack = null;
-
-                // Restore webcam
-                await client.publish([localVideoTrack]);
-                localVideoTrack.play('user-local');
-                btnScreen.className = "btn-media btn-off";
-            });
-        } else {
-            // Manual toggle off
-            await client.unpublish([localScreenTrack]);
-            localScreenTrack.close();
-            localScreenTrack = null;
-
-            await client.publish([localVideoTrack]);
-            localVideoTrack.play('user-local');
-            btnScreen.className = "btn-media btn-off";
-        }
-    } catch (e) { 
-        console.error("Screenshare cancelled or failed.", e); 
-    }
-});
-
-// --- 5. HANDLING OTHER STUDENTS ---
-
+// --- 4. HANDLING OTHER STUDENTS ---
 client.on("user-published", async (user, mediaType) => {
     await client.subscribe(user, mediaType);
 
     if (mediaType === "video") {
         let wrapper = document.getElementById(`user-${user.uid}`);
-        if (!wrapper) wrapper = createVideoWrapper(user.uid, "Student");
+        
+        if (!wrapper) {
+            // FIX: Ask Firebase what this user's display name is!
+            let studentName = "Student";
+            try {
+                const userDoc = await getDoc(doc(db, "rooms", ROOM_ID, "users", String(user.uid)));
+                if (userDoc.exists()) studentName = userDoc.data().name;
+            } catch (e) { console.log("Could not fetch name."); }
+            
+            wrapper = createVideoWrapper(user.uid, studentName);
+        }
         
         user.videoTrack.play(wrapper.id);
     }
@@ -261,7 +255,7 @@ client.on("user-left", (user) => {
     }
 });
 
-// --- 6. AGORA SPEECH HIGHLIGHT ---
+// --- 5. AGORA SPEECH HIGHLIGHT ---
 client.enableAudioVolumeIndicator();
 client.on("volume-indicator", volumes => {
     volumes.forEach((volume) => {
@@ -272,6 +266,59 @@ client.on("volume-indicator", volumes => {
             else wrapper.classList.remove('speaking');
         }
     });
+});
+
+// --- 6. REAL-TIME CHAT SYSTEM ---
+const btnChat = document.getElementById('btn-chat');
+const btnCloseChat = document.getElementById('btn-close-chat');
+const chatPanel = document.getElementById('chat-panel');
+const chatInput = document.getElementById('chat-input');
+const btnSend = document.getElementById('btn-send');
+const chatMessages = document.getElementById('chat-messages');
+
+// Toggle UI
+function toggleChat() {
+    chatPanel.classList.toggle('open');
+    if (chatPanel.classList.contains('open')) chatInput.focus();
+}
+btnChat.addEventListener('click', toggleChat);
+btnCloseChat.addEventListener('click', toggleChat);
+
+// Listen for incoming messages
+const messagesQuery = query(collection(db, "rooms", ROOM_ID, "messages"), orderBy("time", "asc"));
+onSnapshot(messagesQuery, (snapshot) => {
+    chatMessages.innerHTML = ''; // Clear and rebuild
+    snapshot.forEach((docSnap) => {
+        const data = docSnap.data();
+        const isSelf = data.sender === myName;
+        
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `message ${isSelf ? 'self' : ''}`;
+        msgDiv.innerHTML = `
+            <div class="msg-sender">${isSelf ? 'You' : data.sender}</div>
+            <div class="msg-text">${data.text}</div>
+        `;
+        chatMessages.appendChild(msgDiv);
+    });
+    // Auto-scroll to bottom
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+});
+
+// Send Message
+async function sendMessage() {
+    const text = chatInput.value.trim();
+    if (!text || !isConnected) return; // Must be joined to chat
+    
+    chatInput.value = ''; // Clear input instantly for UI speed
+    await addDoc(collection(db, "rooms", ROOM_ID, "messages"), {
+        text: text,
+        sender: myName,
+        time: serverTimestamp()
+    });
+}
+btnSend.addEventListener('click', sendMessage);
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
 });
 
 // --- 7. XP TRACKING ---

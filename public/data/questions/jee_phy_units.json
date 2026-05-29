@@ -3421,5 +3421,170 @@
         "year": "2025",
         "shift": "Morning",
         "date": "24th January"
+    },
+    {
+        "q": "In a screw gauge, there are 100 divisions on the circular scale and the main scale moves by 0.5 mm on a complete rotation of the circular scale. The zero of circular scale lies 6 divisions below the line of graduation when two studs are brought in contact with each other. When a wire is placed between the studs, 4 linear scale divisions are clearly visible while th 46 th division the circular scale coincide with the reference line. The diameter of the wire is ______________ × 10 - 2 mm .",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "Least count of screw gauge\n=\n0.5\n100\nmm\n=\n1\n200\nmm\nZero error of screw gauge\n=\n+\n6\n200\nmm\n=\n+\n3\n100\n=\n0.03\nmm\nReading of screw gauge\n=\n4\n×\n0.5\n+\n46\n200\nmm\n=\n2\n+\n23\n100\nmm\n=\n2.23\nmm\nSo diameter of wire\n=\n2.23\nmm\n-\n0.03\nmm\n=\n2.20\nmm\n=\n220\n×\n10\n-\n2\nmm",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-a-screw-gauge-there-are-100-divisions-on-the-circular-jee-main-physics-motion-pii33vyhgiegfssl",
+        "year": "2023",
+        "shift": "Morning",
+        "date": "30th January"
+    },
+    {
+        "q": "In an experiment to find acceleration due to gravity (g) using simple pendulum, time period of 0.5 s is measured from time of 100 oscillation with a watch of 1 s resolution. If measured value of length is 10 cm known to 1 mm accuracy, The accuracy in the determination of g is found to be x % . The value of x is ___________.",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "T\n=\n2\nπ\nl\ng\nd\ng\ng\n×\n100\n=\n2\nd\nT\nT\n×\n100\n+\nd\nl\nl\n×\n100\n=\n2\n×\n1\n50\n×\n100\n+\n1\n100\n×\n100\n=\n5\n%",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-an-experiment-to-find-acceleration-due-to-gravity-g-jee-main-physics-motion-jfuulied5io7soaj",
+        "year": "2022",
+        "shift": "Morning",
+        "date": "28th July"
+    },
+    {
+        "q": "The one division of main scale of Vernier callipers reads 1 mm and 10 divisions of Vernier scale is equal to the 9 divisions on main scale. When the two jaws of the instrument touch each other, the zero of the Vernier lies to the right of zero of the main scale and its fourth division coincides with a main scale division. When a spherical bob is tightly placed between the two jaws, the zero of the Vernier scale lies in between 4.1 cm and 4.2 cm and th 6 th Vernier division coincides scale division. The diameter of the bob will be ____________ × 10 ^{-2} cm.",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "1 MSD = 1 mm\n10 VSD = 9 MSD\nLC =\n1\n10\nmm\n0 + 4\n(\n1\n10\n)\nmm = 0.4 mm\nReading = 41 + 6\n(\n1\n10\n)\n= 41 + 0.6\n= 41.6 mm\nTrue reading = 41.2 mm\n= 412\n×\n10\n^{-2}\ncm",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-one-division-of-main-scale-of-vernier-callipers-reads-jee-main-physics-motion-dr5rkf4lg0lpvut7",
+        "year": "2022",
+        "shift": "Morning",
+        "date": "27th July"
+    },
+    {
+        "q": "The Vernier constant of Vernier callipers is 0.1 mm and it has zero error of ( - 0.05) cm. While measuring diameter of a sphere, the main scale reading is 1.7 cm and coinciding vernier division is 5. The corrected diameter will be _________ × 10 ^{-2} cm.",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "Since zero error is negative, we will add 0.05 cm.\n⇒\nCorrected reading = 1.7 cm + 5\n×\n0.1 mm + 0.05 cm\n= 180\n×\n10\n^{-2}\ncm",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-vernier-constant-of-vernier-callipers-is-01-mm-and-i-jee-main-physics-motion-eigb7oxmceqbajui",
+        "year": "2022",
+        "shift": "Morning",
+        "date": "29th June"
+    },
+    {
+        "q": "A student in the laboratory measures thickness of a wire using screw gauge. The readings are 1.22 mm, 1.23 mm, 1.19 mm and 1.20 mm. The percentage error is x 121 % . The value of x is ____________.",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "I\nm\ne\na\nn\n=\n1.22\n+\n1.23\n+\n1.19\n+\n1.20\n4\n=\n1.21\nΔ\nI\nm\ne\na\nn\n=\n0.01\n+\n0.02\n+\n0.02\n+\n0.01\n4\n=\n0.015\nSo %\nI\n=\nΔ\nI\nm\ne\na\nn\nI\nm\ne\na\nn\n×\n100\n=\n0.015\n1.21\n×\n100\n=\n150\n121\n%\nx\n=\n150",
+        "url": "https://questions.examside.com/past-years/jee/question/pa-student-in-the-laboratory-measures-thickness-of-a-wire-jee-main-physics-motion-j1zphrpaqhvpxzau",
+        "year": "2022",
+        "shift": "Morning",
+        "date": "28th June"
+    },
+    {
+        "q": "A travelling microscope is used to determine the refractive index of a glass slab. If 40 divisions are there in 1 cm on main scale and 50 Vernier scale divisions are equal to 49 main scale divisions, then least count of the travelling microscope is __________ × 10 ^{-6} m.",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "40 M = 1 cm\n⇒\nM = 0.025 cm .......... (1)\nAlso, 50 V = 49 M\n⇒\nLeast count = M\n-\nV = M\n-\n49\n50\nM =\nM\n50\n⇒\nLC =\n0.025\n50\ncm\n=\n250\n50\n×\n10\n^{-6}\nm\n⇒\nLC = 5\n×\n10\n^{-6}\nm",
+        "url": "https://questions.examside.com/past-years/jee/question/pa-travelling-microscope-is-used-to-determine-the-refracti-jee-main-physics-motion-dbmvgv2egstr068l",
+        "year": "2022",
+        "shift": "Morning",
+        "date": "26th June"
+    },
+    {
+        "q": "In a vernier callipers, each cm on the main scale is divided into 20 equal parts. If tenth vernier scale division coincides with nineth main scale division. Then the value of vernier constant will be _________ × 10 ^{-2} mm.",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "1 MSD =\n1\n20\ncm\n∵\n10 VSD = 9 MSD\n1 VSD =\n9\n10\n×\n1\n20\ncm =\n9\n200\n×\n10 mm = 0.45 mm\nNow, 1 MSD =\n1\n20\n×\n10 mm = 0.50 mm\nLC = (0.50\n-\n0.45) mm = 0.05 mm\n= 5\n×\n10\n^{-2}\nmm",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-a-vernier-callipers-each-cm-on-the-main-scale-is-divi-jee-main-physics-motion-el1bnwchq3sj3su1",
+        "year": "2022",
+        "shift": "Morning",
+        "date": "26th June"
+    },
+    {
+        "q": "For z = a 2 x 3 y 1 2 , where 'a' is a constant. If percentage error in measurement of 'x' and 'y' are 4% and 12% respectively, then the percentage error for 'z' will be _______________%.",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "% error in\nz\n=\n3\n×\n4\n+\n1\n2\n×\n12\n=\n12\n+\n6\n=\n18\n%",
+        "url": "https://questions.examside.com/past-years/jee/question/pfor-z--a2x3y1-over-2-where-a-is-a-c-jee-main-physics-motion-ktkhoc6ztygbzung",
+        "year": "2022",
+        "shift": "Morning",
+        "date": "25th June"
+    },
+    {
+        "q": "The diameter of a spherical bob is measured using a vernier callipers. 9 divisions of the main scale, in the vernier callipers, are equal to 10 divisions of vernier scale. One main scale division is 1 mm. The main scale reading is 10 mm and 8 ^{th} division of vernier scale was found to coincide exactly with one of the main scale division. If the given vernier callipers has positive zero error of 0.04 cm, then the radius of the bob is ___________ × 10 ^{-2} cm.",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "To understand the measurement of the spherical bob's diameter using Vernier calipers, let's break it down step by step:\nVernier Scale Calculation:\nWe are given that 9 divisions on the main scale (MSD) are equivalent to 10 divisions on the Vernier scale (VSD).\nOne main scale division is 1 mm. Therefore, 9 MSD = 9 mm.\nSince 9 mm = 10 VSD, one VSD equals\nmm\n9\n10\n=\n0.9\nmm\n.\nLeast Count (LC) of the Vernier Callipers:\nThe least count is the smallest measurable value and is calculated as:\nLC\nMSD\nVSD\nmm\nmm\nmm\nLC\n=\n1\nMSD\n-\n1\nVSD\n=\n1\nmm\n-\n0.9\nmm\n=\n0.1\nmm\nCalculate the Initial Reading:\nThe main scale reading (MSR) is 10 mm.\nThe 8th division of the Vernier scale coincides with the main scale division, meaning the Vernier scale reading (VSR) is 8.\nTotal reading before zero error correction = MSR + VSR × LC:\nmm\nmm\nmm\n10\nmm\n+\n8\n×\n0.1\nmm\n=\n10.8\nmm\nAdjust for the Zero Error:\nThe Vernier calipers have a positive zero error of 0.04 cm (or 0.4 mm, as 1 cm = 10 mm).\nTo get the correct measurement, subtract the zero error:\nmm\nmm\nmm\n10.8\nmm\n-\n0.4\nmm\n=\n10.4\nmm\nCompute the Radius:\nThe diameter calculated is 10.4 mm. To find the radius, divide by 2:\nradius\nmm\nmm\nradius\n=\n10.4\nmm\n2\n=\n5.2\nmm\nConvert the radius from millimeters to centimeters:\nmm\ncm\ncm\n5.2\nmm\n=\n0.52\ncm\n=\n52\n×\n10\n-\n2\ncm\nThe radius of the spherical bob is\n52\n×\n10\n-\n2\ncm.",
+        "url": "https://questions.examside.com/past-years/jee/question/the-diameter-of-a-spherical-bob-is-measured-using-a-vernier-jee-main-physics-units-and-measurements-qpdb1rftshcgnlv7",
+        "year": "2021",
+        "shift": "Morning",
+        "date": "31st August"
+    },
+    {
+        "q": "The acceleration due to gravity is found upto an accuracy of 4% on a planet. The energy supplied to a simple pendulum to known mass 'm' to undertake oscillations of time period T is being estimated. If time period is measured to an accuracy of 3%, the accuracy to which E is known as ..............%",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "T\n=\n2\nπ\nl\ng\n⇒\nl\n=\nT\n2\ng\n4\nπ\n2\nE\n=\nm\ng\nl\nθ\n2\n2\n=\nm\ng\n2\nT\n2\nθ\n2\n8\nπ\n2\nd\nE\nE\n=\n2\n(\nd\ng\ng\n+\nd\nT\nT\n)\n=\n(\n4\n+\n3\n)\n=\n14\n%",
+        "url": "https://questions.examside.com/past-years/jee/question/the-acceleration-due-to-gravity-is-found-upto-an-accuracy-of-jee-main-physics-units-and-measurements-reqj6krzk30kv8n4",
+        "year": "2021",
+        "shift": "Morning",
+        "date": "26th August"
+    },
+    {
+        "q": "Student A and student B used two screw gauges of equal pitch and 100 equal circular divisions to measure the radius of a given wire. The actual value of the radius of the wire is 0.322 cm. The absolute value of the difference between the final circular scale readings observed by the students A and B is ______________. [Figure shows position of reference 'O' when jaws of screw gauge are closed] Given pitch = 0.1 cm.",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "Zero error occurs when the screw gauge does not read zero when its jaws are closed. This error needs to be accounted for in the final measurement. The least count (LC) of a screw gauge, calculated as the pitch (p) divided by the number of divisions (N) on the circular scale, helps us determine the value of this error.\nThe least count of both screw gauges is LC =\np\n/\nN\n=\n0.1\n/\n100\n=\n0.001\ncm\n.\nFor screw gauge A, the zero error is calculated by adding the main scale reading (MSR) at zero and the circular scale reading (CSR) at zero, multiplied by the least count. Screw gauge A's MSR at zero is 0 and its CSR at zero is 5. Therefore, its zero error is ( 0 + 5\n×\n0.001 = 0.005 ) cm.\nFor screw gauge B, the zero error involves a negative main scale reading and a circular scale reading. The MSR at zero is -1 (since the main scale is 0.1 cm per division, this corresponds to -0.1 cm) and the CSR at zero is 92. Thus, the zero error for B is ( (-1\n×\n0.1) + 92\n×\n0.001 = -0.008 ) cm.\nTo find the difference between the final circular scale readings of screw gauges A and B, we look at the difference in their zero errors. The absolute difference is ( |0.005 - (-0.008)| = |0.005 + 0.008| = 0.013 ) cm. This value represents the absolute difference in the final readings of the two screw gauges, accounting for their individual zero errors.\nHowever, to express this difference in terms of the circular scale divisions (since the least count is 0.001 cm per division), we multiply this difference by 1000 (since 1 cm = 1000 mm and each division represents 0.001 cm) :\nDifference in Divisions\ncm\nDifference in Divisions\n=\n0.013\ncm\n×\n1000\ndivisions\n=\n13\ndivisions",
+        "url": "https://questions.examside.com/past-years/jee/question/student-a-and-student-b-used-two-screw-gauges-of-equal-pitch-jee-main-physics-units-and-measurements-rdlzrmu1gm95xfot",
+        "year": "2021",
+        "shift": "Morning",
+        "date": "25th July"
+    },
+    {
+        "q": "Three students S _{1} , S _{2} and S _{3} perform an experiment for determining the acceleration due to gravity (g) using a simple pendulum. They use different lengths of pendulum and record time for different number of oscillations. The observations are as shown in the table. Student No. Length of Pendulum (cm) No. of oscillations (n) Total time for n oscillations Time period (s) 1 64.0 8 128.0 16.0 2 64.0 4 64.0 16.0 3 20.0 4 36.0 9.0 (Least count of length = 0.1 cm and Least count for time = 0.1 s) If E _{1} , E _{2} and E _{3} are the percentage errors in 'g' for students 1, 2 and 3 respectively, then the minimum percentage error is obtained by student no. ______________.",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "T\n=\nt\nn\n=\n2\nπ\nl\ng\n⇒\ng\n=\n4\nπ\n2\nl\nT\n2\n⇒\nΔ\ng\ng\n×\n100\n=\nΔ\nl\nl\n×\n100\n+\n2\nΔ\nT\nT\n×\n100\n=\n(\nΔ\nl\nl\n+\n2\nΔ\nT\nT\n)\n100\n%\nE\n1\n=\n20\n64\n%\nE\n2\n=\n30\n64\n%\nE\n3\n=\n19\n18\n%",
+        "url": "https://questions.examside.com/past-years/jee/question/three-students-ssub1sub-ssub2sub-and-ssub3sub-jee-main-physics-units-and-measurements-hmtskaghl1kxk1yt",
+        "year": "2021",
+        "shift": "Morning",
+        "date": "22th July"
+    },
+    {
+        "q": "The radius of a sphere is measured to be (7.50 ± 0.85) cm. Suppose the percentage error in its volume is x. The value of x, to the nearest x, is __________.",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/the-radius-of-a-sphere-is-measured-to-be-750-pm-085-jee-main-physics-units-and-measurements-pfiond5c0pkcyb3g",
+        "year": "2021",
+        "shift": "Morning",
+        "date": "18th March"
+    },
+    {
+        "q": "The resistance R = V I , where V = (50 ± 2)V and I = (20 ± 0.2)A. The percentage error in R is 'x'%. The value of 'x' to the nearest integer is _________.",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "R\n=\nV\nI\nΔ\nR\nR\n×\n100\n=\nΔ\nV\nV\n×\n100\n+\nΔ\nI\nI\n×\n100\n% error in\nR\n=\n2\n50\n×\n100\n+\n0.2\n20\n×\n100\n% error in R = 4 + 1\n∴\n% error in R = 5%",
+        "url": "https://questions.examside.com/past-years/jee/question/the-resistance-r--v-over-i-where-v--50-pm-2-jee-main-physics-units-and-measurements-uaf3agncookny3zv",
+        "year": "2021",
+        "shift": "Morning",
+        "date": "16th March"
+    },
+    {
+        "q": "The density of a solid metal sphere is determined by measuring its mass and its diameter. The\nmaximum error in the density of the sphere is ( x 100 ) %. If the relative errors in measuring the mass\nand the diameter are 6.0% and 1.5% respectively, the value of x is_______.",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "ρ\n=\nM\nV\n=\nM\n4\n3\nπ\n(\nD\n2\n)\n3\n⇒\nρ\n=\n6\nπ\nM\nD\n-\n3\nFor maximum error\nd\nρ\nρ\n×\n100\n=\nd\nM\nM\n×\n100\n+\n3\nd\nD\nD\n×\n100\n= 6 + 3\n×\n1.5\n= 10.5 %\n=\n(\n1050\n100\n)\n%\n∴\nx = 1050",
+        "url": "https://questions.examside.com/past-years/jee/question/the-density-of-a-solid-metal-sphere-is-determined-by-measuri-jee-main-physics-units-and-measurements-w8a0hgtljeuz394a",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "6th September"
     }
 ]
