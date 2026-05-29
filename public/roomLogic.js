@@ -161,7 +161,7 @@ btnJoin.onclick = async () => {
         btnJoin.style.display = 'none';
         localPlayerWrapper.querySelector('.name-badge').innerText = "You";
     } catch (error) {
-        alert("Failed to connect to room. Check console for details.");
+        alert("Failed to connect: " + (error.message || JSON.stringify(error)||error));
         console.error("Agora Error:", error);
         btnJoin.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> Join Room';
         btnJoin.disabled = false;
