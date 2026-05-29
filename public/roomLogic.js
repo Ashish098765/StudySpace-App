@@ -111,7 +111,7 @@ function monitorSpeech(stream, wrapperElement) {
 const socket = io('/');
 const myPeer = new Peer(undefined, { host: '/', port: '3001' }); 
 const myVideo = document.createElement('video');
-myVideo.muted = true; // Always mute yourself to avoid echo
+myVideo.muted = true; // Always mute yourself locally to avoid echo
 const peers = {};
 
 let myStream = null;
@@ -138,7 +138,7 @@ function addVideoStream(video, stream, label = "Student") {
     videoGrid.append(wrapper);
     adjustGrid();
 
-    return wrapper; // Return so we can remove it later when they leave
+    return wrapper; 
 }
 
 function updateButtonStates() {
@@ -153,19 +153,23 @@ function updateButtonStates() {
 async function ensureMedia() {
     if (myStream) return true;
     try {
+        // Request both, but start with them locally disabled so users can choose when to turn them on
         myStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-        myStream.getAudioTracks()[0].enabled = false; // Start muted safely
-        isMicOn = false;
-        isCamOn = true;
-
+        myStream.getAudioTracks()[0].enabled = false; 
+        myStream.getVideoTracks()[0].enabled = false; 
+        
         addVideoStream(myVideo, myStream, "You (Preview)");
         btnJoin.style.display = 'flex'; // Show Join Button
         updateButtonStates();
         return true;
-    } catch(e) { alert("Media access denied."); return false; }
+    } catch(e) { 
+        alert("Camera and Microphone access is required to join the room."); 
+        return false; 
+    }
 }
 
-// Button Events
+// --- BUTTON EVENTS ---
+
 btnCam.addEventListener('click', async () => {
     if (!(await ensureMedia())) return;
     isCamOn = !isCamOn;
@@ -174,7 +178,9 @@ btnCam.addEventListener('click', async () => {
 });
 
 btnMic.addEventListener('click', async () => {
-    if (isPublicRoom) return alert("🔇 Microphones are disabled in Public Rooms to maintain a quiet study environment.");
+    if (isPublicRoom) {
+        return alert("🔇 Microphones are disabled in Public Rooms to maintain a quiet study environment.");
+    }
     if (!(await ensureMedia())) return;
     isMicOn = !isMicOn;
     myStream.getAudioTracks()[0].enabled = isMicOn;
@@ -187,32 +193,57 @@ btnJoin.addEventListener('click', () => {
     isConnected = true;
     stopKickTimer();
     
-    // Remove "Preview" from badge
+    // Remove "Preview" from badge once they actually join
     const myBadge = myVideo.parentElement.querySelector('.name-badge');
     if (myBadge) myBadge.innerText = "You";
     
-    btnJoin.style.display = 'none'; // Hide join button
+    btnJoin.style.display = 'none'; 
     socket.emit('join-room', ROOM_ID, myPeer.id);
 });
 
+// The Screenshare Engine
 btnScreen.addEventListener('click', async () => {
+    if (!isConnected) return alert("Please click 'Join Room' before sharing your screen!");
+    
     try {
-        const screenStream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
-        if (!isConnected) {
-            myStream = screenStream;
-            addVideoStream(myVideo, myStream, "You (Screen)");
-            isConnected = true;
-            stopKickTimer();
-            socket.emit('join-room', ROOM_ID, myPeer.id);
-        } else {
-            const videoTrack = screenStream.getVideoTracks()[0];
-            const sender = myPeer.getConnection().peerConnection?.getSenders().find(s => s.track.kind === videoTrack.kind);
-            if (sender) sender.replaceTrack(videoTrack);
-            myVideo.srcObject = screenStream;
-        }
+        const screenStream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+        const screenTrack = screenStream.getVideoTracks()[0];
+        
+        // 1. Show the screen locally
+        myVideo.srcObject = screenStream;
         btnScreen.className = "btn-media btn-on";
-        screenStream.getVideoTracks()[0].onended = () => { alert("Screen sharing stopped."); window.location.reload(); };
-    } catch (e) { console.error(e); }
+
+        // 2. Broadcast the screen track to ALL connected peers in the room
+        for (let peerId in myPeer.connections) {
+            myPeer.connections[peerId].forEach(conn => {
+                if (conn.peerConnection) {
+                    const sender = conn.peerConnection.getSenders().find(s => s.track.kind === 'video');
+                    if (sender) sender.replaceTrack(screenTrack);
+                }
+            });
+        }
+
+        // 3. When the user clicks the browser's native "Stop Sharing" button
+        screenTrack.onended = () => {
+            btnScreen.className = "btn-media btn-off";
+            
+            // Revert local video back to webcam
+            myVideo.srcObject = myStream;
+            const camTrack = myStream.getVideoTracks()[0];
+            
+            // Broadcast the webcam track back to ALL peers
+            for (let peerId in myPeer.connections) {
+                myPeer.connections[peerId].forEach(conn => {
+                    if (conn.peerConnection) {
+                        const sender = conn.peerConnection.getSenders().find(s => s.track.kind === 'video');
+                        if (sender) sender.replaceTrack(camTrack);
+                    }
+                });
+            }
+        };
+    } catch (e) { 
+        console.error("Screenshare cancelled or failed.", e); 
+    }
 });
 
 // --- 6. PEER TO PEER LOGIC ---

@@ -233,5 +233,805 @@
         "year": "2026",
         "shift": "Morning",
         "date": "2nd April"
+    },
+    {
+        "q": "In a screw gauge the zero of main scale reference line coincides with the fifth division of the circular scale when two studs are in contact. There are 100 divisions in circular scale and pitch of screw gauge is 0.1 mm. When diameter of a sphere is measured, the reading of main scale is 5 mm and 50 ^{th} division of circular scale coincides with the reference line of main scale. The diameter of sphere is ______ mm.",
+        "type": "mcq",
+        "options": [
+            "5.045",
+            "5.055",
+            "5.450",
+            "5.550"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-a-screw-gauge-the-zero-of-main-scale-reference-line-co-jee-main-physics-lzve1z4yf6whnob7",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "2nd April"
+    },
+    {
+        "q": "The dimensional formula of 1 2 ϵ 0 E 2 ( ϵ 0 = permittivity of vacuum and E = electric field) is M a L b T c . The value of 2 a - b + c = ________.",
+        "type": "mcq",
+        "options": [
+            "0",
+            "1",
+            "-1",
+            "2"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-dimensional-formula-of-frac12-epsilon0-e2--jee-main-physics-99omghbmzhaoiuz3",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "2nd April"
+    },
+    {
+        "q": "The diameter of a wire measured by a screw gauge of least count 0.001 cm is 0.08 cm. The length measured by a scale of least count 0.1 cm is 150 cm. When a weight of 100 N is applied to the wire, the extension in length is 0.5 cm, measured by a micrometer of least count 0.001 cm. The error in the measured Young’s modulus is α × 10 9 N / m 2 . The value of α is ________. (Ignore the contribution of the load to Young’s modulus error calculation)",
+        "type": "mcq",
+        "options": [
+            "1.3",
+            "1.65",
+            "0.13",
+            "0.25"
+        ],
+        "answer": 1,
+        "explanation": "Young's modulus\n(\nY\n)\nis defined as the ratio of longitudinal stress to longitudinal strain.\nLet\nF\nbe the force,\nL\nthe original length,\nA\nthe cross-sectional area, and\nΔ\nL\nthe extension.\nStress\nStrain\nY\n=\nStress\nStrain\n=\nF\n/\nA\nΔ\nL\n/\nL\n=\nF\nL\nA\nΔ\nL\nFor a wire of diameter\nD\n, the area\nA\n=\nπ\nD\n2\n4\n.\nSubstituting this into the formula:\nY\n=\nF\nL\n(\nπ\nD\n2\n4\n)\nΔ\nL\n=\n4\nF\nL\nπ\nD\n2\nΔ\nL\nTo find the absolute error in\nY\n, we need to find the relative error.\nSince\nF\nand\nπ\nare constants, the relative error in\nY\nis:\nscale\nΔ\nY\nY\n=\nΔ\nL\nscale\nL\n+\n2\nΔ\nD\nD\n+\nΔ\n(\nΔ\nL\n)\nΔ\nL\nWhere\nscale\nΔ\nL\nscale\n,\nΔ\nD\n, and\nΔ\n(\nΔ\nL\n)\nare the least counts of the respective measuring instruments.\nThe applied tensile force is\nN\nF\n=\n100\nN\n,\nThe length of wire is\ncm\nm\nL\n=\n150\ncm\n=\n1.5\nm\n,\nThe diameter of wire is\ncm\nm\nD\n=\n0.08\ncm\n=\n8\n×\n10\n-\n4\nm\n,\nThe extension in the length of wire is\ncm\nm\nΔ\nL\n=\n0.5\ncm\n=\n5\n×\n10\n-\n3\nm\n.\nY\n=\n4\n×\n100\n×\n1.5\nπ\n×\n(\n8\n×\n10\n-\n4\n)\n2\n×\n5\n×\n10\n-\n3\nY\n=\n600\nπ\n×\n64\n×\n10\n-\n8\n×\n5\n×\n10\n-\n3\n=\n600\nπ\n×\n320\n×\n10\n-\n11\n=\n6\n×\n10\n11\n3.2\nπ\nN/m\nY\n≈\n5.96\n×\n10\n10\nN/m\n2\nSo, the error in measurement of Young’s modulus is\n(\nΔ\nY\n)\n:\nΔ\nY\n=\nY\n[\n0.1\n150\n+\n2\n(\n0.001\n0.08\n)\n+\n0.001\n0.5\n]\nΔ\nY\n=\nY\n[\n0.00066\n+\n0.025\n+\n0.002\n]\n=\nY\n[\n0.02766\n]\nN/m\nΔ\nY\n=\n(\n5.96\n×\n10\n10\n)\n×\n0.02766\n≈\n1.65\n×\n10\n9\nN/m\n2\nTherefore, the value of\nα\nis\n1.65\n. Thus, the correct option is (B).",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-diameter-of-a-wire-measured-by-a-screw-gauge-of-least-jee-main-physics-sjdybespp76kizu7",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "2nd April"
+    },
+    {
+        "q": "The time period of a simple harmonic oscillator is T = 2 π k m . Measured value of mass ( m ) of the object is 10 g with an accuracy of 10 mg and time for 50 oscillations of the spring is found to be 60 s using a watch of 2 s resolution. Percentage error in determination of spring constant ( k ) is ________%.",
+        "type": "mcq",
+        "options": [
+            "3.43",
+            "7.60",
+            "3.35",
+            "6.76"
+        ],
+        "answer": 3,
+        "explanation": "The formula for the time period of simple harmonic oscillator is\n$\\mathrm{T}=2 \\pi \\sqrt{\\frac{\\mathrm{k}}{\\mathrm{m}}}$.\n$$\\Rightarrow $$ $$ \\mathrm{T}^2=(2 \\pi)^2\\left(\\frac{\\mathrm{k}}{\\mathrm{~m}}\\right) $$\n$\\Rightarrow \\mathrm{k}=\\frac{\\mathrm{T}^2 \\cdot \\mathrm{~m}}{4 \\pi^2}$\nUsing propagation of error, when quantities are multiplied or divided, their relative errors (percentage errors) are added. The constants have no error.\n$$ \\frac{\\Delta \\mathrm{k}}{\\mathrm{k}} \\times 100=\\left(\\frac{\\Delta \\mathrm{m}}{\\mathrm{~m}}+2 \\cdot \\frac{\\Delta \\mathrm{~T}}{\\mathrm{~T}}\\right) \\times 100 $$\nThe measured value of mass is, $\\mathrm{m}=10 \\mathrm{~g}$\nAccuracy/Error in measurement of mass is, $\\Delta \\mathrm{m}=10 \\mathrm{mg}=0.01 \\mathrm{~g}$\nSo, percentage error in measurement of mass $\\frac{\\Delta \\mathrm{m}}{\\mathrm{m}} \\times 100 \\%=\\frac{0.01}{10} \\times 100=0.1 \\%$\nThe percentage error in the time period ( $T$ ) is the same as the percentage error in the total time ( $t$ ) measured for n oscillations.\nTotal time measured is, $\\mathrm{t}=60 \\mathrm{~s}$\nResolution/Error in measurement of time is, $\\Delta t=2 \\mathrm{~s}$\nSo, percentage error in measurement of time is, $\\frac{\\Delta t}{t} \\times 100 \\%=\\frac{2}{60} \\times 100 \\%=3.33 \\%$\nSo, using propagation formula:\nPercentage error in $\\mathrm{k}=(\\%$ error in m$)+2 \\times(\\%$ error in t$)=0.1 \\%+2 \\times 3.33 \\%=6.76 \\%$\nTherefore, the correct option is (D).",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-time-period-of-a-simple-harmonic-oscillator-is-t--2-jee-main-physics-cfl6ybxme2hl3wwt",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "28th January"
+    },
+    {
+        "q": "The speed of a longitudinal wave in a metallic bar is 400 m/s. If the density and Young's modulus of the bar material are increased by 0.5% and 1%, respectively then the speed of the wave is changed approximately to ______ m/s.",
+        "type": "mcq",
+        "options": [
+            "398",
+            "402",
+            "401",
+            "399"
+        ],
+        "answer": 2,
+        "explanation": "The formula for the speed of a longitudinal wave ( v ) in a solid metallic bar is given as\nv\n=\nY\nρ\nWhere,\nY\n=\nYoung's modulus and its\nρ\nis its density\nTaking the natural\nlog\non both sides of\nv\n=\n(\nY\nρ\n)\n1\n/\n2\n:\nln\n⁡\n(\nv\n)\n=\n1\n2\nln\n⁡\n(\nY\n)\n-\n1\n2\nln\n⁡\n(\nρ\n)\nDifferentiating both sides gives the fractional change:\nΔ\nv\nv\n=\n1\n2\nΔ\nY\nY\n-\n1\n2\nΔ\nρ\nρ\nInitial speed\n=\nv\n=\n400\nm\n/\ns\nIncrease in Young's modulus\n=\nΔ\nY\nY\n×\n100\n=\n+\n1\n%\nIncrease in density\nΔ\nρ\nρ\n×\n100\n=\n+\n0.5\n%\nSo, the percentage change in speed,\nchange in\n%\nchange in\nv\n=\n1\n2\n(\n1\n%\n)\n-\n1\n2\n(\n0.5\n%\n)\n=\n0.5\n%\n-\n0.25\n%\n=\n0.25\n%\nSince the result is positive, the speed increases by\n0.25\n%\n.\nSo, new speed\n(\nv\n′\n)\n=\nInitial Speed + Change in Speed\nof\nv\n′\n=\nv\n+\n(\n0.25\n%\nof\nv\n)\n⇒\nv\n′\n=\n400\n+\n(\n0.25\n100\n×\n400\n)\n⇒\nv\n′\n=\n400\n+\n1\n=\n401\nm\n/\ns\nHence, the correct option is (C).",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-speed-of-a-longitudinal-wave-in-a-metallic-bar-is-400-jee-main-physics-owovbm4ukowo46uk",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "28th January"
+    },
+    {
+        "q": "Match List - I with List - II . List - I List - II A. Coefficient of viscosity B. Surface tension C. Pressure D. Surface energy I. [ML ^{-1} T ^{-2} ] II. [ML ^{2} T ^{-2} ] III. [ML ^{0} T ^{-2} ] IV. [ML ^{-1} T ^{-1} ] Choose the correct answer from the options given below :",
+        "type": "mcq",
+        "options": [
+            "A-I, B-II, C-IV, D-III",
+            "A-IV, B-III, C-I, D-II",
+            "A-IV, B-I, C-II, D-III",
+            "A-I, B-III, C-II, D-IV"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pmatch-blist-ib-with-blist-iibtable-border-jee-main-physics-8rpvscyrfvp5j5so",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "28th January"
+    },
+    {
+        "q": "In an experiment, a set of reading are obtained as follows - 1.24 mm, 1.25 mm, 1.23 mm, 1.21 mm. The expected least count of the instrument used in recording these readings is _______ mm.",
+        "type": "mcq",
+        "options": [
+            "0.01",
+            "0.05",
+            "0.001",
+            "0.1"
+        ],
+        "answer": 0,
+        "explanation": "The least count of an instrument is the smallest measurement that can be taken accurately with that instrument. The least count is shown by the position of the last significant digit (the smallest decimal place) to which all readings are recorded.\nThe obtained readings are :\n1. Reading 1 : 1.24 mm\n2. Reading 2 : 1.25 mm\n3. Reading 3 : 1.23 mm\n4. Reading 4 : 1.21 mm\nAll the readings are recorded up to two decimal places.\nThe difference between consecutive possible readings\n1.25\nmm\n-\n1.24\nmm\n=\n0.01\nmm\n1.24\nmm\n-\n1.23\nmm\n=\n0.01\nm\nIf the least count were 0.1 mm (the smallest decimal place is 1 ), the readings would look like 1.2 mm or 1.3 mm .\nIf the least count were 0.001 mm (the smallest decimal place is 3 ), the readings would look like 1.240 mm .\nIf the least count were 0.05 mm , the readings would only end in .00 or .05 (e.g.,\n1.20\n,\n1.25\n). Since we have 1.24 and 1.23, this is not possible.\nTherefore, the least count of the instrument is 0.01 mm . Hence, the correct option is (A).",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-an-experiment-a-set-of-reading-are-obtained-as-follow-jee-main-physics-xco12v1ifp8sxqx6",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "28th January"
+    },
+    {
+        "q": "When both jaws of vernier callipers touch each other, zero mark of the vernier scale is right to zero mark of main scale, th 4 th mark on vernier scale coincides with certain mark on the main scale. While measuring the length of a cylinder, observer observes 15 divisions on main scale and th 5 th division of vernier scale coincides with a main scale division. Measured length of cylinder is _ _ _ _ mm. (Least count of Vernier calliper = 0.1 mm )",
+        "type": "mcq",
+        "options": [
+            "15.5",
+            "15.4",
+            "15.9",
+            "15.1"
+        ],
+        "answer": 3,
+        "explanation": "When jaws touch, the vernier zero is to the right of the main scale zero, which indicates a positive zero error.\nCoinciding vernier division (CVD) for error $=4$.\nLeast Count $(\\mathrm{LC})=0.1 \\mathrm{~mm}$.\nSo, zero error $=+(\\mathrm{CVD} \\times \\mathrm{LC})=+(4 \\times 0.1)=+0.4 \\mathrm{~mm}$\nMain scale reading $(\\mathrm{MSR})=15$ divisions.\nAssuming 1 division $=1 \\mathrm{~mm}$, then main scale reading is $\\mathrm{MSR}=15 \\mathrm{~mm}$\nVernier Scale Reading $(\\mathrm{VSR})=($ Coinciding vernier division $) \\times \\mathrm{LC}$.\n$$ \\mathrm{VSR}=5 \\times 0.1=0.5 \\mathrm{~mm} $$\nTotal Observed Reading $=\\mathrm{MSR}+\\mathrm{VSR}=15+0.5=15.5 \\mathrm{~mm}$\nTrue Length $=$ Observed Reading - Zero Error\nTrue Length $=15.5 \\mathrm{~mm}-(+0.4 \\mathrm{~mm})$\nTrue Length $=15.1 \\mathrm{~mm}$\nHence, the correct option is (D).",
+        "url": "https://questions.examside.com/past-years/jee/question/pwhen-both-jaws-of-vernier-callipers-touch-each-other-zer-jee-main-physics-units-and-measurements-zoolvxurnxby1rym",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "28th January"
+    },
+    {
+        "q": "In a vernier callipers, 50 vernier scale divisions are equal to 48 main scale divisions. If one main scale division = 0.05 mm , then the least count of the vernier callipers is _ _ _ _ mm.",
+        "type": "mcq",
+        "options": [
+            "0.002",
+            "0.02",
+            "0.05",
+            "0.005"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-a-vernier-callipers-50-vernier-scale-divisions-are-eq-jee-main-physics-units-and-measurements-n3enc5edo26fksbd",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "24th January"
+    },
+    {
+        "q": "In a screw gauge, the zero of the circular scale lies 3 divisions above the horizontal pitch line when their metallic studs are brought in contact. Using this instrument thickness of a sheet is measured. If pitch scale reading is 1 mm and the circular scale reading is 51 then the correct thickness of the sheet is _ _ _ _ mm. [Assume least count is 0.01 mm ]",
+        "type": "mcq",
+        "options": [
+            "1.54",
+            "1.50",
+            "1.51",
+            "1.48"
+        ],
+        "answer": 0,
+        "explanation": "The circular scale lies 3 divisions above the horizontal pitch line when the studs are in contact.\nWhen the zero mark is above the reference line, the screw has been turned past the zero point. This indicates a negative zero error. The error corresponds to 3 divisions.\nHence, the zero error is,\n$$\\mathrm{E}_0=-(3 \\times \\text { Least Count }) =-(3 \\times 0.01 \\mathrm{~mm})=-0.03 \\mathrm{~mm} $$\nThe observed reading is the sum of the Pitch Scale Reading (PSR) and the Circular Scale Reading (CSR) multiplied by the Least Count (LC).\nThe given Pitch Scale Reading (PSR) is 1 mm and the Circular Scale Reading (CSR) is 51\nSo, the observed reading $=\\mathrm{PSR}+(\\mathrm{CSR} \\times \\mathrm{LC})$\nObserved Reading $=1 \\mathrm{~mm}+(51 \\times 0.01 \\mathrm{~mm})$\nObserved Reading $=1 \\mathrm{~mm}+0.51 \\mathrm{~mm}$\nObserved Reading $=1.51 \\mathrm{~mm}$\nTo find the true thickness, we must subtract the zero error from the observed reading.\nCorrect Reading $=$ Observed Reading - Zero Error\nCorrect Reading $=1.51 \\mathrm{~mm}-(-0.03 \\mathrm{~mm})$\nCorrect Reading $=1.51 \\mathrm{~mm}+0.03 \\mathrm{~mm}$\nCorrect Reading $=1.54 \\mathrm{~mm}$\nTherefore, the correct thickness of the sheet is 1.54 mm.\nHence, the correct option is (A).",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-a-screw-gauge-the-zero-of-the-circular-scale-lies-3-d-jee-main-physics-units-and-measurements-jis8h2tqloupzyk0",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "23rd January"
+    },
+    {
+        "q": "Four persons measure the length of a rod as 20.00 cm , 19.75 cm , 17.01 cm and 18.25 cm . The relative error in the measurement of average length of the rod is :",
+        "type": "mcq",
+        "options": [
+            "0.18",
+            "0.24",
+            "0.06",
+            "0.08"
+        ],
+        "answer": 2,
+        "explanation": "The average (mean) of the measured values is the true value for our error calculation.\n$$ \\bar{x}=\\frac{x_1+x_2+x_3+x_4}{4} $$\nSubstituting the given values :\n$$ \\bar{x}=\\frac{20.00+19.75+17.01+18.25}{4}=\\frac{75.01}{4} $$\n$$ \\overline{\\mathrm{x}}=18.7525 \\approx 18.75 \\mathrm{~cm} $$\nThe absolute error is the magnitude of the difference between each individual measurement and the mean value.\n$$ \\left|\\Delta \\mathrm{x}_{\\mathrm{i}}\\right|=\\left|\\mathrm{x}_{\\mathrm{i}}-\\overline{\\mathrm{x}}\\right| $$\n$$\\Rightarrow $$ $\\left|\\Delta \\mathrm{x}_1\\right|=|20.00-18.75|=1.25$\n$$\\Rightarrow $$ $\\left|\\Delta \\mathrm{x}_2\\right|=|19.75-18.75|=1.00$\n$$\\Rightarrow $$ $\\left|\\Delta x_3\\right|=|17.01-18.75|=|-1.74|=1.74$\n$$\\Rightarrow $$ $$ \\left|\\Delta \\mathrm{x}_4\\right|=|18.25-18.75|=|-0.50|=0.50 $$\nThen the average of these absolute errors.\n$$ \\Delta \\overline{\\mathrm{x}}=\\frac{\\sum\\left|\\Delta \\mathrm{x}_{\\mathrm{i}}\\right|}{4} $$\n$$\\Rightarrow $$ $\\Delta \\bar{x}=\\frac{1.25+1.00+1.74+0.50}{4}=\\frac{4.494}{4}$\n$$\\Rightarrow $$ $$ \\Delta \\overline{\\mathrm{x}}=1.1225 \\approx 1.12 \\mathrm{~cm} $$\nThe relative error is defined as the ratio of the mean absolute error to the mean value.\nRelative Error $=\\frac{\\Delta \\overline{\\mathrm{x}}}{\\overline{\\mathrm{x}}}$\nRelative Error $=\\frac{1.1225}{18.7525}$\nRelative Error $\\approx 0.0598$\nRounding to two decimal places,\nRelative Error $\\approx 0.06$\nTherefore, the relative error in the measurement is 0.06 . Hence, the correct option is (C).",
+        "url": "https://questions.examside.com/past-years/jee/question/pfour-persons-measure-the-length-of-a-rod-as-2000-mathr-jee-main-physics-units-and-measurements-xhatz20pzujbpmdt",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "23rd January"
+    },
+    {
+        "q": "If ϵ , E and t represent the free space permittivity, electric field and time respectively, then the unit of ϵ E t will be :",
+        "type": "mcq",
+        "options": [
+            "Am",
+            "A / m",
+            "A / m 2",
+            "Am 2"
+        ],
+        "answer": 2,
+        "explanation": "The SI unit of permittivity of free space (\nϵ\n) is derived from Coulomb's law\n(\nF\n=\nq\n1\nq\n2\n4\nπ\nϵ\n0\nr\n2\n)\n. The SI unit is\nC\n2\n/\nN\n.\nm\n2\n.\nThe electric field (E) is defined as force per unit charge, so its SI unit is Newtons per Coulomb (N/C).\nThe standard SI unit is the second (s).\nThe given expression is\nϵ\nE\nt\n.\nSo, the SI unit of given expression is,\nC\n2\nN\n⋅\nm\n2\n×\n(\nN\nC\n)\n=\nC\ns\n=\ns\ns\n⋅\nm\n2\nElectric current is defined as the rate of flow of electric charge over time. Therefore, 1 Ampere\n(\nA\n)\n=\n1 Coulomb per second\n(\nC\ns\n)\n.\nUnit of\nϵ\nE\nt\n=\n(\nC\ns\n)\n×\n1\nm\n2\n=\nA\n×\n1\nm\n2\n=\nA\n/\nm\n2\nTherefore, the SI unit of\nϵ\nE\nt\nis\nA\n/\nm\n2\n. Hence, the correct option is (C).",
+        "url": "https://questions.examside.com/past-years/jee/question/pif-epsilon-e-and-t-represent-the-free-space-permitt-jee-main-physics-units-and-measurements-12x9ahmfezmpqnkv",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "22nd January"
+    },
+    {
+        "q": "Match the LIST-I with LIST-II Match the LIST-I with LIST-II List-I List-II A. Spring constant I. M L 2 T - 2 K - 1 M L 2 T - 2 K - 1 ML^(2)T^(-2)K^(-1) B. Thermal conductivity II. ML 0 T - 2 ML 0 T - 2 ML^(0)T^(-2) C. Boltzmann constant III. M L 2 T - 3 A - 2 M L 2 T - 3 A - 2 ML^(2)T^(-3)A^(-2) D. Inductive reactance IV. M L T - 3 K - 1 M L T - 3 K - 1 MLT^(-3)K^(-1) Choose the correct answer from the options given below:",
+        "type": "mcq",
+        "options": [
+            "A-III, B-II, C-IV, D-I",
+            "A-I, B-IV, C-II, D-III",
+            "A-II, B-I, C-IV, D-III",
+            "A-II, B-IV, C-I, D-III"
+        ],
+        "answer": 3,
+        "explanation": "A. Spring constant (k)\nAccording to Hooke's Law, the restoring force F of a spring is directly proportional to its displacement x :\n$$ \\mathrm{F}=-\\mathrm{kx} $$\nTaking the magnitude to find dimensions :\n$$ \\mathrm{k}=\\frac{\\mathrm{F}}{\\mathrm{x}} \\Rightarrow[\\mathrm{k}]=\\left[\\frac{\\mathrm{F}}{\\mathrm{x}}\\right]=\\frac{\\left[\\mathrm{MLT}^{-2}\\right]}{\\left[\\mathrm{M}^0 \\mathrm{LT}^0\\right]} $$\n$$ [\\mathrm{k}]=\\frac{\\left[\\mathrm{MLT}^{-2}\\right]}{[\\mathrm{L}]}=\\left[\\mathrm{ML}^{1-1} \\mathrm{~T}^{-2}\\right]=\\left[\\mathrm{ML}^0 \\mathrm{~T}^{-2}\\right] $$\nA → II.\nB. Thermal conductivity (K)\nFrom Law of heat conduction, the rate of heat flow $\\left(\\mathrm{H}=\\frac{\\mathrm{d} \\mathrm{Q}}{\\mathrm{dt}}\\right)$ is given by:\n$$ H=\\frac{K A \\Delta T}{L} $$\nWhere A is area, $\\Delta \\mathrm{T}$ is temperature difference, and L is length.\n$$ \\mathrm{K}=\\frac{\\mathrm{H} \\cdot \\mathrm{~L}}{\\mathrm{~A} \\cdot \\Delta \\mathrm{~T}} $$\nThe dimensions of rate of heat flow, $[\\mathrm{H}]=\\frac{[\\text { Energy }]}{[\\text { Time }]}=\\frac{[\\text { Force × distance }]}{[\\text { Time }]}=\\frac{\\left[\\mathrm{MLT}^{-2} \\times \\mathrm{L}\\right]}{[\\mathrm{T}]}=\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-3}\\right]$\nSo the dimensions of thermal conductivity is,\n$[\\mathrm{K}]=\\frac{\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-3}\\right] \\cdot[\\mathrm{L}]}{\\left[\\mathrm{L}^2\\right] \\cdot[\\mathrm{K}]}=\\frac{\\left[\\mathrm{ML}^3 \\mathrm{~T}^{-3}\\right]}{\\left[\\mathrm{L}^2 \\mathrm{~K}\\right]}$\n$$\\Rightarrow $$ $$ [\\mathrm{K}]=\\left[\\mathrm{ML}^{3-2} \\mathrm{~T}^{-3} \\mathrm{~K}^{-1}\\right]=\\left[\\mathrm{MLT}^{-3} \\mathrm{~K}^{-1}\\right] $$\nB → IV.\nC. Boltzmann constant ( $\\mathrm{k}_{\\mathrm{B}}$ )\nThe average kinetic energy (E) of a gas molecule is related to its absolute temperature (T) by :\n$$ \\mathrm{E}=\\frac{3}{2} \\mathrm{k}_{\\mathrm{B}} \\mathrm{~T} $$\nThe dimensionless constant is $\\frac{3}{2}$.\n$$ \\left[\\mathrm{k}_{\\mathrm{B}}\\right]=\\left[\\frac{\\mathrm{E}}{\\mathrm{~T}}\\right] $$\nWe know Energy has the same dimensions as Work ( $\\mathrm{F} \\times \\mathrm{d}$ ):\n$$ [\\mathrm{E}]=\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-2}\\right] $$\nSo, the dimensions of Boltzmann constant is,\n$$ \\left[\\mathrm{k}_{\\mathrm{B}}\\right]=\\frac{\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-2}\\right]}{[\\mathrm{K}]}=\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-2} \\mathrm{~K}^{-1}\\right] $$\n$$ \\mathrm{C} \\rightarrow \\mathrm{I} . $$\nD. Inductive reactance ( $\\mathrm{X}_{\\mathrm{L}}$ )\nInductive reactance is the opposition to alternating current by an inductor. It acts exactly like resistance, so it must have the same dimensional formula as electrical resistance (R).\nFrom Ohm's Law: $\\mathrm{V}=\\mathrm{IR}$, so $\\mathrm{R}=\\frac{\\mathrm{V}}{\\mathrm{I}}$.\nPotential is Work done per unit charge (W/q):\n$$ [\\mathrm{V}]=\\frac{[\\text { Work }]}{[\\text { Charge }]}=\\frac{\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-2}\\right]}{[\\mathrm{A} \\cdot \\mathrm{~T}]}=\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-3} \\mathrm{~A}^{-1}\\right] $$\nSo, the dimensions of inductive reactance, i.e., resistance is,\n$$ \\left[\\mathrm{X}_{\\mathrm{L}}\\right]=[\\mathrm{R}]=\\frac{[\\mathrm{V}]}{[\\mathrm{I}]}=\\frac{\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-3} \\mathrm{~A}^{-1}\\right]}{[\\mathrm{A}]} $$\n$$ \\begin{array}{ll} & {\\left[\\mathrm{X}_{\\mathrm{L}}\\right]=\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-3} \\mathrm{~A}^{-2}\\right]} \\\\ \\mathrm{D} \\rightarrow \\mathrm{III} . & \\end{array} $$\nTherefore, the correct match is, $\\mathrm{A} \\rightarrow$ II, $\\mathrm{B} \\rightarrow$ IV, $\\mathrm{C} \\rightarrow \\mathrm{I}, \\mathrm{D} \\rightarrow$ III.\nHence, the correct option is (D).",
+        "url": "https://questions.examside.com/past-years/jee/question/p-text--match-the-list-i-with-list-ii--ptable-c-jee-main-physics-units-and-measurements-eq8zojumxhxhlrvz",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "22nd January"
+    },
+    {
+        "q": "A spherical body of radius r and density σ falls freely through a viscous liquid having density ρ and viscosity η and attains a terminal velocity v 0 . Estimated maximum error in the quantity η is : (Ignore errors associated with σ , ρ and g , gravitational acceleration)",
+        "type": "mcq",
+        "options": [
+            "2 [ Δ r r - Δ v 0 v 0 ]",
+            "2 [ Δ r r + Δ v 0 v 0 ]",
+            "2 Δ r r + Δ v 0 v 0",
+            "2 Δ r r - Δ v 0 v 0"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pa-spherical-body-of-radius-r-and-density-sigma-falls-jee-main-physics-3l4iqurfcgvv5y99",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "21st January"
+    },
+    {
+        "q": "Keeping the significant figures in view, the sum of the physical quantities 52.01 m, 153.2 m and 0.123 m is :",
+        "type": "mcq",
+        "options": [
+            "205.3 m",
+            "205 m",
+            "205.333 m",
+            "205.33 m"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pkeeping-the-significant-figures-in-view-the-sum-of-the-p-jee-main-physics-dawrguhvrm33nnp6",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "21st January"
+    },
+    {
+        "q": "In an experiment the values of two spring constants were measured as k 1 = ( 10 ± 0.2 ) N / m and k 2 = ( 20 ± 0.3 ) N / m . If these springs are connected in parallel, then the percentage error in equivalent spring constant is :",
+        "type": "mcq",
+        "options": [
+            "1.33%",
+            "2.67 %",
+            "1.67%",
+            "2.33 %"
+        ],
+        "answer": 2,
+        "explanation": "When two springs are connected in parallel, they both undergo the same displacement (x) when a force is applied.\nForce in spring 1 is $\\mathrm{F}_1=\\mathrm{k}_1 \\mathrm{x}$\nForce in spring 2 is $\\mathrm{F}_2=\\mathrm{k}_2 \\mathrm{x}$\nThe total force F is the sum of individual forces :\n$$ \\mathrm{F}=\\mathrm{F}_1+\\mathrm{F}_2 $$\n$$\\Rightarrow $$ $\\mathrm{k}_{\\mathrm{eq}} \\mathrm{x}=\\mathrm{k}_1 \\mathrm{x}+\\mathrm{k}_2 \\mathrm{x}$\n$$\\Rightarrow $$ $$ \\mathrm{k}_{\\mathrm{eq}}=\\mathrm{k}_1+\\mathrm{k}_2 $$\nSubstituting the given values, $\\mathrm{k}_1=10 \\mathrm{~N} / \\mathrm{m}, \\mathrm{k}_2=20 \\mathrm{~N} / \\mathrm{m}$\n$$ \\mathrm{k}_{\\mathrm{eq}}=10+20=30 \\mathrm{~N} / \\mathrm{m} $$\nWhen two measured quantities are added, the absolute error in the result is the sum of the absolute errors of the individual quantities.\n$$ \\Delta \\mathrm{k}_{\\mathrm{eq}}=\\Delta \\mathrm{k}_1+\\Delta \\mathrm{k}_2 $$\nSubstituting the given values, $\\Delta \\mathrm{k}_1=0.2 \\mathrm{~N} / \\mathrm{m}, \\Delta \\mathrm{k}_2=0.3 \\mathrm{~N} / \\mathrm{m}$\n$$ \\Delta \\mathrm{k}_{\\mathrm{eq}}=0.2+0.3=0.5 \\mathrm{~N} / \\mathrm{m} $$\nSo, the percentage error in measurement of equivalent spring constant is,\nPercentage Error $=\\left(\\frac{\\Delta \\mathrm{k}_{\\mathrm{eq}}}{\\mathrm{k}_{\\mathrm{eq}}}\\right) \\times 100 \\%=\\left(\\frac{0.5}{30}\\right) \\times 100 \\% \\approx 1.666 \\ldots \\%$\nRounding to two decimal places, we get the percentage error in measurement of spring constant as $1.67 \\%$.\nTherefore, the equivalent spring constant with its error is $(30 \\pm 0.5) \\mathrm{N} / \\mathrm{m}$, which corresponds to a percentage error of $1.67 \\%$.\nHence, the correct option is (C).",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-an-experiment-the-values-of-two-spring-constants-were-jee-main-physics-units-and-measurements-yuz4pff78iogpdnn",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "21st January"
+    },
+    {
+        "q": "Consider a modified Bernoulli equation. constant ( P + A B t 2 ) + ρ g ( h + B t ) + 1 2 ρ V 2 = constant If t has the dimension of time then the dimensions of A and B are _ _ _ _ , _ _ _ _ respectively.",
+        "type": "mcq",
+        "options": [
+            "[ ML 0 T - 1 ] and [ M 0 LT ]",
+            "[ ML 0 T - 2 ] and [ M 0 LT - 1 ]",
+            "[ ML 0 T - 2 ] and [ M 0 LT - 2 ]",
+            "[ ML 0 T - 1 ] and [ M 0 LT - 1 ]"
+        ],
+        "answer": 3,
+        "explanation": "In the term $(h+B t), B t$ is added to $h$, where $h$ is the height or length which has the dimension: $[h]=[L]$.\nTherefore, using principle of homogeneity the product Bt must also have the dimension of length: $[\\mathrm{L}]$.\nGiven that t is time whose dimension is $[\\mathrm{T}]$ :\n$$ [\\mathrm{B}][\\mathrm{t}]=[\\mathrm{L}] $$\n$$\\Rightarrow $$ $[\\mathrm{B}][\\mathrm{T}]=[\\mathrm{L}]$\n$$\\Rightarrow $$ $$ [\\mathrm{B}]=\\frac{[\\mathrm{L}]}{[\\mathrm{T}]}=\\left[\\mathrm{LT}^{-1}\\right] $$\nTherefore, the dimensions of B is $\\left[\\mathrm{M}^0 \\mathrm{LT}^{-1}\\right]$.\nIn the term $\\left(\\mathrm{P}+\\frac{\\mathrm{A}}{\\mathrm{Bt}^2}\\right), \\frac{\\mathrm{A}}{\\mathrm{Bt}^2}$ is added to P (Pressure).\nThe dimension of pressure is $\\mathrm{P}=\\frac{\\text { Force }}{\\text { Area }}$ :\n$$ [\\mathrm{P}]=\\frac{\\left[\\mathrm{MLT}^{-2}\\right]}{\\left[\\mathrm{L}^2\\right]}=\\left[\\mathrm{ML}^{-1} \\mathrm{~T}^{-2}\\right] $$\nAccording to the principle of homogeneity, the dimension of $\\frac{\\mathrm{A}}{\\mathrm{Bt}^2}$ must equal the dimension of P :\n$$ \\left[\\frac{\\mathrm{A}}{\\mathrm{Bt}^2}\\right]=\\left[\\mathrm{ML}^{-1} \\mathrm{~T}^{-2}\\right] $$\n$$\\Rightarrow $$$\\frac{[\\mathrm{A}]}{\\left[\\mathrm{LT}^{-1}\\right]\\left[\\mathrm{T}^2\\right]}=\\left[\\mathrm{ML}^{-1} \\mathrm{~T}^{-2}\\right]$\n$$\\Rightarrow $$ $[\\mathrm{A}]=\\left[\\mathrm{ML}^{-1} \\mathrm{~T}^{-2}\\right] \\times[\\mathrm{LT}]$\n$$\\Rightarrow $$ $[\\mathrm{A}]=[\\mathrm{M}]\\left[\\mathrm{L}^{-1+1}\\right]\\left[\\mathrm{T}^{-2+1}\\right]$\n$$\\Rightarrow $$ $$ [\\mathrm{A}]=\\left[\\mathrm{ML}^0 \\mathrm{~T}^{-1}\\right] $$\nTherefore, dimensions of A is $\\left[\\mathrm{ML}^0 \\mathrm{~T}^{-1}\\right]$ and the dimensions of B is $\\left[\\mathrm{M}^0 \\mathrm{LT}^{-1}\\right]$. Hence, the correct option is (D).",
+        "url": "https://questions.examside.com/past-years/jee/question/pconsider-a-modified-bernoulli-equationp-p-left-jee-main-physics-units-and-measurements-4mgfvxuh5oynnqbc",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "21st January"
+    },
+    {
+        "q": "A quantity Q is formulated as X - 2 Y + 3 2 Z - 2 5 . X, Y, and Z are independent parameters which have fractional errors of 0.1, 0.2, and 0.5, respectively in measurement. The maximum fractional error of Q is",
+        "type": "mcq",
+        "options": [
+            "0.6",
+            "0.8",
+            "0.7",
+            "0.1"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pa-quantity-q-is-formulated-as-x-2yfrac32z-jee-main-physics-alcnqpxc7dstmfnu",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "8th April"
+    },
+    {
+        "q": "The dimension of μ 0 ϵ 0 is equal to that of: ( μ 0 = Vacuum permeability and ϵ 0 = Vacuum permittivity)",
+        "type": "mcq",
+        "options": [
+            "Voltage",
+            "Inductance",
+            "Resistance",
+            "Capacitance"
+        ],
+        "answer": 2,
+        "explanation": "The dimension of $ \\sqrt{\\frac{\\mu_0}{\\epsilon_0}} $ can be understood as follows:\nVacuum permeability ($ \\mu_0 $) and vacuum permittivity ($ \\epsilon_0 $) relate to the properties of inductance and capacitance, respectively, in a vacuum. We start by considering the formulas for inductance ($ L $) and capacitance ($ C $):\nInductance ($ L $)\nis given by:\n$ L = \\frac{\\mu_0 \\cdot \\text{Number of turns} \\cdot \\text{Area}}{\\text{Length}} $\nCapacitance ($ C $)\nis given by:\n$ C = \\frac{\\text{Area} \\cdot \\epsilon_0}{\\text{Distance}} $\nFrom these, the ratio $\\frac{L}{C}$ can be expressed as $\\frac{\\mu_0}{\\epsilon_0}$:\n$ \\frac{L}{C} \\propto \\frac{\\mu_0}{\\epsilon_0} $\nTaking the square root of this ratio, we have:\n$ \\sqrt{\\frac{\\mu_0}{\\epsilon_0}} \\propto \\sqrt{\\frac{L}{C}} $\nThis simplifies further to considering the relationship between time constant ($\\tau$) and resistance ($R$):\n$ \\frac{L}{C} = \\frac{\\tau R}{(\\tau / R)} = R^2 $\nThus, by taking the square root:\n$ \\sqrt{\\frac{\\mu_0}{\\epsilon_0}} = R $\nIn conclusion, the dimension of $ \\sqrt{\\frac{\\mu_0}{\\epsilon_0}} $ is equivalent to the dimension of resistance, $ R $.",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-dimension-of--sqrtfracmu0epsilon0--is-e-jee-main-physics-6mwpuisydfwarraw",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "7th April"
+    },
+    {
+        "q": "Match List - I with List - II . List - I List - II (A) Mass density (I) [ML ^{2} T ^{-3} ] (B) Impulse (II) [MLT ^{-1} ] (C) Power (III) [ML ^{2} T ^{0} ] (D) Moment of inertia (IV) [ML ^{-3} T ^{0} ] Choose the correct answer from the options given below :",
+        "type": "mcq",
+        "options": [
+            "(A)-(IV), (B)-(II), (C)-(III), (D)-(I)",
+            "(A)-(II), (B)-(III), (C)-(IV), (D)-(I)",
+            "(A)-(IV), (B)-(III), (C)-(I), (D)-(II)",
+            "(A)-(IV), (B)-(II), (C)-(I), (D)-(III)"
+        ],
+        "answer": 3,
+        "explanation": "(A) Mass density:\nMass density is defined as mass per unit volume.\nThe dimension of mass is $$[M]$$.\nThe dimension of volume is $$[L^3]$$.\nTherefore, the dimension of mass density is $$\\frac{[M]}{[L^3]} = [ML^{-3}T^{0}]$$.\nMatches with (IV).\n(B) Impulse:\nImpulse is defined as the change in momentum, or force multiplied by time.\nImpulse = Force x Time\nThe dimension of force is $$[MLT^{-2}]$$.\nThe dimension of time is $$[T]$$.\nTherefore, the dimension of impulse is $$[MLT^{-2}] \\cdot [T] = [MLT^{-1}]$$.\nMatches with (II).\n(C) Power:\nPower is defined as the rate of doing work or energy per unit time.\nPower = Work / Time\nThe dimension of work (or energy) is $$[ML^2T^{-2}]$$.\nThe dimension of time is $$[T]$$.\nTherefore, the dimension of power is $$\\frac{[ML^2T^{-2}]}{[T]} = [ML^2T^{-3}]$$.\nMatches with (I).\n(D) Moment of inertia:\nMoment of inertia is defined as $$I = mr^2$$, where m is mass and r is the distance from the axis of rotation.\nThe dimension of mass is $$[M]$$.\nThe dimension of distance squared is $$[L^2]$$.\nTherefore, the dimension of moment of inertia is $$[ML^2T^{0}]$$.\nMatches with (III).\nSo, the correct matches are:\n(A) - (IV)\n(B) - (II)\n(C) - (I)\n(D) - (III)\nTherefore, the correct option is\nD\n.",
+        "url": "https://questions.examside.com/past-years/jee/question/pmatch-blist-ib-with-blist-iibp-table-jee-main-physics-ot6g5mfcgkp9ccfx",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "7th April"
+    },
+    {
+        "q": "In an electromagnetic system, a quantity defined as the ratio of electric dipole moment and magnetic dipole moment has dimension of [ M P L Q T R A S ] . The value of P and Q are :",
+        "type": "mcq",
+        "options": [
+            "- 1 , 0",
+            "0 , - 1",
+            "- 1 , 1",
+            "1 , - 1"
+        ],
+        "answer": 1,
+        "explanation": "Electric dipole moment $(\\overrightarrow{\\mathrm{P}})=\\mathrm{q} \\times 2 \\ell$\nMagnetic dipole moment $(\\overrightarrow{\\mathrm{M}})=\\mathrm{IA}$\n$$\\left[\\frac{\\mathrm{P}}{\\mathrm{M}}\\right]=\\left[\\frac{\\mathrm{LTA}}{\\mathrm{~L}^2 \\mathrm{~A}}\\right]=\\mathrm{L}^{-1} \\mathrm{~T}=\\mathrm{M}^0 \\mathrm{~L}^{-1} \\mathrm{~T}^1 \\mathrm{~A}^0$$\nAfter compering values of $\\mathrm{P} \\& \\mathrm{Q}$ are $0,-1$\nCorrect Answer : Option 4",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-an-electromagnetic-system-a-quantity-defined-as-the-r-jee-main-physics-units-and-measurements-ll0g3rzv4a7bbzoq",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "4th April"
+    },
+    {
+        "q": "For the determination of refractive index of glass slab, a travelling microscope is used whose main scale contains 300 equal divisions equals to 15 cm . The vernier scale attached to the microscope has 25 divisions equals to 24 divisions of main scale. The least count (LC) of the travelling microscope is (in cm ) :",
+        "type": "mcq",
+        "options": [
+            "0.002",
+            "0.0025",
+            "0.0005",
+            "0.001"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pfor-the-determination-of-refractive-index-of-glass-slab-jee-main-physics-units-and-measurements-kgkbzgpqjxtkjnvh",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "4th April"
+    },
+    {
+        "q": "In an electromagnetic system, the quantity representing the ratio of electric flux and magnetic flux has dimension of M P L Q T R A S , where value of ' Q ' and ' R ' are",
+        "type": "mcq",
+        "options": [
+            "( 3 , - 5 )",
+            "( - 2 , 1 )",
+            "( - 2 , 2 )",
+            "( 1 , - 1 )"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-an-electromagnetic-system-the-quantity-representing-t-jee-main-physics-units-and-measurements-k1jbr8cmddr97gcj",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "4th April"
+    },
+    {
+        "q": "Match the LIST-I with LIST-II Match the LIST-I with LIST-II LIST-I LIST-II A. Boltzmann constant Boltzmann constant I ML 2 T - 1 B Coefficient of viscosity Coefficient of viscosity II MLT - 3 K - 1 C Planck's constant Planck's constant III ML 2 T - 2 K - 1 D Thermal conductivity Thermal conductivity IV ML - 1 T - 1 Choose the correct answer from the options given below:",
+        "type": "mcq",
+        "options": [
+            "A - III, B - IV, C - I, D - II",
+            "A - III, B - IV, C - II, D - I",
+            "A - III, B - II, C - I, D - IV",
+            "A - II, B - III, C - IV, D - I"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/p-text--match-the-list-i-with-list-ii--p-style-jee-main-physics-units-and-measurements-k7of42eui6qgf50i",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "3rd April"
+    },
+    {
+        "q": "A person measures mass of 3 different particles as 435.42 g , 226.3 g and 0.125 g . According to the rules for arithmetic operations with significant figures, the addition of the masses of 3 particles will be.",
+        "type": "mcq",
+        "options": [
+            "661.845 g",
+            "661.84 g",
+            "662 g",
+            "661.8 g"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pa-person-measures-mass-of-3-different-particles-as-4354-jee-main-physics-units-and-measurements-jxc4byqvylwzx2xz",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "3rd April"
+    },
+    {
+        "q": "If μ 0 and ϵ 0 are the permeability and permittivity of free space, respectively, then the dimension of ( 1 μ 0 ϵ 0 ) is :",
+        "type": "mcq",
+        "options": [
+            "T 2 / L",
+            "L 2 / T 2",
+            "T 2 / L 2",
+            "L / T 2"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/if-mu0-and-epsilon0-are-the-permeability-and-permitt-jee-main-physics-units-and-measurements-iskngtbdz5tf87fp",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "2nd April"
+    },
+    {
+        "q": "Given a charge q , current I and permeability of vacuum μ o ∗ . Which of the following quantity has the dimension of momentum ?",
+        "type": "mcq",
+        "options": [
+            "q I / μ o",
+            "q 2 μ o I",
+            "q μ 0 / I",
+            "q μ o I"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/given-a-charge-q--current-i-and-permeability-of-vacuum-mu-jee-main-physics-units-and-measurements-flhvox36ruvrv2i6",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "2nd April"
+    },
+    {
+        "q": "Match List I with List II. List - I List - II (A) Coefficient of viscosity (I) [ ML 0 T - 3 ] (B) Intensity of wave (II) [ ML - 2 T - 2 ] (C) Pressure gradient (III) [ M - 1 LT 2 ] (D) Compressibility (IV) [ ML - 1 T - 1 ] Choose the correct answer from the options given below:",
+        "type": "mcq",
+        "options": [
+            "(A)-(II), (B)-(III), (C)-(IV), (D)-(I)",
+            "(A)-(IV), (B)-(II), (C)-(I), (D)-(III)",
+            "(A)-(IV), (B)-(I), (C)-(II), (D)-(III)",
+            "(A)-(I), (B)-(IV), (C)-(III), (D)-(II)"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pmatch-list-i-with-list-iip-pstyle-typetextcss-jee-main-physics-units-and-measurements-ah77vjnfy61q2nck",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "2nd April"
+    },
+    {
+        "q": "Match List - I with List - II . List - I List - II (A) Young’s Modulus (I) M L ^{-1} T ^{-1} (B) Torque (II) M L ^{-1} T ^{-2} (C) Coefficient of Viscosity (III) M ^{-1} L ^{3} T ^{-2} (D) Gravitational Constant (IV) M L ^{2} T ^{-2} Choose the correct answer from the options given below :",
+        "type": "mcq",
+        "options": [
+            "(A)-(I), (B)-(III), (C)-(II), (D)-(IV)",
+            "(A)-(IV), (B)-(II), (C)-(III), (D)-(I)",
+            "(A)-(II), (B)-(I), (C)-(IV), (D)-(III)",
+            "(A)-(II), (B)-(IV), (C)-(I), (D)-(III)"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pmatch-blist-ib-with-blist-iibp-table-b-jee-main-physics-4ngo9dpsbdwgqngk",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "29th January"
+    },
+    {
+        "q": "The pair of physical quantities not having the same dimensions is :",
+        "type": "mcq",
+        "options": [
+            "Angular momentum and Planck's constant",
+            "Torque and energy",
+            "Surface tension and impulse",
+            "Pressure and Young's modulus"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-pair-of-physical-quantities-not-having-the-same-dimen-jee-main-physics-yl3ojnfwbunwggcp",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "29th January"
+    },
+    {
+        "q": "The expression given below shows the variation of velocity ( v ) with time ( t ), v = At 2 + Bt C + t . The dimension of ABC is :",
+        "type": "mcq",
+        "options": [
+            "[M ^{0} L ^{1} T ^{-2} ]",
+            "[M ^{0} L ^{2} T ^{-3} ]",
+            "[M ^{0} L ^{2} T ^{-2} ]",
+            "[M ^{0} L ^{1} T ^{-3} ]"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-expression-given-below-shows-the-variation-of-velocit-jee-main-physics-rjh0iha8w06lkwgz",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "29th January"
+    },
+    {
+        "q": "Match List - I with List - II. List - I List - II (A) Angular Impulse (I) M ^{0} L ^{2} T ^{-2} (B) Latent Heat (II) M L ^{2} T ^{-3} A ^{-1} (C) Electrical resistivity (III) M L ^{2} T ^{-1} (D) Electromotive force (IV) M L ^{3} T ^{-3} A ^{-2} Choose the correct answer from the options given below:",
+        "type": "mcq",
+        "options": [
+            "(A)-(II), (B)-(I), (C)-(IV), (D)-(III)",
+            "(A)-(I), (B)-(III), (C)-(IV), (D)-(II)",
+            "(A)-(III), (B)-(I), (C)-(IV), (D)-(II)",
+            "(A)-(III), (B)-(I), (C)-(II), (D)-(IV)"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pmatch-list-i-with-list-iiptable-border1-t-jee-main-physics-rvzjz8vwqflrj0x3",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "28th January"
+    },
+    {
+        "q": "For an experimental expression y = 32.3 × 1125 27.4 , where all the digits are significant. Then to report the value of y we should write",
+        "type": "mcq",
+        "options": [
+            "y = 1326.186",
+            "y = 1326.2",
+            "y = 1326.19",
+            "y = 1330"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pfor-an-experimental-expression-yfrac323-times-1125-jee-main-physics-units-and-measurements-pavzdqxhk7kigtst",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "24th January"
+    },
+    {
+        "q": "The energy of a system is given as E ( t ) = α 3 e - β t , where t is the time and β = 0.3 s - 1 . The errors in the measurement of α and t are 1.2 % and 1.6 % , respectively. At t = 5 s , maximum percentage error in the energy is :",
+        "type": "mcq",
+        "options": [
+            "6 %",
+            "11.6 %",
+            "4 %",
+            "8.4 %"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-energy-of-a-system-is-given-as-mathrmemathrmt-jee-main-physics-units-and-measurements-tzahnkyovjod1yoy",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "23rd January"
+    },
+    {
+        "q": "Match List - I with List - II List - I List - II (A) Permeability of free space (I) [ M L 2 T - 2 ] (B) Magnetic field (II) [ M T - 2 A - 1 ] (C) Magnetic moment (III) [ M L T - 2 A - 2 ] (D) Torsional constant (IV) [ L 2 A ] Choose the correct answer from the options given below :",
+        "type": "mcq",
+        "options": [
+            "(A)-(III), (B)-(II), (C)-(IV), (D)-(I)",
+            "( A ) - ( I ) , ( B ) - ( IV ) , ( C ) - ( II ) , ( D ) - ( III )",
+            "( A ) - ( II ) , ( B ) - ( I ) , ( C ) - ( III ) , ( D ) - ( IV )",
+            "(A)-(IV), (B)-(III), (C)-(I), (D)-(II)"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pmatch-list-i-with-list-iip-pstyle-typetextcs-jee-main-physics-units-and-measurements-vjekrmljnhqbue7g",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "23rd January"
+    },
+    {
+        "q": "The position of a particle moving on x -axis is given by x ( t ) = A sin ⁡ t + B cos 2 ⁡ t + C t 2 + D , where t is time. The dimension of A B C D is",
+        "type": "mcq",
+        "options": [
+            "L",
+            "L 3 T - 2",
+            "L 2 T - 2",
+            "L 2"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-position-of-a-particle-moving-on-x-axis-is-given-by-jee-main-physics-units-and-measurements-sngtj8e4kgdv1js8",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "23rd January"
+    },
+    {
+        "q": "The maximum percentage error in the measurment of density of a wire is [Given, mass of wire = ( 0.60 ± 0.003 ) g radius of wire = ( 0.50 ± 0.01 ) cm length of wire = ( 10.00 ± 0.05 ) cm ]",
+        "type": "mcq",
+        "options": [
+            "7",
+            "8",
+            "5",
+            "4"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-maximum-percentage-error-in-the-measurment-of-density-jee-main-physics-units-and-measurements-pqrruhcxizwzyomf",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "22nd January"
+    },
+    {
+        "q": "If B is magnetic field and μ 0 is permeability of free space, then the dimensions of ( B / μ 0 ) is",
+        "type": "mcq",
+        "options": [
+            "MT - 2 A - 1",
+            "L - 1 A",
+            "ML 2 T - 2 A - 1",
+            "LT - 2 A - 1"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pif-b-is-magnetic-field-and-mu0-is-permeability-of-f-jee-main-physics-units-and-measurements-sicm9oqc8b2lxabf",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "22nd January"
+    },
+    {
+        "q": "Given below are two statements : Statement I: In a vernier callipers, one vernier scale division is always smaller than one main scale division. Statement II : The vernier constant is given by one main scale division multiplied by the number of vernier scale divisions. In the light of the above statements, choose the correct answer from the options given below.",
+        "type": "mcq",
+        "options": [
+            "Both Statement I and Statement II are false",
+            "Statement I is true but Statement II is false",
+            "Both Statement I and Statement II are true",
+            "Statement I is false but Statement II is true"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pgiven-below-are-two-statements-p-pstatement-i-in-a-jee-main-physics-units-and-measurements-fguenp4yjbo4gm2u",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "22nd January"
+    },
+    {
+        "q": "The de-Broglie wavelength associated with a particle of mass m and energy E is h / 2 m E . The dimensional formula for Planck's constant is :",
+        "type": "mcq",
+        "options": [
+            "[ M 2 L 2 T - 2 ]",
+            "[ ML - 1 T - 2 ]",
+            "[ ML 2 T - 1 ]",
+            "[ MLT - 2 ]"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-de-broglie-wavelength-associated-with-a-particle-of-m-jee-main-physics-motion-v4tpf3ffzl2qzjtd",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "9th April"
+    },
+    {
+        "q": "The dimensional formula of latent heat is :",
+        "type": "mcq",
+        "options": [
+            "[ M 0 LT - 2 ]",
+            "[ MLT - 2 ]",
+            "[ M 0 L 2 T - 2 ]",
+            "[ ML 2 T - 2 ]"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-dimensional-formula-of-latent-heat-is-p-jee-main-physics-motion-fqip5tyhnih04bub",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "9th April"
+    },
+    {
+        "q": "One main scale division of a vernier caliper is equal to m units. If th n th division of main scale coincides with th ( n + 1 ) th division of vernier scale, the least count of the vernier caliper is :",
+        "type": "mcq",
+        "options": [
+            "1 ( n + 1 )",
+            "m ( n + 1 )",
+            "n ( n + 1 )",
+            "m n ( n + 1 )"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pone-main-scale-division-of-a-vernier-caliper-is-equal-to-jee-main-physics-motion-rd6u0g77iyhbhp12",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "9th April"
+    },
+    {
+        "q": "If ϵ o is the permittivity of free space and E is the electric field, then ϵ o E 2 has the dimensions :",
+        "type": "mcq",
+        "options": [
+            "[ M L - 1 T - 2 ]",
+            "[ M L 2 T - 2 ]",
+            "[ M 0 L - 2 TA ]",
+            "[ M - 1 L - 3 T 4 A 2 ]"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pif-epsilonmathrmo-is-the-permittivity-of-free-jee-main-physics-motion-0lyytsma6eom86bh",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "8th April"
+    },
+    {
+        "q": "There are 100 divisions on the circular scale of a screw gauge of pitch 1 mm . With no measuring quantity in between the jaws, the zero of the circular scale lies 5 divisions below the reference line. The diameter of a wire is then measured using this screw gauge. It is found that 4 linear scale divisions are clearly visible while 60 divisions on circular scale coincide with the reference line. The diameter of the wire is :",
+        "type": "mcq",
+        "options": [
+            "4.65 mm",
+            "4.60 mm",
+            "4.55 mm",
+            "3.35 mm"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pthere-are-100-divisions-on-the-circular-scale-of-a-screw-jee-main-physics-motion-10dieufssszcjcyz",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "8th April"
+    },
+    {
+        "q": "Least count of a vernier caliper is 1 20 N cm . The value of one division on the main scale is 1 mm . Then the number of divisions of main scale that coincide with N divisions of vernier scale is :",
+        "type": "mcq",
+        "options": [
+            "( 2 N - 1 2 N )",
+            "( 2 N - 1 20 N )",
+            "( 2 N - 1 )",
+            "( 2 N - 1 2 )"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pleast-count-of-a-vernier-caliper-is-frac120-mathrm-jee-main-physics-motion-miwupoc7abwa2lv0",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "8th April"
+    },
+    {
+        "q": "In an expression a × 10 b :",
+        "type": "mcq",
+        "options": [
+            "a is order of magnitude for b ≤ 5",
+            "b is order of magnitude for a ≤ 5",
+            "b is order of magnitude for a ≥ 5",
+            "b is order of magnitude for 5 < a ≤ 10"
+        ],
+        "answer": 1,
+        "explanation": "In expression\na\n×\n10\nb\n, If\na\n≤\n5\n;\na\n≈\n1\nby round off\n⇒\nOrder\nB",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-an-expression-a-times-10b-p-jee-main-physics-motion-nqvun8s9ildfhpmz",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "8th April"
+    },
+    {
+        "q": "The diameter of a sphere is measured using a vernier caliper whose 9 divisions of main scale are equal to 10 divisions of vernier scale. The shortest division on the main scale is equal to 1 mm . The main scale reading is 2 cm and second division of vernier scale coincides with a division on main scale. If mass of the sphere is 8.635 g , the density of the sphere is:",
+        "type": "mcq",
+        "options": [
+            "2.2 g / cm 3",
+            "2.0 g / cm 3",
+            "1.7 g / cm 3",
+            "2.5 g / cm 3"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-diameter-of-a-sphere-is-measured-using-a-vernier-cali-jee-main-physics-motion-suoskopwwzphdmwo",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "8th April"
+    },
+    {
+        "q": "In a vernier calliper, when both jaws touch each other, zero of the vernier scale shifts towards left and its th 4 th division coincides exactly with a certain division on main scale. If 50 vernier scale divisions equal to 49 main scale divisions and zero error in the instrument is 0.04 mm then how many main scale divisions are there in 1 cm ?",
+        "type": "mcq",
+        "options": [
+            "5",
+            "40",
+            "10",
+            "20"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-a-vernier-calliper-when-both-jaws-touch-each-other-z-jee-main-physics-motion-ctsg7vpc41fwuyzk",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "6th April"
+    },
+    {
+        "q": "In finding out refractive index of glass slab the following observations were made through travelling microscope 50 vernier scale division = 49 MSD ; 20 divisions on main scale in each cm For mark on paper MSR MSR = 8.45 cm , VC = 26 For mark on paper seen through slab MSR = 7.12 cm , VC = 41 For powder particle on the top surface of the glass slab MSR MSR = 4.05 cm , VC = 1 (MSR = Main Scale Reading, VC = Vernier Coincidence) Refractive index of the glass slab is :",
+        "type": "mcq",
+        "options": [
+            "1.52",
+            "1.35",
+            "1.24",
+            "1.42"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-finding-out-refractive-index-of-glass-slab-the-followi-jee-main-physics-motion-kpdo6f12ygte0ewg",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "6th April"
+    },
+    {
+        "q": "To find the spring constant ( k ) of a spring experimentally, a student commits 2 % positive error in the measurement of time and 1 % negative error in measurement of mass. The percentage error in determining value of k is :",
+        "type": "mcq",
+        "options": [
+            "5%",
+            "3%",
+            "1%",
+            "4%"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pto-find-the-spring-constant-k-of-a-spring-experimen-jee-main-physics-motion-khvmevbsa2hwejgh",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "6th April"
     }
 ]
