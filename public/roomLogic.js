@@ -3,7 +3,7 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth
 import { getFirestore, doc, updateDoc, setDoc, increment, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
 // --- AGORA CONFIGURATION ---
-// ⚠️ MUST BE A "TESTING MODE" APP ID FROM AGORA CONSOLE
+// ⚠️ PASTE YOUR AGORA TESTING APP ID HERE:
 const APP_ID = "8a735e3d22a7475babf205eab01d8859"; 
 
 // --- FIREBASE CONFIGURATION ---
@@ -78,9 +78,9 @@ async function ensureMedia() {
         localPlayerWrapper.style.display = "flex";
         localVideoTrack.play("local-player");
         
-        // Default to off so user can adjust before joining
-        localAudioTrack.setEnabled(false);
-        localVideoTrack.setEnabled(false);
+        // FIXED: Use setMuted(true) instead of setEnabled(false) so Agora doesn't crash when publishing!
+        await localAudioTrack.setMuted(true);
+        await localVideoTrack.setMuted(true);
         
         btnJoin.style.display = 'flex';
         adjustGrid();
@@ -97,7 +97,8 @@ btnMic.onclick = async () => {
     if (isPublicRoom) return alert("🔇 Microphones are disabled in Public Rooms.");
     if (!(await ensureMedia())) return;
     isMicOn = !isMicOn;
-    localAudioTrack.setEnabled(isMicOn);
+    // FIXED: Use setMuted()
+    await localAudioTrack.setMuted(!isMicOn);
     btnMic.className = isMicOn ? "btn-media btn-on" : "btn-media btn-off";
     btnMic.innerHTML = isMicOn ? '<i class="fa-solid fa-microphone"></i>' : '<i class="fa-solid fa-microphone-slash"></i>';
 };
@@ -105,7 +106,8 @@ btnMic.onclick = async () => {
 btnCam.onclick = async () => {
     if (!(await ensureMedia())) return;
     isCamOn = !isCamOn;
-    localVideoTrack.setEnabled(isCamOn);
+    // FIXED: Use setMuted()
+    await localVideoTrack.setMuted(!isCamOn);
     btnCam.className = isCamOn ? "btn-media btn-on" : "btn-media btn-off";
     btnCam.innerHTML = isCamOn ? '<i class="fa-solid fa-video"></i>' : '<i class="fa-solid fa-video-slash"></i>';
 };
@@ -150,7 +152,6 @@ btnJoin.onclick = async () => {
     btnJoin.disabled = true;
 
     try {
-        // UID is generated automatically by Agora if we pass null
         const uid = await client.join(APP_ID, ROOM_ID, null, null);
         
         if (localAudioTrack && localVideoTrack) {
@@ -161,7 +162,7 @@ btnJoin.onclick = async () => {
         btnJoin.style.display = 'none';
         localPlayerWrapper.querySelector('.name-badge').innerText = "You";
     } catch (error) {
-        alert("Failed to connect: " + (error.message || JSON.stringify(error)||error));
+        alert("Failed to connect: " + (error.message || JSON.stringify(error) || error));
         console.error("Agora Error:", error);
         btnJoin.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> Join Room';
         btnJoin.disabled = false;
@@ -185,7 +186,6 @@ btnCloseChat.onclick = () => { chatPanel.style.display = 'none'; };
 // Load and Send Messages
 const messagesRef = collection(db, "rooms", ROOM_ID, "messages");
 
-// Listen for new messages in real-time
 onSnapshot(query(messagesRef, orderBy("timestamp", "asc")), (snapshot) => {
     messagesContainer.innerHTML = ''; 
     snapshot.forEach((doc) => {
@@ -200,18 +200,15 @@ onSnapshot(query(messagesRef, orderBy("timestamp", "asc")), (snapshot) => {
         `;
         messagesContainer.appendChild(div);
     });
-    // Scroll to bottom
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
 });
 
-// Send Message
 async function sendMessage() {
     const text = chatInput.value.trim();
     if (!text) return;
     
-    chatInput.value = ''; // clear input immediately
+    chatInput.value = ''; 
     
-    // Fallback name if not logged in
     const userName = (auth.currentUser && auth.currentUser.displayName) ? auth.currentUser.displayName : "Anonymous Scholar";
     const userId = (auth.currentUser) ? auth.currentUser.uid : "anon-" + Math.floor(Math.random() * 1000);
 
