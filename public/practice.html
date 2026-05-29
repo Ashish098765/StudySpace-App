@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- MATHJAX CONFIGURATION FOR LATEX SUPPORT -->
     <script>
         window.MathJax = {
             tex: {
@@ -111,13 +110,12 @@
         .index-q-wrapper { flex: 1; min-width: 0; }
         
         /* CSS Truncation preserves MathJax formatting instead of JS slicing */
-        /* CSS Truncation preserves MathJax formatting instead of JS slicing */
         .index-q-text { 
             font-weight: 500; 
             font-size: 0.95rem; 
             display: -webkit-box;
             -webkit-line-clamp: 2;
-            line-clamp: 2; /* <--- Add this line to make VS Code happy! */
+            line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden; 
             white-space: normal;
@@ -134,12 +132,19 @@
         
         .q-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-weight: 500; overflow-x: auto; contain: content; }
         
-        /* TABLE STYLES */
+        /* STANDARD TABLE STYLES */
         .q-text table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: rgba(255,255,255,0.03); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
         .q-text th { background: rgba(99, 102, 241, 0.1); color: var(--brand-blue); font-weight: 700; text-align: left; padding: 12px 15px; border-bottom: 2px solid var(--border-color); }
         .q-text td { padding: 12px 15px; border-bottom: 1px solid var(--border-color); color: var(--text-primary); }
         .q-text tr:last-child td { border-bottom: none; }
         .q-text tr:hover { background: rgba(255,255,255,0.05); }
+
+        /* --- SMART MATCH THE COLUMN STYLES --- */
+        .match-table-wrapper { width: 100%; margin: 1.5rem 0; background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; }
+        .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-color); }
+        .match-header { background: var(--bg-surface-elevated); padding: 12px 16px; font-weight: 700; text-align: center; color: var(--brand-blue); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
+        .match-cell { background: var(--bg-surface); padding: 12px 16px; font-size: 0.95rem; display: flex; align-items: flex-start; gap: 8px; color: var(--text-primary); }
+        .match-cell b { color: var(--gold); min-width: 30px; flex-shrink: 0; }
 
         .options-list { display: flex; flex-direction: column; gap: 0.8rem; contain: content; }
         .marks-option { display: flex; align-items: center; padding: 0.9rem 1.2rem; border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; transition: 0.15s; background: rgba(0,0,0,0.15); }
@@ -177,6 +182,13 @@
         .solution-box { display: none; margin-top: 1.5rem; padding: 1.5rem; border-radius: 6px; border: 1px solid var(--brand-blue); background: rgba(99, 102, 241, 0.05); contain: content; }
         .solution-title { font-size: 0.8rem; color: var(--brand-blue); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; }
         .solution-text { font-size: 0.95rem; line-height: 1.6; color: var(--text-primary); overflow-x: auto; }
+
+        @media (max-width: 768px) {
+            .explorer-layout { flex-direction: column; }
+            .subject-sidebar { width: 100%; flex-direction: row; overflow-x: auto; padding-bottom: 5px; }
+            .sidebar-btn { width: auto; white-space: nowrap; flex-shrink: 0; }
+            .match-grid { grid-template-columns: 1fr; } /* Stack match table on small phones */
+        }
     </style>
 </head>
 <body>
@@ -335,6 +347,39 @@
                 }
             }
         };
+
+        // --- THE FIX: SMART FORMATTING FOR TEXT AND MATCH THE COLUMN TABLES ---
+        function formatQuestionText(text) {
+            if (!text) return "";
+            
+            // 1. Process any standard markdown tables first
+            let formatted = markdownTableToHTML(text);
+            
+            // 2. Convert standard line breaks to HTML breaks
+            formatted = formatted.replace(/\n/g, '<br>');
+
+            // 3. SMART TABLE PARSER: Detects Match the Column formats
+            if (formatted.includes("List I") || formatted.includes("Column I")) {
+                
+                // Wrap headers
+                formatted = formatted.replace(/(List[-\s]*I|Column[-\s]*I)/ig, "<div class='match-table-wrapper'><div class='match-grid'><div class='match-header'>$1</div>");
+                formatted = formatted.replace(/(List[-\s]*II|Column[-\s]*II)/ig, "<div class='match-header'>$1</div>");
+                
+                // Wrap Left Column Items: (A), (B), (C), (D) or A., B., C.
+                formatted = formatted.replace(/(?:\s|^|<br>)(\([A-E]\)|[A-E]\.)/g, "<div class='match-cell left'><b>$1</b> ");
+                
+                // Wrap Right Column Items: (I), (II), (III), (IV), (P), (Q), (R), (S), (T)
+                formatted = formatted.replace(/(?:\s|^|<br>)(\([I|V|X]+\)|[I|V|X]+\.|\([P-T]\)|[P-T]\.)/g, "</div><div class='match-cell right'><b>$1</b> ");
+                
+                // Close the grid safely
+                formatted += "</div></div></div>";
+                
+                // Cleanup messy trailing divs caused by regex overlap
+                formatted = formatted.replace(/<div class='match-cell right'><b>.*?<\/div><\/div><\/div>/g, "$&</div></div>");
+            }
+
+            return formatted;
+        }
 
         function markdownTableToHTML(text) {
             if (!text.includes('|')) return text;
@@ -541,7 +586,6 @@
             screenList.style.display = 'block';
         };
 
-        // THE FIX: Do not slice or strip text strings here so LaTeX tags stay intact.
         function getCleanPreview(text) {
             return text.replace(/\s+/g, ' ').trim();
         }
@@ -565,7 +609,6 @@
                 const yText = (q.year && q.year !== "Unknown" && q.year !== "Unknown Year") ? q.year : "";
                 const fullDateStr = [dText, yText].filter(Boolean).join(" ") || "Date Unknown";
                 
-                // THE FIX: Hide shift entirely if unknown
                 let shiftBadgeHtml = '';
                 if (q.shift && q.shift !== "Unknown" && q.shift !== "Unknown Shift") {
                     shiftBadgeHtml = `<span style="background: rgba(255, 255, 255, 0.05); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1);"><i class="fa-regular fa-clock"></i> ${q.shift} Shift</span>`;
@@ -588,7 +631,6 @@
 
             document.getElementById('list-progress-tracker').innerText = `${completedCount} / ${filteredPracticeSet.length} Completed`;
             
-            // Stagger MathJax to prevent freezing
             setTimeout(() => triggerMathRender('index-list-container'), 100);
         }
 
@@ -626,7 +668,8 @@
                 ${shiftBadgeFocus}
             `;
             
-            document.getElementById('focus-q-text').innerHTML = markdownTableToHTML(q.q).replace(/\n/g, '<br>');
+            // THE FIX: Smart Format applied to the main question text
+            document.getElementById('focus-q-text').innerHTML = formatQuestionText(q.q);
 
             const optContainer = document.getElementById('focus-options-container');
             optContainer.innerHTML = "";
@@ -651,9 +694,11 @@
                     const div = document.createElement('div');
                     div.className = `marks-option ${isAttempted ? 'locked' : ''} ${q.type === 'multi_select' ? 'multi-select-option' : ''}`;
                     div.id = `focus-opt-${optIdx}`;
+                    
+                    // THE FIX: Smart Format applied to the options text
                     div.innerHTML = `
                         <div class="opt-letter">${codeMarker}</div>
-                        <div class="opt-text">${markdownTableToHTML(opt)}</div>
+                        <div class="opt-text">${formatQuestionText(opt)}</div>
                         <i class="fa-solid fa-circle-check opt-icon check-icon" id="focus-check-${optIdx}"></i>
                         <i class="fa-solid fa-circle-xmark opt-icon cross-icon" id="focus-cross-${optIdx}"></i>
                     `;
@@ -668,7 +713,9 @@
             if (isAttempted) {
                 document.getElementById('btn-check-focus').style.display = 'none';
                 document.getElementById('btn-next-focus').style.display = 'block';
-                document.getElementById('focus-explanation-text').innerHTML = markdownTableToHTML(q.explanation).replace(/\n/g, '<br>');
+                
+                // THE FIX: Smart Format applied to the explanation text
+                document.getElementById('focus-explanation-text').innerHTML = formatQuestionText(q.explanation);
                 document.getElementById('focus-explanation-box').style.display = 'block';
                 
                 if (q.type !== "integer") {
@@ -729,7 +776,7 @@
             } else if (q.type === "integer") {
                 const userVal = parseFloat(document.getElementById('focus-integer-input').value);
                 const correctVal = parseFloat(q.answer);
-                isCorrect = Math.abs(userVal - correctVal) < 0.01; // Tiny tolerance for decimals
+                isCorrect = Math.abs(userVal - correctVal) < 0.01; 
                 localStorage.setItem(`answer_${q.uid}`, userVal);
             }
 
@@ -744,7 +791,6 @@
                 document.querySelectorAll('#focus-options-container .marks-option').forEach(el => el.classList.add('locked'));
                 const correctAnswers = Array.isArray(q.answer) ? q.answer : [q.answer];
                 
-                // Show correctness on selected ones
                 if (q.type === "mcq") {
                     if (isCorrect) {
                         document.getElementById(`focus-opt-${selectedOptionIndex}`).classList.add('correct');
@@ -765,7 +811,6 @@
                     });
                 }
                 
-                // Always highlight true correct answers
                 correctAnswers.forEach(ansIdx => {
                     document.getElementById(`focus-opt-${ansIdx}`).classList.add('correct');
                     document.getElementById(`focus-check-${ansIdx}`).style.display = 'block';
@@ -789,7 +834,9 @@
             }
 
             await updateFirebaseProgress(q.uid, isCorrect);
-            document.getElementById('focus-explanation-text').innerHTML = markdownTableToHTML(q.explanation).replace(/\n/g, '<br>');
+            
+            // THE FIX: Smart Format applied to the explanation text
+            document.getElementById('focus-explanation-text').innerHTML = formatQuestionText(q.explanation);
             document.getElementById('focus-explanation-box').style.display = 'block';
             setTimeout(() => triggerMathRender('focus-explanation-box'), 100);
         };
