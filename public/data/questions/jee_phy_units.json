@@ -1033,5 +1033,85 @@
         "year": "2024",
         "shift": "Morning",
         "date": "6th April"
+    },
+    {
+        "q": "Match List I with List II LIST I LIST II A. Torque I. [ M 1 L 1 T - 2 A - 2 ] B. Magnetic field II. [ L 2 A 1 ] C. Magnetic moment III. [ M 1 T - 2 A - 1 ] D. Permeability of free space IV. [ M 1 L 2 T - 2 ] Choose the correct answer from the options given below:",
+        "type": "mcq",
+        "options": [
+            "A-I, B-III, C-II, D-IV",
+            "A-IV, B-II, C-III, D-I",
+            "A-III, B-I, C-II, D-IV",
+            "A-IV, B-III, C-II, D-I"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pmatch-list-i-with-list-iip-pstyle-typetextcss-jee-main-physics-motion-mk00hrhgv3s0ij7w",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "6th April"
+    },
+    {
+        "q": "While measuring diameter of wire using screw gauge the following readings were noted. Main scale reading is 1 mm and circular scale reading is equal to 42 divisions. Pitch of screw gauge is 1 mm and it has 100 divisions on circular scale. The diameter of the wire is x 50 mm . The value of x is :",
+        "type": "mcq",
+        "options": [
+            "42",
+            "71",
+            "21",
+            "142"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pwhile-measuring-diameter-of-wire-using-screw-gauge-the-fo-jee-main-physics-motion-wv6yfoj5vqolpffq",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "6th April"
+    },
+    {
+        "q": "What is the dimensional formula of a b - 1 in the equation ( P + a V 2 ) ( V - b ) = RT , where letters have their usual meaning.",
+        "type": "mcq",
+        "options": [
+            "[ M 6 L 7 T 4 ]",
+            "[ M - 1 L 5 T 3 ]",
+            "[ M 0 L 3 T - 2 ]",
+            "[ ML 2 T - 2 ]"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pwhat-is-the-dimensional-formula-of-a-b-1-in-the-eq-jee-main-physics-motion-wgrfo97g2crlybyw",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "5th April"
+    },
+    {
+        "q": "A vernier callipers has 20 divisions on the vernier scale, which coincides with th 19 th division on the main scale. The least count of the instrument is 0.1 mm . One main scale division is equal to ________ mm.",
+        "type": "mcq",
+        "options": [
+            "5",
+            "2",
+            "1",
+            "0.5"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pa-vernier-callipers-has-20-divisions-on-the-vernier-scale-jee-main-physics-motion-ywkluwoct3pxh4lk",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "5th April"
+    },
+    {
+        "q": "Time periods of oscillation of the same simple pendulum measured using four different measuring clocks were recorded as 4.62 s , 4.632 s , 4.6 s and 4.64 s . The arithmetic mean of these readings in correct significant figure is :",
+        "type": "mcq",
+        "options": [
+            "5 s",
+            "4.6 s",
+            "4.62 s",
+            "4.623 s"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/ptime-periods-of-oscillation-of-the-same-simple-pendulum-m-jee-main-physics-motion-ogkdydpiepgwaafw",
+        "year": "2024",
+        "shift": "Morning",
+        "date": "5th April"
     }
 ]
