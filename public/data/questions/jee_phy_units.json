@@ -2316,5 +2316,85 @@
         "year": "2021",
         "shift": "Morning",
         "date": "16th March"
+    },
+    {
+        "q": "One main scale division of a vernier callipers is 'a' cm and n ^{th} division of the vernier scale coincide with (n - 1) ^{th} division of the main scale. The least count of the callipers in mm is :",
+        "type": "mcq",
+        "options": [
+            "10 a n",
+            "10 n a ( n - 1 )",
+            "( n - 1 10 n ) a",
+            "10 a ( n - 1 )"
+        ],
+        "answer": 0,
+        "explanation": "n VSD = (n\n-\n1) MSD\n1 VSD =\n(\nn\n-\n1\nn\n)\nMSD\nL.C. = 1 MSD\n-\n1 VSD\n= 1 MSD\n-\n(\nn\n-\n1\nn\n)\nMSD\n= 1 MSD\n-\n1 MSD +\nM\nS\nD\nn\n=\nM\nS\nD\nn\n=\na\nn\ncm\n=\n10\na\nn\nmm",
+        "url": "https://questions.examside.com/past-years/jee/question/one-main-scale-division-of-a-vernier-callipers-is-a-cm-and-jee-main-physics-units-and-measurements-cgbox9ylcjctid7f",
+        "year": "2021",
+        "shift": "Morning",
+        "date": "16th March"
+    },
+    {
+        "q": "If 'C' and 'V' represent capacity and voltage respectively then what are the dimensions of λ where C/V = λ ?",
+        "type": "mcq",
+        "options": [
+            "[ M - 3 L - 4 I 3 T 7 ]",
+            "[ M - 2 L - 3 I 2 T 6 ]",
+            "[ M - 2 L - 4 I 3 T 7 ]",
+            "[ M - 1 L - 3 I - 2 T - 7 ]"
+        ],
+        "answer": 2,
+        "explanation": "λ\n=\nC\nV\n=\nQ\n/\nV\nV\n=\nQ\nV\n2\nV\n=\nw\no\nr\nk\nQ\nλ\n=\nQ\n3\n(\nw\no\nr\nk\n)\n2\n=\n(\nI\nt\n)\n3\n(\nF\n.\ns\n)\n2\n=\n[\nI\n3\nT\n3\n]\n[\nM\nL\n2\nT\n-\n2\n]\n2\n=\n[\nM\n-\n2\nL\n-\n4\nI\n3\nT\n7\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/if-c-and-v-represent-capacity-and-voltage-respectively-t-jee-main-physics-units-and-measurements-4kjszzwmi3w6ngoo",
+        "year": "2021",
+        "shift": "Morning",
+        "date": "26th February"
+    },
+    {
+        "q": "In a typical combustion engine the workdone by a gas molecule is given by W = α 2 β e - β x 2 k T , where x is the displacement, k is the Boltzmann constant and T is the temperature. If α and β are constants, dimensions of α will be :",
+        "type": "mcq",
+        "options": [
+            "[ M 0 L T 0 ]",
+            "[ M L T - 1 ]",
+            "[ M L T - 2 ]",
+            "[ M 2 L T - 2 ]"
+        ],
+        "answer": 0,
+        "explanation": "kT has dimension of energy\nβ\nx\n2\nk\nT\nis dimensionless\n[\nβ\n]\n[\nL\n2\n]\n=\n[\nM\nL\n2\nT\n-\n2\n]\n[\nβ\n]\n=\n[\nM\nT\n-\n2\n]\nα\n2\nβ\nhas dimensions of work\n[\nα\n2\n]\n[\nM\nT\n-\n2\n]\n=\n[\nM\nL\n2\nT\n-\n2\n]\n[\nα\n]\n=\n[\nM\n0\nL\nT\n0\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/in-a-typical-combustion-engine-the-workdone-by-a-gas-molecul-jee-main-physics-units-and-measurements-qrkd8alljbynctiv",
+        "year": "2021",
+        "shift": "Morning",
+        "date": "26th February"
+    },
+    {
+        "q": "If e is the electronic charge, c is the speed of light in free space and h is Planck's constant, the quantity 1 4 π ε 0 | e | 2 h c has dimensions of :",
+        "type": "mcq",
+        "options": [
+            "[ M L T - 1 ]",
+            "[ M L T 0 ]",
+            "[ M 0 L 0 T 0 ]",
+            "[ L C - 1 ]"
+        ],
+        "answer": 2,
+        "explanation": "Given\ne = electronic charge\nc = speed of light in free space\nh = Planck's constant\nWe know, E =\nh\nc\nλ\nand\nF\n=\n1\n4\nπ\nε\n0\nq\n2\nd\n2\n⇒\nq\n2\n4\nπ\nε\n0\n=\nF\nd\n2\n1\n4\nπ\nε\n0\ne\n2\nh\nc\n=\nF\nd\n2\nE\nλ\n=\nF\nd\n.\nd\nE\nλ\n=\nd\nλ\n=\ndimensionless\n=\n[\nM\n0\nL\n0\nT\n0\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/if-e-is-the-electronic-charge-c-is-the-speed-of-light-in-fr-jee-main-physics-units-and-measurements-abxajwfd5kahnddw",
+        "year": "2021",
+        "shift": "Morning",
+        "date": "25th February"
+    },
+    {
+        "q": "Match List - I with List - II : List I List II (a) h (Planck's constant) (i) [ M L T - 1 ] (b) E (kinetic energy) (ii) [ M L 2 T - 1 ] (c) V (electric potential) (iii) [ M L 2 T - 2 ] (d) P (linear momentum) (iv) [ M L 2 I - 1 T - 3 ] Choose the correct answer from the options given below :",
+        "type": "mcq",
+        "options": [
+            "(a) → (ii), (b) → (iii), (c) → (iv), (d) → (i)",
+            "(a) → (i), (b) → (ii), (c) → (iv), (d) → (iii)",
+            "(a) → (iii), (b) → (ii), (c) → (iv), (d) → (i)",
+            "(a) → (iii), (b) → (iv), (c) → (ii), (d) → (i)"
+        ],
+        "answer": 0,
+        "explanation": "Kinetic Energy,\n1\n2\nm\nv\n2\n=\n[\nM\nL\n2\nT\n-\n2\n]\nMomentum,\nm\nv\n=\n[\nM\nL\nT\n-\n1\n]\nPlank constant :\nE\n=\nh\nγ\n⇒\nM\nL\n2\nT\n-\n2\n=\nh\n×\n1\nT\n⇒\nh\n=\n[\nM\nL\n2\nT\n-\n1\n]\nAlso,\nE\n=\nq\nV\n⇒\nV\n=\n[\nM\nL\n2\nT\n-\n2\n]\n[\nC\n]\n=\n[\nM\nL\n2\nT\n-\n2\nC\n-\n1\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/match-list-i-with-list-ii-brbrtable-thead--jee-main-physics-units-and-measurements-hkfdviosgiki4mtr",
+        "year": "2021",
+        "shift": "Morning",
+        "date": "25th February"
     }
 ]
