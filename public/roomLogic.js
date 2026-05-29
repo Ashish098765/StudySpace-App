@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-import { getFirestore, doc, updateDoc, setDoc, getDoc, increment, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+import { getFirestore, doc, updateDoc, setDoc, increment, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
 // --- AGORA CONFIGURATION ---
 // ⚠️ PASTE YOUR AGORA TESTING APP ID HERE:
@@ -67,10 +67,12 @@ onAuthStateChanged(auth, async (user) => {
     // Populate Lobby Profile
     document.getElementById('lobby-name').innerText = currentUserData.name;
     document.getElementById('lobby-avatar').src = currentUserData.avatar;
+    document.getElementById('lobby-main-avatar').src = currentUserData.avatar;
     
     // Pre-populate Local Badge for Main Room
     document.getElementById('local-badge-name').innerText = currentUserData.name;
     document.getElementById('local-badge-avatar').src = currentUserData.avatar;
+    document.getElementById('local-main-avatar').src = currentUserData.avatar;
 
     // Initialize Camera for Lobby Preview
     await setupLobbyPreview();
@@ -81,10 +83,9 @@ async function setupLobbyPreview() {
         localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
         localVideoTrack = await AgoraRTC.createCameraVideoTrack();
         
-        // Play video in the lobby box first
         localVideoTrack.play("lobby-video-preview");
         
-        // Mute tracks by default
+        // Start completely muted (camera off)
         await localAudioTrack.setMuted(true);
         await localVideoTrack.setMuted(true);
     } catch (error) {
@@ -107,20 +108,16 @@ function adjustGrid() {
 client.enableAudioVolumeIndicator();
 client.on("volume-indicator", volumes => {
     volumes.forEach((volume) => {
-        // Highlighting threshold (adjustable)
-        if (volume.level > 10) {
-            const wrapperId = volume.uid === myAgoraUid ? 'local-player-wrapper' : `user-${volume.uid}`;
-            const wrapper = document.getElementById(wrapperId);
-            if(wrapper) wrapper.classList.add('speaking');
-        } else {
-            const wrapperId = volume.uid === myAgoraUid ? 'local-player-wrapper' : `user-${volume.uid}`;
-            const wrapper = document.getElementById(wrapperId);
-            if(wrapper) wrapper.classList.remove('speaking');
+        const wrapperId = volume.uid === myAgoraUid ? 'local-player-wrapper' : `user-${volume.uid}`;
+        const wrapper = document.getElementById(wrapperId);
+        if(wrapper) {
+            if (volume.level > 10) wrapper.classList.add('speaking');
+            else wrapper.classList.remove('speaking');
         }
     });
 });
 
-// Sync Buttons Logic (Updates both lobby and main room buttons)
+// Sync Buttons & Push State to Firebase
 async function toggleMic() {
     if (isPublicRoom) return alert("🔇 Microphones are disabled in Public Rooms.");
     if (!localAudioTrack) return;
@@ -141,6 +138,23 @@ async function toggleCam() {
     isCamOn = !isCamOn;
     await localVideoTrack.setMuted(!isCamOn);
     
+    // Toggle the Discord Avatar overlays locally
+    const lobbyPrev = document.getElementById('lobby-preview-container');
+    if (isCamOn) {
+        localPlayerWrapper.classList.remove('cam-off');
+        lobbyPrev.classList.remove('cam-off');
+    } else {
+        localPlayerWrapper.classList.add('cam-off');
+        lobbyPrev.classList.add('cam-off');
+    }
+    
+    // Send new camera state to Firebase so others can see!
+    if (isJoined && myAgoraUid) {
+        try {
+            await updateDoc(doc(db, "rooms", ROOM_ID, "participants", String(myAgoraUid)), { isCamOn: isCamOn });
+        } catch(e) {}
+    }
+    
     const uiClass = isCamOn ? "btn-media btn-on" : "btn-media btn-off";
     const uiIcon = isCamOn ? '<i class="fa-solid fa-video"></i>' : '<i class="fa-solid fa-video-slash"></i>';
     
@@ -156,47 +170,41 @@ document.getElementById('lobby-btn-cam').onclick = toggleCam;
 document.getElementById('main-btn-cam').onclick = toggleCam;
 
 
-// Remote Users Logic
+// --- 4. THE DISCORD METHOD (Firestore + Agora) ---
+
+// Step A: Build the HTML Shell as soon as they enter (Even before tracks arrive)
+client.on("user-joined", (user) => {
+    let playerWrapper = document.getElementById(`user-${user.uid}`);
+    if (!playerWrapper) {
+        playerWrapper = document.createElement("div");
+        playerWrapper.id = `user-${user.uid}`;
+        playerWrapper.className = "video-container cam-off"; // Default to Avatar view
+        playerWrapper.innerHTML = `
+            <img id="main-avatar-${user.uid}" class="main-avatar" src="https://www.gravatar.com/avatar/?d=mp">
+            <div id="video-${user.uid}" class="agora-video-view"></div>
+            <div class="name-badge">
+                <img id="badge-avatar-${user.uid}" class="badge-avatar" src="https://www.gravatar.com/avatar/?d=mp">
+                <span id="name-${user.uid}">Connecting...</span>
+            </div>
+        `;
+        videoGrid.append(playerWrapper);
+        adjustGrid();
+    }
+});
+
+// Step B: Inject the actual video track into the shell when it arrives
 client.on("user-published", async (user, mediaType) => {
     await client.subscribe(user, mediaType);
-    
     if (mediaType === "video") {
-        let playerWrapper = document.getElementById(`user-${user.uid}`);
-        if (!playerWrapper) {
-            // Fetch their real name and avatar from Firestore!
-            let studentName = `Student ${user.uid.toString().slice(-4)}`;
-            let studentAvatar = "https://www.gravatar.com/avatar/?d=mp";
-            
-            try {
-                const userDoc = await getDoc(doc(db, "rooms", ROOM_ID, "participants", String(user.uid)));
-                if (userDoc.exists()) {
-                    studentName = userDoc.data().name;
-                    studentAvatar = userDoc.data().avatar;
-                }
-            } catch(e) { console.warn("Could not fetch user profile", e); }
-
-            playerWrapper = document.createElement("div");
-            playerWrapper.id = `user-${user.uid}`;
-            playerWrapper.className = "video-container";
-            playerWrapper.innerHTML = `
-                <div id="video-${user.uid}" style="width: 100%; height: 100%;"></div>
-                <div class="name-badge">
-                    <img class="badge-avatar" src="${studentAvatar}">
-                    <span>${studentName}</span>
-                </div>
-            `;
-            videoGrid.append(playerWrapper);
-            adjustGrid();
-        }
         user.videoTrack.play(`video-${user.uid}`);
     }
-    
     if (mediaType === "audio") {
         user.audioTrack.play();
     }
 });
 
-client.on("user-unpublished", (user) => {
+// Step C: Delete the shell when they leave
+client.on("user-left", (user) => {
     const playerWrapper = document.getElementById(`user-${user.uid}`);
     if (playerWrapper) {
         playerWrapper.remove();
@@ -204,20 +212,46 @@ client.on("user-unpublished", (user) => {
     }
 });
 
-// --- 4. JOINING THE ROOM ---
+// Step D: Real-Time Firebase Listener to update Names, Avatars, and Camera states!
+onSnapshot(collection(db, "rooms", ROOM_ID, "participants"), (snapshot) => {
+    snapshot.forEach((docSnap) => {
+        const uid = docSnap.id;
+        if (uid === String(myAgoraUid)) return; // Ignore ourselves
+        
+        const data = docSnap.data();
+        const wrapper = document.getElementById(`user-${uid}`);
+        
+        if (wrapper) {
+            // Update names and images
+            document.getElementById(`name-${uid}`).innerText = data.name || `Student`;
+            document.getElementById(`main-avatar-${uid}`).src = data.avatar || 'https://www.gravatar.com/avatar/?d=mp';
+            document.getElementById(`badge-avatar-${uid}`).src = data.avatar || 'https://www.gravatar.com/avatar/?d=mp';
+            
+            // Toggle the Discord Avatar overlay based on their remote camera state
+            if (data.isCamOn) {
+                wrapper.classList.remove('cam-off');
+            } else {
+                wrapper.classList.add('cam-off');
+            }
+        }
+    });
+});
+
+
+// --- 5. JOINING THE ROOM ---
 btnJoin.onclick = async () => {
     if (isJoined) return;
     btnJoin.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Entering...';
     btnJoin.disabled = true;
 
     try {
-        // Join Agora Call
         myAgoraUid = await client.join(APP_ID, ROOM_ID, null, null);
         
-        // Write my UID mapping to Firestore so others can see my real name/avatar!
+        // Announce myself to Firebase so everyone else sees my avatar!
         await setDoc(doc(db, "rooms", ROOM_ID, "participants", String(myAgoraUid)), {
             name: currentUserData.name,
             avatar: currentUserData.avatar,
+            isCamOn: isCamOn,
             timestamp: serverTimestamp()
         });
 
@@ -231,7 +265,7 @@ btnJoin.onclick = async () => {
         lobbyScreen.style.display = 'none';
         localPlayerWrapper.style.display = 'flex';
         
-        // Move local video playback from lobby box to main grid box
+        // Move local video playback to the grid box
         localVideoTrack.stop();
         localVideoTrack.play("local-player");
         
@@ -244,7 +278,7 @@ btnJoin.onclick = async () => {
 };
 
 
-// --- 5. FIREBASE CHAT LOGIC ---
+// --- 6. FIREBASE CHAT LOGIC ---
 const chatPanel = document.getElementById('chat-panel');
 const btnToggleChat = document.getElementById('btn-chat');
 const btnCloseChat = document.getElementById('close-chat');
@@ -269,8 +303,8 @@ const messagesRef = collection(db, "rooms", ROOM_ID, "messages");
 
 onSnapshot(query(messagesRef, orderBy("timestamp", "asc")), (snapshot) => {
     messagesContainer.innerHTML = ''; 
-    snapshot.forEach((doc) => {
-        const msg = doc.data();
+    snapshot.forEach((docSnap) => {
+        const msg = docSnap.data();
         const isMine = auth.currentUser && msg.uid === auth.currentUser.uid;
         
         const div = document.createElement('div');
@@ -306,7 +340,7 @@ chatInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') sendMessage();
 });
 
-// --- 6. XP TRACKING ---
+// --- 7. XP TRACKING ---
 window.onbeforeunload = async () => {
     const user = window.auth?.currentUser;
     if (user && secondsSpent >= 60) {
