@@ -19,9 +19,8 @@ const db = getFirestore(app);
 window.auth = auth; 
 
 // --- 1. UI SETUP & TIMER ---
-// FIX: Read the Room ID from the URL parameters instead of the pathname
 const urlParams = new URLSearchParams(window.location.search);
-const ROOM_ID = urlParams.get('id') || 'public-general'; // Fallback to public room if empty
+const ROOM_ID = urlParams.get('id') || 'public-general'; 
 
 const roomTitleDisplay = document.getElementById('room-id-display');
 const activityWarning = document.getElementById('activity-warning');
@@ -49,11 +48,9 @@ const publicRooms = {
 };
 const isPublicRoom = ROOM_ID.startsWith('public-');
 
-// FIX: Display the 6-digit code clearly if it is a private room
 if (publicRooms[ROOM_ID]) {
     roomTitleDisplay.innerHTML = publicRooms[ROOM_ID];
 } else {
-    // Make the numerical code stand out so users can copy/share it easily
     roomTitleDisplay.innerHTML = `<i class="fa-solid fa-lock"></i> Room Code: <span style="color: var(--primary); letter-spacing: 2px;">${ROOM_ID}</span>`;
 }
 
@@ -80,66 +77,18 @@ function adjustGrid() {
     else videoGrid.style.gridTemplateColumns = "repeat(auto-fit, minmax(300px, 1fr))";
 }
 
-// --- 4. ZOOM SPEECH HIGHLIGHT ENGINE ---
-function monitorSpeech(stream, wrapperElement) {
-    try {
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const analyser = audioContext.createAnalyser();
-        const microphone = audioContext.createMediaStreamSource(stream);
-        const scriptProcessor = audioContext.createScriptProcessor(2048, 1, 1);
+// --- 4. AGORA WEB-RTC ENGINE (SERVERLESS) ---
+const AGORA_APP_ID = "1f9a1a3a5a584354981fd9477e3051c0";
+const client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
 
-        analyser.smoothingTimeConstant = 0.8;
-        analyser.fftSize = 1024;
-        microphone.connect(analyser);
-        analyser.connect(scriptProcessor);
-        scriptProcessor.connect(audioContext.destination);
+let localAudioTrack = null;
+let localVideoTrack = null;
+let localScreenTrack = null;
 
-        scriptProcessor.onaudioprocess = function() {
-            const array = new Uint8Array(analyser.frequencyBinCount);
-            analyser.getByteFrequencyData(array);
-            let values = 0;
-            for (let i = 0; i < array.length; i++) values += (array[i]);
-            
-            const average = values / array.length;
-            if (average > 20) wrapperElement.classList.add('speaking');
-            else wrapperElement.classList.remove('speaking');
-        };
-    } catch (e) { console.warn("Speech detection disabled for stream."); }
-}
-
-// --- 5. WEB-RTC & MEDIA LOGIC ---
-const socket = io('/');
-const myPeer = new Peer(undefined, { host: '/', port: '3001' }); 
-const myVideo = document.createElement('video');
-myVideo.muted = true; // Always mute yourself locally to avoid echo
-const peers = {};
-
-let myStream = null;
 let isMicOn = false;
 let isCamOn = false;
 let isConnected = false;
-
-// Universal Video Appender
-function addVideoStream(video, stream, label = "Student") {
-    video.srcObject = stream;
-    video.addEventListener('loadedmetadata', () => { video.play(); });
-
-    const wrapper = document.createElement('div');
-    wrapper.className = 'video-container';
-
-    const badge = document.createElement('div');
-    badge.className = 'name-badge';
-    badge.innerText = label;
-
-    wrapper.appendChild(video);
-    wrapper.appendChild(badge);
-
-    monitorSpeech(stream, wrapper); 
-    videoGrid.append(wrapper);
-    adjustGrid();
-
-    return wrapper; 
-}
+let myUid = null;
 
 function updateButtonStates() {
     btnMic.className = isMicOn ? "btn-media btn-on" : "btn-media btn-off";
@@ -149,20 +98,45 @@ function updateButtonStates() {
     btnCam.innerHTML = isCamOn ? '<i class="fa-solid fa-video"></i>' : '<i class="fa-solid fa-video-slash"></i>';
 }
 
-// 5a. The Lobby Preview Trigger
+// Universal UI Box Creator
+function createVideoWrapper(uid, label) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'video-container';
+    wrapper.id = `user-${uid}`; // Agora will inject the video tag inside this ID
+
+    const badge = document.createElement('div');
+    badge.className = 'name-badge';
+    badge.innerText = label;
+
+    wrapper.appendChild(badge);
+    videoGrid.append(wrapper);
+    adjustGrid();
+
+    return wrapper; 
+}
+
+// 4a. The Lobby Preview Trigger
 async function ensureMedia() {
-    if (myStream) return true;
+    if (localVideoTrack) return true;
     try {
-        // Request both, but start with them locally disabled so users can choose when to turn them on
-        myStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-        myStream.getAudioTracks()[0].enabled = false; 
-        myStream.getVideoTracks()[0].enabled = false; 
+        // Agora creates tracks individually
+        localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
+        localVideoTrack = await AgoraRTC.createCameraVideoTrack();
         
-        addVideoStream(myVideo, myStream, "You (Preview)");
-        btnJoin.style.display = 'flex'; // Show Join Button
+        // Start Muted
+        await localAudioTrack.setMuted(true);
+        isMicOn = false;
+        isCamOn = true; 
+
+        // Create UI and play local video
+        const wrapper = createVideoWrapper('local', 'You (Preview)');
+        localVideoTrack.play(wrapper.id);
+
+        btnJoin.style.display = 'flex'; 
         updateButtonStates();
         return true;
     } catch(e) { 
+        console.error(e);
         alert("Camera and Microphone access is required to join the room."); 
         return false; 
     }
@@ -173,7 +147,7 @@ async function ensureMedia() {
 btnCam.addEventListener('click', async () => {
     if (!(await ensureMedia())) return;
     isCamOn = !isCamOn;
-    myStream.getVideoTracks()[0].enabled = isCamOn;
+    await localVideoTrack.setEnabled(isCamOn);
     updateButtonStates();
 });
 
@@ -183,97 +157,103 @@ btnMic.addEventListener('click', async () => {
     }
     if (!(await ensureMedia())) return;
     isMicOn = !isMicOn;
-    myStream.getAudioTracks()[0].enabled = isMicOn;
+    await localAudioTrack.setMuted(!isMicOn); // True = muted, False = unmuted
     updateButtonStates();
 });
 
 // The Actual Join Trigger
-btnJoin.addEventListener('click', () => {
+btnJoin.addEventListener('click', async () => {
     if (isConnected) return;
-    isConnected = true;
     stopKickTimer();
     
-    // Remove "Preview" from badge once they actually join
-    const myBadge = myVideo.parentElement.querySelector('.name-badge');
-    if (myBadge) myBadge.innerText = "You";
-    
+    document.querySelector('#user-local .name-badge').innerText = "You";
     btnJoin.style.display = 'none'; 
-    socket.emit('join-room', ROOM_ID, myPeer.id);
+    
+    try {
+        // Join the Agora Channel
+        myUid = await client.join(AGORA_APP_ID, ROOM_ID, null, null);
+        isConnected = true;
+        
+        // Broadcast your video and audio to the room!
+        await client.publish([localAudioTrack, localVideoTrack]);
+    } catch (e) {
+        alert("Failed to join the room. Please try again.");
+    }
 });
 
-// The Screenshare Engine
+// The Screenshare Engine (Much easier with Agora)
 btnScreen.addEventListener('click', async () => {
     if (!isConnected) return alert("Please click 'Join Room' before sharing your screen!");
     
     try {
-        const screenStream = await navigator.mediaDevices.getDisplayMedia({ video: true });
-        const screenTrack = screenStream.getVideoTracks()[0];
-        
-        // 1. Show the screen locally
-        myVideo.srcObject = screenStream;
-        btnScreen.className = "btn-media btn-on";
+        if (!localScreenTrack) {
+            localScreenTrack = await AgoraRTC.createScreenVideoTrack({}, "auto");
+            
+            // Swap what we are broadcasting
+            await client.unpublish([localVideoTrack]);
+            await client.publish([localScreenTrack]);
+            
+            // Swap what we see locally
+            localVideoTrack.stop();
+            localScreenTrack.play('user-local');
+            btnScreen.className = "btn-media btn-on";
 
-        // 2. Broadcast the screen track to ALL connected peers in the room
-        for (let peerId in myPeer.connections) {
-            myPeer.connections[peerId].forEach(conn => {
-                if (conn.peerConnection) {
-                    const sender = conn.peerConnection.getSenders().find(s => s.track.kind === 'video');
-                    if (sender) sender.replaceTrack(screenTrack);
-                }
+            // If the user clicks the native browser "Stop Sharing" popup
+            localScreenTrack.on("track-ended", async () => {
+                await client.unpublish([localScreenTrack]);
+                localScreenTrack.close();
+                localScreenTrack = null;
+
+                // Restore webcam
+                await client.publish([localVideoTrack]);
+                localVideoTrack.play('user-local');
+                btnScreen.className = "btn-media btn-off";
             });
         }
-
-        // 3. When the user clicks the browser's native "Stop Sharing" button
-        screenTrack.onended = () => {
-            btnScreen.className = "btn-media btn-off";
-            
-            // Revert local video back to webcam
-            myVideo.srcObject = myStream;
-            const camTrack = myStream.getVideoTracks()[0];
-            
-            // Broadcast the webcam track back to ALL peers
-            for (let peerId in myPeer.connections) {
-                myPeer.connections[peerId].forEach(conn => {
-                    if (conn.peerConnection) {
-                        const sender = conn.peerConnection.getSenders().find(s => s.track.kind === 'video');
-                        if (sender) sender.replaceTrack(camTrack);
-                    }
-                });
-            }
-        };
     } catch (e) { 
         console.error("Screenshare cancelled or failed.", e); 
     }
 });
 
-// --- 6. PEER TO PEER LOGIC ---
-myPeer.on('call', call => {
-    if (!myStream) return;
-    call.answer(myStream);
-    const video = document.createElement('video');
-    let peerWrapper;
-    call.on('stream', userVideoStream => {
-        if (!peerWrapper) peerWrapper = addVideoStream(video, userVideoStream, "Student");
-    });
+// --- 5. HANDLING OTHER STUDENTS IN THE ROOM ---
+
+client.on("user-published", async (user, mediaType) => {
+    // Automatically receive their stream
+    await client.subscribe(user, mediaType);
+
+    if (mediaType === "video") {
+        let wrapper = document.getElementById(`user-${user.uid}`);
+        if (!wrapper) wrapper = createVideoWrapper(user.uid, "Student");
+        
+        // Agora plays the video inside our wrapper automatically
+        user.videoTrack.play(wrapper.id);
+    }
+    if (mediaType === "audio") {
+        user.audioTrack.play();
+    }
 });
 
-socket.on('user-connected', userId => {
-    if (!myStream) return;
-    const call = myPeer.call(userId, myStream);
-    const video = document.createElement('video');
-    let peerWrapper;
-    
-    call.on('stream', userVideoStream => {
-        if (!peerWrapper) peerWrapper = addVideoStream(video, userVideoStream, "Student");
-    });
-    call.on('close', () => {
-        if (peerWrapper) { peerWrapper.remove(); adjustGrid(); }
-    });
-    peers[userId] = call;
+client.on("user-left", (user) => {
+    const wrapper = document.getElementById(`user-${user.uid}`);
+    if (wrapper) {
+        wrapper.remove();
+        adjustGrid();
+    }
 });
 
-socket.on('user-disconnected', userId => {
-    if (peers[userId]) peers[userId].close();
+// --- 6. AGORA SPEECH HIGHLIGHT ENGINE ---
+client.enableAudioVolumeIndicator();
+client.on("volume-indicator", volumes => {
+    volumes.forEach((volume) => {
+        // Map our local UID to the 'local' string we used for our own UI box
+        const targetId = volume.uid === myUid ? 'local' : volume.uid;
+        const wrapper = document.getElementById(`user-${targetId}`);
+        if (wrapper) {
+            // Threshold is 0-100. 20 is a good baseline for speaking.
+            if (volume.level > 20) wrapper.classList.add('speaking');
+            else wrapper.classList.remove('speaking');
+        }
+    });
 });
 
 // --- 7. XP TRACKING ---
@@ -288,4 +268,10 @@ window.onbeforeunload = async () => {
             await setDoc(userRef, { name: user.displayName || 'Student', xp: xpEarned, lastActive: new Date() });
         }
     }
+    
+    // Cleanup Agora streams on exit
+    if (localAudioTrack) localAudioTrack.close();
+    if (localVideoTrack) localVideoTrack.close();
+    if (localScreenTrack) localScreenTrack.close();
+    await client.leave();
 };
