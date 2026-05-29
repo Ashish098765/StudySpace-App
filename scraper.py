@@ -74,9 +74,10 @@ def scrape_question(driver, url):
             buttons = driver.find_elements(By.TAG_NAME, "button")
             for btn in buttons:
                 b_text = btn.text.lower()
-                if "check" in b_text or "show" in b_text or "answer" in b_text or "solution" in b_text:
+                if "answer" in b_text or "solution" in b_text or "show" in b_text or "check" in b_text:
                     driver.execute_script("arguments[0].click();", btn)
-                    time.sleep(0.3) 
+                    # THE FIX: Wait 2 full seconds for Examside to load the answer into the HTML!
+                    time.sleep(2.0) 
                     break
         except: pass
         
@@ -110,7 +111,9 @@ def scrape_question(driver, url):
         if opts_raw:
             c_idx = []
             for i, o in enumerate(opts_raw):
-                if "Correct Answer" in o.get_text() or "correct" in o.get('class', []): c_idx.append(i)
+                # Check for "Correct Answer" text or the success CSS class
+                if "Correct Answer" in o.get_text() or "correct" in o.get('class', []) or "true" in o.get('data-correct', "").lower(): 
+                    c_idx.append(i)
                 options.append(normalize_text(re.sub(r'^([A-D])[\.\)\s]+', '', o.get_text(separator=" ", strip=True)).replace("Correct Answer", "").strip()))
             if len(c_idx) > 1: q_type, answer = "multi_select", c_idx
             elif len(c_idx) == 1: answer = c_idx[0]
@@ -119,9 +122,9 @@ def scrape_question(driver, url):
             am = re.search(r'(?:Answer|Value)\s*[:\-]?\s*(\d+\.?\d*)', full, re.I)
             answer = am.group(1) if am else "N/A"
             
-        exp_div = cont.find(['div', 'section'], class_=re.compile(r'explanation|solution|answer-details', re.I))
+        exp_div = cont.find(['div', 'section'], class_=re.compile(r'explanation|solution|answer-details|ans-text', re.I))
         if not exp_div:
-            eh = cont.find(['h2', 'h3', 'strong'], string=re.compile(r'Explanation|Solution', re.I))
+            eh = cont.find(['h2', 'h3', 'strong', 'p'], string=re.compile(r'Explanation|Solution|Correct Answer', re.I))
             if eh: exp_div = eh.find_next_sibling('div') or eh.parent.find_next_sibling('div')
         exp_text = normalize_text(exp_div.get_text(separator="\n", strip=True)) if exp_div else "N/A"
         

@@ -32,6 +32,9 @@ const btnCam = document.getElementById('btn-cam');
 const btnScreen = document.getElementById('btn-screen');
 const btnJoin = document.getElementById('btn-join');
 
+// FIX 1: Force the Join button to be visible immediately on load!
+if (btnJoin) btnJoin.style.display = 'flex';
+
 let secondsSpent = 0;
 setInterval(() => {
     secondsSpent++;
@@ -40,7 +43,7 @@ setInterval(() => {
     if (timerDisplay) timerDisplay.innerText = `${mins}:${secs}`;
 }, 1000);
 
-// --- 2. ROOM RULES (Public Mic Ban & Kick) ---
+// --- 2. ROOM RULES ---
 const publicRooms = {
     'public-general': '📚 General Study Lounge (Mic Off)',
     'public-pomodoro': '🍅 Pomodoro Focus (Mic Off)',
@@ -65,7 +68,7 @@ if (isPublicRoom) {
 
 function stopKickTimer() {
     if (inactivityTimer) clearTimeout(inactivityTimer);
-    activityWarning.style.display = 'none';
+    if (activityWarning) activityWarning.style.display = 'none';
 }
 
 // --- 3. DISCORD GRID SCALING ---
@@ -77,7 +80,7 @@ function adjustGrid() {
     else videoGrid.style.gridTemplateColumns = "repeat(auto-fit, minmax(300px, 1fr))";
 }
 
-// --- 4. AGORA WEB-RTC ENGINE (SERVERLESS) ---
+// --- 4. AGORA WEB-RTC ENGINE ---
 const AGORA_APP_ID = "1f9a1a3a5a584354981fd9477e3051c0";
 const client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
 
@@ -98,11 +101,10 @@ function updateButtonStates() {
     btnCam.innerHTML = isCamOn ? '<i class="fa-solid fa-video"></i>' : '<i class="fa-solid fa-video-slash"></i>';
 }
 
-// Universal UI Box Creator
 function createVideoWrapper(uid, label) {
     const wrapper = document.createElement('div');
     wrapper.className = 'video-container';
-    wrapper.id = `user-${uid}`; // Agora will inject the video tag inside this ID
+    wrapper.id = `user-${uid}`; 
 
     const badge = document.createElement('div');
     badge.className = 'name-badge';
@@ -115,24 +117,20 @@ function createVideoWrapper(uid, label) {
     return wrapper; 
 }
 
-// 4a. The Lobby Preview Trigger
+// 4a. Media Setup
 async function ensureMedia() {
-    if (localVideoTrack) return true;
+    if (localVideoTrack) return true; 
     try {
-        // Agora creates tracks individually
         localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
         localVideoTrack = await AgoraRTC.createCameraVideoTrack();
         
-        // Start Muted
         await localAudioTrack.setMuted(true);
         isMicOn = false;
         isCamOn = true; 
 
-        // Create UI and play local video
-        const wrapper = createVideoWrapper('local', 'You (Preview)');
-        localVideoTrack.play(wrapper.id);
+        createVideoWrapper('local', 'You (Preview)');
+        localVideoTrack.play('user-local');
 
-        btnJoin.style.display = 'flex'; 
         updateButtonStates();
         return true;
     } catch(e) { 
@@ -157,17 +155,22 @@ btnMic.addEventListener('click', async () => {
     }
     if (!(await ensureMedia())) return;
     isMicOn = !isMicOn;
-    await localAudioTrack.setMuted(!isMicOn); // True = muted, False = unmuted
+    await localAudioTrack.setMuted(!isMicOn); 
     updateButtonStates();
 });
 
-// The Actual Join Trigger
+// THE ACTUAL JOIN TRIGGER
 btnJoin.addEventListener('click', async () => {
     if (isConnected) return;
     stopKickTimer();
     
-    document.querySelector('#user-local .name-badge').innerText = "You";
-    btnJoin.style.display = 'none'; 
+    // Ensure media exists before joining
+    const hasMedia = await ensureMedia();
+    if (!hasMedia) return;
+    
+    const originalText = btnJoin.innerHTML;
+    btnJoin.innerHTML = "Joining...";
+    btnJoin.disabled = true;
     
     try {
         // Join the Agora Channel
@@ -176,18 +179,28 @@ btnJoin.addEventListener('click', async () => {
         
         // Broadcast your video and audio to the room!
         await client.publish([localAudioTrack, localVideoTrack]);
+        
+        // Update UI
+        document.querySelector('#user-local .name-badge').innerText = "You";
+        btnJoin.style.display = 'none'; 
+        
     } catch (e) {
-        alert("Failed to join the room. Please try again.");
+        console.error("AGORA JOIN ERROR:", e);
+        alert("Failed to join room. Error: " + e.message + "\n\nCRITICAL FIX: If this says 'Token is invalid', you need to go to Agora.io, delete this project, and create a new one set to 'TESTING MODE' (App ID Only).");
+        btnJoin.innerHTML = originalText;
+        btnJoin.disabled = false;
     }
 });
 
-// The Screenshare Engine (Much easier with Agora)
+// THE SCREENSHARE ENGINE
 btnScreen.addEventListener('click', async () => {
     if (!isConnected) return alert("Please click 'Join Room' before sharing your screen!");
     
     try {
         if (!localScreenTrack) {
-            localScreenTrack = await AgoraRTC.createScreenVideoTrack({}, "auto");
+            // FIX 2: Safely handle Agora arrays for Screensharing
+            const screenResult = await AgoraRTC.createScreenVideoTrack({}, "auto");
+            localScreenTrack = Array.isArray(screenResult) ? screenResult[0] : screenResult;
             
             // Swap what we are broadcasting
             await client.unpublish([localVideoTrack]);
@@ -209,23 +222,30 @@ btnScreen.addEventListener('click', async () => {
                 localVideoTrack.play('user-local');
                 btnScreen.className = "btn-media btn-off";
             });
+        } else {
+            // Manual toggle off
+            await client.unpublish([localScreenTrack]);
+            localScreenTrack.close();
+            localScreenTrack = null;
+
+            await client.publish([localVideoTrack]);
+            localVideoTrack.play('user-local');
+            btnScreen.className = "btn-media btn-off";
         }
     } catch (e) { 
         console.error("Screenshare cancelled or failed.", e); 
     }
 });
 
-// --- 5. HANDLING OTHER STUDENTS IN THE ROOM ---
+// --- 5. HANDLING OTHER STUDENTS ---
 
 client.on("user-published", async (user, mediaType) => {
-    // Automatically receive their stream
     await client.subscribe(user, mediaType);
 
     if (mediaType === "video") {
         let wrapper = document.getElementById(`user-${user.uid}`);
         if (!wrapper) wrapper = createVideoWrapper(user.uid, "Student");
         
-        // Agora plays the video inside our wrapper automatically
         user.videoTrack.play(wrapper.id);
     }
     if (mediaType === "audio") {
@@ -241,15 +261,13 @@ client.on("user-left", (user) => {
     }
 });
 
-// --- 6. AGORA SPEECH HIGHLIGHT ENGINE ---
+// --- 6. AGORA SPEECH HIGHLIGHT ---
 client.enableAudioVolumeIndicator();
 client.on("volume-indicator", volumes => {
     volumes.forEach((volume) => {
-        // Map our local UID to the 'local' string we used for our own UI box
         const targetId = volume.uid === myUid ? 'local' : volume.uid;
         const wrapper = document.getElementById(`user-${targetId}`);
         if (wrapper) {
-            // Threshold is 0-100. 20 is a good baseline for speaking.
             if (volume.level > 20) wrapper.classList.add('speaking');
             else wrapper.classList.remove('speaking');
         }
@@ -269,7 +287,6 @@ window.onbeforeunload = async () => {
         }
     }
     
-    // Cleanup Agora streams on exit
     if (localAudioTrack) localAudioTrack.close();
     if (localVideoTrack) localVideoTrack.close();
     if (localScreenTrack) localScreenTrack.close();
