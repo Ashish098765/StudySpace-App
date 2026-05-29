@@ -81,7 +81,7 @@ function adjustGrid() {
 }
 
 // --- 4. AGORA WEB-RTC ENGINE ---
-const AGORA_APP_ID = "1f9a1a3a5a584354981fd9477e3051c0";
+const AGORA_APP_ID = "8a735e3d22a7475babf205eab01d8859";
 const client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
 
 let localAudioTrack = null;
