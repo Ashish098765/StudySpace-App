@@ -74,12 +74,12 @@ function stopKickTimer() {
 // --- 3. DISCORD GRID SCALING ---
 function adjustGrid() {
     const count = videoGrid.children.length;
-    if (count === 1) videoGrid.style.gridTemplateColumns = "minmax(300px, 800px)";
-    else if (count === 2) videoGrid.style.gridTemplateColumns = "repeat(2, minmax(300px, 1fr))";
-    else if (count <= 4) videoGrid.style.gridTemplateColumns = "repeat(2, minmax(300px, 1fr))";
-    else videoGrid.style.gridTemplateColumns = "repeat(auto-fit, minmax(300px, 1fr))";
+    // Lowered 300px to 250px so it perfectly fits mobile screens!
+    if (count === 1) videoGrid.style.gridTemplateColumns = "minmax(250px, 800px)";
+    else if (count === 2) videoGrid.style.gridTemplateColumns = "repeat(2, minmax(250px, 1fr))";
+    else if (count <= 4) videoGrid.style.gridTemplateColumns = "repeat(2, minmax(250px, 1fr))";
+    else videoGrid.style.gridTemplateColumns = "repeat(auto-fit, minmax(250px, 1fr))";
 }
-
 // --- 4. AGORA WEB-RTC ENGINE ---
 const AGORA_APP_ID = "8a735e3d22a7475babf205eab01d8859";
 const client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });

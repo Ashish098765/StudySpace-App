@@ -98,6 +98,43 @@
         .feature-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
         .feature-card h3 { font-size: 1.25rem; margin-bottom: 0.8rem; }
         .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
+        /* --- MOBILE RESPONSIVENESS FOR INDEX.HTML --- */
+@media (max-width: 768px) {
+    /* Stack the nav bar items */
+    #auth-nav { 
+        flex-direction: column; 
+        gap: 1rem; 
+        padding: 1rem; 
+    }
+    
+    /* Shrink massive hero text */
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1rem; margin-bottom: 2rem; }
+    
+    /* Force grids to become single columns */
+    .live-dashboard { 
+        grid-template-columns: 1fr; 
+        margin-top: 2rem; 
+    }
+    .feature-grid { 
+        grid-template-columns: 1fr; 
+    }
+    
+    /* Make the dropdown menu play nice on touch */
+    .session-dropdown-wrapper { width: 100%; max-width: 300px; }
+    .btn-start-session { width: 100%; justify-content: center; }
+    .dropdown-menu { 
+        width: 100%; 
+        left: 0; 
+        transform: translateY(10px); 
+    }
+    .session-dropdown-wrapper:hover .dropdown-menu { 
+        transform: translateY(10px); 
+    }
+    
+    /* Make modal fit small screens */
+    .modal-content { width: 95%; padding: 1.5rem; }
+}
     </style>
 </head>
 <body>

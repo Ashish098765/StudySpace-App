@@ -84,6 +84,50 @@
         
         /* Explicit Join Button for Preview Phase */
         #btn-join { background: var(--accent); width: auto; padding: 0 1.5rem; font-weight: 600; display: none; gap: 8px; border-radius: 100px; }
+    /* --- MOBILE RESPONSIVENESS FOR ROOM.HTML --- */
+@media (max-width: 768px) {
+    /* Stack header so the timer doesn't overlap the room code */
+    .room-header { 
+        padding: 0.8rem; 
+        flex-direction: column; 
+        gap: 0.5rem; 
+        text-align: center; 
+    }
+    .room-title { font-size: 0.95rem; }
+    
+    /* Shrink the floating control bar to fit the screen */
+    .controls-wrapper { bottom: 1rem; }
+    .control-bar { 
+        width: 95%; 
+        padding: 0.8rem; 
+        gap: 0.5rem; 
+        justify-content: space-evenly; 
+        border-radius: 20px; 
+    }
+    
+    /* Shrink the buttons slightly */
+    .btn-media { 
+        width: 45px; 
+        height: 45px; 
+        font-size: 1rem; 
+    }
+    #btn-join { 
+        padding: 0 1rem; 
+        font-size: 0.9rem; 
+    }
+    
+    /* Give the video grid room to breathe above the control bar */
+    #video-grid { 
+        padding: 0.5rem; 
+        padding-bottom: 90px; /* Prevents control bar from covering videos */
+        gap: 0.5rem; 
+    }
+    
+    /* Force videos to stack vertically on mobile */
+    #video-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
     </style>
 </head>
 <body>

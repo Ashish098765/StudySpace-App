@@ -2396,5 +2396,1030 @@
         "year": "2021",
         "shift": "Morning",
         "date": "25th February"
+    },
+    {
+        "q": "The pitch of the screw gauge is 1 mm and there are 100 divisions on the circular scale. When nothing is put in between the jaws, the zero of the circular scale lies 8 divisions below the reference line. When a wire is placed between the jaws, the first linear scale division is clearly visible while 72 ^{nd} division on circular scale coincides with the reference line. The radius of the wire is :",
+        "type": "mcq",
+        "options": [
+            "1.80 mm",
+            "0.90 mm",
+            "0.82 mm",
+            "1.64 mm"
+        ],
+        "answer": 2,
+        "explanation": "Least count =\n1\nm\nm\n100\n=\n0.01\nm\nm\nzero error = + 8\n×\nLC = + 0.08 mm\nTrue reading (Diameter)\n= (1 mm + 72\n×\nLC)\n-\n(Zero error)\n= (1 mm + 72\n×\n0.01 mm)\n-\n0.08 mm\n= 1.72 mm\n-\n0.08 mm\n= 1.64 mm\nTherefore, radius =\n1.64\n2\n= 0.82 mm.",
+        "url": "https://questions.examside.com/past-years/jee/question/the-pitch-of-the-screw-gauge-is-1-mm-and-there-are-100-divis-jee-main-physics-units-and-measurements-vfvgre0rkhlsfbxp",
+        "year": "2021",
+        "shift": "Morning",
+        "date": "25th February"
+    },
+    {
+        "q": "The work done by a gas molecule in an isolated system is given by, W = α β 2 e - x 2 α k T , where x is the displacement, k is the Boltzmann constant and T is the temperature. α and β are constants. Then the dimensions of β will be :",
+        "type": "mcq",
+        "options": [
+            "[ M 0 L T 0 ]",
+            "[ M L 2 T - 2 ]",
+            "[ M L T - 2 ]",
+            "[ M 2 L T 2 ]"
+        ],
+        "answer": 2,
+        "explanation": "where, k is Boltzmann constant,\nT is temperature and x is displacement.\nWe know that,\nx\n2\nα\nk\nT\nis a dimensionless quantity.\n∴\n[\nx\n2\nα\nk\nT\n]\n=\n[\nM\n0\nL\n0\nT\n0\n]\n⇒\n[\nα\n]\n=\n[\nx\n2\n]\n[\nk\n]\n[\nT\n]\n⇒\n[\nα\n]\n=\n[\nL\n2\n]\n[\nk\n]\n[\nT\n]\n..... (i)\nSince, dimensions of k are\n[\nk\n]\n=\n[\nM\n1\nL\n2\nT\n-\n2\nK\n-\n1\n]\n...... (ii)\nDimensions of temperature are\n[\nT\n]\n=\n[\nK\n]\n..... (iii)\nSubstituting Eqs. (ii) and (iii) in Eq. (i), we get\n[\nα\n]\n=\n[\nL\n2\n]\n[\nM\n1\nL\n2\nT\n-\n2\nK\n-\n1\n]\n[\nK\n]\n[\nα\n]\n=\n[\nM\n-\n1\nT\n2\n]\nAccording to dimensional analysis,\n[\nW\n]\n=\n[\nα\nβ\n2\n]\n⇒\n[\nβ\n2\n]\n=\n[\nW\n]\n[\nα\n]\n⇒\n[\nβ\n2\n]\n=\nM\n1\nL\n2\nT\n-\n2\n]\n[\nM\n-\n1\nT\n2\n]\n=\n[\nM\n2\nL\n2\nT\n-\n4\n]\n⇒\n[\nβ\n]\n=\n[\nM\nL\nT\n-\n2\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/the-workdone-by-a-gas-molecule-in-an-isolated-system-is-give-jee-main-physics-units-and-measurements-gy4dsiij5qjnzg1y",
+        "year": "2021",
+        "shift": "Morning",
+        "date": "24th February"
+    },
+    {
+        "q": "A student measuring the diameter of a pencil of circular cross-section with the help of a vernier\nscale records the following four readings 5.50 mm, 5.55 mm, 5.45 mm, 5.65 mm. The average of\nthese four readings is 5.5375 mm and the standard deviation of the data is 0.07395 mm. The\naverage diameter of the pencil should therefore be recorded as :",
+        "type": "mcq",
+        "options": [
+            "(5.54 ± 0.07) mm",
+            "(5.5375 ± 0.0740) mm",
+            "(5.5375 ± 0.0739) mm",
+            "(5.538 ± 0.074) mm"
+        ],
+        "answer": 0,
+        "explanation": "Given, d\n_{av}\n= 5.5375 mm\nΔ\nd = 0.07395 mm\nSignificant rule says that reading should has same significant figure as that of reading given.\n∵\nMeasured data are up to two digits after\ndecimal.\n∴\n5.5375 rounded to\n→\n5.54",
+        "url": "https://questions.examside.com/past-years/jee/question/a-student-measuring-the-diameter-of-a-pencil-of-circular-cro-jee-main-physics-units-and-measurements-2xwobsaqzqow7dmz",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "6th September"
+    },
+    {
+        "q": "A screw gauge has 50 divisions on its circular scale. The circular scale is 4 units ahead of the\npitch scale marking, prior to use. Upon one complete rotation of the circular scale, a displacement of 0.5mm is noticed on the pitch scale. The nature of zero error involved and the least\ncount of the screw gauge, are respectively :",
+        "type": "mcq",
+        "options": [
+            "Positive, 0.1 mm",
+            "Positive, 0.1 μ m",
+            "Positive, 10 μ m",
+            "Negative, 2 μ m"
+        ],
+        "answer": 2,
+        "explanation": "Least count of screw gauge\n=\n0.5\n50\n= 1\n×\n10\n^{-5}\nm\n= 10\nμ\nm\nZero error in positive.",
+        "url": "https://questions.examside.com/past-years/jee/question/a-screw-gauge-has-50-divisions-on-its-circular-scale-the-ci-jee-main-physics-units-and-measurements-d8qjn0wbodc1bhkq",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "6th September"
+    },
+    {
+        "q": "The quantities x = 1 μ 0 ε 0 , y = E B and z = l C R are defined where C-capacitance, R-Resistance,\nl-length, E-Electric field, B-magnetic field and ε 0 , μ 0 , - free space permittivity and permeability\nrespectively. Then :",
+        "type": "mcq",
+        "options": [
+            "Only y and z have the same dimension",
+            "x, y and z have the same dimension",
+            "Only x and y have the same dimension",
+            "Only x and z have the same dimension"
+        ],
+        "answer": 1,
+        "explanation": "x =\n1\nμ\n0\nε\n0\n= speed\n∴\n[x] = [L\n^{1}\nT\n^{-1}\n]\ny =\nE\nB\n= speed\n∴\n[y] = [L\n^{1}\nT\n^{-1}\n]\nz =\nl\nC\nR\n=\nl\nτ\n⇒\n[z] = [L\n^{1}\nT\n^{-1}\n]\nSo, x, y, z all have the same dimensions.",
+        "url": "https://questions.examside.com/past-years/jee/question/the-quantities-x--1-over-sqrt-mu-0varepsilon--jee-main-physics-magnetics-6fojafk4n1duy7ie",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "5th September"
+    },
+    {
+        "q": "A physical quantity z depends on four\nobservables a, b, c and d, as z = a 2 b 2 3 c d 3 . The\npercentages of error in the measurement of a,\nb, c and d are 2%, 1.5%, 4% and 2.5%\nrespectively. The percentage of error in z is :",
+        "type": "mcq",
+        "options": [
+            "13.5 %",
+            "14.5%",
+            "16.5%",
+            "12.25%"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/a-physical-quantity-z-depends-on-four-observables-bra-b-jee-main-physics-units-and-measurements-b7f1pjf3apymveu5",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "5th September"
+    },
+    {
+        "q": "A quantity x is given by ( I F v 2 W L 4 ) in terms of moment of inertia I, force F, velocity v, work W and\nLength L. The dimensional formula for x is same as that of :",
+        "type": "mcq",
+        "options": [
+            "Coefficient of viscosity",
+            "Force constant",
+            "Energy density",
+            "Planck's constant"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/a-quantity-x-is-given-by-left-ifv2-over-wl4-jee-main-physics-units-and-measurements-4u0zjtlbaa0ar1nx",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "4th September"
+    },
+    {
+        "q": "Dimensional formula for thermal conductivity is (here K denotes the temperature):",
+        "type": "mcq",
+        "options": [
+            "MLT ^{-3} K ^{-1}",
+            "MLT ^{-2} K ^{-2}",
+            "MLT ^{-2} K",
+            "MLT ^{-3} K"
+        ],
+        "answer": 0,
+        "explanation": "∴\nd\nθ\nd\nt\n=\nk\nA\nd\nT\nd\nx\n⇒\nk =\n(\nd\nθ\nd\nt\n)\nA\n(\nd\nT\nd\nx\n)\n⇒\n[k] =\n[\nM\nL\n2\nT\n-\n3\n]\n[\nL\n2\n]\n[\nK\nL\n-\n1\n]\n= [MLT\n^{-3}\nK\n^{-1}\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/dimensional-formula-for-thermal-conductivity-is-here-k-deno-jee-main-physics-units-and-measurements-dzotqvpghgbire09",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "4th September"
+    },
+    {
+        "q": "Amount of solar energy received on the earth’s surface per unit area per unit time is defined a solar\nconstant. Dimension of solar constant is :",
+        "type": "mcq",
+        "options": [
+            "MLT ^{-2}",
+            "ML ^{0} T ^{-3}",
+            "M ^{2} L ^{0} T ^{-1}",
+            "ML ^{2} T ^{-2}"
+        ],
+        "answer": 1,
+        "explanation": "Solar constant = $${E \\over {AT}}$$\n= $${{\\left[ {{M^1}{L^2}{T^{ - 2}}} \\right]} \\over {\\left[ {{L^2}T} \\right]}}$$\n= [ ML\n^{0}\nT\n^{-3}\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/amount-of-solar-energy-received-on-the-earths-surface-per-u-jee-main-physics-units-and-measurements-xs6eazjfdbar684q",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "3rd September"
+    },
+    {
+        "q": "Using screw gauge of pitch 0.1 cm and\n50 divisions on its circular scale, the thickness\nof an object is measured. It should correctly be\nrecorded as",
+        "type": "mcq",
+        "options": [
+            "2.123 cm",
+            "2.124 cm",
+            "2.125 cm",
+            "2.121 cm"
+        ],
+        "answer": 1,
+        "explanation": "Using a screw gauge of pitch 0.1 cm and 50 divisions on its circular scale, the thickness of an object is measured as:\nMeasurement = (Main scale reading) + (Circular scale reading × Least count)\nwhere the least count is calculated as the pitch of the screw gauge divided by the number of divisions on the circular scale:\nLeast count = (Pitch of screw gauge) / (Number of circular scale divisions)\nLeast count =\n0.1\n50\n= 0.002 cm\nNow if we multiply division of circular scale with least count then we get 0\n^{th}\ndigit of fraction part even.\nHere only option B has 0\n^{th}\ndigit of fraction part even.",
+        "url": "https://questions.examside.com/past-years/jee/question/using-screw-gauge-of-pitch-01-cm-and-50-divisions-on-its-ci-jee-main-physics-units-and-measurements-xjbemzw37vkuhbgg",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "3rd September"
+    },
+    {
+        "q": "If momentum (P), area (A) and time (T) are\ntaken to be the fundamental quantities then the\ndimensional formula for energy is",
+        "type": "mcq",
+        "options": [
+            "[P ^{2} AT ^{-2} ]",
+            "[ P 1 2 A T - 1 ]",
+            "[ P A 1 2 T - 1 ]",
+            "[PA ^{-1} T ^{-2} ]"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/if-momentum-p-area-a-and-time-t-are-taken-to-be-the-f-jee-main-physics-units-and-measurements-mkxbffrgkrmw99ko",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "2nd September"
+    },
+    {
+        "q": "The least count of the main scale of a vernier\ncallipers is 1 mm. Its vernier scale is divided\ninto 10 divisions and coincide with 9 divisions\nof the main scale. When jaws are touching\neach other, the 7 ^{th} division of vernier scale\ncoincides with a division of main scale and the\nzero of vernier scale is lying right side of the\nzero of main scale. When this vernier is used to\nmeasure length of a cylinder the zero of the\nvernier scale between 3.1 cm and 3.2 cm and\n4 ^{th} VSD coincides with a main scale division.\nThe length of the cylinder is : (VSD is vernier\nscale division)",
+        "type": "mcq",
+        "options": [
+            "3.21 cm",
+            "2.99 cm",
+            "3.07 cm",
+            "3.2 cm"
+        ],
+        "answer": 2,
+        "explanation": "Least count = 1 mm or 0.01 cm\nZero error = 0 + 0.01 × 7 = 0.07 cm\nReading = 3.1 + (0.01 × 4) - 0.07\n= 3.1 + 0.04 - 0.07\n= 3.1 - 0.03\n= 3.07 cm",
+        "url": "https://questions.examside.com/past-years/jee/question/the-least-count-of-the-main-scale-of-a-vernier-callipers-is-jee-main-physics-units-and-measurements-r0wvccjlwepit4ap",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "2nd September"
+    },
+    {
+        "q": "If speed V, area A and force F are chosen as\nfundamental units, then the dimension of\nYoung’s modulus will be",
+        "type": "mcq",
+        "options": [
+            "FA ^{-1} V ^{0}",
+            "FA ^{2} V ^{-1}",
+            "FA ^{2} V ^{-2}",
+            "FA ^{2} V ^{-3}"
+        ],
+        "answer": 0,
+        "explanation": "Y = k [F]\n^{x}\n[A]\n^{y}\n[V]\n^{z}\n[M\n^{1}\nL\n^{1}\nT\n^{-2}\n] = [MLT\n^{-2}\n]\n^{x}\n[L\n^{2}\n]\n^{y}\n[LT\n^{-1}\n]\n^{z}\n[M\n^{1}\nL\n^{1}\nT\n^{-2}\n] = [M]\n^{x}\n[L]\n^{x+2y+z}\n[T]\n^{-2x-z}\nComparing power of M, L and T\nx = 1 ……(1)\nx + 2y + z = -1 ……(2)\n-2x - z = -2 ……(3)\nAfter solving\nx = 1\ny = -1\nz = 0\n∴\nY = FA\n^{-1}\nV\n^{0}",
+        "url": "https://questions.examside.com/past-years/jee/question/if-speed-v-area-a-and-force-f-are-chosen-as-fundamental-un-jee-main-physics-units-and-measurements-gp9hkrhqhnqooxse",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "2nd September"
+    },
+    {
+        "q": "For the four sets of three measured physical\nquantities as given below. Which of the\nfollowing options is correct ? (i) A _{1} = 24.36, B _{1} = 0.0724, C _{1} = 256.2 (ii) A _{2} = 24.44, B _{2} = 16.082, C _{2} = 240.2 (iii) A _{3} = 25.2, B _{3} = 19.2812, C _{3} = 236.183 (iv) A _{4} = 25, B _{4} = 236.191, C _{4} = 19.5",
+        "type": "mcq",
+        "options": [
+            "A _{1} + B _{1} + C _{1} = A _{2} + B _{2} + C _{2} = A _{3} + B _{3} + C _{3} = A _{4} + B _{4} + C _{4}",
+            "A _{4} + B _{4} + C _{4} < A _{1} + B _{1} + C _{1} < A _{3} + B _{3} + C _{3} < A _{2} + B _{2} + C _{2}",
+            "A _{4} + B _{4} + C _{4} < A _{1} + B _{1} + C _{1} = A _{2} + B _{2} + C _{2} = A _{3} + B _{3} + C _{3}",
+            "A _{4} + B _{4} + C _{4} > A _{3} + B _{3} + C _{3} = A _{2} + B _{2} + C _{2} > A _{1} + B _{1} + C _{1}"
+        ],
+        "answer": 3,
+        "explanation": "A\n_{1}\n+ B\n_{1}\n+ C\n_{1}\n= 24.36 + 0.0724 + 256.2\n= 280.6324\n= 280.6 (After rounding off)\nA\n_{2}\n+ B\n_{2}\n+ C\n_{2}\n= 24.44 + 16.082 + 240.2\n= 280.722\n= 280.7 (After rounding off)\nA\n_{3}\n+ B\n_{3}\n+ C\n_{3}\n= 25.2 + 19.2812 + 236.183\n= 280.6642\n= 280.7 (After rounding off)\nA\n_{4}\n+ B\n_{4}\n+ C\n_{4}\n= 25 + 236.191 + 19.5\n= 280.691\n= 281 (After rounding off)",
+        "url": "https://questions.examside.com/past-years/jee/question/for-the-four-sets-of-three-measured-physical-quantities-as-g-jee-main-physics-units-and-measurements-6gops77jqx8kzmy3",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "9th January"
+    },
+    {
+        "q": "If the screw on a screw-gauge is given six\nrotations, it moves by 3 mm on the main scale.\nIf there are 50 divisions on the circular scale\nthe least count of the screw gauge is :",
+        "type": "mcq",
+        "options": [
+            "0.001 mm",
+            "0.01 cm",
+            "0.02 mm",
+            "0.001 cm"
+        ],
+        "answer": 3,
+        "explanation": "Pitch =\n3\n6\nmm = 0.5 mm\nLeast count =\n0.5\n50\nmm\n=\n1\n100\n= 0.01 mm = 0.001 cm",
+        "url": "https://questions.examside.com/past-years/jee/question/if-the-screw-on-a-screw-gauge-is-given-six-rotations-it-mov-jee-main-physics-units-and-measurements-iveud90yfhdw2sli",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "9th January"
+    },
+    {
+        "q": "A quantity f is given by f = h c 5 G where c is\nspeed of light, G universal gravitational\nconstant and h is the Planck's constant.\nDimension of f is that of :",
+        "type": "mcq",
+        "options": [
+            "Energy",
+            "Momentum",
+            "Area",
+            "Volume"
+        ],
+        "answer": 0,
+        "explanation": "[h] = M\n^{1}\nL\n^{2}\nT\n^{-1}\n[C] = L\n^{1}\nT\n^{-1}\n[G] = M\n^{-1}\nL\n^{3}\nT\n^{-2}\n[f] =\nM\nL\n2\nT\n-\n1\n×\nL\n5\nT\n-\n5\nM\n-\n1\nL\n3\nT\n-\n2\n= M\n^{1}\nL\n^{2}\nT\n^{-2}",
+        "url": "https://questions.examside.com/past-years/jee/question/a-quantity-f-is-given-by-f--sqrt-hc5-over-g--jee-main-physics-units-and-measurements-6jd7rfixp6kmryte",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "9th January"
+    },
+    {
+        "q": "The dimension of stopping potential V _{0} in photoelectric effect in units of Planck's constant 'h', speed of light 'c' and Gravitational constant 'G' and ampere A is :",
+        "type": "mcq",
+        "options": [
+            "h ^{1/3} G ^{2/3} c ^{1/3} A ^{-1}",
+            "h ^{0} c ^{5} G ^{-1} A ^{-1}",
+            "h ^{2/3} c ^{5/3} G ^{1/3} A ^{-1}",
+            "h ^{2} G ^{3/2} c ^{1/3} A ^{-1}"
+        ],
+        "answer": 1,
+        "explanation": "V\n_{0}\n∝\nh\n^{P}\nc\n^{Q}\nG\n^{R}\nI\n^{S}\n[V\n_{0}\n] = [M\n^{1}\nL\n^{2}\nT\n^{-3}\nA\n^{-1}\n]\n[c] = [L\n^{1}\nT\n^{-1}\n]\n[h] = [M\n^{1}\nL\n^{2}\nT\n^{-1}\n]\n[G] = [M\n^{-1}\nL\n^{3}\nT\n^{-2}\n]\n[I] = [A]\n∴\n[M\n^{1}\nL\n^{2}\nT\n^{-3}\nA\n^{-1}\n] = [M\n^{P-R}\nL\n^{2P+Q+3R}\nT\n^{-P-Q-2R}\nA\n^{S}\n]\nComparing dimension of M, L, T, A, we get\nP - R = 1 ; 2P + Q + 3R = 2\n- P - Q - 2R = - 3 ; S = - 1\n⇒\nP = 0, Q = 5, R = -1, S = -1\n∴\nV\n_{0}\n∝\nh\n^{0}\nc\n^{5}\nG\n^{-1}\nA\n^{-1}",
+        "url": "https://questions.examside.com/past-years/jee/question/the-dimension-of-stopping-potential-vsub0sub-in-photoel-jee-main-physics-current-electricity-vgwsawhb9lqwgnqy",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "8th January"
+    },
+    {
+        "q": "The dimension of B 2 2 μ 0 , where B is magnetic field and μ 0 is the magnetic permeability of vacuum,\nis :",
+        "type": "mcq",
+        "options": [
+            "ML ^{2} T ^{-2}",
+            "MLT ^{-2}",
+            "ML ^{-1} T ^{-2}",
+            "ML ^{2} T ^{-1}"
+        ],
+        "answer": 2,
+        "explanation": "As\nB\n2\n2\nμ\n0\n= Energy per unit volume\n∴\nDimension =\nM\nL\n2\nT\n-\n2\nL\n3\n= ML\n^{-1}\nT\n^{-2}",
+        "url": "https://questions.examside.com/past-years/jee/question/the-dimension-of-b2-over-2mu-0-where-b-is-jee-main-physics-units-and-measurements-bf3ft0v9n5mbc82n",
+        "year": "2020",
+        "shift": "Morning",
+        "date": "7th January"
+    },
+    {
+        "q": "Which of the following combinations has the dimension of electrical resistance ( ∈ _{0} is the permittivity of\nvacuum and μ _{0} is the permeability of vacuum)?",
+        "type": "mcq",
+        "options": [
+            "∈ 0 μ 0",
+            "∈ 0 μ 0",
+            "μ 0 ∈ 0",
+            "μ 0 ∈ 0"
+        ],
+        "answer": 2,
+        "explanation": "According to Coulomb's law\nF =\n1\n4\nπ\n∈\n0\nq\n2\nr\n2\n∴\n∈\n0\n=\n1\n4\nπ\nq\n2\nF\nr\n2\n[\n∈\n0\n]\n=\n[\nA\nT\n]\n2\n[\nM\nL\nT\n-\n2\n]\n[\nL\n2\n]\n=\n[\nM\n-\n1\nL\n-\n3\nT\n4\nA\n2\n]\nForce between two parallel current carrying wires,\nF\nL\n=\nμ\n0\n2\nπ\ni\n2\nr\n∴\nμ\n0\n=\n2\nπ\nr\nF\ni\n2\nL\n[\nμ\n0\n]\n=\n[\nL\n]\n[\nM\nL\nT\n-\n2\n]\n[\nA\n2\n]\n[\nL\n]\n=\n[\nM\nL\nT\n-\n2\nA\n-\n2\n]\nFrom Ohm's law,\nV = IR\n∴\nR\n=\nV\nI\n=\nU\nI\nt\n×\n1\nI\n[R] =\n[\nU\n]\n[\nI\n]\n2\n[\nt\n]\n=\n[\nM\nL\n2\nT\n-\n2\n]\n[\nA\n2\n]\n[\nT\n]\n=\n[\nM\nL\n2\nT\n-\n3\nA\n-\n2\n]\nLet, R\n∝\n[\n∈\n0\n]\na\n[\nμ\n0\n]\nb\n⇒\n[\nM\nL\n2\nT\n-\n3\nA\n-\n2\n]\n=\n[\nM\n-\n1\nL\n-\n3\nT\n4\nA\n2\n]\n^{a}\n[\nM\nL\nT\n-\n2\nA\n-\n2\n]\n^{b}\n⇒\n[\nM\nL\n2\nT\n-\n3\nA\n-\n2\n]\n=\n[ M\n^{-a+ b}\nL\n^{-3a+ b}\nT\n^{4a- 2b}\nA\n^{2a- 2b}\n]\nBy comparing both sides we get,\n-\na\n+ b = 1\n- 3\na\n+ b = 2\nBy solving we get,\na\n=\n-\n1\n2\nand b =\n1\n2\n∴\nR =\n[\n∈\n0\n]\n-\n1\n2\n[\nμ\n0\n]\n1\n2\n=\nμ\n0\n∈\n0",
+        "url": "https://questions.examside.com/past-years/jee/question/which-of-the-following-combinations-has-the-dimension-of-ele-jee-main-physics-units-and-measurements-ik7osuhpfqkmfzqg",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "12th April"
+    },
+    {
+        "q": "In the formula X = 5YZ ^{2} , X and Z have dimensions of capacitance and magnetic field, respectively. What are\nthe dimensions of Y in SI units?",
+        "type": "mcq",
+        "options": [
+            "[M ^{-3} L ^{-2} T ^{8} A ^{4} ]",
+            "[M ^{-2} L ^{-2} T ^{6} A ^{3} ]",
+            "[M ^{-1} L ^{-2} T ^{4} A ^{2} ]",
+            "[M ^{-2} L ^{0} T ^{-4} A ^{-2} ]"
+        ],
+        "answer": 0,
+        "explanation": "Capacitance (C) =\nQ\n2\n2\nE\n=\n[\nA\n2\nT\n2\n]\n[\nM\nL\n2\nT\n-\n2\n]\n=\n[\nM\n-\n1\nL\n-\n2\nT\n4\nA\n2\n]\nX\nMagnetic field (B) =\nF\nI\nL\n=\n[\nM\nL\nT\n-\n2\n]\n[\nA\n]\n[\nL\n]\n=\n[\nM\nT\n-\n2\nA\n-\n1\n]\n= Z\nGiven,\nX = 5YZ\n^{2}\n∴\nY =\nX\n5\nZ\n2\n[Y] =\n[\nM\n-\n1\nL\n-\n2\nT\n4\nA\n2\n]\n[\nM\nT\n-\n2\nA\n-\n1\n]\n2\n∴\n[Y] = [M\n^{-3}\nL\n^{-2}\nT\n^{8}\nA\n^{4}\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/in-the-formula-x--5yzsup2sup--x-and-z-have-dimensions-jee-main-physics-units-and-measurements-250sw1jtsuvccopz",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "10th April"
+    },
+    {
+        "q": "The area of a square is 5.29 cm ^{2} . The area of\n7 such squares taking into account the\nsignificant figures is :-",
+        "type": "mcq",
+        "options": [
+            "37.0 cm ^{2}",
+            "37 cm ^{2}",
+            "37.030 cm ^{2}",
+            "37.03 cm ^{2}"
+        ],
+        "answer": 0,
+        "explanation": "The area of one square is 5.29 cm².\nTo find the area of 7 such squares, we can simply multiply the area of one square by 7:\n7 x 5.29 cm² = 37.03 cm²\nSince the given area has three significant figures, we need to round our answer to three significant figures as well.\nTherefore, the area of 7 such squares, taking into account the significant figures, is 37.0 cm².",
+        "url": "https://questions.examside.com/past-years/jee/question/the-area-of-a-square-is-529-cm2-the-area-of-7-such-squares-jee-main-physics-units-and-measurements-iequ4p7bus9wbvvy",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "9th April"
+    },
+    {
+        "q": "In the density measurement of a cube, the mass and\nedge length are measured as (10.00 ± 0.10) kg and\n(0.10 ± 0.01) m, respectively. The error in the\nmeasurement of density is :",
+        "type": "mcq",
+        "options": [
+            "0.01 kg/m ^{3}",
+            "0.10 kg/m ^{3}",
+            "0.31 kg/m ^{3}",
+            "0.07 kg/m ^{3}"
+        ],
+        "answer": 2,
+        "explanation": "Mass (m) = (10.00 ± 0.10) kg\nEdge length (\nl\n) = (0.10 ± 0.01) m\nVolume of the cube (V) =\nl\n3\nDensity,\nρ\n=\nm\nV\nd\nρ\nρ\n=\nd\nm\nm\n+\nd\nV\nV\n⇒\nd\nρ\nρ\n=\nd\nm\nm\n+\n3\nd\nl\nl\n⇒\nd\nρ\nρ\n=\n0.10\n10.00\n+\n3\n0.01\n0.10\n= 0.31",
+        "url": "https://questions.examside.com/past-years/jee/question/in-the-density-measurement-of-a-cube-the-mass-and-edge-leng-jee-main-physics-units-and-measurements-o2go4sgas7vvwxkc",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "9th April"
+    },
+    {
+        "q": "If surface tension (S), Moment of inertia (I) and\nPlanck's constant (h), were to be taken as the\nfundamental units, the dimensional formula for\nlinear momentum would be :-",
+        "type": "mcq",
+        "options": [
+            "S ^{1/2} I ^{1/2} h ^{0}",
+            "S ^{3/2} I ^{1/2} h ^{0}",
+            "S ^{1/2} I ^{1/2} h ^{-1}",
+            "S ^{1/2} I ^{3/2} h ^{-1}"
+        ],
+        "answer": 0,
+        "explanation": "We know,\nsurface tension (S) =\nF\nL\n=\n[\nM\nL\nT\n-\n2\n]\n[\nL\n]\n∴\n[S] =\n[\nM\nT\n-\n2\n]\nMoment of inertia (I) = mr\n^{2}\n∴\n[I] =\n[\nM\nL\n2\n]\nPlanck's constant (h) =\nE\nf\n= Et\n∴\n[h] =\n[\nM\nL\n2\nT\n-\n1\n]\nAlso linear momentum (p) = mv =\n[\nM\nL\nT\n-\n1\n]\nNow we have to express p in terms of s, I and h.\n∴\nLet, [P] = [S\n^{a}\nI\n^{b}\nh\n^{c}\n]\n⇒\n[\nM\nL\nT\n-\n1\n]\n=\n[\nM\nT\n-\n2\n]\n^{a}\n[\nM\nL\n2\n]\n^{b}\n[\nM\nL\n2\nT\n-\n1\n]\n^{c}\n⇒\n[\nM\nL\nT\n-\n1\n]\n= [ M\n^{a + b + c}\nL\n^{2b +2c}\nT\n^{- 2a - c}\n]\nBy comparing the dimensions of both sides, we get\na + b + c = 1 .........(1)\n2b +2c = 1 ..............(2)\n- 2a - c = -1 ...................(3)\nBy solving those three equations we get,\na =\n1\n2\nb =\n1\n2\nc = 0\n∴\nlinear momentum [p] = [S\n^{1/2}\nI\n^{1/2}\nh\n^{0}\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/if-surface-tension-s-moment-of-inertia-i-and-plancks-c-jee-main-physics-units-and-measurements-ypqjroixwfqna4cf",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "8th April"
+    },
+    {
+        "q": "In a simple pendulum experiment for\ndetermination of acceleration due to gravity (g),\ntime taken for 20 oscillations is measured by\nusing a watch of 1 second least count. The\nmean value of time taken comes out to be\n30 s. The length of pendulum is measured by\nusing a meter scale of least count 1 mm and the\nvalue obtained is 55.0 cm. The percentage\nerror in the determination of g is close to :-",
+        "type": "mcq",
+        "options": [
+            "0.2%",
+            "3.5%",
+            "0.7%",
+            "6.8%"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/in-a-simple-pendulum-experiment-for-determination-of-acceler-jee-main-physics-units-and-measurements-jzhzrx9lxs3grywe",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "8th April"
+    },
+    {
+        "q": "In SI units, the dimensions of ∈ 0 μ 0 is :",
+        "type": "mcq",
+        "options": [
+            "A ^{-1} TML ^{3}",
+            "A ^{2} T ^{3} M ^{-1} L ^{-2}",
+            "AT ^{-3} ML ^{3/2}",
+            "AT ^{2} M ^{-1} L ^{-1}"
+        ],
+        "answer": 1,
+        "explanation": "∈\n0\nμ\n0\n=\n∈\n0\nμ\n0\n∈\n0\n= c\n×\n∈\n0\n∴\n[\n∈\n0\nμ\n0\n]\n=\n[\nL\nT\n-\n1\n]\n×\n[\n∈\n0\n]\nWe know, F =\n1\n4\nπ\n∈\n0\nq\n2\nr\n2\n∴\n∈\n0\n=\nq\n2\n4\nπ\nr\n2\nF\n⇒\n[\n∈\n0\n]\n=\n[\nA\nT\n]\n2\n[\nM\nL\nT\n-\n2\n]\n×\n[\nL\n2\n]\n=\n[\nA\n2\nM\n-\n1\nL\n-\n3\nT\n4\n]\n∴\n[\n∈\n0\nμ\n0\n]\n=\n[\nL\nT\n-\n1\n]\n×\n[\nA\n2\nM\n-\n1\nL\n-\n3\nT\n4\n]\n= [A\n^{2}\nT\n^{3}\nM\n^{-1}\nL\n^{-2}\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/in-si-units-the-dimesions-of-sqrt-in-0-over-jee-main-physics-units-and-measurements-pnhwgiww0bxt3nd4",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "8th April"
+    },
+    {
+        "q": "Let ℓ , r, C and V represent inductance, resistance, capacitance and voltage, respectively. The dimension of ℓ r C V in SI units will be :",
+        "type": "mcq",
+        "options": [
+            "[A ^{-1} ]",
+            "[LTA]",
+            "[LA ^{-2} ]",
+            "[LT ^{2} ]"
+        ],
+        "answer": 0,
+        "explanation": "[\nℓ\nr\n]\n=\nT\n[CV]\n=\nAT\nSo,\n[\nℓ\nr\nC\nV\n]\n=\nT\nA\nT\n= [A\n^{-1}\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/let-ell-r-c-and-upsilon-represent-inductance-jee-main-physics-units-and-measurements-k3vpvfi3tngdqukg",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "12th January"
+    },
+    {
+        "q": "The least count of the main scale of a screw gauge is 1 mm. The minimum number of divisions on its circular scale required to measure 5 μ m diameter of a wire is :",
+        "type": "mcq",
+        "options": [
+            "500",
+            "100",
+            "200",
+            "50"
+        ],
+        "answer": 2,
+        "explanation": "Least count =\nP\ni\nt\nc\nh\nN\nu\nm\nb\ne\nr\no\nf\nd\ni\nv\ni\ns\ni\no\nn\no\nn\nc\ni\nr\nc\nu\nl\na\nr\ns\nc\na\nl\ne\n5\n×\n10\n^{-6}\n=\n10\n-\n3\nN\nN = 200",
+        "url": "https://questions.examside.com/past-years/jee/question/the-least-count-of-the-main-scale-of-a-screw-gauge-is-1-mm-jee-main-physics-units-and-measurements-ezku5kt0d0thvisf",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "12th January"
+    },
+    {
+        "q": "If speed (V), acceleration (A) and force (F) are considered as fundamental units, the dimension of Young,s modulus will be:",
+        "type": "mcq",
+        "options": [
+            "V ^{-2} A ^{2} F ^{2}",
+            "V ^{-4} A ^{-2} F",
+            "V ^{-4} A ^{2} F",
+            "V ^{-2} A ^{2} F ^{-2}"
+        ],
+        "answer": 2,
+        "explanation": "We know,\nYoung's modulus (Y) =\nF\nA\nΔ\nl\nl\n∴\n[Y] =\n[\nM\nL\nT\n-\n2\n]\n[\nL\n2\n]\n= [ ML\n^{-1}\nT\n^{-2}\n]\nLet [Y] = [V]\n^{x}\n[A]\n^{y}\n[F]\n^{z}\n∴\n[ ML\n^{-1}\nT\n^{-2}\n] =\n[LT\n^{-1}\n]\n^{x}\n[LT\n^{-2}\n]\n^{y}\n[MLT\n^{-2}\n]\n^{z}\n⇒\n[ ML\n^{-1}\nT\n^{-2}\n] =\n[ M\n^{z}\nL\n^{x + y + z}\nT\n^{-x -2y - 2z}\nFor dimensional balance, the dimension on both sides should be same.\nSo, z = 1\nx + y + z = -1\n⇒\nx + y = -2 ........(1)\nand -x -2y - 2z = -2\n⇒\nx + 2y = 0 ...........(2)\nBy solving those two equations we get,\nx = -4 and y = 2\n∴\n[Y] = V\n^{-4}\nA\n^{2}\nF\n^{1}",
+        "url": "https://questions.examside.com/past-years/jee/question/if-speed-v-acceleration-a-and-force-f-are-considered-jee-main-physics-units-and-measurements-uqyhwet7tetfm9up",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "11th January"
+    },
+    {
+        "q": "The force of interaction between two atoms is given by F = α β exp ( - x 2 α k t ) ; where x is the distance, k is the Boltzmann constant and T is temperature and α and β are two constants. The dimension of β is :",
+        "type": "mcq",
+        "options": [
+            "M ^{2} L ^{2} T ^{-2}",
+            "M ^{2} LT ^{-4}",
+            "MLT ^{-4}",
+            "M ^{0} L ^{2} LT ^{-4}"
+        ],
+        "answer": 1,
+        "explanation": "F\n=\nα\nβ\ne\n(\n-\nx\n2\nα\nK\nT\n)\n[\nx\n2\nα\nK\nT\n]\n=\nM\no\nL\no\nT\no\nL\n2\n[\nα\n]\nM\nL\n2\nT\n-\n2\n=\nM\no\nL\no\nT\no\n⇒\n[\nα\n]\n=\nM\n-\n1\nT\n2\n[\nF\n]\n=\n[\nα\n]\n[\nβ\n]\nMLT\n^{-2}\n= M\n^{-1}\nT\n^{2}\n[\nβ\n]\n⇒\n[\nβ\n] = M\n^{2}\nLT\n^{-4}",
+        "url": "https://questions.examside.com/past-years/jee/question/the-force-of-interaction-between-tow-atoms-is-given-by-f-jee-main-physics-units-and-measurements-5ea1ny7uipsu7pzt",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "11th January"
+    },
+    {
+        "q": "The diameter and height of a cylinder are measured by a meter scale to be 12.6 ± 0.1 cm and 34.2 ± 0.1 cm, respectively. What will be the value of its volume in appropriate significant figures ?",
+        "type": "mcq",
+        "options": [
+            "4264.4 ± 81.0 cm ^{3}",
+            "4264 ± 81 cm ^{3}",
+            "4300 ± 80 cm ^{3}",
+            "4260 ± 80 cm ^{3}"
+        ],
+        "answer": 3,
+        "explanation": "Volume of cylinder(V) =\nπ\nr\n^{2}\nh\n=\nπ\nd\n2\n4\nh\n=\n3.14\n×\n(\n12.6\n)\n2\n4\n×\n34.2\n= 4260\nΔ\nV\nV\n=\n2\nΔ\nd\nd\n+\nΔ\nh\nh\n=\n2\n(\n0.1\n12.6\n)\n+\n0.1\n34.2\n= 0.0188\n∴\nΔ\nV = 0.0188\n×\n4260 = 80",
+        "url": "https://questions.examside.com/past-years/jee/question/the-diameter-and-height-of-a-cylinder-are-measured-by-a-mete-jee-main-physics-units-and-measurements-zph5mvizvflrwtgh",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "10th January"
+    },
+    {
+        "q": "The density of a material in SI units is 128 kg m ^{-3} . In certain units in which the unit of length is 25 cm and the unit of mass is 50 g, the numerical value of density of the material is -",
+        "type": "mcq",
+        "options": [
+            "40",
+            "640",
+            "16",
+            "410"
+        ],
+        "answer": 0,
+        "explanation": "Here given that\ndensity of a material in SI units is 128 kg m\n^{-3}\nAnd a new unit system is introduced where 1 unit of length = 25 cm and 1 unit of mass = 50 g\nYou should know that, physical quantity is same in any unit system. And to calculate a physical quantity yo should know two things\n(1) numerical value of the physical quantity (n)\n(2) unit of the physical quantity (u)\nAnd n\n×\nu = constant in any unit system.\nHere in SI unit system,\nn\n_{1}\n= 128\nu\n_{1}\n= kg/m\n^{3}\nAnd in new unit system,\nn\n_{2}\n= ?\nu\n_{2}\n= 50gm/(25cm)\n^{3}\nAs n\n_{1}\nu\n_{1}\n= n\n_{2}\nu\n_{2}\n∴\n128\n×\n(kg/m\n^{3}\n) = n\n_{2}\n×\n50gm/(25cm)\n^{3}\n⇒\n128\n×\n1000\ng\nm\n(\n100\nc\nm\n)\n3\n= n\n_{2}\n×\n50\ng\nm\n(\n25\nc\nm\n)\n3\n⇒\nn\n_{2}\n= 128\n×\n20\n4\n3\n= 40",
+        "url": "https://questions.examside.com/past-years/jee/question/the-density-of-a-material-in-si-units-is-128-kg-m3-in-c-jee-main-physics-units-and-measurements-wtcj44uvidl0axxy",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "10th January"
+    },
+    {
+        "q": "The pitch and the number of divisions, on the circular scale, for a given screw gauge are 0.5 mm and 100 respectively. When the screw gauge is fully tightened without any object, the zero of its circular scale lies 3 divisions below the mean line. The readings of the main scale and the circular scale, for a thin sheet, are 5.5 mm and 48 respectively, the thickness of this sheet is :",
+        "type": "mcq",
+        "options": [
+            "5.755 mm",
+            "5.950 mm",
+            "5.725 mm",
+            "5.740 mm"
+        ],
+        "answer": 2,
+        "explanation": "We know,\nLeast count (LC) =\nP\ni\nt\nc\nh\nn\no\n.\no\nf\nd\ni\nv\ni\ns\ni\no\nn\ns\n∴\nLC =\n0.5\n100\n= 0.5\n×\n10\n^{-2}\nmm\nReading = MSR + CSR\n-\npositive error\nGiven, Main scale reading (MSR) = 5.5 mm\nCircular scale reading (CSR)\n= 48\n×\n0.5\n×\n10\n^{-2}\nmm\n= 0.24\nAs zero of its circular scale lines 3 division below the mean line, it means error is position error.\n∴\npositive error\n= 3\n×\n0.5\n×\n10\n^{-2}\nmm\n= 0.015 mm\n∴\nReading = 5.5 + 0.24\n-\n0.015\n= 5.725 mm",
+        "url": "https://questions.examside.com/past-years/jee/question/the-pitch-and-the-number-of-divisions-on-the-circular-scal-jee-main-physics-units-and-measurements-hykhhibtgsru2qk4",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "9th January"
+    },
+    {
+        "q": "Expression for time in terms of G(universal gravitional constant), h (Planck constant) and c (speed of light) is proportional to :",
+        "type": "mcq",
+        "options": [
+            "h c 5 G",
+            "c 3 G h",
+            "G h c 5",
+            "G h c 3"
+        ],
+        "answer": 2,
+        "explanation": "Let t\n∝\nG\n^{x}\nh\n^{y}\nc\n^{z}\n∴\n[t] = [G]\n^{x}\n[h]\n^{y}\n[c]\n^{z}\n. . . . . (1)\nWe know,\nF =\nG\nM\n2\nR\n2\n⇒\nG =\nF\nR\n2\nM\n2\n∴\n[G] =\n[\nM\nL\nT\n-\n2\n]\n[\nL\n2\n]\n[\nM\n2\n]\n[G] =\n[\nM\n-\n1\nL\n3\nT\n-\n2\n]\nAlso,\nE = hf\n∴\n[h] =\n[\nE\n]\n[\nF\n]\n=\n[\nM\nL\n2\nT\n-\n2\n]\n[\nT\n-\n1\n]\n=\n[\nM\nL\n2\nT\n-\n1\n]\n[C] =\n[\nM\no\nL\nT\n-\n1\n]\nFrom equation (1) we get,\n[\nM\no\nL\no\nT\n1\n]\n=\n[\nM\n-\n1\nL\n3\nT\n-\n2\n]\nx\n[\nM\nL\n2\nT\n-\n1\n]\ny\n[\nM\no\nL\nT\n-\n1\n]\nz\n[\nM\no\nL\no\nT\n1\n]\n=\n[\nM\n-\nx\n+\ny\nL\n3\nx\n+\n2\ny\nz\nT\n-\n2\nx\n-\ny\n-\nz\n]\nBy comparing the power of M, L, T\n-\nx + y = 0\n⇒\nx = y\n3x + 2y + z = 0\n⇒\n5x + z = 0 . . . . . (2)\n-\n2x\n-\ny\n-\nz = 1\n⇒\n-\n3x\n-\nz = 1 . . . . (3)\nBy solving (2) and (3), we get,\nx =\n1\n2\n= y and z =\n-\n5\n2\n∴\nt\n∝\nG\nh\nC\n5",
+        "url": "https://questions.examside.com/past-years/jee/question/expression-for-time-in-terms-of-guniversal-gravitional-cons-jee-main-physics-units-and-measurements-o3c8x8eyaqihlzxl",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "9th January"
+    },
+    {
+        "q": "A copper wire is stretched to make it 0.5% longer. The percentage change in its electrical resistance if its volume remains unchanged is :",
+        "type": "mcq",
+        "options": [
+            "2.0 %",
+            "2.5 %",
+            "1.0 %",
+            "0.5 %"
+        ],
+        "answer": 2,
+        "explanation": "We know,\nR\n=\nρ\nl\nA\nand Volume (V) = A\nl\n⇒\nA\n=\nV\nl\n∴\nR\n=\nρ\nl\n2\nv\n∴\nΔ\nR\nR\n=\n2\nΔ\nl\nl\n=\n2\n×\n0.5\n=\n1%",
+        "url": "https://questions.examside.com/past-years/jee/question/length-of-a-conducting-wire-is-increased-by-05-keeping-its-jee-main-physics-units-and-measurements-iupugwg3mvfoeesd",
+        "year": "2019",
+        "shift": "Morning",
+        "date": "9th January"
+    },
+    {
+        "q": "The percentage errors in quantities P, Q, R and S are 0.5%, 1%, 3% and 1.5% respectively in the measurement of a physical quantity A = P 3 Q 2 R S . The maximum percentage error in the value of A will be :",
+        "type": "mcq",
+        "options": [
+            "6.0%",
+            "7.5%",
+            "8.5%",
+            "6.5%"
+        ],
+        "answer": 3,
+        "explanation": "Given,\nA =\nP\n3\nQ\n2\nR\nS\n∴\nΔ\nA\nA\n= 3\nΔ\nP\nP\n+ 2\nΔ\nQ\nQ\n+\n1\n2\nΔ\nR\nR\n+\nΔ\nS\nS\nMaximum percentage error in the value of A is\nΔ\nA\nA\n×\n100 = 3\n×\n0.5 + 2\n×\n1 +\n1\n2\n×\n3 + 1\n×\n1.5\n= 6.5 %",
+        "url": "https://questions.examside.com/past-years/jee/question/the-percentage-errors-in-quantities-p-q-r-and-s-are-05-jee-main-physics-units-and-measurements-eznotcud5j5v0i0t",
+        "year": "2018",
+        "shift": "Morning",
+        "date": "16th April"
+    },
+    {
+        "q": "The relative uncertainly in the period of a satellite orbiting around the earth is 10 ^{-2} . If the relative uncertainty in the radius of the orbit is negligible, the relative uncertainty in the mass of the earth is :",
+        "type": "mcq",
+        "options": [
+            "10 ^{-2}",
+            "2 × 10 ^{-2}",
+            "3 × 10 ^{-2}",
+            "6 × 10 ^{-2}"
+        ],
+        "answer": 1,
+        "explanation": "From kepler's law,\nT = 2\nπ\nr\n3\nG\nM\n⇒\nT\n^{2}\n=\n4\nπ\n2\nG\nM\nr\n3\n⇒\nM =\n4\nπ\n2\nG\n×\nr\n3\nT\n2\n∴\nΔ\nM\nM\n= 2\nΔ\nT\nT\n+ 3\nΔ\nr\nr\nas\nΔ\nr\nr\n≃\n0\n∴\n|\nΔ\nM\nM\n|\n= 2\nΔ\nT\nT\n= 2\n×\n10\n^{-2}",
+        "url": "https://questions.examside.com/past-years/jee/question/the-relative-uncertainly-in-the-period-of-a-satellite-orbiti-jee-main-physics-units-and-measurements-9encxxswgouprjm7",
+        "year": "2018",
+        "shift": "Morning",
+        "date": "16th April"
+    },
+    {
+        "q": "The density of a material in the shape of a cube is determined by measuring three sides of the cube and its\nmass. If the relative errors in measuring the mass and length are respectively 1.5% and 1%, the maximum\nerror in determining the density is:",
+        "type": "mcq",
+        "options": [
+            "6%",
+            "2.5%",
+            "3.5%",
+            "4.5%"
+        ],
+        "answer": 3,
+        "explanation": "Density of a material (d) =\nM\nL\n3\n∴\nError in density,\nΔ\nd\nd\n=\nΔ\nM\nM\n+\n3\nΔ\nL\nL\nΔ\nd\nd\n×\n100\n=\nΔ\nM\nM\n×\n100\n+\n3\nΔ\nL\nL\n×\n100\n⇒\nΔ\nd\nd\n×\n100\n=\n1.5\n%\n+\n3\n(\n1\n)\n%\n= 4.5 %",
+        "url": "https://questions.examside.com/past-years/jee/question/the-density-of-a-material-in-the-shape-of-a-cube-is-determin-2018-marks-4-jzriatnhbyjwerrd.htm",
+        "year": "2018",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "The characteristic distance at which quantum gravitational effects are significant, the Planck length, can be determined from a suitable combination of the fundamental physical constants G, h and c. Which of the following correctly gives the Planck length ?",
+        "type": "mcq",
+        "options": [
+            "G ℏ ^{2} c ^{3}",
+            "G ^{2} ℏ c",
+            "G 1 / 2 ℏ 2 c",
+            "( G ℏ c 3 ) 1 / 2"
+        ],
+        "answer": 3,
+        "explanation": "Plank length,\nℓ\n= k G\n^{p}\nℏ\n^{q}\nC\n^{r}\n[ M\n^{o}\nL T\n^{o}\n] = [ M\n^{-1}\nL\n^{3}\nT\n^{-2}\n]\n^{p}\n[ M L\n^{2}\nT\n^{-1}\n]\n^{q}\n[ L T\n^{-1}\n]\n^{r}\n[M\n^{o}\nL T\n^{o}\n] = [M\n^{-p + q}\nL\n^{(3p + 2q + r)}\nT\n^{-(2p + q + r)}\n]\nComparing both sides,\n-\np + q = 0\n3p + 2q + r = 1\n-\n(2p + q + r) = 0\nSolving those equation we get,\np =\n1\n2\n,\nq =\n1\n2\n,\nr\n=\n-\n3\n2\n∴\nℓ\n= k G\n1\n2\nℏ\n1\n2\nC\n-\n3\n2\n=\n(\nG\nℏ\nC\n3\n)\n1\n2\n(assume k = 1)",
+        "url": "https://questions.examside.com/past-years/jee/question/the-characteristic-distance-at-which-quantum-gravitational-e-jee-main-physics-units-and-measurements-ta8mydgm8c8a9lap",
+        "year": "2018",
+        "shift": "Morning",
+        "date": "15th April"
+    },
+    {
+        "q": "The relative error in the determination of the surface area of sphere is α . Then the relative error in the determination of its volume is :",
+        "type": "mcq",
+        "options": [
+            "3 2 α",
+            "2 3 α",
+            "5 2 α",
+            "α"
+        ],
+        "answer": 0,
+        "explanation": "Relative error in the surface are of the sphere,\nΔ\nS\nS\n= 2\n×\nΔ\nr\nr\n=\n∝\n(given)\nRelative error in volume,\nΔ\nV\nV\n= 3\n×\nΔ\nr\nr\n= 3\n×\n1\n2\n×\nΔ\nS\nS\n=\n3\n2\n×\n∝\n=\n3\n2\n∝",
+        "url": "https://questions.examside.com/past-years/jee/question/the-relative-error-in-the-determination-of-the-surface-area-jee-main-physics-units-and-measurements-skbc62vghddmcvtc",
+        "year": "2018",
+        "shift": "Morning",
+        "date": "15th April"
+    },
+    {
+        "q": "In a screw gauge, 5 complete rotations of the screw cause it to move a linear distance of 0.25 c m . There are 100 circular scale divisions. The thickness of a wire measured by this screw gauge gives a reading of 4 main scale divisions and 30 circular scale divisions. Assuming negligible zero error, the thickness of the wire is :",
+        "type": "mcq",
+        "options": [
+            "0.4300 c m",
+            "0.2150 c m",
+            "0.3150 c m",
+            "0.0430 c m"
+        ],
+        "answer": 1,
+        "explanation": "5 complete rotations = 0.25 cms\nSo, 1 complete rotation of screw = 0.05 cm\n∴\n1 main scale division = 0.05 cm\n1 circular scale =\n0.05\n100\n= 5\n×\n10\n^{-4}\ncm\nThickness of a wire\n= 4 main scale and 30 circular scale divisions\n= 4\n×\n0.05 + 30\n×\n5\n×\n10\n^{-4}\n= 0.2150 cm.",
+        "url": "https://questions.examside.com/past-years/jee/question/in-a-screw-gauge-5-complete-rotations-of-the-screw-caus-jee-main-physics-units-and-measurements-tecofi6vajtrfswg",
+        "year": "2018",
+        "shift": "Morning",
+        "date": "15th April"
+    },
+    {
+        "q": "A physical quantity P is described by the relation P = a 1 / 2 b ^{2} c ^{3} d ^{-4} If the relative errors in the measurement of a, b, c and d respectively, are 2%, 1%, 3% and 5%, then the relative error in P will be :",
+        "type": "mcq",
+        "options": [
+            "8%",
+            "12%",
+            "32%",
+            "25%"
+        ],
+        "answer": 2,
+        "explanation": "Given,\nP = a\n1\n2\nb\n^{2}\n^{}\nc\n^{3}\nd\n^{-4}\nRelative error =\nΔ\nP\nP\n×\n100 = (\n1\n2\n×\nΔ\na\na\n+ 2\nΔ\nb\nb\n+ 3\nΔ\nc\nc\n+ 4\nΔ\nd\nd\n)\n×\n100\n=\n1\n2\n×\n2 + 2\n×\n1 + 3\n×\n3 + 4\n×\n5\n= 32%",
+        "url": "https://questions.examside.com/past-years/jee/question/a-physical-quantity-p-is-described-by-the-relation-p-a-jee-main-physics-units-and-measurements-8cxbqwvqjxzo5bsd",
+        "year": "2017",
+        "shift": "Morning",
+        "date": "9th April"
+    },
+    {
+        "q": "Time (T), velocity (C) and angular momentum (h) are chosen as fundamentalquantities instead of mass, length and time. In terms of these, the dimensions of mass would be :",
+        "type": "mcq",
+        "options": [
+            "[M] = [T ^{-1} C ^{-2} h]",
+            "[M] = [T ^{-1} C ^{2} h]",
+            "[M] = [T ^{-1} C ^{-2} h ^{-1} ]",
+            "[M] = [T C ^{-2} h]"
+        ],
+        "answer": 0,
+        "explanation": "Let,\nM\n∝\nT\n^{x}\nC\n^{y}\nh\n^{z}\n∴\n[M\n^{1}\nL\n^{o}\nT\n^{o}\n] = [T\n^{1}\n]\n^{x}\n[L\n^{1}\nT\n^{-1}\n]\n^{y}\n[M\n^{1}\nL\n^{2}\nT\n^{-1}\n]\n^{z}\n[M\n^{1}\nL\n^{o}\nT\n^{o}\n] = [M\n^{z}\nL\n^{y + 2z}\nT\n^{x-y-z}\n]\nBy comparing both sides we get,\nz = 1\ny + 2z = 0\nx\n-\ny\n-\nz = 0\n∴\ny =\n-\n2z =\n-\n2\nx = y + z =\n-\n2 + 1 =\n-\n1\n∴\n[M] = [M\n^{-1}\nC\n^{-2}\nh\n^{1}\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/time-t-velocity-c-and-angular-momentum-h-are-chosen-a-jee-main-physics-units-and-measurements-e5v0byxm6xhp39tz",
+        "year": "2017",
+        "shift": "Morning",
+        "date": "8th April"
+    },
+    {
+        "q": "The following observations were taken for determining surface tension T of water by capillary method: diameter of capillary, D = 1.25 × 10 ^{-2} m rise of water, h = 1.45 × 10 ^{-2} m Using g = 9.80 m/s ^{2} and the simplified relation T = r h g 2 × 10 3 N / m , the possible error in surface tension is closest to :",
+        "type": "mcq",
+        "options": [
+            "10 %",
+            "0.15 %",
+            "1.5 %",
+            "2.4 %"
+        ],
+        "answer": 2,
+        "explanation": "Surface tension,\nT =\nr\nh\ng\n2\n×\n10\n3\nN\n/\nm\nRelative error,\nΔ\nT\nT\n=\nΔ\nr\nr\n+\nΔ\nh\nh\nPercentage error,\nΔ\nT\nT\n×\n100\n=\nΔ\nr\nr\n×\n100\n+\nΔ\nh\nh\n×\n100\nΔ\nT\nT\n×\n100\n=\n(\n10\n-\n2\n×\n0.01\n1.25\n×\n10\n-\n2\n+\n10\n-\n2\n×\n0.01\n1.45\n×\n10\n-\n2\n)\n×\n100\n= (0.8 + 0.689) = 1.489 % = 1.5 %",
+        "url": "https://questions.examside.com/past-years/jee/question/the-following-observations-were-taken-for-determining-surfac-2017-marks-4-wiwmkyyfbarmefoz.htm",
+        "year": "2017",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "In the following ‘I’ refers to current and other symbols have their usual meaning.\nChoose the option that corresponds to the ^{} dimensions of electrical conductivity :",
+        "type": "mcq",
+        "options": [
+            "ML ^{-3} T ^{-3} I2",
+            "M ^{-1} L ^{3} T ^{3} I",
+            "M ^{-1} L ^{-3} T ^{3} I ^{2}",
+            "M ^{-1} L ^{-3} T ^{3} I"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/in-the-following-i-refers-to-current-and-other-symbols-jee-main-physics-units-and-measurements-ii4xjq2asar9dwmp",
+        "year": "2016",
+        "shift": "Morning",
+        "date": "9th April"
+    },
+    {
+        "q": "A student measures the time period of 100 oscillations of a simple pendulum four times. The data set is 90 s, 91 s, 95 s and 92 s. If the minimum division in the measuring clock is 1 s, then the reported mean time should be :",
+        "type": "mcq",
+        "options": [
+            "92 ± 1.8 s",
+            "92 ± 3 s",
+            "92 ± 2 s",
+            "92 ± 5.0 s"
+        ],
+        "answer": 2,
+        "explanation": "Here t\n_{1}\n= 90 s, t\n_{2}\n= 91 s, t\n_{3}\n= 95 s, t\n_{4}\n= 92 s\nMean(t) =\nt\n1\n+\nt\n2\n+\nt\n3\n+\nt\n4\n4\n=\n90\n+\n91\n+\n95\n+\n92\n4\n= 92 s\nNow mean deviation\n=\n2\n+\n1\n+\n3\n+\n0\n4\n= 1.5 s\nSince least count of clock is one second, so reported mean time\n= (92\n±\n2) s",
+        "url": "https://questions.examside.com/past-years/jee/question/a-student-measures-the-time-period-of-100-oscillations-of-a-2016-marks-4-rnk6nsjy2atvlzuw.htm",
+        "year": "2016",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "A screw gauge with a pitch of 0.5 mm and a circular scale with 50 divisions is used to measure the\nthickness of a thin sheet of Aluminium. Before starting the measurement, it is found that when the two jaws of the screw gauge are brought in contact, the 45 ^{th} division coincides with the main scale line and that the zero of the main scale is barely visible. What is the thickness of the sheet if the main scale reading is 0.5 mm and the 25 ^{th} division coincides with the main scale line?",
+        "type": "mcq",
+        "options": [
+            "0.70 mm",
+            "0.50 mm",
+            "0.75 mm",
+            "0.80 mm"
+        ],
+        "answer": 3,
+        "explanation": "Least count =\n0.5\n50\n= 0.01 mm\nZero error = (45 - 50)\n×\n0.01 mm = - 0.05 mm\nThickness of sheet = (0.5 + 25\n×\n0.01) - (-0.05)\n= 0.50 + 0.30 = 0.80 mm",
+        "url": "https://questions.examside.com/past-years/jee/question/a-screw-gauge-with-a-pitch-of-05-mm-and-a-circular-scale-wi-2016-marks-4-qfvr1fzqi7vpo6pr.htm",
+        "year": "2016",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "A student measured the length of a rod and wrote it as 3.50 cm. Which instrument did he use to measure it?",
+        "type": "mcq",
+        "options": [
+            "A screw gauge having 100 divisions in the circular scale and pitch as 1 mm.",
+            "A screw gauge having 50 divisions in the circular scale and pitch as 1 mm.",
+            "A meter scale.",
+            "A vernier calliper where the 10 divisions in vernier scale matches with 9 division in main scale and main scale has 10 divisions in 1 cm."
+        ],
+        "answer": 3,
+        "explanation": "Measured length of rod = 3.50 cm\nThat means least count of the measuring instrument should be 0.01 cm = 0.1 mm\nFor vernier scale 1 main scale division = 1 mm\nAnd 9 MSD = 10 VSD\nLeast count = 1 MSD - 1 VSD\n= 1 - 0.9 = 0.1 mm",
+        "url": "https://questions.examside.com/past-years/jee/question/a-student-measured-the-length-of-a-rod-and-wrote-it-as-350-2014-marks-4-1rspf8uv4g4qh6kv.htm",
+        "year": "2014",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "Let [ ε 0 ] denote the dimensional formula of the permittivity of vacuum. If M = mass, L = length, T = time\nand A = electric current, then:",
+        "type": "mcq",
+        "options": [
+            "ε 0 = [ M - 1 L - 3 T 2 A ]",
+            "ε 0 = [ M - 1 L - 3 T 4 A 2 ]",
+            "ε 0 = [ M 1 L 2 T 1 A 2 ]",
+            "ε 0 = [ M 1 L 2 T 1 A ]"
+        ],
+        "answer": 1,
+        "explanation": "From Coulomb's law we know,\nF\n=\n1\n4\nπ\n∈\n0\nq\n1\nq\n2\nr\n2\n∴\n∈\n0\n=\n1\n4\nπ\nq\n1\nq\n2\nF\nr\n2\nHence,\n[\n∈\n0\n]\n=\n[\nA\nT\n]\n[\nA\nT\n]\n[\nM\nL\nT\n-\n2\n]\n[\nL\n2\n]\n=\n[\nM\n-\n1\nL\n-\n3\nT\n4\nA\n2\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/let-varepsilon-0-denote-the-dimensional-formula-of-2013-marks-4-jsyfxzwcg2nbvfip.htm",
+        "year": "2013",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "Resistance of a given wire is obtained by measuring the current flowing in it and the voltage difference\napplied across it. If the percentage errors in the measurement of the current and the voltage difference\nare 3% each, then error in the value of resistance of the wire is",
+        "type": "mcq",
+        "options": [
+            "6 %",
+            "zero",
+            "1 %",
+            "3 %"
+        ],
+        "answer": 0,
+        "explanation": "We know R =\nV\nI\n∴\nΔ\nR\nR\n=\nΔ\nV\nV\n+\nΔ\nI\nI\nPercentage error in R =\nΔ\nR\nR\n×\n100\n=\nΔ\nV\nV\n×\n100\n+\nΔ\nI\nI\n×\n100\n∴\nΔ\nR\nR\n×\n100\n=\n3% + 3 % = 6%",
+        "url": "https://questions.examside.com/past-years/jee/question/resistance-of-a-given-wire-is-obtained-by-measuring-the-curr-2012-marks-4-1wo1ukabshemiybw.htm",
+        "year": "2012",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "A spectrometer gives the following reading when used to measure the angle of a prism. Main scale reading: 58.5 degree Vernier scale reading : 09 divisions Given that 1 division on main scale corresponds to 0.5 degree. Total divisions on the vernier scale is 30 and match with 29 divisions of the main scale. The angle of the prism from the above data",
+        "type": "mcq",
+        "options": [
+            "58.59 degree",
+            "58.77 degree",
+            "58.65 degree",
+            "59 degree"
+        ],
+        "answer": 2,
+        "explanation": "30 vernier scale divisions coincide with 29 main scale divisions.\nTherefore 1 V.S.D =\n29\n30\nM.S.D\nLeast count = 1 M.S.D - 1 V.S.D\n= 1 M.S.D -\n29\n30\nM.S.D\n=\n1\n30\nM.S.D\n=\n1\n30\n×\n0.5\n^{o}\nReading of Vernier = Main Scale Reading + Vernier scale reading\n×\nLeast count\nGiven that,\nMain Scale Reading = 58.5\nVernier scale reading = 09 division\n∴\nReading of Vernier = 58.5\n^{o}\n+ 9\n×\n0.5\n∘\n30\n= 58.65\n^{o}",
+        "url": "https://questions.examside.com/past-years/jee/question/a-spectrometer-gives-the-following-reading-when-used-to-meas-2012-marks-4-f4htszuiybnf9crq.htm",
+        "year": "2012",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "A screw gauge gives the following reading when used to measure the diameter of a wire. Main scale reading : 0 mm Circular scale reading : 52 divisions Given that 1 mm on main scale corresponds to 100 divisions of the circular scale. The diameter of wire from the above date is:",
+        "type": "mcq",
+        "options": [
+            "0.052 cm",
+            "0.026 cm",
+            "0.005 cm",
+            "0.52 cm"
+        ],
+        "answer": 0,
+        "explanation": "Least count of screw gauge\n=\nP\ni\nt\nc\nh\nN\nu\nm\nb\ne\nr\no\nf\nd\ni\nv\ni\ns\ni\no\nn\no\nn\nc\ni\nr\nc\nu\nl\na\nr\ns\nc\na\nl\ne\n=\n1\n100\nm\nm\n= 0.01 mm\nDiameter of the wire = M.S.R + C.S.R\n×\nL.C\n= 0 + 52\n×\n0.01\n= 0.52 mm\n= 0.052 cm",
+        "url": "https://questions.examside.com/past-years/jee/question/a-screw-gauge-gives-the-following-reading-when-used-to-measu-2011-marks-4-4fugumz5cfmhghk4.htm",
+        "year": "2011",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "The respective number of significant figures for the numbers 23.023, 0.0003 and 2.1 × 10 ^{-3} are",
+        "type": "mcq",
+        "options": [
+            "5, 1, 2",
+            "5, 1, 5",
+            "5, 5, 2",
+            "4, 4, 2"
+        ],
+        "answer": 0,
+        "explanation": "23.023 has 5 significant figures.\n0.0003 has 1 significant figure.\n2.1\n×\n10\n^{-3}\nhas 2 significant figures.",
+        "url": "https://questions.examside.com/past-years/jee/question/the-respective-number-of-significant-figures-for-the-numbers-2010-marks-4-qj0wnabg6uwris74.htm",
+        "year": "2010",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "In an experiment the angles are required to be measured using an instrument, 29 divisions of the\nmain scale exactly coincide with the 30 divisions of the vernier scale. If the smallest division of the\nmain scale is half-a degree(= 0.5 ∘ ), then the least count of the instrument is:",
+        "type": "mcq",
+        "options": [
+            "one minute",
+            "half minute",
+            "one degree",
+            "half degree"
+        ],
+        "answer": 0,
+        "explanation": "30 vernier scale divisions coincide with 29 main scale divisions.\nTherefore 1 V.S.D =\n29\n30\nM.S.D\nLeast count = 1 M.S.D - 1 V.S.D\n= 1 M.S.D -\n29\n30\nM.S.D\n=\n1\n30\nM.S.D\n=\n1\n30\n×\n0.5\n^{o}\n=\n1\n30\n×\n1\n2\n^{o}\n=\n1\n60\n^{o}\n= 1 min",
+        "url": "https://questions.examside.com/past-years/jee/question/in-an-experiment-the-angles-are-required-to-be-measured-usin-2009-marks-4-jonkaflxcrfblo7m.htm",
+        "year": "2009",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "A body of mass m = 3.513 kg is moving along the x-axis with a speed of 5.00 ms ^{-1} . The magnitude of its momentum is recorded as",
+        "type": "mcq",
+        "options": [
+            "17.6 kg ms ^{-1}",
+            "17.565 kg ms ^{-1}",
+            "17.56 kg ms ^{-1}",
+            "17.57 kg ms ^{-1}"
+        ],
+        "answer": 0,
+        "explanation": "Momentum, p = m\n×\nv\n= 3.513\n×\n5.00 = 17.565 kg m/s\n≃\n17.6 kg m/s\nHere number of significant digits in m is 4 and in v is 3, so, p must have minimum (which is 3) significant digit.\nNote :\nIn this case, since we are calculating the magnitude of momentum, which is given by the absolute value of the product of mass and velocity, we should follow the rules for significant figures as if we were multiplying the two values together.\nThe least precise value in the calculation has three significant figures (the velocity), so we should round the answer to three significant figures as well.\nTherefore, the correct answer with three significant figures is 17.6 kg m/s.",
+        "url": "https://questions.examside.com/past-years/jee/question/a-body-of-mass-m-3513-kg-is-moving-along-the-x-axis-with-2008-marks-4-bg5j7nfuaxdarcvv.htm",
+        "year": "2008",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "Two full turns of the circular scale of a screw gauge cover a distance of 1 mm on its main scale. The\ntotal number of divisions on the circular scale is 50. Further, it is found that the screw gauge has a\nzero error of - 0.03 mm while measuring the diameter of a thin wire, a student notes the main scale\nreading of 3 mm and the number of circular scale divisions in line with the main scale as 35. The\ndiameter of the wire is",
+        "type": "mcq",
+        "options": [
+            "3.32 mm",
+            "3.73 mm",
+            "3.67 mm",
+            "3.38 mm"
+        ],
+        "answer": 3,
+        "explanation": "Least count of screw gauge =\n0.5\n50\nm\nm\n= 0.01mm\nMain scale reading = 3 mm\nVernier scale reading = 35\n∴\nReading = [Main scale reading + circular scale reading\n×\nL.C] - (zero error)\n= [3 + 35\n×\n0.01] - (-0.03) = 3.38 mm",
+        "url": "https://questions.examside.com/past-years/jee/question/two-full-turns-of-the-circular-scale-of-a-screw-gauge-cover-2008-marks-4-d2kspusvkhn8jqi8.htm",
+        "year": "2008",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "An experiment is performed to find the refractive index of glass using a travelling microscope. In this experiment distances are measured by",
+        "type": "mcq",
+        "options": [
+            "a vernier scale provided on the microscope",
+            "a standard laboratory scale",
+            "a meter scale provided on the microscope",
+            "a screw gauge provided on the microscope"
+        ],
+        "answer": 0,
+        "explanation": "To find the refractive index of glass using a travelling microscope, a vernier scale is provided on the microscope",
+        "url": "https://questions.examside.com/past-years/jee/question/an-experiment-is-performed-to-find-the-refractive-index-of-g-2008-marks-4-ulzo7sy9gbkyvoh0.htm",
+        "year": "2008",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "The dimension of magnetic field in M, L, T and C (coulomb) is given as",
+        "type": "mcq",
+        "options": [
+            "MLT ^{-1} C ^{-1}",
+            "MT ^{2} C ^{-2}",
+            "MT ^{-1} C ^{-1}",
+            "MT ^{-2} C ^{-1}"
+        ],
+        "answer": 2,
+        "explanation": "We know that,\nLorentz force\n|\nF\n→\n|\n=\n|\nq\nv\n→\n×\nB\n→\n|\n∴\n[\nB\n]\n=\n[\nF\n]\n[\nq\n]\n[\nv\n]\n=\n[\nM\nL\nT\n-\n2\n]\n[\nC\n]\n×\n[\nL\nT\n-\n1\n]\n= [\nM\nT\n-\n1\nC\n-\n1\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/the-dimension-of-magnetic-field-in-m-l-t-and-c-coulomb-i-2008-marks-4-vkn4f98zxejlgquz.htm",
+        "year": "2008",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "Out of the following pair, which one does NOT have identical dimensions is",
+        "type": "mcq",
+        "options": [
+            "angular momentum and Planck's constant",
+            "impulse and momentum",
+            "moment of inertia and moment of a force",
+            "work and torque"
+        ],
+        "answer": 2,
+        "explanation": "Moment of inertia, I = Mr\n^{2}\n∴\n[I] = [ML\n^{2}\n]\nMoment of force,\nτ\n→\n=\nr\n→\n×\nF\n→\n∴\n[\nτ\n→\n]\n=\n[\nL\n]\n[\nM\nL\nT\n-\n2\n]\n=\n[\nM\nL\n2\nT\n-\n2\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/out-of-the-following-pair-which-one-does-not-have-identical-2005-marks-4-ibkmppxnilojy8cd.htm",
+        "year": "2005",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "Which one of the following represents the correct dimensions of the coefficient of viscosity?",
+        "type": "mcq",
+        "options": [
+            "ML ^{-1} T ^{-1}",
+            "MLT ^{-1}",
+            "ML ^{-1} T ^{-2}",
+            "ML ^{-2} T ^{-2}"
+        ],
+        "answer": 0,
+        "explanation": "From stokes law, Viscous force F =\n6\nπ\nη\nr\nv\n⇒\nη\n=\nF\n6\nπ\nr\nv\n∴\n[\nη\n]\n=\n[\nM\nL\nT\n-\n2\n]\n[\nL\n]\n[\nL\nT\n-\n1\n]\n⇒\n[\nη\n]\n=\n[\nM\nL\n-\n1\nT\n-\n1\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/which-one-of-the-following-represents-the-correct-dimensions-2004-marks-4-lvccefmk67vpwsni.htm",
+        "year": "2004",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "Dimensions of 1 μ 0 ε 0 , where symbols have their usual meaning, are",
+        "type": "mcq",
+        "options": [
+            "[ L ^{-1} T ]",
+            "[ L ^{-2} T ^{2} ]",
+            "[ L ^{2} T ^{-2} ]",
+            "[ LT ^{-1} ]"
+        ],
+        "answer": 2,
+        "explanation": "The velocity of light in vacuum is\nc =\n1\nμ\n0\nε\n0\n;\n∴\n[\n1\nμ\n0\nε\n0\n]\n= [c\n^{2}\n] = [L\n^{2}\nT\n^{-2}\n]\n∴\nDimension of\n1\nμ\n0\nε\n0\n= [L\n^{2}\nT\n^{-2}\n]",
+        "url": "https://questions.examside.com/past-years/jee/question/dimensions-of-1-over-mu-0varepsilon-0-wher-2003-marks-4-07fb9a0w1swcoymv.htm",
+        "year": "2003",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "The physical quantities not having same dimensions are",
+        "type": "mcq",
+        "options": [
+            "torque and work",
+            "momentum and Planck's constant",
+            "stress and Young's modulus",
+            "speed and ( μ 0 ε 0 ) - 1 / 2"
+        ],
+        "answer": 1,
+        "explanation": "Momentum = mv = [\nM\nL\nT\n-\n1\n]\nPlanck's constant, h =\nE\nv\n=\n[\nM\nL\n2\nT\n-\n2\n]\n[\nT\n-\n1\n]\n=\n[\nM\nL\n2\nT\n-\n1\n]\nSo Momentum and Planck's constant do not have same dimensions.",
+        "url": "https://questions.examside.com/past-years/jee/question/the-physical-quantities-not-having-same-dimensions-are-2003-marks-4-02536silfkvdskvh.htm",
+        "year": "2003",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "Identify the pair whose dimensions are equal",
+        "type": "mcq",
+        "options": [
+            "torque and work",
+            "stress and energy",
+            "force and stress",
+            "force and work"
+        ],
+        "answer": 0,
+        "explanation": "To determine which pairs have equivalent dimensions, we examine the respective dimensional formulas.\nFor work (W) specified as\nF\n→\n⋅\ns\n→\n:\nW\n=\nF\ns\ncos\n⁡\nθ\nThe dimensions are:\nW\n=\n[\nM\nL\nT\n-\n2\n]\n[\nL\n]\n=\n[\nM\nL\n2\nT\n-\n2\n]\nFor torque (\nτ\n→\n) given as\nr\n→\n×\nF\n→\n:\nτ\n=\nr\nF\nsin\n⁡\nθ\nThe dimensions are:\nτ\n=\n[\nL\n]\n[\nM\nL\nT\n-\n2\n]\n=\n[\nM\nL\n2\nT\n-\n2\n]\nTherefore, the dimensions of torque and work are identical.",
+        "url": "https://questions.examside.com/past-years/jee/question/identify-the-pair-whose-dimensions-are-equal-2002-marks-4-vfmpnzyqwdwrns7q.htm",
+        "year": "2002",
+        "shift": "N/A",
+        "date": "N/A"
+    },
+    {
+        "q": "A physical quantity is related to four observables as follows : A physical quantity Q is related to four observables a , b , c , d as follows : Q = a b 4 c d where, a = ( 60 ± 3 ) Pa ; b = ( 20 ± 0.1 ) m ; c = ( 40 ± 0.2 ) Nsm - 2 and d = ( 50 ± 0.1 ) m , then the percentage error in Q is x 1000 , where x = _________ .",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "Given,\nQ\n=\na\nb\n4\nc\nd\na\n=\n(\n60\n±\n3\n)\nP\na\n⇒\na\n=\n60\nP\na\n,\nΔ\na\n=\n3\nP\na\nb\n=\n(\n20\n±\n0.1\n)\nm\n⇒\nb\n=\n20\nm\n,\nΔ\nb\n=\n0.1\nm\nc\n=\n(\n40\n±\n0.2\n)\nN\ns\nm\n-\n2\n⇒\nc\n=\n40\nN\ns\nm\n-\n2\n,\nΔ\nc\n=\n0.2\nN\ns\nm\n-\n2\nd\n=\n(\n50\n±\n0.1\n)\nm\n⇒\nd\n=\n50\nm\n,\nΔ\nd\n=\n0.1\nm\nAs,\nQ\n=\na\nb\n4\nc\nd\nby taking ln on both sides,\nln\n⁡\nQ\n=\nln\n⁡\na\n+\nu\nln\n⁡\nb\n-\nln\n⁡\nc\n-\nln\n⁡\nd\nNow, by differentiating,\nd\nQ\nQ\n=\nd\na\na\n+\n4\nd\nb\nb\n-\nd\nc\nc\n-\nd\nd\nd\nSo, maximum fractional error in Q is given by,\nΔ\nQ\nQ\n=\nΔ\na\na\n+\n4\nΔ\nb\nb\n+\nΔ\nc\nc\n+\nΔ\nd\nd\n⇒\nΔ\nQ\nQ\n=\n3\n60\n+\n4\n(\n0.1\n20\n)\n+\n0.2\n40\n+\n0.1\n40\n=\n1\n20\n+\n1\n50\n+\n1\n200\n+\n1\n500\n⇒\nΔ\nQ\nQ\n=\n50\n+\n20\n+\n5\n+\n2\n1000\n=\n77\n1000\nHence the % error in\nQ\n=\nΔ\nQ\nQ\n×\n100\n%\n=\n7700\n1000\n%\n=\nx\n1000\n(given)\nSo,\nx\n=\n7700",
+        "url": "https://questions.examside.com/past-years/jee/question/ptext--a-physical-quantity--q-text--is-related-to-fo-jee-main-physics-pik17mypblqpwhnc",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "29th January"
+    },
+    {
+        "q": "A tiny metallic rectangular sheet has length and breadth of 5 mm and 2.5 mm , respectively. Using a specially designed screw gauge which has pitch of 0.75 mm and 15 divisions in the circular scale, you are asked to find the area of the sheet. In this measurement, the maximum fractional error will be x 100 where x is _______ .",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "Given, L = 5 mm, B = 2.5 mm\nWe know, least count of a screw gauge,\nPitch length\nNo. of division on circular scale\nL\n.\nC\n.\n=\nPitch length\nNo. of division on circular scale\n⇒\nL\n.\nC\n.\n=\n0.75\n15\n=\n0.05\nm\nm\nWe know,\nA\n=\nL\nB\nBy taking\nl\nn\non both sides,\n⇒\nln\n⁡\nA\n=\nln\n⁡\nL\n+\nln\n⁡\nB\nby differentiating both sides,\n⇒\nd\nA\nA\n=\nd\nL\nL\n+\nd\nB\nB\nHere,\nd\nL\n=\nd\nB\n=\n0.05\nm\nm\n(L.C.)\nSo fractional error,\nd\nA\nA\n=\n0.05\n5\n+\n0.05\n2.5\n=\n1\n100\n+\n2\n100\n=\n3\n100\n=\nx\n100\n(given)\nHence,\nx\n=\n3\n.",
+        "url": "https://questions.examside.com/past-years/jee/question/pa-tiny-metallic-rectangular-sheet-has-length-and-breadth-jee-main-physics-units-and-measurements-kjf9tolqm4qkpz5g",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "28th January"
+    },
+    {
+        "q": "The least count of a screw guage is 0.01 mm . If the pitch is increased by 75 % and number of divisions on the circular scale is reduced by 50 % , the new least count will be ________ × 10 - 3 mm",
+        "type": "integer",
+        "options": [],
+        "answer": "N/A",
+        "explanation": "The least count (L.C.) of a screw gauge is given by:\nL.C.\nPitch\nNumber of Divisions on Circular Scale\nL.C.\n=\nPitch\nNumber of Divisions on Circular Scale\nLet the original pitch be\np\nand the original number of divisions be\nn\n. Then, the original least count is:\nmm\np\nn\n=\n0.01\nmm\nAfter modifications:\nThe pitch is increased by 75%, so the new pitch is:\nnew\np\nnew\n=\np\n+\n0.75\np\n=\n1.75\np\nThe number of divisions is reduced by 50%, so the new number of divisions is:\nnew\nn\nnew\n=\n0.5\nn\nThe new least count is then:\nL.C.\nnew\nnew\nnew\nL.C.\nnew\n=\np\nnew\nn\nnew\n=\n1.75\np\n0.5\nn\n=\n1.75\n0.5\n×\np\nn\n=\n3.5\n×\np\nn\nSubstitute the original least count:\nL.C.\nnew\nmm\nmm\nL.C.\nnew\n=\n3.5\n×\n0.01\nmm\n=\n0.035\nmm\nExpressed in the form\nmm\n×\n10\n-\n3\nmm\n, this becomes:\nmm\nmm\n0.035\nmm\n=\n35\n×\n10\n-\n3\nmm\nThus, the new least count is:\nmm\n35\n×\n10\n-\n3\nmm",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-least-count-of-a-screw-guage-is-001-mm--if-the-pitc-jee-main-physics-units-and-measurements-97v49ptoahmrvrvs",
+        "year": "2025",
+        "shift": "Morning",
+        "date": "24th January"
     }
 ]
