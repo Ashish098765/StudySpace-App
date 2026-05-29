@@ -4,79 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Study Room | StudySpace</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --bg-color: #0f111a; --card-bg: #1e2130; --text-main: #f8fafc; --text-muted: #94a3b8; --primary: #6366f1; --accent: #10b981; --danger: #ef4444; --btn-off: #334155; }
+        :root { 
+            --bg-base: #09090b; /* Deep zinc */
+            --surface: rgba(24, 24, 27, 0.65); /* Translucent for glass */
+            --surface-solid: #18181b;
+            --text-main: #f4f4f5; 
+            --text-muted: #a1a1aa; 
+            --primary: #6366f1; 
+            --accent: #10b981; 
+            --danger: #ef4444; 
+            --border-light: rgba(255, 255, 255, 0.08);
+        }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         
-        body { background-color: var(--bg-color); color: var(--text-main); height: 100vh; height: 100dvh; display: flex; overflow: hidden; position: relative; }
+        body { background-color: var(--bg-base); color: var(--text-main); height: 100vh; height: 100dvh; display: flex; overflow: hidden; position: relative; font-weight: 400; }
         
-        #main-content { flex: 1; display: flex; flex-direction: column; position: relative; transition: all 0.3s ease; width: 100%; }
+        #main-content { flex: 1; display: flex; flex-direction: column; position: relative; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); width: 100%; }
         
-        #activity-warning { background: var(--danger); color: white; text-align: center; padding: 0.8rem; font-weight: 600; font-size: 0.9rem; display: none; z-index: 100; }
-        .room-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: rgba(15, 17, 26, 0.8); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .room-title { font-size: 1.2rem; font-weight: 800; }
-        .timer-badge { font-family: monospace; font-size: 1.2rem; color: var(--accent); background: rgba(16, 185, 129, 0.1); padding: 0.4rem 1rem; border-radius: 8px; }
+        /* --- HEADER --- */
+        #activity-warning { background: var(--danger); color: white; text-align: center; padding: 0.6rem; font-weight: 500; font-size: 0.85rem; display: none; z-index: 100; letter-spacing: 0.2px; }
+        .room-header { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; background: transparent; z-index: 10; position: absolute; top: 0; width: 100%; pointer-events: none; }
+        .room-title { font-size: 1.1rem; font-weight: 600; color: var(--text-main); text-shadow: 0 2px 10px rgba(0,0,0,0.5); pointer-events: auto; }
+        .timer-badge { font-family: 'Inter', monospace; font-size: 1rem; font-weight: 500; color: var(--text-main); background: var(--surface); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border-light); padding: 0.4rem 1rem; border-radius: 100px; pointer-events: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
 
-        /* --- VIDEO GRID & DISCORD AVATARS --- */
-        #video-grid { flex-grow: 1; display: grid; gap: 1rem; padding: 1.5rem; padding-bottom: 120px; align-content: center; justify-content: center; overflow-y: auto; }
-        .video-container { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 3px solid transparent; transition: all 0.2s ease; }
+        /* --- VIDEO GRID --- */
+        #video-grid { flex-grow: 1; display: grid; gap: 1rem; padding: 5rem 1.5rem 8rem 1.5rem; align-content: center; justify-content: center; overflow-y: auto; }
+        .video-container { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; aspect-ratio: 16/9; background: var(--surface-solid); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.4); border: 1px solid var(--border-light); transition: all 0.3s ease; }
         
         .agora-video-view { width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 5; transition: opacity 0.3s ease; }
         
-        /* The Big Center Avatar (Hidden when Cam is ON) */
-        .main-avatar { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; position: absolute; z-index: 10; display: none; box-shadow: 0 10px 25px rgba(0,0,0,0.6); }
-        
-        /* THE MAGIC TRICK: When the .cam-off class is applied, hide video and show avatar */
+        .main-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; position: absolute; z-index: 10; display: none; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
         .video-container.cam-off .main-avatar { display: block; }
         .video-container.cam-off .agora-video-view { opacity: 0; }
         
-        /* SPEAKER HIGHLIGHT */
-        .video-container.speaking { border-color: var(--accent); box-shadow: 0 0 25px rgba(16, 185, 129, 0.5); transform: scale(1.02); z-index: 15; }
+        .video-container.speaking { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent), 0 8px 30px rgba(16, 185, 129, 0.2); z-index: 15; }
 
-        .name-badge { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); padding: 6px 14px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; z-index: 20; display: flex; align-items: center; gap: 8px; }
-        .badge-avatar { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; border: 1px solid var(--primary); background: var(--card-bg); }
+        .name-badge { position: absolute; bottom: 12px; left: 12px; background: var(--surface); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 6px 12px 6px 6px; border-radius: 100px; font-size: 0.8rem; font-weight: 500; z-index: 20; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.05); }
+        .badge-avatar { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; background: var(--surface-solid); }
 
-        /* Controls */
-        .controls-wrapper { position: fixed; bottom: max(20px, env(safe-area-inset-bottom)); left: 0; width: 100%; display: flex; justify-content: center; pointer-events: none; z-index: 999; }
-        .control-bar { background: rgba(30, 33, 48, 0.95); backdrop-filter: blur(15px); padding: 1rem 1.5rem; border-radius: 100px; display: flex; gap: 1rem; pointer-events: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.15); align-items: center; }
-        .btn-media { width: 50px; height: 50px; border-radius: 50%; border: none; font-size: 1.2rem; cursor: pointer; transition: all 0.2s ease; display: flex; justify-content: center; align-items: center; color: white; }
-        .btn-on { background: var(--primary); }
-        .btn-off { background: var(--btn-off); color: #cbd5e1; }
-        .btn-danger { background: var(--danger); }
+        /* --- FLOATING CONTROLS --- */
+        .controls-wrapper { position: fixed; bottom: max(24px, env(safe-area-inset-bottom)); left: 0; width: 100%; display: flex; justify-content: center; pointer-events: none; z-index: 999; }
+        .control-bar { background: var(--surface); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 0.6rem; border-radius: 100px; display: flex; gap: 0.75rem; pointer-events: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.5); border: 1px solid var(--border-light); align-items: center; }
+        
+        /* Aesthetic Buttons */
+        .btn-media { width: 48px; height: 48px; border-radius: 50%; border: none; font-size: 1.1rem; cursor: pointer; transition: all 0.2s ease; display: flex; justify-content: center; align-items: center; outline: none; }
+        
+        /* OFF State: Subtle translucent gray */
+        .btn-off { background: rgba(255,255,255,0.05); color: var(--text-main); }
+        .btn-off:hover { background: rgba(255,255,255,0.1); }
+        
+        /* ON State: High-contrast Apple style */
+        .btn-on { background: var(--text-main); color: var(--bg-base); }
+        .btn-on:hover { transform: scale(1.05); }
+        
+        /* Danger State */
+        .btn-danger { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+        .btn-danger:hover { background: var(--danger); color: white; }
+        
+        /* Join Button */
+        #btn-join { background: var(--primary); padding: 0 1.5rem; font-weight: 500; display: none; gap: 8px; border-radius: 100px; border: none; color: white; cursor: pointer; height: 48px; font-size: 0.95rem; }
+        #btn-join:hover { background: var(--primary-hover); transform: translateY(-1px); }
 
-        /* Chat Panel */
-        #chat-panel { width: 350px; background: var(--card-bg); border-left: 1px solid rgba(255,255,255,0.05); display: none; flex-direction: column; transition: transform 0.3s ease; z-index: 1000; }
-        .chat-header { padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
-        #chat-messages { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 10px; }
-        .message { background: rgba(255,255,255,0.05); padding: 10px 12px; border-radius: 8px; font-size: 0.9rem; }
-        .message.mine { background: rgba(99, 102, 241, 0.2); border-bottom-right-radius: 0; align-self: flex-end; }
-        .message.theirs { border-bottom-left-radius: 0; align-self: flex-start; }
-        .msg-author { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px; font-weight: 600; }
-        .chat-input-area { padding: 1rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; gap: 8px; background: var(--card-bg); }
-        #chat-input { flex: 1; padding: 0.8rem; border-radius: 8px; border: none; background: rgba(0,0,0,0.3); color: white; outline: none; }
-        #btn-send { background: var(--primary); border: none; color: white; padding: 0 1rem; border-radius: 8px; cursor: pointer; }
+        /* --- CHAT PANEL (Glassmorphism) --- */
+        #chat-panel { width: 340px; background: rgba(9, 9, 11, 0.6); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border-left: 1px solid var(--border-light); display: none; flex-direction: column; transition: transform 0.3s ease; z-index: 1000; box-shadow: -10px 0 40px rgba(0,0,0,0.3); }
+        .chat-header { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border-light); font-weight: 600; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; }
+        #chat-messages { flex: 1; overflow-y: auto; padding: 1.5rem; display: flex; flex-direction: column; gap: 16px; scroll-behavior: smooth; }
+        
+        /* Chat Bubbles */
+        .message { padding: 10px 14px; border-radius: 12px; font-size: 0.9rem; max-width: 85%; line-height: 1.4; font-weight: 400; }
+        .message.mine { background: var(--primary); color: white; border-bottom-right-radius: 4px; align-self: flex-end; }
+        .message.theirs { background: rgba(255,255,255,0.08); color: var(--text-main); border-bottom-left-radius: 4px; align-self: flex-start; }
+        .msg-author { font-size: 0.75rem; opacity: 0.7; margin-bottom: 4px; font-weight: 500; }
+        
+        /* Floating Chat Input */
+        .chat-input-area { padding: 1rem 1.5rem 1.5rem 1.5rem; display: flex; gap: 10px; background: transparent; }
+        .input-wrapper { display: flex; flex: 1; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); border-radius: 100px; padding: 4px 4px 4px 16px; align-items: center; transition: all 0.2s; }
+        .input-wrapper:focus-within { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); }
+        #chat-input { flex: 1; border: none; background: transparent; color: white; outline: none; font-size: 0.9rem; }
+        #chat-input::placeholder { color: var(--text-muted); }
+        #btn-send { background: var(--primary); width: 36px; height: 36px; border-radius: 50%; border: none; color: white; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: transform 0.2s; }
+        #btn-send:hover { transform: scale(1.05); }
 
         /* --- LOBBY SCREEN --- */
-        #lobby-screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-color); z-index: 2000; display: flex; justify-content: center; align-items: center; padding: 1rem; }
-        .lobby-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; width: 100%; max-width: 500px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
-        .lobby-profile { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
-        .lobby-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary); }
-        .lobby-name { font-size: 1.5rem; font-weight: 800; }
+        #lobby-screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-base); z-index: 2000; display: flex; justify-content: center; align-items: center; padding: 1rem; }
+        .lobby-card { background: transparent; padding: 2rem; width: 100%; max-width: 420px; text-align: center; }
+        .lobby-profile { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 2rem; }
+        .lobby-avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+        .lobby-name { font-size: 1.25rem; font-weight: 600; }
         
-        .lobby-preview-box { width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 12px; margin-bottom: 1.5rem; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: center; align-items: center; }
+        .lobby-preview-box { width: 100%; aspect-ratio: 16/9; background: var(--surface-solid); border-radius: 16px; margin-bottom: 2rem; overflow: hidden; position: relative; border: 1px solid var(--border-light); display: flex; justify-content: center; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
         .lobby-preview-box.cam-off #lobby-video-preview { opacity: 0; }
         .lobby-preview-box.cam-off #lobby-main-avatar { display: block; }
         
-        #btn-join { background: var(--accent); padding: 1rem 2rem; font-weight: 600; font-size: 1.1rem; border-radius: 100px; border: none; color: white; cursor: pointer; width: 100%; margin-top: 1rem; transition: all 0.2s; }
-        #btn-join:hover { filter: brightness(1.1); transform: translateY(-2px); }
+        .lobby-card #btn-join { display: flex; justify-content: center; width: 100%; margin-top: 2rem; padding: 1.2rem; font-size: 1rem; border-radius: 16px; }
 
+        /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 900px) {
-            #chat-panel { position: fixed; top: 0; right: 0; height: 100%; width: 100%; max-width: 400px; box-shadow: -10px 0 30px rgba(0,0,0,0.7); border-left: none; }
-            .room-header { padding: 1rem; }
-            .control-bar { padding: 0.6rem 1rem; gap: 0.5rem; }
-            .btn-media { width: 45px; height: 45px; font-size: 1rem; }
+            #chat-panel { position: fixed; top: 0; right: 0; height: 100%; width: 100%; max-width: 400px; box-shadow: -20px 0 50px rgba(0,0,0,0.8); }
+            .room-header { padding: 1rem; flex-direction: column; gap: 10px; align-items: flex-start; }
+            .timer-badge { position: absolute; top: 1rem; right: 1rem; }
+            .controls-wrapper { bottom: max(16px, env(safe-area-inset-bottom)); }
+            .control-bar { padding: 0.5rem; gap: 0.4rem; }
+            .btn-media { width: 44px; height: 44px; font-size: 1rem; }
+            .lobby-card { padding: 1rem; }
         }
     </style>
 </head>
@@ -87,7 +121,7 @@
             <div class="lobby-profile">
                 <img id="lobby-avatar" class="lobby-avatar" src="https://www.gravatar.com/avatar/?d=mp">
                 <div id="lobby-name" class="lobby-name">Loading Profile...</div>
-                <div style="color: var(--text-muted); font-size: 0.9rem;">Ready to join the study session?</div>
+                <div style="color: var(--text-muted); font-size: 0.85rem; font-weight: 400;">Set up your audio and video before joining</div>
             </div>
             
             <div class="lobby-preview-box cam-off" id="lobby-preview-container">
@@ -95,20 +129,20 @@
                 <div id="lobby-video-preview" class="agora-video-view"></div>
             </div>
             
-            <div style="display: flex; gap: 1rem; justify-content: center;">
+            <div style="display: flex; gap: 1.5rem; justify-content: center;">
                 <button id="lobby-btn-mic" class="btn-media btn-off"><i class="fa-solid fa-microphone-slash"></i></button>
                 <button id="lobby-btn-cam" class="btn-media btn-off"><i class="fa-solid fa-video-slash"></i></button>
             </div>
             
-            <button id="btn-join"><i class="fa-solid fa-right-to-bracket"></i> Join Room</button>
+            <button id="btn-join">Join Room Now</button>
         </div>
     </div>
 
     <div id="main-content">
-        <div id="activity-warning">⏳ You have 2 minutes to turn on a device, or you will be removed for inactivity.</div>
+        <div id="activity-warning">⏳ You have 2 minutes to turn on a device, or you will be removed.</div>
         <div class="room-header">
             <div class="room-title" id="room-id-display">Loading...</div>
-            <div class="timer-badge">⏱ <span id="timer-display">00:00</span></div>
+            <div class="timer-badge"><span id="timer-display">00:00</span></div>
         </div>
         
         <div id="video-grid">
@@ -127,7 +161,7 @@
                 <button id="main-btn-mic" class="btn-media btn-off"><i class="fa-solid fa-microphone-slash"></i></button>
                 <button id="main-btn-cam" class="btn-media btn-off"><i class="fa-solid fa-video-slash"></i></button>
                 <button id="btn-chat" class="btn-media btn-off"><i class="fa-solid fa-message"></i></button>
-                <div style="width: 2px; height: 30px; background: rgba(255,255,255,0.1); margin: 0 5px;"></div>
+                <div style="width: 1px; height: 24px; background: var(--border-light); margin: 0 4px;"></div>
                 <button class="btn-media btn-danger" onclick="window.location.href='/'"><i class="fa-solid fa-phone-slash"></i></button>
             </div>
         </div>
@@ -135,15 +169,17 @@
 
     <div id="chat-panel">
         <div class="chat-header">
-            <span><i class="fa-solid fa-comments"></i> Room Chat</span>
-            <button id="close-chat" style="background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 5px;"><i class="fa-solid fa-times" style="font-size: 1.2rem;"></i></button>
+            <span>Room Chat</span>
+            <button id="close-chat" style="background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px;"><i class="fa-solid fa-times" style="font-size: 1.1rem;"></i></button>
         </div>
         <div id="chat-messages">
-            <div style="text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem;">Welcome to the chat!</div>
+            <div style="text-align: center; color: var(--text-muted); font-size: 0.75rem; margin-top: 0.5rem; letter-spacing: 0.5px; text-transform: uppercase;">Start of conversation</div>
         </div>
         <div class="chat-input-area">
-            <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
-            <button id="btn-send"><i class="fa-solid fa-paper-plane"></i></button>
+            <div class="input-wrapper">
+                <input type="text" id="chat-input" placeholder="Message room..." autocomplete="off">
+                <button id="btn-send"><i class="fa-solid fa-arrow-up"></i></button>
+            </div>
         </div>
     </div>
 
