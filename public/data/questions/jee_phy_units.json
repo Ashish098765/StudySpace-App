@@ -8,8 +8,8 @@
             "300 α",
             "500 α"
         ],
-        "answer": 1,
-        "explanation": "To find the distance between two points when an object moves at a constant speed, we use formula,\nDistance\n=\nSpeed × Time\nα\nis a new unit of length such that 1 unit\n(\nα\n)\n=\nspeed of light in vacuum (c).\nThe speed of light c is the distance light travels per unit of time (usually meters per second).\nsecond\n1\nα\n=\nc\n×\n(\n1\nsecond\n)\nThe time taken for light to travel from Venus to Earth is 6 minutes and 40 seconds.\n1 minute\n=\n60\nseconds\n6 minutes\n=\n6\n×\n60\n=\n360\nseconds\nTotal time\nt\n=\n360\ns\n+\n40\ns\n=\n400\nseconds\nUsing distance formula:\nDistance\n=\nSpeed of light × Time\nDistance\n=\nc\n×\n400\nseconds\nSince\n1\nα\nis the distance light travels in 1 second (\nc\n×\n1\ns\n), we can substitute c with our new unit,\nDistance\n=\n400\n×\n(\nc\n×\n1\ns\n)\nDistance\n=\n400\nα\nTherefore, the distance between Venus and Earth is\n400\nα\n. Hence, the correct option is (B).",
+        "answer": "N/A",
+        "explanation": "N/A",
         "url": "https://questions.examside.com/past-years/jee/question/pa-new-unit--alpha--of-length-is-chosen-such-that-it-jee-main-physics-units-and-measurements-bmoapcrwhuqsejpo",
         "year": "2026",
         "shift": "Morning",
@@ -20,7 +20,7 @@
         "type": "integer",
         "options": [],
         "answer": "N/A",
-        "explanation": "N/A",
+        "explanation": "To determine the percentage error in the measurement of $ C $, which is related to $ p $, $ q $, $ r $, and $ s $ as:\n$ C = \\frac{p q^2}{r^3 \\sqrt{s}} $\nwe first express it in terms of powers:\n$ C = p^1 q^2 r^{-3} s^{-1/2} $\nThe percentage error in $ C $ can be calculated using the formula for the propagation of error, which is:\n$ \\left(\\frac{\\Delta C}{C}\\right)_{\\max} = \\left|\\frac{\\Delta p}{p}\\right| + 2\\left|\\frac{\\Delta q}{q}\\right| + 3\\left|\\frac{\\Delta r}{r}\\right| + \\frac{1}{2}\\left|\\frac{\\Delta s}{s}\\right| $\nGiven the percentage errors for $ p $, $ q $, $ r $, and $ s $ are $ 1\\% $, $ 2\\% $, $ 3\\% $, and $ 2\\% $ respectively, we substitute these values into the formula:\n$ \\left(\\frac{\\Delta C}{C}\\right)_{\\max} = 1\\% + 2 \\times 2\\% + 3 \\times 3\\% + \\frac{1}{2} \\times 2\\% $\nCalculating each part:\nContribution from $ p $: $ 1\\% $\nContribution from $ q $: $ 4\\% $ (since $ 2 \\times 2\\% = 4\\% $)\nContribution from $ r $: $ 9\\% $ (since $ 3 \\times 3\\% = 9\\% $)\nContribution from $ s $: $ 1\\% $ (since $ \\frac{1}{2} \\times 2\\% = 1\\% $)\nAdding these contributions together:\n$ 1\\% + 4\\% + 9\\% + 1\\% = 15\\% $\nThus, the maximum percentage error in the measurement of $ C $ is $ 15\\% $.",
         "url": "https://questions.examside.com/past-years/jee/question/pa-physical-quantity-c-is-related-to-four-other-quantities-jee-main-physics-units-and-measurements-j6zahftz4til6dnw",
         "year": "2025",
         "shift": "Morning",
@@ -51,8 +51,8 @@
             "1 , - 1 , - 2 , 1",
             "- 1 , - 2 , - 2 , 1"
         ],
-        "answer": "N/A",
-        "explanation": "N/A",
+        "answer": 0,
+        "explanation": "To find the values of the exponents\np\n,\nq\n,\nr\n, and\ns\n, we will use dimensional analysis. Both sides of the equation must have the same fundamental dimensions.\nThe dimension of distance\n(\nx\n)\nis the dimension of length\n[\nx\n]\n=\nL\nThe dimension is time\n[\nt\n]\n=\nT\nThe dimension of electric field ( E ) can be derived from the formula for force on a charge,\nF\n=\nqE\n. Therefore,\nE\n=\nF\n/\nq\n.\nThe dimensions of force is\n[\nF\n]\n=\n[\nMLT\n-\n2\n]\nCharge\n(\nq\n)\n=\nCurrent\n×\nTime\nSo, the dimensions of charge is,\n[\nq\n]\n=\n[\nAT\n]\nSo, the dimensions of electric field is,\n[\nE\n]\n=\n[\nMLT\n-\n2\n]\n[\nAT\n]\n=\n[\nMLT\n-\n3\nA\n-\n1\n]\nUsing relationship between electric field (E) and and magnetic field (H) in electromagnetic waves. In a vacuum, the ratio of the magnitudes of the electric field to the magnetic field (B) is the speed of light (c),\nE\n/\nB\n=\nc\nUsing the formula of magnetic force on a current-carrying conductor:\nF\n=\nBIL\nWhere,\nF\n=\nforce\nB\n=\nmagnetic field (flux density),\nI\n=\ncurrent and\nL\n=\nlength\nB\n=\nF\nIL\nSubstituting the dimensions,\n[\nB\n]\n=\n[\nMLT\n-\n2\n]\n[\nLA\n]\n⇒\n[\nB\n]\n=\n[\nM\nT\n-\n2\nI\n-\n1\n]\nThe relation between B and H is\nB\n=\nμ\nH\n⇒\nB\nμ\n=\nH\n. Where\nμ\n=\npermeability.\nUsing the formula of magnetic field,\nB\n=\nμ\ni\n2\nπ\nr\n⇒\n[\nB\nμ\n]\n=\n[\ni\nr\n]\n, here\nr\nis distance from straight conductor carrying current i.\n[\nB\nμ\n]\n=\n[\nH\n]\n=\n[\nA\n]\n[\nL\n]\n=\n[\nL\n-\n1\nA\n]\nPutting the dimensions of electric field and speed of light, the dimensions of magnetic field is,\n[\nH\n]\n=\n[\nMLT\n-\n3\nA\n-\n1\n]\n[\nLT\n-\n1\n]\n=\n[\nMT\n-\n2\nA\n-\n1\n]\nWe can derive the dimensions of permittivity (\nϵ\n) from Coulomb's Law,\nF\n=\n1\n4\nπ\nϵ\nq\n1\nq\n2\nr\n2\n.\n[\nϵ\n]\n=\n[\nq\n2\nFr\n2\n]\n[\nϵ\n]\n=\n[\nAT\n]\n2\n[\nMLT\n-\n2\n]\n[\nL\n2\n]\n=\n[\nM\n-\n1\nL\n-\n3\nT\n4\nA\n2\n]\nSubstituting the dimensions into the given equation,\n[\nH\n]\n=\n[\nx\n]\np\n[\nϵ\n]\nq\n[\nE\n]\nr\n[\nt\n]\ns\n⇒\n[\nL\n-\n1\nA\n]\n=\n[\nL\n]\np\n[\nM\n-\n1\nL\n-\n3\nT\n4\nA\n2\n]\nq\n[\nM\nL\nT\n-\n3\nA\n-\n1\n]\nr\n[\nT\n]\ns\n[\nL\n-\n1\nA\n]\n=\n[\nM\n-\nq\n+\nr\nL\np\n-\n3\nq\n+\nr\nT\n4\nq\n-\n3\nr\n-\ns\nA\n2\nq\n-\nr\n]\nOn comparing the powers of\nM\n,\nL\n,\nT\n, and A on both sides,\nFor\nM\n,\n-\nq\n+\nr\n=\n0\n…\n(i)\nFor\nA\n,\n2\nq\n-\nr\n=\n1\n. Since\nr\n=\nq\n, then\n2\nq\n-\nq\n=\n1\n, so\nq\n=\n1\nand\nr\n=\n1\n.\nFor\nL\n,\np\n-\n3\nq\n+\nr\n=\n-\n1\n…\n(ii).\np\n-\n3\n(\n1\n)\n+\n1\n=\n-\n1\np\n-\n2\n=\n-\n1\n⇒\np\n=\n1\nFor T,\n4\nq\n-\n3\nr\n-\ns\n=\n0\n…\n(iii)\n4\n(\n1\n)\n-\n3\n(\n1\n)\n-\ns\n=\n0\n1\n-\ns\n=\n0\n⇒\ns\n=\n1\nTherefore, the values are\np\n=\n1\n,\nq\n=\n1\n,\nr\n=\n1\n,\ns\n=\n1\n.\nHence, the correct option is (A).",
         "url": "https://questions.examside.com/past-years/jee/question/pconsider-the-equation-hfracxp-epsilonq-erts-jee-main-physics-units-and-measurements-wmjpngtr8yy9iy5v",
         "year": "2026",
         "shift": "Morning",
@@ -68,10 +68,170 @@
             "8"
         ],
         "answer": 2,
-        "explanation": "The volume\nV\nof a sphere is given by the formula\nV\n=\n4\n3\nπ\nr\n3\n, where\nr\nis the radius of the sphere.\nSince the error is given in terms of diameter (D), we express the radius as\nr\n=\nD\n2\n.\nSubstituting this into the volume formula:\nV\n=\n4\n3\nπ\n(\nD\n2\n)\n3\n⇒\nV\n=\n4\n3\nπ\n(\nD\n3\n8\n)\n⇒\nV\n=\n1\n6\nπ\nD\n3\nTo find the relative error, we take the natural logarithm\n(\nln\n)\non both sides of the equation :\nln\n⁡\n(\nV\n)\n=\nln\n⁡\n(\nπ\n6\n)\n+\nln\n⁡\n(\nD\n3\n)\n⇒\nln\n⁡\n(\nV\n)\n=\nln\n⁡\n(\nπ\n6\n)\n+\n3\nln\n⁡\n(\nD\n)\nNow, on differentiating both sides.\ndV\nV\n=\n0\n+\n3\n(\ndD\nD\n)\n⇒\ndV\nV\n=\n3\ndD\nD\nTo express this as a percentage error, we multiply both sides by 100 :\n(\ndV\nV\n×\n100\n)\n=\n3\n×\n(\ndD\nD\n×\n100\n)\nIt is given that the percentage error in the diameter is\n2\n%\n.\nd\nD\nD\n×\n100\n=\n2\n%\nSo, percentage error in Volume\n=\n3\n×\n2\n%\nPercentage error in Volume\n=\n6\n%\nTherefore, the correct option is (C).",
+        "explanation": "The volume $V$ of a sphere is given by the formula $V=\\frac{4}{3} \\pi r^3$, where $r$ is the radius of the sphere.\nSince the error is given in terms of diameter (D), we express the radius as $r=\\frac{D}{2}$.\nSubstituting this into the volume formula:\n$$ \\mathrm{V}=\\frac{4}{3} \\pi\\left(\\frac{\\mathrm{D}}{2}\\right)^3 $$\n$$\\Rightarrow $$ $\\mathrm{V}=\\frac{4}{3} \\pi\\left(\\frac{\\mathrm{D}^3}{8}\\right)$\n$$\\Rightarrow $$ $$ V=\\frac{1}{6} \\pi D^3 $$\nTo find the relative error, we take the natural logarithm $(\\ln )$ on both sides of the equation :\n$$ \\ln (V)=\\ln \\left(\\frac{\\pi}{6}\\right)+\\ln \\left(D^3\\right) $$\n$$\\Rightarrow $$ $$ \\ln (V)=\\ln \\left(\\frac{\\pi}{6}\\right)+3 \\ln (D) $$\nNow, on differentiating both sides.\n$$ \\frac{\\mathrm{dV}}{\\mathrm{~V}}=0+3\\left(\\frac{\\mathrm{dD}}{\\mathrm{D}}\\right) $$\n$$\\Rightarrow $$ $$ \\frac{\\mathrm{dV}}{\\mathrm{~V}}=3 \\frac{\\mathrm{dD}}{\\mathrm{D}} $$\nTo express this as a percentage error, we multiply both sides by 100 :\n$$ \\left(\\frac{\\mathrm{dV}}{\\mathrm{~V}} \\times 100\\right)=3 \\times\\left(\\frac{\\mathrm{dD}}{\\mathrm{D}} \\times 100\\right) $$\nIt is given that the percentage error in the diameter is $2 \\%$.\n$$ \\frac{d D}{D} \\times 100=2 \\% $$\nSo, percentage error in Volume $=3 \\times 2 \\%$\nPercentage error in Volume $=6 \\%$\nTherefore, the correct option is (C).",
         "url": "https://questions.examside.com/past-years/jee/question/pthe-percentage-error-in-the-calculated-volume-of-a-sphere-jee-main-physics-units-and-measurements-5h9tltwlmgoaxcmz",
         "year": "2026",
         "shift": "Morning",
         "date": "6th April"
+    },
+    {
+        "q": "Match List - I with List - II. Match List - I with List - II. List - I List - I List - II List - II A. Boltzmann constant I. [ M - 1 L 3 T - 2 ] B. Stefan's constant II. [ M L 2 T - 1 ] C. Planck's constant III. [ ML 2 T - 2 K - 1 ] D. Gravitational constant IV. [ M L 0 T - 3 K - 4 ] Choose the correct answer from the options given below :",
+        "type": "mcq",
+        "options": [
+            "A-I, B-II, C-III, D-IV",
+            "A-IV, B-III, C-II, D-I",
+            "A-III, B-IV, C-II, D-I",
+            "A-II, B-I, C-IV, D-III"
+        ],
+        "answer": 2,
+        "explanation": "For the dimensional equation of Boltzmann Constant\n(\nk\nB\n)\nThe average kinetic energy (E) of a gas molecule is related to temperature (T) by the equation :\nE\n=\n3\n2\nk\nB\nT\nTo find the dimensions of\nk\nB\n:\n[\nk\nB\n]\n=\n[\nE\n]\n[\nT\n]\nUsing the formula Work\n=\nForce × Distance, dimensions of energy is\n[\nE\n]\n=\n[\nML\n2\nT\n-\n2\n]\nThe dimensions of temperature is\n[\nT\n]\n=\n[\nK\n]\nSo,\n[\nk\nB\n]\n=\n[\nML\n2\nT\n-\n2\n]\n[\nK\n]\n=\n[\nML\n2\nT\n-\n2\nK\n-\n1\n]\nThus, (A) Boltzmann constant → (III) [\nML\n2\nT\n-\n2\nK\n-\n1\n]\nFor the dimensions of Stefan's Constant (\nσ\n)\nAccording to Stefan-Boltzmann law, the energy radiated per unit area per unit time\n(\nP\n)\nis:\nP\n=\nσ\nT\n4\nWhere\nEnergy\nArea× Time\nP\n=\nEnergy\nArea× Time\nDimensions of\n[\nP\n]\n=\n[\nML\n2\nT\n-\n2\n]\n[\nL\n2\n]\n[\nT\n]\n=\n[\nMT\n-\n3\n]\nDimensions of\nT\n4\nis\n[\nK\n4\n]\nSo, the dimensions of Stefan's constant is\n[\nσ\n]\n=\n[\nP\n]\n[\nT\n4\n]\n=\n[\nMT\n-\n3\n]\n[\nK\n4\n]\n=\n[\nMT\n-\n3\nK\n-\n4\n]\n=\n[\nML\n0\nT\n-\n3\nK\n-\n4\n]\nThus, (B) Stefan's constant → (IV)[\nML\n0\nT\n-\n3\nK\n-\n4\n]\nFor the dimensions of Planck's Constant (h):\nThe energy (E) of a photon is given by\nE\n=\nh\nν\n, where\nν\nis frequency (Time\n-\n1\n).\nSo, the dimension of Planck's constant is\n[\nh\n]\n=\n[\nE\n]\n[\nv\n]\n=\n[\nML\n2\nT\n-\n2\n]\n[\nT\n-\n1\n]\n⇒\n[\nh\n]\n=\n[\nML\n2\nT\n-\n1\n]\nThus, (C) Planck's constant → (II)[\nML\n2\nT\n-\n1\n]\nFor the dimensions of Gravitational Constant (G):\nFrom Newton's law of gravitation\nF\n=\nG\nm\n1\nm\n2\nr\n2\n⇒\nG\n=\nF\nr\n2\nm\n1\nm\n2\nThe dimensions of Force is\n[\nF\n]\n=\n[\nMLT\n-\n2\n]\nThe dimensions of Distance squared is\n[\nr\n2\n]\n=\n[\nL\n2\n]\nThe dimensions of mass squared is\n[\nm\n1\nm\n2\n]\n=\n[\nM\n2\n]\nSo, the dimensions of Gravitational constant is\n[\nG\n]\n=\n[\nMLT\n-\n2\n]\n[\nL\n2\n]\n[\nM\n2\n]\n=\n[\nM\n-\n1\nL\n3\nT\n-\n2\n]\nThus (D) Gravitational constant\n→\n(I)\n[\nM\n-\n1\nL\n3\nT\n-\n2\n]\nA\n→\nIII\n,\nB\n→\nIV\n,\nC\n→\nII\n,\nD\n→\nI\nTherefore, the correct option is (C).",
+        "url": "https://questions.examside.com/past-years/jee/question/p-text--match-list-i-with-list-ii--p-style-jee-main-physics-units-and-measurements-xbcpkrgy9nokahmb",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "6th April"
+    },
+    {
+        "q": "The density ρ of a uniform cylinder is determined by measuring its mass m , length l and diameter d . The measured values of m , l and d are 97.42 ± 0.02 g , 8.35 ± 0.05 mm and 20.20 ± 0.02 mm , respectively. Calculated percentage fractional error in ρ is _ _ _ _ .",
+        "type": "mcq",
+        "options": [
+            "0.63%",
+            "0.82%",
+            "0.72%",
+            "0.25%"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-density-rho-of-a-uniform-cylinder-is-determined-by-jee-main-physics-units-and-measurements-5tyso9t0kzo32yye",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "6th April"
+    },
+    {
+        "q": "The potential energy of a particle changes with distance x from a fixed origin as V = A x x + B , where A and B are constant with appropriate dimensions. The dimensions of A B are _ _ _ _",
+        "type": "mcq",
+        "options": [
+            "[ M 1 L 5 / 2 T - 2 ]",
+            "[ M 3 / 2 L 5 / 2 T - 2 ]",
+            "[ M 1 L 2 T - 2 ]",
+            "[ M 1 L 7 / 2 T - 2 ]"
+        ],
+        "answer": 3,
+        "explanation": "According to the principle of homogeneity, dimensions of each term on both sides of a equation must be the same. Also, only physical quantities of the same dimensions can be added or subtracted.\nThe potential energy of the particle is given as\nV\n=\nA\nx\nx\n+\nB\n, where\nA\nand\nB\nare constant.\nIn the denominator of the expression\nx\n+\nB\n, the constant B is added to distance x . Therefore, the dimensions of\nB\nmust be the same as the dimensions of\nx\n.\n[\nB\n]\n=\n[\nx\n]\n=\n[\nL\n1\n]\nThe potential energy\nV\nhas the same dimensions as work or energy.\n[\nV\n]\n=\n[\nF\n×\nx\n]\n=\n[\nM\n1\nL\n1\nT\n-\n2\n×\nL\n1\n]\n=\n[\nM\n1\nL\n2\nT\n-\n2\n]\nOn rearranging the formula of potential energy for A :\nA\n=\nV\n(\nx\n+\nB\n)\nx\nSubstituting the dimensions:\n[\nA\n]\n=\n[\nM\n1\nL\n2\nT\n-\n2\n]\n[\nL\n1\n]\n[\nL\n1\n/\n2\n]\n⇒\n[\nA\n]\n=\n[\nM\n1\nL\n3\nT\n-\n2\n]\n[\nL\n1\n/\n2\n]\n⇒\n[\nA\n]\n=\n[\nM\n1\nL\n3\n-\n1\n2\nT\n-\n2\n]\n=\n[\nM\n1\nL\n5\n/\n2\nT\n-\n2\n]\nTo find the dimensions of the product AB :\n[\nAB\n]\n=\n[\nA\n]\n×\n[\nB\n]\n⇒\n[\nAB\n]\n=\n[\nM\n1\nL\n5\n/\n2\nT\n-\n2\n]\n×\n[\nL\n1\n]\n⇒\n[\nAB\n]\n=\n[\nM\n1\nL\n5\n/\n2\n+\n1\nT\n-\n2\n]\n⇒\n[\nAB\n]\n=\n[\nM\n1\nL\n7\n/\n2\nT\n-\n2\n]\nTherefore, the dimensions of\nA\nB\nis\n[\nM\n1\nL\n7\n/\n2\nT\n-\n2\n]\n.\nThus, the correct option is (D).",
+        "url": "https://questions.examside.com/past-years/jee/question/pthe-potential-energy-of-a-particle-changes-with-distance-jee-main-physics-units-and-measurements-epmimjyrqvhg0ccn",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "6th April"
+    },
+    {
+        "q": "Match List - I with List - II. Match List - I with List - II. List - I List - I List - II List - II A. Meter (L) I. h c G B. Second (S) II. G h c 5 C. Kilogram (M) III. K 2 L 2 c 3 G h D. Kelvin (K) IV. G h c 3 where h (Planck's constant), G (gravitational constant) and c (speed of light in vacuum) as fundamental units. Choose the correct answer from the options given below :",
+        "type": "mcq",
+        "options": [
+            "A-II, B-IV, C-I, D-III",
+            "A-IV, B-II, C-I, D-III",
+            "A-IV, B-I, C-II, D-III",
+            "A-III, B-I, C-II, D-IV"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/p-text--match-list-i-with-list-ii--p-style-jee-main-physics-units-and-measurements-rq2wmoz2zygo0xpv",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "5th April"
+    },
+    {
+        "q": "In an experiment to determine the resistance of a given wire using Ohm's law, the voltmeter and ammeter readings are noted as 10 V and 5 A , respectively. The least counts of voltmeter and ammeter are 500 mV and 200 mA , respectively. The estimated error in the resistance measurement is _ _ _ _ Ω",
+        "type": "mcq",
+        "options": [
+            "0.25",
+            "2",
+            "2.5",
+            "0.18"
+        ],
+        "answer": 3,
+        "explanation": "According to Ohm's law, the resistance R is given by the ratio of potential difference V to the current I :\n$$ \\mathrm{R}=\\frac{\\mathrm{V}}{\\mathrm{I}} $$\nThe reading of voltmeter is $\\mathrm{V}=10 \\mathrm{~V}$ and that of ammeter is $\\mathrm{I}=5 \\mathrm{~A}$\nThen resistance is $\\mathrm{R}=\\frac{10}{5}=2 \\Omega$\nWhen a quantity is determined by the division of two other quantities $\\left(\\mathrm{R}=\\frac{\\mathrm{V}}{\\mathrm{I}}\\right)$, the relative error in the result is the sum of the relative errors of the individual quantities.\nThe relative error is,\n$$ \\frac{\\Delta \\mathrm{R}}{\\mathrm{R}}=\\frac{\\Delta \\mathrm{V}}{\\mathrm{~V}}+\\frac{\\Delta \\mathrm{I}}{\\mathrm{I}} $$\nWhere $\\Delta \\mathrm{R}$ is the absolute error in resistance, $\\Delta \\mathrm{V}$ is the error in voltage, and $\\Delta \\mathrm{I}$ is the error in current.\nThe error in a measurement is taken as the least count of the instrument used.\nSo, error in voltmeter is $\\Delta \\mathrm{V}=500 \\mathrm{mV}=0.5 \\mathrm{~V}$\nAnd the error in ammeter is $\\Delta \\mathrm{I}=200 \\mathrm{~mA}=0.2 \\mathrm{~A}$\nSubstituting values into the error equation\n$$ \\frac{\\Delta \\mathrm{R}}{2}=\\frac{0.5}{10}+\\frac{0.2}{5} $$\n$$\\Rightarrow $$ $\\frac{\\Delta \\mathrm{R}}{2}=0.05+0.04=0.09$\n$$\\Rightarrow $$ $$ \\Delta \\mathrm{R}=0.09 \\times 2=0.18 \\Omega $$\nTherefore, the estimated error in the resistance measurement is $0.18 \\Omega$.\nHence, the correct option is (D).",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-an-experiment-to-determine-the-resistance-of-a-given-w-jee-main-physics-units-and-measurements-pdom4hyamm1gprov",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "5th April"
+    },
+    {
+        "q": "In a Vernier calipers, when both jaws touch each other, zero of the Vernier scale is shifted to the right of zero of the main scale and th 7 th Vernier division coincides with a main scale reading. If the value of 1 main scale division is 1 mm and there are 10 Vernier scale divisions, then the Vernier caliper has",
+        "type": "mcq",
+        "options": [
+            "0.07 cm negative zero error",
+            "0.7 cm negative zero error",
+            "0.07 cm positive zero error",
+            "0.7 cm positive zero error"
+        ],
+        "answer": 2,
+        "explanation": "The Least Count is the smallest measurement that can be accurately taken using the instrument.\nFor a Vernier calliper, the difference between the length of one Main Scale Division (MSD) and one Vernier Scale Division (VSD) is equal to the least count.\nLC\n=\n1\nMSD\n-\n1\nVSD\nIt is given that\n1\nMSD\n=\n1\nmm\n.\nIn a standard Vernier calliper arrangement, 10 divisions on the Vernier scale correspond to the length of 9 divisions on the Main scale.\n10\nVSD\n=\n9\nMSD\n⇒\n1\nVSD\n=\n9\n10\nMSD\n=\n0.9\nmm\nSo, the least count is;\nLC\n=\n1\nmm\n-\n0.9\nmm\n=\n0.1\nmm\n⇒\nLC\n=\n0.1\nmm\n=\n0.01\ncm\nZero error occurs when the jaws of the calliper are completely closed but the zero mark of the main scale does not align with the zero mark of the Vernier scale.\nIf the zero of the Vernier scale rests to the right of the main scale zero, the instrument will naturally measure a value larger than the true length and this is positive zero error.\nIf the zero of the Vernier scale rests to the left of the main scale zero, it creates a negative zero error.\nIt is given that the zero of the Vernier scale is shifted to the right. Therefore, the given Vernier scale is with a positive zero error.\nIf Vernier division perfectly coincides with any main scale reading, then the zero error is,\ne\n=\nn\n×\nLC\nWhere n is the coinciding division. The problem states that the\nth\n7\nth\ndivision coincides.\ne\n=\n7\n×\n0.01\ncm\n=\n0.07\ncm\nSince the shift is to the right, the final error is +0.07 cm .\nThus, the correct option is (C).",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-a-vernier-calipers-when-both-jaws-touch-each-other-z-jee-main-physics-units-and-measurements-7jcfcmvf19tgxpbt",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "5th April"
+    },
+    {
+        "q": "L , C and R represents physical quantities inductance, capacitance and resistance respectively. The dimensional formula ML 2 T - 4 A - 2 corresponds to _ _ _ _ .",
+        "type": "mcq",
+        "options": [
+            "R L C",
+            "R L C",
+            "C L R",
+            "1 R L C"
+        ],
+        "answer": "N/A",
+        "explanation": "N/A",
+        "url": "https://questions.examside.com/past-years/jee/question/pl-c-and-r-represents-physical-quantities-inductance-jee-main-physics-units-and-measurements-ika2i1t3aghda5hg",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "5th April"
+    },
+    {
+        "q": "Match the LIST-I with LIST-II Match the LIST-I with LIST-II List - I List - II A. Planck's constant I. ML 2 T - 2 B. Stopping potential II. T - 1 C. Work function III. ML 2 T - 1 D. Threshold frequency IV. ML 2 T - 3 A - 1 Choose the correct answer from the options given below:",
+        "type": "mcq",
+        "options": [
+            "A-III, B-IV, C-I, D-II",
+            "A-I, B-II, C-III, D-IV",
+            "A-IV, B-III, C-I, D-II",
+            "A-I, B-IV, C-III, D-II"
+        ],
+        "answer": 0,
+        "explanation": "For the dimensions of Planck's Constant (h)\nAccording to the photon energy equation $\\mathrm{E}=\\mathrm{h} \\nu$, where E is energy and $\\nu$ is frequency.\nPlanck's constant is given by $\\mathrm{h}=\\frac{\\mathrm{E}}{\\mathrm{v}}$\nThe dimensions of energy (E) are $[\\mathrm{E}]=\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-2}\\right]$.\nThe dimensions of frequency ( $v$ ) are $[v]=\\left[\\mathrm{T}^{-1}\\right]$.\nTherefore, dimensions of h :\n$$ [\\mathrm{h}]=\\frac{\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-2}\\right]}{\\left[\\mathrm{T}^{-1}\\right]}=\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-1}\\right] $$\nThus, A → III\nFor the dimensions of stopping potential ( $\\mathrm{V}_0$ )\nStopping potential is defined as the potential difference required to stop the fastest moving electrons. The work done by the potential is equal to the kinetic energy, $\\mathrm{W}=\\mathrm{qV}_0$, where q is charge.\nSo, stopping potential is $\\mathrm{V}_0=\\frac{\\mathrm{w}}{\\mathrm{q}}$.\nThe dimensions of work ( W ) are $[\\mathrm{W}]=\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-2}\\right]$.\nThe dimensions of charge ( $\\mathrm{q}=\\mathrm{I} \\times \\mathrm{t}$ ) are $[\\mathrm{q}]=[\\mathrm{AT}]$.\nTherefore, dimensions of stopping potential is:\n$$ \\left[\\mathrm{V}_0\\right]=\\frac{\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-2}\\right]}{[\\mathrm{AT}]}=\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-3} \\mathrm{~A}^{-1}\\right] $$\nThus, $\\mathrm{B} \\rightarrow$ IV.\nFor the dimensions of work function ( $\\phi$ )\nThe work function is the minimum energy required to eject an electron from a metal surface. Since it is a form of energy, its dimensions are the same as energy (E).\nSo, the dimensions of work function is $[\\phi]=\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-2}\\right]$\nThus, $\\mathrm{C} \\rightarrow \\mathrm{I}$.\nFor the dimensions of threshold frequency ( $v_0$ )\nThreshold frequency is the minimum frequency of incident radiation required for photoelectric emission.\nFrequency is defined as the reciprocal of the time period $\\left(v=\\frac{1}{\\mathrm{~T}}\\right)$.\nSo, the dimensions of threshold frequency is $\\left[v_0\\right]=\\left[\\mathrm{T}^{-1}\\right]$\nThus, $\\mathrm{C} \\rightarrow$ II.\nTherefore, the correct match is A - III, B - IV, C - I, D - II.\nHence, the correct option is (A).",
+        "url": "https://questions.examside.com/past-years/jee/question/p-text--match-the-list-i-with-list-ii--p-style-jee-main-physics-units-and-measurements-p3mrklr0i0lagp2e",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "4th April"
+    },
+    {
+        "q": "In a screw gauge when the circular scale is given five complete rotations it moves linearly by 2.5 mm . If the circular scale has 100 divisions, the least count of screw gauge is _ _ _ _ mm.",
+        "type": "mcq",
+        "options": [
+            "1 × 10 - 2",
+            "1 × 10 - 3",
+            "5 × 10 - 2",
+            "5 × 10 - 3"
+        ],
+        "answer": 3,
+        "explanation": "The pitch of a screw gauge is defined as the linear distance moved by the screw on the main scale when the circular head is given one complete rotation.\nThe screw moves linearly by 2.5 mm when given five complete rotations. Therefore, the distance moved in a single rotation is :\nPitch\nTotal linear distance moved\nNumber of full rotations\nPitch\n=\nTotal linear distance moved\nNumber of full rotations\nPitch\nPitch\n=\n2.5\nmm\n5\n=\n0.5\nmm\nThe least count is the smallest distance that can be measured accurately using the instrument. It is the distance moved by the screw when the circular scale is rotated through only one of its divisions.\nSo, the least count of screw gauge is the ratio of the pitch to the total number of divisions on the circular scale:\nIt is given that the circular scale has 100 divisions,\nL.\nC\n.\n=\n0.5\nmm\n100\n=\n0.005\nmm\n=\n5\n×\n10\n-\n3\nmm\nTherefore, the least count of given screw gauge is\n5\n×\n10\n-\n3\nmm\n.\nThus, the correct option is (D).",
+        "url": "https://questions.examside.com/past-years/jee/question/pin-a-screw-gauge-when-the-circular-scale-is-given-five-co-jee-main-physics-units-and-measurements-lqwbcs8ibgepimn3",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "4th April"
+    },
+    {
+        "q": "Dimensions of universal gravitational constant ( G ) in terms of Planck's constant ( h ), distance ( L ), mass ( M ) and time ( T ) are _______.",
+        "type": "mcq",
+        "options": [
+            "[ h T L M - 2 ]",
+            "[ h T - 1 L M - 2 ]",
+            "[ h T L 2 M - 2 ]",
+            "[ h - 1 T - 1 L M - 2 ]"
+        ],
+        "answer": 1,
+        "explanation": "To find the dimensions of the universal gravitational constant G in terms of Planck's constant h , length L , mass M , and time T , we must first determine the base dimensions of both G and h in the standard MLT system.\nAccording to Newton's law of universal gravitation, the force F between two masses $\\mathrm{m}_1$ and $\\mathrm{m}_2$ separated by a distance $r$ is given by:\n$$ \\mathrm{F}=\\frac{\\mathrm{Gm}_1 \\mathrm{~m}_2}{\\mathrm{r}^2} $$\n$$ \\Rightarrow \\mathrm{G}=\\frac{\\mathrm{Fr}^2}{\\mathrm{~m}_1 \\mathrm{~m}_2} $$\nSubstituting the dimensions $\\left[M L T^{-2}\\right]$ for force, $[L]$ for distance $(r)$, and mass( $m$ ) as $[M]$ :\n$$ [\\mathrm{G}]=\\frac{\\left[\\mathrm{MLT}^{-2}\\right]\\left[\\mathrm{L}^2\\right]}{[\\mathrm{M}][\\mathrm{M}]}=\\left[\\mathrm{M}^{-1} \\mathrm{~L}^3 \\mathrm{~T}^{-2}\\right] $$\nPlanck's constant relates the energy $E$ of a photon to its frequency $v$ via the equation:\n$$ \\mathrm{E}=\\mathrm{h} \\nu $$\nSince frequency $v$ has dimensions of inverse time [ $\\mathrm{T}^{-1}$ ], and energy E (work done) has dimensions $\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-2}\\right]$, we have:\n$$ [\\mathrm{h}]=\\frac{[\\mathrm{E}]}{[\\mathrm{v}]}=\\frac{\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-2}\\right]}{\\left[\\mathrm{T}^{-1}\\right]}=\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-1}\\right] $$\nLet assume the relationship is of the form $\\mathrm{G}=\\mathrm{h}^{\\mathrm{a}} \\mathrm{L}^{\\mathrm{b}} \\mathrm{M}^{\\mathrm{c}} \\mathrm{T}^{\\mathrm{d}}$. Comparing the dimensions:\n$$ \\left[\\mathrm{M}^{-1} \\mathrm{~L}^3 \\mathrm{~T}^{-2}\\right]=\\left[\\mathrm{ML}^2 \\mathrm{~T}^{-1}\\right]^{\\mathrm{a}}[\\mathrm{~L}]^{\\mathrm{b}}[\\mathrm{M}]^{\\mathrm{c}}[\\mathrm{~T}]^{\\mathrm{d}} $$\n$$ \\left[\\mathrm{M}^{-1} \\mathrm{~L}^3 \\mathrm{~T}^{-2}\\right]=\\left[\\mathrm{M}^{\\mathrm{a}+\\mathrm{c}} \\mathrm{~L}^{2 \\mathrm{a}+\\mathrm{b}} \\mathrm{~T}^{-\\mathrm{a}+\\mathrm{d}}\\right] $$\nBy equating the exponents of $\\mathrm{M}, \\mathrm{L}$, and T from both sides, we get a system of equations:\nFor $\\mathrm{M}: \\mathrm{a}+\\mathrm{c}=-1 \\ldots$ (i)\nFor $\\mathrm{L}: 2 \\mathrm{a}+\\mathrm{b}=3 \\ldots$ (ii)\nFor $\\mathrm{T}:-\\mathrm{a}+\\mathrm{d}=-2 \\ldots$ (iii)\nLooking at the provided options, we see that h is with a power of $1, \\mathrm{a}=1$\nLet's $\\mathrm{a}=1$ :\nFrom eq (i): $1+\\mathrm{c}=-1 \\Rightarrow \\mathrm{c}=-2$\nFrom eq (ii): $2(1)+b=3 \\Rightarrow b=1$\nFrom eq (iii): $-1+\\mathrm{d}=-2 \\Rightarrow \\mathrm{~d}=-1$\nSubstituting these values, we get $G \\propto h^1 L^1 M^{-2} T^{-1}$. This corresponds to the dimensional formula $\\left[\\mathrm{hT}^{-1} \\mathrm{LM}^{-2}\\right]$.\nHence, the correct option is (B).",
+        "url": "https://questions.examside.com/past-years/jee/question/pdimensions-of-universal-gravitational-constant-g-in-t-jee-main-physics-5xbmpfcaz6bfmddz",
+        "year": "2026",
+        "shift": "Morning",
+        "date": "2nd April"
     }
 ]

@@ -17,8 +17,8 @@ CHAPTER_URL = "https://questions.examside.com/past-years/jee/jee-main/physics/un
 OUTPUT_FILE = "public/data/questions/jee_phy_units.json"
 MAX_QUESTIONS = 230
 
-# Toggle this! False = You watch it work. True = Runs invisibly in the background.
-HEADLESS_MODE = False 
+# FIXED: Set to True to keep the browser completely invisible!
+HEADLESS_MODE = True 
 
 # Ensure the output directory exists before we start
 os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
@@ -43,8 +43,13 @@ def setup_driver():
     options.add_argument("--log-level=3")
     options.page_load_strategy = 'eager'
     
+    # FIXED: These 3 lines prevent the "Renderer Timeout" crash!
+    options.add_argument("--disable-dev-shm-usage") 
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-gpu")
+    
     driver = uc.Chrome(options=options, version_main=148) 
-    driver.set_page_load_timeout(20) 
+    driver.set_page_load_timeout(30) # Gave it a bit more breathing room
     driver.__class__.__del__ = lambda self: None 
     return driver
 
@@ -75,7 +80,6 @@ def scrape_question(driver, url):
                     break
         except: pass
         
-        # FIXED: Switched back to html.parser to prevent instant crashes on Windows!
         soup = BeautifulSoup(driver.page_source, 'html.parser') 
         
         cont = soup.find('div', class_='question-component') or soup.find('div', class_='question-card') or soup.find('div', id='question-card') or soup.find('div', class_='question-container')
@@ -154,12 +158,11 @@ def show_progress(current, total, prefix='', suffix='', length=30):
     percent = f"{100 * (current / float(total)):.1f}"
     filled_length = int(length * current // total)
     bar = '█' * filled_length + '░' * (length - filled_length)
-    # Adding spaces at the end clears out any leftover text from longer strings
     sys.stdout.write(f'\r{prefix} |{bar}| {percent}% ({current}/{total}) {suffix}          ')
     sys.stdout.flush()
 
 # RUN
-print("\n🚀 EXAMSIDE SPEED-SCRAPER (LOCAL MODE)")
+print("\n🚀 EXAMSIDE SPEED-SCRAPER (HEADLESS MODE)")
 driver = setup_driver()
 try:
     print(f"🔍 Discovery: {CHAPTER_URL}")
@@ -195,24 +198,28 @@ try:
     total_links = len(links)
     
     for i, u in enumerate(links):
-        # FIXED: Now tracks loop iteration (i+1) instead of len(results) so the bar actually moves!
         show_progress(i + 1, total_links, prefix='Extraction', suffix=f'Scraping...{u[-10:]}')
         
-        data = scrape_question(driver, u)
-        
-        if data == "BLOCK":
-            print(f"\n[!] Block detected on link {i+1}. Cooldown for 15s...")
-            driver.quit()
-            time.sleep(15)
-            driver = setup_driver()
-            continue
+        # Retry loop for crashes
+        for attempt in range(2): 
+            data = scrape_question(driver, u)
             
-        elif isinstance(data, dict):
+            if "CRASH" in data or data == "BLOCK":
+                print(f"\n[!] Browser glitched on link {i+1}. Restarting invisible driver (Attempt {attempt+1}/2)...")
+                try: driver.quit()
+                except: pass
+                time.sleep(3)
+                driver = setup_driver()
+                if attempt == 1: # Failed both times
+                    print(f"[!] Skipping question {i+1} after 2 failed attempts.")
+            else:
+                break # Success!
+            
+        if isinstance(data, dict):
             results.append(data)
             if len(results) % 5 == 0:
                 with open(OUTPUT_FILE, 'w', encoding='utf-8') as f: json.dump(results, f, indent=4, ensure_ascii=False)
-        else:
-            # FIXED: Prints the exact error reason if a question fails, instead of failing silently.
+        elif not ("CRASH" in data or data == "BLOCK"):
             print(f"\n[!] Failed to scrape question {i+1}: {data}")
                 
         time.sleep(0.2) 

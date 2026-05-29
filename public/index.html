@@ -342,16 +342,20 @@
 
     function createPrivateRoom() {
         if (!checkLogin()) return; 
-        const randomRoomId = Math.random().toString(36).substring(2, 10);
-        // FIXED: Pointing to room.html with the ID parameter
-        window.location.href = `/room.html?id=${randomRoomId}`;
+        // Generate a random 6-digit numerical code (100000 to 999999)
+        const numericalCode = Math.floor(100000 + Math.random() * 900000).toString();
+        window.location.href = `/room.html?id=${numericalCode}`;
     }
 
     function joinPrivateRoom() {
         if (!checkLogin()) return; 
         document.getElementById('join-modal').classList.add('active');
         const input = document.getElementById('join-room-input');
-        if(input) input.focus();
+        // Update placeholder to tell them to use the 6-digit code
+        if(input) {
+            input.placeholder = "Enter 6-digit code (e.g. 123456)";
+            input.focus();
+        }
     }
 
     function closeJoinModal() {
@@ -365,7 +369,7 @@
 
         let roomId = input;
         
-        // Smarter ID extraction in case they paste a full link
+        // Smarter ID extraction in case they paste a full link instead of just the numbers
         if (input.includes('id=')) {
             roomId = input.split('id=')[1].split('&')[0];
         } else if (input.includes('/room/')) {
@@ -375,7 +379,6 @@
         roomId = roomId.replace(/\//g, '');
 
         if (roomId) {
-            // FIXED: Pointing to room.html with the ID parameter
             window.location.href = `/room.html?id=${roomId}`;
         }
     }

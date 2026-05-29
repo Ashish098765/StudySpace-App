@@ -19,7 +19,10 @@ const db = getFirestore(app);
 window.auth = auth; 
 
 // --- 1. UI SETUP & TIMER ---
-const ROOM_ID = window.location.pathname.split('/').pop();
+// FIX: Read the Room ID from the URL parameters instead of the pathname
+const urlParams = new URLSearchParams(window.location.search);
+const ROOM_ID = urlParams.get('id') || 'public-general'; // Fallback to public room if empty
+
 const roomTitleDisplay = document.getElementById('room-id-display');
 const activityWarning = document.getElementById('activity-warning');
 const timerDisplay = document.getElementById('timer-display');
@@ -46,8 +49,13 @@ const publicRooms = {
 };
 const isPublicRoom = ROOM_ID.startsWith('public-');
 
-if (publicRooms[ROOM_ID]) roomTitleDisplay.innerHTML = publicRooms[ROOM_ID];
-else roomTitleDisplay.innerHTML = `<i class="fa-solid fa-lock"></i> Private Room (${ROOM_ID})`;
+// FIX: Display the 6-digit code clearly if it is a private room
+if (publicRooms[ROOM_ID]) {
+    roomTitleDisplay.innerHTML = publicRooms[ROOM_ID];
+} else {
+    // Make the numerical code stand out so users can copy/share it easily
+    roomTitleDisplay.innerHTML = `<i class="fa-solid fa-lock"></i> Room Code: <span style="color: var(--primary); letter-spacing: 2px;">${ROOM_ID}</span>`;
+}
 
 let inactivityTimer;
 if (isPublicRoom) {
