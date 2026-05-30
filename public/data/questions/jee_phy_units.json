@@ -3465,5 +3465,175 @@
         "shift": "",
         "date": "",
         "image": null
+    },
+    {
+        "q": "A student measures the time period of 100 oscillations of a simple pendulum four times. The data set is 90 s, 91 s, 95 s, and 92 s. If the minimum division in the measuring clock is 1 s, then the reported mean time should be:",
+        "type": "mcq",
+        "options": [
+            "92 \\pm 1.8\\text{ s}",
+            "92 \\pm 3\\text{ s}",
+            "92 \\pm 1.5\\text{ s}",
+            "92 \\pm 5.0\\text{ s}"
+        ],
+        "answer": 2,
+        "explanation": "1. **Calculate the mean time ($t_{\\text{mean}}$)**:\n   $$t_{\\text{mean}} = \\frac{90 + 91 + 95 + 92}{4} = \\frac{368}{4} = 92\\text{ s}$$\n\n2. **Calculate absolute errors ($|\\Delta t_i|$)**:\n   - $|\\Delta t_1| = |92 - 90| = 2\\text{ s}$\n   - $|\\Delta t_2| = |92 - 91| = 1\\text{ s}$\n   - $|\\Delta t_3| = |92 - 95| = 3\\text{ s}$\n   - $|\\Delta t_4| = |92 - 92| = 0\\text{ s}$\n\n3. **Calculate mean absolute error ($\\Delta t_{\\text{mean}}$)**:\n   $$\\Delta t_{\\text{mean}} = \\frac{2 + 1 + 3 + 0}{4} = \\frac{6}{4} = 1.5\\text{ s}$$\n\nThus, the reported mean time must be $92 \\pm 1.5\\text{ s}$.\n\nThis corresponds to Option C.",
+        "url": "",
+        "year": "2016",
+        "shift": "",
+        "date": "",
+        "image": null
+    },
+    {
+        "q": "If electronic charge $e$, electron mass $m$, speed of light in vacuum $c$ and Planck’s constant $h$ are taken as fundamental quantities, the permeability of vacuum $\\mu_0$ can be expressed in units of :",
+        "type": "mcq",
+        "options": [
+            "\\left(\\frac{h}{me^2}\\right)",
+            "\\left(\\frac{hc}{me^2}\\right)",
+            "\\left(\\frac{h}{ce^2}\\right)",
+            "\\left(\\frac{mc^2}{he^2}\\right)"
+        ],
+        "answer": 2,
+        "explanation": "Let us express permeability of vacuum $\\mu_0$ in terms of $e, m, c,$ and $h$:\n$$\\mu_0 = k e^a m^b c^c h^d$$\n\nSubstitute the basic dimensional formulas:\n- $[\\mu_0] = [\\text{M L T}^{-2}\\text{A}^{-2}]$\n- $[e] = [\\text{A T}]$\n- $[m] = [\\text{M}]$\n- $[c] = [\\text{L T}^{-1}]$\n- $[h] = [\\text{M L}^2\\text{T}^{-1}]$\n\n$$[\\text{M L T}^{-2}\\text{A}^{-2}] = [\\text{A T}]^a [\\text{M}]^b [\\text{L T}^{-1}]^c [\\text{M L}^2\\text{T}^{-1}]^d$$\n$$[\\text{M L T}^{-2}\\text{A}^{-2}] = [\\text{M}^{b+d} \\text{L}^{c+2d} \\text{T}^{a-c-d} \\text{A}^a]$$\n\nComparing exponents:\n1. For A:\n   $$a = -2$$\n2. For M:\n   $$b + d = 1 \\implies b = 1 - d \\quad \\text{--- (Equation 1)}$$\n3. For L:\n   $$c + 2d = 1 \\implies c = 1 - 2d \\quad \\text{--- (Equation 2)}$$\n4. For T:\n   $$a - c - d = -2 \\implies -2 - (1 - 2d) - d = -2 \\implies -2 - 1 + 2d - d = -2$$\n   $$-3 + d = -2 \\implies d = 1$$\n\nSubstitute $d=1$ into Equations 1 and 2:\n- $b = 1 - 1 = 0$\n- $c = 1 - 2(1) = -1$\n\nTherefore, we have:\n$$\\mu_0 \\propto e^{-2} m^0 c^{-1} h^1 = \\frac{h}{c e^2}$$\n\nThis corresponds to Option C.",
+        "url": "",
+        "year": "2015",
+        "shift": "Morning",
+        "date": "11th April",
+        "image": null
+    },
+    {
+        "q": "If the capacitance of a nanocapacitor is measured in terms of a unit ‘u’ made by combining the electric charge ‘e’, Bohr radius ‘$a_0$’, Planck’s constant ‘h’ and speed of light ‘c’ then:",
+        "type": "mcq",
+        "options": [
+            "u = \\frac{e^2 h}{a_0}",
+            "u = \\frac{h c}{e^2 a_0}",
+            "u = \\frac{e^2 c}{h a_0}",
+            "u = \\frac{e^2 a_0}{h c}"
+        ],
+        "answer": 3,
+        "explanation": "Let the unit of capacitance $u$ be expressed as:\n$$u = e^a a_0^b h^c c^d$$\n\nSubstitute the basic dimensional formulas:\n- $[u] = [\\text{M}^{-1}\\text{L}^{-2}\\text{T}^4\\text{A}^2]$\n- $[e] = [\\text{A T}]$\n- $[a_0] = [\\text{L}]$\n- $[h] = [\\text{M L}^2\\text{T}^{-1}]$\n- $[c] = [\\text{L T}^{-1}]$\n\n$$[\\text{M}^{-1}\\text{L}^{-2}\\text{T}^4\\text{A}^2] = [\\text{A T}]^a [\\text{L}]^b [\\text{M L}^2\\text{T}^{-1}]^c [\\text{L T}^{-1}]^d$$\n$$[\\text{M}^{-1}\\text{L}^{-2}\\text{T}^4\\text{A}^2] = [\\text{M}^c \\text{L}^{b+2c+d} \\text{T}^{a-c-d} \\text{A}^a]$$\n\nComparing exponents:\n1. For A:\n   $$a = 2$$\n2. For M:\n   $$c = -1$$\n3. For T:\n   $$a - c - d = 4 \\implies 2 - (-1) - d = 4 \\implies 3 - d = 4 \\implies d = -1$$\n4. For L:\n   $$b + 2c + d = -2 \\implies b + 2(-1) + (-1) = -2 \\implies b - 3 = -2 \\implies b = 1$$\n\nTherefore, we have:\n$$u = e^2 a_0^1 h^{-1} c^{-1} = \\frac{e^2 a_0}{h c}$$\n\nThis corresponds to Option D.",
+        "url": "",
+        "year": "2015",
+        "shift": "Morning",
+        "date": "10th April",
+        "image": null
+    },
+    {
+        "q": "The period of oscillation of a simple pendulum is $T = 2\\pi \\sqrt{\\frac{L}{g}}$. Measured value of L is $20.0\\text{ cm}$ known to $1\\text{ mm}$ accuracy and time for $100$ oscillations of the pendulum is found to be $90\\text{ s}$ using a wrist watch of $1\\text{ s}$ resolution. The accuracy in the determination of g is :",
+        "type": "mcq",
+        "options": [
+            "1%",
+            "5%",
+            "2%",
+            "3%"
+        ],
+        "answer": 3,
+        "explanation": "We can rewrite the equation for $g$ as:\n$$g = 4\\pi^2 \\frac{L}{T^2}$$\n\nThe relative fractional error in $g$ is:\n$$\\frac{\\Delta g}{g} = \\frac{\\Delta L}{L} + 2 \\frac{\\Delta T}{T} = \\frac{\\Delta L}{L} + 2 \\frac{\\Delta t}{t}$$\n\nSubstitute the given values:\n- $L = 20.0\\text{ cm}$, with scale division accuracy $\\Delta L = 1\\text{ mm} = 0.1\\text{ cm}$\n- $t = 90\\text{ s}$, with watch resolution $\\Delta t = 1\\text{ s}$\n\n$$\\frac{\\Delta g}{g} = \\frac{0.1}{20.0} + 2 \\left(\\frac{1}{90}\\right)$$\n$$\\frac{\\Delta g}{g} \\approx 0.005 + 0.0222 = 0.0272$$\n\nConverting to percentage error:\n$$\\%\\text{ error} = 0.0272 \\times 100\\% = 2.72\\% \\approx 3\\%$$\n\nThis corresponds to Option D.",
+        "url": "",
+        "year": "2015",
+        "shift": "",
+        "date": "",
+        "image": null
+    },
+    {
+        "q": "Diameter of a steel ball is measured using a Vernier callipers which has divisions of $0.1\\text{ cm}$ on its main scale (MS) and $10$ divisions of its vernier scale (VS) match $9$ divisions on the main scale. Three such measurements for a ball are given as:\n\n$$\\begin{array}{|c|c|c|} \\hline \\textbf{S.No.} & \\textbf{MS(cm)} & \\textbf{VS divisions} \\\\ \\hline 1. & 0.5 & 8 \\\\ \\hline 2. & 0.5 & 4 \\\\ \\hline 3. & 0.5 & 6 \\\\ \\hline \\end{array}$$\n\nIf the zero error is $-0.03\\text{ cm}$, then mean corrected diameter is:",
+        "type": "mcq",
+        "options": [
+            "0.52 cm",
+            "0.59 cm",
+            "0.56 cm",
+            "0.53 cm"
+        ],
+        "answer": 1,
+        "explanation": "First, find the Least Count (LC) of the Vernier callipers:\n- $1\\text{ MSD} = 0.1\\text{ cm}$\n- $10\\text{ VSD} = 9\\text{ MSD} \\implies \\text{LC} = 1\\text{ MSD} - 1\\text{ VSD} = 0.1 \\times \\left(1 - \\frac{9}{10}\\right) = 0.01\\text{ cm}$\n\nNow, calculate the observed reading for each of the three trials:\n1. **First measurement ($d_1$)**:\n   $$d_1 = \\text{MSR} + \\text{VSR} = 0.5 + 8 \\times 0.01 = 0.58\\text{ cm}$$\n2. **Second measurement ($d_2$)**:\n   $$d_2 = 0.5 + 4 \\times 0.01 = 0.54\\text{ cm}$$\n3. **Third measurement ($d_3$)**:\n   $$d_3 = 0.5 + 6 \\times 0.01 = 0.56\\text{ cm}$$\n\nCalculate the mean observed reading:\n$$d_{\\text{mean}} = \\frac{0.58 + 0.54 + 0.56}{3} = 0.56\\text{ cm}$$\n\nNow, account for the negative zero error of $-0.03\\text{ cm}$:\n$$\\text{Corrected Mean Reading} = d_{\\text{mean}} - \\text{Zero Error}$$\n$$\\text{Corrected Mean Reading} = 0.56\\text{ cm} - (-0.03\\text{ cm}) = 0.59\\text{ cm}$$\n\nThis corresponds to Option B.",
+        "url": "",
+        "year": "2015",
+        "shift": "Morning",
+        "date": "10th April",
+        "image": null
+    },
+    {
+        "q": "From the following combinations of physical constants (expressed through their usual symbols) the only combination, that would have the same value in different systems of units, is:",
+        "type": "mcq",
+        "options": [
+            "\\frac{ch}{2\\pi \\epsilon_0^2}",
+            "\\frac{e^2}{2\\pi \\epsilon_0 G m_e^2}",
+            "\\frac{\\mu_0 \\epsilon_0 G}{c^2 h e^2}",
+            "\\frac{2\\pi \\sqrt{\\mu_0 \\epsilon_0}}{c e^2} \\frac{h}{G}"
+        ],
+        "answer": 1,
+        "explanation": "A quantity that has the \"same value in different systems of units\" must be a **dimensionless quantity**.\n\nLet us check the dimension of Option B, which is $\\frac{e^2}{2\\pi \\epsilon_0 G m_e^2}$:\n- We know that $[\\frac{e^2}{4\\pi \\epsilon_0}]$ represents electrostatic force times distance squared, so:\n  $$\\left[\\frac{e^2}{2\\pi \\epsilon_0}\\right] = [F r^2] = [\\text{M L T}^{-2}] [\\text{L}^2] = [\\text{M L}^3\\text{T}^{-2}]$$\n- For the denominator, $[G m_e^2]$ represents gravitational force times distance squared, so:\n  $$[G m_e^2] = [F_g r^2] = [\\text{M L T}^{-2}] [\\text{L}^2] = [\\text{M L}^3\\text{T}^{-2}]$$\n\nTaking the ratio of the two parts:\n$$\\left[\\frac{e^2}{2\\pi \\epsilon_0 G m_e^2}\\right] = \\frac{[\\text{M L}^3\\text{T}^{-2}]}{[\\text{M L}^3\\text{T}^{-2} ]} = 1 \\text{ (dimensionless)}$$\n\nSince the combination is completely dimensionless, its value remains invariant across different systems of units.\n\nThis corresponds to Option B.",
+        "url": "",
+        "year": "2014",
+        "shift": "Morning",
+        "date": "12th April",
+        "image": null
+    },
+    {
+        "q": "In terms of resistance R and time T, the dimensions of ratio $\\frac{\\mu}{\\epsilon}$ of the permeability $\\mu$ and permittivity $\\epsilon$ is:",
+        "type": "mcq",
+        "options": [
+            "[R T^{-2}]",
+            "[R^2T^{-1}]",
+            "[R^2]",
+            "[R^2T^2]"
+        ],
+        "answer": 2,
+        "explanation": "We know that:\n- Permeability $[\\mu] = [\\text{M L T}^{-2}\\text{A}^{-2}]$\n- Permittivity $[\\epsilon] = [\\text{M}^{-1}\\text{L}^{-3}\\text{T}^4\\text{A}^2]$\n- Resistance $[R] = [\\text{M L}^2\\text{T}^{-3}\\text{A}^{-2}]$\n\nLet's find the dimension of $\\frac{\\mu}{\\epsilon}$:\n$$\\left[\\frac{\\mu}{\\epsilon}\\right] = \\frac{[\\text{M L T}^{-2}\\text{A}^{-2}]}{[\\text{M}^{-1}\\text{L}^{-3}\\text{T}^4\\text{A}^2]} = [\\text{M}^2\\text{L}^4\\text{T}^{-6}\\text{A}^{-4}]$$\n\nNow, square the dimension of resistance $[R]$:\n$$[R]^2 = [\\text{M L}^2\\text{T}^{-3}\\text{A}^{-2}]^2 = [\\text{M}^2\\text{L}^4\\text{T}^{-6}\\text{A}^{-4}]$$\n\nSince $\\left[\\frac{\\mu}{\\epsilon}\\right] = [R]^2$, the dimension of the ratio in terms of resistance $R$ is $[R^2]$.\n\nThis corresponds to Option C.",
+        "url": "",
+        "year": "2014",
+        "shift": "Morning",
+        "date": "11th April",
+        "image": null
+    },
+    {
+        "q": "The current voltage relation of a diode is given by $I = (e^{1000V/T} - 1)\\text{ mA}$, where the applied voltage V is in volts and the temperature T is in degree Kelvin. If a student makes an error measuring $\\pm 0.01\\text{V}$ while measuring the current of $5\\text{ mA}$ at $300\\text{ K}$, what will be the error in the value of current in mA?",
+        "type": "mcq",
+        "options": [
+            "0.2 mA",
+            "0.02 mA",
+            "0.5 mA",
+            "0.05 mA"
+        ],
+        "answer": 0,
+        "explanation": "Given the equation:\n$$I = \\left(e^{1000V/T} - 1\\right)\\text{ mA} \\implies I + 1 = e^{1000V/T}$$\n\nWhen $I = 5\\text{ mA}$ and $T = 300\\text{ K}$:\n$$e^{1000V/T} = 5 + 1 = 6\\text{ mA}$$\n\nDifferentiating the current equation with respect to $V$:\n$$dI = \\left( e^{1000V/T} \\right) \\times \\frac{1000}{T} \\cdot dV$$\n\nSubstitute the values ($e^{1000V/T} = 6\\text{ mA}$, $T = 300\\text{ K}$, and $dV = 0.01\\text{ V}$):\n$$dI = 6\\text{ mA} \\times \\left( \\frac{1000}{300} \\right) \\times 0.01 = 6\\text{ mA} \\times \\frac{10}{3} \\times 0.01$$\n$$dI = 20 \\times 0.01 = 0.2\\text{ mA}$$\n\nThis corresponds to Option A.",
+        "url": "",
+        "year": "2014",
+        "shift": "",
+        "date": "",
+        "image": null
+    },
+    {
+        "q": "A student measured the length of a rod and wrote it as $3.50\\text{ cm}$. Which instrument did he use to measure it?",
+        "type": "mcq",
+        "options": [
+            "A meter scale.",
+            "A vernier calliper where the 10 divisions in vernier scale matches with 9 division in main scale and main scale has 10 divisions in 1 cm.",
+            "A screw gauge having 100 divisions in the circular scale and pitch as 1 mm.",
+            "A screw gauge having 50 divisions in the circular scale and pitch as 1 mm."
+        ],
+        "answer": 1,
+        "explanation": "The measured reading is reported as $3.50\\text{ cm}$, which has a resolution up to two decimal places in centimeters ($0.01\\text{ cm} = 0.1\\text{ mm}$).\n\nLet's calculate the Least Count (LC) for each of the given instruments:\n- **Option A (Meter scale)**: LC $= 1\\text{ mm} = 0.1\\text{ cm}$.\n- **Option B (Vernier caliper)**:\n  - $1\\text{ MSD} = \\frac{1}{10}\\text{ cm} = 0.1\\text{ cm} = 1\\text{ mm}$\n  - $10\\text{ VSD} = 9\\text{ MSD} \\implies 1\\text{ VSD} = 0.9\\text{ mm} = 0.09\\text{ cm}$\n  - $\\text{LC} = 1\\text{ MSD} - 1\\text{ VSD} = 0.1\\text{ mm} = 0.01\\text{ cm}$.\n- **Option C (Screw gauge 1)**: LC $= \\frac{1\\text{ mm}}{100} = 0.01\\text{ mm} = 0.001\\text{ cm}$.\n- **Option D (Screw gauge 2)**: LC $= \\frac{1\\text{ mm}}{50} = 0.02\\text{ mm} = 0.002\\text{ cm}$.\n\nSince the resolution of the measured reading ($0.01\\text{ cm}$) matches the Least Count of the Vernier caliper in Option B, the student must have used that Vernier caliper.\n\nThis corresponds to Option B.",
+        "url": "",
+        "year": "2014",
+        "shift": "",
+        "date": "",
+        "image": null
+    },
+    {
+        "q": "Match List - I (Event) with List-II (Order of the time interval for happening of the event) and select the correct option from the options given below the lists:\n\n$$\\begin{array}{|l|l|} \\hline \\textbf{List - I} & \\textbf{List - II} \\\\ \\hline (1)\\text{ Rotation period of earth} & (i)\\text{ } 10^5\\text{ s} \\\\ \\hline (2)\\text{ Revolution period of earth} & (ii)\\text{ } 10^7\\text{ s} \\\\ \\hline (3)\\text{ Period of light wave} & (iii)\\text{ } 10^{-15}\\text{ s} \\\\ \\hline (4)\\text{ Period of sound wave} & (iv)\\text{ } 10^{-3}\\text{ s} \\\\ \\hline \\end{array}$$\n\nChoose the correct answer from the options given below:",
+        "type": "mcq",
+        "options": [
+            "(1)-(i), (2)-(ii), (3)-(iii), (4)-(iv)",
+            "(1)-(ii), (2)-(i), (3)-(iv), (4)-(iii)",
+            "(1)-(i), (2)-(ii), (3)-(iv), (4)-(iii)",
+            "(1)-(ii), (2)-(i), (3)-(iii), (4)-(iv)"
+        ],
+        "answer": 0,
+        "explanation": "Let us estimate the order of magnitude of the time interval for each event:\n\n1. **Rotation period of Earth**:\n   $$1\\text{ day} = 24 \\times 3600\\text{ s} = 86400\\text{ s} \\approx 10^5\\text{ s}$$\n   Thus, **(1) matches with (i)**.\n\n2. **Revolution period of Earth**:\n   $$1\\text{ year} = 365 \\times 24 \\times 3600\\text{ s} \\approx 3.15 \\times 10^7\\text{ s} \\approx 10^7\\text{ s}$$\n   Thus, **(2) matches with (ii)**.\n\n3. **Period of light wave**:\n   For visible light, frequency $f \\approx 10^{15}\\text{ Hz}$:\n   $$T = \\frac{1}{f} \\approx 10^{-15}\\text{ s}$$\n   Thus, **(3) matches with (iii)**.\n\n4. **Period of sound wave**:\n   For typical audible sound (frequency $f \\approx 10^3\\text{ Hz}$):\n   $$T = \\frac{1}{f} \\approx 10^{-3}\\text{ s}$$\n   Thus, **(4) matches with (iv)**.\n\nHence, the correct matching is (1)-(i), (2)-(ii), (3)-(iii), (4)-(iv).\n\nThis corresponds to Option A.",
+        "url": "",
+        "year": "2014",
+        "shift": "Morning",
+        "date": "19th April",
+        "image": null
     }
 ]
