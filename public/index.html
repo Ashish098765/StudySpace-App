@@ -23,6 +23,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
         body {
+            background-size: 200% 200%;
+            animation: gradientMove 15s ease infinite;
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
@@ -37,7 +39,7 @@
             display: flex; justify-content: space-between; align-items: center;
             padding: 1.5rem 5%; background: rgba(15, 17, 26, 0.7);
             backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            position: sticky; top: 0; z-index: 100;
+            position: relative; top: 0; z-index: 100;
         }
         .logo-text { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; color: var(--text-main); text-decoration: none; }
         
@@ -134,6 +136,22 @@
     
     /* Make modal fit small screens */
     .modal-content { width: 95%; padding: 1.5rem; }
+}
+/* Add this anywhere inside your <style> tags */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Update your existing .hero-section to include the animation */
+.hero-section {
+    animation: float 6s ease-in-out infinite;
+}
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
     </style>
 </head>
