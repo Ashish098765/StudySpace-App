@@ -18,7 +18,7 @@
                 enableMenu: false
             },
             chtml: {
-                scale: 1.05, // Slightly scale up to match Inter better
+                scale: 1.05,
                 minScale: 0.5
             },
             startup: { typeset: false }
@@ -46,14 +46,7 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         
-        /* MathJax Adjustments */
-        mjx-container { 
-            display: inline-block; 
-            vertical-align: baseline; 
-            margin: 0 1px; 
-            font-size: 100% !important; /* Force matching parent font size */
-        }
-        
+        mjx-container { display: inline-block; vertical-align: baseline; margin: 0 1px; font-size: 100% !important; }
         .q-text mjx-container { vertical-align: middle; }
         
         body { background-color: var(--bg-base); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
@@ -103,13 +96,10 @@
 
         #list-index-screen { display: none; }
         .index-list-container { display: flex; flex-direction: column; gap: 0.6rem; }
-        
         .index-row { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; gap: 1rem; }
         .index-row:hover { background: var(--bg-surface-elevated); border-color: var(--text-secondary); }
-        
         .index-q-wrapper { flex: 1; min-width: 0; }
         
-        /* CSS Truncation preserves MathJax formatting instead of JS slicing */
         .index-q-text { 
             font-weight: 500; 
             font-size: 0.95rem; 
@@ -128,18 +118,14 @@
 
         #quiz-focus-screen { display: none; }
         .question-container { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 2rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; }
-        .q-number { font-size: 0.85rem; color: var(--text-secondary); font-weight: 700; margin-bottom: 1rem; display: block; }
-        
         .q-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-weight: 500; overflow-x: auto; contain: content; }
         
-        /* STANDARD TABLE STYLES */
         .q-text table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: rgba(255,255,255,0.03); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
         .q-text th { background: rgba(99, 102, 241, 0.1); color: var(--brand-blue); font-weight: 700; text-align: left; padding: 12px 15px; border-bottom: 2px solid var(--border-color); }
         .q-text td { padding: 12px 15px; border-bottom: 1px solid var(--border-color); color: var(--text-primary); }
         .q-text tr:last-child td { border-bottom: none; }
         .q-text tr:hover { background: rgba(255,255,255,0.05); }
 
-        /* --- SMART MATCH THE COLUMN STYLES --- */
         .match-table-wrapper { width: 100%; margin: 1.5rem 0; background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; }
         .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-color); }
         .match-header { background: var(--bg-surface-elevated); padding: 12px 16px; font-weight: 700; text-align: center; color: var(--brand-blue); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
@@ -155,8 +141,6 @@
 
         .marks-option.selected { border-color: var(--brand-blue); background: rgba(99, 102, 241, 0.08); }
         .marks-option.selected .opt-letter { background: var(--brand-blue); border-color: var(--brand-blue); color: white; }
-        
-        /* Multiple Choice Specific Lettering */
         .multi-select-option .opt-letter { border-radius: 4px; }
         
         .marks-option.correct { border-color: var(--success-green); background: var(--success-bg); }
@@ -167,13 +151,11 @@
         .marks-option.wrong .opt-letter { background: var(--error-red); border-color: var(--error-red); color: white; }
         .marks-option.wrong .opt-icon.cross-icon { color: var(--error-red); display: block; }
         
-        /* Integer Input Styles */
         .integer-input-container { margin-top: 1rem; }
         .integer-field { background: var(--bg-surface-elevated); border: 1px solid var(--border-color); color: var(--text-primary); padding: 1rem; border-radius: 8px; font-size: 1.2rem; font-weight: 700; width: 100%; outline: none; text-align: center; }
         .integer-field:focus { border-color: var(--brand-blue); }
         .integer-field.correct { border-color: var(--success-green); background: var(--success-bg); }
         .integer-field.wrong { border-color: var(--error-red); background: var(--error-bg); }
-
         .marks-option.locked { cursor: default; }
 
         .bottom-bar { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; min-height: 4.5rem; }
@@ -187,7 +169,7 @@
             .explorer-layout { flex-direction: column; }
             .subject-sidebar { width: 100%; flex-direction: row; overflow-x: auto; padding-bottom: 5px; }
             .sidebar-btn { width: auto; white-space: nowrap; flex-shrink: 0; }
-            .match-grid { grid-template-columns: 1fr; } /* Stack match table on small phones */
+            .match-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -240,8 +222,7 @@
                 <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);" id="list-progress-tracker">0 / 0 Completed</div>
             </div>
 
-            <div class="index-list-container" id="index-list-container">
-            </div>
+            <div class="index-list-container" id="index-list-container"></div>
         </div>
 
         <div id="quiz-focus-screen">
@@ -338,50 +319,51 @@
         const screenList = document.getElementById('list-index-screen');
         const screenFocus = document.getElementById('quiz-focus-screen');
 
-        // Safe MathJax Trigger to prevent Browser Freezing
         window.triggerMathRender = (elementId) => {
             if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
                 const el = document.getElementById(elementId);
-                if (el) {
-                    MathJax.typesetPromise([el]).catch(err => console.warn('MathJax Error:', err));
-                }
+                if (el) MathJax.typesetPromise([el]).catch(err => console.warn('MathJax Error:', err));
             }
         };
 
-        // --- THE FIX: SMART FORMATTING FOR TEXT AND MATCH THE COLUMN TABLES ---
-        function formatQuestionText(text) {
-            if (!text) return "";
+        // --- THE FIX: TWO SEPARATE FORMATTERS ---
+        
+        // 1. Generic Formatter for Options and Explanations (No aggressive HTML wrappers)
+        function formatGenericText(text) {
+            if (text === null || text === undefined) return "";
+            if (typeof text !== 'string') text = String(text);
+            if (text.trim() === "N/A" || text.trim() === "") return "<div style='color: var(--text-tertiary); font-style: italic;'>No detailed explanation available for this question.</div>";
             
-            // 1. Process any standard markdown tables first
             let formatted = markdownTableToHTML(text);
+            return formatted.replace(/\n/g, '<br>');
+        }
+
+        // 2. Aggressive Formatter ONLY for the Main Question Text (Safe Match the Column parsing)
+        function formatQuestionBody(text) {
+            if (text === null || text === undefined) return "";
+            if (typeof text !== 'string') text = String(text);
             
-            // 2. Convert standard line breaks to HTML breaks
+            let formatted = markdownTableToHTML(text);
             formatted = formatted.replace(/\n/g, '<br>');
 
-            // 3. SMART TABLE PARSER: Detects Match the Column formats
-            if (formatted.includes("List I") || formatted.includes("Column I")) {
+            // ONLY execute if BOTH lists are present to prevent unclosed <div> tags!
+            if ((formatted.includes("List I") && formatted.includes("List II")) || 
+                (formatted.includes("Column I") && formatted.includes("Column II"))) {
                 
-                // Wrap headers
-                formatted = formatted.replace(/(List[-\s]*I|Column[-\s]*I)/ig, "<div class='match-table-wrapper'><div class='match-grid'><div class='match-header'>$1</div>");
-                formatted = formatted.replace(/(List[-\s]*II|Column[-\s]*II)/ig, "<div class='match-header'>$1</div>");
+                formatted = formatted.replace(/(List[-\s]*I|Column[-\s]*I)/i, "<div class='match-table-wrapper'><div class='match-grid'><div class='match-header'>$1</div>");
+                formatted = formatted.replace(/(List[-\s]*II|Column[-\s]*II)/i, "<div class='match-header'>$1</div>");
                 
-                // Wrap Left Column Items: (A), (B), (C), (D) or A., B., C.
                 formatted = formatted.replace(/(?:\s|^|<br>)(\([A-E]\)|[A-E]\.)/g, "<div class='match-cell left'><b>$1</b> ");
-                
-                // Wrap Right Column Items: (I), (II), (III), (IV), (P), (Q), (R), (S), (T)
                 formatted = formatted.replace(/(?:\s|^|<br>)(\([I|V|X]+\)|[I|V|X]+\.|\([P-T]\)|[P-T]\.)/g, "</div><div class='match-cell right'><b>$1</b> ");
                 
-                // Close the grid safely
                 formatted += "</div></div></div>";
-                
-                // Cleanup messy trailing divs caused by regex overlap
                 formatted = formatted.replace(/<div class='match-cell right'><b>.*?<\/div><\/div><\/div>/g, "$&</div></div>");
             }
-
             return formatted;
         }
 
         function markdownTableToHTML(text) {
+            if (typeof text !== 'string') text = String(text || "");
             if (!text.includes('|')) return text;
             
             const lines = text.split('\n');
@@ -413,7 +395,6 @@
             let html = '<table>';
             rows.forEach((row, idx) => {
                 const cells = row.split('|').filter(c => c.trim() !== '' || row.indexOf('|'+c+'|') !== -1).map(c => c.trim());
-                // Skip separator rows like |---|---|
                 if (cells.every(c => c.match(/^[ :\-\s]+$/))) return;
 
                 html += '<tr>';
@@ -470,9 +451,7 @@
                 });
 
                 if(availableSubjects.length > 0) renderChapterInventoryList(availableSubjects[0]);
-            } catch (error) {
-                console.error(error);
-            }
+            } catch (error) { console.error(error); }
         };
 
         function renderChapterInventoryList(subjectName) {
@@ -489,9 +468,7 @@
                         <i class="fa-solid fa-book-open"></i>
                         <span class="chapter-name">${ch.name}</span>
                     </div>
-                    <div class="chapter-stats">
-                        <span>Total: ${ch.total} Qs</span>
-                    </div>
+                    <div class="chapter-stats"><span>Total: ${ch.total} Qs</span></div>
                 `;
                 divRow.onclick = () => launchSession(ch.name, ch.id);
                 container.appendChild(divRow);
@@ -500,6 +477,7 @@
 
         function generateQuestionId(qText) {
             let hash = 0;
+            if(!qText) return "0";
             for (let i = 0; i < qText.length; i++) {
                 hash = ((hash << 5) - hash) + qText.charCodeAt(i);
                 hash |= 0;
@@ -541,15 +519,10 @@
                         const year = parseInt(q.year) || 0;
                         const months = { 'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6, 
                                          'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12 };
-                        
-                        let month = 0;
-                        let day = 0;
-                        
+                        let month = 0; let day = 0;
                         if (q.date) {
                             const dateParts = q.date.toLowerCase();
-                            for (let m in months) {
-                                if (dateParts.includes(m)) month = months[m];
-                            }
+                            for (let m in months) if (dateParts.includes(m)) month = months[m];
                             const dayMatch = dateParts.match(/\d+/);
                             if (dayMatch) day = parseInt(dayMatch[0]);
                         }
@@ -558,7 +531,6 @@
 
                     const timeA = getTimestamp(a);
                     const timeB = getTimestamp(b);
-
                     if (timeB !== timeA) return timeB - timeA;
 
                     const shiftOrder = { "morning": 1, "afternoon": 2, "evening": 3 };
@@ -587,7 +559,7 @@
         };
 
         function getCleanPreview(text) {
-            return text.replace(/\s+/g, ' ').trim();
+            return String(text || "").replace(/\s+/g, ' ').trim();
         }
 
         function renderIndexList() {
@@ -598,7 +570,6 @@
             filteredPracticeSet.forEach((q, index) => {
                 const isCorrect = correctIds.includes(q.uid);
                 const isWrong = wrongIds.includes(q.uid);
-                
                 if (isCorrect || isWrong) completedCount++;
 
                 let badgeHtml = `<div class="status-badge badge-pending"><i class="fa-solid fa-circle-minus"></i> Pending</div>`;
@@ -630,15 +601,14 @@
             });
 
             document.getElementById('list-progress-tracker').innerText = `${completedCount} / ${filteredPracticeSet.length} Completed`;
-            
             setTimeout(() => triggerMathRender('index-list-container'), 100);
         }
 
         window.openFocusQuestion = (index) => {
             currentFocusIndex = index;
             isFocusAnswerChecked = false;
-            selectedOptionIndex = null; // Used for MCQ
-            window.selectedOptions = []; // Used for Multi-Select
+            selectedOptionIndex = null;
+            window.selectedOptions = []; 
             
             const q = filteredPracticeSet[index];
             const isCorrect = correctIds.includes(q.uid);
@@ -668,8 +638,8 @@
                 ${shiftBadgeFocus}
             `;
             
-            // THE FIX: Smart Format applied to the main question text
-            document.getElementById('focus-q-text').innerHTML = formatQuestionText(q.q);
+            // USE SAFE FORMATTER FOR QUESTION BODY
+            document.getElementById('focus-q-text').innerHTML = formatQuestionBody(q.q);
 
             const optContainer = document.getElementById('focus-options-container');
             optContainer.innerHTML = "";
@@ -695,10 +665,10 @@
                     div.className = `marks-option ${isAttempted ? 'locked' : ''} ${q.type === 'multi_select' ? 'multi-select-option' : ''}`;
                     div.id = `focus-opt-${optIdx}`;
                     
-                    // THE FIX: Smart Format applied to the options text
+                    // USE GENERIC FORMATTER FOR OPTIONS
                     div.innerHTML = `
                         <div class="opt-letter">${codeMarker}</div>
-                        <div class="opt-text">${formatQuestionText(opt)}</div>
+                        <div class="opt-text">${formatGenericText(opt)}</div>
                         <i class="fa-solid fa-circle-check opt-icon check-icon" id="focus-check-${optIdx}"></i>
                         <i class="fa-solid fa-circle-xmark opt-icon cross-icon" id="focus-cross-${optIdx}"></i>
                     `;
@@ -714,15 +684,17 @@
                 document.getElementById('btn-check-focus').style.display = 'none';
                 document.getElementById('btn-next-focus').style.display = 'block';
                 
-                // THE FIX: Smart Format applied to the explanation text
-                document.getElementById('focus-explanation-text').innerHTML = formatQuestionText(q.explanation);
+                // USE GENERIC FORMATTER FOR EXPLANATION
+                document.getElementById('focus-explanation-text').innerHTML = formatGenericText(q.explanation);
                 document.getElementById('focus-explanation-box').style.display = 'block';
                 
                 if (q.type !== "integer") {
-                    const correctAnswers = Array.isArray(q.answer) ? q.answer : [q.answer];
+                    const correctAnswers = Array.isArray(q.answer) ? q.answer.map(a => Number(a)) : [Number(q.answer)];
                     correctAnswers.forEach(ansIdx => {
-                        document.getElementById(`focus-opt-${ansIdx}`).classList.add('correct');
-                        document.getElementById(`focus-check-${ansIdx}`).style.display = 'block';
+                        const optEl = document.getElementById(`focus-opt-${ansIdx}`);
+                        if(optEl) optEl.classList.add('correct');
+                        const checkEl = document.getElementById(`focus-check-${ansIdx}`);
+                        if(checkEl) checkEl.style.display = 'block';
                     });
                 }
                 
@@ -768,11 +740,12 @@
             let isCorrect = false;
 
             if (q.type === "mcq") {
-                isCorrect = (selectedOptionIndex === q.answer);
+                // FIXED INT COMPARISON BUG
+                isCorrect = (selectedOptionIndex == q.answer);
             } else if (q.type === "multi_select") {
-                isCorrect = Array.isArray(q.answer) && 
-                            window.selectedOptions.length === q.answer.length &&
-                            window.selectedOptions.every(val => q.answer.includes(val));
+                const correctAnswers = Array.isArray(q.answer) ? q.answer.map(a => Number(a)) : [Number(q.answer)];
+                isCorrect = window.selectedOptions.length === correctAnswers.length &&
+                            window.selectedOptions.every(val => correctAnswers.includes(val));
             } else if (q.type === "integer") {
                 const userVal = parseFloat(document.getElementById('focus-integer-input').value);
                 const correctVal = parseFloat(q.answer);
@@ -789,7 +762,7 @@
                 field.classList.add(isCorrect ? 'correct' : 'wrong');
             } else {
                 document.querySelectorAll('#focus-options-container .marks-option').forEach(el => el.classList.add('locked'));
-                const correctAnswers = Array.isArray(q.answer) ? q.answer : [q.answer];
+                const correctAnswers = Array.isArray(q.answer) ? q.answer.map(a => Number(a)) : [Number(q.answer)];
                 
                 if (q.type === "mcq") {
                     if (isCorrect) {
@@ -812,8 +785,10 @@
                 }
                 
                 correctAnswers.forEach(ansIdx => {
-                    document.getElementById(`focus-opt-${ansIdx}`).classList.add('correct');
-                    document.getElementById(`focus-check-${ansIdx}`).style.display = 'block';
+                    const optEl = document.getElementById(`focus-opt-${ansIdx}`);
+                    if(optEl) optEl.classList.add('correct');
+                    const checkEl = document.getElementById(`focus-check-${ansIdx}`);
+                    if(checkEl) checkEl.style.display = 'block';
                 });
             }
 
@@ -822,9 +797,10 @@
             } else {
                 let displayCorrect = q.answer;
                 if (q.type === "multi_select") {
-                    displayCorrect = q.answer.map(idx => String.fromCharCode(65 + idx)).join(", ");
+                    const arr = Array.isArray(q.answer) ? q.answer : [q.answer];
+                    displayCorrect = arr.map(idx => String.fromCharCode(65 + Number(idx))).join(", ");
                 } else if (q.type === "mcq") {
-                    displayCorrect = String.fromCharCode(65 + q.answer);
+                    displayCorrect = String.fromCharCode(65 + Number(q.answer));
                 }
                 
                 document.getElementById('focus-result-status').innerHTML = `
@@ -835,8 +811,8 @@
 
             await updateFirebaseProgress(q.uid, isCorrect);
             
-            // THE FIX: Smart Format applied to the explanation text
-            document.getElementById('focus-explanation-text').innerHTML = formatQuestionText(q.explanation);
+            // USE GENERIC FORMATTER FOR EXPLANATION
+            document.getElementById('focus-explanation-text').innerHTML = formatGenericText(q.explanation);
             document.getElementById('focus-explanation-box').style.display = 'block';
             setTimeout(() => triggerMathRender('focus-explanation-box'), 100);
         };
