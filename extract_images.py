@@ -2,7 +2,7 @@ import fitz  # PyMuPDF
 import os
 
 # 1. Open your PDF file (make sure the name matches exactly!)
-pdf_filename = "jee_phy_units.pdf"
+pdf_filename = "motion_1d&2d.pdf"
 doc = fitz.open(pdf_filename)
 
 # 2. Create a folder to save all the extracted images

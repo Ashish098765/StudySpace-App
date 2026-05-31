@@ -120,8 +120,7 @@
         .question-container { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 2rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; }
         .q-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-weight: 500; overflow-x: auto; contain: content; }
         
-        /* NEW: Cloudinary Image CSS */
-        .q-image { max-width: 100%; border-radius: 8px; margin: 1.5rem 0; display: none; border: 1px solid var(--border-color); }
+        .q-image { max-width: 100%; border-radius: 8px; margin: 1.5rem 0; border: 1px solid var(--border-color); }
         
         .q-text table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: rgba(255,255,255,0.03); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
         .q-text th { background: rgba(99, 102, 241, 0.1); color: var(--brand-blue); font-weight: 700; text-align: left; padding: 12px 15px; border-bottom: 2px solid var(--border-color); }
@@ -244,15 +243,11 @@
                 
                 <div class="q-text" id="focus-q-text">Loading...</div>
                 
-                <img id="focus-q-img" class="q-image" src="" alt="Question Diagram">
-                
                 <div class="options-list" id="focus-options-container"></div>
 
                 <div class="solution-box" id="focus-explanation-box">
                     <div class="solution-title"><i class="fa-solid fa-lightbulb"></i> Rationalized Solution Explanation</div>
                     <div class="solution-text" id="focus-explanation-text"></div>
-                    
-                    <img id="focus-exp-img" class="q-image" src="" alt="Explanation Diagram">
                 </div>
             </div>
 
@@ -270,8 +265,8 @@
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
         import { getFirestore, doc, updateDoc, setDoc, increment, arrayUnion, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-        // NEW: Cloudinary Base URL configuration
-const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dyxyzz9r9/image/upload/f_auto,q_auto/";        const firebaseConfig = {
+        const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dyxyzz9r9/image/upload/f_auto,q_auto/";        
+        const firebaseConfig = {
             apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
             authDomain: "studyspace-45780.firebaseapp.com",
             projectId: "studyspace-45780",
@@ -335,13 +330,30 @@ const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dyxyzz9r9/image/upload/f
             }
         };
 
+        // --- NEW: Inline Image Injector ---
+        function injectInlineImages(text) {
+            if (!text) return "";
+            // Finds [IMG: filename.png] or similar tags
+            const imgRegex = /\[IMG:\s*([^\]]+)\]/g;
+            
+            return text.replace(imgRegex, (match, filename) => {
+                const cleanFilename = filename.trim();
+                if (cleanFilename === "requires_image.png" || cleanFilename === "null") {
+                    return `<div style="padding: 10px; border: 1px dashed var(--error-red); color: var(--error-red); font-size: 0.8rem; border-radius: 4px; display: inline-block; margin: 10px 0;">[Image missing in database]</div>`;
+                }
+                return `<img class="q-image" src="${CLOUDINARY_BASE_URL}${cleanFilename}" alt="Diagram" style="display: block; max-width: 100%; border-radius: 8px; margin: 1rem 0; border: 1px solid var(--border-color);">`;
+            });
+        }
+
+        // --- UPDATED FORMATTERS ---
         function formatGenericText(text) {
             if (text === null || text === undefined) return "";
             if (typeof text !== 'string') text = String(text);
             if (text.trim() === "N/A" || text.trim() === "") return "<div style='color: var(--text-tertiary); font-style: italic;'>No detailed explanation available for this question.</div>";
             
             let formatted = markdownTableToHTML(text);
-            return formatted.replace(/\n/g, '<br>');
+            formatted = formatted.replace(/\n/g, '<br>');
+            return injectInlineImages(formatted); // Inject images before returning
         }
 
         function formatQuestionBody(text) {
@@ -363,7 +375,7 @@ const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dyxyzz9r9/image/upload/f
                 formatted += "</div></div></div>";
                 formatted = formatted.replace(/<div class='match-cell right'><b>.*?<\/div><\/div><\/div>/g, "$&</div></div>");
             }
-            return formatted;
+            return injectInlineImages(formatted); // Inject images before returning
         }
 
         function markdownTableToHTML(text) {
@@ -625,14 +637,6 @@ const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dyxyzz9r9/image/upload/f
             document.getElementById('focus-explanation-box').style.display = 'none';
             document.getElementById('focus-result-status').innerHTML = "";
             
-            // NEW: Reset and hide both images
-            const qImg = document.getElementById('focus-q-img');
-            const expImg = document.getElementById('focus-exp-img');
-            qImg.style.display = 'none';
-            qImg.src = '';
-            expImg.style.display = 'none';
-            expImg.src = '';
-            
             document.getElementById('focus-progress-tracker').innerText = `Question ${index + 1} of ${filteredPracticeSet.length}`;
             
             const dText = (q.date && q.date !== "Unknown" && q.date !== "Unknown Date") ? q.date : "";
@@ -651,12 +655,6 @@ const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dyxyzz9r9/image/upload/f
             `;
             
             document.getElementById('focus-q-text').innerHTML = formatQuestionBody(q.q);
-
-            // NEW: Load Cloudinary Question Image if present
-            if (q.image) {
-                qImg.src = CLOUDINARY_BASE_URL + q.image;
-                qImg.style.display = 'block';
-            }
 
             const optContainer = document.getElementById('focus-options-container');
             optContainer.innerHTML = "";
@@ -702,12 +700,6 @@ const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dyxyzz9r9/image/upload/f
                 
                 document.getElementById('focus-explanation-text').innerHTML = formatGenericText(q.explanation);
                 document.getElementById('focus-explanation-box').style.display = 'block';
-                
-                // NEW: Load Cloudinary Explanation Image if present
-                if (q.explanation_image) {
-                    expImg.src = CLOUDINARY_BASE_URL + q.explanation_image;
-                    expImg.style.display = 'block';
-                }
                 
                 if (q.type !== "integer") {
                     const correctAnswers = Array.isArray(q.answer) ? q.answer.map(a => Number(a)) : [Number(q.answer)];
@@ -833,13 +825,6 @@ const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dyxyzz9r9/image/upload/f
             
             document.getElementById('focus-explanation-text').innerHTML = formatGenericText(q.explanation);
             document.getElementById('focus-explanation-box').style.display = 'block';
-            
-            // NEW: Load Cloudinary Explanation Image if present
-            if (q.explanation_image) {
-                const expImg = document.getElementById('focus-exp-img');
-                expImg.src = CLOUDINARY_BASE_URL + q.explanation_image;
-                expImg.style.display = 'block';
-            }
             
             setTimeout(() => triggerMathRender('focus-explanation-box'), 100);
         };
