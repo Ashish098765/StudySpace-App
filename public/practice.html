@@ -120,6 +120,9 @@
         .question-container { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 2rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; }
         .q-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-weight: 500; overflow-x: auto; contain: content; }
         
+        /* NEW: Cloudinary Image CSS */
+        .q-image { max-width: 100%; border-radius: 8px; margin: 1.5rem 0; display: none; border: 1px solid var(--border-color); }
+        
         .q-text table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: rgba(255,255,255,0.03); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
         .q-text th { background: rgba(99, 102, 241, 0.1); color: var(--brand-blue); font-weight: 700; text-align: left; padding: 12px 15px; border-bottom: 2px solid var(--border-color); }
         .q-text td { padding: 12px 15px; border-bottom: 1px solid var(--border-color); color: var(--text-primary); }
@@ -240,11 +243,16 @@
                 <div id="focus-q-meta" style="display: flex; gap: 10px; margin-bottom: 1.5rem; flex-wrap: wrap;"></div>
                 
                 <div class="q-text" id="focus-q-text">Loading...</div>
+                
+                <img id="focus-q-img" class="q-image" src="" alt="Question Diagram">
+                
                 <div class="options-list" id="focus-options-container"></div>
 
                 <div class="solution-box" id="focus-explanation-box">
                     <div class="solution-title"><i class="fa-solid fa-lightbulb"></i> Rationalized Solution Explanation</div>
                     <div class="solution-text" id="focus-explanation-text"></div>
+                    
+                    <img id="focus-exp-img" class="q-image" src="" alt="Explanation Diagram">
                 </div>
             </div>
 
@@ -261,6 +269,9 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
         import { getFirestore, doc, updateDoc, setDoc, increment, arrayUnion, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        // NEW: Cloudinary Base URL configuration
+        const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dyxyzz9r9/image/upload/f_auto,q_auto/questions/";
 
         const firebaseConfig = {
             apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
@@ -326,9 +337,6 @@
             }
         };
 
-        // --- THE FIX: TWO SEPARATE FORMATTERS ---
-        
-        // 1. Generic Formatter for Options and Explanations (No aggressive HTML wrappers)
         function formatGenericText(text) {
             if (text === null || text === undefined) return "";
             if (typeof text !== 'string') text = String(text);
@@ -338,7 +346,6 @@
             return formatted.replace(/\n/g, '<br>');
         }
 
-        // 2. Aggressive Formatter ONLY for the Main Question Text (Safe Match the Column parsing)
         function formatQuestionBody(text) {
             if (text === null || text === undefined) return "";
             if (typeof text !== 'string') text = String(text);
@@ -346,7 +353,6 @@
             let formatted = markdownTableToHTML(text);
             formatted = formatted.replace(/\n/g, '<br>');
 
-            // ONLY execute if BOTH lists are present to prevent unclosed <div> tags!
             if ((formatted.includes("List I") && formatted.includes("List II")) || 
                 (formatted.includes("Column I") && formatted.includes("Column II"))) {
                 
@@ -621,6 +627,14 @@
             document.getElementById('focus-explanation-box').style.display = 'none';
             document.getElementById('focus-result-status').innerHTML = "";
             
+            // NEW: Reset and hide both images
+            const qImg = document.getElementById('focus-q-img');
+            const expImg = document.getElementById('focus-exp-img');
+            qImg.style.display = 'none';
+            qImg.src = '';
+            expImg.style.display = 'none';
+            expImg.src = '';
+            
             document.getElementById('focus-progress-tracker').innerText = `Question ${index + 1} of ${filteredPracticeSet.length}`;
             
             const dText = (q.date && q.date !== "Unknown" && q.date !== "Unknown Date") ? q.date : "";
@@ -638,8 +652,13 @@
                 ${shiftBadgeFocus}
             `;
             
-            // USE SAFE FORMATTER FOR QUESTION BODY
             document.getElementById('focus-q-text').innerHTML = formatQuestionBody(q.q);
+
+            // NEW: Load Cloudinary Question Image if present
+            if (q.image) {
+                qImg.src = CLOUDINARY_BASE_URL + q.image;
+                qImg.style.display = 'block';
+            }
 
             const optContainer = document.getElementById('focus-options-container');
             optContainer.innerHTML = "";
@@ -665,7 +684,6 @@
                     div.className = `marks-option ${isAttempted ? 'locked' : ''} ${q.type === 'multi_select' ? 'multi-select-option' : ''}`;
                     div.id = `focus-opt-${optIdx}`;
                     
-                    // USE GENERIC FORMATTER FOR OPTIONS
                     div.innerHTML = `
                         <div class="opt-letter">${codeMarker}</div>
                         <div class="opt-text">${formatGenericText(opt)}</div>
@@ -684,9 +702,14 @@
                 document.getElementById('btn-check-focus').style.display = 'none';
                 document.getElementById('btn-next-focus').style.display = 'block';
                 
-                // USE GENERIC FORMATTER FOR EXPLANATION
                 document.getElementById('focus-explanation-text').innerHTML = formatGenericText(q.explanation);
                 document.getElementById('focus-explanation-box').style.display = 'block';
+                
+                // NEW: Load Cloudinary Explanation Image if present
+                if (q.explanation_image) {
+                    expImg.src = CLOUDINARY_BASE_URL + q.explanation_image;
+                    expImg.style.display = 'block';
+                }
                 
                 if (q.type !== "integer") {
                     const correctAnswers = Array.isArray(q.answer) ? q.answer.map(a => Number(a)) : [Number(q.answer)];
@@ -740,7 +763,6 @@
             let isCorrect = false;
 
             if (q.type === "mcq") {
-                // FIXED INT COMPARISON BUG
                 isCorrect = (selectedOptionIndex == q.answer);
             } else if (q.type === "multi_select") {
                 const correctAnswers = Array.isArray(q.answer) ? q.answer.map(a => Number(a)) : [Number(q.answer)];
@@ -811,9 +833,16 @@
 
             await updateFirebaseProgress(q.uid, isCorrect);
             
-            // USE GENERIC FORMATTER FOR EXPLANATION
             document.getElementById('focus-explanation-text').innerHTML = formatGenericText(q.explanation);
             document.getElementById('focus-explanation-box').style.display = 'block';
+            
+            // NEW: Load Cloudinary Explanation Image if present
+            if (q.explanation_image) {
+                const expImg = document.getElementById('focus-exp-img');
+                expImg.src = CLOUDINARY_BASE_URL + q.explanation_image;
+                expImg.style.display = 'block';
+            }
+            
             setTimeout(() => triggerMathRender('focus-explanation-box'), 100);
         };
 
