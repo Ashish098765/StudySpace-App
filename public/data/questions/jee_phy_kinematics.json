@@ -1385,7 +1385,7 @@
         "date": "24th June"
     },
     {
-        "q": "Given below are two statements. One is labelled as Assertion A and the other is labelled as Reason R.\n\nAssertion A: Two identical balls A and B thrown with same velocity 'u' at two different angles with horizontal attained the same range R. IF A and B reached the maximum height $h_1$ and $h_2$ respectively, then $R = 4\\sqrt{h_1h_2}$\nReason R : Product of said heights.\n$$h_1h_2 = \\left(\\frac{u^2\\sin^2\\theta}{2g}\\right) \\cdot \\left(\\frac{u^2\\cos^2\\theta}{2g}\right)$$\n\nChoose the correct answer :",
+        "q": "Given below are two statements. One is labelled as Assertion A and the other is labelled as Reason R.\n\nAssertion A: Two identical balls A and B thrown with same velocity 'u' at two different angles with horizontal attained the same range R. IF A and B reached the maximum height $h_1$ and $h_2$ respectively, then $R = 4\\sqrt{h_{1h}_2}$\nReason R : Product of said heights.\n$$h_{1h}_2 = \\left(\\frac{u^2\\sin^2\\theta}{2g}\\right) \\cdot \\left(\\frac{u^2\\cos^2\\theta}{2g}\right)$$\n\nChoose the correct answer :",
         "type": "mcq",
         "options": [
             "Both A and R are true and R is the correct explanation of A.",
@@ -1394,7 +1394,7 @@
             "A is false but R is true."
         ],
         "answer": 0,
-        "explanation": "Let us check both statements:\n\n- **Assertion A is correct**: Since both balls are launched with the same velocity $u$ and achieve identical horizontal ranges, their projection angles must be complementary: $\\theta$ and $90^\\circ - \\theta$.\n  The maximum heights reached are:\n  $$h_1 = \\frac{u^2 \\sin^2\\theta}{2g}, \\quad h_2 = \\frac{u^2 \\sin^2(90^\\circ - \\theta)}{2g} = \\frac{u^2 \\cos^2\\theta}{2g}$$\n  Let's verify the relation $R = 4\\sqrt{h_1 h_2}$:\n  $$4\\sqrt{h_1 h_2} = 4 \\sqrt{\\frac{u^4 \\sin^2\\theta \\cos^2\\theta}{4g^2}} = 4 \\cdot \\frac{u^2 \\sin\\theta \\cos\\theta}{2g} = \\frac{u^2 (2 \\sin\\theta \\cos\\theta)}{g} = \\frac{u^2 \\sin 2\\theta}{g} = R$$\n\n- **Reason R is correct**: The product of the maximum heights is indeed $h_1h_2 = \\left(\\frac{u^2\\sin^2\\theta}{2g}\\right) \\cdot \\left(\\frac{u^2\\cos^2\\theta}{2g}\\right)$. Since taking the square root of this product provides the direct algebraic basis for deriving $R = 4\\sqrt{h_1 h_2}$, R is the correct explanation of A.\n\nThis corresponds to Option A.",
+        "explanation": "Let us check both statements:\n\n- **Assertion A is correct**: Since both balls are launched with the same velocity $u$ and achieve identical horizontal ranges, their projection angles must be complementary: $\\theta$ and $90^\\circ - \\theta$.\n  The maximum heights reached are:\n  $$h_1 = \\frac{u^2 \\sin^2\\theta}{2g}, \\quad h_2 = \\frac{u^2 \\sin^2(90^\\circ - \\theta)}{2g} = \\frac{u^2 \\cos^2\\theta}{2g}$$\n  Let's verify the relation $R = 4\\sqrt{h_1 h_2}$:\n  $$4\\sqrt{h_1 h_2} = 4 \\sqrt{\\frac{u^4 \\sin^2\\theta \\cos^2\\theta}{4g^2}} = 4 \\cdot \\frac{u^2 \\sin\\theta \\cos\\theta}{2g} = \\frac{u^2 (2 \\sin\\theta \\cos\\theta)}{g} = \\frac{u^2 \\sin 2\\theta}{g} = R$$\n\n- **Reason R is correct**: The product of the maximum heights is indeed $h_{1h}_2 = \\left(\\frac{u^2\\sin^2\\theta}{2g}\\right) \\cdot \\left(\\frac{u^2\\cos^2\\theta}{2g}\\right)$. Since taking the square root of this product provides the direct algebraic basis for deriving $R = 4\\sqrt{h_1 h_2}$, R is the correct explanation of A.\n\nThis corresponds to Option A.",
         "year": "2022",
         "shift": "Evening",
         "date": "25th June"
@@ -1514,7 +1514,7 @@
             "40m"
         ],
         "answer": 1,
-        "explanation": "1) **Find the radius $R$ of the path**:\nThe distance travelled is the arc length $s = 60\\text{ m}$. The angle subtended is $\\theta = 135^circ = 135 \\times \\frac{\\pi}{180} = \\frac{3\\pi}{4}\\text{ rad}$.\n$$s = R\\theta \\implies 60 = R \\left(\\frac{3\\pi}{4}\\right) \\implies R = \\frac{80}{\\pi}\\text{ m}$$\n\n2) **Calculate the displacement magnitude ($d$)**:\n$$d = 2R \\sin\\left(\\frac{\\theta}{2}\right) = 2 \\left(\\frac{80}{\\pi}\\right) \\sin 67.5^\\circ$$\nUsing the identity $\\sin^2 67.5^\\circ = \\frac{1 - \\cos 135^\\circ}{2}$:\n$$\\sin 67.5^\\circ = \\sqrt{\\frac{1 - (-0.7)}{2}} = \\sqrt{\\frac{1.7}{2}} = \\sqrt{0.85} \\approx 0.922$$\n$$d \\approx 2 \\times 25.46 \\times 0.922 \\approx 47\\text{ m}$$\n\nThis corresponds to Option B.",
+        "explanation": "1) **Find the radius $R$ of the path**:\nThe distance travelled is the arc length $s = 60\\text{ m}$. The angle subtended is $\\theta = 135^\\circ = 135 \\times \\frac{\\pi}{180} = \\frac{3\\pi}{4}\\text{ rad}$.\n$$s = R\\theta \\implies 60 = R \\left(\\frac{3\\pi}{4}\\right) \\implies R = \\frac{80}{\\pi}\\text{ m}$$\n\n2) **Calculate the displacement magnitude ($d$)**:\n$$d = 2R \\sin\\left(\\frac{\\theta}{2}\right) = 2 \\left(\\frac{80}{\\pi}\\right) \\sin 67.5^\\circ$$\nUsing the identity $\\sin^2 67.5^\\circ = \\frac{1 - \\cos 135^\\circ}{2}$:\n$$\\sin 67.5^\\circ = \\sqrt{\\frac{1 - (-0.7)}{2}} = \\sqrt{\\frac{1.7}{2}} = \\sqrt{0.85} \\approx 0.922$$\n$$d \\approx 2 \\times 25.46 \\times 0.922 \\approx 47\\text{ m}$$\n\nThis corresponds to Option B.",
         "year": "2022",
         "shift": "Morning",
         "date": "25th July"
@@ -1942,7 +1942,7 @@
             "2mv^3",
             "2mnv^3",
             "2nv^3",
-            "2n^2v^3"
+            "2n^{2v}^3"
         ],
         "answer": 0,
         "explanation": "Given the relationship:\n$$t = m x^2 + n x$$\n\nDifferentiating with respect to position $x$:\n$$\\frac{dt}{dx} = 2 m x + n$$\nSince velocity $v = \\frac{dx}{dt}$:\n$$\\frac{1}{v} = 2 m x + n$$\n\nDifferentiating with respect to time $t$ using the chain rule:\n$$\\frac{d}{dt} \\left( \\frac{1}{v} \\right) = \\frac{d}{dx} (2mx + n) \\frac{dx}{dt}$$\n$$-\\frac{1}{v^2} \\frac{dv}{dt} = 2m v$$\n$$-\\frac{a}{v^2} = 2m v \\implies a = -2m v^3$$\n\nTherefore, the magnitude of retardation is $2mv^3$.\n\nThis corresponds to Option A.",
@@ -2265,7 +2265,7 @@
             "\\sqrt{\\frac{2gh}{v^2} + h^2}"
         ],
         "answer": 2,
-        "explanation": "Let the horizontal distance between the helicopter and the man at the moment of dropping the packet be $x$.\n- The initial vertical velocity is $u_y = 0$. The time $t$ taken for the packet to fall to the ground is:\n$$h = \\frac{1}{2} g t^2 \\implies t = \\sqrt{\\frac{2h}{g}}$$\n- During this time, the horizontal distance travelled is:\n$$x = v \\times t = v \\sqrt{\\frac{2h}{g}}$$\n\nThe direct straight-line distance $D$ of the helicopter from the man when dropped is:\n$$D = \\sqrt{h^2 + x^2} = \\sqrt{h^2 + \\left(v \\sqrt{\\frac{2h}{g}}\\right)^2} = \\sqrt{\\frac{2v^2h}{g} + h^2}$$\n\nThis corresponds to Option C.",
+        "explanation": "Let the horizontal distance between the helicopter and the man at the moment of dropping the packet be $x$.\n- The initial vertical velocity is $u_y = 0$. The time $t$ taken for the packet to fall to the ground is:\n$$h = \\frac{1}{2} g t^2 \\implies t = \\sqrt{\\frac{2h}{g}}$$\n- During this time, the horizontal distance travelled is:\n$$x = v \\times t = v \\sqrt{\\frac{2h}{g}}$$\n\nThe direct straight-line distance $D$ of the helicopter from the man when dropped is:\n$$D = \\sqrt{h^2 + x^2} = \\sqrt{h^2 + \\left(v \\sqrt{\\frac{2h}{g}}\\right)^2} = \\sqrt{\\frac{2v^{2h}}{g} + h^2}$$\n\nThis corresponds to Option C.",
         "year": "2021",
         "shift": "Morning",
         "date": "31st August"
@@ -2365,7 +2365,7 @@
             "\\frac{2\\sqrt{2} u^2}{g}"
         ],
         "answer": 0,
-        "explanation": "1) **Before collision (at peak)**:\n- The first particle has velocity components $v_{1x} = u \\cos 60^circ = \\frac{u}{2}$ and $v_{1y} = 0$.\n- The second particle has velocity $\\vec{v}_2 = u\\hat{i}$.\n\n2) **Collision (completely inelastic)**:\nUsing conservation of linear momentum along the horizontal:\n$$m v_{1x} + m u = (2m) V_x \\implies m\\left(\\frac{u}{2}\\right) + mu = 2m V_x$$\n$$\\frac{3}{2}mu = 2m V_x \\implies V_x = \\frac{3}{4}u$$\n\n3) **Motion after collision**:\nThe combined mass starts at the peak height $H$ with zero initial vertical velocity:\n$$H = \\frac{u^2 \\sin^2 60^\\circ}{2g} = \\frac{3u^2}{8g}$$\nThe time to fall to the ground is:\n$$t = \\sqrt{\\frac{2H}{g}} = \\sqrt{\\frac{2 \\left(\\frac{3u^2}{8g}\\right)}{g}} = \\sqrt{\\frac{3u^2}{4g^2}} = \\frac{\\sqrt{3}u}{2g}$$\n\n4) **Horizontal distance covered**:\n$$D = V_x \\times t = \\left(\\frac{3}{4}u\\right) \\left(\\frac{\\sqrt{3}u}{2g}\\right) = \\frac{3\\sqrt{3}u^2}{8g}$$\n\nThis corresponds to Option A.",
+        "explanation": "1) **Before collision (at peak)**:\n- The first particle has velocity components $v_{1x} = u \\cos 60^\\circ = \\frac{u}{2}$ and $v_{1y} = 0$.\n- The second particle has velocity $\\vec{v}_2 = u\\hat{i}$.\n\n2) **Collision (completely inelastic)**:\nUsing conservation of linear momentum along the horizontal:\n$$m v_{1x} + m u = (2m) V_x \\implies m\\left(\\frac{u}{2}\\right) + mu = 2m V_x$$\n$$\\frac{3}{2}mu = 2m V_x \\implies V_x = \\frac{3}{4}u$$\n\n3) **Motion after collision**:\nThe combined mass starts at the peak height $H$ with zero initial vertical velocity:\n$$H = \\frac{u^2 \\sin^2 60^\\circ}{2g} = \\frac{3u^2}{8g}$$\nThe time to fall to the ground is:\n$$t = \\sqrt{\\frac{2H}{g}} = \\sqrt{\\frac{2 \\left(\\frac{3u^2}{8g}\\right)}{g}} = \\sqrt{\\frac{3u^2}{4g^2}} = \\frac{\\sqrt{3}u}{2g}$$\n\n4) **Horizontal distance covered**:\n$$D = V_x \\times t = \\left(\\frac{3}{4}u\\right) \\left(\\frac{\\sqrt{3}u}{2g}\\right) = \\frac{3\\sqrt{3}u^2}{8g}$$\n\nThis corresponds to Option A.",
         "year": "2020",
         "shift": "Evening",
         "date": "9th January"
@@ -2375,7 +2375,7 @@
         "type": "integer",
         "options": [],
         "answer": 3,
-        "explanation": "Given:\n$$x^2 = a t^2 + 2bt + c$$\n\nDifferentiating both sides with respect to $t$:\n$$2x \\frac{dx}{dt} = 2at + 2b \\implies x v = at + b \\implies v = \\frac{at+b}{x}$$\n\nDifferentiating again with respect to $t$ to find acceleration $a_{\\text{acc}}$:\n$$a_{\\text{acc}} = \\frac{dv}{dt} = \\frac{d}{dt} \\left( \\frac{at+b}{x} \\right) = \\frac{a x - (at+b) v}{x^2}$$\nSubstitute $v = \\frac{at+b}{x}$:\n$$a_{\\text{acc}} = \\frac{a x - \\frac{(at+b)^2}{x}}{x^2} = \\frac{a x^2 - (at+b)^2}{x^3}$$\nSubstitute $x^2 = at^2 + 2bt + c$:\n$$a_{\\text{acc}} = \\frac{a(at^2 + 2bt + c) - (a^2t^2 + 2abt + b^2)}{x^3}$$\n$$a_{\\text{acc}} = \\frac{a^2t^2 + 2abt + ac - a^2t^2 - 2abt - b^2}{x^3} = \\frac{ac - b^2}{x^3}$$\n\nSince $ac - b^2$ is a constant:\n$$a_{\\text{acc}} \\propto x^{-3}$$\n\nComparing this with $x^{-n}$:\n$$n = 3$$",
+        "explanation": "Given:\n$$x^2 = a t^2 + 2bt + c$$\n\nDifferentiating both sides with respect to $t$:\n$$2x \\frac{dx}{dt} = 2at + 2b \\implies x v = at + b \\implies v = \\frac{at+b}{x}$$\n\nDifferentiating again with respect to $t$ to find acceleration $a_{\\text{acc}}$:\n$$a_{\\text{acc}} = \\frac{dv}{dt} = \\frac{d}{dt} \\left( \\frac{at+b}{x} \\right) = \\frac{a x - (at+b) v}{x^2}$$\nSubstitute $v = \\frac{at+b}{x}$:\n$$a_{\\text{acc}} = \\frac{a x - \\frac{(at+b)^2}{x}}{x^2} = \\frac{a x^2 - (at+b)^2}{x^3}$$\nSubstitute $x^2 = at^2 + 2bt + c$:\n$$a_{\\text{acc}} = \\frac{a(at^2 + 2bt + c) - (a^{2t}^2 + 2abt + b^2)}{x^3}$$\n$$a_{\\text{acc}} = \\frac{a^{2t}^2 + 2abt + ac - a^{2t}^2 - 2abt - b^2}{x^3} = \\frac{ac - b^2}{x^3}$$\n\nSince $ac - b^2$ is a constant:\n$$a_{\\text{acc}} \\propto x^{-3}$$\n\nComparing this with $x^{-n}$:\n$$n = 3$$",
         "year": "2020",
         "shift": "Morning",
         "date": "9th January"
