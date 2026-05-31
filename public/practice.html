@@ -341,7 +341,7 @@
                 if (cleanFilename === "requires_image.png" || cleanFilename === "null") {
                     return `<div style="padding: 10px; border: 1px dashed var(--error-red); color: var(--error-red); font-size: 0.8rem; border-radius: 4px; display: inline-block; margin: 10px 0;">[Image missing in database]</div>`;
                 }
-                return `<img class="q-image" src="${CLOUDINARY_BASE_URL}${cleanFilename}" alt="Diagram" style="display: block; max-width: 100%; border-radius: 8px; margin: 1rem 0; border: 1px solid var(--border-color);">`;
+                return `<img class="q-image" src="${CLOUDINARY_BASE_URL}${cleanFilename}" alt="Diagram" style="display: block; max-width: 100%; border-radius: 8px; margin: 1rem auto; border: 1px solid var(--border-color);">`;
             });
         }
 

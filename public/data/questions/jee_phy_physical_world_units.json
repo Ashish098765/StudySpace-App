@@ -14,7 +14,7 @@
         "type": "integer",
         "options": [],
         "answer": 3,
-        "explanation": "\n[IMG: img_1.png]Given:\n- Length $L = 5\\text{ mm}$\n- Breadth $B = 2.5\\text{ mm}$\n\nFirst, we find the least count of the specially designed screw gauge:\n$$\\text{L.C.} = \\frac{\\text{Pitch}}{\\text{Number of divisions on circular scale}} = \\frac{0.75\\text{ mm}}{15} = 0.05\\text{ mm}$$\n\nSince $L$ and $B$ are measured using this instrument, the absolute error in both measurements is equal to its least count:\n$$dL = dB = 0.05\\text{ mm}$$\n\nThe area of the rectangular sheet is given by $A = L \\times B$. Taking the natural logarithm and differentiating on both sides:\n$$\\ln A = \\ln L + \\ln B \\implies \\frac{dA}{A} = \\frac{dL}{L} + \\frac{dB}{B}$$\n\nSubstituting the values to find the maximum fractional error:\n$$\\frac{dA}{A} = \\frac{0.05}{5} + \\frac{0.05}{2.5} = \\frac{1}{100} + \\frac{2}{100} = \\frac{3}{100}$$\n\nComparing this with the given form $\\frac{x}{100}$, we get:\n$$x = 3$$",
+        "explanation": "\n[IMG: u&d_1.png]Given:\n- Length $L = 5\\text{ mm}$\n- Breadth $B = 2.5\\text{ mm}$\n\nFirst, we find the least count of the specially designed screw gauge:\n$$\\text{L.C.} = \\frac{\\text{Pitch}}{\\text{Number of divisions on circular scale}} = \\frac{0.75\\text{ mm}}{15} = 0.05\\text{ mm}$$\n\nSince $L$ and $B$ are measured using this instrument, the absolute error in both measurements is equal to its least count:\n$$dL = dB = 0.05\\text{ mm}$$\n\nThe area of the rectangular sheet is given by $A = L \\times B$. Taking the natural logarithm and differentiating on both sides:\n$$\\ln A = \\ln L + \\ln B \\implies \\frac{dA}{A} = \\frac{dL}{L} + \\frac{dB}{B}$$\n\nSubstituting the values to find the maximum fractional error:\n$$\\frac{dA}{A} = \\frac{0.05}{5} + \\frac{0.05}{2.5} = \\frac{1}{100} + \\frac{2}{100} = \\frac{3}{100}$$\n\nComparing this with the given form $\\frac{x}{100}$, we get:\n$$x = 3$$",
         "year": "2025",
         "shift": "Morning",
         "date": "28th January"
@@ -1099,7 +1099,7 @@
             "$6$"
         ],
         "answer": 0,
-        "explanation": "Let the vector be $\\vec{A}$.\n- The angle made by the vector with the $y$-axis is $\\theta = 30^\\circ$.\n- The $y$-component of the vector is given as:\n  $$A_y = A \\cos 30^\\circ = 2\\sqrt{3}$$\n  $$A \\left(\\frac{\\sqrt{3}}{2}\\right) = 2\\sqrt{3} \\implies A = 4$$\n\nNow, calculate the $x$-component of the vector:\n$$A_x = A \\sin 30^\\circ = 4 \\times \\frac{1}{2} = 2$$\n\nThis corresponds to Option $A$.\n[IMG: img_36.png]",
+        "explanation": "Let the vector be $\\vec{A}$.\n- The angle made by the vector with the $y$-axis is $\\theta = 30^\\circ$.\n- The $y$-component of the vector is given as:\n  $$A_y = A \\cos 30^\\circ = 2\\sqrt{3}$$\n  $$A \\left(\\frac{\\sqrt{3}}{2}\\right) = 2\\sqrt{3} \\implies A = 4$$\n\nNow, calculate the $x$-component of the vector:\n$$A_x = A \\sin 30^\\circ = 4 \\times \\frac{1}{2} = 2$$\n\nThis corresponds to Option $A$.\n[IMG: u&d_36.png]",
         "year": "2023",
         "shift": "Morning",
         "date": "15th April"
@@ -1540,7 +1540,7 @@
         "date": "26th July"
     },
     {
-        "q": "In a meter bridge experiment, for measuring unknown resistance '$S$', the null point is obtained at a distance $30\\text{ cm}$ from the left side as shown at point $D$. If $R$ is $5.6\\text{ k}\\Omega$, then the value of unknown resistance '$S$' will be _______ $\\Omega$.\n[IMG: img_38.png]",
+        "q": "In a meter bridge experiment, for measuring unknown resistance '$S$', the null point is obtained at a distance $30\\text{ cm}$ from the left side as shown at point $D$. If $R$ is $5.6\\text{ k}\\Omega$, then the value of unknown resistance '$S$' will be _______ $\\Omega$.\n[IMG: u&d_38.png]",
         "type": "integer",
         "options": [],
         "answer": 2400,
@@ -1575,7 +1575,7 @@
         "date": "29th July"
     },
     {
-        "q": "In an experiment to find out the diameter of wire using screw gauge, the following observations were noted :\n[IMG: img_39.png]\n($A$) Screw moves $0.5\\text{ mm}$ on main scale in one complete rotation\n($B$) Total divisions on circular scale = 50\n($C$) Main scale reading is $2.5\\text{ mm}$\n($D$) 45th division of circular scale is in the pitch line\n($E$) Instrument has $0.03\\text{ mm}$ negative error\n\nThen the diameter of wire is :",
+        "q": "In an experiment to find out the diameter of wire using screw gauge, the following observations were noted :\n[IMG: u&d_39.png]\n($A$) Screw moves $0.5\\text{ mm}$ on main scale in one complete rotation\n($B$) Total divisions on circular scale = 50\n($C$) Main scale reading is $2.5\\text{ mm}$\n($D$) 45th division of circular scale is in the pitch line\n($E$) Instrument has $0.03\\text{ mm}$ negative error\n\nThen the diameter of wire is :",
         "type": "mcq",
         "options": [
             "$2.92 mm$",
@@ -1750,7 +1750,7 @@
         "type": "integer",
         "options": [],
         "answer": 5,
-        "explanation": "Let the velocity of the river flow be $\\vec{v}_r = v_r \\hat{i}$ along the horizontal, and the swimming velocity with respect to the river be $\\vec{v}_{mr}$.\n\nThe swimmer swims at $120^\\circ$ with the flow. Therefore, the angle with the negative x-axis (upstream direction) is:\n$$\\theta = 120^\\circ - 90^\\circ = 30^\\circ$$\n\nThe velocity of the swimmer with respect to the ground is:\n$$\\vec{v}_m = \\vec{v}_{mr} + \\vec{v}_r$$\n[IMG: img_41,png]\n\nSince the swimmer reaches directly opposite to the starting point, the net velocity of the swimmer along the flow direction (x-axis) must be zero:\n$$v_r - v_{mr} \\sin 30^\\circ = 0$$\n$$v_r = v_{mr} \\sin 30^\\circ$$\n\nGiven $v_{mr} = 10\\text{ m/s}$:\n$$v_r = 10 \\times \\sin 30^\\circ = 10 \\times \\frac{1}{2} = 5\\text{ m/s}$$\n\nThus, the speed of flow is $5\\text{ m/s}$, so $x = 5$.",
+        "explanation": "Let the velocity of the river flow be $\\vec{v}_r = v_r \\hat{i}$ along the horizontal, and the swimming velocity with respect to the river be $\\vec{v}_{mr}$.\n\nThe swimmer swims at $120^\\circ$ with the flow. Therefore, the angle with the negative x-axis (upstream direction) is:\n$$\\theta = 120^\\circ - 90^\\circ = 30^\\circ$$\n\nThe velocity of the swimmer with respect to the ground is:\n$$\\vec{v}_m = \\vec{v}_{mr} + \\vec{v}_r$$\n[IMG: u&d_41.png]\n\nSince the swimmer reaches directly opposite to the starting point, the net velocity of the swimmer along the flow direction (x-axis) must be zero:\n$$v_r - v_{mr} \\sin 30^\\circ = 0$$\n$$v_r = v_{mr} \\sin 30^\\circ$$\n\nGiven $v_{mr} = 10\\text{ m/s}$:\n$$v_r = 10 \\times \\sin 30^\\circ = 10 \\times \\frac{1}{2} = 5\\text{ m/s}$$\n\nThus, the speed of flow is $5\\text{ m/s}$, so $x = 5$.",
         "year": "2021",
         "shift": "Morning",
         "date": "18th March"
@@ -1831,7 +1831,7 @@
         "date": "20th July"
     },
     {
-        "q": "Student A and Student B used two screw gauges of equal pitch and 100 equal circular divisions to measure the radius of a given wire. The actual value of the radius of the wire is $0.322\\text{ cm}$. The absolute value of the difference between the final circular scale readings observed by the students A and $B$ is ________.\n\n[Given pitch = $0.1\\text{ cm}$.]\n[IMG: img_42.png]",
+        "q": "Student A and Student B used two screw gauges of equal pitch and 100 equal circular divisions to measure the radius of a given wire. The actual value of the radius of the wire is $0.322\\text{ cm}$. The absolute value of the difference between the final circular scale readings observed by the students A and $B$ is ________.\n\n[Given pitch = $0.1\\text{ cm}$.]\n[IMG: u&d_42.png]",
         "type": "integer",
         "options": [],
         "answer": 13,

@@ -31,7 +31,7 @@ for page_num in range(len(doc)):
         img_count += 1
         
         # Create the file name (e.g., extracted_images/img_1.png)
-        image_name = f"{output_folder}/img_{img_count}.{image_ext}"
+        image_name = f"{output_folder}/kinematics_{img_count}.{image_ext}"
         
         # Save the image to your computer
         with open(image_name, "wb") as f:

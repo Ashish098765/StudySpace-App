@@ -4,17 +4,17 @@
         "type": "integer",
         "options": [],
         "answer": 1,
-        "explanation": "The centrifugal force exerted by a rotating uniform mass element can be evaluated by considering its center of mass. For a uniform liquid tube of mass $m = 2M$ and length $\\ell = 1\\text{ m}$, the center of mass lies at a distance of $r_{\\text{cm}} = \\frac{\\ell}{2}$ from the axis of rotation.\n\nThe force $F$ exerted at the outer end is equal to the centripetal force required to keep the liquid rotating:\n$$F = m \\omega^2 r_{\\text{cm}}$$\n$$F = (2M) \\omega^2 \\left(\\frac{\\ell}{2}\\right) = M \\omega^2 \\ell$$\n\nGiven $\\ell = 1\\text{ m}$, we get:\n$$F = M \\omega^2 \\implies \\omega = \\sqrt{\\frac{F}{M}}$$\n\nComparing this expression with the given form $\\omega = \\sqrt{\\frac{F}{\\alpha M}}$, we get:\n$$\\alpha = 1$$",
+        "explanation": "\n[IMG: kinematics_1.png]The centrifugal force exerted by a rotating uniform mass element can be evaluated by considering its center of mass. For a uniform liquid tube of mass $m = 2M$ and length $\\ell = 1\\text{ m}$, the center of mass lies at a distance of $r_{\\text{cm}} = \\frac{\\ell}{2}$ from the axis of rotation.\n\nThe force $F$ exerted at the outer end is equal to the centripetal force required to keep the liquid rotating:\n$$F = m \\omega^2 r_{\\text{cm}}$$\n$$F = (2M) \\omega^2 \\left(\\frac{\\ell}{2}\\right) = M \\omega^2 \\ell$$\n\nGiven $\\ell = 1\\text{ m}$, we get:\n$$F = M \\omega^2 \\implies \\omega = \\sqrt{\\frac{F}{M}}$$\n\nComparing this expression with the given form $\\omega = \\sqrt{\\frac{F}{\\alpha M}}$, we get:\n$$\\alpha = 1$$",
         "year": "2025",
         "shift": "Evening",
         "date": "22nd January"
     },
     {
-        "q": "A string of length $L$ is fixed at one end and carries a mass of $M$ at the other end. The mass makes $\\left(\\frac{3}{\\pi}\\right)$ rotations per second about the vertical axis passing through end of the string as shown. The tension in the string is __________ $ML$.",
+        "q": "\n[IMG: kinematics_3.png]A string of length $L$ is fixed at one end and carries a mass of $M$ at the other end. The mass makes $\\left(\\frac{3}{\\pi}\\right)$ rotations per second about the vertical axis passing through end of the string as shown. The tension in the string is __________ $ML$.",
         "type": "integer",
         "options": [],
         "answer": 36,
-        "explanation": "Let the string make an angle $\\theta$ with the vertical. The radius of the horizontal circular path is:\n$$R = L \\sin\\theta$$\n\nThe forces acting on the mass $M$ are the tension $T$ along the string and the gravitational force $Mg$ downwards. Delineating the tension into vertical and horizontal components:\n1) Vertical equilibrium:\n$$T \\cos\\theta = Mg$$\n\n2) Horizontal centripetal force:\n$$T \\sin\\theta = M \\omega^2 R = M \\omega^2 (L \\sin\\theta)$$\n\nCancelling $\\sin\\theta$ (since $\\theta \\neq 0$):\n$$T = M \\omega^2 L$$\n\nGiven the frequency of rotation $f = \\frac{3}{\\pi}\\text{ rps}$, we calculate the angular velocity $\\omega$:\n$$\\omega = 2\\pi f = 2\\pi \\left(\\frac{3}{\\pi}\\right) = 6\\text{ rad/s}$$\n\nSubstituting this back into the expression for tension:\n$$T = M (6)^2 L = 36 ML$$\n\nThus, the tension in the string is $36 ML$.",
+        "explanation": "\n[IMG: kinematics_2.png]Let the string make an angle $\\theta$ with the vertical. The radius of the horizontal circular path is:\n$$R = L \\sin\\theta$$\n\nThe forces acting on the mass $M$ are the tension $T$ along the string and the gravitational force $Mg$ downwards. Delineating the tension into vertical and horizontal components:\n1) Vertical equilibrium:\n$$T \\cos\\theta = Mg$$\n\n2) Horizontal centripetal force:\n$$T \\sin\\theta = M \\omega^2 R = M \\omega^2 (L \\sin\\theta)$$\n\nCancelling $\\sin\\theta$ (since $\\theta \\neq 0$):\n$$T = M \\omega^2 L$$\n\nGiven the frequency of rotation $f = \\frac{3}{\\pi}\\text{ rps}$, we calculate the angular velocity $\\omega$:\n$$\\omega = 2\\pi f = 2\\pi \\left(\\frac{3}{\\pi}\\right) = 6\\text{ rad/s}$$\n\nSubstituting this back into the expression for tension:\n$$T = M (6)^2 L = 36 ML$$\n\nThus, the tension in the string is $36 ML$.",
         "year": "2025",
         "shift": "Evening",
         "date": "24th January"
@@ -30,7 +30,7 @@
         "date": "4th April"
     },
     {
-        "q": "A bob of mass $m$ is suspended at a point $O$ by a light string of length $l$ and left to perform vertical motion (circular) as shown in figure. Initially, by applying horizontal velocity $v_0$ at the point 'A', the string becomes slack when the bob reaches at the point 'D'. The ratio of the kinetic energy of the bob at the points B and C is _________.",
+        "q": "A bob of mass $m$ is suspended at a point $O$ by a light string of length $l$ and left to perform vertical motion (circular) as shown in figure. Initially, by applying horizontal velocity $v_0$ at the point 'A', the string becomes slack when the bob reaches at the point 'D'. The ratio of the kinetic energy of the bob at the points B and C is _________.\n[IMG: kinematics_4.png]",
         "type": "mcq",
         "options": [
             "4",
@@ -39,13 +39,13 @@
             "3"
         ],
         "answer": 2,
-        "explanation": "Since the string becomes slack at the top point $D$, the tension $T_D = 0$. The minimum velocity required at the bottommost point $A$ to just complete the loop of radius $l$ is:\n$$v_A = \\sqrt{5gl}$$\n\nUsing the law of conservation of mechanical energy:\n\n1) **At point B**:\nLet the reference level for potential energy be at $A$. The height of point $B$ is $h_B = l - l \\cos 60^\\circ = l - \\frac{l}{2} = \\frac{l}{2}$.\n$$E_A = E_B \\implies \\frac{1}{2} m v_A^2 = \\text{KE}_B + m g h_B$$\n$$\\frac{1}{2} m (5gl) = \\text{KE}_B + m g \\left(\\frac{l}{2}\\right)$$\n$$\\text{KE}_B = \\frac{5}{2} mgl - \\frac{1}{2} mgl = 2mgl$$\n\n2) **At point C**:\nThe height of point $C$ is $h_C = l + l \\cos 60^\\circ = l + \\frac{l}{2} = \\frac{3l}{2}$.\n$$E_A = E_C \\implies \\frac{1}{2} m v_A^2 = \\text{KE}_C + m g h_C$$\n$$\\frac{1}{2} m (5gl) = \\text{KE}_C + m g \\left(\\frac{3l}{2}\\right)$$\n$$\\text{KE}_C = \\frac{5}{2} mgl - \\frac{3}{2} mgl = mgl$$\n\n3) **Ratio of kinetic energies**:\n$$\\frac{\\text{KE}_B}{\\text{KE}_C} = \\frac{2mgl}{mgl} = 2$$",
+        "explanation": "\n[IMG: kinematics_5.png]Since the string becomes slack at the top point $D$, the tension $T_D = 0$. The minimum velocity required at the bottommost point $A$ to just complete the loop of radius $l$ is:\n$$v_A = \\sqrt{5gl}$$\n\nUsing the law of conservation of mechanical energy:\n\n1) **At point B**:\nLet the reference level for potential energy be at $A$. The height of point $B$ is $h_B = l - l \\cos 60^\\circ = l - \\frac{l}{2} = \\frac{l}{2}$.\n$$E_A = E_B \\implies \\frac{1}{2} m v_A^2 = \\text{KE}_B + m g h_B$$\n$$\\frac{1}{2} m (5gl) = \\text{KE}_B + m g \\left(\\frac{l}{2}\\right)$$\n$$\\text{KE}_B = \\frac{5}{2} mgl - \\frac{1}{2} mgl = 2mgl$$\n\n2) **At point C**:\nThe height of point $C$ is $h_C = l + l \\cos 60^\\circ = l + \\frac{l}{2} = \\frac{3l}{2}$.\n$$E_A = E_C \\implies \\frac{1}{2} m v_A^2 = \\text{KE}_C + m g h_C$$\n$$\\frac{1}{2} m (5gl) = \\text{KE}_C + m g \\left(\\frac{3l}{2}\\right)$$\n$$\\text{KE}_C = \\frac{5}{2} mgl - \\frac{3}{2} mgl = mgl$$\n\n3) **Ratio of kinetic energies**:\n$$\\frac{\\text{KE}_B}{\\text{KE}_C} = \\frac{2mgl}{mgl} = 2$$",
         "year": "2025",
         "shift": "Morning",
         "date": "22nd January"
     },
     {
-        "q": "A body of mass $100\\text{ g}$ is moving in circular path of radius $2\\text{ m}$ on vertical plane as shown in figure. The velocity of the body at point $A$ is $10\\text{ m/s}$. The ratio of its kinetic energies at point B and C is : (Take acceleration due to gravity as $10\\text{ m/s}^2$)",
+        "q": "A body of mass $100\\text{ g}$ is moving in circular path of radius $2\\text{ m}$ on vertical plane as shown in figure. The velocity of the body at point $A$ is $10\\text{ m/s}$. The ratio of its kinetic energies at point B and C is :\n[IMG: kinematics_6.png] (Take acceleration due to gravity as $10\\text{ m/s}^2$)",
         "type": "mcq",
         "options": [
             "\\frac{3-\\sqrt{2}}{2}",
@@ -54,7 +54,7 @@
             "\\frac{3+\\sqrt{3}}{2}"
         ],
         "answer": 3,
-        "explanation": "Given:\n- $m = 100\\text{ g} = 0.1\\text{ kg}$\n- $R = 2\\text{ m}$\n- $v_A = 10\\text{ m/s}$\n- $g = 10\\text{ m/s}^2$\n\nTotal mechanical energy at $A$ (choosing $A$ as reference level for potential energy):\n$$E_A = \\frac{1}{2} m v_A^2 = \\frac{1}{2} m (100) = 50m$$\n\n1) **At point B** (angle with vertical is $30^\\circ$):\nThe height of point $B$ from $A$ is $h_B = R - R \\cos 30^\\circ = R\\left(1 - \\frac{\\sqrt{3}}{2}\\right)$.\nBy conservation of energy:\n$$E_A = E_B \\implies 50m = \\text{KE}_B + m g R\\left(1 - \\frac{\\sqrt{3}}{2}\right)$$\n$$\\text{KE}_B = 50m - m(10)(2)\\left(1 - \\frac{\\sqrt{3}}{2}\\right) = 50m - 20m + 10\\sqrt{3}m = m(30 + 10\\sqrt{3})$$\n\n2) **At point C** (angle with vertical is $90^\\circ$, so it is at the level of the center):\nThe height of point $C$ from $A$ is $h_C = R = 2\\text{ m}$.\nBy conservation of energy:\n$$E_A = E_C \\implies 50m = \\text{KE}_C + m g R$$\n$$\\text{KE}_C = 50m - m(10)(2) = 30m$$\n\n3) **Ratio of kinetic energies**:\n$$\\frac{\\text{KE}_B}{\\text{KE}_C} = \\frac{m(30 + 10\\sqrt{3})}{30m} = \\frac{30 + 10\\sqrt{3}}{30} = \\frac{3 + \\sqrt{3}}{3}$$\nWait, let's look at the options and the explanation in page 7:\n$$K \\cdot E_C = \\frac{1}{2} m (100) - mg\\left(\\frac{3R}{2}\\right) \\implies v_C^2 = 40 \\implies K \\cdot E_C = \\frac{1}{2}m(40) = 20m$$ (if measured from a different angle system? Let's check the diagram). \nAh, in the diagram: \n- $O B$ makes an angle of $30^\\circ$ with the horizontal, so height from bottom is $R - R \\sin 30^\\circ = R\\left(1 - \\frac{1}{2}\\right) = \\frac{R}{2}$. No, the diagram on page 6 shows $O B$ making $30^\\circ$ with the vertical, wait, the dotted line is vertical. But on page 7, the diagram shows $OB$ making $30^\\circ$ below the horizontal, so height is $R - R \\sin 30^\\circ = R - \\frac{R}{2} = \\frac{R}{2}$. Let's verify the equation on page 7: \n$$\\frac{1}{2} m \\times 100 = \\frac{1}{2} m V_B^2 + mg \\left( R - \\frac{R\\sqrt{3}}{2} \\right)$$\nSo height is indeed $R\\left(1 - \\frac{\\sqrt{3}}{2}\right)$. Thus:\n$$\\text{KE}_B = \\frac{m}{2}(60 + 20\\sqrt{3})$$\nFor C, the diagram shows $OC$ making $30^\\circ$ above horizontal, so height is $R + R \\sin 30^\\circ = R + \\frac{R}{2} = \\frac{3R}{2}$.\n$$\\text{KE}_C = \\frac{1}{2}m(100) - mg\\left(\\frac{3R}{2}\\right) = 50m - 30m = 20m$$\nThen the ratio is:\n$$\\frac{\\text{KE}_B}{\\text{KE}_C} = \\frac{\\frac{m}{2}(60 + 20\\sqrt{3})}{20m} = \\frac{60 + 20\\sqrt{3}}{40} = \\frac{3 + \\sqrt{3}}{2}$$\nThis corresponds to Option D.",
+        "explanation": "\n[IMG: kinematics_7.png]Given:\n- $m = 100\\text{ g} = 0.1\\text{ kg}$\n- $R = 2\\text{ m}$\n- $v_A = 10\\text{ m/s}$\n- $g = 10\\text{ m/s}^2$\n\nTotal mechanical energy at $A$ (choosing $A$ as reference level for potential energy):\n$$E_A = \\frac{1}{2} m v_A^2 = \\frac{1}{2} m (100) = 50m$$\n\n1) **At point B** (angle with vertical is $30^\\circ$):\nThe height of point $B$ from $A$ is $h_B = R - R \\cos 30^\\circ = R\\left(1 - \\frac{\\sqrt{3}}{2}\\right)$.\nBy conservation of energy:\n$$E_A = E_B \\implies 50m = \\text{KE}_B + m g R\\left(1 - \\frac{\\sqrt{3}}{2}\right)$$\n$$\\text{KE}_B = 50m - m(10)(2)\\left(1 - \\frac{\\sqrt{3}}{2}\\right) = 50m - 20m + 10\\sqrt{3}m = m(30 + 10\\sqrt{3})$$\n\n2) **At point C** (angle with vertical is $90^\\circ$, so it is at the level of the center):\nThe height of point $C$ from $A$ is $h_C = R = 2\\text{ m}$.\nBy conservation of energy:\n$$E_A = E_C \\implies 50m = \\text{KE}_C + m g R$$\n$$\\text{KE}_C = 50m - m(10)(2) = 30m$$\n\n3) **Ratio of kinetic energies**:\n$$\\frac{\\text{KE}_B}{\\text{KE}_C} = \\frac{m(30 + 10\\sqrt{3})}{30m} = \\frac{30 + 10\\sqrt{3}}{30} = \\frac{3 + \\sqrt{3}}{3}$$\nWait, let's look at the options and the explanation in page 7:\n$$K \\cdot E_C = \\frac{1}{2} m (100) - mg\\left(\\frac{3R}{2}\\right) \\implies v_C^2 = 40 \\implies K \\cdot E_C = \\frac{1}{2}m(40) = 20m$$ (if measured from a different angle system? Let's check the diagram). \nAh, in the diagram: \n- $O B$ makes an angle of $30^\\circ$ with the horizontal, so height from bottom is $R - R \\sin 30^\\circ = R\\left(1 - \\frac{1}{2}\\right) = \\frac{R}{2}$. No, the diagram on page 6 shows $O B$ making $30^\\circ$ with the vertical, wait, the dotted line is vertical. But on page 7, the diagram shows $OB$ making $30^\\circ$ below the horizontal, so height is $R - R \\sin 30^\\circ = R - \\frac{R}{2} = \\frac{R}{2}$. Let's verify the equation on page 7: \n$$\\frac{1}{2} m \\times 100 = \\frac{1}{2} m V_B^2 + mg \\left( R - \\frac{R\\sqrt{3}}{2} \\right)$$\nSo height is indeed $R\\left(1 - \\frac{\\sqrt{3}}{2}\right)$. Thus:\n$$\\text{KE}_B = \\frac{m}{2}(60 + 20\\sqrt{3})$$\nFor C, the diagram shows $OC$ making $30^\\circ$ above horizontal, so height is $R + R \\sin 30^\\circ = R + \\frac{R}{2} = \\frac{3R}{2}$.\n$$\\text{KE}_C = \\frac{1}{2}m(100) - mg\\left(\\frac{3R}{2}\\right) = 50m - 30m = 20m$$\nThen the ratio is:\n$$\\frac{\\text{KE}_B}{\\text{KE}_C} = \\frac{\\frac{m}{2}(60 + 20\\sqrt{3})}{20m} = \\frac{60 + 20\\sqrt{3}}{40} = \\frac{3 + \\sqrt{3}}{2}$$\nThis corresponds to Option D.",
         "year": "2025",
         "shift": "Evening",
         "date": "22nd January"
@@ -90,7 +90,7 @@
         "date": "29th January"
     },
     {
-        "q": "A sportsman runs around a circular track of radius $r$ such that he traverses the path $ABAB$. The distance travelled and displacement, respectively, are",
+        "q": "A sportsman runs around a circular track of radius $r$ such that he traverses the path $ABAB$. The distance travelled and displacement, respectively, are\n[IMG: kinematics_8.png]",
         "type": "mcq",
         "options": [
             "\\pi r, 3r",
@@ -114,7 +114,7 @@
             "8\\sqrt{2}\\text{ m/s}"
         ],
         "answer": 0,
-        "explanation": "In pure rolling, the bottommost point $A$ in contact with the ground is the instantaneous center of rotation (ICR). \n\nLet the radius of the wheel be $R$. \n- The highest point on the rim ($B$) is at a distance of $2R$ from the contact point $A$. Thus, its velocity is:\n$$v_B = \\omega (2R) = 2v = 8\\text{ m/s} \\implies v = 4\\text{ m/s}$$\n\n- Any point $P$ on the rim at the same level as the center of the wheel is at a distance of $\\sqrt{R^2 + R^2} = \\sqrt{2}R$ from the contact point $A$.\n\nTherefore, the speed of this particle $v_P$ is:\n$$v_P = \\omega (\\sqrt{2}R) = \\sqrt{2} (\\omega R) = \\sqrt{2} v$$\n\nSubstituting $v = 4\\text{ m/s}$:\n$$v_P = 4\\sqrt{2}\\text{ m/s}$$\n\nThis corresponds to Option A.",
+        "explanation": "\n[IMG: kinematics_10.png]In pure rolling, the bottommost point $A$ in contact with the ground is the instantaneous center of rotation (ICR). \n\nLet the radius of the wheel be $R$. \n- The highest point on the rim ($B$) is at a distance of $2R$ from the contact point $A$. Thus, its velocity is:\n$$v_B = \\omega (2R) = 2v = 8\\text{ m/s} \\implies v = 4\\text{ m/s}$$\n\n- Any point $P$ on the rim at the same level as the center of the wheel is at a distance of $\\sqrt{R^2 + R^2} = \\sqrt{2}R$ from the contact point $A$.\n\nTherefore, the speed of this particle $v_P$ is:\n$$v_P = \\omega (\\sqrt{2}R) = \\sqrt{2} (\\omega R) = \\sqrt{2} v$$\n\nSubstituting $v = 4\\text{ m/s}$:\n$$v_P = 4\\sqrt{2}\\text{ m/s}$$\n\nThis corresponds to Option A.",
         "year": "2025",
         "shift": "Evening",
         "date": "4th April"
@@ -124,7 +124,7 @@
         "type": "integer",
         "options": [],
         "answer": 5,
-        "explanation": "First, find the vertical component of the initial velocity:\n$$u_y = u \\sin\\theta = 60 \\sin 30^\\circ = 30\\text{ m/s}$$\n\nThe time taken to reach the maximum height is:\n$$t = \\frac{u_y}{g} = \\frac{30}{10} = 3\\text{ s}$$\n\n- **Distance traversed in the first second ($h_0$)**:\nUsing the formula for distance in the $n$-th second $S_n = u + \\frac{a}{2}(2n-1)$:\n$$h_0 = S_1 = u_y - \\frac{g}{2}(2(1) - 1)$$\n$$h_0 = 30 - 5(1) = 25\\text{ m}$$\n\n- **Distance traversed in the last second before reaching maximum height ($h_1$)**:\nSince the total time to reach maximum height is $3\\text{ s}$, the last second is the $3$rd second:\n$$h_1 = S_3 = u_y - \\frac{g}{2}(2(3) - 1)$$\n$$h_1 = 30 - 5(5) = 5\\text{ m}$$\n\n- **Ratio $h_0 : h_1$**:\n$$\\frac{h_0}{h_1} = \\frac{25}{5} = 5$$",
+        "explanation": "\n[IMG: kinematics_9.png]First, find the vertical component of the initial velocity:\n$$u_y = u \\sin\\theta = 60 \\sin 30^\\circ = 30\\text{ m/s}$$\n\nThe time taken to reach the maximum height is:\n$$t = \\frac{u_y}{g} = \\frac{30}{10} = 3\\text{ s}$$\n\n- **Distance traversed in the first second ($h_0$)**:\nUsing the formula for distance in the $n$-th second $S_n = u + \\frac{a}{2}(2n-1)$:\n$$h_0 = S_1 = u_y - \\frac{g}{2}(2(1) - 1)$$\n$$h_0 = 30 - 5(1) = 25\\text{ m}$$\n\n- **Distance traversed in the last second before reaching maximum height ($h_1$)**:\nSince the total time to reach maximum height is $3\\text{ s}$, the last second is the $3$rd second:\n$$h_1 = S_3 = u_y - \\frac{g}{2}(2(3) - 1)$$\n$$h_1 = 30 - 5(5) = 5\\text{ m}$$\n\n- **Ratio $h_0 : h_1$**:\n$$\\frac{h_0}{h_1} = \\frac{25}{5} = 5$$",
         "year": "2025",
         "shift": "Morning",
         "date": "22nd January"
@@ -149,7 +149,7 @@
             "zero"
         ],
         "answer": 2,
-        "explanation": "Given:\n- $m = 100\\text{ g} = 0.1\\text{ kg}$\n- $u = 20\\text{ m/s}$\n- $\\theta = 60^\\circ$\n\n1) **Initial kinetic energy ($K_i$)** at the point of projection:\n$$K_i = \\frac{1}{2} m u^2 = \\frac{1}{2} (0.1) (20)^2 = 0.05 \\times 400 = 20\\text{ J}$$\n\n2) **Kinetic energy at the highest point ($K_f$)**:\nAt the highest point of a projectile's path, the vertical component of velocity is zero, and only the horizontal component remains ($v_h = u \\cos\\theta$):\n$$K_f = \\frac{1}{2} m (u \\cos 60^\\circ)^2 = \\frac{1}{2} m u^2 \\cos^2 60^\\circ$$\n$$K_f = K_i \\cos^2 60^\\circ = 20 \\times \\left(\\frac{1}{2}\\right)^2 = 20 \\times \\frac{1}{4} = 5\\text{ J}$$\n\n3) **Decrease in kinetic energy ($\\Delta K$)**:\n$$\\Delta K = K_i - K_f = 20\\text{ J} - 5\\text{ J} = 15\\text{ J}$$\n\nThis corresponds to Option C.",
+        "explanation": "\n[IMG: kinematics_11.png]Given:\n- $m = 100\\text{ g} = 0.1\\text{ kg}$\n- $u = 20\\text{ m/s}$\n- $\\theta = 60^\\circ$\n\n1) **Initial kinetic energy ($K_i$)** at the point of projection:\n$$K_i = \\frac{1}{2} m u^2 = \\frac{1}{2} (0.1) (20)^2 = 0.05 \\times 400 = 20\\text{ J}$$\n\n2) **Kinetic energy at the highest point ($K_f$)**:\nAt the highest point of a projectile's path, the vertical component of velocity is zero, and only the horizontal component remains ($v_h = u \\cos\\theta$):\n$$K_f = \\frac{1}{2} m (u \\cos 60^\\circ)^2 = \\frac{1}{2} m u^2 \\cos^2 60^\\circ$$\n$$K_f = K_i \\cos^2 60^\\circ = 20 \\times \\left(\\frac{1}{2}\\right)^2 = 20 \\times \\frac{1}{4} = 5\\text{ J}$$\n\n3) **Decrease in kinetic energy ($\\Delta K$)**:\n$$\\Delta K = K_i - K_f = 20\\text{ J} - 5\\text{ J} = 15\\text{ J}$$\n\nThis corresponds to Option C.",
         "year": "2025",
         "shift": "Evening",
         "date": "22nd January"
@@ -179,7 +179,7 @@
             "5\\sqrt{15}\\text{ m/s}, making an angle of \\tan^{-1} 4 with - ve Y axis"
         ],
         "answer": 0,
-        "explanation": "Given the position vector:\n$$\\vec{r} = (5t^2 \\hat{i} - 5t \\hat{j})\\text{ m}$$\n\nDifferentiating with respect to time $t$ to find the velocity vector $\\vec{v}$:\n$$\\vec{v} = \\frac{d\\vec{r}}{dt} = 10t \\hat{i} - 5 \\hat{j}$$\n\nAt $t = 2\\text{ s}$:\n$$\\vec{v} = 10(2) \\hat{i} - 5 \\hat{j} = 20 \\hat{i} - 5 \\hat{j}$$\n\n1) **Magnitude of velocity**:\n$$|\\vec{v}| = \\sqrt{(20)^2 + (-5)^2} = \\sqrt{400 + 25} = \\sqrt{425} = 5\\sqrt{17}\\text{ m/s}$$\n\n2) **Direction of velocity**:\nThe velocity vector has a positive x-component ($20$) and a negative y-component ($-5$). Let $\\theta$ be the angle made with the negative y-axis:\n$$\\tan\\theta = \\left|\\frac{v_x}{v_y}\\right| = \\frac{20}{5} = 4 \\implies \\theta = \\tan^{-1}(4)$$\n\nThus, the direction is $\\tan^{-1}(4)$ with the negative y-axis.\n\nThis corresponds to Option A.",
+        "explanation": "\n[IMG: kinematics_12.png]Given the position vector:\n$$\\vec{r} = (5t^2 \\hat{i} - 5t \\hat{j})\\text{ m}$$\n\nDifferentiating with respect to time $t$ to find the velocity vector $\\vec{v}$:\n$$\\vec{v} = \\frac{d\\vec{r}}{dt} = 10t \\hat{i} - 5 \\hat{j}$$\n\nAt $t = 2\\text{ s}$:\n$$\\vec{v} = 10(2) \\hat{i} - 5 \\hat{j} = 20 \\hat{i} - 5 \\hat{j}$$\n\n1) **Magnitude of velocity**:\n$$|\\vec{v}| = \\sqrt{(20)^2 + (-5)^2} = \\sqrt{400 + 25} = \\sqrt{425} = 5\\sqrt{17}\\text{ m/s}$$\n\n2) **Direction of velocity**:\nThe velocity vector has a positive x-component ($20$) and a negative y-component ($-5$). Let $\\theta$ be the angle made with the negative y-axis:\n$$\\tan\\theta = \\left|\\frac{v_x}{v_y}\\right| = \\frac{20}{5} = 4 \\implies \\theta = \\tan^{-1}(4)$$\n\nThus, the direction is $\\tan^{-1}(4)$ with the negative y-axis.\n\nThis corresponds to Option A.",
         "year": "2025",
         "shift": "Evening",
         "date": "24th January"
@@ -209,7 +209,7 @@
             "112.5 \\times \\sqrt{3}\\text{ m}"
         ],
         "answer": 0,
-        "explanation": "Let the river flow from west to east along the positive x-axis. The boat moves with speed $v_b = 27\\text{ km/h}$ at an angle of $150^\\circ$ with the flow direction (x-axis).\n\nThe angle made by the velocity of the boat with the vertical line perpendicular to the bank (y-axis) is:\n$$\\phi = 150^\\circ - 90^\\circ = 60^\\circ$$\n\nThe component of the boat's velocity perpendicular to the river flow (which helps it cross the river) is:\n$$v_{\\perp} = v_b \\cos 60^\\circ = 27 \\times \\frac{1}{2} = 13.5\\text{ km/h}$$\n\nConverting this velocity component into m/s:\n$$v_{\\perp} = 13.5 \\times \\frac{5}{18}\\text{ m/s} = \\frac{27}{2} \\times \\frac{5}{18} = \\frac{15}{4} = 3.75\\text{ m/s}$$\n\nThe width of the river $w$ is the distance covered in the perpendicular direction over the time taken $t = 30\\text{ s}$ (half a minute):\n$$w = v_{\\perp} \\times t = 3.75\\text{ m/s} \\times 30\\text{ s} = 112.5\\text{ m}$$\n\nThis corresponds to Option A.",
+        "explanation": "\n[IMG: kinematics_13.png]Let the river flow from west to east along the positive x-axis. The boat moves with speed $v_b = 27\\text{ km/h}$ at an angle of $150^\\circ$ with the flow direction (x-axis).\n\nThe angle made by the velocity of the boat with the vertical line perpendicular to the bank (y-axis) is:\n$$\\phi = 150^\\circ - 90^\\circ = 60^\\circ$$\n\nThe component of the boat's velocity perpendicular to the river flow (which helps it cross the river) is:\n$$v_{\\perp} = v_b \\cos 60^\\circ = 27 \\times \\frac{1}{2} = 13.5\\text{ km/h}$$\n\nConverting this velocity component into m/s:\n$$v_{\\perp} = 13.5 \\times \\frac{5}{18}\\text{ m/s} = \\frac{27}{2} \\times \\frac{5}{18} = \\frac{15}{4} = 3.75\\text{ m/s}$$\n\nThe width of the river $w$ is the distance covered in the perpendicular direction over the time taken $t = 30\\text{ s}$ (half a minute):\n$$w = v_{\\perp} \\times t = 3.75\\text{ m/s} \\times 30\\text{ s} = 112.5\\text{ m}$$\n\nThis corresponds to Option A.",
         "year": "2025",
         "shift": "Morning",
         "date": "2nd April"
@@ -218,13 +218,13 @@
         "q": "The angle of projection of a particle is measured from the vertical axis as $\\phi$ and the maximum height reached by the particle is $h_{\\text{m}}$. Here $h_{\\text{m}}$ as function of $\\phi$ can be presented as",
         "type": "mcq",
         "options": [
-            "Graph A",
-            "Graph B",
-            "Graph C",
-            "Graph D"
+            "\n[IMG: kinematics_14.png]",
+            "\n[IMG: kinematics_15.png]",
+            "\n[IMG: kinematics_16.png]",
+            "\n[IMG: kinematics_17.png]"
         ],
         "answer": 3,
-        "explanation": "Let the angle of projection with the horizontal be $\\theta$. Since the angle $\\phi$ is measured from the vertical:\n$$\\theta = 90^\\circ - \\phi$$\n\nThe formula for the maximum height $h_{\\text{m}}$ is:\n$$h_{\\text{m}} = \\frac{u^2 \\sin^2\\theta}{2g} = \\frac{u^2 \\sin^2(90^\\circ - \\phi)}{2g} = \\frac{u^2 \\cos^2\\phi}{2g}$$\n\nLet us analyze $h_{\\text{m}}(\\phi) = \\frac{u^2}{2g} \\cos^2\\phi$ over the interval $\\phi \\in [0, 90^\\circ]$:\n1. At $\\phi = 0$:\n   $$h_{\\text{m}} = \\frac{u^2}{2g} \\text{ (maximum value)}$$\n2. At $\\phi = 90^\\circ$:\n   $$h_{\\text{m}} = 0$$\n3. The function $\\cos^2\\phi$ is a decreasing curve with a concave down profile initially and then tapering off towards $90^\\circ$.\n\nThis matches the curve shown in Graph D.\n\nThis corresponds to Option D.",
+        "explanation": "\n[IMG: kinematics_18.png]Let the angle of projection with the horizontal be $\\theta$. Since the angle $\\phi$ is measured from the vertical:\n$$\\theta = 90^\\circ - \\phi$$\n\nThe formula for the maximum height $h_{\\text{m}}$ is:\n$$h_{\\text{m}} = \\frac{u^2 \\sin^2\\theta}{2g} = \\frac{u^2 \\sin^2(90^\\circ - \\phi)}{2g} = \\frac{u^2 \\cos^2\\phi}{2g}$$\n\nLet us analyze $h_{\\text{m}}(\\phi) = \\frac{u^2}{2g} \\cos^2\\phi$ over the interval $\\phi \\in [0, 90^\\circ]$:\n1. At $\\phi = 0$:\n   $$h_{\\text{m}} = \\frac{u^2}{2g} \\text{ (maximum value)}$$\n2. At $\\phi = 90^\\circ$:\n   $$h_{\\text{m}} = 0$$\n3. The function $\\cos^2\\phi$ is a decreasing curve with a concave down profile initially and then tapering off towards $90^\\circ$.\n\nThis matches the curve shown in Graph D.\n\nThis corresponds to Option D.",
         "year": "2025",
         "shift": "Morning",
         "date": "3rd April"
@@ -264,7 +264,7 @@
             "4 km"
         ],
         "answer": 2,
-        "explanation": "Let the point of release be $A$, and the point on the ground directly below $A$ be $P$.\n\n1) **Horizontal distance $x$ traveled by the object**:\nThe horizontal speed of the helicopter is:\n$$u = 360\\text{ km/h} = 360 \\times \\frac{5}{18} = 100\\text{ m/s}$$\nThe time in the air is $t = 20\\text{ s}$.\n$$x = u \\times t = 100\\text{ m/s} \\times 20\\text{ s} = 2000\\text{ m} = 2\\text{ km}$$\n\n2) **Vertical distance (altitude) $H$ of the helicopter**:\n$$H = 2\\text{ km} = 2000\\text{ m}$$\n\n3) **Net displacement $D$ from the release point**:\n$$\\vec{D} = x \\hat{i} - H \\hat{j}$$\n$$|\\vec{D}| = \\sqrt{x^2 + H^2} = \\sqrt{2^2 + 2^2} = \\sqrt{8} = 2\\sqrt{2}\\text{ km}$$\n\nThis corresponds to Option C.",
+        "explanation": "\n[IMG: kinematics_19.png]Let the point of release be $A$, and the point on the ground directly below $A$ be $P$.\n\n1) **Horizontal distance $x$ traveled by the object**:\nThe horizontal speed of the helicopter is:\n$$u = 360\\text{ km/h} = 360 \\times \\frac{5}{18} = 100\\text{ m/s}$$\nThe time in the air is $t = 20\\text{ s}$.\n$$x = u \\times t = 100\\text{ m/s} \\times 20\\text{ s} = 2000\\text{ m} = 2\\text{ km}$$\n\n2) **Vertical distance (altitude) $H$ of the helicopter**:\n$$H = 2\\text{ km} = 2000\\text{ m}$$\n\n3) **Net displacement $D$ from the release point**:\n$$\\vec{D} = x \\hat{i} - H \\hat{j}$$\n$$|\\vec{D}| = \\sqrt{x^2 + H^2} = \\sqrt{2^2 + 2^2} = \\sqrt{8} = 2\\sqrt{2}\\text{ km}$$\n\nThis corresponds to Option C.",
         "year": "2025",
         "shift": "Evening",
         "date": "7th April"
@@ -305,7 +305,7 @@
         "date": "2nd April"
     },
     {
-        "q": "The motion of an airplane is represented by velocity-time graph as shown below. The distance covered by airplane in the first 30.5 second is ̱_______ km .",
+        "q": "The motion of an airplane is represented by velocity-time graph as shown below. The distance covered by airplane in the first 30.5 second is ̱_______ km .\n[IMG: kinematics_20.png]",
         "type": "mcq",
         "options": [
             "12",
@@ -320,7 +320,7 @@
         "date": "23rd January"
     },
     {
-        "q": "The velocity-time graph of an object moving along a straight line is shown in the figure. What is the distance covered by the object between $t = 0$ to $t = 4\\text{ s}$?",
+        "q": "The velocity-time graph of an object moving along a straight line is shown in the figure. What is the distance covered by the object between $t = 0$ to $t = 4\\text{ s}$?\n[IMG: kinematics_21.png]",
         "type": "mcq",
         "options": [
             "11 m",
