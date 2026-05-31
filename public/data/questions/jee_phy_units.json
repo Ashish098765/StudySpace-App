@@ -20,7 +20,7 @@
         "year": "2025",
         "shift": "Morning",
         "date": "28th January",
-        "image": "requires_manual_upload.png",
+        "image": null,
         "explanation_image": "img_1.png"
     },
     {
@@ -1257,7 +1257,7 @@
         "year": "2023",
         "shift": "Morning",
         "date": "15th April",
-        "image": "requires_manual_upload.png",
+        "image": null,
         "explanation_image": "img_36.png"
     },
     {
@@ -2004,7 +2004,7 @@
         "year": "2021",
         "shift": "Morning",
         "date": "18th March",
-        "image": "requires_manual_upload.png",
+        "image": null,
         "explanation_image": "img_41.png"
     },
     {
