@@ -27,20 +27,21 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
-        :root { 
-            --bg-base: #0f111a; 
-            --bg-surface: #1e2130; 
-            --bg-surface-elevated: #272a3d;
-            --text-primary: #f8fafc; 
-            --text-secondary: #94a3b8; 
-            --text-tertiary: #64748b;
-            --brand-blue: #6366f1; 
-            --brand-blue-hover: #4f46e5;
+        :root {
+            --bg-color: #09090b; 
+            --surface: rgba(24, 24, 27, 0.6);
+            --surface-elevated: rgba(39, 39, 42, 0.8);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+            --text-main: #f8fafc;
+            --text-muted: #a1a1aa;
+            --text-tertiary: #71717a;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
             --success-green: #10b981;
             --success-bg: rgba(16, 185, 129, 0.1);
             --error-red: #ef4444;
             --error-bg: rgba(239, 68, 68, 0.1);
-            --border-color: rgba(255, 255, 255, 0.08);
             --gold: #fbbf24;
         }
         
@@ -49,101 +50,122 @@
         mjx-container { display: inline-block; vertical-align: baseline; margin: 0 1px; font-size: 100% !important; }
         .q-text mjx-container { vertical-align: middle; }
         
-        body { background-color: var(--bg-base); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            background-image: 
+                radial-gradient(circle at 15% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 100%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            background-attachment: fixed;
+        }
 
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: var(--bg-surface); border-bottom: 1px solid var(--border-color); }
-        .logo-text { font-size: 1.2rem; font-weight: 800; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .logo-text i { color: var(--brand-blue); }
-
-        .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 2rem 1rem; flex-grow: 1; }
-        .btn-text { background: transparent; border: none; color: var(--text-secondary); cursor: pointer; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: 0.2s; margin-bottom: 1.5rem; }
-        .btn-text:hover { color: var(--text-primary); }
-        .btn-primary { background: var(--brand-blue); color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; }
-        .btn-primary:hover:not(:disabled) { background: var(--brand-blue-hover); }
-        .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
-
-        #exam-gateway-screen { display: block; }
-        .gateway-title { text-align: center; font-size: 2.2rem; font-weight: 800; margin-top: 3rem; margin-bottom: 0.5rem; }
-        .gateway-subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1rem; }
-        .gateway-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 700px; margin: 0 auto; }
-        .gateway-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center; cursor: pointer; transition: 0.2s; }
-        .gateway-card:hover { border-color: var(--brand-blue); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15); }
-        .gateway-icon { width: 60px; height: 60px; border-radius: 50%; background: rgba(99, 102, 241, 0.1); color: var(--brand-blue); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1.5rem auto; }
-        .gateway-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; }
-        .gateway-card p { font-size: 0.9rem; color: var(--text-secondary); }
-
-        #chapter-explorer-screen { display: none; }
-        .explorer-layout { display: flex; gap: 2rem; margin-top: 1.5rem; }
-        .subject-sidebar { width: 240px; flex-shrink: 0; display: flex; flex-direction: column; gap: 0.5rem; }
-        .sidebar-btn { width: 100%; padding: 1rem; border-radius: 8px; background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-secondary); font-weight: 600; font-size: 0.95rem; text-align: left; transition: 0.2s; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
-        .sidebar-btn:hover { background: var(--bg-surface-elevated); color: var(--text-primary); }
-        .sidebar-btn.active { background: var(--brand-blue); color: white; border-color: var(--brand-blue); }
-        
-        .chapter-container { flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem; }
-        .chapter-row { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; }
-        .chapter-row:hover { border-color: var(--brand-blue); background: var(--bg-surface-elevated); }
-        .chapter-title-wrapper { display: flex; align-items: center; gap: 0.8rem; }
-        .chapter-title-wrapper i { color: var(--brand-blue); font-size: 0.95rem; }
-        .chapter-name { font-size: 0.95rem; font-weight: 600; }
-        .chapter-stats { font-size: 0.8rem; color: var(--text-secondary); display: flex; gap: 1rem; font-weight: 500; }
-
-        .test-header { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1.5rem; }
-        .test-meta { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
-        .marks-tag { font-size: 0.7rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.3px; display: inline-flex; align-items: center; gap: 6px; }
-        .tag-year { background: rgba(251, 191, 36, 0.12); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.25); }
-        .tag-subject { background: rgba(99, 102, 241, 0.15); color: var(--brand-blue); border: 1px solid rgba(99, 102, 241, 0.25); }
-        .tag-chapter { background: rgba(255,255,255,0.06); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.1); }
-
-        #list-index-screen { display: none; }
-        .index-list-container { display: flex; flex-direction: column; gap: 0.6rem; }
-        .index-row { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; gap: 1rem; }
-        .index-row:hover { background: var(--bg-surface-elevated); border-color: var(--text-secondary); }
-        .index-q-wrapper { flex: 1; min-width: 0; }
-        
-        .index-q-text { 
-            font-weight: 500; 
-            font-size: 0.95rem; 
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden; 
-            white-space: normal;
+        /* --- Navigation --- */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 1rem 5%; background: rgba(9, 9, 11, 0.7); 
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle); 
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo-text { 
+            font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; 
+            color: var(--text-main); text-decoration: none; 
+            display: flex; align-items: center; gap: 8px;
         }
         
-        .status-badge { flex-shrink: 0; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
-        .badge-pending { background: rgba(255, 255, 255, 0.05); color: var(--text-secondary); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .badge-correct { background: var(--success-bg); color: var(--success-green); border: 1px solid var(--success-green); }
-        .badge-wrong { background: var(--error-bg); color: var(--error-red); border: 1px solid var(--error-red); }
+        .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 3rem 1rem; flex-grow: 1; }
+        
+        .btn-text { background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: 0.2s; margin-bottom: 1.5rem; }
+        .btn-text:hover { color: var(--text-main); transform: translateX(-2px); }
+        
+        .btn-primary { background: var(--primary); color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 99px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary:hover:not(:disabled) { background: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3); }
+        .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
 
-        #quiz-focus-screen { display: none; }
-        .question-container { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 2rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; }
-        .q-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-weight: 500; overflow-x: auto; contain: content; }
+        /* --- Gateway Screen --- */
+        #exam-gateway-screen { display: block; animation: fadeUp 0.6s ease-out forwards; }
+        .gateway-title { text-align: center; font-size: 3rem; font-weight: 800; margin-top: 2rem; margin-bottom: 0.5rem; letter-spacing: -0.03em; }
+        .gateway-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 3rem; font-size: 1.05rem; }
+        .gateway-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 700px; margin: 0 auto; }
+        .gateway-card { background: var(--surface); backdrop-filter: blur(12px); border: 1px solid var(--border-subtle); border-radius: 24px; padding: 2.5rem; text-align: center; cursor: pointer; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .gateway-card:hover { border-color: rgba(99, 102, 241, 0.4); background: rgba(39, 39, 42, 0.6); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+        .gateway-icon { width: 64px; height: 64px; border-radius: 16px; background: rgba(99, 102, 241, 0.1); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1.5rem auto; border: 1px solid rgba(99, 102, 241, 0.2); }
+        .gateway-card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700; color: var(--text-main); }
+        .gateway-card p { font-size: 0.95rem; color: var(--text-muted); }
+
+        /* --- Chapter Explorer Screen --- */
+        #chapter-explorer-screen { display: none; animation: fadeUp 0.4s ease-out forwards; }
+        .page-title { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+        .page-subtitle { color: var(--text-muted); font-size: 1rem; }
+        .explorer-layout { display: flex; gap: 2rem; margin-top: 1.5rem; }
         
-        .q-image { max-width: 100%; border-radius: 8px; margin: 1.5rem 0; border: 1px solid var(--border-color); }
+        .subject-sidebar { width: 240px; flex-shrink: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+        .sidebar-btn { width: 100%; padding: 1rem 1.25rem; border-radius: 16px; background: var(--surface); border: 1px solid var(--border-subtle); color: var(--text-muted); font-weight: 600; font-size: 0.95rem; text-align: left; transition: all 0.2s; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+        .sidebar-btn:hover { background: var(--surface-elevated); color: var(--text-main); border-color: var(--border-hover); }
+        .sidebar-btn.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25); }
         
-        .q-text table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: rgba(255,255,255,0.03); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
-        .q-text th { background: rgba(99, 102, 241, 0.1); color: var(--brand-blue); font-weight: 700; text-align: left; padding: 12px 15px; border-bottom: 2px solid var(--border-color); }
-        .q-text td { padding: 12px 15px; border-bottom: 1px solid var(--border-color); color: var(--text-primary); }
+        .chapter-container { flex-grow: 1; display: flex; flex-direction: column; gap: 0.8rem; }
+        .chapter-row { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255,255,255,0.03); border-radius: 16px; padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s ease; }
+        .chapter-row:hover { border-color: var(--border-hover); background: rgba(255,255,255,0.02); transform: translateX(4px); }
+        .chapter-title-wrapper { display: flex; align-items: center; gap: 1rem; }
+        .chapter-title-wrapper i { color: var(--primary); font-size: 1.1rem; }
+        .chapter-name { font-size: 1.05rem; font-weight: 600; }
+        .chapter-stats { font-size: 0.85rem; color: var(--text-muted); display: flex; gap: 1rem; font-weight: 500; background: rgba(255,255,255,0.05); padding: 4px 12px; border-radius: 99px; }
+
+        /* --- List Index Screen --- */
+        #list-index-screen { display: none; animation: fadeUp 0.4s ease-out forwards; }
+        .test-header { display: flex; justify-content: space-between; align-items: center; background: var(--surface); backdrop-filter: blur(12px); padding: 1.25rem 1.5rem; border-radius: 24px; border: 1px solid var(--border-subtle); margin-bottom: 1.5rem; }
+        .test-meta { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+        .marks-tag { font-size: 0.75rem; font-weight: 700; padding: 0.4rem 1rem; border-radius: 99px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 6px; }
+        .tag-year { background: rgba(251, 191, 36, 0.1); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.2); }
+        .tag-subject { background: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.25); }
+        .tag-chapter { background: rgba(255,255,255,0.05); color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); }
+
+        .index-list-container { display: flex; flex-direction: column; gap: 0.8rem; }
+        .index-row { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255,255,255,0.03); border-radius: 16px; padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s ease; gap: 1rem; }
+        .index-row:hover { border-color: var(--border-hover); background: rgba(255,255,255,0.02); transform: translateX(4px); }
+        .index-q-wrapper { flex: 1; min-width: 0; }
+        .index-q-text { font-weight: 500; font-size: 1rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; white-space: normal; color: var(--text-main); }
+        
+        .status-badge { flex-shrink: 0; font-size: 0.75rem; font-weight: 700; padding: 0.4rem 1rem; border-radius: 99px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+        .badge-pending { background: rgba(255, 255, 255, 0.05); color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .badge-correct { background: var(--success-bg); color: var(--success-green); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .badge-wrong { background: var(--error-bg); color: var(--error-red); border: 1px solid rgba(239, 68, 68, 0.3); }
+
+        /* --- Quiz Focus Screen --- */
+        #quiz-focus-screen { display: none; animation: fadeUp 0.4s ease-out forwards; }
+        .question-container { background: var(--surface); backdrop-filter: blur(12px); border: 1px solid var(--border-subtle); padding: 2.5rem 2rem; margin-bottom: 1.5rem; }
+        .q-text { font-size: 1.15rem; line-height: 1.7; margin-bottom: 2rem; font-weight: 500; overflow-x: auto; contain: content; }
+        
+        .q-image { max-width: 100%; border-radius: 12px; margin: 1.5rem auto; border: 1px solid var(--border-subtle); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        
+        .q-text table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 1.5rem 0; background: rgba(0,0,0,0.3); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-subtle); }
+        .q-text th { background: rgba(99, 102, 241, 0.1); color: #818cf8; font-weight: 600; text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--border-subtle); }
+        .q-text td { padding: 14px 16px; border-bottom: 1px solid var(--border-subtle); color: var(--text-main); }
         .q-text tr:last-child td { border-bottom: none; }
-        .q-text tr:hover { background: rgba(255,255,255,0.05); }
 
-        .match-table-wrapper { width: 100%; margin: 1.5rem 0; background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; }
-        .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-color); }
-        .match-header { background: var(--bg-surface-elevated); padding: 12px 16px; font-weight: 700; text-align: center; color: var(--brand-blue); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
-        .match-cell { background: var(--bg-surface); padding: 12px 16px; font-size: 0.95rem; display: flex; align-items: flex-start; gap: 8px; color: var(--text-primary); }
-        .match-cell b { color: var(--gold); min-width: 30px; flex-shrink: 0; }
+        .match-table-wrapper { width: 100%; margin: 1.5rem 0; background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); border-radius: 16px; overflow: hidden; }
+        .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-subtle); }
+        .match-header { background: rgba(99, 102, 241, 0.05); padding: 14px 16px; font-weight: 600; text-align: center; color: #818cf8; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
+        .match-cell { background: var(--bg-color); padding: 14px 16px; font-size: 0.95rem; display: flex; align-items: flex-start; gap: 10px; color: var(--text-main); }
+        .match-cell b { color: var(--gold); min-width: 24px; flex-shrink: 0; }
 
-        .options-list { display: flex; flex-direction: column; gap: 0.8rem; contain: content; }
-        .marks-option { display: flex; align-items: center; padding: 0.9rem 1.2rem; border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; transition: 0.15s; background: rgba(0,0,0,0.15); }
-        .marks-option:hover:not(.locked) { border-color: var(--text-secondary); background: var(--bg-surface-elevated); }
-        .opt-letter { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; margin-right: 1rem; flex-shrink: 0; background: var(--bg-base); transition: 0.15s; }
-        .opt-text { flex-grow: 1; font-size: 0.95rem; }
-        .opt-icon { margin-left: 1rem; font-size: 1.1rem; display: none; }
+        .options-list { display: flex; flex-direction: column; gap: 1rem; contain: content; }
+        .marks-option { display: flex; align-items: center; padding: 1rem 1.25rem; border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; cursor: pointer; transition: all 0.2s ease; background: rgba(0,0,0,0.3); }
+        .marks-option:hover:not(.locked) { border-color: var(--border-hover); background: rgba(255,255,255,0.03); transform: translateY(-2px); }
+        .opt-letter { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; margin-right: 1.25rem; flex-shrink: 0; background: var(--bg-color); color: var(--text-muted); transition: 0.2s; }
+        .opt-text { flex-grow: 1; font-size: 1rem; }
+        .opt-icon { margin-left: 1rem; font-size: 1.2rem; display: none; }
 
-        .marks-option.selected { border-color: var(--brand-blue); background: rgba(99, 102, 241, 0.08); }
-        .marks-option.selected .opt-letter { background: var(--brand-blue); border-color: var(--brand-blue); color: white; }
-        .multi-select-option .opt-letter { border-radius: 4px; }
+        .marks-option.selected { border-color: var(--primary); background: rgba(99, 102, 241, 0.1); box-shadow: 0 4px 15px rgba(99, 102, 241, 0.15); }
+        .marks-option.selected .opt-letter { background: var(--primary); border-color: var(--primary); color: white; }
+        .multi-select-option .opt-letter { border-radius: 8px; }
         
         .marks-option.correct { border-color: var(--success-green); background: var(--success-bg); }
         .marks-option.correct .opt-letter { background: var(--success-green); border-color: var(--success-green); color: white; }
@@ -153,33 +175,55 @@
         .marks-option.wrong .opt-letter { background: var(--error-red); border-color: var(--error-red); color: white; }
         .marks-option.wrong .opt-icon.cross-icon { color: var(--error-red); display: block; }
         
-        .integer-input-container { margin-top: 1rem; }
-        .integer-field { background: var(--bg-surface-elevated); border: 1px solid var(--border-color); color: var(--text-primary); padding: 1rem; border-radius: 8px; font-size: 1.2rem; font-weight: 700; width: 100%; outline: none; text-align: center; }
-        .integer-field:focus { border-color: var(--brand-blue); }
+        .integer-input-container { margin-top: 1rem; background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.03); }
+        .integer-field { background: var(--bg-color); border: 1px solid var(--border-subtle); color: var(--text-main); padding: 1rem; border-radius: 12px; font-size: 1.2rem; font-weight: 700; width: 100%; outline: none; text-align: center; font-family: monospace; transition: all 0.2s; }
+        .integer-field:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(99,102,241,0.2); }
         .integer-field.correct { border-color: var(--success-green); background: var(--success-bg); }
         .integer-field.wrong { border-color: var(--error-red); background: var(--error-bg); }
         .marks-option.locked { cursor: default; }
 
-        .bottom-bar { display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 1rem 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; min-height: 4.5rem; }
-        .status-msg { font-size: 0.9rem; font-weight: 600; }
+        .bottom-bar { display: flex; justify-content: space-between; align-items: center; background: var(--surface); backdrop-filter: blur(12px); padding: 1.25rem 2rem; border: 1px solid var(--border-subtle); border-radius: 24px; min-height: 5rem; }
+        .status-msg { font-size: 0.95rem; font-weight: 600; }
         
-        .solution-box { display: none; margin-top: 1.5rem; padding: 1.5rem; border-radius: 6px; border: 1px solid var(--brand-blue); background: rgba(99, 102, 241, 0.05); contain: content; }
-        .solution-title { font-size: 0.8rem; color: var(--brand-blue); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; }
-        .solution-text { font-size: 0.95rem; line-height: 1.6; color: var(--text-primary); overflow-x: auto; }
+        .solution-box { display: none; margin-top: 2rem; padding: 2rem; border-radius: 16px; border: 1px solid rgba(99, 102, 241, 0.3); background: rgba(99, 102, 241, 0.05); contain: content; }
+        .solution-title { font-size: 0.85rem; color: #818cf8; text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+        .solution-text { font-size: 1rem; line-height: 1.7; color: var(--text-main); overflow-x: auto; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         @media (max-width: 768px) {
             .explorer-layout { flex-direction: column; }
             .subject-sidebar { width: 100%; flex-direction: row; overflow-x: auto; padding-bottom: 5px; }
             .sidebar-btn { width: auto; white-space: nowrap; flex-shrink: 0; }
             .match-grid { grid-template-columns: 1fr; }
+            .gateway-title { font-size: 2.2rem; }
+            .question-container { padding: 1.5rem 1rem; }
+            .bottom-bar { flex-direction: column; gap: 1rem; text-align: center; }
+            .btn-primary { width: 100%; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="/" class="logo-text"><i class="fa-solid fa-graduation-cap"></i> StudySpace</a>
-        <div style="font-size: 0.8rem; color: var(--text-secondary); font-weight: 700; letter-spacing: 1px;"><i class="fa-solid fa-bolt" style="color: var(--gold);"></i> MARKS ENGINE</div>
+        <a href="/" class="logo-text">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="url(#paint0_linear)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#818cf8"/>
+                        <stop offset="1" stop-color="#34d399"/>
+                    </linearGradient>
+                </defs>
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            StudySpace
+        </a>
+        <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; letter-spacing: 1px; display: flex; align-items: center; gap: 6px;">
+            <i class="fa-solid fa-bolt" style="color: var(--gold);"></i> MARKS ENGINE
+        </div>
     </nav>
 
     <div class="container">
@@ -194,7 +238,7 @@
                     <p>Physics, Chemistry, Mathematics</p>
                 </div>
                 <div class="gateway-card" onclick="navigateToExplorer('NEET')">
-                    <div class="gateway-icon" style="color: var(--success-green); background: rgba(16, 185, 129, 0.1);"><i class="fa-solid fa-dna"></i></div>
+                    <div class="gateway-icon" style="color: var(--success-green); background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2);"><i class="fa-solid fa-dna"></i></div>
                     <h3>NEET UG</h3>
                     <p>Physics, Chemistry, Biology</p>
                 </div>
@@ -205,7 +249,7 @@
             <button class="btn-text" onclick="navigateToGateway()"><i class="fa-solid fa-arrow-left"></i> Change Target</button>
             <div class="page-header">
                 <h1 class="page-title" id="explorer-title">JEE Main Workspace</h1>
-                <p class="page-subtitle" style="margin-bottom: 1.5rem;">Select a topic path from the inventory below to launch the question bank.</p>
+                <p class="page-subtitle" style="margin-bottom: 2rem;">Select a topic path from the inventory below to launch the question bank.</p>
             </div>
             <div class="explorer-layout">
                 <div class="subject-sidebar" id="subject-sidebar-container"></div>
@@ -221,7 +265,7 @@
                     <span class="marks-tag tag-subject" id="list-badge-subject"><i class="fa-solid fa-book"></i> Physics</span>
                     <span class="marks-tag tag-chapter" id="list-badge-chapter"><i class="fa-solid fa-list"></i> Kinematics</span>
                 </div>
-                <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);" id="list-progress-tracker">0 / 0 Completed</div>
+                <div style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted);" id="list-progress-tracker">0 / 0 Completed</div>
             </div>
 
             <div class="index-list-container" id="index-list-container"></div>
@@ -230,16 +274,16 @@
         <div id="quiz-focus-screen">
             <button class="btn-text" onclick="returnToList()"><i class="fa-solid fa-list"></i> Back to Question List</button>
             
-            <div class="test-header" style="border-radius: 8px 8px 0 0; border-bottom: none; margin-bottom: 0;">
+            <div class="test-header" style="border-radius: 24px 24px 0 0; border-bottom: none; margin-bottom: 0;">
                 <div class="test-meta">
                     <span class="marks-tag tag-subject" id="focus-badge-subject"><i class="fa-solid fa-book"></i> Physics</span>
                     <span class="marks-tag tag-chapter" id="focus-badge-chapter"><i class="fa-solid fa-list"></i> Kinematics</span>
                 </div>
-                <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);" id="focus-progress-tracker">Q 1 of 1</div>
+                <div style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted);" id="focus-progress-tracker">Q 1 of 1</div>
             </div>
 
-            <div class="question-container" style="border-radius: 0 0 8px 8px;">
-                <div id="focus-q-meta" style="display: flex; gap: 10px; margin-bottom: 1.5rem; flex-wrap: wrap;"></div>
+            <div class="question-container" style="border-radius: 0 0 24px 24px;">
+                <div id="focus-q-meta" style="display: flex; gap: 10px; margin-bottom: 2rem; flex-wrap: wrap;"></div>
                 
                 <div class="q-text" id="focus-q-text">Loading...</div>
                 
@@ -330,22 +374,19 @@
             }
         };
 
-        // --- NEW: Inline Image Injector ---
         function injectInlineImages(text) {
             if (!text) return "";
-            // Finds [IMG: filename.png] or similar tags
             const imgRegex = /\[IMG:\s*([^\]]+)\]/g;
             
             return text.replace(imgRegex, (match, filename) => {
                 const cleanFilename = filename.trim();
                 if (cleanFilename === "requires_image.png" || cleanFilename === "null") {
-                    return `<div style="padding: 10px; border: 1px dashed var(--error-red); color: var(--error-red); font-size: 0.8rem; border-radius: 4px; display: inline-block; margin: 10px 0;">[Image missing in database]</div>`;
+                    return `<div style="padding: 10px; border: 1px dashed var(--error-red); color: var(--error-red); font-size: 0.8rem; border-radius: 8px; display: inline-block; margin: 10px 0;">[Image missing in database]</div>`;
                 }
-                return `<img class="q-image" src="${CLOUDINARY_BASE_URL}${cleanFilename}" alt="Diagram" style="display: block; max-width: 100%; border-radius: 8px; margin: 1rem auto; border: 1px solid var(--border-color);">`;
+                return `<img class="q-image" src="${CLOUDINARY_BASE_URL}${cleanFilename}" alt="Diagram" style="display: block; max-width: 100%; border-radius: 12px; margin: 1.5rem auto; border: 1px solid var(--border-subtle); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">`;
             });
         }
 
-        // --- UPDATED FORMATTERS ---
         function formatGenericText(text) {
             if (text === null || text === undefined) return "";
             if (typeof text !== 'string') text = String(text);
@@ -353,7 +394,7 @@
             
             let formatted = markdownTableToHTML(text);
             formatted = formatted.replace(/\n/g, '<br>');
-            return injectInlineImages(formatted); // Inject images before returning
+            return injectInlineImages(formatted); 
         }
 
         function formatQuestionBody(text) {
@@ -375,7 +416,7 @@
                 formatted += "</div></div></div>";
                 formatted = formatted.replace(/<div class='match-cell right'><b>.*?<\/div><\/div><\/div>/g, "$&</div></div>");
             }
-            return injectInlineImages(formatted); // Inject images before returning
+            return injectInlineImages(formatted); 
         }
 
         function markdownTableToHTML(text) {
@@ -433,7 +474,7 @@
 
         window.navigateToExplorer = async (examName) => {
             selectedTargetExam = examName;
-            document.getElementById('explorer-title').innerText = `${examName} Repository Workspace`;
+            document.getElementById('explorer-title').innerText = `${examName} Workspace`;
             
             screenGateway.style.display = 'none';
             screenExplorer.style.display = 'block';
@@ -441,7 +482,7 @@
             const sidebarContainer = document.getElementById('subject-sidebar-container');
             const chapterListContainer = document.getElementById('chapter-list-container');
             
-            sidebarContainer.innerHTML = '<div style="padding: 1rem; color: var(--text-secondary); font-size: 0.9rem;"><i class="fa-solid fa-spinner fa-spin"></i> Loading Modules...</div>';
+            sidebarContainer.innerHTML = '<div style="padding: 1rem; color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-spinner fa-spin"></i> Loading Modules...</div>';
             chapterListContainer.innerHTML = "";
 
             try {
@@ -457,7 +498,7 @@
                 availableSubjects.forEach((sub, idx) => {
                     const btn = document.createElement('button');
                     btn.className = `sidebar-btn ${idx === 0 ? 'active' : ''}`;
-                    btn.innerHTML = `<span>${sub}</span> <i class="fa-solid fa-chevron-right"></i>`;
+                    btn.innerHTML = `<span>${sub}</span> <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem;"></i>`;
                     btn.onclick = () => {
                         document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
                         btn.classList.add('active');
@@ -484,7 +525,7 @@
                         <i class="fa-solid fa-book-open"></i>
                         <span class="chapter-name">${ch.name}</span>
                     </div>
-                    <div class="chapter-stats"><span>Total: ${ch.total} Qs</span></div>
+                    <div class="chapter-stats"><span>${ch.total} Qs</span></div>
                 `;
                 divRow.onclick = () => launchSession(ch.name, ch.id);
                 container.appendChild(divRow);
@@ -512,7 +553,7 @@
             
             screenExplorer.style.display = 'none';
             screenList.style.display = 'block';
-            document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--text-secondary);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><br><br>Loading Question Bank...</div>';
+            document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><br><br>Loading Question Bank...</div>';
 
             try {
                 const response = await fetch(`/data/questions/${selectedChapterId}.json`);
@@ -521,7 +562,7 @@
                 let rawQuestions = await response.json();
                 
                 if(rawQuestions.length === 0) {
-                    document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--error-red);">No questions available.</div>';
+                    document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--error-red);">No questions available.</div>';
                     return;
                 }
 
@@ -559,7 +600,7 @@
 
             } catch (error) {
                 console.error(error);
-                document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 3rem; color: var(--error-red);">Failed to load the dataset. Ensure the JSON was pushed to the server.</div>';
+                document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--error-red);">Failed to load the dataset. Ensure the JSON was pushed to the server.</div>';
             }
         };
 
@@ -598,15 +639,15 @@
                 
                 let shiftBadgeHtml = '';
                 if (q.shift && q.shift !== "Unknown" && q.shift !== "Unknown Shift") {
-                    shiftBadgeHtml = `<span style="background: rgba(255, 255, 255, 0.05); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1);"><i class="fa-regular fa-clock"></i> ${q.shift} Shift</span>`;
+                    shiftBadgeHtml = `<span style="background: rgba(255, 255, 255, 0.05); padding: 3px 8px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.1);"><i class="fa-regular fa-clock"></i> ${q.shift} Shift</span>`;
                 }
 
                 const rowHtml = `
                     <div class="index-row" onclick="openFocusQuestion(${index})">
                         <div class="index-q-wrapper">
-                            <div class="index-q-text"><span style="color:var(--brand-blue); font-weight:700;">Q${index + 1}.</span> ${getCleanPreview(q.q)}</div>
-                            <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 8px; display: flex; gap: 12px; align-items: center; font-weight: 600;">
-                                <span style="color: var(--gold); background: rgba(251, 191, 36, 0.1); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(251, 191, 36, 0.2);"><i class="fa-regular fa-calendar"></i> ${fullDateStr}</span>
+                            <div class="index-q-text"><span style="color:#818cf8; font-weight:700;">Q${index + 1}.</span> ${getCleanPreview(q.q)}</div>
+                            <div style="font-size: 0.8rem; color: var(--text-tertiary); margin-top: 10px; display: flex; gap: 12px; align-items: center; font-weight: 500;">
+                                <span style="color: var(--gold); background: rgba(251, 191, 36, 0.1); padding: 3px 8px; border-radius: 6px; border: 1px solid rgba(251, 191, 36, 0.2);"><i class="fa-regular fa-calendar"></i> ${fullDateStr}</span>
                                 ${shiftBadgeHtml}
                             </div>
                         </div>
@@ -645,11 +686,11 @@
             
             let shiftBadgeFocus = '';
             if (q.shift && q.shift !== "Unknown" && q.shift !== "Unknown Shift") {
-                shiftBadgeFocus = `<span class="marks-tag tag-chapter" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-secondary);"><i class="fa-regular fa-clock"></i> ${q.shift} Shift</span>`;
+                shiftBadgeFocus = `<span class="marks-tag tag-chapter" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-muted);"><i class="fa-regular fa-clock"></i> ${q.shift} Shift</span>`;
             }
 
             document.getElementById('focus-q-meta').innerHTML = `
-                <span class="marks-tag tag-subject" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); color: var(--brand-blue);"><i class="fa-solid fa-graduation-cap"></i> ${selectedTargetExam}</span>
+                <span class="marks-tag tag-subject" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); color: #818cf8;"><i class="fa-solid fa-graduation-cap"></i> ${selectedTargetExam}</span>
                 <span class="marks-tag tag-year"><i class="fa-regular fa-calendar"></i> ${fullDateStr}</span>
                 ${shiftBadgeFocus}
             `;
@@ -663,7 +704,7 @@
                 const inputDiv = document.createElement('div');
                 inputDiv.className = "integer-input-container";
                 inputDiv.innerHTML = `
-                    <p style="margin-bottom: 0.8rem; color: var(--text-secondary); font-size: 0.9rem; font-weight: 600;">ENTER NUMERICAL VALUE:</p>
+                    <p style="margin-bottom: 0.8rem; color: var(--text-muted); font-size: 0.9rem; font-weight: 600; text-align: center;">ENTER NUMERICAL VALUE:</p>
                     <input type="number" step="any" class="integer-field" id="focus-integer-input" placeholder="0.00" oninput="handleIntegerInput()">
                 `;
                 optContainer.appendChild(inputDiv);
@@ -805,7 +846,10 @@
             }
 
             if (isCorrect) {
-                document.getElementById('focus-result-status').innerHTML = `<span style="color: var(--success-green);"><i class="fa-solid fa-check"></i> Correct (+8 XP)</span>`;
+                document.getElementById('focus-result-status').innerHTML = `
+                    <div style="color: var(--success-green); font-size: 1.05rem;"><i class="fa-solid fa-check"></i> Correct</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Earned <span style="color: var(--gold); font-weight: 600;">+8 XP</span></div>
+                `;
             } else {
                 let displayCorrect = q.answer;
                 if (q.type === "multi_select") {
@@ -816,8 +860,9 @@
                 }
                 
                 document.getElementById('focus-result-status').innerHTML = `
-                    <div style="color: var(--error-red); margin-bottom: 4px;"><i class="fa-solid fa-xmark"></i> Incorrect Answer (-2 XP)</div>
-                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Correct Answer: <span style="color: var(--success-green); font-weight: 700;">${displayCorrect}</span></div>
+                    <div style="color: var(--error-red); margin-bottom: 4px; font-size: 1.05rem;"><i class="fa-solid fa-xmark"></i> Incorrect Answer</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">Correct Answer: <span style="color: var(--success-green); font-weight: 700;">${displayCorrect}</span></div>
+                    <div style="font-size: 0.75rem; color: var(--danger); margin-top: 4px; font-weight: 500;">Penalty <span style="font-weight: 600;">-2 XP</span></div>
                 `;
             }
 
