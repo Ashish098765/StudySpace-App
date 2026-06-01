@@ -40,7 +40,7 @@
             background-attachment: fixed;
         }
 
-        /* --- Navigation --- */
+       /* --- Navigation --- */
         #auth-nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 1rem 5%; 
@@ -48,7 +48,13 @@
             backdrop-filter: blur(12px); 
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-subtle);
-            position: auto; top: 0; z-index: 100;
+            
+            /* The Magic Fix */
+            position: fixed; 
+            top: 0; 
+            left: 0;
+            width: 100%;
+            z-index: 1000;
         }
         
         .logo-text { 
