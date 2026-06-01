@@ -39,18 +39,17 @@
             background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
             background-attachment: fixed;
         }
-
-       /* --- Navigation --- */
+        
+        /* --- Navigation --- */
         #auth-nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 1rem 5%; 
-            background: rgba(9, 9, 11, 0.7);
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(9, 9, 11, 0.95); /* Increased to 0.95 to block text bleed */
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-subtle);
             
-            /* The Ultimate Fix */
-            position: relative; 
+            position: sticky; /* Keeps layout intact */
             top: 0; 
             z-index: 1000;
         }

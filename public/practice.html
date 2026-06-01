@@ -68,10 +68,15 @@
         /* --- Navigation --- */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 1rem 5%; background: rgba(9, 9, 11, 0.7); 
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            padding: 1rem 5%; 
+            background: rgba(9, 9, 11, 0.95); /* Increased to 0.95 to block text bleed */
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-subtle); 
-            position: relative; top: 0; z-index: 1000;
+            
+            position: sticky; /* Keeps layout intact */
+            top: 0; 
+            z-index: 1000;
         }
         .logo-text { 
             font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; 
