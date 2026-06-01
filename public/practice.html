@@ -209,6 +209,19 @@
             .bottom-bar { flex-direction: column; gap: 1rem; text-align: center; }
             .btn-primary { width: 100%; justify-content: center; }
         }
+        /* --- Solution Tabs --- */
+        .solution-tabs { display: flex; gap: 1rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem; }
+        .tab-btn { background: transparent; border: none; color: var(--text-muted); font-size: 0.9rem; font-weight: 600; padding: 0.5rem 1rem; cursor: pointer; border-radius: 8px; transition: all 0.2s; }
+        .tab-btn:hover { color: var(--text-main); background: rgba(255,255,255,0.05); }
+        .tab-btn.active { background: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3); }
+        
+        .tab-content { display: none; animation: fadeUp 0.3s ease-out forwards; }
+        .tab-content.active { display: block; }
+        
+        .ai-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .btn-refresh-ai { background: rgba(255,255,255,0.05); border: 1px solid var(--border-subtle); color: var(--text-main); padding: 0.4rem 0.8rem; border-radius: 8px; font-size: 0.8rem; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 6px; }
+        .btn-refresh-ai:hover { background: rgba(255,255,255,0.1); }
+        .ai-loading { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 2rem; color: #818cf8; }
     </style>
 </head>
 <body>
@@ -295,8 +308,23 @@
                 <div class="options-list" id="focus-options-container"></div>
 
                 <div class="solution-box" id="focus-explanation-box">
-                    <div class="solution-title"><i class="fa-solid fa-lightbulb"></i> Rationalized Solution Explanation</div>
-                    <div class="solution-text" id="focus-explanation-text"></div>
+                    <div class="solution-tabs">
+                        <button class="tab-btn active" onclick="switchSolutionTab('standard')"><i class="fa-solid fa-book"></i> Standard Solution</button>
+                        <button class="tab-btn" onclick="switchSolutionTab('ai')"><i class="fa-solid fa-sparkles"></i> AI Tutor</button>
+                    </div>
+
+                    <div id="tab-standard" class="tab-content active">
+                        <div class="solution-text" id="focus-explanation-text"></div>
+                    </div>
+
+                    <div id="tab-ai" class="tab-content">
+                        <div class="ai-header">
+                            <span style="font-size: 0.85rem; color: #818cf8; font-weight: 600;"><i class="fa-solid fa-robot"></i> Powered by Gemini 1.5</span>
+                            <button class="btn-refresh-ai" onclick="generateAISolution()"><i class="fa-solid fa-rotate-right"></i> Regenerate</button>
+                        </div>
+                        <div class="solution-text" id="ai-explanation-text">
+                            </div>
+                    </div>
                 </div>
             </div>
 
@@ -310,6 +338,49 @@
     </div>
 
     <script type="module">
+        window.generateAISolution = async () => {
+            if (isAIGenerating) return;
+            isAIGenerating = true;
+
+            const aiTextDiv = document.getElementById('ai-explanation-text');
+            const q = filteredPracticeSet[currentFocusIndex]; 
+            
+            aiTextDiv.innerHTML = `
+                <div class="ai-loading">
+                    <i class="fa-solid fa-circle-notch fa-spin fa-2x"></i>
+                    <span>Gemini is analyzing the question...</span>
+                </div>
+            `;
+
+            const userPrompt = `Explain step-by-step. Format with LaTeX. Question: ${q.q}. Answer: Option ${q.answer}`;
+
+            try {
+                // THE FIX: We are now talking to YOUR secure backend, not Google directly!
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: userPrompt })
+                });
+
+                if (!response.ok) throw new Error("Backend Error");
+
+                const data = await response.json();
+                let aiResponseText = data.text;
+                
+                // Format the text
+                aiResponseText = aiResponseText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+                aiResponseText = aiResponseText.replace(/\*/g, '<br>•');
+
+                aiTextDiv.innerHTML = injectInlineImages(aiResponseText);
+                setTimeout(() => triggerMathRender('ai-explanation-text'), 100);
+
+            } catch (error) {
+                console.error(error);
+                aiTextDiv.innerHTML = `<div style="color: var(--error-red);">Failed to generate AI explanation.</div>`;
+            } finally {
+                isAIGenerating = false;
+            }
+        };
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
         import { getFirestore, doc, updateDoc, setDoc, increment, arrayUnion, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
