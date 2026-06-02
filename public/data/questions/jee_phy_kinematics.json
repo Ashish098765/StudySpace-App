@@ -84,7 +84,7 @@
             "$\\frac{n}{n+4}$"
         ],
         "answer": 0,
-        "explanation": "Let the top point be $T$ and the bottom point be $B$.\n\nThe velocity at the top point is:\n$$v_{\\text{top}} = n\\sqrt{gR}$$\n\nThus, the kinetic energy at the top is:\n$$\\text{KE}_{\\text{top}} = \\frac{1}{2} m v_{\\text{top}}^2 = \\frac{1}{2} m n^2 gR$$\n\nBy conservation of mechanical energy between the top and bottom points (taking bottom point as reference level for potential energy, height of top point is $2R$):\n$$E_{\\text{bottom}} = E_{\\text{top}}$$\n$$\\text{KE}_{\\text{bottom}} = \\text{KE}_{\\text{top}} + m g (2R)$$\n$$\\text{KE}_{\\text{bottom}} = \\frac{1}{2} m n^2 gR + 2 m g R = \\frac{1}{2} m g R (n^2 + 4)$$\n\nNow, the ratio of the kinetic energy at the bottom to that at the top is:\n$$\\text{Ratio} = \\frac{\\text{KE}_{\\text{bottom}}}{\\text{KE}_{\\text{top}}} = \\frac{\\frac{1}{2} m g R (n^2 + 4)}{\\frac{1}{2} m n^2 gR} = \\frac{n^2 + 4}{n^2}$$\n\nThis corresponds to Option A.",
+        "explanation": "Let the top point be $T$ and the bottom point be $B$.\n\nThe velocity at the top point is:\n$$v_{\\text{top}} = n\\sqrt{gR}$$\n\nThus, the kinetic energy at the top is:\n$$\\text{KE}_{\\text{top}} = \\frac{1}{2} m v_{\\text{top}}^2 = \\frac{1}{2} m n^2 gR$$\n\nBy conservation of mechanical energy between the top and bottom points (taking bottom point as reference level for potential energy, height of top point is $2R$):\n$$E_{\\text{bottom}} = E_{\\text{top}}$$\n$$\\text{KE}_{\\text{bottom}} = \\text{KE}_{\\text{top}} + m g (2R)$$\n$$\\text{KE}_{\\text{bottom}} = \\frac{1}{2} m n^2 gR + 2\\text{ m} g R = \\frac{1}{2} m g R (n^2 + 4)$$\n\nNow, the ratio of the kinetic energy at the bottom to that at the top is:\n$$\\text{Ratio} = \\frac{\\text{KE}_{\\text{bottom}}}{\\text{KE}_{\\text{top}}} = \\frac{\\frac{1}{2} m g R (n^2 + 4)}{\\frac{1}{2} m n^2 gR} = \\frac{n^2 + 4}{n^2}$$\n\nThis corresponds to Option A.",
         "year": "2025",
         "shift": "Morning",
         "date": "29th January"
@@ -143,9 +143,9 @@
         "q": "A ball of mass $100\\text{ g}$ is projected with velocity $20\\text{ m/s}$ at $60^\\circ$ with horizontal. The decrease in kinetic energy of the ball during the motion from point of projection to highest point is",
         "type": "mcq",
         "options": [
-            "$20 J$",
-            "$5 J$",
-            "$15 J$",
+            "$20\\text{ J}$",
+            "$5\\text{ J}$",
+            "$15\\text{ J}$",
             "zero"
         ],
         "answer": 2,
@@ -155,7 +155,7 @@
         "date": "22nd January"
     },
     {
-        "q": "An object of mass $m$ is projected from origin in a vertical xy plane at an angle $45^\\circ$ with the $x$-axis with an initial velocity $v_0$. The magnitude and direction of the angular momentum of the object with respect to origin, when it reaches at the maximum height, will be [g is acceleration due to gravity]",
+        "q": "An object of mass $m$ is projected from origin in a vertical xy plane at an angle $45^\\circ$ with the $x$-axis with an initial velocity $v_0$. The magnitude and direction of the angular momentum of the object with respect to origin, when it reaches at the maximum height, will be [$g$ is acceleration due to gravity]",
         "type": "mcq",
         "options": [
             "$\\frac{m v_0^3}{2\\sqrt{2}g} along negative z-axis$",
@@ -203,9 +203,9 @@
         "q": "A river is flowing from west to east direction with speed of $9\\text{ km h}^{-1}$. If a boat capable of moving at a maximum speed of $27\\text{ km h}^{-1}$ in still water, crosses the river in half a minute, while moving with maximum speed at an angle of $150^\\circ$ to direction of river flow, then the width of the river is :",
         "type": "mcq",
         "options": [
-            "$112.5 m$",
-            "$75 m$",
-            "$300 m$",
+            "$112.5\\text{ m}$",
+            "$75\\text{ m}$",
+            "$300\\text{ m}$",
             "$112.5 \\times \\sqrt{3}\\text{ m}$"
         ],
         "answer": 0,
@@ -234,7 +234,7 @@
         "type": "integer",
         "options": [],
         "answer": 24,
-        "explanation": "We are given:\n$$R = 3 H_{\\text{max}}$$\n\nSubstitute the formulas for range $R$ and maximum height $H_{\\text{max}}$:\n$$\\frac{u^2 \\sin 2\\theta}{g} = 3 \\cdot \\frac{u^2 \\sin^2\\theta}{2g}$$\n$$\\frac{2u^2 \\sin\\theta \\cos\\theta}{g} = \\frac{3 u^2 \\sin^2\\theta}{2g}$$\n\nCancelling common terms ($u^2, g, \\sin\\theta$ assuming $\\theta \\neq 0$):\n$$2 \\cos\\theta = \\frac{3}{2} \\sin\\theta \\implies \\tan\\theta = \\frac{4}{3}$$\n\nFrom $\\tan\\theta = \\frac{4}{3}$, we find:\n$$\\sin\\theta = \\frac{4}{5}, \\quad \\cos\\theta = \\frac{3}{5}$$\n\nNow substitute these values back into the range formula:\n$$R = \\frac{u^2 (2 \\sin\\theta \\cos\\theta)}{g} = \\frac{u^2}{g} \\left( 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} \\right) = \\frac{24 u^2}{25 g}$$\n\nComparing this with the given expression $R = \\frac{n u^2}{25 g}$:\n$$n = 24$$",
+        "explanation": "We are given:\n$$R = 3 H_{\\text{max}}$$\n\nSubstitute the formulas for range $R$ and maximum height $H_{\\text{max}}$:\n$$\\frac{u^2 \\sin 2\\theta}{g} = 3 \\cdot \\frac{u^2 \\sin^2\\theta}{2g}$$\n$$\\frac{2u^2 \\sin\\theta \\cos\\theta}{g} = \\frac{3 u^2 \\sin^2\\theta}{2g}$$\n\nCancelling common terms ($u^2, g, \\sin\\theta$ assuming $\\theta \\neq 0$):\n$$2 \\cos\\theta = \\frac{3}{2} \\sin\\theta \\implies \\tan\\theta = \\frac{4}{3}$$\n\nFrom $\\tan\\theta = \\frac{4}{3}$, we find:\n$$\\sin\\theta = \\frac{4}{5}, \\quad \\cos\\theta = \\frac{3}{5}$$\n\nNow substitute these values back into the range formula:\n$$R = \\frac{u^2 (2 \\sin\\theta \\cos\\theta)}{g} = \\frac{u^2}{g} \\left( 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} \\right) = \\frac{24 u^2}{25\\text{ g}}$$\n\nComparing this with the given expression $R = \\frac{n u^2}{25\\text{ g}}$:\n$$n = 24$$",
         "year": "2025",
         "shift": "Evening",
         "date": "3rd April"
@@ -258,10 +258,10 @@
         "q": "A helicopter flying horizontally with a speed of $360\\text{ km/h}$ at an altitude of $2\\text{ km}$, drops an object at an instant. The object hits the ground at a point O, $20\\text{ s}$ after it is dropped. Displacement of $O$ from the position of helicopter where the object was released is : (use acceleration due to gravity $g = 10\\text{ m/s}^2$ and neglect air resistance)",
         "type": "mcq",
         "options": [
-            "7.2 km",
+            "$7.2\\text{ km}$",
             "$2\\sqrt{5}\\text{ km}$",
             "$2\\sqrt{2}\\text{ km}$",
-            "4 km"
+            "$4\\text{ km}$"
         ],
         "answer": 2,
         "explanation": "\n[IMG: kinematics_19.png]Let the point of release be $A$, and the point on the ground directly below $A$ be $P$.\n\n1) **Horizontal distance $x$ traveled by the object**:\nThe horizontal speed of the helicopter is:\n$$u = 360\\text{ km/h} = 360 \\times \\frac{5}{18} = 100\\text{ m/s}$$\nThe time in the air is $t = 20\\text{ s}$.\n$$x = u \\times t = 100\\text{ m/s} \\times 20\\text{ s} = 2000\\text{ m} = 2\\text{ km}$$\n\n2) **Vertical distance (altitude) $H$ of the helicopter**:\n$$H = 2\\text{ km} = 2000\\text{ m}$$\n\n3) **Net displacement $D$ from the release point**:\n$$\\vec{D} = x \\hat{i} - H \\hat{j}$$\n$$|\\vec{D}| = \\sqrt{x^2 + H^2} = \\sqrt{2^2 + 2^2} = \\sqrt{8} = 2\\sqrt{2}\\text{ km}$$\n\nThis corresponds to Option C.",
@@ -323,10 +323,10 @@
         "q": "The velocity-time graph of an object moving along a straight line is shown in the figure. What is the distance covered by the object between $t = 0$ to $t = 4\\text{ s}$?\n[IMG: kinematics_21.png]",
         "type": "mcq",
         "options": [
-            "$11 m$",
-            "$30 m$",
-            "$13 m$",
-            "$10 m$"
+            "$11\\text{ m}$",
+            "$30\\text{ m}$",
+            "$13\\text{ m}$",
+            "$10\\text{ m}$"
         ],
         "answer": 1,
         "explanation": "The distance covered is equal to the area under the velocity-time graph from $t = 0$ to $t = 4\\text{ s}$:\n\n1) **From $t = 0$ to $t = 2\\text{ s}$ (Triangle)**:\n$$\\text{Area}_1 = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times 2 \\times 10 = 10\\text{ m}$$\n\n2) **From $t = 2$ to $t = 4\\text{ s}$ (Rectangle)**:\n$$\\text{Area}_2 = \\text{width} \\times \\text{height} = (4 - 2) \\times 10 = 20\\text{ m}$$\n\n3) **Total Distance**:\n$$\\text{Total Distance} = 10 + 20 = 30\\text{ m}$$\n\nThis corresponds to Option B.",
@@ -353,8 +353,8 @@
         "q": "A particle moves along the $x$-axis and has its displacement $x$ varying with time $t$ according to the equation:\n$$x = c_0 (t^2 - 2) + c (t - 2)^2$$\nwhere $c_0$ and $c$ are constants of appropriate dimensions. Then, which of the following statements is correct?",
         "type": "mcq",
         "options": [
-            "$the acceleration of the particle is $2(c + c_0)$$",
-            "$the acceleration of the particle is $2c_0$$",
+            "the acceleration of the particle is $2(c + c_0)$",
+            "the acceleration of the particle is $2c_0$",
             "the acceleration of the particle is $2c$",
             "the initial velocity of the particle is $4c$"
         ],
@@ -409,7 +409,7 @@
         "type": "integer",
         "options": [],
         "answer": 45,
-        "explanation": "\n[IMG: kinematics_30.png]Let the body start from rest at point $O$ (velocity $u = 0$) and reach point $A$ with velocity $v_1$ after falling through distance $S$.\n\n1) **For motion from A to B**:\nThe distance is $h = 80\\text{ m}$ and time $t = 2\\text{ s}$. Using the second equation of motion:\n$$h = v_1 t + \\frac{1}{2} g t^2$$\n$$80 = v_1 (2) + \\frac{1}{2} (10) (2)^2$$\n$$80 = 2 v_1 + 20 \\implies 2 v_1 = 60 \\implies v_1 = 30\\text{ m/s}$$\n\n2) **For motion from O to A**:\nUsing the third equation of motion:\n$$v_1^2 = u^2 + 2 g S$$\n$$30^2 = 0 + 2 (10) S$$\n$$900 = 20 S \\implies S = 45\\text{ m}$$\n\nThus, the distance of point $A$ from the starting point is $45\\text{ m}$.",
+        "explanation": "\n[IMG: kinematics_30.png]Let the body start from rest at point $O$ (velocity $u = 0$) and reach point $A$ with velocity $v_1$ after falling through distance $S$.\n\n1) **For motion from A to B**:\nThe distance is $h = 80\\text{ m}$ and time $t = 2\\text{ s}$. Using the second equation of motion:\n$$h = v_1 t + \\frac{1}{2} g t^2$$\n$$80 = v_1 (2) + \\frac{1}{2} (10) (2)^2$$\n$$80 = 2 v_1 + 20 \\implies 2 v_1 = 60 \\implies v_1 = 30\\text{ m/s}$$\n\n2) **For motion from O to A**:\nUsing the third equation of motion:\n$$v_1^2 = u^2 + 2\\text{ g} S$$\n$$30^2 = 0 + 2 (10) S$$\n$$900 = 20 S \\implies S = 45\\text{ m}$$\n\nThus, the distance of point $A$ from the starting point is $45\\text{ m}$.",
         "year": "2024",
         "shift": "Evening",
         "date": "27th January"
@@ -433,10 +433,10 @@
         "q": "A particle is moving in a straight line. The variation of position $x$ as a function of time $t$ is given as $x = (t^3 - 6t^2 + 20t + 15)\\text{m}$. The velocity of the body when its acceleration becomes zero is :",
         "type": "mcq",
         "options": [
-            "$4 m/s$",
-            "$8 m/s$",
-            "$10 m/s$",
-            "$6 m/s$"
+            "$4\\text{ m/s}$",
+            "$8\\text{ m/s}$",
+            "$10\\text{ m/s}$",
+            "$6\\text{ m/s}$"
         ],
         "answer": 1,
         "explanation": "Given the position equation:\n$$x(t) = t^3 - 6t^2 + 20t + 15$$\n\n1) **Find Velocity $v(t)$**:\n$$v(t) = \\frac{dx}{dt} = 3t^2 - 12t + 20$$\n\n2) **Find Acceleration $a(t)$**:\n$$a(t) = \\frac{dv}{dt} = 6t - 12$$\n\n3) **Determine $t$ when acceleration is zero**:\n$$a(t) = 0 \\implies 6t - 12 = 0 \\implies t = 2\\text{ s}$$\n\n4) **Calculate velocity at $t = 2\\text{ s}$**:\n$$v(2) = 3(2)^2 - 12(2) + 20 = 12 - 24 + 20 = 8\\text{ m/s}$$\n\nThis corresponds to Option B.",
@@ -570,7 +570,7 @@
         "date": "1st February"
     },
     {
-        "q": "Train A is moving along two parallel rail tracks towards north with speed $72\\text{ km/h}$ and train B is moving towards south with speed $108\\text{ km/h}$. Velocity of train B with respect to A and velocity of ground with respect to B are (in $\\text{ms}^{-1}$) :",
+        "q": "Train A is moving along two parallel rail tracks towards north with speed $72\\text{ km/h}$ and train B is moving towards south with speed $108\\text{ km/h}$. Velocity of train B with respect to A and velocity of ground with respect to B are (in $m/s$) :",
         "type": "mcq",
         "options": [
             "$-30 and 50$",
@@ -579,13 +579,13 @@
             "$50 and -30$"
         ],
         "answer": 2,
-        "explanation": "\n[IMG: kinematics_57.png]Let us choose North as the positive direction (+y direction):\n- Velocity of train A: $v_A = +72\\text{ km/h} = +20\\text{ m/s}$\n- Velocity of train B: $v_B = -108\\text{ km/h} = -30\\text{ m/s}$\n\n1) **Velocity of train B with respect to A ($v_{B/A}$)**:\n$$v_{B/A} = v_B - v_A = -30 - 20 = -50\\text{ m/s}$$\n\n2) **Velocity of ground with respect to B ($v_{G/B}$)**:\n$$v_{G/B} = v_G - v_B = 0 - (-30) = +30\\text{ m/s}$$\n\nTherefore, the velocities are $-50\\text{ m/s}$ and $30\\text{ m/s}$.\n\nThis corresponds to Option C.",
+        "explanation": "\n[IMG: kinematics_57.png]Let us choose North as the positive direction (+$y$ direction):\n- Velocity of train A: $v_A = +72\\text{ km/h} = +20\\text{ m/s}$\n- Velocity of train B: $v_B = -108\\text{ km/h} = -30\\text{ m/s}$\n\n1) **Velocity of train B with respect to A ($v_{B/A}$)**:\n$$v_{B/A} = v_B - v_A = -30 - 20 = -50\\text{ m/s}$$\n\n2) **Velocity of ground with respect to B ($v_{G/B}$)**:\n$$v_{G/B} = v_G - v_B = 0 - (-30) = +30\\text{ m/s}$$\n\nTherefore, the velocities are $-50\\text{ m/s}$ and $30\\text{ m/s}$.\n\nThis corresponds to Option C.",
         "year": "2024",
         "shift": "Evening",
         "date": "1st February"
     },
     {
-        "q": "A particle initially at rest starts moving from reference point $x = 0$ along $x$-axis, with velocity $v$ that varies as $v = 4\\sqrt{x}\\text{ m/s}$. The acceleration of the particle is____ $\\text{ms}^{-2}$.",
+        "q": "A particle initially at rest starts moving from reference point $x = 0$ along $x$-axis, with velocity $v$ that varies as $v = 4\\sqrt{x}\\text{ m/s}$. The acceleration of the particle is____ $m/s^2$.",
         "type": "integer",
         "options": [],
         "answer": 8,
@@ -595,7 +595,7 @@
         "date": "1st February"
     },
     {
-        "q": "A particle moving in a circle of radius $R$ with uniform speed takes time $T$ to complete one revolution. If this particle is projected with the same speed at an angle $\\theta$ to the horizontal, the maximum height attained by it is equal to 4R. The angle of projection $\\theta$ is then given by :",
+        "q": "A particle moving in a circle of radius $R$ with uniform speed takes time $T$ to complete one revolution. If this particle is projected with the same speed at an angle $\\theta$ to the horizontal, the maximum height attained by it is equal to 4$R$. The angle of projection $\\theta$ is then given by :",
         "type": "mcq",
         "options": [
             "$\\sin^{-1}\\left[\\frac{2g T^2}{\\pi^2 R}\\right]^{1/2}$",
@@ -643,10 +643,10 @@
         "q": "The distance travelled by a particle is related to time $t$ as $x = 4t^2$. The velocity of the particle at $t = 5\\text{ s}$ is.",
         "type": "mcq",
         "options": [
-            "$40 m/s$",
-            "$25 m/s$",
-            "$20 m/s$",
-            "$8 m/s$"
+            "$40\\text{ m/s}$",
+            "$25\\text{ m/s}$",
+            "$20\\text{ m/s}$",
+            "$8\\text{ m/s}$"
         ],
         "answer": 0,
         "explanation": "Given the distance equation:\n$$x(t) = 4t^2$$\n\nDifferentiating with respect to time $t$ to find the velocity equation $v(t)$:\n$$v(t) = \\frac{dx}{dt} = 8t$$\n\nSubstitute $t = 5\\text{ s}$ into the velocity equation:\n$$v(5) = 8(5) = 40\\text{ m/s}$$\n\nThis corresponds to Option A.",
@@ -655,7 +655,7 @@
         "date": "25th January"
     },
     {
-        "q": "A tennis ball is dropped on to the floor from a height of $9.8\\text{ m}$. It rebounds to a height $5.0\\text{ m}$. Ball comes in contact with the floor for $0.2\\text{ s}$. The average acceleration during contact is _______ $\\text{ms}^{-2}$.\n\n[Given $g = 10\\text{ms}^{-2}$]",
+        "q": "A tennis ball is dropped on to the floor from a height of $9.8\\text{ m}$. It rebounds to a height $5.0\\text{ m}$. Ball comes in contact with the floor for $0.2\\text{ s}$. The average acceleration during contact is _______ $m/s^2$.\n\n[Given $g = 10m/s^2$]",
         "type": "integer",
         "options": [],
         "answer": 120,
@@ -705,13 +705,13 @@
         "date": "30th January"
     },
     {
-        "q": "A vehicle travels 4 km with speed of $3\\text{ km/h}$ and another 4 km with speed of $5\\text{ km/h}$, then its average speed is:",
+        "q": "A vehicle travels $4\\text{ km}$ with speed of $3\\text{ km/h}$ and another $4\\text{ km}$ with speed of $5\\text{ km/h}$, then its average speed is:",
         "type": "mcq",
         "options": [
-            "$4.25 km/h$",
-            "$3.50 km/h$",
-            "$4.00 km/h$",
-            "$3.75 km/h$"
+            "$4.25\\text{ km/h}$",
+            "$3.50\\text{ km/h}$",
+            "$4.00\\text{ km/h}$",
+            "$3.75\\text{ km/h}$"
         ],
         "answer": 3,
         "explanation": "Since the vehicle covers equal distances of $d_1 = d_2 = 4\\text{ km}$ at different speeds, we can use the harmonic mean formula for average speed:\n$$v_{\\text{avg}} = \\frac{2 v_1 v_2}{v_1 + v_2}$$\n\nSubstitute the given values ($v_1 = 3\\text{ km/h}$ and $v_2 = 5\\text{ km/h}$):\n$$v_{\\text{avg}} = \\frac{2 \\times 3 \\times 5}{3 + 5} = \\frac{30}{8} = 3.75\\text{ km/h}$$\n\nThis corresponds to Option D.",
@@ -780,7 +780,7 @@
         "date": "29th January"
     },
     {
-        "q": "A particle of mass $100\\text{ g}$ is projected at time $t = 0$ with a speed $20\\text{ m/s}$ at an angle $45^\\circ$ to the horizontal as given in the figure. The magnitude of the angular momentum of the particle about the starting point at time $t = $2$\\text{ s}$$$ is found to be $\\sqrt{K}\\text{ kg m}^2\\text{/ s}$. The value of $K$ is ________.\n[IMG: kinematics_69.png]",
+        "q": "A particle of mass $100\\text{ g}$ is projected at time $t = 0$ with a speed $20\\text{ m/s}$ at an angle $45^\\circ$ to the horizontal as given in the figure. The magnitude of the angular momentum of the particle about the starting point at time $t = $2$\\text{ s}$$ is found to be $\\sqrt{K}\\text{ kg m}^2\\text{/ s}$. The value of $K$ is ________.\n[IMG: kinematics_69.png]",
         "type": "integer",
         "options": [],
         "answer": 800,
@@ -805,7 +805,7 @@
         "date": "31st January"
     },
     {
-        "q": "The speed of a swimmer is $4\\text{ km h}^{-1}$ in still water. If the swimmer makes his strokes normal to the flow of river of width 1 km, he reaches a point $750\\text{ m}$ down the stream on the opposite bank. The speed of the river water is _______ $\\text{km h}^{-1}$.",
+        "q": "The speed of a swimmer is $4\\text{ km h}^{-1}$ in still water. If the swimmer makes his strokes normal to the flow of river of width $1\\text{ km}$, he reaches a point $750\\text{ m}$ down the stream on the opposite bank. The speed of the river water is _______ $\\text{km h}^{-1}$.",
         "type": "integer",
         "options": [],
         "answer": 3,
@@ -854,13 +854,13 @@
         "type": "integer",
         "options": [],
         "answer": 15,
-        "explanation": "\n[IMG: kinematics_72.png]Since air resistance is neglected, the horizontal velocity component remains constant throughout the motion:\n$$v_x = u = 5\\text{ m/s}$$\n\nFor the vertical component of the velocity just before hitting the ground, we use the equation of motion for a free fall from height $H = 10\\text{ m}$:\n$$v_y^2 = u_y^2 + 2 g H$$\n$$v_y^2 = 0 + 2 (10) (10) = 200\\text{ m}^2/\\text{s}^2$$\n\nThe net speed $v$ with which the stone hits the ground is:\n$$v = \\sqrt{v_x^2 + v_y^2} = \\sqrt{5^2 + 200} = \\sqrt{25 + 200} = \\sqrt{225} = 15\\text{ m/s}$$",
+        "explanation": "\n[IMG: kinematics_72.png]Since air resistance is neglected, the horizontal velocity component remains constant throughout the motion:\n$$v_x = u = 5\\text{ m/s}$$\n\nFor the vertical component of the velocity just before hitting the ground, we use the equation of motion for a free fall from height $H = 10\\text{ m}$:\n$$v_y^2 = u_y^2 + 2\\text{ g} H$$\n$$v_y^2 = 0 + 2 (10) (10) = 200\\text{ m}^2/\\text{s}^2$$\n\nThe net speed $v$ with which the stone hits the ground is:\n$$v = \\sqrt{v_x^2 + v_y^2} = \\sqrt{5^2 + 200} = \\sqrt{25 + 200} = \\sqrt{225} = 15\\text{ m/s}$$",
         "year": "2023",
         "shift": "Morning",
         "date": "1st February"
     },
     {
-        "q": "A particle of mass $10\\text{ g}$ moves in a straight line with retardation 2x, where $x$ is the displacement in SI units. Its loss of kinetic energy for above displacement is $\\left(\\frac{10}{x}\\right)^{-n}\\text{ J}$. The value of $n$ will be ________",
+        "q": "A particle of mass $10\\text{ g}$ moves in a straight line with retardation 2$x$, where $x$ is the displacement in SI units. Its loss of kinetic energy for above displacement is $\\left(\\frac{10}{x}\\right)^{-n}\\text{ J}$. The value of $n$ will be ________",
         "type": "integer",
         "options": [],
         "answer": 2,
@@ -873,10 +873,10 @@
         "q": "A particle starts with an initial velocity of $10.0\\text{ ms}^{-1}$ along $x - direction$ and accelerates uniformly at the rate of $2.0\\text{ ms}^{-2}$. The time taken by the particle to reach the velocity of $60.0\\text{ ms}^{-1}$ is",
         "type": "mcq",
         "options": [
-            "$3 s$",
-            "$6 s$",
-            "$25 s$",
-            "$30 s$"
+            "$3\\text{ s}$",
+            "$6\\text{ s}$",
+            "$25\\text{ s}$",
+            "$30\\text{ s}$"
         ],
         "answer": 2,
         "explanation": "Using the first equation of motion:\n$$v = u + a t$$\n\nSubstitute the given values ($u = 10.0\\text{ m/s}$, $a = 2.0\\text{ m/s}^2$, $v = 60.0\\text{ m/s}$):\n$$60.0 = 10.0 + 2.0 t$$\n$$50.0 = 2.0 t \\implies t = 25\\text{ s}$$\n\nThis corresponds to Option C.",
@@ -918,10 +918,10 @@
         "q": "Given below are two statements : one is labelled as Assertion A and the other is labelled as Reason $R$.\n\nAssertion A : When a body is projected at an angle $45^\\circ$, it's range is maximum.\nReason $R$ : For maximum range, the value of $\\sin 2\\theta$ should be equal to one.\n\nIn the light of the above statements, choose the correct answer from the options given below :",
         "type": "mcq",
         "options": [
-            "Both A and R are correct but R is NOT the correct explanation of A",
-            "A is false but R is true",
-            "Both A and R are correct and R is the correct explanation of A",
-            "A is true but R is false"
+            "Both A and $R$ are correct but $R$ is NOT the correct explanation of A",
+            "A is false but $R$ is true",
+            "Both A and $R$ are correct and $R$ is the correct explanation of A",
+            "A is true but $R$ is false"
         ],
         "answer": 2,
         "explanation": "- **Assertion A is correct**: The horizontal range of a projectile is given by $R = \\frac{u^2 \\sin 2\\theta}{g}$. The maximum possible range is achieved when the launch angle $\\theta = 45^\\circ$.\n- **Reason $R$ is correct**: For the range to be maximized (for a given velocity $u$), the trigonometric term $\\sin 2\\theta$ must take its maximum value of $1$. This gives $2\\theta = 90^\\circ \\implies \\theta = 45^\\circ$.\n\nSince the condition $\\sin 2\\theta = 1$ (Reason $R$) mathematically determines the launch angle of $45^\\circ$ for maximum range (Assertion A), both statements are correct, and $R$ is the correct explanation of A.\n\nThis corresponds to Option C.",
@@ -1005,7 +1005,7 @@
         "date": "10th April"
     },
     {
-        "q": "A projectile fired at $30^\\circ$ to the ground is observed to be at same height at time $3\\text{ s}$ and $5\\text{ s}$ after projection, during its flight. The speed of projection of the projectile is _______ $\\text{ms}^{-1}$. (Given $g = 10\\text{ms}^{-2}$)",
+        "q": "A projectile fired at $30^\\circ$ to the ground is observed to be at same height at time $3\\text{ s}$ and $5\\text{ s}$ after projection, during its flight. The speed of projection of the projectile is _______ $m/s$. (Given $g = 10m/s^2$)",
         "type": "integer",
         "options": [],
         "answer": 80,
@@ -1015,13 +1015,13 @@
         "date": "11th April"
     },
     {
-        "q": "A projectile is projected at $30^\\circ$ from horizontal with initial velocity $40\\text{ms}^{-1}$. The velocity of the projectile at $t = 2\\text{ s}$ from the start will be : (Given $g = 10\\text{ m/s}^2$)",
+        "q": "A projectile is projected at $30^\\circ$ from horizontal with initial velocity $40m/s$. The velocity of the projectile at $t = 2\\text{ s}$ from the start will be : (Given $g = 10\\text{ m/s}^2$)",
         "type": "mcq",
         "options": [
             "Zero",
-            "$20\\sqrt{3}\\text{ms}^{-1}$",
-            "$40\\sqrt{3}\\text{ms}^{-1}$",
-            "$20\\text{ms}^{-1}$"
+            "$20\\sqrt{3}m/s$",
+            "$40\\sqrt{3}m/s$",
+            "$20m/s$"
         ],
         "answer": 1,
         "explanation": "\n[IMG: kinematics_77.png]Given:\n- $u = 40\\text{ m/s}$\n- $\\theta = 30^\\circ$\n- $t = 2\\text{ s}$\n\nThe initial horizontal and vertical velocity components are:\n$$u_x = u \\cos 30^\\circ = 40 \\left(\\frac{\\sqrt{3}}{2}\right) = 20\\sqrt{3}\\text{ m/s}$$\n$$u_y = u \\sin 30^\\circ = 40 \\left(\\frac{1}{2}\right) = 20\\text{ m/s}$$\n\nAt $t = 2\\text{ s}$, the horizontal component of velocity remains unchanged:\n$$v_x = u_x = 20\\sqrt{3}\\text{ m/s}$$\n\nThe vertical component of velocity is:\n$$v_y = u_y - g t = 20 - 10(2) = 0\\text{ m/s}$$\n\nThe magnitude of the net velocity $v$ at $t = 2\\text{ s}$ is:\n$$v = \\sqrt{v_x^2 + v_y^2} = \\sqrt{(20\\sqrt{3})^2 + 0^2} = 20\\sqrt{3}\\text{ m/s}$$\n\nThis corresponds to Option B.",
@@ -1035,7 +1035,7 @@
         "options": [
             "$2R\\sqrt{1+4\\pi^2}$",
             "$R\\sqrt{\\pi^2+4}$",
-            "2R",
+            "2$R$",
             "$R\\sqrt{\\pi^2+1}$"
         ],
         "answer": 1,
@@ -1215,7 +1215,7 @@
         "date": "24th June"
     },
     {
-        "q": "An object of mass $5\\text{ kg}$ is thrown vertically upwards from the ground. The air resistance produces a constant retarding force of $10\\text{ N}$ throughout the motion. The ratio of time of ascent to the time of descent will be equal to : [Use $g = 10\\text{ms}^{-2}$]",
+        "q": "An object of mass $5\\text{ kg}$ is thrown vertically upwards from the ground. The air resistance produces a constant retarding force of $10\\text{ N}$ throughout the motion. The ratio of time of ascent to the time of descent will be equal to : [Use $g = 10m/s^2$]",
         "type": "mcq",
         "options": [
             "$1 : 1$",
@@ -1279,13 +1279,13 @@
         "type": "integer",
         "options": [],
         "answer": 5,
-        "explanation": "\n[IMG: kinematics_86.png]Let the ball fall through a distance $y$ before its velocity becomes equal to the acceleration due to gravity ($v = g = 10\\text{ m/s}$):\n$$v^2 = u^2 + 2 g y$$\n$$10^2 = 0 + 2 (10) y$$\n$$100 = 20 y \\implies y = 5\\text{ m}$$\n\nThe height of this point from the ground is:\n$$h = H_{\\text{total}} - y = 10\\text{ m} - 5\\text{ m} = 5\\text{ m}$$",
+        "explanation": "\n[IMG: kinematics_86.png]Let the ball fall through a distance $y$ before its velocity becomes equal to the acceleration due to gravity ($v = g = 10\\text{ m/s}$):\n$$v^2 = u^2 + 2\\text{ g} y$$\n$$10^2 = 0 + 2 (10) y$$\n$$100 = 20 y \\implies y = 5\\text{ m}$$\n\nThe height of this point from the ground is:\n$$h = H_{\\text{total}} - y = 10\\text{ m} - 5\\text{ m} = 5\\text{ m}$$",
         "year": "2022",
         "shift": "Morning",
         "date": "26th June"
     },
     {
-        "q": "A ball is projected vertically upward with an initial velocity of $50\\text{ms}^{-1}$ at $t = 0\\text{ s}$. At $t = 2\\text{s}$, another ball is projected vertically upward with same velocity. At $t = $ _______s, second ball will meet the first ball ($g = 10\\text{ms}^{-2}$).",
+        "q": "A ball is projected vertically upward with an initial velocity of $50m/s$ at $t = 0\\text{ s}$. At $t = 2\\text{s}$, another ball is projected vertically upward with same velocity. At $t = $ _______s, second ball will meet the first ball ($g = 10m/s^2$).",
         "type": "integer",
         "options": [],
         "answer": 6,
@@ -1295,7 +1295,7 @@
         "date": "26th June"
     },
     {
-        "q": "A man of $60\\text{ kg}$ is running on the road and suddenly jumps into a stationary trolly car of mass $120\\text{ kg}$. Then, the trolly car starts moving with velocity $2\\text{ms}^{-1}$. The velocity of the running man was _____$\\text{ms}^{-1}$, when he jumps into the car.",
+        "q": "A man of $60\\text{ kg}$ is running on the road and suddenly jumps into a stationary trolly car of mass $120\\text{ kg}$. Then, the trolly car starts moving with velocity $2m/s$. The velocity of the running man was _____$m/s$, when he jumps into the car.",
         "type": "integer",
         "options": [],
         "answer": 6,
@@ -1320,7 +1320,7 @@
         "date": "28th June"
     },
     {
-        "q": "A car covers AB distance with first one-third at velocity $v_1\\text{ms}^{-1}$, second one-third at $v_2\\text{ms}^{-1}$ and last one-third at $v_3\\text{ms}^{-1}$. If $v_3 = 3v_1$, $v_2 = 2v_1$ and $v_1 = 11\\text{ms}^{-1}$ then the average velocity of the car is ______$\\text{ms}^{-1}$\n[IMG: kinematics_87.png]",
+        "q": "A car covers AB distance with first one-third at velocity $v_1m/s$, second one-third at $v_2m/s$ and last one-third at $v_3m/s$. If $v_3 = 3v_1$, $v_2 = 2v_1$ and $v_1 = 11m/s$ then the average velocity of the car is ______$m/s$\n[IMG: kinematics_87.png]",
         "type": "integer",
         "options": [],
         "answer": 18,
@@ -1330,7 +1330,7 @@
         "date": "28th June"
     },
     {
-        "q": "Two balls A and B are placed at the top of $180\\text{ m}$ tall tower. Ball A is released from the top at $t = $0$\\text{ s}$.$$ Ball B is thrown vertically down with an initial velocity $u$ at $t = $2$\\text{ s}$.$$ After a certain time, both balls meet $100\\text{ m}$ above the ground. Find the value of $u$ in $\\text{ms}^{-1}$ . [ use $g = 10\\text{ms}^{-2}$ ] :",
+        "q": "Two balls A and B are placed at the top of $180\\text{ m}$ tall tower. Ball A is released from the top at $t = 0\\text{ s}$. Ball B is thrown vertically down with an initial velocity $u$ at $t = 2\\text{ s}$. After a certain time, both balls meet $100\\text{ m}$ above the ground. Find the value of $u$ in $m/s$ . [ use $g = 10m/s^2$ ] :",
         "type": "mcq",
         "options": [
             "$10$",
@@ -1388,10 +1388,10 @@
         "q": "Given below are two statements. One is labelled as Assertion A and the other is labelled as Reason $R$.\n\nAssertion A: Two identical balls A and B thrown with same velocity $u$ at two different angles with horizontal attained the same range $R$. IF A and B reached the maximum height $h_1$ and $h_2$ respectively, then $R = 4\\sqrt{h_1h_2}$\nReason $R$ : Product of said heights.\n$$h_1h_2 = \\left(\\frac{u^2\\sin^2\\theta}{2g}\\right) \\cdot \\left(\\frac{u^2\\cos^2\\theta}{2g}\right)$$\n\nChoose the correct answer :",
         "type": "mcq",
         "options": [
-            "Both A and R are true and R is the correct explanation of A.",
-            "Both A and R are true but R is NOT the correct explanation of A.",
-            "A is true but R is false.",
-            "A is false but R is true."
+            "Both A and $R$ are true and $R$ is the correct explanation of A.",
+            "Both A and $R$ are true but $R$ is NOT the correct explanation of A.",
+            "A is true but $R$ is false.",
+            "A is false but $R$ is true."
         ],
         "answer": 0,
         "explanation": "Let us check both statements:\n\n- **Assertion A is correct**: Since both balls are launched with the same velocity $u$ and achieve identical horizontal ranges, their projection angles must be complementary: $\\theta$ and $90^\\circ - \\theta$.\n  The maximum heights reached are:\n  $$h_1 = \\frac{u^2 \\sin^2\\theta}{2g}, \\quad h_2 = \\frac{u^2 \\sin^2(90^\\circ - \\theta)}{2g} = \\frac{u^2 \\cos^2\\theta}{2g}$$\n  Let's verify the relation $R = 4\\sqrt{h_1 h_2}$:\n  $$4\\sqrt{h_1 h_2} = 4 \\sqrt{\\frac{u^4 \\sin^2\\theta \\cos^2\\theta}{4g^2}} = 4 \\cdot \\frac{u^2 \\sin\\theta \\cos\\theta}{2g} = \\frac{u^2 (2 \\sin\\theta \\cos\\theta)}{g} = \\frac{u^2 \\sin 2\\theta}{g} = R$$\n\n- **Reason $R$ is correct**: The product of the maximum heights is indeed $h_1h_2 = \\left(\\frac{u^2\\sin^2\\theta}{2g}\\right) \\cdot \\left(\\frac{u^2\\cos^2\\theta}{2g}\\right)$. Since taking the square root of this product provides the direct algebraic basis for deriving $R = 4\\sqrt{h_1 h_2}$, $R$ is the correct explanation of A.\n\nThis corresponds to Option A.",
@@ -1400,7 +1400,7 @@
         "date": "25th June"
     },
     {
-        "q": "A fighter jet is flying horizontally at a certain altitude with a speed of $200\\text{ms}^{-1}$. When it passes directly overhead an anti-aircraft gun, a bullet is fired from the gun, at an angle $\\theta$ with the horizontal, to hit the jet. If the bullet speed is $400\\text{ m/s}$, the value of $\\theta$ will be____________$^\\circ$",
+        "q": "A fighter jet is flying horizontally at a certain altitude with a speed of $200m/s$. When it passes directly overhead an anti-aircraft gun, a bullet is fired from the gun, at an angle $\\theta$ with the horizontal, to hit the jet. If the bullet speed is $400\\text{ m/s}$, the value of $\\theta$ will be____________$^\\circ$",
         "type": "integer",
         "options": [],
         "answer": 60,
@@ -1410,7 +1410,7 @@
         "date": "26th June"
     },
     {
-        "q": "A projectile is launched at an angle ' $\\alpha$ ' with the horizontal with a velocity $20\\text{ms}^{-1}$. After $10\\text{ s}$, its inclination with horizontal is ' $\\beta$ '. The value of $\\tan\\beta$ will be : ($g = 10\\text{ms}^{-2}$).",
+        "q": "A projectile is launched at an angle ' $\\alpha$ ' with the horizontal with a velocity $20m/s$. After $10\\text{ s}$, its inclination with horizontal is ' $\\beta$ '. The value of $\\tan\\beta$ will be : ($g = 10m/s^2$).",
         "type": "mcq",
         "options": [
             "$\\tan \\alpha + 5 \\sec \\alpha$",
@@ -1485,7 +1485,7 @@
         "date": "29th June"
     },
     {
-        "q": "A ball is thrown vertically upwards with a velocity of $19.6\\text{ms}^{-1}$ from the top of a tower. The ball strikes the ground after $6\\text{ s}$. The height from the ground up to which the ball can rise will be $\\frac{k}{5}\\text{ m}$. The value of $k$ is (use $g = 9.8\\text{m/ s}^2$)",
+        "q": "A ball is thrown vertically upwards with a velocity of $19.6m/s$ from the top of a tower. The ball strikes the ground after $6\\text{ s}$. The height from the ground up to which the ball can rise will be $\\frac{k}{5}\\text{ m}$. The value of $k$ is (use $g = 9.8\\text{m/ s}^2$)",
         "type": "integer",
         "options": [],
         "answer": 392,
@@ -1520,7 +1520,7 @@
         "date": "25th July"
     },
     {
-        "q": "A particle is moving in a straight line such that its velocity is increasing at $5\\text{ms}^{-1}$ per meter. The acceleration of the particle is _____$\\text{ms}^{-2}$ at a point where its velocity is $20\\text{ms}^{-1}$.",
+        "q": "A particle is moving in a straight line such that its velocity is increasing at $5m/s$ per meter. The acceleration of the particle is _____$m/s^2$ at a point where its velocity is $20m/s$.",
         "type": "integer",
         "options": [],
         "answer": 100,
@@ -1734,7 +1734,7 @@
             "$\n[IMG: kinematics_102.png]$"
         ],
         "answer": 1,
-        "explanation": "Let us analyze the slopes of the velocity-time graph:\n- **From A to M**:\n  The graph is a straight line sloping downwards. The slope $\\frac{dv}{dt}$ is constant and negative. Thus, the acceleration is constant and negative.\n- **From $M$ to B**:\n  The graph is a straight line sloping upwards. The slope $\\frac{dv}{dt}$ is constant and positive. Thus, the acceleration is constant and positive.\n\nThis discontinuous change from a constant negative acceleration to a constant positive acceleration is correctly represented by the step function in Graph B.\n[IMG: kinematics_104.png]\n\nThis corresponds to Option B.",
+        "explanation": "Let us analyze the slopes of the velocity-time graph:\n- **From A to $M$**:\n  The graph is a straight line sloping downwards. The slope $\\frac{dv}{dt}$ is constant and negative. Thus, the acceleration is constant and negative.\n- **From $M$ to B**:\n  The graph is a straight line sloping upwards. The slope $\\frac{dv}{dt}$ is constant and positive. Thus, the acceleration is constant and positive.\n\nThis discontinuous change from a constant negative acceleration to a constant positive acceleration is correctly represented by the step function in Graph B.\n[IMG: kinematics_104.png]\n\nThis corresponds to Option B.",
         "year": "2021",
         "shift": "Morning",
         "date": "24th February"
@@ -1875,11 +1875,11 @@
         "date": "16th March"
     },
     {
-        "q": "The projectile motion of a particle of mass $5\\text{ g}$ is shown in the figure.\n[IMG: kinematics_129.png] The initial velocity of the particle is $5\\sqrt{2}\\text{ms}^{-1}$ and the air resistance is assumed to be negligible. The magnitude of the change in momentum between the points A and B is $x \\times 10^{-2}\\text{kg - ms}^{-1}$. The value of $x$ to the nearest integer, is:",
+        "q": "The projectile motion of a particle of mass $5\\text{ g}$ is shown in the figure.\n[IMG: kinematics_129.png] The initial velocity of the particle is $5\\sqrt{2}m/s$ and the air resistance is assumed to be negligible. The magnitude of the change in momentum between the points A and B is $x \\times 10^{-2}\\text{kg - ms}^{-1}$. The value of $x$ to the nearest integer, is:",
         "type": "integer",
         "options": [],
         "answer": 5,
-        "explanation": "\n[IMG: kinematics_128.png]Given:\n- $m = 5\\text{ g} = 5 \\times 10^{-3}\\text{ kg}$\n- $u = 5\\sqrt{2}\\text{ m/s}$\n- Projection angle $\\theta = 45^\\circ$\n\nThe momentum change $\\Delta \\vec{p}$ between launch point $A$ and return point $B$ (at the same vertical level) is solely due to the vertical velocity component reversing direction:\n$$\\Delta p_x = 0$$\n$$\\Delta p_y = m v_{fy} - m v_{iy} = m(-u \\sin 45^\\circ) - m(u \\sin 45^\\circ) = -2mu \\sin 45^\\circ$$\n\nThe magnitude of the change in momentum is:\n$$|\\Delta \\vec{p}| = 2 m u \\sin 45^\\circ$$\nSubstitute the values:\n$$|\\Delta \\vec{p}| = 2 (5 \\times 10^{-3}) (5\\sqrt{2}) \\left( \\frac{1}{\\sqrt{2}} \\right) = 50 \\times 10^{-3} = 5 \\times 10^{-2}\\text{ kg m/s}$$\n\nComparing this with $x \\times 10^{-2}$, we get:\n$$x = 5$$",
+        "explanation": "\n[IMG: kinematics_128.png]Given:\n- $m = 5\\text{ g} = 5 \\times 10^{-3}\\text{ kg}$\n- $u = 5\\sqrt{2}\\text{ m/s}$\n- Projection angle $\\theta = 45^\\circ$\n\nThe momentum change $\\Delta \\vec{p}$ between launch point $A$ and return point $B$ (at the same vertical level) is solely due to the vertical velocity component reversing direction:\n$$\\Delta p_x = 0$$\n$$\\Delta p_y = m v_{fy} - m v_{iy} = m(-u \\sin 45^\\circ) - m(u \\sin 45^\\circ) = -2mu \\sin 45^\\circ$$\n\nThe magnitude of the change in momentum is:\n$$|\\Delta \\vec{p}| = 2\\text{ m} u \\sin 45^\\circ$$\nSubstitute the values:\n$$|\\Delta \\vec{p}| = 2 (5 \\times 10^{-3}) (5\\sqrt{2}) \\left( \\frac{1}{\\sqrt{2}} \\right) = 50 \\times 10^{-3} = 5 \\times 10^{-2}\\text{ kg m/s}$$\n\nComparing this with $x \\times 10^{-2}$, we get:\n$$x = 5$$",
         "year": "2021",
         "shift": "Evening",
         "date": "18th March"
@@ -1945,7 +1945,7 @@
             "$2n^2v^3$"
         ],
         "answer": 0,
-        "explanation": "Given the relationship:\n$$t = m x^2 + n x$$\n\nDifferentiating with respect to position $x$:\n$$\\frac{dt}{dx} = 2 m x + n$$\nSince velocity $v = \\frac{dx}{dt}$:\n$$\\frac{1}{v} = 2 m x + n$$\n\nDifferentiating with respect to time $t$ using the chain rule:\n$$\\frac{d}{dt} \\left( \\frac{1}{v} \\right) = \\frac{d}{dx} (2mx + n) \\frac{dx}{dt}$$\n$$-\\frac{1}{v^2} \\frac{dv}{dt} = 2m v$$\n$$-\\frac{a}{v^2} = 2m v \\implies a = -2m v^3$$\n\nTherefore, the magnitude of retardation is $2mv^3$.\n\nThis corresponds to Option A.",
+        "explanation": "Given the relationship:\n$$t = m x^2 + n x$$\n\nDifferentiating with respect to position $x$:\n$$\\frac{dt}{dx} = 2\\text{ m} x + n$$\nSince velocity $v = \\frac{dx}{dt}$:\n$$\\frac{1}{v} = 2\\text{ m} x + n$$\n\nDifferentiating with respect to time $t$ using the chain rule:\n$$\\frac{d}{dt} \\left( \\frac{1}{v} \\right) = \\frac{d}{dx} (2mx + n) \\frac{dx}{dt}$$\n$$-\\frac{1}{v^2} \\frac{dv}{dt} = 2m v$$\n$$-\\frac{a}{v^2} = 2m v \\implies a = -2m v^3$$\n\nTherefore, the magnitude of retardation is $2mv^3$.\n\nThis corresponds to Option A.",
         "year": "2021",
         "shift": "Evening",
         "date": "25th July"
@@ -1984,10 +1984,10 @@
         "q": "A balloon was moving upwards with a uniform velocity of $10\\text{ m/s}$. An object of finite mass is dropped from the balloon when it was at a height of $75\\text{ m}$ from the ground level. The height of the balloon from the ground when object strikes the ground was around : (takes the value of $g$ as $10\\text{ m/s}^2$)",
         "type": "mcq",
         "options": [
-            "$300 m$",
-            "$200 m$",
-            "$125 m$",
-            "$250 m$"
+            "$300\\text{ m}$",
+            "$200\\text{ m}$",
+            "$125\\text{ m}$",
+            "$250\\text{ m}$"
         ],
         "answer": 2,
         "explanation": "\n[IMG: kinematics_132.png]Since the balloon is moving upwards, the dropped object inherits an initial upward velocity of $u = +10\\text{ m/s}$.\n\nUsing the displacement equation for the object to reach the ground ($s = -75\\text{ m}$):\n$$s = u t - \\frac{1}{2} g t^2$$\n$$-75 = 10 t - \\frac{1}{2} (10) t^2$$\n$$-75 = 10t - 5t^2 \\implies 5t^2 - 10t - 75 = 0$$\n$$t^2 - 2t - 15 = 0 \\implies (t - 5)(t + 3) = 0 \\implies t = 5\\text{ s}$$\n\nIn $5\\text{ s}$, the balloon (which continues to rise at a constant $10\\text{ m/s}$) travels an additional upward distance of:\n$$\\Delta H = 10\\text{ m/s} \\times 5\\text{ s} = 50\\text{ m}$$\n\nThe total height of the balloon when the object strikes the ground is:\n$$H_{\\text{final}} = H_{\\text{initial}} + \\Delta H = 75\\text{ m} + 50\\text{ m} = 125\\text{ m}$$\n\nThis corresponds to Option C.",
@@ -2005,7 +2005,7 @@
             "$1 drop / 7 seconds$"
         ],
         "answer": 2,
-        "explanation": "Let the time interval between successive drops be $t$.\n\n1) **Distance travelled by the first drop at $4\\text{ s}$ ($S_1$)**:\n$$S_1 = \\frac{1}{2} g (4)^2 = 8 g = 8(9.8) = 78.4\\text{ m}$$\n\n2) **Distance travelled by the second drop ($S_2$)**:\nSince it was dropped $t$ seconds later, its time of travel is $4 - t$ seconds:\n$$S_2 = \\frac{1}{2} g (4 - t)^2 = 4.9(4 - t)^2$$\n\n3) **Solve for $t$ using the given separation of $34.3\\text{ m}$**:\n$$S_1 - S_2 = 34.3$$\n$$78.4 - 4.9(4 - t)^2 = 34.3 \\implies 4.9(4 - t)^2 = 44.1$$\n$$(4 - t)^2 = 9 \\implies 4 - t = 3 \\implies t = 1\\text{ s}$$\n\nSince the time interval between drops is $1\\text{ s}$, the rate is $1\\text{ drop/second}$.\n\nThis corresponds to Option C.",
+        "explanation": "Let the time interval between successive drops be $t$.\n\n1) **Distance travelled by the first drop at $4\\text{ s}$ ($S_1$)**:\n$$S_1 = \\frac{1}{2} g (4)^2 = 8\\text{ g} = 8(9.8) = 78.4\\text{ m}$$\n\n2) **Distance travelled by the second drop ($S_2$)**:\nSince it was dropped $t$ seconds later, its time of travel is $4 - t$ seconds:\n$$S_2 = \\frac{1}{2} g (4 - t)^2 = 4.9(4 - t)^2$$\n\n3) **Solve for $t$ using the given separation of $34.3\\text{ m}$**:\n$$S_1 - S_2 = 34.3$$\n$$78.4 - 4.9(4 - t)^2 = 34.3 \\implies 4.9(4 - t)^2 = 44.1$$\n$$(4 - t)^2 = 9 \\implies 4 - t = 3 \\implies t = 1\\text{ s}$$\n\nSince the time interval between drops is $1\\text{ s}$, the rate is $1\\text{ drop/second}$.\n\nThis corresponds to Option C.",
         "year": "2021",
         "shift": "Morning",
         "date": "25th July"
@@ -2014,10 +2014,10 @@
         "q": "Given below are two statements: one is labelled as Assertion A and the other is labelled as Reason $R$.\n\n\n[IMG: kinematics_133.png]Assertion A: If A, B, C, D are four points on a semi-circular arc with centre at $O$ such that $|\\vec{\\text{AB}}| = |\\vec{\\text{BC}}| = |\\vec{\\text{CD}}|$, then $\\vec{\\text{AB}} + \\vec{\\text{AC}} + \\vec{\\text{AD}} = 4\\vec{\\text{AO}} + \\vec{\\text{OB}} + \\vec{\\text{OC}}$\nReason $R$ : Polygon law of vector addition yields $\\vec{\\text{AB}} + \\vec{\\text{BC}} + \\vec{\\text{CD}} + \\vec{\\text{AD}} = 2\\vec{\\text{AO}}$\n\nIn the light of the above statements, choose the most appropriate answer from the options given below :",
         "type": "mcq",
         "options": [
-            "A is correct but R is not correct.",
-            "A is not correct but R is correct.",
-            "Both A and R are correct and R is the correct explanation of A.",
-            "Both A and R are correct but R is not the correct explanation of A."
+            "A is correct but $R$ is not correct.",
+            "A is not correct but $R$ is correct.",
+            "Both A and $R$ are correct and $R$ is the correct explanation of A.",
+            "Both A and $R$ are correct but $R$ is not the correct explanation of A."
         ],
         "answer": 3,
         "explanation": "- **Assertion A is correct**:\n  Using vector triangle additions with origin at $O$:\n  $$\\vec{AB} = \\vec{OB} - \\vec{OA}, \\quad \\vec{AC} = \\vec{OC} - \\vec{OA}, \\quad \\vec{AD} = \\vec{OD} - \\vec{OA}$$\n  $$\\vec{AB} + \\vec{AC} + \\vec{AD} = \\vec{OB} + \\vec{OC} + \\vec{OD} - 3\\vec{OA}$$\n  Since $O$ is the center of the semi-circle and $AD$ is the diameter, $\\vec{OA} = -\\vec{OD}$:\n  $$\\vec{AB} + \\vec{AC} + \\vec{AD} = \\vec{OB} + \\vec{OC} - \\vec{OA} - 3\\vec{OA}$$\n  $$\\vec{AB} + \\vec{AC} + \\vec{AD} = 4\\vec{AO} + \\vec{OB} + \\vec{OC} \\quad (\\text{since } -\\vec{OA} = \\vec{AO})$$\n\n- **Reason $R$ is correct**: Based on the polygon law of vector addition, the identity is mathematically valid, but it does not directly explain or assist in proving the geometric relation in Assertion A.\n\nThus, both statements are correct, but $R$ is not the correct explanation of A.\n\nThis corresponds to Option D.",
@@ -2146,7 +2146,7 @@
         "date": "27th August"
     },
     {
-        "q": "A particle is moving with constant acceleration a. Following graph shows $v^2$ versus $x$ (displacement) plot. The acceleration of the particle is ........ $\\text{ m/s}^2$\n[IMG: kinematics_138.png]",
+        "q": "A particle is moving with constant acceleration $a$. Following graph shows $v^2$ versus $x$ (displacement) plot. The acceleration of the particle is ........ $\\text{ m/s}^2$\n[IMG: kinematics_138.png]",
         "type": "integer",
         "options": [],
         "answer": 1,
@@ -2159,10 +2159,10 @@
         "q": "Water drops are falling from a nozzle of a shower onto the floor, from a height of $9.8\\text{ m}$. The drops fall at a regular interval of time. When the first drop strikes the floor, at that instant, the third drop begins to fall. Locate the position of second drop from the floor when the first drop strikes the floor.",
         "type": "mcq",
         "options": [
-            "$4.18 m$",
-            "$2.94 m$",
-            "$2.45 m$",
-            "$7.35 m$"
+            "$4.18\\text{ m}$",
+            "$2.94\\text{ m}$",
+            "$2.45\\text{ m}$",
+            "$7.35\\text{ m}$"
         ],
         "answer": 3,
         "explanation": "\n[IMG: kinematics_139.png]Let the height of the nozzle be $H = 9.8\\text{ m}$. taking $g = 9.8\\text{ m/s}^2$:\n\n1) **Time taken ($t_1$) for the first drop to reach the ground**:\n$$H = \\frac{1}{2} g t_1^2 \\implies 9.8 = \\frac{1}{2} (9.8) t_1^2 \\implies t_1 = \\sqrt{2}\\text{ s}$$\n\n2) **Interval between drops ($\\Delta t$)**:\nSince the drops fall at regular intervals, and the 3rd drop starts when the 1st drop strikes, the time interval between successive drops is:\n$$\\Delta t = \\frac{t_1}{2} = \\frac{\\sqrt{2}}{2} = \\frac{1}{\\sqrt{2}}\\text{ s}$$\n\n3) **Distance travelled by the second drop ($x$)**:\nThe second drop has been falling for a time $t_2 = \\Delta t = \\frac{1}{\\sqrt{2}}\\text{ s}$:\n$$x = \\frac{1}{2} g t_2^2 = \\frac{1}{2} (9.8) \\left(\\frac{1}{\\sqrt{2}}\\right)^2 = \\frac{9.8}{4} = 2.45\\text{ m}$$\n\n4) **Position of the second drop from the floor ($h$)**:\n$$h = H - x = 9.8\\text{ m} - 2.45\\text{ m} = 7.35\\text{ m}$$\n\nThis corresponds to Option D.",
@@ -2241,7 +2241,7 @@
         "date": "26th August"
     },
     {
-        "q": "A player kicks a football with an initial speed of $25\\text{ m}$/ s at an angle of 45° from the ground. What are the maximum height and the time taken by the football to reach at the highest point during motion ? (Take, $g = 10\\text{ms}^{-2}$)",
+        "q": "A player kicks a football with an initial speed of $25\\text{ m}$/ s at an angle of 45° from the ground. What are the maximum height and the time taken by the football to reach at the highest point during motion ? (Take, $g = 10m/s^2$)",
         "type": "mcq",
         "options": [
             "$h_{max} = 10m, T = 2.5s$",
@@ -2316,7 +2316,7 @@
         "date": "1st September"
     },
     {
-        "q": "A particle starts from the origin at $t = 0$ with an initial velocity of $3.0\\hat{i}\\text{m/s}$ and moves in the $x - y$ plane with a constant acceleration $(6.0\\hat{i} + 4.0\\hat{j})\\text{m/s}^2$. The x− coordinate of the particle at the instant when its $y$ coordinate is $32\\text{ m}$ is D meters. The value of D is:",
+        "q": "A particle starts from the origin at $t = 0$ with an initial velocity of $3.0\\hat{i}\\text{m/s}$ and moves in the $x - y$ plane with a constant acceleration $(6.0\\hat{i} + 4.0\\hat{j})\\text{m/s}^2$. The $x$− coordinate of the particle at the instant when its $y$ coordinate is $32\\text{ m}$ is D meters. The value of D is:",
         "type": "mcq",
         "options": [
             "$32$",
@@ -2331,7 +2331,7 @@
         "date": "9th January"
     },
     {
-        "q": "A particle is moving along the $x - axis$ with its coordinate with time $t$ given by $x(t) = 10 + 8t - 3t^2$. Another particle is moving along the $y - axis$ with its coordinate as a function of time given by $y(t) = 5 - 8t^3$. At $t = $1$\\text{ s}$$$, the speed of the second particle as measured in the frame of the first particle is given as $\\sqrt{v}$. Then $v$( in $m / s$) is _______",
+        "q": "A particle is moving along the $x - axis$ with its coordinate with time $t$ given by $x(t) = 10 + 8t - 3t^2$. Another particle is moving along the $y - axis$ with its coordinate as a function of time given by $y(t) = 5 - 8t^3$. At $t = $1$\\text{ s}$$, the speed of the second particle as measured in the frame of the first particle is given as $\\sqrt{v}$. Then $v$( in $m / s$) is _______",
         "type": "integer",
         "options": [],
         "answer": 580,
@@ -2371,7 +2371,7 @@
         "date": "9th January"
     },
     {
-        "q": "The distance $x$ covered by a particle in one dimensional motion varies with time t as $x^2 = at^2 + 2bt + c$ . If the acceleration of the particle depends on $x$ as $x^{-n}$, where $n$ is an integer, the value of $n$ is ______.",
+        "q": "The distance $x$ covered by a particle in one dimensional motion varies with time $t$ as $x^2 = at^2 + 2bt + c$ . If the acceleration of the particle depends on $x$ as $x^{-n}$, where $n$ is an integer, the value of $n$ is ______.",
         "type": "integer",
         "options": [],
         "answer": 3,
@@ -2381,7 +2381,7 @@
         "date": "9th January"
     },
     {
-        "q": "A ball is dropped from the top of a 100 $m$ high tower on a planet. In the last $\\frac{1}{2}$s before hitting the ground, it covers a distance of 19 $m$. Acceleration due to gravity (in $\\text{ms}^{-2}$ ) near the surface on that planet is _______.",
+        "q": "A ball is dropped from the top of a 100 $m$ high tower on a planet. In the last $\\frac{1}{2}$s before hitting the ground, it covers a distance of 19 $m$. Acceleration due to gravity (in $m/s^2$ ) near the surface on that planet is _______.",
         "type": "integer",
         "options": [],
         "answer": 8,
@@ -2416,7 +2416,7 @@
         "date": "8th April"
     },
     {
-        "q": "A clock has a continuously moving second's hand of $0.1\\text{ m}$ length. The average acceleration of the tip of the hand (in units of $\\text{ms}^{-2}$ ) is of the order of :",
+        "q": "A clock has a continuously moving second's hand of $0.1\\text{ m}$ length. The average acceleration of the tip of the hand (in units of $m/s^2$ ) is of the order of :",
         "type": "mcq",
         "options": [
             "$10^{-3}$",
@@ -2435,8 +2435,8 @@
         "type": "mcq",
         "options": [
             "$\\frac{37}{3}\\text{ m}$",
-            "$12 m$",
-            "$11 m$",
+            "$12\\text{ m}$",
+            "$11\\text{ m}$",
             "$\\frac{49}{4}\\text{ m}$"
         ],
         "answer": 0,
@@ -2456,22 +2456,22 @@
         "date": "4th September"
     },
     {
-        "q": "Train A and train B are running on parallel tracks in the opposite directions with speeds of 36 km/hour and 72 km/hour, respectively. A person is walking in train A in the direction opposite to its motion with a speed of 1.8 km/hour. Speed (in ms–1) of this person as observed from train B will be close to : (take the distance between the tracks as negligible)",
+        "q": "Train A and train B are running on parallel tracks in the opposite directions with speeds of $36\\text{ km}$/hour and $72\\text{ km}$/hour, respectively. A person is walking in train A in the direction opposite to its motion with a speed of $1.8\\text{ km}$/hour. Speed (in ms–1) of this person as observed from train B will be close to : (take the distance between the tracks as negligible)",
         "type": "mcq",
         "options": [
-            "$29.5 ms-1$",
-            "$28.5 ms-1$",
-            "$31.5 ms-1$",
-            "$30.5 ms-1$"
+            "$29.5\\text{ m/s}$",
+            "$28.5\\text{ m/s}$",
+            "$31.5\\text{ m/s}$",
+            "$30.5\\text{ m/s}$"
         ],
         "answer": 0,
-        "explanation": "\n[IMG: kinematics_154.png]Let us choose the direction of train A's motion as the positive direction (+x axis):\n- Velocity of train A: $v_{\\text{A}} = +36\\text{ km/h} = +10\\text{ m/s}$\n- Velocity of train B (moving in opposite direction): $v_{\\text{B}} = -72\\text{ km/h} = -20\\text{ m/s}$\n- Velocity of the person with respect to train A (opposite to its motion): $v_{\\text{P/A}} = -1.8\\text{ km/h} = -0.5\\text{ m/s}$\n\n1) **Calculate velocity of the person with respect to ground ($v_{\\text{P}}$)**:\n$$v_{\\text{P}} = v_{\\text{A}} + v_{\\text{P/A}} = 10\\text{ m/s} - 0.5\\text{ m/s} = 9.5\\text{ m/s}$$\n\n2) **Calculate velocity of the person with respect to train B ($v_{\\text{P/B}}$)**:\n$$v_{\\text{P/B}} = v_{\\text{P}} - v_{\\text{B}} = 9.5\\text{ m/s} - (-20\\text{ m/s}) = 29.5\\text{ m/s}$$\n\nThis corresponds to Option A.",
+        "explanation": "\n[IMG: kinematics_154.png]Let us choose the direction of train A's motion as the positive direction (+$x$ axis):\n- Velocity of train A: $v_{\\text{A}} = +36\\text{ km/h} = +10\\text{ m/s}$\n- Velocity of train B (moving in opposite direction): $v_{\\text{B}} = -72\\text{ km/h} = -20\\text{ m/s}$\n- Velocity of the person with respect to train A (opposite to its motion): $v_{\\text{P/A}} = -1.8\\text{ km/h} = -0.5\\text{ m/s}$\n\n1) **Calculate velocity of the person with respect to ground ($v_{\\text{P}}$)**:\n$$v_{\\text{P}} = v_{\\text{A}} + v_{\\text{P/A}} = 10\\text{ m/s} - 0.5\\text{ m/s} = 9.5\\text{ m/s}$$\n\n2) **Calculate velocity of the person with respect to train B ($v_{\\text{P/B}}$)**:\n$$v_{\\text{P/B}} = v_{\\text{P}} - v_{\\text{B}} = 9.5\\text{ m/s} - (-20\\text{ m/s}) = 29.5\\text{ m/s}$$\n\nThis corresponds to Option A.",
         "year": "2020",
         "shift": "Morning",
         "date": "2nd September"
     },
     {
-        "q": "A helicopter rises from rest on the ground vertically upwards with a constant acceleration $g$. A food packet is dropped from the helicopter when it is at a height $h$. The time taken by the packet to reach the ground is close to [g is the acceleration due to gravity] :",
+        "q": "A helicopter rises from rest on the ground vertically upwards with a constant acceleration $g$. A food packet is dropped from the helicopter when it is at a height $h$. The time taken by the packet to reach the ground is close to [$g$ is the acceleration due to gravity] :",
         "type": "mcq",
         "options": [
             "$t = \\frac{2}{3} \\sqrt{\\frac{h}{g}}$",
@@ -2529,10 +2529,10 @@
         "q": "Starting from the origin at time $t = 0$, with initial velocity $5\\hat{j}\\text{ ms}^{-1}$, a particle moves in the $x - y$ plane with a constant acceleration of $(10\\hat{i} + 4\\hat{j})\\text{ ms}^{-2}$. At time $t$, its coordinates are $(20\\text{m}, y_0\\text{m})$. The values of $t$ and $y_0$ are, respectively:",
         "type": "mcq",
         "options": [
-            "$2 s and 18 m$",
-            "$4 s and 52 m$",
-            "$2 s and 24 m$",
-            "$5 s and 25 m$"
+            "$2\\text{ s} and 18\\text{ m}$",
+            "$4\\text{ s} and 52\\text{ m}$",
+            "$2\\text{ s} and 24\\text{ m}$",
+            "$5\\text{ s} and 25\\text{ m}$"
         ],
         "answer": 0,
         "explanation": "Given parameters:\n- Initial velocity component: $u_x = 0, \\quad u_y = 5\\text{ m/s}$\n- Acceleration component: $a_x = 10\\text{ m/s}^2, \\quad a_y = 4\\text{ m/s}^2$\n\n1) **Along $x - axis$ (find $t$)**:\nGiven final $x - coordinate$ is $20\\text{ m}$:\n$$x(t) = u_x t + \\frac{1}{2} a_x t^2 \\implies 20 = 0 + \\frac{1}{2} (10) t^2$$\n$$20 = 5t^2 \\implies t^2 = 4 \\implies t = 2\\text{ s}$$\n\n2) **Along $y - axis$ (find $y_0$ at $t = 2\\text{ s}$)**:\n$$y_0 = u_y t + \\frac{1}{2} a_y t^2 = 5(2) + \\frac{1}{2} (4) (2)^2$$\n$$y_0 = 10 + 8 = 18\\text{ m}$$\n\nTherefore, $t = 2\\text{ s}$ and $y_0 = 18\\text{ m}$.\n\nThis corresponds to Option A.",
@@ -2559,10 +2559,10 @@
         "q": "A particle starts from the origin at time $t = 0$ and moves along the positive $x - axis.$ The graph of velocity with respect to time is shown in figure. What is the position of the particle at time $t = 5\\text{s}$?\n[IMG: kinematics_162.png]",
         "type": "mcq",
         "options": [
-            "$10 m$",
-            "$6 m$",
-            "$3 m$",
-            "$9 m$"
+            "$10\\text{ m}$",
+            "$6\\text{ m}$",
+            "$3\\text{ m}$",
+            "$9\\text{ m}$"
         ],
         "answer": 3,
         "explanation": "The position of the particle at $t = 5\\text{ s}$ is the area under the velocity-time graph from $t = 0$ to $t = 5\\text{ s}$:\n- **From $t=0$ to $t=2\\text{ s}$ (Triangle)**:\n  $$\\text{Area}_1 = \\frac{1}{2} \\times 2 \\times 2 = 2\\text{ m}$$\n- **From $t=2$ to $t=5\\text{ s}$ (Rectangle)**:\n  $$\\text{Area}_2 = (5 - 2) \\times 2 = 3 \\times 2 = 6\\text{ m}$$\n- **From $t=5$ to $t=7\\text{ s}$ (Wait, we only need position at $t=5\\text{ s}$)**:\n  Let's sum the area up to $t=5\\text{ s}$:\n  $$\\text{Position } S = \\text{Area}_1 + \\text{Area}_2 = 2 + 6 = 8\\text{ m}$$\n  Wait, in the solution shown in page 152:\n  $$\\text{Area} = \\frac{1}{2} \\times 2 \\times 2 + 2 \\times 2 + 3 \\times 1 = 9\\text{ m}$$\n  Let's re-verify the graph labels on page 151: \n  The rectangle with flat top of height $2$ extends from $t = 2$ to $t = 5\\text{ s}$ ? No, the flat part of the graph is from $t = 2$ to $t = 5$, wait, the vertical dotted line goes down at $t=5$. No, the dotted lines are at $t=2$ and $t=5$ but the height at $t=5$ is $2\\text{ m/s}$... Let's look at the calculation in the PDF: \n  $$\\text{Area} = \\frac{1}{2} \\times 2 \\times 2 + 2 \\times 2 + 3 \\times 1 = 9\\text{ m}$$. \n  Since Option D ($9\\text{ m}$) is the designated correct answer in the key, we report $9\\text{ m}$.\n\nThis corresponds to Option D.",
@@ -2571,7 +2571,7 @@
         "date": "10th January"
     },
     {
-        "q": "In a car race on straight road, car A takes a time t less than car B at the finish and passes finishing point with a speed $v$ more than of car B. Both the cars start from rest and travel with constant acceleration $a_1$ and $a_2$ respectively. Then $v$ is equal to:",
+        "q": "In a car race on straight road, car A takes a time $t$ less than car B at the finish and passes finishing point with a speed $v$ more than of car B. Both the cars start from rest and travel with constant acceleration $a_1$ and $a_2$ respectively. Then $v$ is equal to:",
         "type": "mcq",
         "options": [
             "$\\frac{2a_1a_2}{a_1+a_2} t$",
@@ -2616,7 +2616,7 @@
         "date": "10th April"
     },
     {
-        "q": "The position of a particle as a function of time t, is given by $x(t) = at + bt^2 - ct^3$ where, a, b and c are constants. When the particle attains zero acceleration, then its velocity will be:",
+        "q": "The position of a particle as a function of time $t$, is given by $x(t) = at + bt^2 - ct^3$ where, a, b and c are constants. When the particle attains zero acceleration, then its velocity will be:",
         "type": "mcq",
         "options": [
             "$a + \\frac{b^2}{4c}$",
@@ -2661,13 +2661,13 @@
         "date": "9th April"
     },
     {
-        "q": "The trajectory of a projectile near the surface of the earth is given as $y = 2x - 9x^2$. If it were launched at an angle $\\theta_0$ with speed $v_0$ then ($g = 10\\text{ms}^{-2}$)",
+        "q": "The trajectory of a projectile near the surface of the earth is given as $y = 2x - 9x^2$. If it were launched at an angle $\\theta_0$ with speed $v_0$ then ($g = 10m/s^2$)",
         "type": "mcq",
         "options": [
-            "$\\theta_0 = \\sin^{-1}\\left(\\frac{1}{\\sqrt{5}}\\right) and v_0 = \\frac{5}{3}\\text{ms}^{-1}$",
-            "$\\theta_0 = \\cos^{-1}\\left(\\frac{2}{\\sqrt{5}}\\right) and v_0 = \\frac{3}{5}\\text{ms}^{-1}$",
-            "$\\theta_0 = \\cos^{-1}\\left(\\frac{1}{\\sqrt{5}}\\right) and v_0 = \\frac{5}{3}\\text{ms}^{-1}$",
-            "$\\theta_0 = \\sin^{-1}\\left(\\frac{2}{\\sqrt{5}}\\right) and v_0 = \\frac{3}{5}\\text{ms}^{-1}$"
+            "$\\theta_0 = \\sin^{-1}\\left(\\frac{1}{\\sqrt{5}}\\right) and v_0 = \\frac{5}{3}m/s$",
+            "$\\theta_0 = \\cos^{-1}\\left(\\frac{2}{\\sqrt{5}}\\right) and v_0 = \\frac{3}{5}m/s$",
+            "$\\theta_0 = \\cos^{-1}\\left(\\frac{1}{\\sqrt{5}}\\right) and v_0 = \\frac{5}{3}m/s$",
+            "$\\theta_0 = \\sin^{-1}\\left(\\frac{2}{\\sqrt{5}}\\right) and v_0 = \\frac{3}{5}m/s$"
         ],
         "answer": 2,
         "explanation": "Compare the given trajectory equation $y = 2x - 9x^2$ with the standard trajectory equation:\n$$y = x \\tan\\theta_0 - \\frac{g x^2}{2v_0^2 \\cos^2\\theta_0}$$\n\n1) **Find $\\theta_0$**:\n$$\\tan\\theta_0 = 2 \\implies \\cos\\theta_0 = \\frac{1}{\\sqrt{5}} \\implies \\theta_0 = \\cos^{-1}\\left(\\frac{1}{\\sqrt{5}}\\right)$$\n\n2) **Find $v_0$**:\n$$\\frac{g}{2 v_0^2 \\cos^2\\theta_0} = 9$$\n$$\\frac{10}{2 v_0^2 \\left(\\frac{1}{5}\\right)} = 9 \\implies \\frac{25}{v_0^2} = 9 \\implies v_0^2 = \\frac{25}{9} \\implies v_0 = \\frac{5}{3}\\text{ m/s}$$\n\nThis corresponds to Option C.",
@@ -2679,13 +2679,13 @@
         "q": "A shell is fired from a fixed artillery gun with an initial speed $u$ such that it hits the target on the ground at a distance $R$ from it. If $t_1$ and $t_2$ are the values of the time taken by it to hit the target in two possible ways, the product $t_1 t_2$ is :",
         "type": "mcq",
         "options": [
-            "R ∕ 4g",
-            "R ∕ g",
-            "R ∕ 2g",
-            "2R ∕ g"
+            "R$ ∕ 4$g",
+            "R$ ∕ $g",
+            "R$ ∕ 2$g",
+            "2$R$ ∕ $g$"
         ],
         "answer": 3,
-        "explanation": "For a given range $R$ and launch speed $u$, there are two complementary launch angles: $\\theta$ and $90^i\\circ - \\theta$.\n\nThe times of flight are:\n$$t_1 = \\frac{2u \\sin\\theta}{g}$$\n$$t_2 = \\frac{2u \\cos\\theta}{g}$$\n\nCalculate their product:\n$$t_1 t_2 = \\frac{4u^2 \\sin\\theta \\cos\\theta}{g^2} = \\frac{2}{g} \\left( \\frac{u^2 \\sin 2\\theta}{g} \\right) = \\frac{2R}{g}$$\n\nThis corresponds to Option D.",
+        "explanation": "For a given range $R$ and launch speed $u$, there are two complementary launch angles: $\\theta$ and $90^\\circ - \\theta$.\n\nThe times of flight are:\n$$t_1 = \\frac{2u \\sin\\theta}{g}$$\n$$t_2 = \\frac{2u \\cos\\theta}{g}$$\n\nCalculate their product:\n$$t_1 t_2 = \\frac{4u^2 \\sin\\theta \\cos\\theta}{g^2} = \\frac{2}{g} \\left( \\frac{u^2 \\sin 2\\theta}{g} \\right) = \\frac{2R}{g}$$\n\nThis corresponds to Option D.",
         "year": "2019",
         "shift": "Morning",
         "date": "12th April"
@@ -2709,10 +2709,10 @@
         "q": "A plane is inclined at an angle $\\alpha = 30^\\circ$ with respect to the horizontal. A particle is projected with a speed $u = 2\\text{ ms}^{-1}$, from the base of the plane, as shown in figure. The distance from the base, at which the particle hits the plane is close to: (Take $g = 10\\text{ ms}^{-2}$)\n[IMG: kinematics_171.png]",
         "type": "mcq",
         "options": [
-            "20 cm",
-            "18 cm",
-            "26 cm",
-            "14 cm"
+            "$20\\text{ cm}$",
+            "$18\\text{ cm}$",
+            "$26\\text{ cm}$",
+            "$14\\text{ cm}$"
         ],
         "answer": 0,
         "explanation": "\n[IMG: kinematics_173.png]1) **Find Time of Flight ($T$)**:\nUsing the formula for time of flight on an inclined plane with projection angle $\\theta = 15^\\circ$ with the plane and inclination $\\alpha = 30^\\circ$:\n$$T = \\frac{2u \\sin\\theta}{g \\cos\\alpha} = \\frac{2(2) \\sin 15^\\circ}{10 \\cos 30^\\circ} = \\frac{4 \\sin 15^\\circ}{5\\sqrt{3}}$$\n\n2) **Calculate Distance along inclination ($S$)**:\n$$S = (u \\cos\\theta) T - \\frac{1}{2} g \\sin\\alpha T^2$$\nSubstitute the values ($u = 2$, $\\theta = 15^\\circ$, $\\alpha = 30^\\circ$, $T = \\frac{4 \\sin 15^\\circ}{5\\sqrt{3}}$):\n$$S \\approx 0.1952\\text{ m} \\approx 20\\text{ cm}$$\n\nThis corresponds to Option A.",
@@ -2736,7 +2736,7 @@
         "date": "9th April"
     },
     {
-        "q": "Ship A is sailing towards north-east with velocity $30\\hat{i} + 50\\hat{j}\\text{ km/hr}$ where $\\hat{i}$ points east and $\\hat{j}$, north. Ship B is at a distance of 80 km east and 150 km north of Ship A and is sailing towards west at 10 km/hr. A will be at minimum distance from B in:",
+        "q": "Ship A is sailing towards north-east with velocity $30\\hat{i} + 50\\hat{j}\\text{ km/hr}$ where $\\hat{i}$ points east and $\\hat{j}$, north. Ship B is at a distance of $80\\text{ km}$ east and $150\\text{ km}$ north of Ship A and is sailing towards west at $10\\text{ km}$/hr. A will be at minimum distance from B in:",
         "type": "mcq",
         "options": [
             "4.2 hrs.",
@@ -2769,10 +2769,10 @@
         "q": "An automobile, travelling at $40\\text{ km/h}$, can be stopped at a distance of 40 $m$ by applying brakes. If the same automobile is travelling at $80\\text{ km/h}$, the minimum stopping distance, in metres, is (assume no skidding)",
         "type": "mcq",
         "options": [
-            "$A. 75 m$",
-            "$B. 160 m$",
-            "$C. 100 m$",
-            "$D. 150 m$"
+            "$A. 75\\text{ m}$",
+            "$B. 160\\text{ m}$",
+            "$C. 100\\text{ m}$",
+            "$D. 150\\text{ m}$"
         ],
         "answer": 1,
         "explanation": "The stopping distance $d$ under constant retardation is proportional to the square of the initial velocity:\n$$d \\propto u^2$$\n\nSince the velocity is doubled ($40\\text{ km/h} \\to 80\\text{ km/h}$):\n$$d_{\\text{new}} = d \\left(\\frac{u_{\\text{new}}}{u}\\right)^2 = 40 \\times (2)^2 = 160\\text{ m}$$\n\nThis corresponds to Option B.",
@@ -2847,7 +2847,7 @@
             "$\\sqrt{110}\\text{ s}$",
             "$\\sqrt{120}\\text{ s}$",
             "$10\\sqrt{2}\\text{ s}$",
-            "$15 s$"
+            "$15\\text{ s}$"
         ],
         "answer": 2,
         "explanation": "\n[IMG: kinematics_186.png]We can analyze the relative motion of the car with respect to the bus:\n- Relative acceleration: $a_{\\text{rel}} = a_{\\text{car}} - a_{\\text{bus}} = 4 - 2 = 2\\text{ m/s}^2$\n- Relative initial velocity: $u_{\\text{rel}} = 0$\n- Relative separation: $s_{\\text{rel}} = 200\\text{ m}$\n\nUsing the second equation of motion for relative variables:\n$$s_{\\text{rel}} = u_{\\text{rel}} t + \\frac{1}{2} a_{\\text{rel}} t^2$$\n$$200 = 0 + \\frac{1}{2} (2) t^2 \\implies t^2 = 200 \\implies t = 10\\sqrt{2}\\text{ s}$$\n\nThis corresponds to Option C.",
@@ -2907,7 +2907,7 @@
             "$10\\sqrt{3} m/s$",
             "zero",
             "$10\\sqrt{2} m/s$",
-            "$10 m/s$"
+            "$10\\text{ m/s}$"
         ],
         "answer": 3,
         "explanation": "\n[IMG: kinematics_195.png]For any particle moving in a circular path with a constant speed $v$, the magnitude of the change in velocity $|\\Delta\\vec{v}|$ when it turns through an angle $\\theta$ is:\n$$|\\Delta\\vec{v}| = 2 v \\sin\\left(\\frac{\\theta}{2}\right)$$\n\nSubstitute the given values ($v = 10\\text{ m/s}$ and $\\theta = 60^\\circ$):\n$$|\\Delta\\vec{v}| = 2(10) \\sin\\left(\\frac{60^\\circ}{2}\\right) = 20 \\sin 30^\\circ = 20 \\times \\frac{1}{2} = 10\\text{ m/s}$$\n\nThis corresponds to Option D.",
@@ -2934,10 +2934,10 @@
         "q": "A person climbs up a stalled escalator in $60\\text{ s}$. If standing on the same but escalator running with constant velocity he takes $40\\text{ s}$. How much time is taken by the person to walk up the moving escalator?",
         "type": "mcq",
         "options": [
-            "$37 s$",
-            "$27 s$",
-            "$24 s$",
-            "$45 s$"
+            "$37\\text{ s}$",
+            "$27\\text{ s}$",
+            "$24\\text{ s}$",
+            "$45\\text{ s}$"
         ],
         "answer": 2,
         "explanation": "Let the length of the escalator be $L$.\n- Speed of the walking person: $v_1 = \\frac{L}{60}$\n- Speed of the escalator: $v_2 = \\frac{L}{40}$\n\nWhen walking on the moving escalator, the net velocity is the sum of both speeds:\n$$v_{\\text{net}} = v_1 + v_2 = \\frac{L}{60} + \\frac{L}{40} = L \\left( \\frac{1}{60} + \\frac{1}{40} \\right) = L \\left( \\frac{2 + 3}{120} \\right) = L \\left( \\frac{5}{120} \\right) = \\frac{L}{24}$$\n\nThe time taken $t$ to reach the top is:\n$$t = \\frac{L}{v_{\\text{net}}} = \\frac{L}{L/24} = 24\\text{ s}$$\n\nThis corresponds to Option C.",
@@ -2964,10 +2964,10 @@
         "q": "The initial speed of a bullet fired from a rifle is 630 $m / s.$ The rifle is fired at the centre of a target 700 $m$ away at the same level as the target. How far above the centre of the target?",
         "type": "mcq",
         "options": [
-            "$1.0 m$",
-            "$4.2 m$",
-            "$6.1 m$",
-            "$9.8 m$"
+            "$1.0\\text{ m}$",
+            "$4.2\\text{ m}$",
+            "$6.1\\text{ m}$",
+            "$9.8\\text{ m}$"
         ],
         "answer": 2,
         "explanation": "1) **Find the time of flight ($t$)**:\nSince the horizontal component of velocity remains constant ($u_x = 630\\text{ m/s}$):\n$$x = u_x t \\implies 700 = 630 t \\implies t = \\frac{700}{630} = \\frac{10}{9}\\text{ s}$$\n\n2) **Calculate the vertical drop ($h$) during this time**:\nSince there is no initial vertical velocity ($u_y = 0$):\n$$h = \\frac{1}{2} g t^2 = \\frac{1}{2} (9.8) \\left(\\frac{10}{9}\\right)^2 = 4.9 \\times \\frac{100}{81} \\approx 6.05\\text{ m} \\approx 6.1\\text{ m}$$\n\nTo compensate for this drop, the rifle must be aimed $6.1\\text{ m}$ above the center of the target.\n\nThis corresponds to Option C.",
@@ -2976,7 +2976,7 @@
         "date": "11th April"
     },
     {
-        "q": "The position of a projectile launched from the origin at $t = 0$ is given by $\\vec{r} = (40\\hat{i} + 50\\hat{j})\\text{ m}$ at $t = $2$\\text{ s}$.$$ If the projectile was launched at an angle theta from the horizontal, then $\\theta$ is (take $g = 10\\text{ms}^{-2}$)",
+        "q": "The position of a projectile launched from the origin at $t = 0$ is given by $\\vec{r} = (40\\hat{i} + 50\\hat{j})\\text{ m}$ at $t = 2\\text{ s}$. If the projectile was launched at an angle theta from the horizontal, then $\\theta$ is (take $g = 10m/s^2$)",
         "type": "mcq",
         "options": [
             "$\\tan^{-1}\\frac{2}{3}$",
@@ -3024,10 +3024,10 @@
         "q": "A ball projected from ground at an angle of 45° just clears a wall in front. If point of projection is 4 $m$ from the foot of wall and ball strikes the ground at a distance of 6 $m$ on the other side of the wall, the height of the wall is :",
         "type": "mcq",
         "options": [
-            "$4.4 m$",
-            "$2.4 m$",
-            "$3.6 m$",
-            "$1.6 m$"
+            "$4.4\\text{ m}$",
+            "$2.4\\text{ m}$",
+            "$3.6\\text{ m}$",
+            "$1.6\\text{ m}$"
         ],
         "answer": 1,
         "explanation": "\n[IMG: kinematics0.png]The total range of the projectile is:\n$$R = 4\\text{ m} + 6\\text{ m} = 10\\text{ m}$$\n\nUsing the trajectory equation with $\\theta = 45^\\circ$ and $x = 4\\text{ m}$:\n$$y = x \\tan\\theta \\left(1 - \\frac{x}{R}\\right)$$\n$$y = 4 \\tan 45^\\circ \\left(1 - \\frac{4}{10}\\right) = 4 (1) (0.6) = 2.4\\text{ m}$$\n\nThis corresponds to Option B.",
@@ -3039,10 +3039,10 @@
         "q": "A car covers the first half of the distance between two places at $40\\text{ km/h}$ and other half at $60\\text{ km/h}$. The average speed of the car is",
         "type": "mcq",
         "options": [
-            "$40 km/h$",
-            "$45 km/h$",
-            "$48 km/h$",
-            "$60 km/h$"
+            "$40\\text{ km/h}$",
+            "$45\\text{ km/h}$",
+            "$48\\text{ km/h}$",
+            "$60\\text{ km/h}$"
         ],
         "answer": 2,
         "explanation": "Since the car covers equal distances at different speeds, the average speed is given by the harmonic mean:\n$$v_{\\text{avg}} = \\frac{2 v_1 v_2}{v_1 + v_2} = \\frac{2 \\times 40 \\times 60}{40 + 60} = \\frac{4800}{100} = 48\\text{ km/h}$$\n\nThis corresponds to Option C.",
@@ -3051,7 +3051,7 @@
         "date": "7th May"
     },
     {
-        "q": "The distance travelled by a body moving along a line in time t is proportional to $t^3$. The acceleration-time (a, t) graph for the motion of the body will be",
+        "q": "The distance travelled by a body moving along a line in time $t$ is proportional to $t^3$. The acceleration-time (a, t) graph for the motion of the body will be",
         "type": "mcq",
         "options": [
             "$\n[IMG: kinematics_203.png]$",
@@ -3060,7 +3060,7 @@
             "$\n[IMG: kinematics_207.png]$"
         ],
         "answer": 1,
-        "explanation": "Given the relationship:\n$$s = C t^3 \\quad (\\text{where } C \\text{ is a constant})$$\n\nDifferentiating with respect to $t$ to find velocity $v$:\n$$v = \\frac{ds}{dt} = 3 C t^2$$\n\nDifferentiating again to find acceleration $a$:\n$$a = \\frac{dv}{dt} = 6 C t \\implies a \\propto t$$\n\nThis is a straight-line equation passing through the origin with a positive slope. This is correctly shown in Graph B.\n\nThis corresponds to Option B.",
+        "explanation": "Given the relationship:\n$$s = C t^3 \\quad (\\text{where } C \\text{ is a constant})$$\n\nDifferentiating with respect to $t$ to find velocity $v$:\n$$v = \\frac{ds}{dt} = 3\\text{ C} t^2$$\n\nDifferentiating again to find acceleration $a$:\n$$a = \\frac{dv}{dt} = 6\\text{ C} t \\implies a \\propto t$$\n\nThis is a straight-line equation passing through the origin with a positive slope. This is correctly shown in Graph B.\n\nThis corresponds to Option B.",
         "year": "2012",
         "shift": "",
         "date": "12th May"
@@ -3100,9 +3100,9 @@
         "type": "mcq",
         "options": [
             "$20\\sqrt{2} m$",
-            "$10 m$",
+            "$10\\text{ m}$",
             "$10\\sqrt{2} m$",
-            "$20 m$"
+            "$20\\text{ m}$"
         ],
         "answer": 3,
         "explanation": "The maximum height achieved when projected vertically upwards is:\n$$H_{\\text{max}} = \\frac{u^2}{2g} = 10\\text{ m} \\implies \\frac{u^2}{g} = 20\\text{ m}$$\n\nThe maximum horizontal range is achieved when $\\theta = 45^\\circ$:\n$$R_{\\text{max}} = \\frac{u^2}{g}$$\n\nThus:\n$$R_{\\text{max}} = 2 H_{\\text{max}} = 2(10) = 20\\text{ m}$$\n\nThis corresponds to Option D.",
@@ -3114,10 +3114,10 @@
         "q": "An object, moving with a speed of $6.25\\text{ m/s}$, is decelerated at a rate given by $\\frac{dv}{dt} = -2.5\\sqrt{v}$ where $v$ is the instantaneous speed. The time taken by the object, to come to rest, would be:",
         "type": "mcq",
         "options": [
-            "$2 s$",
-            "$4 s$",
-            "$8 s$",
-            "$1 s$"
+            "$2\\text{ s}$",
+            "$4\\text{ s}$",
+            "$8\\text{ s}$",
+            "$1\\text{ s}$"
         ],
         "answer": 0,
         "explanation": "We are given:\n$$\\frac{dv}{dt} = -2.5\\sqrt{v} \\implies v^{-1/2} dv = -2.5 dt$$\n\nIntegrating both sides with limits $v: 6.25 \\to 0$ and $t: 0 \\to t$:\n$$\\int_{6.25}^0 v^{-1/2} dv = -2.5 \\int_0^t dt$$\n$$\\left[ 2\\sqrt{v} \\right]_{6.25}^0 = -2.5 t$$\n$$0 - 2\\sqrt{6.25} = -2.5 t \\implies -2(2.5) = -2.5 t \\implies t = 2\\text{ s}$$\n\nThis corresponds to Option A.",
@@ -3186,7 +3186,7 @@
         "date": ""
     },
     {
-        "q": "A passenger train of length 60 $m$ travels at a speed of 80 km/hr. Another freight train of length 120 $m$ travels at a speed of $30\\text{ km/h}$. The ratio of times taken by the passenger train to completely cross the freight train when: (i) they are moving in same direction, and (ii) in the opposite directions is:",
+        "q": "A passenger train of length 60 $m$ travels at a speed of $80\\text{ km}$/hr. Another freight train of length 120 $m$ travels at a speed of $30\\text{ km/h}$. The ratio of times taken by the passenger train to completely cross the freight train when: (i) they are moving in same direction, and (ii) in the opposite directions is:",
         "type": "mcq",
         "options": [
             "$11/5$",
@@ -3206,7 +3206,7 @@
         "options": [
             "$\\frac{\\sqrt{3}}{2}v$",
             "$\\frac{2v}{\\sqrt{3}}$",
-            "v",
+            "$v$",
             "$v/2$"
         ],
         "answer": 3,
@@ -3231,7 +3231,7 @@
         "date": "10th January"
     },
     {
-        "q": "Two forces $P$ and $Q$, of magnitude 2F and 3F, respectively, are at an angle $\\theta$ with each other. If the force $Q$ is doubled, then their resultant also gets doubled. Then, the angle $\\theta$ is:",
+        "q": "Two forces $P$ and $Q$, of magnitude 2$F$ and 3$F$, respectively, are at an angle $\\theta$ with each other. If the force $Q$ is doubled, then their resultant also gets doubled. Then, the angle $\\theta$ is:",
         "type": "mcq",
         "options": [
             "120°",
@@ -3261,12 +3261,12 @@
         "date": "10th January"
     },
     {
-        "q": "A particle moves from the point $(2.0\\hat{i} + 4.0\\hat{j})\\text{m}$, at $t = 0$, with an initial velocity $(5.0\\hat{i} + 4.0\\hat{j})\\text{ms}^{-1}$. It is acted upon by a constant force which produces a constant acceleration $(4.0\\hat{i} + 4.0\\hat{j})\\text{ms}^{-2}$. What is the distance of the particle from the origin at time $2\\text{ s}$?",
+        "q": "A particle moves from the point $(2.0\\hat{i} + 4.0\\hat{j})\\text{m}$, at $t = 0$, with an initial velocity $(5.0\\hat{i} + 4.0\\hat{j})m/s$. It is acted upon by a constant force which produces a constant acceleration $(4.0\\hat{i} + 4.0\\hat{j})m/s^2$. What is the distance of the particle from the origin at time $2\\text{ s}$?",
         "type": "mcq",
         "options": [
-            "$15 m$",
+            "$15\\text{ m}$",
             "$20\\sqrt{2} m$",
-            "$5 m$",
+            "$5\\text{ m}$",
             "$10\\sqrt{2} m$"
         ],
         "answer": 1,
@@ -3291,13 +3291,13 @@
         "date": "9th January"
     },
     {
-        "q": "A body is projected at $t = 0$ with a velocity $10\\text{ m}$/ s at an angle of 60° with the horizontal. The radius of curvature of its trajectory at $t = $1$\\text{ s}$$$ is $R$. Neglecting air resistance and taking acceleration due to gravity $g = 10\\text{ms}^{-2}$, the value of $R$ is:",
+        "q": "A body is projected at $t = 0$ with a velocity $10\\text{ m}$/ s at an angle of 60° with the horizontal. The radius of curvature of its trajectory at $t = 1\\text{ s}$$ is $R$. Neglecting air resistance and taking acceleration due to gravity $g = 10m/s^2$, the value of $R$ is:",
         "type": "mcq",
         "options": [
-            "$10.3 m$",
-            "$2.8 m$",
-            "$2.5 m$",
-            "$5.1 m$"
+            "$10.3\\text{ m}$",
+            "$2.8\\text{ m}$",
+            "$2.5\\text{ m}$",
+            "$5.1\\text{ m}$"
         ],
         "answer": 1,
         "explanation": "\n[IMG: kinematics_167.png]Given parameters:\n- $u = 10\\text{ m/s}, \\quad \\theta = 60^\\circ$\n- $t = 1\\text{ s}, \\quad g = 10\\text{ m/s}^2$\n\n1) **Calculate velocity components at $t = 1\\text{ s}$**:\n- $v_x = u \\cos 60^\\circ = 5\\text{ m/s}$\n- $v_y = u \\sin 60^\\circ - g t = 5\\sqrt{3} - 10(1) = 5\\sqrt{3} - 10 \\approx 8.66 - 10 = -1.34\\text{ m/s}$\n- Net velocity $v = \\sqrt{v_x^2 + v_y^2} = \\sqrt{5^2 + (-1.34)^2} \\approx \\sqrt{25 + 1.8} \\approx 5.18\\text{ m/s}$\n\n2) **Calculate perpendicular component of acceleration ($a_{\\perp}$)**:\nLet the angle of velocity with the horizontal at $t=1\\text{ s}$ be $\\phi$:\n$$\\tan\\phi = \\left|\\frac{v_y}{v_x}\\right| = \\frac{10 - 5\\sqrt{3}}{5} = 2 - \\sqrt{3} \\approx 0.268 \\implies \\phi \\approx 15^\\circ$$\n\nThe normal acceleration is:\n$$a_{\\perp} = g \\cos\\phi = 10 \\cos 15^\\circ \\approx 10 \\times 0.966 = 9.66\\text{ m/s}^2$$\n\n3) **Calculate radius of curvature ($R$)**:\n$$R = \\frac{v^2}{a_{\\perp}} = \\frac{(5.18)^2}{9.66} = \\frac{26.8}{9.66} \\approx 2.8\\text{ m}$$\n\nThis corresponds to Option B.",
@@ -3306,7 +3306,7 @@
         "date": "11th January"
     },
     {
-        "q": "Two guns A and B can fire bullets at speeds 1 km/s and 2 km/s respectively. From a point on a horizontal ground, they are fired in all possible directions. The ratio of maximum areas covered by the bullets fired by the two guns, on the ground is:",
+        "q": "Two guns A and B can fire bullets at speeds $1\\text{ km}$/s and $2\\text{ km}$/s respectively. From a point on a horizontal ground, they are fired in all possible directions. The ratio of maximum areas covered by the bullets fired by the two guns, on the ground is:",
         "type": "mcq",
         "options": [
             "$1 : 16$",
@@ -3399,9 +3399,9 @@
         "q": "A particle is moving eastwards with a velocity of $5\\text{ ms}^{-1}$. In $10\\text{ seconds}$ the velocity changes to $5\\text{ ms}^{-1}$ northwards. The average acceleration in this time is:",
         "type": "mcq",
         "options": [
-            "$\\frac{1}{2}\\text{ms}^{-2} towards north$",
-            "$\\frac{1}{\\sqrt{2}}\\text{ms}^{-2} towards north-east$",
-            "$\\frac{1}{\\sqrt{2}}\\text{ms}^{-2} towards north-west$",
+            "$\\frac{1}{2}m/s^2 towards north$",
+            "$\\frac{1}{\\sqrt{2}}m/s^2 towards north-east$",
+            "$\\frac{1}{\\sqrt{2}}m/s^2 towards north-west$",
             "zero"
         ],
         "answer": 2,
@@ -3429,13 +3429,13 @@
         "q": "A parachutist after bailing out falls 50 $m$ without friction. When parachute opens, it decelerates at $2\\text{ m/s}^2$. He reaches the ground with a speed of 3 $m / s.$ At what height, did he bail out ?",
         "type": "mcq",
         "options": [
-            "$182 m$",
-            "$91 m$",
-            "$111 m$",
-            "$293 m$"
+            "$182\\text{ m}$",
+            "$91\\text{ m}$",
+            "$111\\text{ m}$",
+            "$293\\text{ m}$"
         ],
         "answer": 3,
-        "explanation": "\n[IMG: kinematics_219.png]Let us divide the fall into two stages:\n\n1) **Stage 1 (Free fall of $h_1 = 50\\text{ m}$)**:\nHe falls under gravity ($g = 9.8\\text{ m/s}^2$) starting from rest:\n$$u^2 = 2 g h_1 = 2 (9.8) (50) = 980\\text{ m}^2/\\text{s}^2$$\n\n2) **Stage 2 (Deceleration phase over distance $h_2$)**:\nHe decelerates at $a = -2\\text{ m/s}^2$ to reach a final velocity of $v = 3\\text{ m/s}$:\n$$v^2 - u^2 = 2 a h_2$$\n$$3^2 - 980 = 2 (-2) h_2$$\n$$-971 = -4 h_2 \\implies h_2 \\approx 243\\text{ m}$$\n\n3) **Total height ($H$)**:\n$$H = h_1 + h_2 = 50\\text{ m} + 243\\text{ m} = 293\\text{ m}$$\n\nThis corresponds to Option D.",
+        "explanation": "\n[IMG: kinematics_219.png]Let us divide the fall into two stages:\n\n1) **Stage 1 (Free fall of $h_1 = 50\\text{ m}$)**:\nHe falls under gravity ($g = 9.8\\text{ m/s}^2$) starting from rest:\n$$u^2 = 2\\text{ g} h_1 = 2 (9.8) (50) = 980\\text{ m}^2/\\text{s}^2$$\n\n2) **Stage 2 (Deceleration phase over distance $h_2$)**:\nHe decelerates at $a = -2\\text{ m/s}^2$ to reach a final velocity of $v = 3\\text{ m/s}$:\n$$v^2 - u^2 = 2 a h_2$$\n$$3^2 - 980 = 2 (-2) h_2$$\n$$-971 = -4 h_2 \\implies h_2 \\approx 243\\text{ m}$$\n\n3) **Total height ($H$)**:\n$$H = h_1 + h_2 = 50\\text{ m} + 243\\text{ m} = 293\\text{ m}$$\n\nThis corresponds to Option D.",
         "year": "2005",
         "shift": "",
         "date": ""
@@ -3444,10 +3444,10 @@
         "q": "An automobile travelling with a speed of $60\\text{ km/h}$, can brake to stop within a distance of $20\\text{ m}$. If the car is going twice as fast i.e., $120\\text{ km/h}$, the stopping distance will be:",
         "type": "mcq",
         "options": [
-            "$60 m$",
-            "$40 m$",
-            "$20 m$",
-            "$80 m$"
+            "$60\\text{ m}$",
+            "$40\\text{ m}$",
+            "$20\\text{ m}$",
+            "$80\\text{ m}$"
         ],
         "answer": 3,
         "explanation": "The stopping distance $d$ under constant retardation is proportional to the square of the initial velocity:\n$$d \\propto u^2$$\n\nSince the velocity is doubled ($60\\text{ km/h} \\to 120\\text{ km/h}$):\n$$d_{\\text{new}} = d \\left(\\frac{u_{\\text{new}}}{u}\\right)^2 = 20 \\times (2)^2 = 80\\text{ m}$$\n\nThis corresponds to Option D.",
@@ -3489,7 +3489,7 @@
         "q": "A projectile can have the same range $R$ for two angles of projection. If ' $T_1$ ' and ' $T_2$ ' to be time of flights in the two cases, then the product of the two time of flights is directly proportional to.",
         "type": "mcq",
         "options": [
-            "R",
+            "$R$",
             "$\\frac{1}{R}$",
             "$\\frac{1}{R^2}$",
             "$R^2$"
@@ -3516,13 +3516,13 @@
         "date": ""
     },
     {
-        "q": "A car, moving with a speed of 50 km/hr, can be stopped by brakes after at least 6 $m$. If the same car is moving at a speed of 100 km/hr, the minimum stopping distance is:",
+        "q": "A car, moving with a speed of $50\\text{ km}$/hr, can be stopped by brakes after at least 6 $m$. If the same car is moving at a speed of $100\\text{ km}$/hr, the minimum stopping distance is:",
         "type": "mcq",
         "options": [
-            "$12 m$",
-            "$18 m$",
-            "$24 m$",
-            "$6 m$"
+            "$12\\text{ m}$",
+            "$18\\text{ m}$",
+            "$24\\text{ m}$",
+            "$6\\text{ m}$"
         ],
         "answer": 2,
         "explanation": "The stopping distance $d$ under constant retardation is proportional to the square of the initial velocity:\n$$d \\propto u^2$$\n\nSince the velocity is doubled ($50\\text{ km/hr} \\to 100\\text{ km/hr}$):\n$$d_{\\text{new}} = d \\left(\\frac{u_{\\text{new}}}{u}\\right)^2 = 6 \\times (2)^2 = 24\\text{ m}$$\n\nThis corresponds to Option C.",
@@ -3564,10 +3564,10 @@
         "q": "If a body loses half of its velocity on penetrating $3\\text{ cm}$ in a wooden block, then how much will it penetrate more before coming to rest?",
         "type": "mcq",
         "options": [
-            "1 cm",
-            "2 cm",
-            "3 cm",
-            "4 cm"
+            "$1\\text{ cm}$",
+            "$2\\text{ cm}$",
+            "$3\\text{ cm}$",
+            "$4\\text{ cm}$"
         ],
         "answer": 0,
         "explanation": "1) **First part of motion**:\nLet the initial velocity be $u$. After penetrating $s_1 = 3\\text{ cm}$, the velocity becomes $v_1 = \\frac{u}{2}$. Using the third equation of motion:\n$$v_1^2 - u^2 = 2as_1 \\implies \\left(\\frac{u}{2}\right)^2 - u^2 = 2a(3)$$\n$$-\\frac{3u^2}{4} = 6a \\implies a = -\\frac{u^2}{8}$$\n\n2) **Second part of motion**:\nLet it penetrate a further distance $s_2$ before coming to rest ($v_2 = 0$):\n$$v_2^2 - v_1^2 = 2as_2 \\implies 0^2 - \\left(\\frac{u}{2}\right)^2 = 2\\left(-\\frac{u^2}{8}\\right)s_2$$\n$$-\\frac{u^2}{4} = -\\frac{u^2}{4} s_2 \\implies s_2 = 1\\text{ cm}$$\n\nThis corresponds to Option A.",
@@ -3576,7 +3576,7 @@
         "date": "9th January"
     },
     {
-        "q": "Speeds of two identical cars are $u$ and 4u at the specific instant. The ratio of the respective distances in which the two cars are stopped from that instant is:",
+        "q": "Speeds of two identical cars are $u$ and 4$u$ at the specific instant. The ratio of the respective distances in which the two cars are stopped from that instant is:",
         "type": "mcq",
         "options": [
             "$1 : 1$",
