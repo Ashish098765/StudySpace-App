@@ -366,80 +366,71 @@ window.generateAISolution = async () => {
     const aiTextDiv = document.getElementById('ai-explanation-text');
     const q = filteredPracticeSet[currentFocusIndex]; 
     
-    // 1. Set the initial loading UI stage
-    aiTextDiv.innerHTML = `
-        <div class="ai-loading">
-            <i class="fa-solid fa-circle-notch fa-spin fa-2x"></i>
-            <span>Gemini 3.5 Flash is analyzing visual cues with deep reasoning loops...</span>
-        </div>
-    `;
+    // Clear display container instantly to initialize stream canvas
+    aiTextDiv.innerHTML = "";
 
-    // 2. Map out multiple choice array strings safely from your database structure
     const formattedOptions = q.options && Array.isArray(q.options) 
         ? q.options.map((opt, idx) => `Option ${idx + 1}: ${opt}`).join('\n    ')
-        : 'No raw options provided in string dataset.';
+        : 'No visual choice matrix found.';
 
-    // 3. Construct a high-precision prompt structure
     const userPrompt = `
-    You are an elite, world-class professor tutoring a student for competitive entrance exams (JEE Main, Advanced, NEET).
-    Your primary goal is absolute, uncompromised mathematical and scientific accuracy. 
+    You are an elite academic professor tutoring a student for competitive entrance exams (JEE Main, NEET).
+    Provide an absolute, scientifically accurate explanation for this problem.
     
-    --- QUESTION TEXT ---
-    ${q.q}
-    
-    --- AVAILABLE MULTIPLE CHOICE OPTIONS ---
-    ${formattedOptions}
-    
-    --- TARGET CORRECT ANSWER MARKER FROM DATABASE ---
-    Correct Option Index/Value: ${q.answer}
-    
-    --- CRITICAL VISUAL PROTOCOL ---
-    Before performing any physics formulas or mathematical steps, you must execute the following two-step visual audit:
-    1. Look at the attached image graph/diagram and explicitly write out every visible coordinate point, vertex, intercept, and axis scale label you see in text format. 
-       (Example: "Visual Audit: Line starts at (0,0), rises to a peak at (3,15), remains flat until (5,15), and drops back to the axis at (7,0).")
-    2. Explicitly write down the units listed on both the X-axis and Y-axis.
-    
-    --- CORE EXPLANATION INSTRUCTIONS ---
-    - Use the coordinates from your Visual Audit to break down the calculation step-by-step.
-    - Calculate the intervals completely independently from the target answer first to ensure absolute truth.
-    - If your final derivation matches the provided database target choice, justify it completely. If you discover a structural typo in the database's target option compared to pure physics rules, prioritize absolute scientific truth and explain the mismatch gracefully.
-    
-    --- FORMATTING RULES ---
-    - Render all mathematical notations, formulas, or expressions using standard LaTeX formatting (use $ for inline equations and $$ for standalone block equations).
-    - Use clean HTML elements like <br> for newlines and <b> for text bolding. Do not use raw markdown like ** or #.
+    Question: ${q.q}
+    Options: ${formattedOptions}
+    Correct Target Indicator: ${q.answer}
     `;
 
-    // 4. Fire the transmission payload down the AWS routing line
     try {
         const response = await fetch('https://tt6t4ollujq3rlwxibdoqtvt340monfz.lambda-url.us-east-1.on.aws', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
                 prompt: userPrompt,
-                imageUrl: q.imageUrl || q.image || null // Passes graph diagram link safely
+                imageUrl: q.imageUrl || q.image || null 
             })
         });
 
         if (!response.ok) {
-            const errorPayload = await response.json();
-            throw new Error(errorPayload.details || errorPayload.message || errorPayload.error || "Backend Error");
+            throw new Error("Streaming line initiation failure.");
         }
 
-        const data = await response.json();
-        let aiResponseText = data.text;
-        
-        // Sanitize any accidental leftover markdown characters safely
-        aiResponseText = aiResponseText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-        aiResponseText = aiResponseText.replace(/\*/g, '<br>•');
+        // Establish binary streaming decoder loop
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder("utf-8");
+        let accumulatedText = "";
 
-        aiTextDiv.innerHTML = aiResponseText;
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            const chunkStr = decoder.decode(value, { stream: true });
+            
+            // Extract text tokens securely from Gemini's incoming streaming blocks
+            const textMatches = chunkStr.match(/"text"\s*:\s*"((?:[^"\\]|\\.)*)"/g);
+            if (textMatches) {
+                for (const match of textMatches) {
+                    const unparsedText = match.replace(/^"text"\s*:\s*"/, '').slice(0, -1);
+                    const cleanSegment = JSON.parse(`"${unparsedText}"`);
+                    
+                    accumulatedText += cleanSegment;
+                    
+                    // Format bold indicators and lists on the fly
+                    let liveFormatted = accumulatedText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+                    liveFormatted = liveFormatted.replace(/\*/g, '<br>•');
+                    
+                    aiTextDiv.innerHTML = liveFormatted;
+                }
+            }
+        }
         
-        // Trigger MathJax or KaTeX layout re-rendering if active
+        // Render advanced LaTeX formula layouts once text has fully arrived
         setTimeout(() => triggerMathRender('ai-explanation-text'), 100);
 
     } catch (error) {
         console.error(error);
-        aiTextDiv.innerHTML = `<div style="color: var(--error-red);"><i class="fa-solid fa-triangle-exclamation"></i> Failed to generate accurate explanation: ${error.message}</div>`;
+        aiTextDiv.innerHTML = `<div style="color: var(--error-red);"><i class="fa-solid fa-circle-exclamation"></i> Streaming connection dropped: ${error.message}</div>`;
     } finally {
         isAIGenerating = false;
     }
