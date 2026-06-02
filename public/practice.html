@@ -360,75 +360,65 @@
         };
 
         window.generateAISolution = async () => {
-            if (isAIGenerating) return;
-            isAIGenerating = true;
+    if (isAIGenerating) return;
+    isAIGenerating = true;
 
-            const aiTextDiv = document.getElementById('ai-explanation-text');
-// Inside your generateAISolution function
-const q = filteredPracticeSet[currentFocusIndex];
+    const aiTextDiv = document.getElementById('ai-explanation-text');
+    const q = filteredPracticeSet[currentFocusIndex]; 
+    
+    // 1. Render the loading spinner UI first
+    aiTextDiv.innerHTML = `
+        <div class="ai-loading">
+            <i class="fa-solid fa-circle-notch fa-spin fa-2x"></i>
+            <span>Gemini 3.5 Flash is analyzing the question and data layout...</span>
+        </div>
+    `;
 
-const response = await fetch('https://YOUR-FUNCTION-URL.lambda-url.us-east-1.on.aws', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ 
-        prompt: userPrompt,
-        imageUrl: q.imageUrl || q.image || null // Match whatever variable stores the graph img url in Firebase
-    })
-});            
-            // Show loading state
-            aiTextDiv.innerHTML = `
-                <div class="ai-loading">
-                    <i class="fa-solid fa-circle-notch fa-spin fa-2x"></i>
-                    <span>Gemini is analyzing the question and writing a custom explanation...</span>
-                </div>
-            `;
+    // 2. Initialize your userPrompt variable FIRST
+    const userPrompt = `
+    You are an expert physics and math tutor. Explain how to solve this exact question step-by-step.
+    Make it easy to understand for a high school student.
+    IMPORTANT: Format all mathematical equations using LaTeX (use $ for inline math and $$ for block math).
+    Use HTML tags like <br> for line breaks and <b> for bold text. Do not use markdown like **.
 
-            // Prepare the prompt for the AI
-            const userPrompt = `
-            You are an expert physics and math tutor. Explain how to solve this exact question step-by-step.
-            Make it easy to understand for a high school student.
-            IMPORTANT: Format all mathematical equations using LaTeX (use $ for inline math and $$ for block math).
-            Use HTML tags like <br> for line breaks and <b> for bold text. Do not use markdown like **.
+    Question: ${q.q}
+    Correct Answer: Option ${q.answer}
+    `;
 
-            Question: ${q.q}
-            Correct Answer: Option ${q.answer}
-            `;
+    // 3. Now run the network call using your initialized variables
+    try {
+        const response = await fetch('https://tt6t4ollujq3rlwxibdoqtvt340monfz.lambda-url.us-east-1.on.aws', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                prompt: userPrompt,
+                imageUrl: q.imageUrl || q.image || null 
+            })
+        });
 
-            try {
-                // THE FIX: We are now talking to YOUR secure backend, not Google directly!
-                // Connects to your secure AWS Lambda URL!
-                // Connects to your secure AWS Lambda URL!
-                const response = await fetch('https://tt6t4ollujq3rlwxibdoqtvt340monfz.lambda-url.us-east-1.on.aws', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ prompt: userPrompt })
-                });
+        if (!response.ok) {
+            const errorPayload = await response.json();
+            throw new Error(errorPayload.details || errorPayload.message || errorPayload.error || "Backend Error");
+        }
 
-                // THE IMPROVEMENT: Read the error details sent out by AWS
-                if (!response.ok) {
-                    const errorPayload = await response.json();
-                    throw new Error(errorPayload.details || errorPayload.message || errorPayload.error || "Unknown Backend Error");
-                }
+        const data = await response.json();
+        let aiResponseText = data.text;
+        
+        // Format text strings for the layout engine
+        aiResponseText = aiResponseText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+        aiResponseText = aiResponseText.replace(/\*/g, '<br>•');
 
-                const data = await response.json();
-                let aiResponseText = data.text;
-                
-                // Format the text to match your UI
-                aiResponseText = aiResponseText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-                aiResponseText = aiResponseText.replace(/\*/g, '<br>•');
+        aiTextDiv.innerHTML = injectInlineImages(aiResponseText);
+        
+        setTimeout(() => triggerMathRender('ai-explanation-text'), 100);
 
-                aiTextDiv.innerHTML = injectInlineImages(aiResponseText);
-                
-                // Re-render MathJax so the LaTeX looks beautiful
-                setTimeout(() => triggerMathRender('ai-explanation-text'), 100);
-
-            } catch (error) {
-                console.error(error);
-                aiTextDiv.innerHTML = `<div style="color: var(--error-red);"><i class="fa-solid fa-triangle-exclamation"></i> Failed to generate AI explanation. Please try again.</div>`;
-            } finally {
-                isAIGenerating = false;
-            }
-        };
+    } catch (error) {
+        console.error(error);
+        aiTextDiv.innerHTML = `<div style="color: var(--error-red);"><i class="fa-solid fa-triangle-exclamation"></i> Failed to generate AI explanation: ${error.message}</div>`;
+    } finally {
+        isAIGenerating = false;
+    }
+};
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
         import { getFirestore, doc, updateDoc, setDoc, increment, arrayUnion, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
