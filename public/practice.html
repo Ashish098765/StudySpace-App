@@ -341,7 +341,7 @@
         // --- GEMINI AI INTEGRATION (SECURE BACKEND VERSION) ---
         let isAIGenerating = false; // Notice: No API key here anymore!
 
-        window.switchSolutionTab = (tabName) => {
+        window.switchSolutionTab = (tabName, event) => {
             // 1. Update Tab Content
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             document.getElementById(`tab-${tabName}`).classList.add('active');
