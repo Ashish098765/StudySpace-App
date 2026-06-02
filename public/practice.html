@@ -364,8 +364,17 @@
             isAIGenerating = true;
 
             const aiTextDiv = document.getElementById('ai-explanation-text');
-            const q = filteredPracticeSet[currentFocusIndex]; // Gets the current question
-            
+// Inside your generateAISolution function
+const q = filteredPracticeSet[currentFocusIndex];
+
+const response = await fetch('https://YOUR-FUNCTION-URL.lambda-url.us-east-1.on.aws', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ 
+        prompt: userPrompt,
+        imageUrl: q.imageUrl || q.image || null // Match whatever variable stores the graph img url in Firebase
+    })
+});            
             // Show loading state
             aiTextDiv.innerHTML = `
                 <div class="ai-loading">
