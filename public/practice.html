@@ -341,19 +341,21 @@
         // --- GEMINI AI INTEGRATION (SECURE BACKEND VERSION) ---
         let isAIGenerating = false; // Notice: No API key here anymore!
 
-        window.switchSolutionTab = (tabName, event) => {
-            // Update Tab Buttons
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-
-            // Update Tab Content
+        window.switchSolutionTab = (tabName) => {
+            // 1. Update Tab Content
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             document.getElementById(`tab-${tabName}`).classList.add('active');
 
-            // Auto-generate AI solution if it's empty and the user clicks the AI tab
+            // 2. Update Tab Buttons (The Bulletproof Way)
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            const tabs = document.querySelectorAll('.tab-btn');
+            if (tabName === 'standard') tabs[0].classList.add('active');
+            if (tabName === 'ai') tabs[1].classList.add('active');
+
+            // 3. Auto-generate AI solution if empty
             const aiTextDiv = document.getElementById('ai-explanation-text');
             if (tabName === 'ai' && aiTextDiv.innerHTML.trim() === '') {
-                generateAISolution();
+                window.generateAISolution();
             }
         };
 
