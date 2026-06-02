@@ -384,8 +384,6 @@ window.generateAISolution = async () => {
     You are an elite, world-class professor tutoring a student for competitive entrance exams (JEE Main, Advanced, NEET).
     Your primary goal is absolute, uncompromised mathematical and scientific accuracy. 
     
-    Examine the attached question layout. If an image payload is linked below, map its grid coordinates, axis lines, units, and intervals flawlessly.
-    
     --- QUESTION TEXT ---
     ${q.q}
     
@@ -395,11 +393,16 @@ window.generateAISolution = async () => {
     --- TARGET CORRECT ANSWER MARKER FROM DATABASE ---
     Correct Option Index/Value: ${q.answer}
     
-    --- CORE INSTRUCTIONS ---
-    1. Calculate the step-by-step physical solution completely independently from the target answer first to ensure absolute truth.
-    2. Map out each distinct time interval or vector arithmetic component explicitly.
-    3. Once your calculation is fully complete, cross-verify which multiple choice option perfectly aligns with your math text values.
-    4. If the target answer marker provided by the database structurally conflicts with pure physics, prioritize absolute scientific accuracy and flag it politely.
+    --- CRITICAL VISUAL PROTOCOL ---
+    Before performing any physics formulas or mathematical steps, you must execute the following two-step visual audit:
+    1. Look at the attached image graph/diagram and explicitly write out every visible coordinate point, vertex, intercept, and axis scale label you see in text format. 
+       (Example: "Visual Audit: Line starts at (0,0), rises to a peak at (3,15), remains flat until (5,15), and drops back to the axis at (7,0).")
+    2. Explicitly write down the units listed on both the X-axis and Y-axis.
+    
+    --- CORE EXPLANATION INSTRUCTIONS ---
+    - Use the coordinates from your Visual Audit to break down the calculation step-by-step.
+    - Calculate the intervals completely independently from the target answer first to ensure absolute truth.
+    - If your final derivation matches the provided database target choice, justify it completely. If you discover a structural typo in the database's target option compared to pure physics rules, prioritize absolute scientific truth and explain the mismatch gracefully.
     
     --- FORMATTING RULES ---
     - Render all mathematical notations, formulas, or expressions using standard LaTeX formatting (use $ for inline equations and $$ for standalone block equations).
