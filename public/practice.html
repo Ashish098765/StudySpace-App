@@ -366,12 +366,17 @@ window.generateAISolution = async () => {
     const aiTextDiv = document.getElementById('ai-explanation-text');
     const q = filteredPracticeSet[currentFocusIndex]; 
     
-    // Clear display container instantly to initialize stream canvas
-    aiTextDiv.innerHTML = "";
+    // Set up the streaming workspace area
+    aiTextDiv.innerHTML = `
+        <div class="ai-loading">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+            <span>Establishing secure real-time stream link...</span>
+        </div>
+    `;
 
     const formattedOptions = q.options && Array.isArray(q.options) 
         ? q.options.map((opt, idx) => `Option ${idx + 1}: ${opt}`).join('\n    ')
-        : 'No visual choice matrix found.';
+        : 'No choice matrix found.';
 
     const userPrompt = `
     You are an elite academic professor tutoring a student for competitive entrance exams (JEE Main, NEET).
@@ -396,41 +401,47 @@ window.generateAISolution = async () => {
             throw new Error("Streaming line initiation failure.");
         }
 
-        // Establish binary streaming decoder loop
         const reader = response.body.getReader();
         const decoder = new TextDecoder("utf-8");
-        let accumulatedText = "";
+        
+        let accumulatedRawBody = ""; // Rolling buffer tracking the whole stream
 
         while (true) {
             const { done, value } = await reader.read();
             if (done) break;
 
-            const chunkStr = decoder.decode(value, { stream: true });
+            // Append the new fragment onto our rolling history log
+            accumulatedRawBody += decoder.decode(value, { stream: true });
             
-            // Extract text tokens securely from Gemini's incoming streaming blocks
-            const textMatches = chunkStr.match(/"text"\s*:\s*"((?:[^"\\]|\\.)*)"/g);
-            if (textMatches) {
-                for (const match of textMatches) {
-                    const unparsedText = match.replace(/^"text"\s*:\s*"/, '').slice(0, -1);
-                    const cleanSegment = JSON.parse(`"${unparsedText}"`);
-                    
-                    accumulatedText += cleanSegment;
-                    
-                    // Format bold indicators and lists on the fly
-                    let liveFormatted = accumulatedText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-                    liveFormatted = liveFormatted.replace(/\*/g, '<br>•');
-                    
-                    aiTextDiv.innerHTML = liveFormatted;
+            // Re-scan the entire rolling buffer from index 0 on every chunk delivery
+            const textRegex = /"text"\s*:\s*"((?:[^"\\]|\\.)*)"/g;
+            let match;
+            let currentFullText = "";
+
+            while ((match = textRegex.exec(accumulatedRawBody)) !== null) {
+                try {
+                    // Convert escaped JSON characters securely into native strings
+                    const parsedSegment = JSON.parse(`"${match[1]}"`);
+                    currentFullText += parsedSegment;
+                } catch (e) {
+                    // Skip temporary partial escape fragments at the terminal boundary line
                 }
+            }
+
+            // Output the accumulated text formatting to the user layout container
+            if (currentFullText) {
+                let liveFormatted = currentFullText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+                liveFormatted = liveFormatted.replace(/\*/g, '<br>•');
+                aiTextDiv.innerHTML = liveFormatted;
             }
         }
         
-        // Render advanced LaTeX formula layouts once text has fully arrived
+        // Finalize standard LaTeX formatting alignments once text has arrived
         setTimeout(() => triggerMathRender('ai-explanation-text'), 100);
 
     } catch (error) {
         console.error(error);
-        aiTextDiv.innerHTML = `<div style="color: var(--error-red);"><i class="fa-solid fa-circle-exclamation"></i> Streaming connection dropped: ${error.message}</div>`;
+        aiTextDiv.innerHTML = `<div style="color: var(--error-red);"><i class="fa-solid fa-circle-exclamation"></i> Streaming line connection reset: ${error.message}</div>`;
     } finally {
         isAIGenerating = false;
     }
