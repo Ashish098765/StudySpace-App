@@ -250,12 +250,12 @@
             <h1 class="gateway-title">Target Exam</h1>
             <p class="gateway-subtitle">Select your preference to unlock structured historical test items.</p>
             <div class="gateway-grid">
-                <div class="gateway-card" onclick="navigateToExplorer('JEE Mains')">
+                <div class="gateway-card" onclick="window.navigateToExplorer('JEE Mains')">
                     <div class="gateway-icon"><i class="fa-solid fa-atom"></i></div>
                     <h3>JEE Main</h3>
                     <p>Physics, Chemistry, Mathematics</p>
                 </div>
-                <div class="gateway-card" onclick="navigateToExplorer('NEET')">
+                <div class="gateway-card" onclick="window.navigateToExplorer('NEET')">
                     <div class="gateway-icon" style="color: var(--success-green); background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2);"><i class="fa-solid fa-dna"></i></div>
                     <h3>NEET UG</h3>
                     <p>Physics, Chemistry, Biology</p>
@@ -388,7 +388,7 @@
             try {
                 // THE FIX: We are now talking to YOUR secure backend, not Google directly!
                 // Connects to your secure AWS Lambda URL!
-                const response = await fetch('https://tt6t4ollujq3rlwxibdoqtvt340monfz.lambda-url.us-east-1.on.aws', {
+                const response = await fetch('https://tt6t4ollujq3rlwxibdoqtvt340monfz.lambda-url.us-east-1.on.aws/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ prompt: userPrompt })
