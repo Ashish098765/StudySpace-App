@@ -366,11 +366,10 @@ window.generateAISolution = async () => {
     const aiTextDiv = document.getElementById('ai-explanation-text');
     const q = filteredPracticeSet[currentFocusIndex]; 
     
-    // Set up the streaming workspace area
     aiTextDiv.innerHTML = `
         <div class="ai-loading">
             <i class="fa-solid fa-circle-notch fa-spin"></i>
-            <span>Establishing secure real-time stream link...</span>
+            <span>Connecting to live AI tutor stream...</span>
         </div>
     `;
 
@@ -404,44 +403,46 @@ window.generateAISolution = async () => {
         const reader = response.body.getReader();
         const decoder = new TextDecoder("utf-8");
         
-        let accumulatedRawBody = ""; // Rolling buffer tracking the whole stream
+        let accumulatedRawBody = ""; 
+        let accumulatedText = "";      // Stores clean text progressively
+        let lastProcessedIndex = 0;   // The pointer bookmark to prevent CPU lag
+        const textRegex = /"text"\s*:\s*"((?:[^"\\]|\\.)*)"/g;
 
         while (true) {
             const { done, value } = await reader.read();
             if (done) break;
 
-            // Append the new fragment onto our rolling history log
             accumulatedRawBody += decoder.decode(value, { stream: true });
             
-            // Re-scan the entire rolling buffer from index 0 on every chunk delivery
-            const textRegex = /"text"\s*:\s*"((?:[^"\\]|\\.)*)"/g;
+            // Start scanning exactly from where the last chunk left off
+            textRegex.lastIndex = lastProcessedIndex;
             let match;
-            let currentFullText = "";
+            let systemUpdated = false;
 
             while ((match = textRegex.exec(accumulatedRawBody)) !== null) {
                 try {
-                    // Convert escaped JSON characters securely into native strings
                     const parsedSegment = JSON.parse(`"${match[1]}"`);
-                    currentFullText += parsedSegment;
+                    accumulatedText += parsedSegment;
+                    lastProcessedIndex = textRegex.lastIndex; // Move pointer forward
+                    systemUpdated = true;
                 } catch (e) {
-                    // Skip temporary partial escape fragments at the terminal boundary line
+                    // Chunk cut an escape sequence mid-sentence; skip until next chunk completes it
                 }
             }
 
-            // Output the accumulated text formatting to the user layout container
-            if (currentFullText) {
-                let liveFormatted = currentFullText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+            // Only redraw the screen if new words actually arrived
+            if (systemUpdated) {
+                let liveFormatted = accumulatedText.replace(/\*\*(.*?)\*\"/g, '<b>$1</b>');
                 liveFormatted = liveFormatted.replace(/\*/g, '<br>•');
                 aiTextDiv.innerHTML = liveFormatted;
             }
         }
         
-        // Finalize standard LaTeX formatting alignments once text has arrived
         setTimeout(() => triggerMathRender('ai-explanation-text'), 100);
 
     } catch (error) {
         console.error(error);
-        aiTextDiv.innerHTML = `<div style="color: var(--error-red);"><i class="fa-solid fa-circle-exclamation"></i> Streaming line connection reset: ${error.message}</div>`;
+        aiTextDiv.innerHTML = `<div style="color: var(--error-red);"><i class="fa-solid fa-circle-exclamation"></i> Streaming connection dropped: ${error.message}</div>`;
     } finally {
         isAIGenerating = false;
     }
