@@ -366,12 +366,28 @@ window.generateAISolution = async () => {
     const aiTextDiv = document.getElementById('ai-explanation-text');
     const q = filteredPracticeSet[currentFocusIndex]; 
     
+    // Set up the streaming workspace area
     aiTextDiv.innerHTML = `
         <div class="ai-loading">
             <i class="fa-solid fa-circle-notch fa-spin"></i>
-            <span>Connecting to live AI tutor stream...</span>
+            <span>Inspecting page elements and launching stream...</span>
         </div>
     `;
+
+    // ==================== THE DOM SCRAPER QUICK FIX ====================
+    // 1. Automatically find the <img> tag currently rendered inside your question card.
+    // Replace '.question-card' or '#question-container' with your actual question container ID/class if you use one!
+    const activeImageElement = document.querySelector('.question-card img') || 
+                               document.querySelector('#question-container img') || 
+                               document.querySelector('img'); // Fallback to any visible image on the page
+                               
+    // 2. Extract its live, active URL directly from the screen
+    const verifiedImageUrl = activeImageElement ? activeImageElement.src : null;
+
+    console.log("--- LIVE DOM EXTRACTION LOG ---");
+    console.log("Image element found:", activeImageElement);
+    console.log("Extracted Live URL:", verifiedImageUrl);
+    // ===================================================================
 
     const formattedOptions = q.options && Array.isArray(q.options) 
         ? q.options.map((opt, idx) => `Option ${idx + 1}: ${opt}`).join('\n    ')
@@ -380,6 +396,7 @@ window.generateAISolution = async () => {
     const userPrompt = `
     You are an elite academic professor tutoring a student for competitive entrance exams (JEE Main, NEET).
     Provide an absolute, scientifically accurate explanation for this problem.
+    Look closely at the coordinate paths, lines, intersections, scales, and axes in the attached image to run your calculations.
     
     Question: ${q.q}
     Options: ${formattedOptions}
@@ -392,7 +409,7 @@ window.generateAISolution = async () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
                 prompt: userPrompt,
-                imageUrl: q.imageUrl || q.image || null 
+                imageUrl: verifiedImageUrl // Feeds the live image URL straight from the screen to AWS
             })
         });
 
@@ -404,8 +421,8 @@ window.generateAISolution = async () => {
         const decoder = new TextDecoder("utf-8");
         
         let accumulatedRawBody = ""; 
-        let accumulatedText = "";      // Stores clean text progressively
-        let lastProcessedIndex = 0;   // The pointer bookmark to prevent CPU lag
+        let accumulatedText = "";      
+        let lastProcessedIndex = 0;   
         const textRegex = /"text"\s*:\s*"((?:[^"\\]|\\.)*)"/g;
 
         while (true) {
@@ -414,7 +431,6 @@ window.generateAISolution = async () => {
 
             accumulatedRawBody += decoder.decode(value, { stream: true });
             
-            // Start scanning exactly from where the last chunk left off
             textRegex.lastIndex = lastProcessedIndex;
             let match;
             let systemUpdated = false;
@@ -423,16 +439,15 @@ window.generateAISolution = async () => {
                 try {
                     const parsedSegment = JSON.parse(`"${match[1]}"`);
                     accumulatedText += parsedSegment;
-                    lastProcessedIndex = textRegex.lastIndex; // Move pointer forward
+                    lastProcessedIndex = textRegex.lastIndex; 
                     systemUpdated = true;
                 } catch (e) {
-                    // Chunk cut an escape sequence mid-sentence; skip until next chunk completes it
+                    // Skip partial split fragments
                 }
             }
 
-            // Only redraw the screen if new words actually arrived
             if (systemUpdated) {
-                let liveFormatted = accumulatedText.replace(/\*\*(.*?)\*\"/g, '<b>$1</b>');
+                let liveFormatted = accumulatedText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
                 liveFormatted = liveFormatted.replace(/\*/g, '<br>•');
                 aiTextDiv.innerHTML = liveFormatted;
             }
