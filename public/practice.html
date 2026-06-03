@@ -341,6 +341,7 @@
     <script type="module">
         // --- GEMINI AI INTEGRATION (SECURE BACKEND VERSION) ---
         let isAIGenerating = false; // Notice: No API key here anymore!
+        let aiAbortController = null;
 
         window.switchSolutionTab = (tabName, event) => {
             // 1. Update Tab Content
@@ -361,16 +362,24 @@
         };
 
 window.generateAISolution = async () => {
-    if (isAIGenerating) return;
-    isAIGenerating = true;
+    // 1. IF AN ACTIVE STREAM IS RUNNING, KILL IT INSTANTLY BEFORE STARTING THE NEW ONE
+    if (aiAbortController) {
+        aiAbortController.abort();
+        console.log("Previous network stream terminated to prevent race-condition leakage.");
+    }
+    
+    // Create a new controller instance for this active query line
+    aiAbortController = new AbortController();
+    const { signal } = aiAbortController;
 
+    isAIGenerating = true;
     const aiTextDiv = document.getElementById('ai-explanation-text');
     const q = filteredPracticeSet[currentFocusIndex]; 
     
     aiTextDiv.innerHTML = `
         <div class="ai-loading">
             <i class="fa-solid fa-circle-notch fa-spin"></i>
-            <span>Analyzing your solution path and graph properties...</span>
+            <span>Analyzing solution parameters...</span>
         </div>
     `;
 
@@ -380,10 +389,7 @@ window.generateAISolution = async () => {
         imagePayload.push({ label: "Main Question Diagram", url: mainImgSrc });
     }
 
-    // 1. Map option numbers to standard interface letters (A, B, C, D)
     const optionLetters = ['A', 'B', 'C', 'D'];
-
-    // 2. Parse out multiple-choice options with uniform letter labels
     let formattedOptionsText = "";
     if (q.options && Array.isArray(q.options)) {
         q.options.forEach((opt, idx) => {
@@ -397,15 +403,13 @@ window.generateAISolution = async () => {
         });
     }
 
-    // 3. Read your live global variable tracking the student's active selection
+    // Read option metrics securely
     const studentChoiceText = (typeof selectedOptionIndex !== 'undefined' && selectedOptionIndex !== null)
         ? `Option ${optionLetters[selectedOptionIndex]}`
         : "None (The student clicked AI Tutor without making a guess)";
 
-    // 4. Normalize the correct answer label from your dataset
     let correctOptionText = "";
     if (typeof q.answer === 'number') {
-        // Handles both 0-indexed and 1-indexed database frameworks smoothly
         if (q.answer >= 0 && q.answer < 4) correctOptionText = `Option ${optionLetters[q.answer]}`;
         else if (q.answer >= 1 && q.answer <= 4) correctOptionText = `Option ${optionLetters[q.answer - 1]}`;
     } else if (typeof q.answer === 'string') {
@@ -414,29 +418,16 @@ window.generateAISolution = async () => {
         correctOptionText = `Option ${q.answer}`;
     }
 
-    // 5. Build the precision diagnostic tutoring prompt
     const userPrompt = `
     You are an elite academic professor tutoring a student for competitive entrance exams (JEE Main, Advanced, NEET).
-    Your style is clear, encouraging, and mathematically rigorous.
+    Provide an absolute, scientifically accurate explanation for this problem.
     
-    --- QUESTION TEXT ---
-    ${q.q}
+    Question: ${q.q}
+    Options: ${formattedOptionsText}
+    Student's Answer: ${studentChoiceText}
+    Correct Answer: ${correctOptionText}
     
-    --- AVAILABLE OPTION DIAGRAMS ---
-    ${formattedOptionsText}
-    
-    --- STUDENT SESSION METRICS ---
-    - Student's Chosen Answer: ${studentChoiceText}
-    - Correct Verified Answer: ${correctOptionText}
-    
-    --- INSTRUCTIONS FOR REASONING AND OUTPUT ---
-    1. DIAGNOSE THE STUDENT'S MISTAKE FIRST: If the Student's Chosen Answer does not match the Correct Verified Answer, you MUST open your explanation with a bold section titled "<b>Diagnostic Analysis of Your Answer:</b>". Explicitly explain the mathematical or physical misunderstanding that leads someone to choose their incorrect option (e.g., if they chose a linear line instead of a parabolic curve, clarify why the acceleration values prevent a linear transition).
-    2. STEP-BY-STEP DERIVATION: Provide a meticulous physics breakdown divided by time intervals or formula components that derives the absolute correct answer.
-    3. FINAL CONCLUSION: End by stating clearly which letter option matches your mathematical result.
-    
-    --- FORMATTING RULES ---
-    - Render all mathematical notations, formulas, or expressions using standard LaTeX formatting (use $ for inline equations and $$ for standalone block equations).
-    - Use clean HTML elements like <br> for newlines and <b> for text bolding. Do not use raw markdown like ** or #.
+    Format math notations with standard LaTeX ($ for inline, $$ for block). Use clean HTML tags like <b> and <br>.
     `;
 
     try {
@@ -446,12 +437,11 @@ window.generateAISolution = async () => {
             body: JSON.stringify({ 
                 prompt: userPrompt,
                 images: imagePayload 
-            })
+            }),
+            signal: signal // <-- CRITICAL: Bind the network request line to our kill signal
         });
 
-        if (!response.ok) {
-            throw new Error("Streaming line initiation failure.");
-        }
+        if (!response.ok) throw new Error("Streaming initialization failure.");
 
         const reader = response.body.getReader();
         const decoder = new TextDecoder("utf-8");
@@ -477,9 +467,7 @@ window.generateAISolution = async () => {
                     accumulatedText += parsedSegment;
                     lastProcessedIndex = textRegex.lastIndex; 
                     systemUpdated = true;
-                } catch (e) {
-                    // Skip split text packets safely
-                }
+                } catch (e) {}
             }
 
             if (systemUpdated) {
@@ -492,10 +480,16 @@ window.generateAISolution = async () => {
         setTimeout(() => triggerMathRender('ai-explanation-text'), 100);
 
     } catch (error) {
+        // If the error was triggered by a deliberate navigation cancel, exit cleanly
+        if (error.name === 'AbortError') {
+            console.log("Background processing sequence disconnected safely.");
+            return; 
+        }
         console.error(error);
-        aiTextDiv.innerHTML = `<div style="color: var(--error-red);"><i class="fa-solid fa-circle-exclamation"></i> Streaming connection error: ${error.message}</div>`;
+        aiTextDiv.innerHTML = `<div style="color: var(--error-red);"><i class="fa-solid fa-circle-exclamation"></i> Connection drop: ${error.message}</div>`;
     } finally {
         isAIGenerating = false;
+        aiAbortController = null; // Clean up the reference link when done
     }
 };
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
