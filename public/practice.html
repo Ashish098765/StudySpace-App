@@ -339,163 +339,23 @@
     </div>
 
     <script type="module">
-        // --- GEMINI AI INTEGRATION (SECURE BACKEND VERSION) ---
-        let isAIGenerating = false; // Notice: No API key here anymore!
-        let aiAbortController = null;
-
-        window.switchSolutionTab = (tabName, event) => {
-            // 1. Update Tab Content
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-            document.getElementById(`tab-${tabName}`).classList.add('active');
-
-            // 2. Update Tab Buttons (The Bulletproof Way)
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            const tabs = document.querySelectorAll('.tab-btn');
-            if (tabName === 'standard') tabs[0].classList.add('active');
-            if (tabName === 'ai') tabs[1].classList.add('active');
-
-            // 3. Auto-generate AI solution if empty
-            const aiTextDiv = document.getElementById('ai-explanation-text');
-            if (tabName === 'ai' && aiTextDiv.innerHTML.trim() === '') {
-                window.generateAISolution();
-            }
-        };
-
-window.generateAISolution = async () => {
-    // 1. IF AN ACTIVE STREAM IS RUNNING, KILL IT INSTANTLY BEFORE STARTING THE NEW ONE
-    if (aiAbortController) {
-        aiAbortController.abort();
-        console.log("Previous network stream terminated to prevent race-condition leakage.");
-    }
-    
-    // Create a new controller instance for this active query line
-    aiAbortController = new AbortController();
-    const { signal } = aiAbortController;
-
-    isAIGenerating = true;
-    const aiTextDiv = document.getElementById('ai-explanation-text');
-    const q = filteredPracticeSet[currentFocusIndex]; 
-    
-    aiTextDiv.innerHTML = `
-        <div class="ai-loading">
-            <i class="fa-solid fa-circle-notch fa-spin"></i>
-            <span>Analyzing solution parameters...</span>
-        </div>
-    `;
-
-    const imagePayload = [];
-    const mainImgSrc = q.imageUrl || q.image || q.cloudinaryUrl || null;
-    if (mainImgSrc) {
-        imagePayload.push({ label: "Main Question Diagram", url: mainImgSrc });
-    }
-
-    const optionLetters = ['A', 'B', 'C', 'D'];
-    let formattedOptionsText = "";
-    if (q.options && Array.isArray(q.options)) {
-        q.options.forEach((opt, idx) => {
-            const letter = optionLetters[idx];
-            if (typeof opt === 'string' && (opt.startsWith('http://') || opt.startsWith('https://'))) {
-                imagePayload.push({ label: `Option ${letter} Diagram`, url: opt });
-                formattedOptionsText += `Option ${letter}: [See attached Image Option ${letter}]\n    `;
-            } else {
-                formattedOptionsText += `Option ${letter}: ${opt}\n    `;
-            }
-        });
-    }
-
-    // Read option metrics securely
-    const studentChoiceText = (typeof selectedOptionIndex !== 'undefined' && selectedOptionIndex !== null)
-        ? `Option ${optionLetters[selectedOptionIndex]}`
-        : "None (The student clicked AI Tutor without making a guess)";
-
-    let correctOptionText = "";
-    if (typeof q.answer === 'number') {
-        if (q.answer >= 0 && q.answer < 4) correctOptionText = `Option ${optionLetters[q.answer]}`;
-        else if (q.answer >= 1 && q.answer <= 4) correctOptionText = `Option ${optionLetters[q.answer - 1]}`;
-    } else if (typeof q.answer === 'string') {
-        correctOptionText = `Option ${q.answer.toUpperCase()}`;
-    } else {
-        correctOptionText = `Option ${q.answer}`;
-    }
-
-    const userPrompt = `
-    You are an elite academic professor tutoring a student for competitive entrance exams (JEE Main, Advanced, NEET).
-    Provide an absolute, scientifically accurate explanation for this problem.
-    
-    Question: ${q.q}
-    Options: ${formattedOptionsText}
-    Student's Answer: ${studentChoiceText}
-    Correct Answer: ${correctOptionText}
-    
-    Format math notations with standard LaTeX ($ for inline, $$ for block). Use clean HTML tags like <b> and <br>.
-    `;
-
-    try {
-        const response = await fetch('https://tt6t4ollujq3rlwxibdoqtvt340monfz.lambda-url.us-east-1.on.aws', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                prompt: userPrompt,
-                images: imagePayload 
-            }),
-            signal: signal // <-- CRITICAL: Bind the network request line to our kill signal
-        });
-
-        if (!response.ok) throw new Error("Streaming initialization failure.");
-
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder("utf-8");
-        
-        let accumulatedRawBody = ""; 
-        let accumulatedText = "";      
-        let lastProcessedIndex = 0;   
-        const textRegex = /"text"\s*:\s*"((?:[^"\\]|\\.)*)"/g;
-
-        while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
-
-            accumulatedRawBody += decoder.decode(value, { stream: true });
-            
-            textRegex.lastIndex = lastProcessedIndex;
-            let match;
-            let systemUpdated = false;
-
-            while ((match = textRegex.exec(accumulatedRawBody)) !== null) {
-                try {
-                    const parsedSegment = JSON.parse(`"${match[1]}"`);
-                    accumulatedText += parsedSegment;
-                    lastProcessedIndex = textRegex.lastIndex; 
-                    systemUpdated = true;
-                } catch (e) {}
-            }
-
-            if (systemUpdated) {
-                let liveFormatted = accumulatedText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-                liveFormatted = liveFormatted.replace(/\*/g, '<br>•');
-                aiTextDiv.innerHTML = liveFormatted;
-            }
-        }
-        
-        setTimeout(() => triggerMathRender('ai-explanation-text'), 100);
-
-    } catch (error) {
-        // If the error was triggered by a deliberate navigation cancel, exit cleanly
-        if (error.name === 'AbortError') {
-            console.log("Background processing sequence disconnected safely.");
-            return; 
-        }
-        console.error(error);
-        aiTextDiv.innerHTML = `<div style="color: var(--error-red);"><i class="fa-solid fa-circle-exclamation"></i> Connection drop: ${error.message}</div>`;
-    } finally {
-        isAIGenerating = false;
-        aiAbortController = null; // Clean up the reference link when done
-    }
-};
+        // --- FIREBASE V10 MODULAR IMPORTS ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-        import { getFirestore, doc, updateDoc, setDoc, increment, arrayUnion, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+        import { 
+            getFirestore, 
+            doc, 
+            updateDoc, 
+            setDoc, 
+            increment, 
+            arrayUnion, 
+            getDoc,
+            collection,
+            getDocs,
+            writeBatch
+        } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
+        // --- GLOBAL APP STATE MANAGEMENT ---
         const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dyxyzz9r9/image/upload/f_auto,q_auto/";        
         const firebaseConfig = {
             apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
@@ -512,10 +372,29 @@ window.generateAISolution = async () => {
         const db = getFirestore(app);
         
         let currentUser = null;
+        let isAIGenerating = false; 
+        let aiAbortController = null; // Instantly kills background stream race-conditions
         
         let correctIds = JSON.parse(localStorage.getItem('studySpace_correctIds')) || [];
         let wrongIds = JSON.parse(localStorage.getItem('studySpace_wrongIds')) || [];
         
+        let selectedTargetExam = "";
+        let selectedActiveSubject = "";
+        let selectedActiveChapter = "";
+        let selectedChapterId = ""; 
+        let activeMetadata = null; 
+        let filteredPracticeSet = [];
+        
+        let currentFocusIndex = 0;
+        let selectedOptionIndex = null;
+        let isFocusAnswerChecked = false;
+
+        const screenGateway = document.getElementById('exam-gateway-screen');
+        const screenExplorer = document.getElementById('chapter-explorer-screen');
+        const screenList = document.getElementById('list-index-screen');
+        const screenFocus = document.getElementById('quiz-focus-screen');
+
+        // --- AUTH SUBSCRIPTION TRACKER ---
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 currentUser = user;
@@ -538,22 +417,7 @@ window.generateAISolution = async () => {
             }
         });
 
-        let selectedTargetExam = "";
-        let selectedActiveSubject = "";
-        let selectedActiveChapter = "";
-        let selectedChapterId = ""; 
-        let activeMetadata = null; 
-        let filteredPracticeSet = [];
-        
-        let currentFocusIndex = 0;
-        let selectedOptionIndex = null;
-        let isFocusAnswerChecked = false;
-
-        const screenGateway = document.getElementById('exam-gateway-screen');
-        const screenExplorer = document.getElementById('chapter-explorer-screen');
-        const screenList = document.getElementById('list-index-screen');
-        const screenFocus = document.getElementById('quiz-focus-screen');
-
+        // --- MATH RE-RENDERING PIPELINE ---
         window.triggerMathRender = (elementId) => {
             if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
                 const el = document.getElementById(elementId);
@@ -561,6 +425,7 @@ window.generateAISolution = async () => {
             }
         };
 
+        // --- VISUAL CONTENT INJECTION HOOKS ---
         function injectInlineImages(text) {
             if (!text) return "";
             const imgRegex = /\[IMG:\s*([^\]]+)\]/g;
@@ -570,7 +435,7 @@ window.generateAISolution = async () => {
                 if (cleanFilename === "requires_image.png" || cleanFilename === "null") {
                     return `<div style="padding: 10px; border: 1px dashed var(--error-red); color: var(--error-red); font-size: 0.8rem; border-radius: 8px; display: inline-block; margin: 10px 0;">[Image missing in database]</div>`;
                 }
-                return `<img class="q-image" src="${CLOUDINARY_BASE_URL}${cleanFilename}" alt="Diagram" style="display: block; max-width: 100%; border-radius: 12px; margin: 1.5rem auto; border: 1px solid var(--border-subtle); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">`;
+                return `<img class="q-image" src="${CLOUDINARY_BASE_URL}${cleanFilename}" alt="Diagram">`;
             });
         }
 
@@ -652,6 +517,7 @@ window.generateAISolution = async () => {
             return html;
         }
 
+        // --- NAVIGATION ROUTER SYSTEM ---
         window.navigateToGateway = () => {
             screenGateway.style.display = 'block';
             screenExplorer.style.display = 'none';
@@ -848,7 +714,26 @@ window.generateAISolution = async () => {
             setTimeout(() => triggerMathRender('index-list-container'), 100);
         }
 
+        // --- QUESTION INTERFACE VIEW LOADING HOOK ---
         window.openFocusQuestion = (index) => {
+            // KILL PREVIOUS AI LOOPS INSTANTLY TO PREVENT LEAKAGE ON SWAP
+            if (aiAbortController) {
+                aiAbortController.abort();
+                aiAbortController = null;
+            }
+            isAIGenerating = false;
+            
+            // Wipe tab interfaces back to neutral slates
+            document.getElementById('ai-explanation-text').innerHTML = `
+                <p style="color: var(--text-muted); font-style: italic; text-align: center; margin-top: 20px;">
+                    <i class="fa-solid fa-robot"></i> Click "AI Tutor" to generate an explanation.
+                </p>
+            `;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-btn')[0].classList.add('active');
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById('tab-standard').classList.add('active');
+
             currentFocusIndex = index;
             isFocusAnswerChecked = false;
             selectedOptionIndex = null;
@@ -922,6 +807,7 @@ window.generateAISolution = async () => {
                 });
             }
 
+            // REDRAW HISTORICAL ATTEMPTS FOR CHOICE PROBLEMS (FIXED WRONG SELECTION RED GLOWS)
             if (isAttempted) {
                 document.getElementById('btn-check-focus').style.display = 'none';
                 document.getElementById('btn-next-focus').style.display = 'block';
@@ -931,12 +817,24 @@ window.generateAISolution = async () => {
                 
                 if (q.type !== "integer") {
                     const correctAnswers = Array.isArray(q.answer) ? q.answer.map(a => Number(a)) : [Number(q.answer)];
+                    
+                    // Pull student selection out from permanent local logs
+                    const savedChoice = localStorage.getItem(`chosen_${q.uid}`);
+                    
                     correctAnswers.forEach(ansIdx => {
                         const optEl = document.getElementById(`focus-opt-${ansIdx}`);
                         if(optEl) optEl.classList.add('correct');
                         const checkEl = document.getElementById(`focus-check-${ansIdx}`);
                         if(checkEl) checkEl.style.display = 'block';
                     });
+
+                    if (isWrong && savedChoice !== null) {
+                        const wrongIdx = Number(savedChoice);
+                        const wrongOptEl = document.getElementById(`focus-opt-${wrongIdx}`);
+                        if (wrongOptEl) wrongOptEl.classList.add('wrong');
+                        const crossEl = document.getElementById(`focus-cross-${wrongIdx}`);
+                        if (crossEl) crossEl.style.display = 'block';
+                    }
                 }
                 
                 if (isCorrect) {
@@ -967,50 +865,43 @@ window.generateAISolution = async () => {
             document.getElementById('btn-check-focus').disabled = window.selectedOptions.length === 0;
         };
 
-       window.selectFocusOption = async (optIndex) => {
-    // 1. Keep your original validation check intact
-    if (isFocusAnswerChecked) return;
-    selectedOptionIndex = optIndex;
+        // --- OPTION CHOICE REGISTRATION WITH V10 SYNC ---
+        window.selectFocusOption = async (optIndex) => {
+            if (isFocusAnswerChecked) return;
+            selectedOptionIndex = optIndex;
 
-    // 2. Grab the current active question object from memory
-    const q = filteredPracticeSet[currentFocusIndex];
-    if (q) {
-        // Track the choice locally (converting 0-indexed to Option 1, 2, 3, or 4)
-        q.studentAnswer = optIndex + 1;
-    }
+            const q = filteredPracticeSet[currentFocusIndex];
+            if (q) {
+                q.studentAnswer = optIndex + 1;
+                // Pin the current selection path into browser storage rules instantly
+                localStorage.setItem(`chosen_${q.uid}`, optIndex);
+            }
 
-    // 3. Keep your original UI class modifications exactly as they were
-    document.querySelectorAll('#focus-options-container .marks-option').forEach(el => el.classList.remove('selected'));
-    document.getElementById(`focus-opt-${optIndex}`).classList.add('selected');
-    document.getElementById('btn-check-focus').disabled = false;
+            document.querySelectorAll('#focus-options-container .marks-option').forEach(el => el.classList.remove('selected'));
+            document.getElementById(`focus-opt-${optIndex}`).classList.add('selected');
+            document.getElementById('btn-check-focus').disabled = false;
 
-    // 4. NEW DATABASE PERSISTENCE LAYER: Check if a user is securely signed in
-    if (typeof auth !== 'undefined' && auth.currentUser && q) {
-        const userId = auth.currentUser.uid;
-        const questionId = q.id || `q_${currentFocusIndex}`; // Falls back to index tracking if no ID string exists
+            // FIX: Modern Firebase v10 Modular syntax handles document writing flawlessly
+            if (currentUser && q) {
+                const questionId = q.id || `q_${currentFocusIndex}`;
+                const responseDocRef = doc(db, "users", currentUser.uid, "responses", questionId);
 
-        try {
-            console.log(`Saving choice tracker for user profile: ${userId}`);
-            
-            // Log user click data down into your Firebase Firestore collection structure
-            await db.collection('users').doc(userId)
-                    .collection('responses').doc(questionId).set({
-                        questionText: q.q || "No textual values captured",
+                try {
+                    console.log(`Saving choice tracker for user profile: ${currentUser.uid}`);
+                    await setDoc(responseDocRef, {
+                        questionText: q.q || "No text available",
                         selectedOption: q.studentAnswer,
                         correctOption: Number(q.answer),
-                        isCorrect: q.studentAnswer === Number(q.answer),
-                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                        isCorrect: q.studentAnswer === Number(q.answer)
                     }, { merge: true });
+                    console.log("Database update completed.");
+                } catch (dbError) {
+                    console.error("Firebase sync error:", dbError.message);
+                }
+            }
+        };
 
-            console.log("Database update finalized successfully.");
-        } catch (dbError) {
-            console.error("Firebase sync exception occurred:", dbError.message);
-        }
-    } else {
-        console.log("Guest mode active or missing question references. UI state tracked locally.");
-    }
-};
-
+        // --- ANSWER SUBMISSION & VERIFICATION LOOP ---
         window.evaluateFocusQuestion = async () => {
             isFocusAnswerChecked = true;
             const q = filteredPracticeSet[currentFocusIndex];
@@ -1094,7 +985,8 @@ window.generateAISolution = async () => {
             document.getElementById('focus-explanation-text').innerHTML = formatGenericText(q.explanation);
             document.getElementById('focus-explanation-box').style.display = 'block';
             
-            setTimeout(() => triggerMathRender('focus-explanation-box'), 100);
+            // Automatically switch tabs and fire reasoning model explanation pipeline
+            window.switchSolutionTab('ai');
         };
 
         window.advanceToNextQuestion = () => {
@@ -1105,8 +997,8 @@ window.generateAISolution = async () => {
             }
         };
 
+        // --- CORE METRIC UPDATE SYSTEM ---
         async function updateFirebaseProgress(questionUid, isCorrect) {
-            
             if (isCorrect && !correctIds.includes(questionUid)) {
                 correctIds.push(questionUid);
             } else if (!isCorrect && !wrongIds.includes(questionUid)) {
@@ -1136,58 +1028,54 @@ window.generateAISolution = async () => {
                 });
             }
         }
-       window.clearUserProgress = async () => {
-    if (typeof auth === 'undefined' || !auth.currentUser) {
-        alert("You must be signed in to reset your progress tracker.");
-        return;
-    }
 
-    const userId = auth.currentUser.uid;
+        // --- DEEP PURGE PROFILE WIPE (100% CLEAN MODULAR SDK SLATE) ---
+        window.clearUserProgress = async () => {
+            if (!auth.currentUser) {
+                alert("You must be signed in to reset your progress tracker.");
+                return;
+            }
 
-    const confirmReset = confirm("Are you sure you want to completely wipe all your scores, badges, and question attempts? This will completely reset your profile.");
-    if (!confirmReset) return;
+            const userId = auth.currentUser.uid;
+            const confirmReset = confirm("Are you sure you want to completely wipe all your scores, badges, and question attempts? This will completely reset your profile.");
+            if (!confirmReset) return;
 
-    try {
-        console.log(`Starting absolute database and cache purge for user: ${userId}`);
-        const batch = db.batch();
+            try {
+                console.log(`Starting absolute modern database and cache purge for user: ${userId}`);
+                const batch = writeBatch(db);
 
-        // 1. DELETE ALL ENTRIES IN THE RESPONSIONS SUBCOLLECTION
-        const responsesRef = db.collection('users').doc(userId).collection('responses');
-        const snapshot = await responsesRef.get();
-        snapshot.docs.forEach((doc) => {
-            batch.delete(doc.ref);
-        });
+                // 1. Target subcollection queries using clean v10 Modular references
+                const responsesCollectionRef = collection(db, "users", userId, "responses");
+                const snapshot = await getDocs(responsesCollectionRef);
+                snapshot.forEach((docSnap) => {
+                    batch.delete(docSnap.ref);
+                });
 
-        // 2. THE TOTAL FIELD NUKE: Overwrite the parent document completely 
-        // This removes ALL hidden tracking arrays/maps without using merge: true
-        const userDocRef = db.collection('users').doc(userId);
-        batch.set(userDocRef, {
-            // Keep only a blank slate setup. Add any fields you found in Step 1 here set to empty!
-            attempts: {},           
-            solvedQuestions: {},    
-            completedList: [],      
-            xp: 0,                  
-            score: 0                
-        }); // <-- Removed { merge: true } so old mismatched field names are deleted!
+                // 2. Clear parent state metrics completely
+                const userDocRef = doc(db, "users", userId);
+                batch.set(userDocRef, {
+                    correctIds: [],
+                    wrongIds: [],
+                    xp: 0,
+                    score: 0
+                });
 
-        // 3. COMMIT CHANGES TO FIRESTORE
-        await batch.commit();
-        console.log("Firestore tracking states cleared completely.");
+                // 3. Commit the pipeline bundle to Firestore
+                await batch.commit();
+                console.log("Firestore document records completely wiped.");
 
-        // 4. CLEAN BROWSER CACHE
-        localStorage.clear();
-        sessionStorage.clear();
+                // 4. Wipe out all lingering browser artifacts
+                localStorage.clear();
+                sessionStorage.clear();
 
-        alert("Profile history successfully reset! Reloading layout...");
+                alert("Profile history successfully reset! Reloading layout...");
+                window.location.reload();
 
-        // 5. HARD RELOAD
-        window.location.reload();
-
-    } catch (error) {
-        console.error("Purge failure exception:", error.message);
-        alert(`An error occurred while clearing your progress: ${error.message}`);
-    }
-};
+            } catch (error) {
+                console.error("Purge failure exception:", error.message);
+                alert(`An error occurred while clearing your progress: ${error.message}`);
+            }
+        };
     </script>
 </body>
 </html>
