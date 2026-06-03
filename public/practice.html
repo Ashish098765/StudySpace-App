@@ -369,7 +369,7 @@ window.generateAISolution = async () => {
     aiTextDiv.innerHTML = `
         <div class="ai-loading">
             <i class="fa-solid fa-circle-notch fa-spin"></i>
-            <span>Analyzing your response vs. correct derivations...</span>
+            <span>Analyzing your solution path and graph properties...</span>
         </div>
     `;
 
@@ -379,42 +379,59 @@ window.generateAISolution = async () => {
         imagePayload.push({ label: "Main Question Diagram", url: mainImgSrc });
     }
 
+    // 1. Map option numbers to standard interface letters (A, B, C, D)
+    const optionLetters = ['A', 'B', 'C', 'D'];
+
+    // 2. Parse out multiple-choice options with uniform letter labels
     let formattedOptionsText = "";
     if (q.options && Array.isArray(q.options)) {
         q.options.forEach((opt, idx) => {
+            const letter = optionLetters[idx];
             if (typeof opt === 'string' && (opt.startsWith('http://') || opt.startsWith('https://'))) {
-                imagePayload.push({ label: `Multiple Choice Option ${idx + 1} Diagram`, url: opt });
-                formattedOptionsText += `Option ${idx + 1}: [See attached Image Option ${idx + 1}]\n    `;
+                imagePayload.push({ label: `Option ${letter} Diagram`, url: opt });
+                formattedOptionsText += `Option ${letter}: [See attached Image Option ${letter}]\n    `;
             } else {
-                formattedOptionsText += `Option ${idx + 1}: ${opt}\n    `;
+                formattedOptionsText += `Option ${letter}: ${opt}\n    `;
             }
         });
     }
 
-    // Capture the student's selection. Fallback gracefully if they click "AI Tutor" before guessing.
-    const studentChoiceText = q.studentAnswer 
-        ? `Option ${q.studentAnswer}` 
-        : "None (The student did not attempt to guess an option yet)";
+    // 3. Read your live global variable tracking the student's active selection
+    const studentChoiceText = (typeof selectedOptionIndex !== 'undefined' && selectedOptionIndex !== null)
+        ? `Option ${optionLetters[selectedOptionIndex]}`
+        : "None (The student clicked AI Tutor without making a guess)";
 
-    // THE DIAGNOSTIC PROMPT UPGRADE
+    // 4. Normalize the correct answer label from your dataset
+    let correctOptionText = "";
+    if (typeof q.answer === 'number') {
+        // Handles both 0-indexed and 1-indexed database frameworks smoothly
+        if (q.answer >= 0 && q.answer < 4) correctOptionText = `Option ${optionLetters[q.answer]}`;
+        else if (q.answer >= 1 && q.answer <= 4) correctOptionText = `Option ${optionLetters[q.answer - 1]}`;
+    } else if (typeof q.answer === 'string') {
+        correctOptionText = `Option ${q.answer.toUpperCase()}`;
+    } else {
+        correctOptionText = `Option ${q.answer}`;
+    }
+
+    // 5. Build the precision diagnostic tutoring prompt
     const userPrompt = `
-    You are an elite academic professor tutoring a student for competitive entrance exams (JEE Main, NEET).
-    Your primary goal is absolute mathematical accuracy combined with empathetic, constructive diagnostic tutoring.
+    You are an elite academic professor tutoring a student for competitive entrance exams (JEE Main, Advanced, NEET).
+    Your style is clear, encouraging, and mathematically rigorous.
     
     --- QUESTION TEXT ---
     ${q.q}
     
-    --- AVAILABLE MULTIPLE CHOICE OPTIONS ---
+    --- AVAILABLE OPTION DIAGRAMS ---
     ${formattedOptionsText}
     
-    --- SESSION INPUT DATA ---
-    - Student's Selected Answer: ${studentChoiceText}
-    - Correct Database Answer: Option ${q.answer}
+    --- STUDENT SESSION METRICS ---
+    - Student's Chosen Answer: ${studentChoiceText}
+    - Correct Verified Answer: ${correctOptionText}
     
-    --- CORE INSTRUCTIONS FOR TUTORING LAYOUT ---
-    1. DIAGNOSE THE MISTAKE FIRST: If the Student's Selected Answer does not match the Correct Database Answer, explicitly identify why their choice is wrong. Break down the common conceptual loophole, formula misinterpretation, or mathematical pitfall that leads an applicant to select that specific incorrect option. 
-    2. SHOW THE CORRECT PATH: Provide a clear, step-by-step physical or mathematical derivation that leads to the correct option.
-    3. If the student has not selected an answer yet, skip step 1 and map out the full problem derivation clearly.
+    --- INSTRUCTIONS FOR REASONING AND OUTPUT ---
+    1. DIAGNOSE THE STUDENT'S MISTAKE FIRST: If the Student's Chosen Answer does not match the Correct Verified Answer, you MUST open your explanation with a bold section titled "<b>Diagnostic Analysis of Your Answer:</b>". Explicitly explain the mathematical or physical misunderstanding that leads someone to choose their incorrect option (e.g., if they chose a linear line instead of a parabolic curve, clarify why the acceleration values prevent a linear transition).
+    2. STEP-BY-STEP DERIVATION: Provide a meticulous physics breakdown divided by time intervals or formula components that derives the absolute correct answer.
+    3. FINAL CONCLUSION: End by stating clearly which letter option matches your mathematical result.
     
     --- FORMATTING RULES ---
     - Render all mathematical notations, formulas, or expressions using standard LaTeX formatting (use $ for inline equations and $$ for standalone block equations).
@@ -460,7 +477,7 @@ window.generateAISolution = async () => {
                     lastProcessedIndex = textRegex.lastIndex; 
                     systemUpdated = true;
                 } catch (e) {
-                    // Safety protection for partial stream packets
+                    // Skip split text packets safely
                 }
             }
 
