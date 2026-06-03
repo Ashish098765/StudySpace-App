@@ -1141,7 +1141,7 @@ window.generateAISolution = async () => {
                 });
             }
         }
-        window.clearUserProgress = async () => {
+       window.clearUserProgress = async () => {
     if (typeof auth === 'undefined' || !auth.currentUser) {
         alert("You must be signed in to reset your progress tracker.");
         return;
@@ -1153,47 +1153,39 @@ window.generateAISolution = async () => {
     if (!confirmReset) return;
 
     try {
-        console.log(`Starting deep database and cache purge for user: ${userId}`);
+        console.log(`Starting absolute database and cache purge for user: ${userId}`);
         const batch = db.batch();
 
-        // 1. QUERY AND ACCUMULATE SUBCOLLECTION LOGS FOR DELETION
+        // 1. DELETE ALL ENTRIES IN THE RESPONSIONS SUBCOLLECTION
         const responsesRef = db.collection('users').doc(userId).collection('responses');
         const snapshot = await responsesRef.get();
-        
         snapshot.docs.forEach((doc) => {
             batch.delete(doc.ref);
         });
 
-        // 2. PURGE SUMMARY TRACKERS ON THE PARENT USER DOCUMENT
-        // Adjust these field names if your database uses names like 'solved', 'history', or 'attempts'!
+        // 2. THE TOTAL FIELD NUKE: Overwrite the parent document completely 
+        // This removes ALL hidden tracking arrays/maps without using merge: true
         const userDocRef = db.collection('users').doc(userId);
         batch.set(userDocRef, {
-            attempts: {},           // Resets question status tracking maps
-            solvedQuestions: {},    // Resets correct checks tracking maps
-            completedList: [],      // Wipes index history arrays
-            xp: 0,                  // Resets earned points to zero
-            score: 0                // Resets global performance score
-        }, { merge: true });
+            // Keep only a blank slate setup. Add any fields you found in Step 1 here set to empty!
+            attempts: {},           
+            solvedQuestions: {},    
+            completedList: [],      
+            xp: 0,                  
+            score: 0                
+        }); // <-- Removed { merge: true } so old mismatched field names are deleted!
 
-        // 3. COMMIT ALL DATABASE CHANGES SIMULTANEOUSLY
+        // 3. COMMIT CHANGES TO FIRESTORE
         await batch.commit();
-        console.log("Firestore documents and profile status fields successfully purged.");
+        console.log("Firestore tracking states cleared completely.");
 
-        // 4. BROWSER MEMORY PURGE: Flush local caching layers
+        // 4. CLEAN BROWSER CACHE
         localStorage.clear();
         sessionStorage.clear();
 
-        // 5. LOCAL STATE RECONCILIATION: Wipe current in-memory question flags
-        if (typeof filteredPracticeSet !== 'undefined' && Array.isArray(filteredPracticeSet)) {
-            filteredPracticeSet.forEach(q => {
-                delete q.studentAnswer;
-                delete q.status; // Wipes any temporary runtime flags
-            });
-        }
+        alert("Profile history successfully reset! Reloading layout...");
 
-        alert("Profile history successfully reset! Refreshing layout...");
-
-        // 6. FORCE HARD PAGE RELOAD: Destroys active memory states and pulls a fresh, empty layout
+        // 5. HARD RELOAD
         window.location.reload();
 
     } catch (error) {
