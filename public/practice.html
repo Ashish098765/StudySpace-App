@@ -1141,6 +1141,66 @@ window.generateAISolution = async () => {
                 });
             }
         }
+        window.clearUserProgress = async () => {
+    if (typeof auth === 'undefined' || !auth.currentUser) {
+        alert("You must be signed in to reset your progress tracker.");
+        return;
+    }
+
+    const userId = auth.currentUser.uid;
+
+    const confirmReset = confirm("Are you sure you want to completely wipe all your scores, badges, and question attempts? This will completely reset your profile.");
+    if (!confirmReset) return;
+
+    try {
+        console.log(`Starting deep database and cache purge for user: ${userId}`);
+        const batch = db.batch();
+
+        // 1. QUERY AND ACCUMULATE SUBCOLLECTION LOGS FOR DELETION
+        const responsesRef = db.collection('users').doc(userId).collection('responses');
+        const snapshot = await responsesRef.get();
+        
+        snapshot.docs.forEach((doc) => {
+            batch.delete(doc.ref);
+        });
+
+        // 2. PURGE SUMMARY TRACKERS ON THE PARENT USER DOCUMENT
+        // Adjust these field names if your database uses names like 'solved', 'history', or 'attempts'!
+        const userDocRef = db.collection('users').doc(userId);
+        batch.set(userDocRef, {
+            attempts: {},           // Resets question status tracking maps
+            solvedQuestions: {},    // Resets correct checks tracking maps
+            completedList: [],      // Wipes index history arrays
+            xp: 0,                  // Resets earned points to zero
+            score: 0                // Resets global performance score
+        }, { merge: true });
+
+        // 3. COMMIT ALL DATABASE CHANGES SIMULTANEOUSLY
+        await batch.commit();
+        console.log("Firestore documents and profile status fields successfully purged.");
+
+        // 4. BROWSER MEMORY PURGE: Flush local caching layers
+        localStorage.clear();
+        sessionStorage.clear();
+
+        // 5. LOCAL STATE RECONCILIATION: Wipe current in-memory question flags
+        if (typeof filteredPracticeSet !== 'undefined' && Array.isArray(filteredPracticeSet)) {
+            filteredPracticeSet.forEach(q => {
+                delete q.studentAnswer;
+                delete q.status; // Wipes any temporary runtime flags
+            });
+        }
+
+        alert("Profile history successfully reset! Refreshing layout...");
+
+        // 6. FORCE HARD PAGE RELOAD: Destroys active memory states and pulls a fresh, empty layout
+        window.location.reload();
+
+    } catch (error) {
+        console.error("Purge failure exception:", error.message);
+        alert(`An error occurred while clearing your progress: ${error.message}`);
+    }
+};
     </script>
 </body>
 </html>
