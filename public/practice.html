@@ -366,51 +366,59 @@ window.generateAISolution = async () => {
     const aiTextDiv = document.getElementById('ai-explanation-text');
     const q = filteredPracticeSet[currentFocusIndex]; 
     
-    // Clear display container instantly to prepare for the live stream canvas
     aiTextDiv.innerHTML = `
         <div class="ai-loading">
             <i class="fa-solid fa-circle-notch fa-spin"></i>
-            <span>Analyzing core graph properties and multiple choice options...</span>
+            <span>Analyzing your response vs. correct derivations...</span>
         </div>
     `;
 
-    // 1. INITIALIZE AN EMPTY IMAGES PAYLOAD ARRAY
     const imagePayload = [];
-
-    // 2. ATTACH THE MAIN QUESTION GRAPH IMAGE (if it exists in your dataset)
     const mainImgSrc = q.imageUrl || q.image || q.cloudinaryUrl || null;
     if (mainImgSrc) {
         imagePayload.push({ label: "Main Question Diagram", url: mainImgSrc });
     }
 
-    // 3. PARSE MULTIPLE CHOICE OPTIONS (Handles both text strings and image URLs flawlessly)
     let formattedOptionsText = "";
     if (q.options && Array.isArray(q.options)) {
         q.options.forEach((opt, idx) => {
-            // Check if the option is a Cloudinary/web image URL
             if (typeof opt === 'string' && (opt.startsWith('http://') || opt.startsWith('https://'))) {
                 imagePayload.push({ label: `Multiple Choice Option ${idx + 1} Diagram`, url: opt });
                 formattedOptionsText += `Option ${idx + 1}: [See attached Image Option ${idx + 1}]\n    `;
             } else {
-                // Treat normally if it is standard text layout values
                 formattedOptionsText += `Option ${idx + 1}: ${opt}\n    `;
             }
         });
     }
 
-    console.log("--- LIVE COMPREHENSIVE PIPELINE LOG ---");
-    console.log("Compiled Images Array Payload:", imagePayload);
-    console.log("Formatted Prompt Options Text:", formattedOptionsText);
+    // Capture the student's selection. Fallback gracefully if they click "AI Tutor" before guessing.
+    const studentChoiceText = q.studentAnswer 
+        ? `Option ${q.studentAnswer}` 
+        : "None (The student did not attempt to guess an option yet)";
 
+    // THE DIAGNOSTIC PROMPT UPGRADE
     const userPrompt = `
     You are an elite academic professor tutoring a student for competitive entrance exams (JEE Main, NEET).
-    Provide an absolute, scientifically accurate explanation for this problem.
-    Look closely at the coordinate paths, scales, and curves across all attached diagrams (main question graph and option diagrams) to select the correct choice.
+    Your primary goal is absolute mathematical accuracy combined with empathetic, constructive diagnostic tutoring.
     
-    Question: ${q.q}
-    Options Setup:
+    --- QUESTION TEXT ---
+    ${q.q}
+    
+    --- AVAILABLE MULTIPLE CHOICE OPTIONS ---
     ${formattedOptionsText}
-    Correct Target Indicator: Option ${q.answer}
+    
+    --- SESSION INPUT DATA ---
+    - Student's Selected Answer: ${studentChoiceText}
+    - Correct Database Answer: Option ${q.answer}
+    
+    --- CORE INSTRUCTIONS FOR TUTORING LAYOUT ---
+    1. DIAGNOSE THE MISTAKE FIRST: If the Student's Selected Answer does not match the Correct Database Answer, explicitly identify why their choice is wrong. Break down the common conceptual loophole, formula misinterpretation, or mathematical pitfall that leads an applicant to select that specific incorrect option. 
+    2. SHOW THE CORRECT PATH: Provide a clear, step-by-step physical or mathematical derivation that leads to the correct option.
+    3. If the student has not selected an answer yet, skip step 1 and map out the full problem derivation clearly.
+    
+    --- FORMATTING RULES ---
+    - Render all mathematical notations, formulas, or expressions using standard LaTeX formatting (use $ for inline equations and $$ for standalone block equations).
+    - Use clean HTML elements like <br> for newlines and <b> for text bolding. Do not use raw markdown like ** or #.
     `;
 
     try {
@@ -419,7 +427,7 @@ window.generateAISolution = async () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
                 prompt: userPrompt,
-                images: imagePayload // Sends the fully mapped assets collection to AWS
+                images: imagePayload 
             })
         });
 
@@ -947,13 +955,49 @@ window.generateAISolution = async () => {
             document.getElementById('btn-check-focus').disabled = window.selectedOptions.length === 0;
         };
 
-        window.selectFocusOption = (optIndex) => {
-            if (isFocusAnswerChecked) return;
-            selectedOptionIndex = optIndex;
-            document.querySelectorAll('#focus-options-container .marks-option').forEach(el => el.classList.remove('selected'));
-            document.getElementById(`focus-opt-${optIndex}`).classList.add('selected');
-            document.getElementById('btn-check-focus').disabled = false;
-        };
+       window.selectFocusOption = async (optIndex) => {
+    // 1. Keep your original validation check intact
+    if (isFocusAnswerChecked) return;
+    selectedOptionIndex = optIndex;
+
+    // 2. Grab the current active question object from memory
+    const q = filteredPracticeSet[currentFocusIndex];
+    if (q) {
+        // Track the choice locally (converting 0-indexed to Option 1, 2, 3, or 4)
+        q.studentAnswer = optIndex + 1;
+    }
+
+    // 3. Keep your original UI class modifications exactly as they were
+    document.querySelectorAll('#focus-options-container .marks-option').forEach(el => el.classList.remove('selected'));
+    document.getElementById(`focus-opt-${optIndex}`).classList.add('selected');
+    document.getElementById('btn-check-focus').disabled = false;
+
+    // 4. NEW DATABASE PERSISTENCE LAYER: Check if a user is securely signed in
+    if (typeof auth !== 'undefined' && auth.currentUser && q) {
+        const userId = auth.currentUser.uid;
+        const questionId = q.id || `q_${currentFocusIndex}`; // Falls back to index tracking if no ID string exists
+
+        try {
+            console.log(`Saving choice tracker for user profile: ${userId}`);
+            
+            // Log user click data down into your Firebase Firestore collection structure
+            await db.collection('users').doc(userId)
+                    .collection('responses').doc(questionId).set({
+                        questionText: q.q || "No textual values captured",
+                        selectedOption: q.studentAnswer,
+                        correctOption: Number(q.answer),
+                        isCorrect: q.studentAnswer === Number(q.answer),
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    }, { merge: true });
+
+            console.log("Database update finalized successfully.");
+        } catch (dbError) {
+            console.error("Firebase sync exception occurred:", dbError.message);
+        }
+    } else {
+        console.log("Guest mode active or missing question references. UI state tracked locally.");
+    }
+};
 
         window.evaluateFocusQuestion = async () => {
             isFocusAnswerChecked = true;
