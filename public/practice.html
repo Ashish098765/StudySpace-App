@@ -1197,7 +1197,34 @@ Instructions: Please solve this step-by-step. If the student attempted an answer
                     }
                 }
 
-                setTimeout(() => triggerMathRender('ai-explanation-text'), 100);
+                // --- Final layout paint buffer ---
+                aiTextContainer.innerHTML = formatGenericText(accumulatedText);
+                
+                setTimeout(() => {
+                    const container = document.getElementById('ai-explanation-text');
+                    if (!container) return;
+
+                    // 1. If using MathJax (Standard for JEE platforms)
+                    if (typeof MathJax !== 'undefined') {
+                        // Crucial: Clear MathJax's memory of this container so it doesn't skip it
+                        MathJax.typesetClear([container]); 
+                        MathJax.typesetPromise([container]).catch(err => console.error("MathJax Error:", err));
+                    } 
+                    // 2. If using KaTeX
+                    else if (typeof renderMathInElement !== 'undefined') {
+                        renderMathInElement(container, {
+                            delimiters: [
+                                {left: "$$", right: "$$", display: true},
+                                {left: "$", right: "$", display: false}
+                            ],
+                            throwOnError: false
+                        });
+                    } 
+                    // 3. Fallback to your custom function
+                    else if (typeof triggerMathRender === 'function') {
+                        triggerMathRender('ai-explanation-text');
+                    }
+                }, 300); // Increased buffer to 300ms guarantees the browser has painted the text
 
             } catch (error) {
                 if (error.name !== 'AbortError') {
