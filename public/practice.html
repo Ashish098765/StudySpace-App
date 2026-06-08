@@ -1004,6 +1004,9 @@
             
             // CRITICAL FIX: Ensure Standard Solution remains the default tab upon submission!
             window.switchSolutionTab('standard');
+
+            // --- NEW: Force MathJax to scan the newly revealed solution box ---
+            setTimeout(() => triggerMathRender('focus-explanation-box'), 100);
         };
 
         window.advanceToNextQuestion = () => {
