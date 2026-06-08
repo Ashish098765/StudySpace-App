@@ -1105,38 +1105,45 @@
                 if (!response.ok) {
                     throw new Error(`HTTP Error: ${response.status}`);
                 }
-
-                // 4. READ THE LIVE STREAM (Do NOT use response.json!)
+                // 4. READ THE LIVE STREAM (Robust Buffer Version)
                 const reader = response.body.getReader();
                 const decoder = new TextDecoder("utf-8");
                 let accumulatedText = "";
+                let streamBuffer = ""; // Holds cut-off chunks
+                
                 aiTextContainer.innerHTML = ""; // Clear the loading spinner
 
                 while (true) {
                     const { done, value } = await reader.read();
                     if (done) break;
                     
-                    const chunk = decoder.decode(value, { stream: true });
+                    // Add new bytes to whatever was left over from the last chunk
+                    streamBuffer += decoder.decode(value, { stream: true });
+                    const lines = streamBuffer.split('\n');
                     
-                    // Parse the Groq Server-Sent Events (SSE) stream
-                    const lines = chunk.split('\n');
+                    // The last line is often incomplete, so we pop it off and save it in the buffer for the next loop
+                    streamBuffer = lines.pop(); 
+                    
                     for (const line of lines) {
-                        if (line.startsWith('data: ') && !line.includes('[DONE]')) {
+                        const cleanLine = line.trim();
+                        if (cleanLine.startsWith('data: ') && !cleanLine.includes('[DONE]')) {
                             try {
-                                const dataObj = JSON.parse(line.replace('data: ', ''));
+                                const jsonStr = cleanLine.substring(6); // Remove 'data: '
+                                const dataObj = JSON.parse(jsonStr);
                                 const deltaContent = dataObj.choices[0]?.delta?.content || "";
                                 accumulatedText += deltaContent;
                                 
-                                // Update the UI live as words come in
+                                // Update the UI live
                                 aiTextContainer.innerHTML = formatGenericText(accumulatedText);
                             } catch (e) {
-                                // Ignore broken JSON chunks that get split mid-stream
+                                // If a deeply nested JSON chunk is still somehow malformed, skip gracefully
+                                console.warn("Skipped malformed chunk:", e.message);
                             }
                         }
                     }
                 }
 
-                // Finally, render the math equations once the stream finishes
+                // Finally, render the math equations once the stream finishes completely
                 setTimeout(() => triggerMathRender('ai-explanation-text'), 100);
 
             } catch (error) {
