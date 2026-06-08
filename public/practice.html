@@ -1198,34 +1198,28 @@ Instructions: Please solve this step-by-step. If the student attempted an answer
                 }
 
                 // --- Final layout paint buffer ---
+                // --- AGGRESSIVE MATH RENDERING QUEUE ---
                 aiTextContainer.innerHTML = formatGenericText(accumulatedText);
                 
-                setTimeout(() => {
-                    const container = document.getElementById('ai-explanation-text');
-                    if (!container) return;
+                // Wait for the browser to physically paint the text to the screen
+                requestAnimationFrame(() => {
+                    setTimeout(() => {
+                        const container = document.getElementById('ai-explanation-text');
+                        if (!container) return;
 
-                    // 1. If using MathJax (Standard for JEE platforms)
-                    if (typeof MathJax !== 'undefined') {
-                        // Crucial: Clear MathJax's memory of this container so it doesn't skip it
-                        MathJax.typesetClear([container]); 
-                        MathJax.typesetPromise([container]).catch(err => console.error("MathJax Error:", err));
-                    } 
-                    // 2. If using KaTeX
-                    else if (typeof renderMathInElement !== 'undefined') {
-                        renderMathInElement(container, {
-                            delimiters: [
-                                {left: "$$", right: "$$", display: true},
-                                {left: "$", right: "$", display: false}
-                            ],
-                            throwOnError: false
-                        });
-                    } 
-                    // 3. Fallback to your custom function
-                    else if (typeof triggerMathRender === 'function') {
-                        triggerMathRender('ai-explanation-text');
-                    }
-                }, 300); // Increased buffer to 300ms guarantees the browser has painted the text
-
+                        // Safely queue MathJax so it never skips the first render
+                        if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+                            window.MathJax.startup.promise = window.MathJax.startup.promise
+                                .then(() => window.MathJax.typesetClear([container]))
+                                .then(() => window.MathJax.typesetPromise([container]))
+                                .catch(err => console.error("MathJax Queue Error:", err));
+                        } 
+                        // Fallback to your custom function if MathJax 3 isn't detected
+                        else if (typeof triggerMathRender === 'function') {
+                            triggerMathRender('ai-explanation-text');
+                        }
+                    }, 150); // Small buffer to ensure HTML is locked
+                });
             } catch (error) {
                 if (error.name !== 'AbortError') {
                     console.error("Lambda Fetch Failed:", error);
