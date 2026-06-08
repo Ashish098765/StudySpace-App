@@ -1143,36 +1143,67 @@
                     }
                 }
 
-                // --- NEW: Contextual Personalization (A, B, C, D Format) ---
+                // --- NEW: Contextual Personalization (Historical State Aware) ---
                 const cleanPrompt = q.q.replace(/\[IMG:\s*[^\]]+\]/g, "[See Attached Image]");
                 
-                // Map the 0-based database index to actual Option Letters
-                const letters = ['A', 'B', 'C', 'D'];
+                // 1. Check global state to see if they got this right or wrong historically
+                const isCorrectHistory = correctIds.includes(q.uid);
+                const isWrongHistory = wrongIds.includes(q.uid);
                 
-                // Convert the correct answer index to a letter (fallback to raw value if mapping fails)
-                const correctLetter = letters[q.answer] !== undefined ? letters[q.answer] : q.answer; 
+                let studentStatus = "Did not attempt (Asked for help)";
                 
-                // Check if the student actually clicked an option, otherwise note they asked for help first
-                let studentLetter = "Did not attempt (Asked for help)";
-                if (q.studentAnswer !== undefined && q.studentAnswer !== null) {
-                    studentLetter = letters[q.studentAnswer] !== undefined ? letters[q.studentAnswer] : q.studentAnswer;
+                if (isCorrectHistory) {
+                    studentStatus = "Student attempted and answered CORRECTLY.";
+                } else if (isWrongHistory) {
+                    // Pull their exact wrong choice from local history
+                    const savedChoice = localStorage.getItem(`chosen_${q.uid}`);
+                    if (q.type === 'integer') {
+                        const savedInt = localStorage.getItem(`answer_${q.uid}`);
+                        studentStatus = savedInt !== null ? `Student answered INCORRECTLY. They typed: ${savedInt}` : "Student answered INCORRECTLY.";
+                    } else {
+                        if (savedChoice !== null) {
+                            const letters = ['A', 'B', 'C', 'D'];
+                            const letterChosen = letters[savedChoice] !== undefined ? letters[savedChoice] : savedChoice;
+                            studentStatus = `Student answered INCORRECTLY. They chose Option ${letterChosen}.`;
+                        } else {
+                            studentStatus = "Student answered INCORRECTLY.";
+                        }
+                    }
+                } else if (q.studentAnswer !== undefined && q.studentAnswer !== null) {
+                    // Mid-session (they clicked an option but haven't hit "Check Answer" yet)
+                    const letters = ['A', 'B', 'C', 'D'];
+                    const tempLetter = letters[q.studentAnswer] !== undefined ? letters[q.studentAnswer] : q.studentAnswer;
+                    studentStatus = `Student is currently considering Option ${tempLetter} but hasn't submitted yet.`;
+                }
+                
+                // 2. Format Correct Answer cleanly for the AI
+                let correctDisplay = q.answer;
+                if (q.type === 'mcq') {
+                    const letters = ['A', 'B', 'C', 'D'];
+                    correctDisplay = `Option ${letters[q.answer] !== undefined ? letters[q.answer] : q.answer}`;
+                } else if (q.type === 'multi_select') {
+                    const letters = ['A', 'B', 'C', 'D'];
+                    const arr = Array.isArray(q.answer) ? q.answer : [q.answer];
+                    correctDisplay = "Options " + arr.map(a => letters[a] || a).join(', ');
                 }
 
-                // Build the empathy-driven prompt
+                // 3. Build the highly contextual empathy prompt
                 const fullPrompt = `Question Body:
 ${cleanPrompt}
 
 Options provided:
-${JSON.stringify(q.options)}
+${JSON.stringify(q.options || [])}
 
-Correct Answer: Option ${correctLetter}
-Student's Attempted Answer: Option ${studentLetter}
+Correct Answer: ${correctDisplay}
+Student's Status: ${studentStatus}
 
-Instructions: Please solve this step-by-step. If the student attempted an answer, start by directly addressing their choice. If they were wrong, explain the exact misconception that likely led them to pick that specific wrong option before solving it.`;
+Instructions: Please solve this step-by-step. 
+- If the Student's Status says "CORRECTLY", start by congratulating them on getting it right, then provide the optimal mathematical proof.
+- If the Student's Status shows an INCORRECT answer, gently explain the exact misconception that led to their specific wrong choice before solving it. 
+- If they asked for help without attempting, guide them from scratch.`;
 
                 // ⚠️ REPLACE WITH YOUR LAMBDA URL
                 const LAMBDA_ENDPOINT = "https://tt6t4ollujq3rlwxibdoqtvt340monfz.lambda-url.us-east-1.on.aws/";
-                
                 const response = await fetch(LAMBDA_ENDPOINT, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
