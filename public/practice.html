@@ -1028,7 +1028,93 @@
                 });
             }
         }
+        // --- SOLUTION TABS & AI GENERATION PIPELINE ---
+        window.switchSolutionTab = (tab) => {
+            // Reset UI states
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // Activate requested tab
+            if (tab === 'standard') {
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+                document.getElementById('tab-standard').classList.add('active');
+            } else if (tab === 'ai') {
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+                document.getElementById('tab-ai').classList.add('active');
+                
+                // If it hasn't been generated yet, auto-trigger the Lambda call
+                const aiContainer = document.getElementById('ai-explanation-text');
+                if (aiContainer.innerHTML.includes('Click "AI Tutor"')) {
+                    generateAISolution();
+                }
+            }
+        };
 
+        window.generateAISolution = async () => {
+            const aiTextContainer = document.getElementById('ai-explanation-text');
+            const q = filteredPracticeSet[currentFocusIndex];
+            
+            if (!q) return;
+
+            // Show loading state
+            aiTextContainer.innerHTML = `
+                <div class="ai-loading">
+                    <i class="fa-solid fa-circle-notch fa-spin fa-2x"></i>
+                    <br>Consulting AI Tutor...
+                </div>
+            `;
+
+            try {
+                // Kill any previous hanging requests if the user clicks fast
+                if (aiAbortController) aiAbortController.abort();
+                aiAbortController = new AbortController();
+
+                // ⚠️ REPLACE THIS WITH YOUR ACTUAL AWS API GATEWAY URL
+                const LAMBDA_ENDPOINT = "https://your-api-id.execute-api.your-region.amazonaws.com/prod/tutor"; 
+
+                const response = await fetch(LAMBDA_ENDPOINT, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        question: q.q,
+                        options: q.options || [],
+                        correctAnswer: q.answer,
+                        standardSolution: q.explanation || ""
+                    }),
+                    signal: aiAbortController.signal
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP Error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                // Assuming your Lambda returns { "ai_explanation": "..." }
+                // Adjust "data.ai_explanation" to match your actual Lambda return key
+                const formattedResponse = formatGenericText(data.ai_explanation || data.body || data);
+                
+                aiTextContainer.innerHTML = formattedResponse;
+                setTimeout(() => triggerMathRender('ai-explanation-text'), 100);
+
+            } catch (error) {
+                if (error.name === 'AbortError') {
+                    console.log("Stale AI request aborted.");
+                } else {
+                    console.error("Lambda Fetch Failed:", error);
+                    aiTextContainer.innerHTML = `
+                        <div style="color: var(--error-red); padding: 1rem; border: 1px solid var(--error-red); border-radius: 8px; margin-top: 1rem;">
+                            <i class="fa-solid fa-triangle-exclamation"></i> 
+                            Failed to reach AWS Backend. Check console for details.
+                        </div>
+                    `;
+                }
+            } finally {
+                isAIGenerating = false;
+            }
+        };
         // --- DEEP PURGE PROFILE WIPE (100% CLEAN MODULAR SDK SLATE) ---
         window.clearUserProgress = async () => {
             if (!auth.currentUser) {
