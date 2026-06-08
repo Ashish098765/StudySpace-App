@@ -1105,11 +1105,11 @@
                 if (!response.ok) {
                     throw new Error(`HTTP Error: ${response.status}`);
                 }
-                // 4. READ THE LIVE STREAM (Robust Buffer Version)
+                // 4. READ THE LIVE STREAM (With Hidden Error Detection)
                 const reader = response.body.getReader();
                 const decoder = new TextDecoder("utf-8");
                 let accumulatedText = "";
-                let streamBuffer = ""; // Holds cut-off chunks
+                let streamBuffer = ""; 
                 
                 aiTextContainer.innerHTML = ""; // Clear the loading spinner
 
@@ -1117,18 +1117,30 @@
                     const { done, value } = await reader.read();
                     if (done) break;
                     
-                    // Add new bytes to whatever was left over from the last chunk
-                    streamBuffer += decoder.decode(value, { stream: true });
-                    const lines = streamBuffer.split('\n');
+                    const rawChunk = decoder.decode(value, { stream: true });
+                    streamBuffer += rawChunk;
                     
-                    // The last line is often incomplete, so we pop it off and save it in the buffer for the next loop
+                    // --- NEW: Catch hidden AWS errors that don't start with 'data:' ---
+                    if (streamBuffer.trim().startsWith('{') && streamBuffer.includes('error')) {
+                        console.error("Backend sent an error instead of a stream:", streamBuffer);
+                        aiTextContainer.innerHTML = `
+                            <div style="color: var(--error-red); padding: 1rem; background: rgba(239, 68, 68, 0.1); border: 1px solid var(--error-red); border-radius: 8px;">
+                                <i class="fa-solid fa-triangle-exclamation"></i> <b>Backend Crash:</b><br>
+                                <span style="font-family: monospace; font-size: 0.85rem;">${streamBuffer}</span>
+                            </div>
+                        `;
+                        isAIGenerating = false;
+                        return; // Kill the loop
+                    }
+                    
+                    const lines = streamBuffer.split('\n');
                     streamBuffer = lines.pop(); 
                     
                     for (const line of lines) {
                         const cleanLine = line.trim();
                         if (cleanLine.startsWith('data: ') && !cleanLine.includes('[DONE]')) {
                             try {
-                                const jsonStr = cleanLine.substring(6); // Remove 'data: '
+                                const jsonStr = cleanLine.substring(6); 
                                 const dataObj = JSON.parse(jsonStr);
                                 const deltaContent = dataObj.choices[0]?.delta?.content || "";
                                 accumulatedText += deltaContent;
@@ -1136,14 +1148,12 @@
                                 // Update the UI live
                                 aiTextContainer.innerHTML = formatGenericText(accumulatedText);
                             } catch (e) {
-                                // If a deeply nested JSON chunk is still somehow malformed, skip gracefully
-                                console.warn("Skipped malformed chunk:", e.message);
+                                // Ignore split chunks
                             }
                         }
                     }
                 }
 
-                // Finally, render the math equations once the stream finishes completely
                 setTimeout(() => triggerMathRender('ai-explanation-text'), 100);
 
             } catch (error) {
