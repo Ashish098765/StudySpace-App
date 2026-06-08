@@ -1069,18 +1069,34 @@
                 if (aiAbortController) aiAbortController.abort();
                 aiAbortController = new AbortController();
 
-                // ⚠️ REPLACE THIS WITH YOUR ACTUAL AWS API GATEWAY URL
                 const LAMBDA_ENDPOINT = "https://tt6t4ollujq3rlwxibdoqtvt340monfz.lambda-url.us-east-1.on.aws/";
+                
+                // 1. EXTRACT IMAGES FOR THE BACKEND
+                const imagesToAnalyze = [];
+                const imgRegex = /\[IMG:\s*([^\]]+)\]/g;
+                let match;
+                while ((match = imgRegex.exec(q.q)) !== null) {
+                    const filename = match[1].trim();
+                    if (filename !== "requires_image.png" && filename !== "null") {
+                        imagesToAnalyze.push({
+                            label: filename,
+                            url: `${CLOUDINARY_BASE_URL}${filename}`
+                        });
+                    }
+                }
+
+                // 2. COMPILE ALL CONTEXT INTO A SINGLE PROMPT
+                const fullPrompt = `Question Body:\n${q.q}\n\nOptions provided to student:\n${JSON.stringify(q.options)}\n\nCorrect Answer:\n${q.answer}\n\nPlease explain step-by-step how to reach this answer.`;
+
+                // 3. SEND REQUEST TO LAMBDA
                 const response = await fetch(LAMBDA_ENDPOINT, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        question: q.q,
-                        options: q.options || [],
-                        correctAnswer: q.answer,
-                        standardSolution: q.explanation || ""
+                        prompt: fullPrompt,
+                        images: imagesToAnalyze
                     }),
                     signal: aiAbortController.signal
                 });
@@ -1089,13 +1105,37 @@
                     throw new Error(`HTTP Error: ${response.status}`);
                 }
 
-                const data = await response.json();
-                
-                // Assuming your Lambda returns { "ai_explanation": "..." }
-                // Adjust "data.ai_explanation" to match your actual Lambda return key
-                const formattedResponse = formatGenericText(data.ai_explanation || data.body || data);
-                
-                aiTextContainer.innerHTML = formattedResponse;
+                // 4. READ THE LIVE STREAM (Do NOT use response.json!)
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder("utf-8");
+                let accumulatedText = "";
+                aiTextContainer.innerHTML = ""; // Clear the loading spinner
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    
+                    const chunk = decoder.decode(value, { stream: true });
+                    
+                    // Parse the Groq Server-Sent Events (SSE) stream
+                    const lines = chunk.split('\n');
+                    for (const line of lines) {
+                        if (line.startsWith('data: ') && !line.includes('[DONE]')) {
+                            try {
+                                const dataObj = JSON.parse(line.replace('data: ', ''));
+                                const deltaContent = dataObj.choices[0]?.delta?.content || "";
+                                accumulatedText += deltaContent;
+                                
+                                // Update the UI live as words come in
+                                aiTextContainer.innerHTML = formatGenericText(accumulatedText);
+                            } catch (e) {
+                                // Ignore broken JSON chunks that get split mid-stream
+                            }
+                        }
+                    }
+                }
+
+                // Finally, render the math equations once the stream finishes
                 setTimeout(() => triggerMathRender('ai-explanation-text'), 100);
 
             } catch (error) {
