@@ -865,23 +865,24 @@
             document.getElementById('btn-check-focus').disabled = window.selectedOptions.length === 0;
         };
 
-        // --- OPTION CHOICE REGISTRATION WITH V10 SYNC ---
+        // --- OPTION CHOICE REGISTRATION WITH V10 FIREBASE SYNC ---
         window.selectFocusOption = async (optIndex) => {
             if (isFocusAnswerChecked) return;
             selectedOptionIndex = optIndex;
 
             const q = filteredPracticeSet[currentFocusIndex];
             if (q) {
-                q.studentAnswer = optIndex + 1;
-                // Pin the current selection path into browser storage rules instantly
+                // FIXED: Removed the '+ 1' so 0 exactly maps to Option A in the database
+                q.studentAnswer = optIndex; 
                 localStorage.setItem(`chosen_${q.uid}`, optIndex);
             }
 
+            // Visually select the option
             document.querySelectorAll('#focus-options-container .marks-option').forEach(el => el.classList.remove('selected'));
             document.getElementById(`focus-opt-${optIndex}`).classList.add('selected');
             document.getElementById('btn-check-focus').disabled = false;
 
-            // FIX: Modern Firebase v10 Modular syntax handles document writing flawlessly
+            // Sync with Firebase using absolute 0-based indexing
             if (currentUser && q) {
                 const questionId = q.id || `q_${currentFocusIndex}`;
                 const responseDocRef = doc(db, "users", currentUser.uid, "responses", questionId);
@@ -890,9 +891,9 @@
                     console.log(`Saving choice tracker for user profile: ${currentUser.uid}`);
                     await setDoc(responseDocRef, {
                         questionText: q.q || "No text available",
-                        selectedOption: q.studentAnswer,
-                        correctOption: Number(q.answer),
-                        isCorrect: q.studentAnswer === Number(q.answer)
+                        selectedOption: q.studentAnswer, // Now accurately sends 0 for A, 1 for B
+                        correctOption: Number(q.answer), // Assumes JSON answers are 0-based
+                        isCorrect: q.studentAnswer === Number(q.answer) 
                     }, { merge: true });
                     console.log("Database update completed.");
                 } catch (dbError) {
