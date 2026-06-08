@@ -450,7 +450,19 @@
             if (text.trim() === "N/A" || text.trim() === "") return "<div style='color: var(--text-tertiary); font-style: italic;'>No detailed explanation available for this question.</div>";
             
             let formatted = markdownTableToHTML(text);
+
+            // --- NEW: Lightweight Markdown Parser ---
+            
+            // 1. Parse Headings (e.g., ### Tutor's Feedback)
+            formatted = formatted.replace(/^###\s+(.*$)/gim, '<h3 style="color: #818cf8; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.5px;">$1</h3>');
+            formatted = formatted.replace(/^##\s+(.*$)/gim, '<h2 style="color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">$1</h2>');
+            
+            // 2. Parse Bold Text (**text**)
+            formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong style="color: white; font-weight: 700;">$1</strong>');
+            
+            // 3. Convert standard line breaks to HTML breaks
             formatted = formatted.replace(/\n/g, '<br>');
+            
             return injectInlineImages(formatted); 
         }
 
