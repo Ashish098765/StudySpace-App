@@ -69,12 +69,12 @@
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 1rem 5%; 
-            background: rgba(9, 9, 11, 0.95); /* Increased to 0.95 to block text bleed */
+            background: rgba(9, 9, 11, 0.95); 
             backdrop-filter: blur(16px); 
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-subtle); 
             
-            position: sticky; /* Keeps layout intact */
+            position: sticky; 
             top: 0; 
             z-index: 1000;
         }
@@ -417,11 +417,16 @@
             }
         });
 
-        // --- MATH RE-RENDERING PIPELINE ---
+        // --- ENHANCED MATH RE-RENDERING PIPELINE (FIXED CACHE CLEARING) ---
         window.triggerMathRender = (elementId) => {
             if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
                 const el = document.getElementById(elementId);
-                if (el) MathJax.typesetPromise([el]).catch(err => console.warn('MathJax Error:', err));
+                if (el) {
+                    // CRITICAL FIX: We must explicitly tell MathJax to forget the previous 
+                    // state of this container, otherwise it skips rendering the new equations.
+                    MathJax.typesetClear([el]); 
+                    MathJax.typesetPromise([el]).catch(err => console.warn('MathJax Error:', err));
+                }
             }
         };
 
@@ -807,7 +812,7 @@
                 });
             }
 
-            // REDRAW HISTORICAL ATTEMPTS FOR CHOICE PROBLEMS (FIXED WRONG SELECTION RED GLOWS)
+            // REDRAW HISTORICAL ATTEMPTS FOR CHOICE PROBLEMS
             if (isAttempted) {
                 document.getElementById('btn-check-focus').style.display = 'none';
                 document.getElementById('btn-next-focus').style.display = 'block';
@@ -872,7 +877,6 @@
 
             const q = filteredPracticeSet[currentFocusIndex];
             if (q) {
-                // FIXED: Removed the '+ 1' so 0 exactly maps to Option A in the database
                 q.studentAnswer = optIndex; 
                 localStorage.setItem(`chosen_${q.uid}`, optIndex);
             }
@@ -891,8 +895,8 @@
                     console.log(`Saving choice tracker for user profile: ${currentUser.uid}`);
                     await setDoc(responseDocRef, {
                         questionText: q.q || "No text available",
-                        selectedOption: q.studentAnswer, // Now accurately sends 0 for A, 1 for B
-                        correctOption: Number(q.answer), // Assumes JSON answers are 0-based
+                        selectedOption: q.studentAnswer,
+                        correctOption: Number(q.answer), 
                         isCorrect: q.studentAnswer === Number(q.answer) 
                     }, { merge: true });
                     console.log("Database update completed.");
@@ -986,8 +990,8 @@
             document.getElementById('focus-explanation-text').innerHTML = formatGenericText(q.explanation);
             document.getElementById('focus-explanation-box').style.display = 'block';
             
-            // Automatically switch tabs and fire reasoning model explanation pipeline
-            window.switchSolutionTab('ai');
+            // CRITICAL FIX: Ensure Standard Solution remains the default tab upon submission!
+            window.switchSolutionTab('standard');
         };
 
         window.advanceToNextQuestion = () => {
@@ -1029,6 +1033,7 @@
                 });
             }
         }
+        
         // --- SOLUTION TABS & AI GENERATION PIPELINE ---
         window.switchSolutionTab = (tab) => {
             // Reset UI states
@@ -1197,29 +1202,10 @@ Instructions: Please solve this step-by-step. If the student attempted an answer
                     }
                 }
 
-                // --- Final layout paint buffer ---
-                // --- AGGRESSIVE MATH RENDERING QUEUE ---
+                // CRITICAL FIX: Safe, cached-cleared math rendering trigger
                 aiTextContainer.innerHTML = formatGenericText(accumulatedText);
-                
-                // Wait for the browser to physically paint the text to the screen
-                requestAnimationFrame(() => {
-                    setTimeout(() => {
-                        const container = document.getElementById('ai-explanation-text');
-                        if (!container) return;
+                setTimeout(() => triggerMathRender('ai-explanation-text'), 300);
 
-                        // Safely queue MathJax so it never skips the first render
-                        if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
-                            window.MathJax.startup.promise = window.MathJax.startup.promise
-                                .then(() => window.MathJax.typesetClear([container]))
-                                .then(() => window.MathJax.typesetPromise([container]))
-                                .catch(err => console.error("MathJax Queue Error:", err));
-                        } 
-                        // Fallback to your custom function if MathJax 3 isn't detected
-                        else if (typeof triggerMathRender === 'function') {
-                            triggerMathRender('ai-explanation-text');
-                        }
-                    }, 150); // Small buffer to ensure HTML is locked
-                });
             } catch (error) {
                 if (error.name !== 'AbortError') {
                     console.error("Lambda Fetch Failed:", error);
@@ -1229,6 +1215,7 @@ Instructions: Please solve this step-by-step. If the student attempted an answer
                 isAIGenerating = false;
             }
         };
+
         // --- DEEP PURGE PROFILE WIPE (100% CLEAN MODULAR SDK SLATE) ---
         window.clearUserProgress = async () => {
             if (!auth.currentUser) {
