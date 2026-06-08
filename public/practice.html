@@ -1126,8 +1126,32 @@
                     }
                 }
 
+                // --- NEW: Contextual Personalization (A, B, C, D Format) ---
                 const cleanPrompt = q.q.replace(/\[IMG:\s*[^\]]+\]/g, "[See Attached Image]");
-                const fullPrompt = `Question Body:\n${cleanPrompt}\n\nOptions provided to student:\n${JSON.stringify(q.options)}\n\nCorrect Answer:\n${q.answer}\n\nPlease explain step-by-step how to reach this answer.`;
+                
+                // Map the 0-based database index to actual Option Letters
+                const letters = ['A', 'B', 'C', 'D'];
+                
+                // Convert the correct answer index to a letter (fallback to raw value if mapping fails)
+                const correctLetter = letters[q.answer] !== undefined ? letters[q.answer] : q.answer; 
+                
+                // Check if the student actually clicked an option, otherwise note they asked for help first
+                let studentLetter = "Did not attempt (Asked for help)";
+                if (q.studentAnswer !== undefined && q.studentAnswer !== null) {
+                    studentLetter = letters[q.studentAnswer] !== undefined ? letters[q.studentAnswer] : q.studentAnswer;
+                }
+
+                // Build the empathy-driven prompt
+                const fullPrompt = `Question Body:
+${cleanPrompt}
+
+Options provided:
+${JSON.stringify(q.options)}
+
+Correct Answer: Option ${correctLetter}
+Student's Attempted Answer: Option ${studentLetter}
+
+Instructions: Please solve this step-by-step. If the student attempted an answer, start by directly addressing their choice. If they were wrong, explain the exact misconception that likely led them to pick that specific wrong option before solving it.`;
 
                 // ⚠️ REPLACE WITH YOUR LAMBDA URL
                 const LAMBDA_ENDPOINT = "https://tt6t4ollujq3rlwxibdoqtvt340monfz.lambda-url.us-east-1.on.aws/";
