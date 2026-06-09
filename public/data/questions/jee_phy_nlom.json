@@ -315,7 +315,7 @@
     "date": "1st February"
   },
   {
-    "q": "A body of mass $4\\text{ kg}$ experiences two forces $\\vec{F}_1 = 5\\hat{i} + 8\\hat{j} + 7\\hat{k}$ and $\\vec{F}_2 = 3\\hat{i} - 4\\hat{j} - 3\\hat{k}$. The acceleration acting on the body is :\n\n[IMG: jee_phy_nlom_img_020.png]\n\n[IMG: jee_phy_nlom_img_021.png]",
+    "q": "A body of mass $4\\text{ kg}$ experiences two forces $\\vec{F}_1 = 5\\hat{i} + 8\\hat{j} + 7\\hat{k}$ and $\\vec{F}_2 = 3\\hat{i} - 4\\hat{j} - 3\\hat{k}$. The acceleration acting on the body is :",
     "type": "mcq",
     "options": [
       "$-2\\hat{i} - \\hat{j} - \\hat{k}$",
@@ -324,7 +324,7 @@
       "$2\\hat{i} + 3\\hat{j} + 3\\hat{k}$"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_022.png]\n\nThe net force acting on the body is:\n$$\\vec{F}_{net} = \\vec{F}_1 + \\vec{F}_2$$\n$$\\vec{F}_{net} = (5+3)\\hat{i} + (8-4)\\hat{j} + (7-3)\\hat{k}$$\n$$\\vec{F}_{net} = 8\\hat{i} + 4\\hat{j} + 4\\hat{k}\\text{ N}$$\n\nUsing Newton's second law, acceleration $\\vec{a}$ is:\n$$\\vec{a} = \\frac{\\vec{F}_{net}}{m} = \\frac{8\\hat{i} + 4\\hat{j} + 4\\hat{k}}{4}$$\n$$\\vec{a} = 2\\hat{i} + \\hat{j} + \\hat{k}\\text{ m/s}^2$$\n\nHence, the correct option is C.",
+    "explanation": "The net force acting on the body is:\n$$\\vec{F}_{net} = \\vec{F}_1 + \\vec{F}_2$$\n$$\\vec{F}_{net} = (5+3)\\hat{i} + (8-4)\\hat{j} + (7-3)\\hat{k}$$\n$$\\vec{F}_{net} = 8\\hat{i} + 4\\hat{j} + 4\\hat{k}\\text{ N}$$\n\nUsing Newton's second law, acceleration $\\vec{a}$ is:\n$$\\vec{a} = \\frac{\\vec{F}_{net}}{m} = \\frac{8\\hat{i} + 4\\hat{j} + 4\\hat{k}}{4}$$\n$$\\vec{a} = 2\\hat{i} + \\hat{j} + \\hat{k}\\text{ m/s}^2$$\n\nHence, the correct option is C.",
     "year": "2024",
     "shift": "Evening",
     "date": "1st February"
@@ -345,7 +345,7 @@
     "date": "1st February"
   },
   {
-    "q": "As per the given figure, a weightless pulley P is attached on a double inclined frictionless surface. The tension in the string (massless) will be (if $g = 10\\text{ m/s}^2$):\n\n[IMG: jee_phy_nlom_img_023.png]",
+    "q": "As per the given figure, a weightless pulley P is attached on a double inclined frictionless surface. The tension in the string (massless) will be (if $g = 10\\text{ m/s}^2$):\n\n[IMG: jee_phy_nlom_img_020.png]",
     "type": "mcq",
     "options": [
       "$(4\\sqrt{3} + 1)\\text{N}$",
@@ -354,7 +354,7 @@
       "$(4\\sqrt{3} - 1)\\text{N}$"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_025.png]\n\n[IMG: jee_phy_nlom_img_024.png]\n\nLet the $4\\text{ kg}$ block slide down the $60^\\circ$ incline with acceleration $a$, pulling the $1\\text{ kg}$ block up the $30^\\circ$ incline.\n\nEquations of motion:\n\n1) For the $4\\text{ kg}$ block:\n$$4g \\sin 60^\\circ - T = 4a$$\n$$4(10) \\left(\\frac{\\sqrt{3}}{2}\\right) - T = 4a$$\n$$20\\sqrt{3} - T = 4a \\quad \\dots (i)$$\n\n2) For the $1\\text{ kg}$ block:\n$$T - 1g \\sin 30^\\circ = 1a$$\n$$T - 10 \\left(\\frac{1}{2}\\right) = a$$\n$$T - 5 = a \\quad \\dots (ii)$$\n\nMultiplying (ii) by 4:\n$$4T - 20 = 4a$$\n\nEquating both expressions for $4a$:\n$$20\\sqrt{3} - T = 4T - 20$$\n$$5T = 20\\sqrt{3} + 20$$\n$$T = 4(\\sqrt{3} + 1)\\text{ N}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_021.png]\n\nLet the $4\\text{ kg}$ block slide down the $60^\\circ$ incline with acceleration $a$, pulling the $1\\text{ kg}$ block up the $30^\\circ$ incline.\n\nEquations of motion:\n\n1) For the $4\\text{ kg}$ block:\n$$4g \\sin 60^\\circ - T = 4a$$\n$$4(10) \\left(\\frac{\\sqrt{3}}{2}\\right) - T = 4a$$\n$$20\\sqrt{3} - T = 4a \\quad \\dots (i)$$\n\n2) For the $1\\text{ kg}$ block:\n$$T - 1g \\sin 30^\\circ = 1a$$\n$$T - 10 \\left(\\frac{1}{2}\\right) = a$$\n$$T - 5 = a \\quad \\dots (ii)$$\n\nMultiplying (ii) by 4:\n$$4T - 20 = 4a$$\n\nEquating both expressions for $4a$:\n$$20\\sqrt{3} - T = 4T - 20$$\n$$5T = 20\\sqrt{3} + 20$$\n$$T = 4(\\sqrt{3} + 1)\\text{ N}$$\n\nHence, the correct option is B.",
     "year": "2023",
     "shift": "Morning",
     "date": "24th January"
@@ -369,13 +369,13 @@
       "Statement I is false but Statement II is true"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_026.png]\n\n- Statement-I: When the elevator moves with uniform speed, its acceleration $a = 0$. In this state, the net force is zero, meaning tension in the cable balances the weight ($T = mg$). Thus, Statement-I is true.\n- Statement-II: When the elevator accelerates downwards, the normal force on the person is $N = m(g - a)$, which is less than their true weight $mg$. Thus, Statement-II is false.",
+    "explanation": "[IMG: jee_phy_nlom_img_022.png]\n\n- Statement-I: When the elevator moves with uniform speed, its acceleration $a = 0$. In this state, the net force is zero, meaning tension in the cable balances the weight ($T = mg$). Thus, Statement-I is true.\n- Statement-II: When the elevator accelerates downwards, the normal force on the person is $N = m(g - a)$, which is less than their true weight $mg$. Thus, Statement-II is false.",
     "year": "2023",
     "shift": "Morning",
     "date": "24th January"
   },
   {
-    "q": "Consider a block kept on an inclined plane (inclined at $45^\\circ$) as shown in the figure. If the force required to just push it up the incline is 2 times the force required to just prevent it from sliding down, the coefficient of friction between the block and inclined plane ($\\mu$) is equal to :\n\n[IMG: jee_phy_nlom_img_027.png]",
+    "q": "Consider a block kept on an inclined plane (inclined at $45^\\circ$) as shown in the figure. If the force required to just push it up the incline is 2 times the force required to just prevent it from sliding down, the coefficient of friction between the block and inclined plane ($\\mu$) is equal to :\n\n[IMG: jee_phy_nlom_img_023.png]",
     "type": "mcq",
     "options": [
       "0.33",
@@ -384,7 +384,7 @@
       "0.50"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_029.png]\n\n[IMG: jee_phy_nlom_img_028.png]\n\nLet the mass of the block be $m$.\n- Normal force: $N = mg \\cos 45^\\circ = \\frac{mg}{\\sqrt{2}}$\n- Friction: $f = \\mu N = \\frac{\\mu mg}{\\sqrt{2}}$\n\n1) Force required to just push the block up:\n$$F_1 = mg \\sin 45^\\circ + f = \\frac{mg}{\\sqrt{2}}(1 + \\mu)$$\n\n2)\n Force required to just prevent it from sliding down:\n$$F_2 = mg \\sin 45^\\circ - f = \\frac{mg}{\\sqrt{2}}(1 - \\mu)$$\n\nGiven that $F_1 = 2F_2$:\n$$\\frac{mg}{\\sqrt{2}}(1 + \\mu) = 2 \\frac{mg}{\\sqrt{2}}(1 - \\mu)$$\n$$1 + \\mu = 2 - 2\\mu$$\n$$3\\mu = 1 \\implies \\mu = \\frac{1}{3} \\approx 0.33$$\n\nHence, the correct option is A.",
+    "explanation": "[IMG: jee_phy_nlom_img_025.png]\n\n[IMG: jee_phy_nlom_img_024.png]\n\nLet the mass of the block be $m$.\n- Normal force: $N = mg \\cos 45^\\circ = \\frac{mg}{\\sqrt{2}}$\n- Friction: $f = \\mu N = \\frac{\\mu mg}{\\sqrt{2}}$\n\n1) Force required to just push the block up:\n$$F_1 = mg \\sin 45^\\circ + f = \\frac{mg}{\\sqrt{2}}(1 + \\mu)$$\n\n2)\n Force required to just prevent it from sliding down:\n$$F_2 = mg \\sin 45^\\circ - f = \\frac{mg}{\\sqrt{2}}(1 - \\mu)$$\n\nGiven that $F_1 = 2F_2$:\n$$\\frac{mg}{\\sqrt{2}}(1 + \\mu) = 2 \\frac{mg}{\\sqrt{2}}(1 - \\mu)$$\n$$1 + \\mu = 2 - 2\\mu$$\n$$3\\mu = 1 \\implies \\mu = \\frac{1}{3} \\approx 0.33$$\n\nHence, the correct option is A.",
     "year": "2023",
     "shift": "Evening",
     "date": "25th January"
@@ -399,7 +399,7 @@
       "$\\frac{2\\sqrt{3} - 1}{2}$"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_030.png]\n\nEquation of motion down the plane:\n$$mg \\sin 30^\\circ - \\mu_k mg \\cos 30^\\circ = ma$$\n\nGiven acceleration $a = \\frac{g}{4}$:\n$$g \\sin 30^\\circ - \\mu_k g \\cos 30^\\circ = \\frac{g}{4}$$\n$$\\frac{1}{2} - \\mu_k \\frac{\\sqrt{3}}{2} = \\frac{1}{4}$$\n$$\\mu_k \\frac{\\sqrt{3}}{2} = \\frac{1}{2} - \\frac{1}{4} = \\frac{1}{4}$$\n$$\\mu_k = \\frac{2}{4\\sqrt{3}} = \\frac{1}{2\\sqrt{3}}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_026.png]\n\nEquation of motion down the plane:\n$$mg \\sin 30^\\circ - \\mu_k mg \\cos 30^\\circ = ma$$\n\nGiven acceleration $a = \\frac{g}{4}$:\n$$g \\sin 30^\\circ - \\mu_k g \\cos 30^\\circ = \\frac{g}{4}$$\n$$\\frac{1}{2} - \\mu_k \\frac{\\sqrt{3}}{2} = \\frac{1}{4}$$\n$$\\mu_k \\frac{\\sqrt{3}}{2} = \\frac{1}{2} - \\frac{1}{4} = \\frac{1}{4}$$\n$$\\mu_k = \\frac{2}{4\\sqrt{3}} = \\frac{1}{2\\sqrt{3}}$$\n\nHence, the correct option is B.",
     "year": "2023",
     "shift": "Morning",
     "date": "29th January"
@@ -414,7 +414,7 @@
       "10N"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_031.png]\n\n1) After the force ceases, the body moves with constant velocity:\n$$v = \\frac{d}{t} = \\frac{50\\text{ m}}{10\\text{ s}} = 5\\text{ m/s}$$\n\n2) This is the velocity gained at the end of the force-action interval ($t = 20\\text{ s}$):\n$$v = u + at$$\n$$5 = 0 + a(20) \\implies a = 0.25\\text{ m/s}^2$$\n\n3) The magnitude of the force is:\n$$F = m \\times a = 20 \\times 0.25 = 5\\text{ N}$$\n\nHence, the value of the force is $5\\text{ N}$.",
+    "explanation": "[IMG: jee_phy_nlom_img_027.png]\n\n1) After the force ceases, the body moves with constant velocity:\n$$v = \\frac{d}{t} = \\frac{50\\text{ m}}{10\\text{ s}} = 5\\text{ m/s}$$\n\n2) This is the velocity gained at the end of the force-action interval ($t = 20\\text{ s}$):\n$$v = u + at$$\n$$5 = 0 + a(20) \\implies a = 0.25\\text{ m/s}^2$$\n\n3) The magnitude of the force is:\n$$F = m \\times a = 20 \\times 0.25 = 5\\text{ N}$$\n\nHence, the value of the force is $5\\text{ N}$.",
     "year": "2023",
     "shift": "Evening",
     "date": "29th January"
@@ -435,7 +435,7 @@
     "date": "29th January"
   },
   {
-    "q": "The figure represents the momentum time ($p - t$) curve for a particle moving along an axis under the influence of the force. Identify the regions on the graph where the magnitude of the force is maximum and minimum respectively ? If $(t_3 - t_2) < t_1$.\n\n[IMG: jee_phy_nlom_img_032.png]",
+    "q": "The figure represents the momentum time ($p - t$) curve for a particle moving along an axis under the influence of the force. Identify the regions on the graph where the magnitude of the force is maximum and minimum respectively ? If $(t_3 - t_2) < t_1$.\n\n[IMG: jee_phy_nlom_img_028.png]",
     "type": "mcq",
     "options": [
       "c and a",
@@ -450,7 +450,7 @@
     "date": "30th January"
   },
   {
-    "q": "A block of $\\sqrt{3}\\text{ kg}$ is attached to a string whose other end is attached to the wall. An unknown force F is applied so that the string makes an angle of $30^\\circ$ with the wall. The tension T is : (Given $g = 10\\text{ m/s}^{-2}$)\n\n[IMG: jee_phy_nlom_img_033.png]",
+    "q": "A block of $\\sqrt{3}\\text{ kg}$ is attached to a string whose other end is attached to the wall. An unknown force F is applied so that the string makes an angle of $30^\\circ$ with the wall. The tension T is : (Given $g = 10\\text{ m/s}^{-2}$)\n\n[IMG: jee_phy_nlom_img_029.png]",
     "type": "mcq",
     "options": [
       "20N",
@@ -459,7 +459,7 @@
       "15N"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_034.png]\n\nAnalyzing the force equilibrium of the hanging block in the vertical direction:\n$$T \\cos 30^\\circ = mg$$\n$$T \\left(\\frac{\\sqrt{3}}{2}\\right) = \\sqrt{3} \\times 10$$\n$$T = 20\\text{ N}$$\n\nHence, the tension $T$ is $20\\text{ N}$.",
+    "explanation": "[IMG: jee_phy_nlom_img_030.png]\n\nAnalyzing the force equilibrium of the hanging block in the vertical direction:\n$$T \\cos 30^\\circ = mg$$\n$$T \\left(\\frac{\\sqrt{3}}{2}\\right) = \\sqrt{3} \\times 10$$\n$$T = 20\\text{ N}$$\n\nHence, the tension $T$ is $20\\text{ N}$.",
     "year": "2023",
     "shift": "Evening",
     "date": "30th January"
@@ -475,7 +475,7 @@
     "date": "30th January"
   },
   {
-    "q": "As shown in the figure, a $70\\text{ kg}$ garden roller is pushed with a force of $\\vec{F} = 200\\text{ N}$ at an angle of $30^\\circ$ with the horizontal. The normal reaction on the roller is: (Given $g = 10\\text{ m/s}^{-2}$)\n\n[IMG: jee_phy_nlom_img_035.png]",
+    "q": "As shown in the figure, a $70\\text{ kg}$ garden roller is pushed with a force of $\\vec{F} = 200\\text{ N}$ at an angle of $30^\\circ$ with the horizontal. The normal reaction on the roller is: (Given $g = 10\\text{ m/s}^{-2}$)\n\n[IMG: jee_phy_nlom_img_031.png]",
     "type": "mcq",
     "options": [
       "$800\\sqrt{2}\\text{ N}$",
@@ -484,7 +484,7 @@
       "$200\\sqrt{3}\\text{ N}$"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_036.png]\n\nSince the roller is pushed, the downward component of force is $F \\sin 30^\\circ$.\n\nIn vertical equilibrium, the forces are:\n$$N = mg + F \\sin 30^\\circ$$\n$$N = 70(10) + 200 \\sin 30^\\circ$$\n$$N = 700 + 200 \\times 0.5 = 700 + 100 = 800\\text{ N}$$\n\nHence, the normal reaction on the roller is $800\\text{ N}$.",
+    "explanation": "[IMG: jee_phy_nlom_img_032.png]\n\nSince the roller is pushed, the downward component of force is $F \\sin 30^\\circ$.\n\nIn vertical equilibrium, the forces are:\n$$N = mg + F \\sin 30^\\circ$$\n$$N = 70(10) + 200 \\sin 30^\\circ$$\n$$N = 700 + 200 \\times 0.5 = 700 + 100 = 800\\text{ N}$$\n\nHence, the normal reaction on the roller is $800\\text{ N}$.",
     "year": "2023",
     "shift": "Morning",
     "date": "31st January"
@@ -509,7 +509,7 @@
       "$10\\text{ m/s}$"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_037.png]\n\nLet the string make an angle $\\theta$ with the vertical.\n- $T \\cos \\theta = mg \\quad \\dots (i)$\n- $T \\sin \\theta = \\frac{mv^2}{l \\sin \\theta} \\implies \\sin^2 \\theta = \\frac{mv^2}{Tl} \\quad \\dots (ii)$\n\nUsing $\\sin^2 \\theta + \\cos^2 \\theta = 1$:\n$$\\frac{mv^2}{Tl} + \\left(\\frac{mg}{T}\\right)^2 = 1$$\n\nGiven $T = 400\\text{ N}$, $m = 1\\text{ kg}$, $l = 1\\text{ m}$, $g = 10\\text{ m/s}^2$:\n$$\\frac{1 \\times v^2}{400 \\times 1} + \\left(\\frac{10}{400}\\right)^2 = 1$$\n$$\\frac{v^2}{400} + \\frac{1}{1600} = 1$$\nSince $\\frac{1}{1600}$ is extremely small:\n$$\\frac{v^2}{400} \\approx 1 \\implies v^2 = 400 \\implies v = 20\\text{ m/s}$$\n\nHence, the correct option is A.",
+    "explanation": "[IMG: jee_phy_nlom_img_033.png]\n\nLet the string make an angle $\\theta$ with the vertical.\n- $T \\cos \\theta = mg \\quad \\dots (i)$\n- $T \\sin \\theta = \\frac{mv^2}{l \\sin \\theta} \\implies \\sin^2 \\theta = \\frac{mv^2}{Tl} \\quad \\dots (ii)$\n\nUsing $\\sin^2 \\theta + \\cos^2 \\theta = 1$:\n$$\\frac{mv^2}{Tl} + \\left(\\frac{mg}{T}\\right)^2 = 1$$\n\nGiven $T = 400\\text{ N}$, $m = 1\\text{ kg}$, $l = 1\\text{ m}$, $g = 10\\text{ m/s}^2$:\n$$\\frac{1 \\times v^2}{400 \\times 1} + \\left(\\frac{10}{400}\\right)^2 = 1$$\n$$\\frac{v^2}{400} + \\frac{1}{1600} = 1$$\nSince $\\frac{1}{1600}$ is extremely small:\n$$\\frac{v^2}{400} \\approx 1 \\implies v^2 = 400 \\implies v = 20\\text{ m/s}$$\n\nHence, the correct option is A.",
     "year": "2023",
     "shift": "Evening",
     "date": "31st January"
@@ -545,7 +545,7 @@
     "date": "1st February"
   },
   {
-    "q": "As shown in the figure, a block of mass $10\\text{ kg}$ lying on a horizontal surface is pulled by a force F acting at an angle of $30^\\circ$ with the horizontal. For $\\mu_s = 0.25$, the block will just start to move for the value of F: [Given $g = 10\\text{ m/s}^{-2}$]\n\n[IMG: jee_phy_nlom_img_038.png]",
+    "q": "As shown in the figure, a block of mass $10\\text{ kg}$ lying on a horizontal surface is pulled by a force F acting at an angle of $30^\\circ$ with the horizontal. For $\\mu_s = 0.25$, the block will just start to move for the value of F: [Given $g = 10\\text{ m/s}^{-2}$]\n\n[IMG: jee_phy_nlom_img_034.png]",
     "type": "mcq",
     "options": [
       "33.3N",
@@ -554,13 +554,13 @@
       "35.7N"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_039.png]\n\n1) Balance forces in the vertical direction:\n$$N + F \\sin 30^\\circ = mg$$\n$$N = mg - F \\sin 30^\\circ = 10(10) - \\frac{F}{2} = 100 - \\frac{F}{2}$$\n\n2) In the limiting condition for motion:\n$$F \\cos 30^\\circ = \\mu_s N$$\n$$F \\frac{\\sqrt{3}}{2} = 0.25 \\left( 100 - \\frac{F}{2} \\right)$$\n$$2\\sqrt{3} F = 100 - 0.5F$$\n$$(2\\sqrt{3} + 0.5) F = 100$$\n$$3.964 F = 100 \\implies F \\approx 25.22\\text{ N}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_035.png]\n\n1) Balance forces in the vertical direction:\n$$N + F \\sin 30^\\circ = mg$$\n$$N = mg - F \\sin 30^\\circ = 10(10) - \\frac{F}{2} = 100 - \\frac{F}{2}$$\n\n2) In the limiting condition for motion:\n$$F \\cos 30^\\circ = \\mu_s N$$\n$$F \\frac{\\sqrt{3}}{2} = 0.25 \\left( 100 - \\frac{F}{2} \\right)$$\n$$2\\sqrt{3} F = 100 - 0.5F$$\n$$(2\\sqrt{3} + 0.5) F = 100$$\n$$3.964 F = 100 \\implies F \\approx 25.22\\text{ N}$$\n\nHence, the correct option is B.",
     "year": "2023",
     "shift": "Evening",
     "date": "1st February"
   },
   {
-    "q": "A mass m is attached to two springs as shown in the figure. The spring constants of the two springs are $K_1$ and $K_2$. For a frictionless surface, the time period of oscillation of mass m is:\n\n[IMG: jee_phy_nlom_img_040.png]",
+    "q": "A mass m is attached to two springs as shown in the figure. The spring constants of the two springs are $K_1$ and $K_2$. For a frictionless surface, the time period of oscillation of mass m is:\n\n[IMG: jee_phy_nlom_img_036.png]",
     "type": "mcq",
     "options": [
       "$2\\pi \\sqrt{\\frac{m}{K_1 - K_2}}$",
@@ -584,7 +584,7 @@
       "0.50N"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_041.png]\n\nThe spring force $T = kx$ provides the necessary centripetal force for the block:\n$$kx = m \\omega^2 r$$\nwhere $r = l_0 + x$ is the radius of the circular path.\n\nGiven:\n- $m = 100\\text{ g} = 0.1\\text{ kg}$\n- $k = 7.5\\text{ N/m}$\n- $l_0 = 20\\text{ cm} = 0.2\\text{ m}$\n- $\\omega = 5\\text{ rad/s}$\n\n$$7.5x = 0.1 \\times 5^2 \\times (0.2 + x)$$\n$$7.5x = 2.5(0.2 + x)$$\n$$3x = 0.2 + x$$\n$$2x = 0.2 \\implies x = 0.1\\text{ m}$$\n\nThe tension in the spring is:\n$$T = kx = 7.5 \\times 0.1 = 0.75\\text{ N}$$\n\nHence, the correct option is A.",
+    "explanation": "[IMG: jee_phy_nlom_img_037.png]\n\nThe spring force $T = kx$ provides the necessary centripetal force for the block:\n$$kx = m \\omega^2 r$$\nwhere $r = l_0 + x$ is the radius of the circular path.\n\nGiven:\n- $m = 100\\text{ g} = 0.1\\text{ kg}$\n- $k = 7.5\\text{ N/m}$\n- $l_0 = 20\\text{ cm} = 0.2\\text{ m}$\n- $\\omega = 5\\text{ rad/s}$\n\n$$7.5x = 0.1 \\times 5^2 \\times (0.2 + x)$$\n$$7.5x = 2.5(0.2 + x)$$\n$$3x = 0.2 + x$$\n$$2x = 0.2 \\implies x = 0.1\\text{ m}$$\n\nThe tension in the spring is:\n$$T = kx = 7.5 \\times 0.1 = 0.75\\text{ N}$$\n\nHence, the correct option is A.",
     "year": "2023",
     "shift": "Morning",
     "date": "6th April"
@@ -629,7 +629,7 @@
       "$1\\text{ cm}$"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_042.png]\n\nThe limiting friction force provides the necessary centripetal force at the verge of slipping:\n$$f_{max} = \\mu mg = m \\omega^2 r$$\n$$\\omega^2 r = \\mu g = \\text{constant}$$\n\nTherefore, we have the relation:\n$$\\omega_1^2 r_1 = \\omega_2^2 r_2$$\n\nGiven:\n- $r_1 = 1\\text{ cm}$\n- $\\omega_2 = \\frac{\\omega_1}{2}$\n\n$$\\omega_1^2 (1) = \\left( \\frac{\\omega_1}{2} \\right)^2 r_2$$\n$$\\omega_1^2 = \\frac{\\omega_1^2}{4} r_2 \\implies r_2 = 4\\text{ cm}$$\n\nHence, the coin will just slip at a distance of $4\\text{ cm}$ from the center.",
+    "explanation": "[IMG: jee_phy_nlom_img_038.png]\n\nThe limiting friction force provides the necessary centripetal force at the verge of slipping:\n$$f_{max} = \\mu mg = m \\omega^2 r$$\n$$\\omega^2 r = \\mu g = \\text{constant}$$\n\nTherefore, we have the relation:\n$$\\omega_1^2 r_1 = \\omega_2^2 r_2$$\n\nGiven:\n- $r_1 = 1\\text{ cm}$\n- $\\omega_2 = \\frac{\\omega_1}{2}$\n\n$$\\omega_1^2 (1) = \\left( \\frac{\\omega_1}{2} \\right)^2 r_2$$\n$$\\omega_1^2 = \\frac{\\omega_1^2}{4} r_2 \\implies r_2 = 4\\text{ cm}$$\n\nHence, the coin will just slip at a distance of $4\\text{ cm}$ from the center.",
     "year": "2023",
     "shift": "Morning",
     "date": "11th April"
@@ -710,32 +710,32 @@
     "date": "25th June"
   },
   {
-    "q": "A block of mass $200\\text{ g}$ is kept stationary on a smooth inclined plane by applying a minimum horizontal force $F = \\sqrt{x}\\text{ N}$ as shown in the figure.\n\n\n\nThe value of $x$ is:\n\n[IMG: jee_phy_nlom_img_043.png]",
+    "q": "A block of mass $200\\text{ g}$ is kept stationary on a smooth inclined plane by applying a minimum horizontal force $F = \\sqrt{x}\\text{ N}$ as shown in the figure.\n\n\n\nThe value of $x$ is:\n\n[IMG: jee_phy_nlom_img_039.png]",
     "type": "integer",
     "options": [],
     "answer": 12,
-    "explanation": "[IMG: jee_phy_nlom_img_044.png]\n\nSince the incline is smooth, for the block to remain stationary, the force component of $F$ along the incline must balance the component of gravity down the incline:\n$$F \\cos 60^\\circ = mg \\sin 60^\\circ$$\n$$F = mg \\tan 60^\\circ$$\n\nGiven:\n- $m = 200\\text{ g} = 0.2\\text{ kg}$\n- $g = 10\\text{ m/s}^2$\n\n$$F = 0.2 \\times 10 \\times \\sqrt{3} = 2\\sqrt{3} = \\sqrt{12}\\text{ N}$$\n\nComparing this with $F = \\sqrt{x}$:\n$$x = 12$$",
+    "explanation": "[IMG: jee_phy_nlom_img_040.png]\n\nSince the incline is smooth, for the block to remain stationary, the force component of $F$ along the incline must balance the component of gravity down the incline:\n$$F \\cos 60^\\circ = mg \\sin 60^\\circ$$\n$$F = mg \\tan 60^\\circ$$\n\nGiven:\n- $m = 200\\text{ g} = 0.2\\text{ kg}$\n- $g = 10\\text{ m/s}^2$\n\n$$F = 0.2 \\times 10 \\times \\sqrt{3} = 2\\sqrt{3} = \\sqrt{12}\\text{ N}$$\n\nComparing this with $F = \\sqrt{x}$:\n$$x = 12$$",
     "year": "2022",
     "shift": "Evening",
     "date": "25th June"
   },
   {
-    "q": "A ball is released from rest from point P of a smooth semi-spherical vessel as shown in the figure. The ratio of the centripetal force and normal reaction on the ball at point Q is A, while the angular position of point Q is $\\alpha$ with respect to point P. Which of the following graphs represents the correct relation between A and $\\alpha$ when the ball goes from Q to R?\n\n[IMG: jee_phy_nlom_img_045.png]\n\n[IMG: jee_phy_nlom_img_046.png]\n\n[IMG: jee_phy_nlom_img_047.png]\n\n[IMG: jee_phy_nlom_img_048.png]\n\n[IMG: jee_phy_nlom_img_049.png]",
+    "q": "A ball is released from rest from point P of a smooth semi-spherical vessel as shown in the figure. The ratio of the centripetal force and normal reaction on the ball at point Q is A, while the angular position of point Q is $\\alpha$ with respect to point P. Which of the following graphs represents the correct relation between A and $\\alpha$ when the ball goes from Q to R?\n\n[IMG: jee_phy_nlom_img_041.png]",
     "type": "mcq",
     "options": [
-      "",
-      "",
-      "",
-      ""
+      "\n\n[IMG: jee_phy_nlom_img_042.png]",
+      "\n\n[IMG: jee_phy_nlom_img_043.png]",
+      "\n\n[IMG: jee_phy_nlom_img_044.png]",
+      "\n\n[IMG: jee_phy_nlom_img_045.png]"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_050.png]\n\nLet us analyze the forces on the ball of mass $m$ at position Q:\n\n1) From conservation of mechanical energy, the speed $v$ at position Q after falling through a height $h = R \\sin \\alpha$ is:\n$$v = \\sqrt{2gh} = \\sqrt{2gR \\sin \\alpha}$$\n\n2) The centripetal acceleration $a_c$ at Q is:\n$$a_c = \\frac{v^2}{R} = 2g \\sin \\alpha$$\n\nSo the centripetal force $F_c$ is:\n$$F_c = m a_c = 2mg \\sin \\alpha$$\n\n3) The normal force $N$ at Q is balanced by the component of gravity and provides the centripetal force:\n$$N - mg \\sin \\alpha = F_c$$\n$$N = mg \\sin \\alpha + 2mg \\sin \\alpha = 3mg \\sin \\alpha$$\n\n4) The ratio $A$ of centripetal force to normal reaction is:\n$$A = \\frac{F_c}{N} = \\frac{2mg \\sin \\alpha}{3mg \\sin \\alpha} = \\frac{2}{3} = \\text{constant}$$\n\nSince $A$ is constant and independent of the angular position $\\alpha$, the graph is a horizontal straight line. This corresponds to option C.",
+    "explanation": "[IMG: jee_phy_nlom_img_046.png]\n\nLet us analyze the forces on the ball of mass $m$ at position Q:\n\n1) From conservation of mechanical energy, the speed $v$ at position Q after falling through a height $h = R \\sin \\alpha$ is:\n$$v = \\sqrt{2gh} = \\sqrt{2gR \\sin \\alpha}$$\n\n2) The centripetal acceleration $a_c$ at Q is:\n$$a_c = \\frac{v^2}{R} = 2g \\sin \\alpha$$\n\nSo the centripetal force $F_c$ is:\n$$F_c = m a_c = 2mg \\sin \\alpha$$\n\n3) The normal force $N$ at Q is balanced by the component of gravity and provides the centripetal force:\n$$N - mg \\sin \\alpha = F_c$$\n$$N = mg \\sin \\alpha + 2mg \\sin \\alpha = 3mg \\sin \\alpha$$\n\n4) The ratio $A$ of centripetal force to normal reaction is:\n$$A = \\frac{F_c}{N} = \\frac{2mg \\sin \\alpha}{3mg \\sin \\alpha} = \\frac{2}{3} = \\text{constant}$$\n\nSince $A$ is constant and independent of the angular position $\\alpha$, the graph is a horizontal straight line. This corresponds to option C.",
     "year": "2022",
     "shift": "Morning",
     "date": "26th June"
   },
   {
-    "q": "In the arrangement shown in the figure, $a_1, a_2, a_3$ and $a_4$ are the accelerations of masses $m_1, m_2, m_3$ and $m_4$ respectively. Which of the following relations is true for this arrangement?\n\n[IMG: jee_phy_nlom_img_051.png]",
+    "q": "In the arrangement shown in the figure, $a_1, a_2, a_3$ and $a_4$ are the accelerations of masses $m_1, m_2, m_3$ and $m_4$ respectively. Which of the following relations is true for this arrangement?\n\n[IMG: jee_phy_nlom_img_047.png]",
     "type": "mcq",
     "options": [
       "$4a_1 + 2a_2 + a_3 + a_4 = 0$",
@@ -750,7 +750,7 @@
     "date": "26th June"
   },
   {
-    "q": "A system of $10$ balls, each of mass $2\\text{ kg}$, is connected via massless and unstretchable strings. The system is allowed to slip over the edge of a smooth table as shown in the figure. The tension in the string between the $7^{\\text{th}}$ and $8^{\\text{th}}$ ball is ____N when the $6^{\\text{th}}$ ball just leaves the table.\n\n[IMG: jee_phy_nlom_img_052.png]",
+    "q": "A system of $10$ balls, each of mass $2\\text{ kg}$, is connected via massless and unstretchable strings. The system is allowed to slip over the edge of a smooth table as shown in the figure. The tension in the string between the $7^{\\text{th}}$ and $8^{\\text{th}}$ ball is ____N when the $6^{\\text{th}}$ ball just leaves the table.\n\n[IMG: jee_phy_nlom_img_048.png]",
     "type": "integer",
     "options": [],
     "answer": 36,
@@ -760,7 +760,7 @@
     "date": "26th June"
   },
   {
-    "q": "A system of two blocks of masses $m = 2\\text{ kg}$ and $M = 8\\text{ kg}$ is placed on a smooth table as shown in the figure. The coefficient of static friction between the two blocks is $0.5$. The maximum horizontal force F that can be applied to the block of mass M so that the blocks move together is:\n\n[IMG: jee_phy_nlom_img_053.png]",
+    "q": "A system of two blocks of masses $m = 2\\text{ kg}$ and $M = 8\\text{ kg}$ is placed on a smooth table as shown in the figure. The coefficient of static friction between the two blocks is $0.5$. The maximum horizontal force F that can be applied to the block of mass M so that the blocks move together is:\n\n[IMG: jee_phy_nlom_img_049.png]",
     "type": "mcq",
     "options": [
       "$9.8\\text{ N}$",
@@ -769,7 +769,7 @@
       "$78.4\\text{ N}$"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_054.png]\n\nFor the blocks to move together, the maximum acceleration of the block of mass $m$ is limited by static friction:\n$$f_{s,\\text{max}} = \\mu_s mg$$\n\n$$a_{\\text{max}} = \\frac{f_{s,\\text{max}}}{m} = \\mu_s g = 0.5 \\times 9.8 = 4.9\\text{ m/s}^2$$\n\nNow, the maximum force $F_{\\text{max}}$ applied to the combined system is:\n$$F_{\\text{max}} = (M + m) a_{\\text{max}}$$\n$$F_{\\text{max}} = (8 + 2) \\times 4.9 = 10 \\times 4.9 = 49\\text{ N}$$\n\nHence, the correct option is C.",
+    "explanation": "[IMG: jee_phy_nlom_img_050.png]\n\nFor the blocks to move together, the maximum acceleration of the block of mass $m$ is limited by static friction:\n$$f_{s,\\text{max}} = \\mu_s mg$$\n\n$$a_{\\text{max}} = \\frac{f_{s,\\text{max}}}{m} = \\mu_s g = 0.5 \\times 9.8 = 4.9\\text{ m/s}^2$$\n\nNow, the maximum force $F_{\\text{max}}$ applied to the combined system is:\n$$F_{\\text{max}} = (M + m) a_{\\text{max}}$$\n$$F_{\\text{max}} = (8 + 2) \\times 4.9 = 10 \\times 4.9 = 49\\text{ N}$$\n\nHence, the correct option is C.",
     "year": "2022",
     "shift": "Morning",
     "date": "27th June"
@@ -794,13 +794,13 @@
     "type": "integer",
     "options": [],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_055.png]\n\nLet $T$ be the tension in the upper half of the rope. The middle point of the rope is in equilibrium under three forces:\n- The horizontal force $F = 30\\text{ N}$\n- The downward tension of the lower half, which supports the hanging mass: $W = mg = 10 \\times 10 = 100\\text{ N}$\n- The tension $T$ of the upper half, acting at angle $\\theta$ with the vertical\n\n1) Vertical balance:\n$$T \\cos \\theta = mg = 100\\text{ N}$$\n\n2) Horizontal balance:\n$$T \\sin \\theta = F = 30\\text{ N}$$\n\nDividing horizontal balance by vertical balance:\n$$\\tan \\theta = \\frac{F}{mg} = \\frac{30}{100} = 0.3 = 3 \\times 10^{-1}$$\n\nComparing with $\\theta = \\tan^{-1}(x \\times 10^{-1})$:\n$$x = 3$$",
+    "explanation": "[IMG: jee_phy_nlom_img_051.png]\n\nLet $T$ be the tension in the upper half of the rope. The middle point of the rope is in equilibrium under three forces:\n- The horizontal force $F = 30\\text{ N}$\n- The downward tension of the lower half, which supports the hanging mass: $W = mg = 10 \\times 10 = 100\\text{ N}$\n- The tension $T$ of the upper half, acting at angle $\\theta$ with the vertical\n\n1) Vertical balance:\n$$T \\cos \\theta = mg = 100\\text{ N}$$\n\n2) Horizontal balance:\n$$T \\sin \\theta = F = 30\\text{ N}$$\n\nDividing horizontal balance by vertical balance:\n$$\\tan \\theta = \\frac{F}{mg} = \\frac{30}{100} = 0.3 = 3 \\times 10^{-1}$$\n\nComparing with $\\theta = \\tan^{-1}(x \\times 10^{-1})$:\n$$x = 3$$",
     "year": "2022",
     "shift": "Evening",
     "date": "27th June"
   },
   {
-    "q": "A hanging mass M is connected to a four times bigger mass by using a string-pulley arrangement, as shown in the figure. The bigger mass is placed on a horizontal ice-slab and is being pulled by a $2Mg$ force. In this situation, the tension in the string is $\\frac{x}{5}Mg$ for $x = $ ____. Neglect the mass of the string and friction of the block (bigger mass) with the ice slab. (Given $g = $ acceleration due to gravity)\n\n[IMG: jee_phy_nlom_img_056.png]",
+    "q": "A hanging mass M is connected to a four times bigger mass by using a string-pulley arrangement, as shown in the figure. The bigger mass is placed on a horizontal ice-slab and is being pulled by a $2Mg$ force. In this situation, the tension in the string is $\\frac{x}{5}Mg$ for $x = $ ____. Neglect the mass of the string and friction of the block (bigger mass) with the ice slab. (Given $g = $ acceleration due to gravity)\n\n[IMG: jee_phy_nlom_img_052.png]",
     "type": "integer",
     "options": [],
     "answer": 6,
@@ -840,7 +840,7 @@
     "date": "29th June"
   },
   {
-    "q": "A block of metal weighing $2\\text{ kg}$ is resting on a frictionless plane (as shown in the figure). It is struck by a jet releasing water at a rate of $1\\text{ kg/s}$ and at a speed of $10\\text{ m/s}$. Then, the initial acceleration of the block, in $\\text{ m/s}^{-2}$, will be:\n\n[IMG: jee_phy_nlom_img_057.png]",
+    "q": "A block of metal weighing $2\\text{ kg}$ is resting on a frictionless plane (as shown in the figure). It is struck by a jet releasing water at a rate of $1\\text{ kg/s}$ and at a speed of $10\\text{ m/s}$. Then, the initial acceleration of the block, in $\\text{ m/s}^{-2}$, will be:\n\n[IMG: jee_phy_nlom_img_053.png]",
     "type": "mcq",
     "options": [
       "3",
@@ -855,7 +855,7 @@
     "date": "29th June"
   },
   {
-    "q": "A block of mass $40\\text{ kg}$ slides over a surface, when a mass of $4\\text{ kg}$ is suspended through an inextensible massless string passing over a frictionless pulley as shown below.\n\n\n\nThe coefficient of kinetic friction between the surface and the block is $0.02$. The acceleration of the block is: (Given $g = 10\\text{ m/s}^{-2}$.)\n\n[IMG: jee_phy_nlom_img_058.png]",
+    "q": "A block of mass $40\\text{ kg}$ slides over a surface, when a mass of $4\\text{ kg}$ is suspended through an inextensible massless string passing over a frictionless pulley as shown below.\n\n\n\nThe coefficient of kinetic friction between the surface and the block is $0.02$. The acceleration of the block is: (Given $g = 10\\text{ m/s}^{-2}$.)\n\n[IMG: jee_phy_nlom_img_054.png]",
     "type": "mcq",
     "options": [
       "$1\\text{ m/s}^{-2}$",
@@ -864,7 +864,7 @@
       "$8/11\\text{ m/s}^{-2}$"
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_059.png]\n\nLet us analyze the forces on both blocks to find the common acceleration $a$:\n\n1) For the $40\\text{ kg}$ block on the rough table:\n- Normal force: $N = Mg = 40 \\times 10 = 400\\text{ N}$\n- Kinetic friction: $f_k = \\mu N = 0.02 \\times 400 = 8\\text{ N}$\n- Equation of motion: $T - f_k = Ma \\implies T - 8 = 40a \\quad \\dots (i)$\n\n2) For the hanging $4\\text{ kg}$ block:\n- Equation of motion: $mg - T = ma \\implies 4(10) - T = 4a \\implies 40 - T = 4a \\quad \\dots (ii)$\n\nAdding equations (i) and (ii):\n$$(T - 8) + (40 - T) = 40a + 4a$$\n$$32 = 44a \\implies a = \\frac{32}{44} = \\frac{8}{11}\\text{ m/s}^2$$\n\nHence, the correct option is D.",
+    "explanation": "[IMG: jee_phy_nlom_img_055.png]\n\nLet us analyze the forces on both blocks to find the common acceleration $a$:\n\n1) For the $40\\text{ kg}$ block on the rough table:\n- Normal force: $N = Mg = 40 \\times 10 = 400\\text{ N}$\n- Kinetic friction: $f_k = \\mu N = 0.02 \\times 400 = 8\\text{ N}$\n- Equation of motion: $T - f_k = Ma \\implies T - 8 = 40a \\quad \\dots (i)$\n\n2) For the hanging $4\\text{ kg}$ block:\n- Equation of motion: $mg - T = ma \\implies 4(10) - T = 4a \\implies 40 - T = 4a \\quad \\dots (ii)$\n\nAdding equations (i) and (ii):\n$$(T - 8) + (40 - T) = 40a + 4a$$\n$$32 = 44a \\implies a = \\frac{32}{44} = \\frac{8}{11}\\text{ m/s}^2$$\n\nHence, the correct option is D.",
     "year": "2022",
     "shift": "Evening",
     "date": "29th June"
@@ -879,23 +879,23 @@
       "$g$"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_060.png]\n\nLet the normal reaction exerted by the floor on the block of mass $m$ be $N$.\nAccording to the question, the block exerts a force of $\\frac{mg}{4}$ on the floor, which means by Newton's third law, the normal force is:\n$$N = \\frac{mg}{4}$$\n\nApplying Newton's second law for the block inside the descending box with downward acceleration $a$:\n$$mg - N = ma$$\n$$mg - \\frac{mg}{4} = ma$$\n$$\\frac{3mg}{4} = ma \\implies a = \\frac{3g}{4}$$\n\nHence, the correct option is C.",
+    "explanation": "[IMG: jee_phy_nlom_img_056.png]\n\nLet the normal reaction exerted by the floor on the block of mass $m$ be $N$.\nAccording to the question, the block exerts a force of $\\frac{mg}{4}$ on the floor, which means by Newton's third law, the normal force is:\n$$N = \\frac{mg}{4}$$\n\nApplying Newton's second law for the block inside the descending box with downward acceleration $a$:\n$$mg - N = ma$$\n$$mg - \\frac{mg}{4} = ma$$\n$$\\frac{3mg}{4} = ma \\implies a = \\frac{3g}{4}$$\n\nHence, the correct option is C.",
     "year": "2022",
     "shift": "Evening",
     "date": "29th June"
   },
   {
-    "q": "Four forces are acting at a point P in equilibrium as shown in the figure. The ratio of force $F_1$ to $F_2$ is $1 : x$ where $x =$\n\n[IMG: jee_phy_nlom_img_061.png]",
+    "q": "Four forces are acting at a point P in equilibrium as shown in the figure. The ratio of force $F_1$ to $F_2$ is $1 : x$ where $x =$\n\n[IMG: jee_phy_nlom_img_057.png]",
     "type": "integer",
     "options": [],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_062.png]\n\nSince the point P is in equilibrium, the sum of horizontal components and the sum of vertical components must both be zero:\n\n1) Resolving forces horizontally:\n$$\\sum F_x = 0$$\n$$F_1 + 1 \\sin 45^\\circ - 2 \\sin 45^\\circ = 0$$\n$$F_1 = 1 \\sin 45^\\circ = \\frac{1}{\\sqrt{2}}\\text{ N}$$\n\n2) Resolving forces vertically:\n$$\\sum F_y = 0$$\n$$2 \\cos 45^\\circ + 1 \\cos 45^\\circ - F_2 = 0$$\n$$F_2 = 3 \\cos 45^\\circ = \\frac{3}{\\sqrt{2}}\\text{ N}$$\n\n3) Calculate the ratio:\n$$\\frac{F_1}{F_2} = \\frac{1/\\sqrt{2}}{3/\\sqrt{2}} = \\frac{1}{3}$$\n\nComparing this with $1 : x$, we get:\n$$x = 3$$",
+    "explanation": "[IMG: jee_phy_nlom_img_058.png]\n\nSince the point P is in equilibrium, the sum of horizontal components and the sum of vertical components must both be zero:\n\n1) Resolving forces horizontally:\n$$\\sum F_x = 0$$\n$$F_1 + 1 \\sin 45^\\circ - 2 \\sin 45^\\circ = 0$$\n$$F_1 = 1 \\sin 45^\\circ = \\frac{1}{\\sqrt{2}}\\text{ N}$$\n\n2) Resolving forces vertically:\n$$\\sum F_y = 0$$\n$$2 \\cos 45^\\circ + 1 \\cos 45^\\circ - F_2 = 0$$\n$$F_2 = 3 \\cos 45^\\circ = \\frac{3}{\\sqrt{2}}\\text{ N}$$\n\n3) Calculate the ratio:\n$$\\frac{F_1}{F_2} = \\frac{1/\\sqrt{2}}{3/\\sqrt{2}} = \\frac{1}{3}$$\n\nComparing this with $1 : x$, we get:\n$$x = 3$$",
     "year": "2022",
     "shift": "Morning",
     "date": "25th July"
   },
   {
-    "q": "For the free body diagram shown in the figure, the four forces are applied in the 'x' and 'y' directions. What additional force must be applied and at what angle with the positive x-axis so that the net acceleration of the body is zero?\n\n[IMG: jee_phy_nlom_img_063.png]",
+    "q": "For the free body diagram shown in the figure, the four forces are applied in the 'x' and 'y' directions. What additional force must be applied and at what angle with the positive x-axis so that the net acceleration of the body is zero?\n\n[IMG: jee_phy_nlom_img_059.png]",
     "type": "mcq",
     "options": [
       "$\\sqrt{2}\\text{N} , 45^\\circ$",
@@ -910,7 +910,7 @@
     "date": "25th July"
   },
   {
-    "q": "Three masses $M = 100\\text{ kg}$, $m_1 = 10\\text{ kg}$ and $m_2 = 20\\text{ kg}$ are arranged in a system as shown in the figure. All surfaces are frictionless and strings are inextensible and weightless. The pulleys are also weightless and frictionless. A force F is applied on the system so that the mass $m_2$ moves upward with an acceleration of $2\\text{ m/s}^{-2}$. The value of F is: (Take $g = 10\\text{ m/s}^{-2}$)\n\n[IMG: jee_phy_nlom_img_064.png]",
+    "q": "Three masses $M = 100\\text{ kg}$, $m_1 = 10\\text{ kg}$ and $m_2 = 20\\text{ kg}$ are arranged in a system as shown in the figure. All surfaces are frictionless and strings are inextensible and weightless. The pulleys are also weightless and frictionless. A force F is applied on the system so that the mass $m_2$ moves upward with an acceleration of $2\\text{ m/s}^{-2}$. The value of F is: (Take $g = 10\\text{ m/s}^{-2}$)\n\n[IMG: jee_phy_nlom_img_060.png]",
     "type": "mcq",
     "options": [
       "3360 N",
@@ -919,7 +919,7 @@
       "3240 N"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_066.png]\n\n[IMG: jee_phy_nlom_img_065.png]\n\nIn the accelerating frame of block M (accelerating to the left with $a$):\n\n1) For $m_2$ (moving upward with relative vertical acceleration $a_{\\text{rel}} = 2\\text{ m/s}^2$):\n$$T - m_2 g = m_2 a_{\\text{rel}}$$\n$$T - 20(10) = 20(2) \\implies T = 240\\text{ N}$$\n\n2) For $m_1$ on top of M (moving relative to M with acceleration $2\\text{ m/s}^2$ to the right):\n$$m_1 a - T = m_1 a_{\\text{rel}}$$\n$$10a - 240 = 10(2)$$\n$$10a = 260 \\implies a = 26\\text{ m/s}^2$$\n\n3) Total force $F$ applied horizontally to the combined moving parts:\n$$F = (M + m_2) a$$\n$$F = (100 + 20) \\times 26 = 120 \\times 26 = 3120\\text{ N}$$\n\nHence, the correct option is C.",
+    "explanation": "[IMG: jee_phy_nlom_img_062.png]\n\n[IMG: jee_phy_nlom_img_061.png]\n\nIn the accelerating frame of block M (accelerating to the left with $a$):\n\n1) For $m_2$ (moving upward with relative vertical acceleration $a_{\\text{rel}} = 2\\text{ m/s}^2$):\n$$T - m_2 g = m_2 a_{\\text{rel}}$$\n$$T - 20(10) = 20(2) \\implies T = 240\\text{ N}$$\n\n2) For $m_1$ on top of M (moving relative to M with acceleration $2\\text{ m/s}^2$ to the right):\n$$m_1 a - T = m_1 a_{\\text{rel}}$$\n$$10a - 240 = 10(2)$$\n$$10a = 260 \\implies a = 26\\text{ m/s}^2$$\n\n3) Total force $F$ applied horizontally to the combined moving parts:\n$$F = (M + m_2) a$$\n$$F = (100 + 20) \\times 26 = 120 \\times 26 = 3120\\text{ N}$$\n\nHence, the correct option is C.",
     "year": "2022",
     "shift": "Morning",
     "date": "26th July"
@@ -940,7 +940,7 @@
     "date": "26th July"
   },
   {
-    "q": "Two masses $M_1$ and $M_2$ are tied together at the two ends of a light inextensible string that passes over a frictionless pulley. When the mass $M_2$ is twice that of $M_1$, the acceleration of the system is $a_1$. When the mass $M_2$ is thrice that of $M_1$, the acceleration of the system is $a_2$. The ratio $\\frac{a_1}{a_2}$ will be:\n\n[IMG: jee_phy_nlom_img_067.png]",
+    "q": "Two masses $M_1$ and $M_2$ are tied together at the two ends of a light inextensible string that passes over a frictionless pulley. When the mass $M_2$ is twice that of $M_1$, the acceleration of the system is $a_1$. When the mass $M_2$ is thrice that of $M_1$, the acceleration of the system is $a_2$. The ratio $\\frac{a_1}{a_2}$ will be:\n\n[IMG: jee_phy_nlom_img_063.png]",
     "type": "mcq",
     "options": [
       "1/3",
@@ -979,7 +979,7 @@
       "Mg sin $\\theta \\sqrt{1 + \\mu}$"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_068.png]\n\nSince the block slides down with a constant velocity, its acceleration is zero, which means the net external force acting on the block is zero.\n\nOnly two forces act on the block:\n- The gravitational force ($Mg$) acting vertically downwards.\n- The total contact force ($R$) exerted by the inclined plane, which is the vector sum of the normal reaction $N$ and the friction force $f$.\n\nFor equilibrium:\n$$\\vec{R} + \\vec{W} = 0 \\implies R = Mg$$\n\nHence, the contact force is $Mg$.",
+    "explanation": "[IMG: jee_phy_nlom_img_064.png]\n\nSince the block slides down with a constant velocity, its acceleration is zero, which means the net external force acting on the block is zero.\n\nOnly two forces act on the block:\n- The gravitational force ($Mg$) acting vertically downwards.\n- The total contact force ($R$) exerted by the inclined plane, which is the vector sum of the normal reaction $N$ and the friction force $f$.\n\nFor equilibrium:\n$$\\vec{R} + \\vec{W} = 0 \\implies R = Mg$$\n\nHence, the contact force is $Mg$.",
     "year": "2022",
     "shift": "Evening",
     "date": "27th July"
@@ -994,7 +994,7 @@
       "$0.70\\text{ s}$"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_069.png]\n\nSince the lift is moving with uniform velocity, the frame inside the lift is inertial (no pseudo forces act).\n\nThe acceleration of a block down a frictionless incline of angle $\\theta$ is $a = g \\sin \\theta$.\nThe length '$l$' of the incline is covered in time $t$:\n$$l = \\frac{1}{2} a t^2 = \\frac{1}{2} (g \\sin \\theta) t^2$$\n\n1) For $\\theta = 30^\\circ$ and $t = 2\\text{ s}$:\n$$l = \\frac{1}{2} g \\sin 30^\\circ (2)^2 = \\frac{1}{2} g \\left(\\frac{1}{2}\\right) (4) = g$$\n\n2) For $\\theta = 45^\\circ$:\n$$l = \\frac{1}{2} (g \\sin 45^\\circ) t^2$$\n$$g = \\frac{1}{2} g \\left(\\frac{1}{\\sqrt{2}}\\right) t^2$$\n$$1 = \\frac{t^2}{2\\sqrt{2}} \\implies t^2 = 2\\sqrt{2} \\approx 2.828\\text{ s}$$\n$$t \\approx \\sqrt{2.828} \\approx 1.68\\text{ s}$$\n\nHence, the correct option is C.",
+    "explanation": "[IMG: jee_phy_nlom_img_065.png]\n\nSince the lift is moving with uniform velocity, the frame inside the lift is inertial (no pseudo forces act).\n\nThe acceleration of a block down a frictionless incline of angle $\\theta$ is $a = g \\sin \\theta$.\nThe length '$l$' of the incline is covered in time $t$:\n$$l = \\frac{1}{2} a t^2 = \\frac{1}{2} (g \\sin \\theta) t^2$$\n\n1) For $\\theta = 30^\\circ$ and $t = 2\\text{ s}$:\n$$l = \\frac{1}{2} g \\sin 30^\\circ (2)^2 = \\frac{1}{2} g \\left(\\frac{1}{2}\\right) (4) = g$$\n\n2) For $\\theta = 45^\\circ$:\n$$l = \\frac{1}{2} (g \\sin 45^\\circ) t^2$$\n$$g = \\frac{1}{2} g \\left(\\frac{1}{\\sqrt{2}}\\right) t^2$$\n$$1 = \\frac{t^2}{2\\sqrt{2}} \\implies t^2 = 2\\sqrt{2} \\approx 2.828\\text{ s}$$\n$$t \\approx \\sqrt{2.828} \\approx 1.68\\text{ s}$$\n\nHence, the correct option is C.",
     "year": "2022",
     "shift": "Evening",
     "date": "27th July"
@@ -1030,7 +1030,7 @@
     "date": "28th July"
   },
   {
-    "q": "A uniform metal chain of mass m and length 'L' passes over a massless and frictionless pulley. It is released from rest with a part of its length 'l' hanging on one side and the rest of its length 'L - l' hanging on the other side of the pulley. At a certain point of time, when $l = \\frac{L}{x}$, the acceleration of the chain is $\\frac{g}{2}$. The value of $x$ is ________.\n\n[IMG: jee_phy_nlom_img_070.png]",
+    "q": "A uniform metal chain of mass m and length 'L' passes over a massless and frictionless pulley. It is released from rest with a part of its length 'l' hanging on one side and the rest of its length 'L - l' hanging on the other side of the pulley. At a certain point of time, when $l = \\frac{L}{x}$, the acceleration of the chain is $\\frac{g}{2}$. The value of $x$ is ________.\n\n[IMG: jee_phy_nlom_img_066.png]",
     "type": "mcq",
     "options": [
       "6",
@@ -1045,13 +1045,13 @@
     "date": "28th July"
   },
   {
-    "q": "A smooth circular groove has a smooth vertical wall as shown in the figure. A block of mass m moves against the wall with a speed v. Which of the following curves represents the correct relation between the normal reaction on the block by the wall (N) and the speed of the block (v)?\n\n[IMG: jee_phy_nlom_img_071.png]\n\n[IMG: jee_phy_nlom_img_072.png]\n\n[IMG: jee_phy_nlom_img_073.png]\n\n[IMG: jee_phy_nlom_img_074.png]\n\n[IMG: jee_phy_nlom_img_075.png]",
+    "q": "A smooth circular groove has a smooth vertical wall as shown in the figure. A block of mass m moves against the wall with a speed v. Which of the following curves represents the correct relation between the normal reaction on the block by the wall (N) and the speed of the block (v)?\n\n[IMG: jee_phy_nlom_img_067.png]",
     "type": "mcq",
     "options": [
-      "",
-      "",
-      "",
-      ""
+      "\n\n[IMG: jee_phy_nlom_img_068.png]",
+      "\n\n[IMG: jee_phy_nlom_img_069.png]",
+      "\n\n[IMG: jee_phy_nlom_img_070.png]",
+      "\n\n[IMG: jee_phy_nlom_img_071.png]"
     ],
     "answer": 1,
     "explanation": "The horizontal normal reaction force $N$ exerted by the vertical wall of the groove provides the necessary centripetal force for the circular path:\n$$N = \\frac{mv^2}{r}$$\n\nSince $m$ and $r$ are constant:\n$$N \\propto v^2$$\n\nThis represents a parabola opening upwards ($N = k v^2$). Therefore, the curve in Option A is the correct representation.",
@@ -1060,7 +1060,7 @@
     "date": "29th July"
   },
   {
-    "q": "Two bodies of masses $m_1 = 5\\text{ kg}$ and $m_2 = 3\\text{ kg}$ are connected by a light string going over a smooth light pulley on a smooth inclined plane as shown in the figure. The system is at rest. The force exerted by the inclined plane on the body of mass $m_1$ will be: [Take $g = 10\\text{ m/s}^{-2}$]\n\n[IMG: jee_phy_nlom_img_076.png]",
+    "q": "Two bodies of masses $m_1 = 5\\text{ kg}$ and $m_2 = 3\\text{ kg}$ are connected by a light string going over a smooth light pulley on a smooth inclined plane as shown in the figure. The system is at rest. The force exerted by the inclined plane on the body of mass $m_1$ will be: [Take $g = 10\\text{ m/s}^{-2}$]\n\n[IMG: jee_phy_nlom_img_072.png]",
     "type": "mcq",
     "options": [
       "30N",
@@ -1079,7 +1079,7 @@
     "type": "integer",
     "options": [],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_077.png]\n\nLet:\n- $M = 250\\text{ g} = 0.25\\text{ kg}$\n- $L = 50\\text{ cm} = 0.5\\text{ m}$\n- $\\lambda = \\frac{M}{L}$ be the mass per unit length of the liquid column.\n\nConsider an element of length $dx$ at distance $x$ from the rotation axis. Its centrifugal force is:\n$$dF = (dm) \\omega^2 x = (\\lambda dx) \\omega^2 x$$\n\nThe total force $F$ at the outer closed end of the tube is obtained by integrating from $0$ to $L$:\n$$F = \\int_{0}^{L} \\lambda \\omega^2 x \\, dx = \\frac{M}{L} \\omega^2 \\left[ \\frac{x^2}{2} \\right]_{0}^{L} = \\frac{M \\omega^2 L}{2}$$\n\nRearranging for $\\omega$:\n$$\\omega = \\sqrt{\\frac{2F}{ML}} = \\sqrt{\\frac{2}{0.25 \\times 0.5}} \\sqrt{F}$$\n$$\\omega = \\sqrt{\\frac{2}{0.125}} \\sqrt{F} = \\sqrt{16} \\sqrt{F} = 4\\sqrt{F}$$\n\nComparing this with $\\omega = x\\sqrt{F}$, we find:\n$$x = 4$$",
+    "explanation": "[IMG: jee_phy_nlom_img_073.png]\n\nLet:\n- $M = 250\\text{ g} = 0.25\\text{ kg}$\n- $L = 50\\text{ cm} = 0.5\\text{ m}$\n- $\\lambda = \\frac{M}{L}$ be the mass per unit length of the liquid column.\n\nConsider an element of length $dx$ at distance $x$ from the rotation axis. Its centrifugal force is:\n$$dF = (dm) \\omega^2 x = (\\lambda dx) \\omega^2 x$$\n\nThe total force $F$ at the outer closed end of the tube is obtained by integrating from $0$ to $L$:\n$$F = \\int_{0}^{L} \\lambda \\omega^2 x \\, dx = \\frac{M}{L} \\omega^2 \\left[ \\frac{x^2}{2} \\right]_{0}^{L} = \\frac{M \\omega^2 L}{2}$$\n\nRearranging for $\\omega$:\n$$\\omega = \\sqrt{\\frac{2F}{ML}} = \\sqrt{\\frac{2}{0.25 \\times 0.5}} \\sqrt{F}$$\n$$\\omega = \\sqrt{\\frac{2}{0.125}} \\sqrt{F} = \\sqrt{16} \\sqrt{F} = 4\\sqrt{F}$$\n\nComparing this with $\\omega = x\\sqrt{F}$, we find:\n$$x = 4$$",
     "year": "2022",
     "shift": "Evening",
     "date": "29th July"
@@ -1099,7 +1099,7 @@
     "type": "integer",
     "options": [],
     "answer": 25,
-    "explanation": "[IMG: jee_phy_nlom_img_078.png]\n\nFor the block to remain stationary against the vertical wall, the upward frictional force $f_s$ must balance the downward gravitational force:\n$$f_s = mg = 0.5 \\times 10 = 5\\text{ N}$$\n\nThe static friction force is bounded by its limiting value:\n$$f_s \\le \\mu_s N$$\n\nSince the normal force $N$ is provided by the applied horizontal force $F$ ($N = F$):\n$$5 \\le \\mu_s F$$\n$$F \\ge \\frac{5}{0.2} = 25\\text{ N}$$\n\nThus, the minimum magnitude of horizontal force required is $25\\text{ N}$.",
+    "explanation": "[IMG: jee_phy_nlom_img_074.png]\n\nFor the block to remain stationary against the vertical wall, the upward frictional force $f_s$ must balance the downward gravitational force:\n$$f_s = mg = 0.5 \\times 10 = 5\\text{ N}$$\n\nThe static friction force is bounded by its limiting value:\n$$f_s \\le \\mu_s N$$\n\nSince the normal force $N$ is provided by the applied horizontal force $F$ ($N = F$):\n$$5 \\le \\mu_s F$$\n$$F \\ge \\frac{5}{0.2} = 25\\text{ N}$$\n\nThus, the minimum magnitude of horizontal force required is $25\\text{ N}$.",
     "year": "2021",
     "shift": "Morning",
     "date": "24th February"
@@ -1109,17 +1109,17 @@
     "type": "integer",
     "options": [],
     "answer": 25,
-    "explanation": "[IMG: jee_phy_nlom_img_079.png]\n\nThe block will not slip as long as the slope of the curve does not exceed the angle of repose (coefficient of static friction):\n$$\\tan \\theta \\le \\mu \\implies \\frac{dy}{dx} \\le \\mu$$\n\nGiven the profile equation:\n$$y = \\frac{x^2}{4} \\implies \\frac{dy}{dx} = \\frac{2x}{4} = \\frac{x}{2}$$\n\nIn the limiting condition:\n$$\\frac{x}{2} = \\mu = 0.5 \\implies x = 1\\text{ m}$$\n\nNow find the maximum height $y$:\n$$y = \\frac{1^2}{4} = 0.25\\text{ m} = 25\\text{ cm}$$",
+    "explanation": "[IMG: jee_phy_nlom_img_075.png]\n\nThe block will not slip as long as the slope of the curve does not exceed the angle of repose (coefficient of static friction):\n$$\\tan \\theta \\le \\mu \\implies \\frac{dy}{dx} \\le \\mu$$\n\nGiven the profile equation:\n$$y = \\frac{x^2}{4} \\implies \\frac{dy}{dx} = \\frac{2x}{4} = \\frac{x}{2}$$\n\nIn the limiting condition:\n$$\\frac{x}{2} = \\mu = 0.5 \\implies x = 1\\text{ m}$$\n\nNow find the maximum height $y$:\n$$y = \\frac{1^2}{4} = 0.25\\text{ m} = 25\\text{ cm}$$",
     "year": "2021",
     "shift": "Morning",
     "date": "24th February"
   },
   {
-    "q": "As shown in the figure, a block of mass $\\sqrt{3}\\text{ kg}$ is kept on a horizontal rough surface of coefficient of friction $\\frac{1}{3\\sqrt{3}}$. The critical force to be applied on the vertical surface as shown at an angle of $60^\\circ$ with the horizontal, such that it does not move, will be $3x$. The value of $x$ is __________. [Take $g = 10\\text{ m/s}^{-2}$; $\\sin 60^\\circ = \\frac{\\sqrt{3}}{2}$, $\\cos 60^\\circ = \\frac{1}{2}$]\n\n[IMG: jee_phy_nlom_img_080.png]",
+    "q": "As shown in the figure, a block of mass $\\sqrt{3}\\text{ kg}$ is kept on a horizontal rough surface of coefficient of friction $\\frac{1}{3\\sqrt{3}}$. The critical force to be applied on the vertical surface as shown at an angle of $60^\\circ$ with the horizontal, such that it does not move, will be $3x$. The value of $x$ is __________. [Take $g = 10\\text{ m/s}^{-2}$; $\\sin 60^\\circ = \\frac{\\sqrt{3}}{2}$, $\\cos 60^\\circ = \\frac{1}{2}$]\n\n[IMG: jee_phy_nlom_img_076.png]",
     "type": "numerical",
     "options": [],
     "answer": 3.33,
-    "explanation": "[IMG: jee_phy_nlom_img_081.png]\n\nThe angle of banking $\\theta$ is related to speed, radius, and gravity by:\n$$\\tan \\theta = \\frac{v^2}{Rg}$$\n\nGiven:\n- $v = 12\\text{ m/s}$\n- $R = 400\\text{ m}$\n- $g = 10\\text{ m/s}^2$\n\n$$\\tan \\theta = \\frac{12 \\times 12}{10 \\times 400} = \\frac{144}{4000}$$\n\nFor a small angle $\\theta$:\n$$\\tan \\theta \\approx \\sin \\theta = \\frac{h}{l}$$\nwhere $l = 1.5\\text{ m}$ is the distance between the rails.\n\n$$\\frac{h}{1.5} = \\frac{144}{4000}$$\n$$h = \\frac{144 \\times 1.5}{4000} = \\frac{216}{4000} = 0.054\\text{ m} = 5.4\\text{ cm}$$\n\nHence, the outer rail must be raised by $5.4\\text{ cm}$.",
+    "explanation": "[IMG: jee_phy_nlom_img_077.png]\n\nThe angle of banking $\\theta$ is related to speed, radius, and gravity by:\n$$\\tan \\theta = \\frac{v^2}{Rg}$$\n\nGiven:\n- $v = 12\\text{ m/s}$\n- $R = 400\\text{ m}$\n- $g = 10\\text{ m/s}^2$\n\n$$\\tan \\theta = \\frac{12 \\times 12}{10 \\times 400} = \\frac{144}{4000}$$\n\nFor a small angle $\\theta$:\n$$\\tan \\theta \\approx \\sin \\theta = \\frac{h}{l}$$\nwhere $l = 1.5\\text{ m}$ is the distance between the rails.\n\n$$\\frac{h}{1.5} = \\frac{144}{4000}$$\n$$h = \\frac{144 \\times 1.5}{4000} = \\frac{216}{4000} = 0.054\\text{ m} = 5.4\\text{ cm}$$\n\nHence, the outer rail must be raised by $5.4\\text{ cm}$.",
     "year": "2021",
     "shift": "Morning",
     "date": "26th February"
@@ -1160,17 +1160,17 @@
     "date": "16th March"
   },
   {
-    "q": "Consider a frame that is made up of two thin massless rods AB and AC as shown in the figure. A vertical force P of magnitude $100\\text{ N}$ is applied at point A of the frame. If the resolved component of force along the arm AC is $x\\text{ N}$, then the value of $x$ is:\n\n[IMG: jee_phy_nlom_img_082.png]",
+    "q": "Consider a frame that is made up of two thin massless rods AB and AC as shown in the figure. A vertical force P of magnitude $100\\text{ N}$ is applied at point A of the frame. If the resolved component of force along the arm AC is $x\\text{ N}$, then the value of $x$ is:\n\n[IMG: jee_phy_nlom_img_078.png]",
     "type": "integer",
     "options": [],
     "answer": 82,
-    "explanation": "[IMG: jee_phy_nlom_img_083.png]\n\nThe angle between the applied force $P$ and the rod $AC$ is calculated as $35^\\circ$.\n\nResolving the force component along the rod $AC$:\n$$F_{AC} = P \\cos 35^\\circ$$\n$$F_{AC} = 100 \\times 0.819\\text{ N} \\approx 82\\text{ N}$$\n\nThus, the magnitude of the component is $82\\text{ N}$.",
+    "explanation": "[IMG: jee_phy_nlom_img_079.png]\n\nThe angle between the applied force $P$ and the rod $AC$ is calculated as $35^\\circ$.\n\nResolving the force component along the rod $AC$:\n$$F_{AC} = P \\cos 35^\\circ$$\n$$F_{AC} = 100 \\times 0.819\\text{ N} \\approx 82\\text{ N}$$\n\nThus, the magnitude of the component is $82\\text{ N}$.",
     "year": "2021",
     "shift": "Morning",
     "date": "16th March"
   },
   {
-    "q": "A solid cylinder of mass m is wrapped with an inextensible light string and, is placed on a rough inclined plane as shown in the figure. The frictional force acting between the cylinder and the inclined plane is (The coefficient of static friction, $\\mu_s$, is $0.4$):\n\n[IMG: jee_phy_nlom_img_084.png]",
+    "q": "A solid cylinder of mass m is wrapped with an inextensible light string and, is placed on a rough inclined plane as shown in the figure. The frictional force acting between the cylinder and the inclined plane is (The coefficient of static friction, $\\mu_s$, is $0.4$):\n\n[IMG: jee_phy_nlom_img_080.png]",
     "type": "mcq",
     "options": [
       "$\\frac{7}{2}mg$",
@@ -1179,7 +1179,7 @@
       "0"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_085.png]\n\nBalancing forces perpendicular to the inclined plane:\n$$N = mg \\cos 60^\\circ$$\n\nThe static friction force is:\n$$f = \\mu_s N = 0.4 \\times mg \\cos 60^\\circ$$\n$$f = 0.4 \\times mg \\times 0.5 = 0.2mg = \\frac{mg}{5}$$\n\nHence, the correct option is C.",
+    "explanation": "[IMG: jee_phy_nlom_img_081.png]\n\nBalancing forces perpendicular to the inclined plane:\n$$N = mg \\cos 60^\\circ$$\n\nThe static friction force is:\n$$f = \\mu_s N = 0.4 \\times mg \\cos 60^\\circ$$\n$$f = 0.4 \\times mg \\times 0.5 = 0.2mg = \\frac{mg}{5}$$\n\nHence, the correct option is C.",
     "year": "2021",
     "shift": "Evening",
     "date": "18th March"
@@ -1189,17 +1189,17 @@
     "type": "integer",
     "options": [],
     "answer": 5,
-    "explanation": "[IMG: jee_phy_nlom_img_086.png]\n\nThe minimum force $F$ required to move a body of mass $m$ on a horizontal floor with static friction coefficient $\\mu$ is given by:\n$$F = \\frac{\\mu mg}{\\sqrt{1 + \\mu^2}}$$\n\nGiven:\n- $m = 1\\text{ kg}$\n- $g = 10\\text{ m/s}^2$\n- $\\mu = \\frac{1}{\\sqrt{3}}$\n\nSubstituting the values:\n$$F = \\frac{\\frac{1}{\\sqrt{3}} \\times (1)(10)}{\\sqrt{1 + \\left(\\frac{1}{\\sqrt{3}}\\right)^2}} = \\frac{\\frac{10}{\\sqrt{3}}}{\\sqrt{1 + \\frac{1}{3}}} = \\frac{\\frac{10}{\\sqrt{3}}}{\\sqrt{\\frac{4}{3}}} = \\frac{\\frac{10}{\\sqrt{3}}}{\\frac{2}{\\sqrt{3}}} = 5\\text{ N}$$\n\nHence, the minimum possible force $F$ is $5\\text{ N}$.",
+    "explanation": "[IMG: jee_phy_nlom_img_082.png]\n\nThe minimum force $F$ required to move a body of mass $m$ on a horizontal floor with static friction coefficient $\\mu$ is given by:\n$$F = \\frac{\\mu mg}{\\sqrt{1 + \\mu^2}}$$\n\nGiven:\n- $m = 1\\text{ kg}$\n- $g = 10\\text{ m/s}^2$\n- $\\mu = \\frac{1}{\\sqrt{3}}$\n\nSubstituting the values:\n$$F = \\frac{\\frac{1}{\\sqrt{3}} \\times (1)(10)}{\\sqrt{1 + \\left(\\frac{1}{\\sqrt{3}}\\right)^2}} = \\frac{\\frac{10}{\\sqrt{3}}}{\\sqrt{1 + \\frac{1}{3}}} = \\frac{\\frac{10}{\\sqrt{3}}}{\\sqrt{\\frac{4}{3}}} = \\frac{\\frac{10}{\\sqrt{3}}}{\\frac{2}{\\sqrt{3}}} = 5\\text{ N}$$\n\nHence, the minimum possible force $F$ is $5\\text{ N}$.",
     "year": "2021",
     "shift": "Evening",
     "date": "17th March"
   },
   {
-    "q": "A boy of mass $4\\text{ kg}$ is standing on a piece of wood having mass $5\\text{ kg}$. If the coefficient of friction between the wood and the floor is $0.5$, the maximum force that the boy can exert on the rope, so that the piece of wood does not move from its place is ______ N. (Round off to the nearest integer) (Take, $g = 10\\text{ m/s}^{-2}$):\n\n[IMG: jee_phy_nlom_img_087.png]",
+    "q": "A boy of mass $4\\text{ kg}$ is standing on a piece of wood having mass $5\\text{ kg}$. If the coefficient of friction between the wood and the floor is $0.5$, the maximum force that the boy can exert on the rope, so that the piece of wood does not move from its place is ______ N. (Round off to the nearest integer) (Take, $g = 10\\text{ m/s}^{-2}$):\n\n[IMG: jee_phy_nlom_img_083.png]",
     "type": "integer",
     "options": [],
     "answer": 30,
-    "explanation": "[IMG: jee_phy_nlom_img_088.png]\n\nLet the tension in the rope be $T$.\nConsider the boy and the wooden piece as a single system of combined mass $M_{\\text{total}} = 4 + 5 = 9\\text{ kg}$.\n\n1) Vertical force balance:\n$$N + T = M_{\\text{total}} g$$\n$$N = 90 - T$$\n\n2) Horizontal force balance in limiting static equilibrium:\n$$T = f = \\mu N$$\n$$T = 0.5(90 - T)$$\n$$T = 45 - 0.5T$$\n$$1.5T = 45 \\implies T = 30\\text{ N}$$\n\nThus, the maximum force the boy can exert is $30\\text{ N}$.",
+    "explanation": "[IMG: jee_phy_nlom_img_084.png]\n\nLet the tension in the rope be $T$.\nConsider the boy and the wooden piece as a single system of combined mass $M_{\\text{total}} = 4 + 5 = 9\\text{ kg}$.\n\n1) Vertical force balance:\n$$N + T = M_{\\text{total}} g$$\n$$N = 90 - T$$\n\n2) Horizontal force balance in limiting static equilibrium:\n$$T = f = \\mu N$$\n$$T = 0.5(90 - T)$$\n$$T = 45 - 0.5T$$\n$$1.5T = 45 \\implies T = 30\\text{ N}$$\n\nThus, the maximum force the boy can exert is $30\\text{ N}$.",
     "year": "2021",
     "shift": "Evening",
     "date": "17th March"
@@ -1215,7 +1215,7 @@
     "date": "17th March"
   },
   {
-    "q": "A block of mass m slides along a floor, while a force of magnitude F is applied to it at an angle $\\theta$ as shown in the figure. The coefficient of kinetic friction is $\\mu_k$. Then, the block's acceleration a is given by (g is acceleration due to gravity):\n\n[IMG: jee_phy_nlom_img_089.png]",
+    "q": "A block of mass m slides along a floor, while a force of magnitude F is applied to it at an angle $\\theta$ as shown in the figure. The coefficient of kinetic friction is $\\mu_k$. Then, the block's acceleration a is given by (g is acceleration due to gravity):\n\n[IMG: jee_phy_nlom_img_085.png]",
     "type": "mcq",
     "options": [
       "$-\\frac{F}{m}\\cos\\theta - \\mu_k(g - \\frac{F}{m}\\sin\\theta)$",
@@ -1224,13 +1224,13 @@
       "$\\frac{F}{m}\\cos\\theta + \\mu_k(g - \\frac{F}{m}\\sin\\theta)$"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_090.png]\n\nLet us resolve the force $F$ into components parallel and perpendicular to the floor:\n\n1) Vertical force balance:\n$$N + F \\sin \\theta = mg \\implies N = mg - F \\sin \\theta$$\n\n2) Horizontal force equation of motion:\n$$F \\cos \\theta - f_k = ma$$\n$$F \\cos \\theta - \\mu_k N = ma$$\n$$F \\cos \\theta - \\mu_k(mg - F \\sin \\theta) = ma$$\n\nDividing both sides by $m$:\n$$a = \\frac{F}{m}\\cos\\theta - \\mu_k\\left(g - \\frac{F}{m}\\sin\\theta\\right)$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_086.png]\n\nLet us resolve the force $F$ into components parallel and perpendicular to the floor:\n\n1) Vertical force balance:\n$$N + F \\sin \\theta = mg \\implies N = mg - F \\sin \\theta$$\n\n2) Horizontal force equation of motion:\n$$F \\cos \\theta - f_k = ma$$\n$$F \\cos \\theta - \\mu_k N = ma$$\n$$F \\cos \\theta - \\mu_k(mg - F \\sin \\theta) = ma$$\n\nDividing both sides by $m$:\n$$a = \\frac{F}{m}\\cos\\theta - \\mu_k\\left(g - \\frac{F}{m}\\sin\\theta\\right)$$\n\nHence, the correct option is B.",
     "year": "2021",
     "shift": "Morning",
     "date": "16th March"
   },
   {
-    "q": "A modern grand-prix racing car of mass m is travelling on a flat track in a circular arc of radius R with a speed v. If the coefficient of static friction between the tyres and the track is $\\mu_s$, then the magnitude of the negative lift $f_L$ acting downwards on the car is (Assume forces on the four tyres are identical and g = acceleration due to gravity):\n\n[IMG: jee_phy_nlom_img_091.png]",
+    "q": "A modern grand-prix racing car of mass m is travelling on a flat track in a circular arc of radius R with a speed v. If the coefficient of static friction between the tyres and the track is $\\mu_s$, then the magnitude of the negative lift $f_L$ acting downwards on the car is (Assume forces on the four tyres are identical and g = acceleration due to gravity):\n\n[IMG: jee_phy_nlom_img_087.png]",
     "type": "mcq",
     "options": [
       "$m \\left(\\frac{v^2}{\\mu_s R} + g\\right)$",
@@ -1245,7 +1245,7 @@
     "date": "17th March"
   },
   {
-    "q": "Statement I: A cyclist is moving on an unbanked road with a speed of $7\\text{ km/h}$ and takes a sharp circular turn along a path of radius of $2\\text{ m}$ without reducing speed. The static friction coefficient is $0.2$. The cyclist will not slip and pass the curve ($g = 9.8\\text{ m/s}^2$).\nStatement II: If the road is banked at an angle of $45^\\circ$, the cyclist can cross the curve of $2\\text{ m}$ radius with a speed of $18.5\\text{ km/h}$ without slipping.\n\nIn the light of the above statements, choose the correct answer from the options given below:\n\n[IMG: jee_phy_nlom_img_092.png]",
+    "q": "Statement I: A cyclist is moving on an unbanked road with a speed of $7\\text{ km/h}$ and takes a sharp circular turn along a path of radius of $2\\text{ m}$ without reducing speed. The static friction coefficient is $0.2$. The cyclist will not slip and pass the curve ($g = 9.8\\text{ m/s}^2$).\nStatement II: If the road is banked at an angle of $45^\\circ$, the cyclist can cross the curve of $2\\text{ m}$ radius with a speed of $18.5\\text{ km/h}$ without slipping.\n\nIn the light of the above statements, choose the correct answer from the options given below:\n\n[IMG: jee_phy_nlom_img_088.png]",
     "type": "mcq",
     "options": [
       "Statement I is false and statement II is true",
@@ -1254,13 +1254,13 @@
       "Both statement I and statement II are true."
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_093.png]\n\n1) Check Statement I:\nMaximum speed on unbanked road:\n$$v_{\\text{max}} = \\sqrt{\\mu g R} = \\sqrt{0.2 \\times 9.8 \\times 2} = \\sqrt{3.92} \\approx 1.98\\text{ m/s}$$\nActual speed of cyclist: $v = 7\\text{ km/h} = 7 \\times \\frac{5}{18} \\approx 1.94\\text{ m/s}$.\nSince $1.94\\text{ m/s} < 1.98\\text{ m/s}$, the cyclist will not slip. Statement I is true.\n\n2) Check Statement II:\nFor a banked road, the safe range of velocity without slipping is bounded by:\n$$v_{\\text{max}} = \\sqrt{\\frac{gR(\\mu + \\tan \\theta)}{1 - \\mu \\tan \\theta}}$$\nWith $\\theta = 45^\\circ, R = 2\\text{ m}, \\mu = 0.2$:\n$$v_{\\text{max}} = \\sqrt{\\frac{10 \\times 2(0.2 + 1)}{1 - 0.2(1)}} = \\sqrt{\\frac{24}{0.8}} = \\sqrt{30} \\approx 5.47\\text{ m/s}$$\n$$v_{\\text{min}} = \\sqrt{\\frac{gR(\\tan \\theta - \\mu)}{1 + \\mu \\tan \\theta}} = \\sqrt{\\frac{10 \\times 2(1 - 0.2)}{1 + 0.2}} = \\sqrt{\\frac{16}{1.2}} \\approx 3.65\\text{ m/s}$$\n\nActual speed: $18.5\\text{ km/h} = 5.13\\text{ m/s}$.\nSince $3.65\\text{ m/s} < 5.13\\text{ m/s} < 5.47\\text{ m/s}$, the cyclist will not slip. Statement II is also true.\n\nHence, the correct option is D.",
+    "explanation": "[IMG: jee_phy_nlom_img_089.png]\n\n1) Check Statement I:\nMaximum speed on unbanked road:\n$$v_{\\text{max}} = \\sqrt{\\mu g R} = \\sqrt{0.2 \\times 9.8 \\times 2} = \\sqrt{3.92} \\approx 1.98\\text{ m/s}$$\nActual speed of cyclist: $v = 7\\text{ km/h} = 7 \\times \\frac{5}{18} \\approx 1.94\\text{ m/s}$.\nSince $1.94\\text{ m/s} < 1.98\\text{ m/s}$, the cyclist will not slip. Statement I is true.\n\n2) Check Statement II:\nFor a banked road, the safe range of velocity without slipping is bounded by:\n$$v_{\\text{max}} = \\sqrt{\\frac{gR(\\mu + \\tan \\theta)}{1 - \\mu \\tan \\theta}}$$\nWith $\\theta = 45^\\circ, R = 2\\text{ m}, \\mu = 0.2$:\n$$v_{\\text{max}} = \\sqrt{\\frac{10 \\times 2(0.2 + 1)}{1 - 0.2(1)}} = \\sqrt{\\frac{24}{0.8}} = \\sqrt{30} \\approx 5.47\\text{ m/s}$$\n$$v_{\\text{min}} = \\sqrt{\\frac{gR(\\tan \\theta - \\mu)}{1 + \\mu \\tan \\theta}} = \\sqrt{\\frac{10 \\times 2(1 - 0.2)}{1 + 0.2}} = \\sqrt{\\frac{16}{1.2}} \\approx 3.65\\text{ m/s}$$\n\nActual speed: $18.5\\text{ km/h} = 5.13\\text{ m/s}$.\nSince $3.65\\text{ m/s} < 5.13\\text{ m/s} < 5.47\\text{ m/s}$, the cyclist will not slip. Statement II is also true.\n\nHence, the correct option is D.",
     "year": "2021",
     "shift": "Evening",
     "date": "16th March"
   },
   {
-    "q": "A block of $200\\text{ g}$ mass moves with a uniform speed in a horizontal circular groove, with vertical side walls of radius $20\\text{ cm}$. If the block takes $40\\text{ s}$ to complete one round, the normal force by the side walls of the groove is:\n\n[IMG: jee_phy_nlom_img_094.png]",
+    "q": "A block of $200\\text{ g}$ mass moves with a uniform speed in a horizontal circular groove, with vertical side walls of radius $20\\text{ cm}$. If the block takes $40\\text{ s}$ to complete one round, the normal force by the side walls of the groove is:\n\n[IMG: jee_phy_nlom_img_090.png]",
     "type": "mcq",
     "options": [
       "$0.0314\\text{ N}$",
@@ -1335,7 +1335,7 @@
     "date": "22nd July"
   },
   {
-    "q": "A body of mass 'm' is launched up on a rough inclined plane making an angle of $30^\\circ$ with the horizontal. The coefficient of friction between the body and plane is $\\frac{\\sqrt{x}}{5}$ if the time of ascent is half of the time of descent. The value of $x$ is ________.\n\n[IMG: jee_phy_nlom_img_095.png]",
+    "q": "A body of mass 'm' is launched up on a rough inclined plane making an angle of $30^\\circ$ with the horizontal. The coefficient of friction between the body and plane is $\\frac{\\sqrt{x}}{5}$ if the time of ascent is half of the time of descent. The value of $x$ is ________.\n\n[IMG: jee_phy_nlom_img_091.png]",
     "type": "integer",
     "options": [],
     "answer": 3,
@@ -1354,7 +1354,7 @@
       "684"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_096.png]\n\nThe forces acting on the block along the incline are:\n- Component of gravity pulling it down the incline: $mg \\sin 60^\\circ$\n- Kinetic friction force opposing the motion: $f_k = \\mu_k N = \\mu_k mg \\cos 60^\\circ$\n\nThe equation of motion along the inclined plane is:\n$$mg \\sin 60^\\circ - \\mu_k mg \\cos 60^\\circ = ma$$\n\nDividing the entire equation by $m$:\n$$g \\sin 60^\\circ - \\mu_k g \\cos 60^\\circ = a$$\n\nGiven that the acceleration $a = \\frac{g}{2}$:\n$$g \\sin 60^\\circ - \\mu_k g \\cos 60^\\circ = \\frac{g}{2}$$\n$$\\sin 60^\\circ - \\mu_k \\cos 60^\\circ = \\frac{1}{2}$$\n$$\\frac{\\sqrt{3}}{2} - \\mu_k \\left(\\frac{1}{2}\\right) = \\frac{1}{2}$$\n$$\\sqrt{3} - \\mu_k = 1 \\implies \\mu_k = \\sqrt{3} - 1$$\n\nHence, the correct option is D.",
+    "explanation": "[IMG: jee_phy_nlom_img_092.png]\n\nThe forces acting on the block along the incline are:\n- Component of gravity pulling it down the incline: $mg \\sin 60^\\circ$\n- Kinetic friction force opposing the motion: $f_k = \\mu_k N = \\mu_k mg \\cos 60^\\circ$\n\nThe equation of motion along the inclined plane is:\n$$mg \\sin 60^\\circ - \\mu_k mg \\cos 60^\\circ = ma$$\n\nDividing the entire equation by $m$:\n$$g \\sin 60^\\circ - \\mu_k g \\cos 60^\\circ = a$$\n\nGiven that the acceleration $a = \\frac{g}{2}$:\n$$g \\sin 60^\\circ - \\mu_k g \\cos 60^\\circ = \\frac{g}{2}$$\n$$\\sin 60^\\circ - \\mu_k \\cos 60^\\circ = \\frac{1}{2}$$\n$$\\frac{\\sqrt{3}}{2} - \\mu_k \\left(\\frac{1}{2}\\right) = \\frac{1}{2}$$\n$$\\sqrt{3} - \\mu_k = 1 \\implies \\mu_k = \\sqrt{3} - 1$$\n\nHence, the correct option is D.",
     "year": "2021",
     "shift": "Morning",
     "date": "20th July"
@@ -1375,11 +1375,11 @@
     "date": "20th July"
   },
   {
-    "q": "The normal reaction 'N' for a vehicle of $800\\text{ kg}$ mass, negotiating a turn on a $30^\\circ$ banked road at maximum possible speed without skidding is _______$\\times10^3\\text{ kg}\\cdot\\text{m/s}^2$:\n\n[IMG: jee_phy_nlom_img_097.png]",
+    "q": "The normal reaction 'N' for a vehicle of $800\\text{ kg}$ mass, negotiating a turn on a $30^\\circ$ banked road at maximum possible speed without skidding is _______$\\times10^3\\text{ kg}\\cdot\\text{m/s}^2$:\n\n[IMG: jee_phy_nlom_img_093.png]",
     "type": "numerical",
     "options": [],
     "answer": 10.2,
-    "explanation": "[IMG: jee_phy_nlom_img_098.png]\n\nLet the initial upward buoyant force on the balloon be $F$. \nInitially, the balloon of mass $M$ moves up with acceleration $a$:\n$$F - Mg = Ma \\implies F = M(g+a)$$\n\nWhen mass $x$ is released, the new mass of the balloon is $M-x$, and it moves up with acceleration $3a$:\n$$F - (M-x)g = (M-x)3a$$\n\nSubstitute the value of $F$ into the equation:\n$$M(g+a) - Mg + xg = 3Ma - 3xa$$\n$$Mg + Ma - Mg + xg = 3Ma - 3xa$$\n$$Ma + xg = 3Ma - 3xa$$\n$$x(g + 3a) = 2Ma$$\n$$x = \\frac{2Ma}{g + 3a}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_094.png]\n\nLet the initial upward buoyant force on the balloon be $F$. \nInitially, the balloon of mass $M$ moves up with acceleration $a$:\n$$F - Mg = Ma \\implies F = M(g+a)$$\n\nWhen mass $x$ is released, the new mass of the balloon is $M-x$, and it moves up with acceleration $3a$:\n$$F - (M-x)g = (M-x)3a$$\n\nSubstitute the value of $F$ into the equation:\n$$M(g+a) - Mg + xg = 3Ma - 3xa$$\n$$Mg + Ma - Mg + xg = 3Ma - 3xa$$\n$$Ma + xg = 3Ma - 3xa$$\n$$x(g + 3a) = 2Ma$$\n$$x = \\frac{2Ma}{g + 3a}$$\n\nHence, the correct option is B.",
     "year": "2021",
     "shift": "Morning",
     "date": "20th July"
@@ -1404,7 +1404,7 @@
     "type": "integer",
     "options": [],
     "answer": 30,
-    "explanation": "[IMG: jee_phy_nlom_img_099.png]\n\nLet the initial upward buoyant force on the balloon be $F$. \nInitially, the balloon of mass $M$ moves up with acceleration $a$:\n$$F - Mg = Ma \\implies F = M(g+a)$$\n\nWhen mass $x$ is released, the new mass of the balloon is $M-x$, and it moves up with acceleration $3a$:\n$$F - (M-x)g = (M-x)3a$$\n\nSubstitute the value of $F$ into the equation:\n$$M(g+a) - Mg + xg = 3Ma - 3xa$$\n$$Mg + Ma - Mg + xg = 3Ma - 3xa$$\n$$Ma + xg = 3Ma - 3xa$$\n$$x(g + 3a) = 2Ma$$\n$$x = \\frac{2Ma}{g + 3a}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_095.png]\n\nLet the initial upward buoyant force on the balloon be $F$. \nInitially, the balloon of mass $M$ moves up with acceleration $a$:\n$$F - Mg = Ma \\implies F = M(g+a)$$\n\nWhen mass $x$ is released, the new mass of the balloon is $M-x$, and it moves up with acceleration $3a$:\n$$F - (M-x)g = (M-x)3a$$\n\nSubstitute the value of $F$ into the equation:\n$$M(g+a) - Mg + xg = 3Ma - 3xa$$\n$$Mg + Ma - Mg + xg = 3Ma - 3xa$$\n$$Ma + xg = 3Ma - 3xa$$\n$$x(g + 3a) = 2Ma$$\n$$x = \\frac{2Ma}{g + 3a}$$\n\nHence, the correct option is B.",
     "year": "2021",
     "shift": "Morning",
     "date": "31st August"
@@ -1419,7 +1419,7 @@
       "Both statement I and statement II are true."
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_100.png]\n\nLet us resolve the tensions horizontally and vertically for the system in equilibrium:\n\n1) Horizontal equilibrium:\n$$T_1 \\cos 60^\\circ = T_2 \\cos 30^\\circ$$\n$$T_1 \\left(\\frac{1}{2}\\right) = T_2 \\left(\\frac{\\sqrt{3}}{2}\\right) \\implies T_1 = \\sqrt{3}T_2$$\n\n2) Vertical equilibrium:\n$$T_1 \\sin 60^\\circ + T_2 \\sin 30^\\circ = mg$$\nSubstitute $T_1 = \\sqrt{3}T_2$ and $mg = 1 \\times 10 = 10\\text{ N}$:\n$$(\\sqrt{3}T_2) \\frac{\\sqrt{3}}{2} + T_2 \\frac{1}{2} = 10$$\n$$\\frac{3}{2}T_2 + \\frac{1}{2}T_2 = 10$$\n$$2T_2 = 10 \\implies T_2 = 5\\text{ N}$$\n\nNow, substitute $T_2 = 5\\text{ N}$ back to find $T_1$:\n$$T_1 = 5\\sqrt{3}\\text{ N}$$\n\nThus, the magnitudes of the tensions $T_1$ and $T_2$ are $5\\sqrt{3}\\text{ N}$ and $5\\text{ N}$ respectively.",
+    "explanation": "[IMG: jee_phy_nlom_img_096.png]\n\nLet us resolve the tensions horizontally and vertically for the system in equilibrium:\n\n1) Horizontal equilibrium:\n$$T_1 \\cos 60^\\circ = T_2 \\cos 30^\\circ$$\n$$T_1 \\left(\\frac{1}{2}\\right) = T_2 \\left(\\frac{\\sqrt{3}}{2}\\right) \\implies T_1 = \\sqrt{3}T_2$$\n\n2) Vertical equilibrium:\n$$T_1 \\sin 60^\\circ + T_2 \\sin 30^\\circ = mg$$\nSubstitute $T_1 = \\sqrt{3}T_2$ and $mg = 1 \\times 10 = 10\\text{ N}$:\n$$(\\sqrt{3}T_2) \\frac{\\sqrt{3}}{2} + T_2 \\frac{1}{2} = 10$$\n$$\\frac{3}{2}T_2 + \\frac{1}{2}T_2 = 10$$\n$$2T_2 = 10 \\implies T_2 = 5\\text{ N}$$\n\nNow, substitute $T_2 = 5\\text{ N}$ back to find $T_1$:\n$$T_1 = 5\\sqrt{3}\\text{ N}$$\n\nThus, the magnitudes of the tensions $T_1$ and $T_2$ are $5\\sqrt{3}\\text{ N}$ and $5\\text{ N}$ respectively.",
     "year": "2021",
     "shift": "Evening",
     "date": "31st August"
@@ -1434,7 +1434,7 @@
       "$0.4\\text{ s}$"
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_101.png]\n\nLet the initial upward buoyant force on the balloon be $F$. \nInitially, the balloon of mass $M$ moves up with acceleration $a$:\n$$F - Mg = Ma \\implies F = M(g+a)$$\n\nWhen mass $x$ is released, the new mass of the balloon is $M-x$, and it moves up with acceleration $3a$:\n$$F - (M-x)g = (M-x)3a$$\n\nSubstitute the value of $F$ into the equation:\n$$M(g+a) - Mg + xg = 3Ma - 3xa$$\n$$Mg + Ma - Mg + xg = 3Ma - 3xa$$\n$$Ma + xg = 3Ma - 3xa$$\n$$x(g + 3a) = 2Ma$$\n$$x = \\frac{2Ma}{g + 3a}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_097.png]\n\nLet the initial upward buoyant force on the balloon be $F$. \nInitially, the balloon of mass $M$ moves up with acceleration $a$:\n$$F - Mg = Ma \\implies F = M(g+a)$$\n\nWhen mass $x$ is released, the new mass of the balloon is $M-x$, and it moves up with acceleration $3a$:\n$$F - (M-x)g = (M-x)3a$$\n\nSubstitute the value of $F$ into the equation:\n$$M(g+a) - Mg + xg = 3Ma - 3xa$$\n$$Mg + Ma - Mg + xg = 3Ma - 3xa$$\n$$Ma + xg = 3Ma - 3xa$$\n$$x(g + 3a) = 2Ma$$\n$$x = \\frac{2Ma}{g + 3a}$$\n\nHence, the correct option is B.",
     "year": "2021",
     "shift": "Evening",
     "date": "27th August"
@@ -1444,13 +1444,13 @@
     "type": "integer",
     "options": [],
     "answer": 15,
-    "explanation": "[IMG: jee_phy_nlom_img_102.png]\n\nLet the initial upward buoyant force on the balloon be $F$. \nInitially, the balloon of mass $M$ moves up with acceleration $a$:\n$$F - Mg = Ma \\implies F = M(g+a)$$\n\nWhen mass $x$ is released, the new mass of the balloon is $M-x$, and it moves up with acceleration $3a$:\n$$F - (M-x)g = (M-x)3a$$\n\nSubstitute the value of $F$ into the equation:\n$$M(g+a) - Mg + xg = 3Ma - 3xa$$\n$$Mg + Ma - Mg + xg = 3Ma - 3xa$$\n$$Ma + xg = 3Ma - 3xa$$\n$$x(g + 3a) = 2Ma$$\n$$x = \\frac{2Ma}{g + 3a}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_098.png]\n\nLet the initial upward buoyant force on the balloon be $F$. \nInitially, the balloon of mass $M$ moves up with acceleration $a$:\n$$F - Mg = Ma \\implies F = M(g+a)$$\n\nWhen mass $x$ is released, the new mass of the balloon is $M-x$, and it moves up with acceleration $3a$:\n$$F - (M-x)g = (M-x)3a$$\n\nSubstitute the value of $F$ into the equation:\n$$M(g+a) - Mg + xg = 3Ma - 3xa$$\n$$Mg + Ma - Mg + xg = 3Ma - 3xa$$\n$$Ma + xg = 3Ma - 3xa$$\n$$x(g + 3a) = 2Ma$$\n$$x = \\frac{2Ma}{g + 3a}$$\n\nHence, the correct option is B.",
     "year": "2021",
     "shift": "Evening",
     "date": "26th August"
   },
   {
-    "q": "A particle of mass m is suspended from a ceiling through a string of length L. The particle moves in a horizontal circle of radius r such that $r = \\frac{L}{\\sqrt{2}}$. The speed of the particle will be:\n\n[IMG: jee_phy_nlom_img_103.png]",
+    "q": "A particle of mass m is suspended from a ceiling through a string of length L. The particle moves in a horizontal circle of radius r such that $r = \\frac{L}{\\sqrt{2}}$. The speed of the particle will be:\n\n[IMG: jee_phy_nlom_img_099.png]",
     "type": "mcq",
     "options": [
       "$\\sqrt{rg}$",
@@ -1459,17 +1459,17 @@
       "$\\sqrt{\\frac{rg}{2}}$"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_104.png]\n\nLet the initial upward buoyant force on the balloon be $F$. \nInitially, the balloon of mass $M$ moves up with acceleration $a$:\n$$F - Mg = Ma \\implies F = M(g+a)$$\n\nWhen mass $x$ is released, the new mass of the balloon is $M-x$, and it moves up with acceleration $3a$:\n$$F - (M-x)g = (M-x)3a$$\n\nSubstitute the value of $F$ into the equation:\n$$M(g+a) - Mg + xg = 3Ma - 3xa$$\n$$Mg + Ma - Mg + xg = 3Ma - 3xa$$\n$$Ma + xg = 3Ma - 3xa$$\n$$x(g + 3a) = 2Ma$$\n$$x = \\frac{2Ma}{g + 3a}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_100.png]\n\nLet the initial upward buoyant force on the balloon be $F$. \nInitially, the balloon of mass $M$ moves up with acceleration $a$:\n$$F - Mg = Ma \\implies F = M(g+a)$$\n\nWhen mass $x$ is released, the new mass of the balloon is $M-x$, and it moves up with acceleration $3a$:\n$$F - (M-x)g = (M-x)3a$$\n\nSubstitute the value of $F$ into the equation:\n$$M(g+a) - Mg + xg = 3Ma - 3xa$$\n$$Mg + Ma - Mg + xg = 3Ma - 3xa$$\n$$Ma + xg = 3Ma - 3xa$$\n$$x(g + 3a) = 2Ma$$\n$$x = \\frac{2Ma}{g + 3a}$$\n\nHence, the correct option is B.",
     "year": "2021",
     "shift": "Evening",
     "date": "26th August"
   },
   {
-    "q": "When a body slides down from rest along a smooth inclined plane making an angle of $30^\\circ$ with the horizontal, it takes time T. When the same body slides down from rest along a rough inclined plane making the same angle and through the same distance, it takes time $\\alpha T$, where $\\alpha$ is a constant greater than 1. The coefficient of friction between the body and the rough plane is $\\frac{1}{\\sqrt{x}} \\left( \\frac{\\alpha^2 - 1}{\\alpha^2} \\right)$, where $x$ is ______________.\n\n[IMG: jee_phy_nlom_img_105.png]",
+    "q": "When a body slides down from rest along a smooth inclined plane making an angle of $30^\\circ$ with the horizontal, it takes time T. When the same body slides down from rest along a rough inclined plane making the same angle and through the same distance, it takes time $\\alpha T$, where $\\alpha$ is a constant greater than 1. The coefficient of friction between the body and the rough plane is $\\frac{1}{\\sqrt{x}} \\left( \\frac{\\alpha^2 - 1}{\\alpha^2} \\right)$, where $x$ is ______________.\n\n[IMG: jee_phy_nlom_img_101.png]",
     "type": "integer",
     "options": [],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_106.png]\n\nLet $s$ be the sliding distance:\n\n1) For the smooth plane:\n$$a_1 = g \\sin 30^\\circ = \\frac{g}{2}$$\n$$s = \\frac{1}{2} a_1 T^2 = \\frac{g T^2}{4}$$\n\n2) For the rough plane:\n$$a_2 = g \\sin 30^\\circ - \\mu g \\cos 30^\\circ = g\\left(\\frac{1}{2} - \\mu \\frac{\\sqrt{3}}{2}\\right)$$\n$$s = \\frac{1}{2} a_2 (\\alpha T)^2 = \\frac{g}{4} (1 - \\sqrt{3}\\mu) \\alpha^2 T^2$$\n\nEquating the distance expressions:\n$$\\frac{g T^2}{4} = \\frac{g}{4}(1 - \\sqrt{3}\\mu) \\alpha^2 T^2$$\n$$1 = (1 - \\sqrt{3}\\mu)\\alpha^2 \\implies 1 - \\sqrt{3}\\mu = \\frac{1}{\\alpha^2}$$\n$$\\sqrt{3}\\mu = 1 - \\frac{1}{\\alpha^2} = \\frac{\\alpha^2 - 1}{\\alpha^2}$$\n$$\\mu = \\frac{1}{\\sqrt{3}} \\left( \\frac{\\alpha^2 - 1}{\\alpha^2} \\right)$$\n\nComparing this with the given expression:\n$$x = 3$$",
+    "explanation": "[IMG: jee_phy_nlom_img_102.png]\n\nLet $s$ be the sliding distance:\n\n1) For the smooth plane:\n$$a_1 = g \\sin 30^\\circ = \\frac{g}{2}$$\n$$s = \\frac{1}{2} a_1 T^2 = \\frac{g T^2}{4}$$\n\n2) For the rough plane:\n$$a_2 = g \\sin 30^\\circ - \\mu g \\cos 30^\\circ = g\\left(\\frac{1}{2} - \\mu \\frac{\\sqrt{3}}{2}\\right)$$\n$$s = \\frac{1}{2} a_2 (\\alpha T)^2 = \\frac{g}{4} (1 - \\sqrt{3}\\mu) \\alpha^2 T^2$$\n\nEquating the distance expressions:\n$$\\frac{g T^2}{4} = \\frac{g}{4}(1 - \\sqrt{3}\\mu) \\alpha^2 T^2$$\n$$1 = (1 - \\sqrt{3}\\mu)\\alpha^2 \\implies 1 - \\sqrt{3}\\mu = \\frac{1}{\\alpha^2}$$\n$$\\sqrt{3}\\mu = 1 - \\frac{1}{\\alpha^2} = \\frac{\\alpha^2 - 1}{\\alpha^2}$$\n$$\\mu = \\frac{1}{\\sqrt{3}} \\left( \\frac{\\alpha^2 - 1}{\\alpha^2} \\right)$$\n\nComparing this with the given expression:\n$$x = 3$$",
     "year": "2021",
     "shift": "Evening",
     "date": "1st September"
@@ -1484,7 +1484,7 @@
       ""
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_107.png]\n\n-\n During the upward motion of the profile, to maintain a constant velocity, the applied force must act up the incline to balance the downward gravity component. This represents a constant positive force (+2 N).\n- \nDuring the downward motion, the block must be held back to maintain constant velocity, meaning the force must act up the slope to balance gravity. Relative to the direction of motion, this is a constant negative force (-2 N).\n\nThis transition corresponds to the step-function graph shown in Option B.",
+    "explanation": "[IMG: jee_phy_nlom_img_103.png]\n\n-\n During the upward motion of the profile, to maintain a constant velocity, the applied force must act up the incline to balance the downward gravity component. This represents a constant positive force (+2 N).\n- \nDuring the downward motion, the block must be held back to maintain constant velocity, meaning the force must act up the slope to balance gravity. Relative to the direction of motion, this is a constant negative force (-2 N).\n\nThis transition corresponds to the step-function graph shown in Option B.",
     "year": "2021",
     "shift": "Evening",
     "date": "1st September"
@@ -1499,7 +1499,7 @@
       "$\\frac{2}{3}g$"
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_108.png]\n\nLet the initial upward buoyant force on the balloon be $F$. \nInitially, the balloon of mass $M$ moves up with acceleration $a$:\n$$F - Mg = Ma \\implies F = M(g+a)$$\n\nWhen mass $x$ is released, the new mass of the balloon is $M-x$, and it moves up with acceleration $3a$:\n$$F - (M-x)g = (M-x)3a$$\n\nSubstitute the value of $F$ into the equation:\n$$M(g+a) - Mg + xg = 3Ma - 3xa$$\n$$Mg + Ma - Mg + xg = 3Ma - 3xa$$\n$$Ma + xg = 3Ma - 3xa$$\n$$x(g + 3a) = 2Ma$$\n$$x = \\frac{2Ma}{g + 3a}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_104.png]\n\nLet the initial upward buoyant force on the balloon be $F$. \nInitially, the balloon of mass $M$ moves up with acceleration $a$:\n$$F - Mg = Ma \\implies F = M(g+a)$$\n\nWhen mass $x$ is released, the new mass of the balloon is $M-x$, and it moves up with acceleration $3a$:\n$$F - (M-x)g = (M-x)3a$$\n\nSubstitute the value of $F$ into the equation:\n$$M(g+a) - Mg + xg = 3Ma - 3xa$$\n$$Mg + Ma - Mg + xg = 3Ma - 3xa$$\n$$Ma + xg = 3Ma - 3xa$$\n$$x(g + 3a) = 2Ma$$\n$$x = \\frac{2Ma}{g + 3a}$$\n\nHence, the correct option is B.",
     "year": "2021",
     "shift": "Evening",
     "date": "1st September"
@@ -1514,28 +1514,28 @@
       "75 N"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_110.png]\n\n[IMG: jee_phy_nlom_img_109.png]\n\nAt the midpoint:\n- Vertical force equilibrium: $T \\cos 45^\\circ = mg = 10 \\times 10 = 100\\text{ N}$\n- Horizontal force equilibrium: $T \\sin 45^\\circ = F$\n\nDividing the horizontal equation by the vertical equation:\n$$\\tan 45^\\circ = \\frac{F}{100}$$\n$$1 = \\frac{F}{100} \\implies F = 100\\text{ N}$$\n\nHence, the correct option is A.",
+    "explanation": "[IMG: jee_phy_nlom_img_106.png]\n\n[IMG: jee_phy_nlom_img_105.png]\n\nAt the midpoint:\n- Vertical force equilibrium: $T \\cos 45^\\circ = mg = 10 \\times 10 = 100\\text{ N}$\n- Horizontal force equilibrium: $T \\sin 45^\\circ = F$\n\nDividing the horizontal equation by the vertical equation:\n$$\\tan 45^\\circ = \\frac{F}{100}$$\n$$1 = \\frac{F}{100} \\implies F = 100\\text{ N}$$\n\nHence, the correct option is A.",
     "year": "2020",
     "shift": "Evening",
     "date": "7th January"
   },
   {
-    "q": "An elevator in a building can carry a maximum of $10$ persons, with the average mass of each person being $68\\text{ kg}$. The mass of the elevator itself is $920\\text{ kg}$ and it moves with a constant speed of $3\\text{ m/s}$. The frictional force opposing the motion is $6000\\text{ N}$. If the elevator is moving up with its full capacity, the power delivered by the motor to the elevator ($g = 10\\text{ m/s}^2$) must be at least:\n\n[IMG: jee_phy_nlom_img_111.png]\n\n[IMG: jee_phy_nlom_img_112.png]\n\n[IMG: jee_phy_nlom_img_113.png]\n\n[IMG: jee_phy_nlom_img_114.png]\n\n[IMG: jee_phy_nlom_img_115.png]",
+    "q": "An elevator in a building can carry a maximum of $10$ persons, with the average mass of each person being $68\\text{ kg}$. The mass of the elevator itself is $920\\text{ kg}$ and it moves with a constant speed of $3\\text{ m/s}$. The frictional force opposing the motion is $6000\\text{ N}$. If the elevator is moving up with its full capacity, the power delivered by the motor to the elevator ($g = 10\\text{ m/s}^2$) must be at least:\n\n[IMG: jee_phy_nlom_img_107.png]",
     "type": "mcq",
     "options": [
-      "56300 W",
-      "62360 W",
-      "48000 W",
-      "66000 W"
+      "56300 W\n\n[IMG: jee_phy_nlom_img_108.png]",
+      "62360 W\n\n[IMG: jee_phy_nlom_img_109.png]",
+      "48000 W\n\n[IMG: jee_phy_nlom_img_110.png]",
+      "66000 W\n\n[IMG: jee_phy_nlom_img_111.png]"
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_118.png]\n\n[IMG: jee_phy_nlom_img_117.png]\n\n[IMG: jee_phy_nlom_img_116.png]\n\n1) Calculate total mass of the loaded elevator:\n$$M_{\\text{total}} = m_{\\text{elevator}} + 10 \\times m_{\\text{person}}$$\n$$M_{\\text{total}} = 920 + 10(68) = 1600\\text{ kg}$$\n\n2) Calculate the upward force $F$ required to maintain constant speed:\n$$F = M_{\\text{total}} g + f_{\\text{friction}}$$\n$$F = 1600 \\times 10 + 6000 = 22000\\text{ N}$$\n\n3) Calculate power $P$:\n$$P = F \\times v = 22000 \\times 3 = 66000\\text{ W}$$\n\nHence, the correct option is D.",
+    "explanation": "[IMG: jee_phy_nlom_img_113.png]\n\n[IMG: jee_phy_nlom_img_112.png]\n\n1) Calculate total mass of the loaded elevator:\n$$M_{\\text{total}} = m_{\\text{elevator}} + 10 \\times m_{\\text{person}}$$\n$$M_{\\text{total}} = 920 + 10(68) = 1600\\text{ kg}$$\n\n2) Calculate the upward force $F$ required to maintain constant speed:\n$$F = M_{\\text{total}} g + f_{\\text{friction}}$$\n$$F = 1600 \\times 10 + 6000 = 22000\\text{ N}$$\n\n3) Calculate power $P$:\n$$P = F \\times v = 22000 \\times 3 = 66000\\text{ W}$$\n\nHence, the correct option is D.",
     "year": "2020",
     "shift": "Evening",
     "date": "7th January"
   },
   {
-    "q": "A particle moving in the xy-plane experiences a velocity dependent force $\\vec{F} = k(v_y\\hat{i} + v_x\\hat{j})$, where $v_x$ and $v_y$ are the x and y components of its velocity $\\vec{v}$. If $\\vec{a}$ is the acceleration of the particle, then which of the following statements is true for the particle?\n\n[IMG: jee_phy_nlom_img_119.png]",
+    "q": "A particle moving in the xy-plane experiences a velocity dependent force $\\vec{F} = k(v_y\\hat{i} + v_x\\hat{j})$, where $v_x$ and $v_y$ are the x and y components of its velocity $\\vec{v}$. If $\\vec{a}$ is the acceleration of the particle, then which of the following statements is true for the particle?\n\n[IMG: jee_phy_nlom_img_114.png]",
     "type": "mcq",
     "options": [
       "quantity $\\vec{v} \\times \\vec{a}$ is constant in time",
@@ -1544,7 +1544,7 @@
       "quantity $\\vec{v} \\cdot \\vec{a}$ is constant in time"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_121.png]\n\n[IMG: jee_phy_nlom_img_120.png]\n\nGiven components of acceleration:\n$$a_x = \\frac{k}{m}v_y, \\quad a_y = \\frac{k}{m}v_x$$\n\nCalculate the cross product $\\vec{v} \\times \\vec{a}$:\n$$\\vec{v} \\times \\vec{a} = (v_x\\hat{i} + v_y\\hat{j}) \\times \\left(\\frac{k}{m}v_y\\hat{i} + \\frac{k}{m}v_x\\hat{j}\\right) = \\frac{k}{m}(v_x^2 - v_y^2)\\hat{k}$$\n\nIntegrating the acceleration equations:\n$$\\frac{dv_y}{dv_x} = \\frac{v_x}{v_y} \\implies v_y^2 - v_x^2 = \\text{constant}$$\n\nSince $v_x^2 - v_y^2$ is constant over time, the vector product $\\vec{v} \\times \\vec{a}$ is constant in time.\n\nHence, the correct option is A.",
+    "explanation": "[IMG: jee_phy_nlom_img_116.png]\n\n[IMG: jee_phy_nlom_img_115.png]\n\nGiven components of acceleration:\n$$a_x = \\frac{k}{m}v_y, \\quad a_y = \\frac{k}{m}v_x$$\n\nCalculate the cross product $\\vec{v} \\times \\vec{a}$:\n$$\\vec{v} \\times \\vec{a} = (v_x\\hat{i} + v_y\\hat{j}) \\times \\left(\\frac{k}{m}v_y\\hat{i} + \\frac{k}{m}v_x\\hat{j}\\right) = \\frac{k}{m}(v_x^2 - v_y^2)\\hat{k}$$\n\nIntegrating the acceleration equations:\n$$\\frac{dv_y}{dv_x} = \\frac{v_x}{v_y} \\implies v_y^2 - v_x^2 = \\text{constant}$$\n\nSince $v_x^2 - v_y^2$ is constant over time, the vector product $\\vec{v} \\times \\vec{a}$ is constant in time.\n\nHence, the correct option is A.",
     "year": "2020",
     "shift": "Evening",
     "date": "6th September"
@@ -1559,7 +1559,7 @@
       "$-\\frac{bv^3}{2M(t)}$"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_122.png]\n\nThe resistive thrust force exerted on the spaceship due to the sweep of stationary dust is:\n$$F = -v \\frac{dM}{dt}$$\n\nGiven $\\frac{dM}{dt} = b v^2$:\n$$F = -v(b v^2) = -b v^3$$\n\nThe instantaneous acceleration is:\n$$a = \\frac{F}{M(t)} = -\\frac{b v^3}{M(t)}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_117.png]\n\nThe resistive thrust force exerted on the spaceship due to the sweep of stationary dust is:\n$$F = -v \\frac{dM}{dt}$$\n\nGiven $\\frac{dM}{dt} = b v^2$:\n$$F = -v(b v^2) = -b v^3$$\n\nThe instantaneous acceleration is:\n$$a = \\frac{F}{M(t)} = -\\frac{b v^3}{M(t)}$$\n\nHence, the correct option is B.",
     "year": "2020",
     "shift": "Evening",
     "date": "5th September"
@@ -1614,7 +1614,7 @@
       "$\\sqrt{\\frac{2p}{k}}$"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_123.png]\n\nBy Newton's second law:\n$$F = \\frac{dp}{dt} = kt \\implies dp = kt \\, dt$$\n\nIntegrating both sides:\n$$\\int_{p}^{3p} dp = k \\int_{0}^{T} t \\, dt$$\n$$2p = k \\left[ \\frac{t^2}{2} \\right]_0^T = \\frac{k T^2}{2}$$\n$$T^2 = \\frac{4p}{k} \\implies T = 2\\sqrt{\\frac{p}{k}}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_118.png]\n\nBy Newton's second law:\n$$F = \\frac{dp}{dt} = kt \\implies dp = kt \\, dt$$\n\nIntegrating both sides:\n$$\\int_{p}^{3p} dp = k \\int_{0}^{T} t \\, dt$$\n$$2p = k \\left[ \\frac{t^2}{2} \\right]_0^T = \\frac{k T^2}{2}$$\n$$T^2 = \\frac{4p}{k} \\implies T = 2\\sqrt{\\frac{p}{k}}$$\n\nHence, the correct option is B.",
     "year": "2019",
     "shift": "Evening",
     "date": "11th January"
@@ -1629,7 +1629,7 @@
       "$100\\text{ N}$"
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_124.png]\n\nAnalyzing the horizontal and vertical equilibrium equations at the point of force application:\n\n1) Vertical force balance:\n$$T \\cos 45^\\circ = mg = 10(10) = 100\\text{ N}$$\n\n2) Horizontal force balance:\n$$T \\sin 45^\\circ = F$$\n\nDividing the horizontal equation by the vertical equation:\n$$\\tan 45^\\circ = \\frac{F}{100} \\implies 1 = \\frac{F}{100} \\implies F = 100\\text{ N}$$\n\nHence, the correct option is D.",
+    "explanation": "[IMG: jee_phy_nlom_img_119.png]\n\nAnalyzing the horizontal and vertical equilibrium equations at the point of force application:\n\n1) Vertical force balance:\n$$T \\cos 45^\\circ = mg = 10(10) = 100\\text{ N}$$\n\n2) Horizontal force balance:\n$$T \\sin 45^\\circ = F$$\n\nDividing the horizontal equation by the vertical equation:\n$$\\tan 45^\\circ = \\frac{F}{100} \\implies 1 = \\frac{F}{100} \\implies F = 100\\text{ N}$$\n\nHence, the correct option is D.",
     "year": "2019",
     "shift": "Evening",
     "date": "9th January"
@@ -1674,13 +1674,13 @@
       "$\\frac{1}{\\sqrt{2\\gamma g}}\\tan^{-1} \\left( \\sqrt{\\frac{2\\gamma}{g}} V_0 \\right)$"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_125.png]\n\nDuring upward motion, both gravity and drag forces act downwards, creating net deceleration:\n$$a = -(g + \\gamma v^2)$$\n$$\\frac{dv}{dt} = -(g + \\gamma v^2)$$\n$$\\int_{V_0}^{0} \\frac{dv}{g + \\gamma v^2} = -\\int_{0}^{t} dt$$\n$$\\int_{0}^{V_0} \\frac{dv}{g + \\gamma v^2} = t$$\n\nTo integrate, rewrite the denominator:\n$$t = \\frac{1}{\\gamma} \\int_{0}^{V_0} \\frac{dv}{\\frac{g}{\\gamma} + v^2}$$\n$$t = \\frac{1}{\\gamma} \\cdot \\frac{1}{\\sqrt{\\frac{g}{\\gamma}}} \\left[ \\tan^{-1}\\left(\\frac{v}{\\sqrt{\\frac{g}{\\gamma}}}\\right) \\right]_{0}^{V_0}$$\n$$t = \\frac{1}{\\sqrt{\\gamma g}} \\tan^{-1} \\left( \\sqrt{\\frac{\\gamma}{g}} V_0 \\right)$$\n\nHence, the correct option is A.",
+    "explanation": "[IMG: jee_phy_nlom_img_120.png]\n\nDuring upward motion, both gravity and drag forces act downwards, creating net deceleration:\n$$a = -(g + \\gamma v^2)$$\n$$\\frac{dv}{dt} = -(g + \\gamma v^2)$$\n$$\\int_{V_0}^{0} \\frac{dv}{g + \\gamma v^2} = -\\int_{0}^{t} dt$$\n$$\\int_{0}^{V_0} \\frac{dv}{g + \\gamma v^2} = t$$\n\nTo integrate, rewrite the denominator:\n$$t = \\frac{1}{\\gamma} \\int_{0}^{V_0} \\frac{dv}{\\frac{g}{\\gamma} + v^2}$$\n$$t = \\frac{1}{\\gamma} \\cdot \\frac{1}{\\sqrt{\\frac{g}{\\gamma}}} \\left[ \\tan^{-1}\\left(\\frac{v}{\\sqrt{\\frac{g}{\\gamma}}}\\right) \\right]_{0}^{V_0}$$\n$$t = \\frac{1}{\\sqrt{\\gamma g}} \\tan^{-1} \\left( \\sqrt{\\frac{\\gamma}{g}} V_0 \\right)$$\n\nHence, the correct option is A.",
     "year": "2019",
     "shift": "Morning",
     "date": "10th April"
   },
   {
-    "q": "A ball is thrown vertically up (taken as + z-axis) from the ground. The correct momentum-height (p-h) diagram is:\n\n[IMG: jee_phy_nlom_img_126.png]",
+    "q": "A ball is thrown vertically up (taken as + z-axis) from the ground. The correct momentum-height (p-h) diagram is:\n\n[IMG: jee_phy_nlom_img_121.png]",
     "type": "mcq",
     "options": [
       "",
@@ -1695,7 +1695,7 @@
     "date": "9th April"
   },
   {
-    "q": "A block of mass $5\\text{ kg}$ is (i) pushed in case (A) and (ii) pulled in case (B), by a force $F = 20\\text{ N}$, making an angle of $30^\\circ$ with the horizontal, as shown in the figures. The coefficient of friction between the block and the floor is $\\mu = 0.2$. The difference between the accelerations of the block in case (B) and case (A) will be: (Take $g = 10\\text{ m/s}^{-2}$)\n\n[IMG: jee_phy_nlom_img_127.png]",
+    "q": "A block of mass $5\\text{ kg}$ is (i) pushed in case (A) and (ii) pulled in case (B), by a force $F = 20\\text{ N}$, making an angle of $30^\\circ$ with the horizontal, as shown in the figures. The coefficient of friction between the block and the floor is $\\mu = 0.2$. The difference between the accelerations of the block in case (B) and case (A) will be: (Take $g = 10\\text{ m/s}^{-2}$)\n\n[IMG: jee_phy_nlom_img_122.png]",
     "type": "mcq",
     "options": [
       "$0.4\\text{ m/s}^{-2}$",
@@ -1704,7 +1704,7 @@
       "$0\\text{ m/s}^{-2}$"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_128.png]\n\n1) Case A (Pushed):\n$$N_1 = mg + F \\sin 30^\\circ = 5(10) + 20(0.5) = 60\\text{ N}$$\n$$a_1 = \\frac{F \\cos 30^\\circ - \\mu N_1}{m} = \\frac{20 \\left(\\frac{\\sqrt{3}}{2}\\right) - 0.2(60)}{5} = 1.06\\text{ m/s}^2$$\n\n2) Case B (Pulled):\n$$N_2 = mg - F \\sin 30^\\circ = 5(10) - 20(0.5) = 40\\text{ N}$$\n$$a_2 = \\frac{F \\cos 30^\\circ - \\mu N_2}{m} = \\frac{20 \\left(\\frac{\\sqrt{3}}{2}\\right) - 0.2(40)}{5} = 1.86\\text{ m/s}^2$$\n\n3) Calculate difference:\n$$a_2 - a_1 = 1.86 - 1.06 = 0.8\\text{ m/s}^2$$\n\nHence, the correct option is C.",
+    "explanation": "[IMG: jee_phy_nlom_img_123.png]\n\n1) Case A (Pushed):\n$$N_1 = mg + F \\sin 30^\\circ = 5(10) + 20(0.5) = 60\\text{ N}$$\n$$a_1 = \\frac{F \\cos 30^\\circ - \\mu N_1}{m} = \\frac{20 \\left(\\frac{\\sqrt{3}}{2}\\right) - 0.2(60)}{5} = 1.06\\text{ m/s}^2$$\n\n2) Case B (Pulled):\n$$N_2 = mg - F \\sin 30^\\circ = 5(10) - 20(0.5) = 40\\text{ N}$$\n$$a_2 = \\frac{F \\cos 30^\\circ - \\mu N_2}{m} = \\frac{20 \\left(\\frac{\\sqrt{3}}{2}\\right) - 0.2(40)}{5} = 1.86\\text{ m/s}^2$$\n\n3) Calculate difference:\n$$a_2 - a_1 = 1.86 - 1.06 = 0.8\\text{ m/s}^2$$\n\nHence, the correct option is C.",
     "year": "2019",
     "shift": "Evening",
     "date": "12th April"
@@ -1725,13 +1725,13 @@
     "date": "10th April"
   },
   {
-    "q": "Two masses $m_1 = 5\\text{ kg}$ and $m_2 = 10\\text{ kg}$, connected by an inextensible string over a frictionless pulley, are moving as shown in the figure. The coefficient of friction of the horizontal surface is $0.15$. The minimum weight m that should be put on top of $m_2$ to stop the motion is:\n\n[IMG: jee_phy_nlom_img_129.png]\n\n[IMG: jee_phy_nlom_img_130.png]\n\n[IMG: jee_phy_nlom_img_131.png]\n\n[IMG: jee_phy_nlom_img_132.png]",
+    "q": "Two masses $m_1 = 5\\text{ kg}$ and $m_2 = 10\\text{ kg}$, connected by an inextensible string over a frictionless pulley, are moving as shown in the figure. The coefficient of friction of the horizontal surface is $0.15$. The minimum weight m that should be put on top of $m_2$ to stop the motion is:",
     "type": "mcq",
     "options": [
-      "$18.3\\text{ kg}$",
-      "$27.3\\text{ kg}$",
-      "$43.3\\text{ kg}$",
-      "$10.3\\text{ kg}$"
+      "$18.3\\text{ kg}$\n\n[IMG: jee_phy_nlom_img_124.png]",
+      "$27.3\\text{ kg}$\n\n[IMG: jee_phy_nlom_img_125.png]",
+      "$43.3\\text{ kg}$\n\n[IMG: jee_phy_nlom_img_126.png]",
+      "$10.3\\text{ kg}$\n\n[IMG: jee_phy_nlom_img_127.png]"
     ],
     "answer": 2,
     "explanation": "For the system to remain at rest, static friction must balance the tension force from the hanging mass $m_1$:\n$$T = m_1 g = 5 \\times 10 = 50\\text{ N}$$\n\nThe vertical normal reaction force on the table is:\n$$N = (m_2 + m)g$$\n\nFor no motion to occur:\n$$f_s \\ge T \\implies \\mu (m_2 + m)g \\ge m_1 g$$\n$$0.15(10 + m) \\ge 5$$\n$$1.5 + 0.15m \\ge 5 \\implies 0.15m \\ge 3.5 \\implies m \\ge 23.33\\text{ kg}$$\n\nAmong the options, the minimum mass selection capable of stopping the motion is $27.3\\text{ kg}$. Hence, the correct option is B.",
@@ -1740,22 +1740,22 @@
     "date": "Online"
   },
   {
-    "q": "A body of mass $2\\text{ kg}$ slides down with an acceleration of $3\\text{ m/s}^2$ on a rough inclined plane having a slope of $30^\\circ$. The external force required to take the same body up the plane with the same acceleration will be: ($g = 10\\text{ m/s}^2$)\n\n[IMG: jee_phy_nlom_img_133.png]",
+    "q": "A body of mass $2\\text{ kg}$ slides down with an acceleration of $3\\text{ m/s}^2$ on a rough inclined plane having a slope of $30^\\circ$. The external force required to take the same body up the plane with the same acceleration will be: ($g = 10\\text{ m/s}^2$)",
     "type": "mcq",
     "options": [
       "$4\\text{ N}$",
-      "$14\\text{ N}$",
+      "$14\\text{ N}$\n\n[IMG: jee_phy_nlom_img_128.png]",
       "$6\\text{ N}$",
       "$20\\text{ N}$"
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_135.png]\n\n[IMG: jee_phy_nlom_img_134.png]\n\n1) Write equation of motion when the block slides down:\n$$mg \\sin 30^\\circ - f = ma$$\n$$2(10)(0.5) - f = 2(3)$$\n$$10 - f = 6 \\implies f = 4\\text{ N}$$\n\n2) Write equation of motion when the block is pushed up with the same acceleration:\n$$F - mg \\sin 30^\\circ - f = ma$$\n$$F - 10 - 4 = 2(3)$$\n$$F - 14 = 6 \\implies F = 20\\text{ N}$$\n\nHence, the correct option is D.",
+    "explanation": "[IMG: jee_phy_nlom_img_129.png]\n\n1) Write equation of motion when the block slides down:\n$$mg \\sin 30^\\circ - f = ma$$\n$$2(10)(0.5) - f = 2(3)$$\n$$10 - f = 6 \\implies f = 4\\text{ N}$$\n\n2) Write equation of motion when the block is pushed up with the same acceleration:\n$$F - mg \\sin 30^\\circ - f = ma$$\n$$F - 10 - 4 = 2(3)$$\n$$F - 14 = 6 \\implies F = 20\\text{ N}$$\n\nHence, the correct option is D.",
     "year": "2018",
     "shift": "Morning",
     "date": "15th April"
   },
   {
-    "q": "A disc rotates about its axis of symmetry in a horizontal plane at a steady rate of $3.5\\text{ revolutions per second}$. A coin placed at a distance of $1.25\\text{ cm}$ from the axis of rotation remains at rest on the disc. The coefficient of friction between the coin and the disc is: ($g = 10\\text{ m/s}^2$)\n\n[IMG: jee_phy_nlom_img_136.png]",
+    "q": "A disc rotates about its axis of symmetry in a horizontal plane at a steady rate of $3.5\\text{ revolutions per second}$. A coin placed at a distance of $1.25\\text{ cm}$ from the axis of rotation remains at rest on the disc. The coefficient of friction between the coin and the disc is: ($g = 10\\text{ m/s}^2$)\n\n[IMG: jee_phy_nlom_img_130.png]",
     "type": "mcq",
     "options": [
       "0.5",
@@ -1770,7 +1770,7 @@
     "date": "15th April"
   },
   {
-    "q": "A conical pendulum of length $1\\text{ m}$ makes an angle $\\theta = 45^\\circ$ w.r.t. Z-axis and moves in a circle in the XY plane. The radius of the circle is $0.4\\text{ m}$ and its centre is vertically below O. The speed of the pendulum, in its circular path, will be: (Take $g = 10\\text{ m/s}^{-2}$)\n\n[IMG: jee_phy_nlom_img_137.png]",
+    "q": "A conical pendulum of length $1\\text{ m}$ makes an angle $\\theta = 45^\\circ$ w.r.t. Z-axis and moves in a circle in the XY plane. The radius of the circle is $0.4\\text{ m}$ and its centre is vertically below O. The speed of the pendulum, in its circular path, will be: (Take $g = 10\\text{ m/s}^{-2}$)\n\n[IMG: jee_phy_nlom_img_131.png]",
     "type": "mcq",
     "options": [
       "$0.4\\text{ m/s}$",
@@ -1779,7 +1779,7 @@
       "$2\\text{ m/s}$"
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_138.png]\n\nFor a conical pendulum system:\n$$T \\sin \\theta = \\frac{mv^2}{r}$$\n$$T \\cos \\theta = mg$$\n$$\\tan \\theta = \\frac{v^2}{rg} \\implies v = \\sqrt{rg \\tan \\theta}$$\n\nGiven:\n- $\\theta = 45^\\circ$\n- $r = 0.4\\text{ m}$\n- $g = 10\\text{ m/s}^2$\n\n$$v = \\sqrt{0.4 \\times 10 \\times \\tan 45^\\circ}$$\n$$v = \\sqrt{4 \\times 1} = 2\\text{ m/s}$$\n\nHence, the correct option is D.",
+    "explanation": "[IMG: jee_phy_nlom_img_132.png]\n\nFor a conical pendulum system:\n$$T \\sin \\theta = \\frac{mv^2}{r}$$\n$$T \\cos \\theta = mg$$\n$$\\tan \\theta = \\frac{v^2}{rg} \\implies v = \\sqrt{rg \\tan \\theta}$$\n\nGiven:\n- $\\theta = 45^\\circ$\n- $r = 0.4\\text{ m}$\n- $g = 10\\text{ m/s}^2$\n\n$$v = \\sqrt{0.4 \\times 10 \\times \\tan 45^\\circ}$$\n$$v = \\sqrt{4 \\times 1} = 2\\text{ m/s}$$\n\nHence, the correct option is D.",
     "year": "2017",
     "shift": "Morning",
     "date": "9th April"
@@ -1824,13 +1824,13 @@
       "zero"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_139.png]\n\nThe effective moving space available on the rod of length $L$ for the $n$ beads of radius $r$ (diameter $2r$) is:\n$$L_{\\text{space}} = L - 2nr$$\n\nThe average time interval between consecutive elastic collisions of the end beads with the supports is:\n$$\\Delta t = \\frac{2(L - 2nr)}{v}$$\n\nThe momentum change per elastic collision at a support is:\n$$\\Delta p = 2mv$$\n\nThe average force exerted on each support is:\n$$F = \\frac{\\Delta p}{\\Delta t} = \\frac{2mv}{\\frac{2(L - 2nr)}{v}} = \\frac{mv^2}{L - 2nr}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_133.png]\n\nThe effective moving space available on the rod of length $L$ for the $n$ beads of radius $r$ (diameter $2r$) is:\n$$L_{\\text{space}} = L - 2nr$$\n\nThe average time interval between consecutive elastic collisions of the end beads with the supports is:\n$$\\Delta t = \\frac{2(L - 2nr)}{v}$$\n\nThe momentum change per elastic collision at a support is:\n$$\\Delta p = 2mv$$\n\nThe average force exerted on each support is:\n$$F = \\frac{\\Delta p}{\\Delta t} = \\frac{2mv}{\\frac{2(L - 2nr)}{v}} = \\frac{mv^2}{L - 2nr}$$\n\nHence, the correct option is B.",
     "year": "2015",
     "shift": "Morning",
     "date": "11th April"
   },
   {
-    "q": "Given in the figure are two blocks A and B of weight $20\\text{ N}$ and $100\\text{ N}$, respectively. These are being pressed against a wall by a force F as shown. If the coefficient of friction between the blocks is $0.1$ and between block B and the wall is $0.15$, the frictional force applied by the wall on block B is:\n\n[IMG: jee_phy_nlom_img_140.png]",
+    "q": "Given in the figure are two blocks A and B of weight $20\\text{ N}$ and $100\\text{ N}$, respectively. These are being pressed against a wall by a force F as shown. If the coefficient of friction between the blocks is $0.1$ and between block B and the wall is $0.15$, the frictional force applied by the wall on block B is:\n\n[IMG: jee_phy_nlom_img_134.png]",
     "type": "mcq",
     "options": [
       "$120\\text{ N}$",
@@ -1839,7 +1839,7 @@
       "$80\\text{ N}$"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_141.png]\n\nConsider the two blocks A and B as a single system in vertical equilibrium. The total weight acting downwards is:\n$$W_{\\text{total}} = W_A + W_B = 20 + 100 = 120\\text{ N}$$\n\nThe upward frictional force $f_{\\text{wall}}$ from the wall must balance this total downward force:\n$$f_{\\text{wall}} = W_{\\text{total}} = 120\\text{ N}$$\n\nHence, the correct option is A.",
+    "explanation": "[IMG: jee_phy_nlom_img_135.png]\n\nConsider the two blocks A and B as a single system in vertical equilibrium. The total weight acting downwards is:\n$$W_{\\text{total}} = W_A + W_B = 20 + 100 = 120\\text{ N}$$\n\nThe upward frictional force $f_{\\text{wall}}$ from the wall must balance this total downward force:\n$$f_{\\text{wall}} = W_{\\text{total}} = 120\\text{ N}$$\n\nHence, the correct option is A.",
     "year": "2015",
     "shift": "Evening",
     "date": "Online"
@@ -1869,13 +1869,13 @@
       "$(\frac{3}{5}\\hat{i} - \\frac{4}{5}\\hat{j})\\text{ N}$"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_142.png]\n\nCalculate the constant acceleration vector $\\vec{a}$:\n$$\\vec{a} = \\frac{\\vec{v}_f - \\vec{v}_i}{t} = \\frac{6\\hat{j} - (6\\hat{i} - 2\\hat{j})}{10} = \\frac{-6\\hat{i} + 8\\hat{j}}{10} = -0.6\\hat{i} + 0.8\\hat{j}\\text{ m/s}^2$$\n\nCalculate the force $\\vec{F}$ using $m = 5\\text{ kg}$:\n$$\\vec{F} = m \\vec{a} = 5(-0.6\\hat{i} + 0.8\\hat{j}) = -3\\hat{i} + 4\\hat{j}\\text{ N}$$\n\nHence, the correct option is A.",
+    "explanation": "[IMG: jee_phy_nlom_img_136.png]\n\nCalculate the constant acceleration vector $\\vec{a}$:\n$$\\vec{a} = \\frac{\\vec{v}_f - \\vec{v}_i}{t} = \\frac{6\\hat{j} - (6\\hat{i} - 2\\hat{j})}{10} = \\frac{-6\\hat{i} + 8\\hat{j}}{10} = -0.6\\hat{i} + 0.8\\hat{j}\\text{ m/s}^2$$\n\nCalculate the force $\\vec{F}$ using $m = 5\\text{ kg}$:\n$$\\vec{F} = m \\vec{a} = 5(-0.6\\hat{i} + 0.8\\hat{j}) = -3\\hat{i} + 4\\hat{j}\\text{ N}$$\n\nHence, the correct option is A.",
     "year": "2014",
     "shift": "Morning",
     "date": "11th April"
   },
   {
-    "q": "A mass 'm' is supported by a massless string wound around a uniform hollow cylinder of mass m and radius R. If the string does not slip on the cylinder, with what acceleration will the mass fall or release?\n\n[IMG: jee_phy_nlom_img_143.png]",
+    "q": "A mass 'm' is supported by a massless string wound around a uniform hollow cylinder of mass m and radius R. If the string does not slip on the cylinder, with what acceleration will the mass fall or release?\n\n[IMG: jee_phy_nlom_img_137.png]",
     "type": "mcq",
     "options": [
       "$\\frac{2g}{3}$",
@@ -1884,13 +1884,13 @@
       "$g$"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_144.png]\n\nLet $a$ be the downward acceleration of the mass and $\\alpha$ be the angular acceleration of the cylinder ($a = R\\alpha$).\n\nEquations of motion:\n\n1) For the falling mass:\n$$mg - T = ma \\quad \\dots (i)$$\n\n2) For the rotating hollow cylinder ($I = mR^2$):\n$$\\tau = T \\times R = I \\alpha$$\n$$T \\times R = (mR^2) \\left(\\frac{a}{R}\\right) \\implies T = ma \\quad \\dots (ii)$$\n\nSubstituting (ii) into (i):\n$$mg - ma = ma \\implies mg = 2ma \\implies a = \\frac{g}{2}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_138.png]\n\nLet $a$ be the downward acceleration of the mass and $\\alpha$ be the angular acceleration of the cylinder ($a = R\\alpha$).\n\nEquations of motion:\n\n1) For the falling mass:\n$$mg - T = ma \\quad \\dots (i)$$\n\n2) For the rotating hollow cylinder ($I = mR^2$):\n$$\\tau = T \\times R = I \\alpha$$\n$$T \\times R = (mR^2) \\left(\\frac{a}{R}\\right) \\implies T = ma \\quad \\dots (ii)$$\n\nSubstituting (ii) into (i):\n$$mg - ma = ma \\implies mg = 2ma \\implies a = \\frac{g}{2}$$\n\nHence, the correct option is B.",
     "year": "2014",
     "shift": "Evening",
     "date": "Online"
   },
   {
-    "q": "A block of mass m is placed on a surface with a vertical cross section given by $y = \\frac{x^3}{6}$. If the coefficient of friction is $0.5$, the maximum height above the ground at which the block can be placed without slipping is:\n\n[IMG: jee_phy_nlom_img_145.png]",
+    "q": "A block of mass m is placed on a surface with a vertical cross section given by $y = \\frac{x^3}{6}$. If the coefficient of friction is $0.5$, the maximum height above the ground at which the block can be placed without slipping is:\n\n[IMG: jee_phy_nlom_img_139.png]",
     "type": "mcq",
     "options": [
       "$\\frac{1}{6}\\text{ m}$",
@@ -1899,7 +1899,7 @@
       "$\\frac{1}{2}\\text{ m}$"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_147.png]\n\n[IMG: jee_phy_nlom_img_146.png]\n\nAt the threshold of slipping, the tangent slope of the surface profile matches the friction coefficient:\n$$\\tan \\theta = \\frac{dy}{dx} = \\mu$$\n\nGiven:\n$$y = \\frac{x^3}{6} \\implies \\frac{dy}{dx} = \\frac{x^2}{2}$$\n\nSubstituting $\\mu = 0.5$:\n$$\\frac{x^2}{2} = 0.5 \\implies x^2 = 1 \\implies x = 1\\text{ m}$$\n\nFind maximum height $y$:\n$$y = \\frac{1^3}{6} = \\frac{1}{6}\\text{ m}$$\n\nHence, the correct option is A.",
+    "explanation": "[IMG: jee_phy_nlom_img_141.png]\n\n[IMG: jee_phy_nlom_img_140.png]\n\nAt the threshold of slipping, the tangent slope of the surface profile matches the friction coefficient:\n$$\\tan \\theta = \\frac{dy}{dx} = \\mu$$\n\nGiven:\n$$y = \\frac{x^3}{6} \\implies \\frac{dy}{dx} = \\frac{x^2}{2}$$\n\nSubstituting $\\mu = 0.5$:\n$$\\frac{x^2}{2} = 0.5 \\implies x^2 = 1 \\implies x = 1\\text{ m}$$\n\nFind maximum height $y$:\n$$y = \\frac{1^3}{6} = \\frac{1}{6}\\text{ m}$$\n\nHence, the correct option is A.",
     "year": "2014",
     "shift": "Evening",
     "date": "Online"
@@ -1914,7 +1914,7 @@
       "$Ma/3$"
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_148.png]\n\nSince the cylinder does not slip, the linear acceleration of its center of mass is $a_{\\text{cm}}$ and its angular acceleration is $\\alpha = \\frac{a_{\\text{cm}}}{R}$ relative to the center.\n\nWriting the equations of motion:\n- Horizontal force: $F_{\\text{friction}} = M a_{\\text{cm}} \\quad \\dots (i)$\n- Torque about the center of mass: $F_{\\text{friction}} R = I \\alpha = \\left(\\frac{1}{2} M R^2\\right) \\frac{a_{\\text{cm}}}{R} \\implies F_{\\text{friction}} = \\frac{1}{2} M a_{\\text{cm}} \\quad \\dots (ii)$\n\nSince the point of contact does not slip, the acceleration of the contact point is equal to the acceleration of the rug:\n$$a = a_{\\text{cm}} + R \\alpha$$\n$$a = a_{\\text{cm}} + 2 a_{\\text{cm}} = 3 a_{\\text{cm}}$$\n$$a_{\\text{cm}} = \\frac{a}{3}$$\n\nSubstitute this back into (i):\n$$F_{\\text{friction}} = \\frac{Ma}{3}$$\n\nHence, the correct option is D.",
+    "explanation": "[IMG: jee_phy_nlom_img_142.png]\n\nSince the cylinder does not slip, the linear acceleration of its center of mass is $a_{\\text{cm}}$ and its angular acceleration is $\\alpha = \\frac{a_{\\text{cm}}}{R}$ relative to the center.\n\nWriting the equations of motion:\n- Horizontal force: $F_{\\text{friction}} = M a_{\\text{cm}} \\quad \\dots (i)$\n- Torque about the center of mass: $F_{\\text{friction}} R = I \\alpha = \\left(\\frac{1}{2} M R^2\\right) \\frac{a_{\\text{cm}}}{R} \\implies F_{\\text{friction}} = \\frac{1}{2} M a_{\\text{cm}} \\quad \\dots (ii)$\n\nSince the point of contact does not slip, the acceleration of the contact point is equal to the acceleration of the rug:\n$$a = a_{\\text{cm}} + R \\alpha$$\n$$a = a_{\\text{cm}} + 2 a_{\\text{cm}} = 3 a_{\\text{cm}}$$\n$$a_{\\text{cm}} = \\frac{a}{3}$$\n\nSubstitute this back into (i):\n$$F_{\\text{friction}} = \\frac{Ma}{3}$$\n\nHence, the correct option is D.",
     "year": "2014",
     "shift": "Morning",
     "date": "19th April"
@@ -1935,7 +1935,7 @@
     "date": "19th April"
   },
   {
-    "q": "A small ball of mass m starts at a point A with speed $v_0$ and moves along a frictionless track AB as shown. The track BC has coefficient of friction $\\mu$. The ball comes to stop at C after travelling a distance L which is:\n\n[IMG: jee_phy_nlom_img_149.png]",
+    "q": "A small ball of mass m starts at a point A with speed $v_0$ and moves along a frictionless track AB as shown. The track BC has coefficient of friction $\\mu$. The ball comes to stop at C after travelling a distance L which is:\n\n[IMG: jee_phy_nlom_img_143.png]",
     "type": "mcq",
     "options": [
       "$\\frac{2h}{\\mu} + \\frac{v_0^2}{2\\mu g}$",
@@ -1944,7 +1944,7 @@
       "$\\frac{h}{2\\mu} + \\frac{v_0^2}{2\\mu g}$"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_150.png]\n\n1) Applying work-energy theorem or conservation of energy from point A to point B:\n$$v_B^2 = v_0^2 + 2gh$$\n\n2) Over the rough horizontal track BC, the deceleration due to friction is $a = \\mu g$. \nUsing $v_C^2 - v_B^2 = -2aL$ to stop at C:\n$$0 - (v_0^2 + 2gh) = -2 \\mu g L$$\n$$L = \\frac{v_0^2 + 2gh}{2\\mu g} = \\frac{h}{\\mu} + \\frac{v_0^2}{2\\mu g}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_144.png]\n\n1) Applying work-energy theorem or conservation of energy from point A to point B:\n$$v_B^2 = v_0^2 + 2gh$$\n\n2) Over the rough horizontal track BC, the deceleration due to friction is $a = \\mu g$. \nUsing $v_C^2 - v_B^2 = -2aL$ to stop at C:\n$$0 - (v_0^2 + 2gh) = -2 \\mu g L$$\n$$L = \\frac{v_0^2 + 2gh}{2\\mu g} = \\frac{h}{\\mu} + \\frac{v_0^2}{2\\mu g}$$\n\nHence, the correct option is B.",
     "year": "2014",
     "shift": "Morning",
     "date": "11th April"
@@ -1959,13 +1959,13 @@
       "48 N"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_151.png]\n\n1) The minimum force applied on A to make the blocks slide relative to each other is $12\\text{ N}$. This means the maximum static friction force between them is:\n$$f_{s,\\text{max}} = 12\\text{ N}$$\n\n2) The maximum acceleration of block A before slipping is:\n$$a_{\\text{max}} = \\frac{f_{s,\\text{max}}}{m_A} = \\frac{12}{4} = 3\\text{ m/s}^2$$\n\n3) To move together without slipping, the maximum force $F_{\\text{max}}$ applied to the lower block B is:\n$$F_{\\text{max}} = (m_A + m_B) a_{\\text{max}} = (4 + 5) \\times 3 = 27\\text{ N}$$\n\nHence, the correct option is C.",
+    "explanation": "[IMG: jee_phy_nlom_img_145.png]\n\n1) The minimum force applied on A to make the blocks slide relative to each other is $12\\text{ N}$. This means the maximum static friction force between them is:\n$$f_{s,\\text{max}} = 12\\text{ N}$$\n\n2) The maximum acceleration of block A before slipping is:\n$$a_{\\text{max}} = \\frac{f_{s,\\text{max}}}{m_A} = \\frac{12}{4} = 3\\text{ m/s}^2$$\n\n3) To move together without slipping, the maximum force $F_{\\text{max}}$ applied to the lower block B is:\n$$F_{\\text{max}} = (m_A + m_B) a_{\\text{max}} = (4 + 5) \\times 3 = 27\\text{ N}$$\n\nHence, the correct option is C.",
     "year": "2014",
     "shift": "Morning",
     "date": "9th April"
   },
   {
-    "q": "A particle is released on a vertical smooth semicircular track from point X so that OX makes angle $\\theta$ from the vertical (see figure). The normal reaction of the track on the particle vanishes at point Y where OY makes angle $\\phi$ with the horizontal. Then:\n\n[IMG: jee_phy_nlom_img_152.png]",
+    "q": "A particle is released on a vertical smooth semicircular track from point X so that OX makes angle $\\theta$ from the vertical (see figure). The normal reaction of the track on the particle vanishes at point Y where OY makes angle $\\phi$ with the horizontal. Then:\n\n[IMG: jee_phy_nlom_img_146.png]",
     "type": "mcq",
     "options": [
       "$\\sin \\phi = \\cos \\phi$",
@@ -1989,13 +1989,13 @@
       "192 N"
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_153.png]\n\n1) Calculate the acceleration $a$ of the combined system upwards:\n$$a = \\frac{F - M_{\\text{total}}g}{M_{\\text{total}}} = \\frac{480 - (20 + 12 + 8)10}{40} = \\frac{80}{40} = 2\\text{ m/s}^2$$\n\n2) To find the tension $T$ at the midpoint of the rod, consider the lower half as a system:\n- Mass of the lower half of the rod: $4\\text{ kg}$\n- Mass of $M_2$: $12\\text{ kg}$\n- Total mass supported below the midpoint: $M_{\\text{lower}} = 4 + 12 = 16\\text{ kg}$\n\nApplying Newton's second law on $M_{\\text{lower}}$:\n$$T - M_{\\text{lower}} g = M_{\\text{lower}} a$$\n$$T = M_{\\text{lower}}(g + a) = 16(10 + 2) = 192\\text{ N}$$\n\nHence, the correct option is D.",
+    "explanation": "[IMG: jee_phy_nlom_img_147.png]\n\n1) Calculate the acceleration $a$ of the combined system upwards:\n$$a = \\frac{F - M_{\\text{total}}g}{M_{\\text{total}}} = \\frac{480 - (20 + 12 + 8)10}{40} = \\frac{80}{40} = 2\\text{ m/s}^2$$\n\n2) To find the tension $T$ at the midpoint of the rod, consider the lower half as a system:\n- Mass of the lower half of the rod: $4\\text{ kg}$\n- Mass of $M_2$: $12\\text{ kg}$\n- Total mass supported below the midpoint: $M_{\\text{lower}} = 4 + 12 = 16\\text{ kg}$\n\nApplying Newton's second law on $M_{\\text{lower}}$:\n$$T - M_{\\text{lower}} g = M_{\\text{lower}} a$$\n$$T = M_{\\text{lower}}(g + a) = 16(10 + 2) = 192\\text{ N}$$\n\nHence, the correct option is D.",
     "year": "2013",
     "shift": "Morning",
     "date": "22nd April"
   },
   {
-    "q": "A uniform sphere of weight W and radius $5\\text{ cm}$ is being held by a string as shown in the figure. The tension in the string will be:\n\n[IMG: jee_phy_nlom_img_154.png]",
+    "q": "A uniform sphere of weight W and radius $5\\text{ cm}$ is being held by a string as shown in the figure. The tension in the string will be:\n\n[IMG: jee_phy_nlom_img_148.png]",
     "type": "mcq",
     "options": [
       "$\\frac{12W}{5}$",
@@ -2019,13 +2019,13 @@
       ""
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_155.png]\n\nInitially, the block remains stationary ($a = 0$) until the applied force $F = kt$ overcomes the limiting static friction force $f_{s,\\text{max}} = \\mu_s mg$. This occurs at time $t_0 = \\frac{\\mu_s mg}{k}$.\n\nOnce motion begins ($t > t_0$):\n$$F - f_k = ma \\implies kt - \\mu_k mg = ma$$\n$$a = \\frac{k}{m}t - \\mu_k g$$\n\nThis shows that after $t_0$, the acceleration increases linearly with time, representing a straight line with a positive slope. This is correctly depicted in Option B.",
+    "explanation": "[IMG: jee_phy_nlom_img_149.png]\n\nInitially, the block remains stationary ($a = 0$) until the applied force $F = kt$ overcomes the limiting static friction force $f_{s,\\text{max}} = \\mu_s mg$. This occurs at time $t_0 = \\frac{\\mu_s mg}{k}$.\n\nOnce motion begins ($t > t_0$):\n$$F - f_k = ma \\implies kt - \\mu_k mg = ma$$\n$$a = \\frac{k}{m}t - \\mu_k g$$\n\nThis shows that after $t_0$, the acceleration increases linearly with time, representing a straight line with a positive slope. This is correctly depicted in Option B.",
     "year": "2013",
     "shift": "Morning",
     "date": "25th April"
   },
   {
-    "q": "A body starts from rest on a long inclined plane of slope $45^\\circ$. The coefficient of friction between the body and the plane varies as $\\mu = 0.3x$, where $x$ is the distance travelled down the plane. The body will have maximum speed (for $g = 10\\text{ m/s}^2$) when $x$ is:\n\n[IMG: jee_phy_nlom_img_156.png]",
+    "q": "A body starts from rest on a long inclined plane of slope $45^\\circ$. The coefficient of friction between the body and the plane varies as $\\mu = 0.3x$, where $x$ is the distance travelled down the plane. The body will have maximum speed (for $g = 10\\text{ m/s}^2$) when $x$ is:\n\n[IMG: jee_phy_nlom_img_150.png]",
     "type": "mcq",
     "options": [
       "$9.8\\text{ m}$",
@@ -2040,7 +2040,7 @@
     "date": "22nd April"
   },
   {
-    "q": "A body of mass 'm' is tied to one end of a spring and whirled round in a horizontal plane with a constant angular velocity. The elongation in the spring is $1\\text{ cm}$. If the angular velocity is doubled, the elongation in the spring is $5\\text{ cm}$. The original length of the spring is:\n\n[IMG: jee_phy_nlom_img_157.png]",
+    "q": "A body of mass 'm' is tied to one end of a spring and whirled round in a horizontal plane with a constant angular velocity. The elongation in the spring is $1\\text{ cm}$. If the angular velocity is doubled, the elongation in the spring is $5\\text{ cm}$. The original length of the spring is:\n\n[IMG: jee_phy_nlom_img_151.png]",
     "type": "mcq",
     "options": [
       "$15\\text{ cm}$",
@@ -2055,7 +2055,7 @@
     "date": "23rd April"
   },
   {
-    "q": "A particle of mass m is at rest at the origin at time $t = 0$. It is subjected to a force $F(t) = F_0 e^{-bt}$ in the x-direction. Its speed v(t) is depicted by which of the following curves?\n\n[IMG: jee_phy_nlom_img_158.png]",
+    "q": "A particle of mass m is at rest at the origin at time $t = 0$. It is subjected to a force $F(t) = F_0 e^{-bt}$ in the x-direction. Its speed v(t) is depicted by which of the following curves?\n\n[IMG: jee_phy_nlom_img_152.png]",
     "type": "mcq",
     "options": [
       "",
@@ -2064,19 +2064,19 @@
       ""
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_159.png]\n\nIntegrating Newton's second law starting from rest ($v(0) = 0$):\n$$m \\frac{dv}{dt} = F_0 e^{-bt}$$\n$$dv = \\frac{F_0}{m} e^{-bt} dt$$\n$$\\int_{0}^{v} dv = \\frac{F_0}{m} \\int_{0}^{t} e^{-bt} dt$$\n$$v(t) = \\frac{F_0}{m} \\left[ \\frac{e^{-bt}}{-b} \\right]_{0}^{t} = \\frac{F_0}{mb}(1 - e^{-bt})$$\n\nAs $t \\to \\infty$, the velocity asymptotically approaches a constant limiting value of $\\frac{F_0}{mb}$. This is represented by the curve in Option C.",
+    "explanation": "[IMG: jee_phy_nlom_img_153.png]\n\nIntegrating Newton's second law starting from rest ($v(0) = 0$):\n$$m \\frac{dv}{dt} = F_0 e^{-bt}$$\n$$dv = \\frac{F_0}{m} e^{-bt} dt$$\n$$\\int_{0}^{v} dv = \\frac{F_0}{m} \\int_{0}^{t} e^{-bt} dt$$\n$$v(t) = \\frac{F_0}{m} \\left[ \\frac{e^{-bt}}{-b} \\right]_{0}^{t} = \\frac{F_0}{mb}(1 - e^{-bt})$$\n\nAs $t \\to \\infty$, the velocity asymptotically approaches a constant limiting value of $\\frac{F_0}{mb}$. This is represented by the curve in Option C.",
     "year": "2012",
     "shift": null,
     "date": null
   },
   {
-    "q": "This question has Statement 1 and Statement 2. Of the four choices given after the Statements, choose the one that best describes the two Statements.\n\nStatement 1: If you push on a cart being pulled by a horse so that it does not move, the cart pushes you back with an equal and opposite force.\nStatement 2: The cart does not move because the forces described in Statement 1 cancel each other.\n\nChoose the correct option:\n\n[IMG: jee_phy_nlom_img_160.png]\n\n[IMG: jee_phy_nlom_img_161.png]\n\n[IMG: jee_phy_nlom_img_162.png]\n\n[IMG: jee_phy_nlom_img_163.png]",
+    "q": "This question has Statement 1 and Statement 2. Of the four choices given after the Statements, choose the one that best describes the two Statements.\n\nStatement 1: If you push on a cart being pulled by a horse so that it does not move, the cart pushes you back with an equal and opposite force.\nStatement 2: The cart does not move because the forces described in Statement 1 cancel each other.\n\nChoose the correct option:",
     "type": "mcq",
     "options": [
-      "Statement 1 is true, Statement 2 is true, Statement 2 is the correct explanation of Statement 1.",
-      "Statement 1 is false, Statement 2 is true.",
-      "Statement 1 is true, Statement 2 is false.",
-      "Statement 1 is true, Statement 2 is true, Statement 2 is not the correct explanation of Statement 1."
+      "Statement 1 is true, Statement 2 is true, Statement 2 is the correct explanation of Statement 1.\n\n[IMG: jee_phy_nlom_img_154.png]",
+      "Statement 1 is false, Statement 2 is true.\n\n[IMG: jee_phy_nlom_img_155.png]",
+      "Statement 1 is true, Statement 2 is false.\n\n[IMG: jee_phy_nlom_img_156.png]",
+      "Statement 1 is true, Statement 2 is true, Statement 2 is not the correct explanation of Statement 1.\n\n[IMG: jee_phy_nlom_img_157.png]"
     ],
     "answer": 3,
     "explanation": "- Statement 1 is true: According to Newton's third law, every action has an equal and opposite reaction.\n- Statement 2 is false: Action and reaction forces act on two different bodies (the cart pushes back on you, while you push on the cart). Since they act on different bodies, they can never cancel each other out.",
@@ -2115,13 +2115,13 @@
     "date": "Online May 19"
   },
   {
-    "q": "An insect crawls up a hemispherical surface very slowly. The coefficient of friction between the insect and the surface is 1/3. If the line joining the centre of the hemispherical surface to the insect makes an angle $\\alpha$ with the vertical, the maximum possible value of $\\alpha$ so that the insect does not slip is given by:\n\n[IMG: jee_phy_nlom_img_164.png]\n\n[IMG: jee_phy_nlom_img_165.png]\n\n[IMG: jee_phy_nlom_img_166.png]\n\n[IMG: jee_phy_nlom_img_167.png]",
+    "q": "An insect crawls up a hemispherical surface very slowly. The coefficient of friction between the insect and the surface is 1/3. If the line joining the centre of the hemispherical surface to the insect makes an angle $\\alpha$ with the vertical, the maximum possible value of $\\alpha$ so that the insect does not slip is given by:",
     "type": "mcq",
     "options": [
-      "$\\cot \\alpha = 3$",
-      "$\\sec \\alpha = 3$",
-      "$\\csc \\alpha = 3$",
-      "$\\cos \\alpha = 3$"
+      "$\\cot \\alpha = 3$\n\n[IMG: jee_phy_nlom_img_158.png]",
+      "$\\sec \\alpha = 3$\n\n[IMG: jee_phy_nlom_img_159.png]",
+      "$\\csc \\alpha = 3$\n\n[IMG: jee_phy_nlom_img_160.png]",
+      "$\\cos \\alpha = 3$\n\n[IMG: jee_phy_nlom_img_161.png]"
     ],
     "answer": 1,
     "explanation": "Since the insect crawls up very slowly, the net forces are in equilibrium:\n- Normal reaction: $N = mg \\cos \\alpha$\n- Gravity component tangent to surface: $mg \\sin \\alpha$\n\nTo prevent slipping:\n$$mg \\sin \\alpha \\le f_{\\text{max}} = \\mu N$$\n$$mg \\sin \\alpha \\le \\mu mg \\cos \\alpha \\implies \\tan \\alpha \\le \\mu$$\n\nIn the limiting condition:\n$$\\tan \\alpha = \\mu = \\frac{1}{3} \\implies \\cot \\alpha = 3$$\n\nHence, the correct option is A.",
@@ -2145,7 +2145,7 @@
     "date": "RS"
   },
   {
-    "q": "If a spring of stiffness ' k ' is cut into parts ' A ' and ' B ' of length $l_A : l_B = 2 : 3$, then the stiffness of spring ' A ' is given by:\n\n[IMG: jee_phy_nlom_img_168.png]",
+    "q": "If a spring of stiffness ' k ' is cut into parts ' A ' and ' B ' of length $l_A : l_B = 2 : 3$, then the stiffness of spring ' A ' is given by:\n\n[IMG: jee_phy_nlom_img_162.png]",
     "type": "mcq",
     "options": [
       "$\\frac{3k}{5}$",
@@ -2169,13 +2169,13 @@
       "$4.9\\text{ m/s}^{-2}$ in the vertical direction"
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_169.png]\n\nThe acceleration of a block down a frictionless incline of angle $\\theta$ with the horizontal is $a = g \\sin \\theta$. The vertical component of this acceleration is:\n$$a_y = a \\sin \\theta = g \\sin^2 \\theta$$\n\n1) Block A (angle of $30^\\circ$ with vertical $\\implies$ angle of $\\theta_1 = 60^\\circ$ with horizontal):\n$$a_{y1} = g \\sin^2 60^\\circ = g \\left(\\frac{\\sqrt{3}}{2}\\right)^2 = \\frac{3}{4}g$$\n\n2) Block B (angle of $60^\\circ$ with vertical $\\implies$ angle of $\\theta_2 = 30^\\circ$ with horizontal):\n$$a_{y2} = g \\sin^2 30^\\circ = g \\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}g$$\n\n3) Relative vertical acceleration of A with respect to B:\n$$a_{\\text{rel},y} = a_{y1} - a_{y2} = \\frac{3}{4}g - \\frac{1}{4}g = \\frac{g}{2} = 4.9\\text{ m/s}^2$$\n\nHence, the correct option is D.",
+    "explanation": "[IMG: jee_phy_nlom_img_163.png]\n\nThe acceleration of a block down a frictionless incline of angle $\\theta$ with the horizontal is $a = g \\sin \\theta$. The vertical component of this acceleration is:\n$$a_y = a \\sin \\theta = g \\sin^2 \\theta$$\n\n1) Block A (angle of $30^\\circ$ with vertical $\\implies$ angle of $\\theta_1 = 60^\\circ$ with horizontal):\n$$a_{y1} = g \\sin^2 60^\\circ = g \\left(\\frac{\\sqrt{3}}{2}\\right)^2 = \\frac{3}{4}g$$\n\n2) Block B (angle of $60^\\circ$ with vertical $\\implies$ angle of $\\theta_2 = 30^\\circ$ with horizontal):\n$$a_{y2} = g \\sin^2 30^\\circ = g \\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}g$$\n\n3) Relative vertical acceleration of A with respect to B:\n$$a_{\\text{rel},y} = a_{y1} - a_{y2} = \\frac{3}{4}g - \\frac{1}{4}g = \\frac{g}{2} = 4.9\\text{ m/s}^2$$\n\nHence, the correct option is D.",
     "year": "2010",
     "shift": null,
     "date": null
   },
   {
-    "q": "A point P moves in counter-clockwise direction on a circular path as shown in the figure. The movement of 'P' is such that it sweeps out a length $s = t^3 + 5$, where s is in metres and t is in seconds. The radius of the path is $20\\text{ m}$. The acceleration of 'P' when $t = 2\\text{ s}$ is nearly:\n\n[IMG: jee_phy_nlom_img_170.png]",
+    "q": "A point P moves in counter-clockwise direction on a circular path as shown in the figure. The movement of 'P' is such that it sweeps out a length $s = t^3 + 5$, where s is in metres and t is in seconds. The radius of the path is $20\\text{ m}$. The acceleration of 'P' when $t = 2\\text{ s}$ is nearly:\n\n[IMG: jee_phy_nlom_img_164.png]",
     "type": "mcq",
     "options": [
       "$13\\text{ m/s}^2$",
@@ -2184,7 +2184,7 @@
       "$14\\text{ m/s}^2$"
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_171.png]\n\nGiven the arc distance:\n$$s = t^3 + 5$$\n\n1) Tangential speed $v$:\n$$v = \\frac{ds}{dt} = 3t^2$$\nAt $t = 2\\text{ s}$:\n$$v = 3(2)^2 = 12\\text{ m/s}$$\n\n2) Tangential acceleration $a_t$:\n$$a_t = \\frac{dv}{dt} = 6t$$\nAt $t = 2\\text{ s}$:\n$$a_t = 12\\text{ m/s}^2$$\n\n3) Centripetal/radial acceleration $a_c$:\n$$a_c = \\frac{v^2}{R} = \\frac{12^2}{20} = 7.2\\text{ m/s}^2$$\n\n4) Resultant acceleration $a$:\n$$a = \\sqrt{a_t^2 + a_c^2} = \\sqrt{12^2 + 7.2^2} = \\sqrt{195.84} \\approx 14\\text{ m/s}^2$$\n\nHence, the correct option is D.",
+    "explanation": "[IMG: jee_phy_nlom_img_165.png]\n\nGiven the arc distance:\n$$s = t^3 + 5$$\n\n1) Tangential speed $v$:\n$$v = \\frac{ds}{dt} = 3t^2$$\nAt $t = 2\\text{ s}$:\n$$v = 3(2)^2 = 12\\text{ m/s}$$\n\n2) Tangential acceleration $a_t$:\n$$a_t = \\frac{dv}{dt} = 6t$$\nAt $t = 2\\text{ s}$:\n$$a_t = 12\\text{ m/s}^2$$\n\n3) Centripetal/radial acceleration $a_c$:\n$$a_c = \\frac{v^2}{R} = \\frac{12^2}{20} = 7.2\\text{ m/s}^2$$\n\n4) Resultant acceleration $a$:\n$$a = \\sqrt{a_t^2 + a_c^2} = \\sqrt{12^2 + 7.2^2} = \\sqrt{195.84} \\approx 14\\text{ m/s}^2$$\n\nHence, the correct option is D.",
     "year": "2010",
     "shift": null,
     "date": null
@@ -2199,7 +2199,7 @@
       "$\\frac{v^2}{R}\\hat{i} + \\frac{v^2}{R}\\hat{j}$"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_172.png]\n\nIn uniform circular motion, the acceleration vector $\\vec{a}$ is purely centripetal, which points radially inwards towards the center of the circle from the point P(R, $\\theta$).\n\nThe unit radial vector pointing outwards is:\n$$\\hat{r} = \\cos \\theta \\hat{i} + \\sin \\theta \\hat{j}$$\n\nSince the acceleration points in the opposite direction ($-\\hat{r}$):\n$$\\vec{a} = -\\frac{v^2}{R} \\hat{r} = -\\frac{v^2}{R} \\cos \\theta \\hat{i} - \\frac{v^2}{R} \\sin \\theta \\hat{j}$$\n\nHence, the correct option is C.",
+    "explanation": "[IMG: jee_phy_nlom_img_166.png]\n\nIn uniform circular motion, the acceleration vector $\\vec{a}$ is purely centripetal, which points radially inwards towards the center of the circle from the point P(R, $\\theta$).\n\nThe unit radial vector pointing outwards is:\n$$\\hat{r} = \\cos \\theta \\hat{i} + \\sin \\theta \\hat{j}$$\n\nSince the acceleration points in the opposite direction ($-\\hat{r}$):\n$$\\vec{a} = -\\frac{v^2}{R} \\hat{r} = -\\frac{v^2}{R} \\cos \\theta \\hat{i} - \\frac{v^2}{R} \\sin \\theta \\hat{j}$$\n\nHence, the correct option is C.",
     "year": "2010",
     "shift": null,
     "date": null
@@ -2220,7 +2220,7 @@
     "date": null
   },
   {
-    "q": "A ball of mass $0.2\\text{ kg}$ is thrown vertically upwards by applying a force by hand. If the hand moves $0.2\\text{ m}$ while applying the force and the ball goes up to $2\\text{ m}$ height further, find the magnitude of the force. (Consider $g = 10\\text{ m/s}^2$):\n\n[IMG: jee_phy_nlom_img_173.png]",
+    "q": "A ball of mass $0.2\\text{ kg}$ is thrown vertically upwards by applying a force by hand. If the hand moves $0.2\\text{ m}$ while applying the force and the ball goes up to $2\\text{ m}$ height further, find the magnitude of the force. (Consider $g = 10\\text{ m/s}^2$):\n\n[IMG: jee_phy_nlom_img_167.png]",
     "type": "mcq",
     "options": [
       "$4\\text{ N}$",
@@ -2235,7 +2235,7 @@
     "date": null
   },
   {
-    "q": "A player caught a cricket ball of mass $150\\text{ g}$ moving at a rate of $20\\text{ m/s}$. If the catching process is completed in $0.1\\text{ s}$, the force of the blow exerted by the ball on the hand of the player is equal to:\n\n[IMG: jee_phy_nlom_img_174.png]",
+    "q": "A player caught a cricket ball of mass $150\\text{ g}$ moving at a rate of $20\\text{ m/s}$. If the catching process is completed in $0.1\\text{ s}$, the force of the blow exerted by the ball on the hand of the player is equal to:\n\n[IMG: jee_phy_nlom_img_168.png]",
     "type": "mcq",
     "options": [
       "$150\\text{ N}$",
@@ -2259,7 +2259,7 @@
       "$5\\text{ m/s}^2$"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_175.png]\n\nGiven parameters:\n- Mass, $m = 0.3\\text{ kg}$\n- Spring constant, $k = 15\\text{ N/m}$\n- Displacement, $x = 20\\text{ cm} = 0.2\\text{ m}$\n\n1) Calculate the magnitude of the restoring force:\n$$F = kx = 15 \\times 0.2 = 3\\text{ N}$$\n\n2) Calculate initial acceleration:\n$$a = \\frac{F}{m} = \\frac{3}{0.3} = 10\\text{ m/s}^2$$\n\nHence, the correct option is C.",
+    "explanation": "[IMG: jee_phy_nlom_img_169.png]\n\nGiven parameters:\n- Mass, $m = 0.3\\text{ kg}$\n- Spring constant, $k = 15\\text{ N/m}$\n- Displacement, $x = 20\\text{ cm} = 0.2\\text{ m}$\n\n1) Calculate the magnitude of the restoring force:\n$$F = kx = 15 \\times 0.2 = 3\\text{ N}$$\n\n2) Calculate initial acceleration:\n$$a = \\frac{F}{m} = \\frac{3}{0.3} = 10\\text{ m/s}^2$$\n\nHence, the correct option is C.",
     "year": "2005",
     "shift": null,
     "date": null
@@ -2274,7 +2274,7 @@
       "$g$"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_176.png]\n\nIn the non-inertial reference frame of the inclined plane (which accelerates to the right with $a$), a horizontal pseudo force $ma$ acts to the left on the block.\n\nFor the block to remain stationary, the forces acting along the inclined plane must balance:\n$$mg \\sin \\alpha = ma \\cos \\alpha$$\n$$a = g \\frac{\\sin \\alpha}{\\cos \\alpha} = g \\tan \\alpha$$\n\nHence, the correct option is C.",
+    "explanation": "[IMG: jee_phy_nlom_img_170.png]\n\nIn the non-inertial reference frame of the inclined plane (which accelerates to the right with $a$), a horizontal pseudo force $ma$ acts to the left on the block.\n\nFor the block to remain stationary, the forces acting along the inclined plane must balance:\n$$mg \\sin \\alpha = ma \\cos \\alpha$$\n$$a = g \\frac{\\sin \\alpha}{\\cos \\alpha} = g \\tan \\alpha$$\n\nHence, the correct option is C.",
     "year": "2005",
     "shift": null,
     "date": null
@@ -2325,7 +2325,7 @@
     "date": null
   },
   {
-    "q": "An annular ring with inner and outer radii $R_1$ and $R_2$ is rolling without slipping with a uniform angular speed. The ratio of the forces experienced by the two particles situated on the inner and outer parts of the ring, $\\frac{F_1}{F_2}$ is:\n\n[IMG: jee_phy_nlom_img_177.png]",
+    "q": "An annular ring with inner and outer radii $R_1$ and $R_2$ is rolling without slipping with a uniform angular speed. The ratio of the forces experienced by the two particles situated on the inner and outer parts of the ring, $\\frac{F_1}{F_2}$ is:\n\n[IMG: jee_phy_nlom_img_171.png]",
     "type": "mcq",
     "options": [
       "$(\\frac{R_1}{R_2})^2$",
@@ -2334,7 +2334,7 @@
       "1"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_178.png]\n\nEach particle rotating with uniform angular velocity $\\omega$ experiences a centripetal force:\n$$F = m \\omega^2 R$$\n\nFor identical mass particles situated on the inner and outer radius boundaries:\n- Inner force: $F_1 = m \\omega^2 R_1$\n- Outer force: $F_2 = m \\omega^2 R_2$\n\nCalculating the ratio:\n$$\\frac{F_1}{F_2} = \\frac{R_1}{R_2}$$\n\nHence, the correct option is C.",
+    "explanation": "[IMG: jee_phy_nlom_img_172.png]\n\nEach particle rotating with uniform angular velocity $\\omega$ experiences a centripetal force:\n$$F = m \\omega^2 R$$\n\nFor identical mass particles situated on the inner and outer radius boundaries:\n- Inner force: $F_1 = m \\omega^2 R_1$\n- Outer force: $F_2 = m \\omega^2 R_2$\n\nCalculating the ratio:\n$$\\frac{F_1}{F_2} = \\frac{R_1}{R_2}$$\n\nHence, the correct option is C.",
     "year": "2005",
     "shift": null,
     "date": null
@@ -2349,7 +2349,7 @@
       "$4.8\\text{ m/s}^2$"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_179.png]\n\nThe acceleration $a$ of the hanging masses in an Atwood machine is given by:\n$$a = \\frac{m_1 - m_2}{m_1 + m_2} g$$\n\nSubstituting the values:\n$$a = \\frac{5 - 4.8}{5 + 4.8} \\times 9.8$$\n$$a = \\frac{0.2}{9.8} \\times 9.8 = 0.2\\text{ m/s}^2$$\n\nHence, the correct option is C.",
+    "explanation": "[IMG: jee_phy_nlom_img_173.png]\n\nThe acceleration $a$ of the hanging masses in an Atwood machine is given by:\n$$a = \\frac{m_1 - m_2}{m_1 + m_2} g$$\n\nSubstituting the values:\n$$a = \\frac{5 - 4.8}{5 + 4.8} \\times 9.8$$\n$$a = \\frac{0.2}{9.8} \\times 9.8 = 0.2\\text{ m/s}^2$$\n\nHence, the correct option is C.",
     "year": "2004",
     "shift": null,
     "date": null
@@ -2394,13 +2394,13 @@
       "$1.75 \\times 10^5\\text{ N}$"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_180.png]\n\nThe vertical equation of motion for upward blast is:\n$$F_{\\text{thrust}} - mg = ma$$\n$$F_{\\text{thrust}} = m(g + a)$$\n\nGiven:\n- $m = 3.5 \\times 10^4\\text{ kg}$\n- $a = 10\\text{ m/s}^2$\n- $g = 10\\text{ m/s}^2$\n\n$$F_{\\text{thrust}} = 3.5 \\times 10^4 \\times (10 + 10) = 7.0 \\times 10^5\\text{ N}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_174.png]\n\nThe vertical equation of motion for upward blast is:\n$$F_{\\text{thrust}} - mg = ma$$\n$$F_{\\text{thrust}} = m(g + a)$$\n\nGiven:\n- $m = 3.5 \\times 10^4\\text{ kg}$\n- $a = 10\\text{ m/s}^2$\n- $g = 10\\text{ m/s}^2$\n\n$$F_{\\text{thrust}} = 3.5 \\times 10^4 \\times (10 + 10) = 7.0 \\times 10^5\\text{ N}$$\n\nHence, the correct option is B.",
     "year": "2003",
     "shift": null,
     "date": null
   },
   {
-    "q": "Three forces start acting simultaneously on a particle moving with velocity $\\vec{v}$. These forces are represented in magnitude and direction by the three sides of a triangle ABC. The particle will now move with a velocity of:\n\n[IMG: jee_phy_nlom_img_181.png]",
+    "q": "Three forces start acting simultaneously on a particle moving with velocity $\\vec{v}$. These forces are represented in magnitude and direction by the three sides of a triangle ABC. The particle will now move with a velocity of:\n\n[IMG: jee_phy_nlom_img_175.png]",
     "type": "mcq",
     "options": [
       "less than $\\vec{v}$",
@@ -2424,7 +2424,7 @@
       "$49\\text{ N}$"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_182.png]\n\n1) Find the true mass $m$ of the bag from the stationary reading ($g = 9.8\\text{ m/s}^2$):\n$$W_1 = mg = 49\\text{ N}$$\n$$m = \\frac{49}{9.8} = 5\\text{ kg}$$\n\n2) When the lift descends with downward acceleration $a = 5\\text{ m/s}^2$, the effective apparent weight $W_2$ is:\n$$W_2 = m(g - a) = 5(9.8 - 5) = 5 \\times 4.8 = 24\\text{ N}$$\n\nHence, the correct option is A.",
+    "explanation": "[IMG: jee_phy_nlom_img_176.png]\n\n1) Find the true mass $m$ of the bag from the stationary reading ($g = 9.8\\text{ m/s}^2$):\n$$W_1 = mg = 49\\text{ N}$$\n$$m = \\frac{49}{9.8} = 5\\text{ kg}$$\n\n2) When the lift descends with downward acceleration $a = 5\\text{ m/s}^2$, the effective apparent weight $W_2$ is:\n$$W_2 = m(g - a) = 5(9.8 - 5) = 5 \\times 4.8 = 24\\text{ N}$$\n\nHence, the correct option is A.",
     "year": "2003",
     "shift": null,
     "date": null
@@ -2454,13 +2454,13 @@
       "both the scales read M/2 kg each"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_183.png]\n\nSince both spring balances are massless (light), they act as a single continuous transmitting medium under the tension force. \nThe tension throughout the string support system is constant and equals the weight of the hanging block $Mg$.\nTherefore, both spring balances will experience the same stretching force and register the same reading of $M\\text{ kg}$ each.",
+    "explanation": "[IMG: jee_phy_nlom_img_177.png]\n\nSince both spring balances are massless (light), they act as a single continuous transmitting medium under the tension force. \nThe tension throughout the string support system is constant and equals the weight of the hanging block $Mg$.\nTherefore, both spring balances will experience the same stretching force and register the same reading of $M\\text{ kg}$ each.",
     "year": "2003",
     "shift": null,
     "date": null
   },
   {
-    "q": "A horizontal force of $10\\text{ N}$ is necessary to just hold a block stationary against a wall. The coefficient of friction between the block and the wall is $0.2$. The weight of the block is:\n\n[IMG: jee_phy_nlom_img_184.png]",
+    "q": "A horizontal force of $10\\text{ N}$ is necessary to just hold a block stationary against a wall. The coefficient of friction between the block and the wall is $0.2$. The weight of the block is:\n\n[IMG: jee_phy_nlom_img_178.png]",
     "type": "mcq",
     "options": [
       "$20\\text{ N}$",
@@ -2484,7 +2484,7 @@
       "0.06"
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_185.png]\n\n1) Find the deceleration of the marble block:\n$$v = u + at$$\n$$0 = 6 + a(10) \\implies a = -0.6\\text{ m/s}^2$$\n\n2) On a flat surface, the deceleration is caused solely by kinetic friction:\n$$a = -\\mu_k g$$\n$$-0.6 = -\\mu_k (10) \\implies \\mu_k = 0.06$$\n\nHence, the correct option is D.",
+    "explanation": "[IMG: jee_phy_nlom_img_179.png]\n\n1) Find the deceleration of the marble block:\n$$v = u + at$$\n$$0 = 6 + a(10) \\implies a = -0.6\\text{ m/s}^2$$\n\n2) On a flat surface, the deceleration is caused solely by kinetic friction:\n$$a = -\\mu_k g$$\n$$-0.6 = -\\mu_k (10) \\implies \\mu_k = 0.06$$\n\nHence, the correct option is D.",
     "year": "2003",
     "shift": null,
     "date": null
@@ -2499,7 +2499,7 @@
       "all same"
     ],
     "answer": 4,
-    "explanation": "[IMG: jee_phy_nlom_img_186.png]\n\nSince the inclined plane is frictionless, there is no tangential force to produce torque and initiate rolling motion. Consequently, all bodies will undergo pure translational sliding.\n\nThe acceleration of any sliding body down a frictionless incline of angle $\\theta$ is:\n$$a = g \\sin \\theta$$\n\nSince this acceleration is independent of mass, radius, and shape configuration (moment of inertia), all three bodies will slide down with the **same acceleration**.",
+    "explanation": "[IMG: jee_phy_nlom_img_180.png]\n\nSince the inclined plane is frictionless, there is no tangential force to produce torque and initiate rolling motion. Consequently, all bodies will undergo pure translational sliding.\n\nThe acceleration of any sliding body down a frictionless incline of angle $\\theta$ is:\n$$a = g \\sin \\theta$$\n\nSince this acceleration is independent of mass, radius, and shape configuration (moment of inertia), all three bodies will slide down with the **same acceleration**.",
     "year": "2002",
     "shift": null,
     "date": null
@@ -2514,13 +2514,13 @@
       "$a, g$"
     ],
     "answer": 3,
-    "explanation": "[IMG: jee_phy_nlom_img_187.png]\n\n- For a stationary observer on the ground (inertial frame), the ball falls under gravity alone with downward acceleration $g$.\n- For the observer inside the descending lift (non-inertial frame with downward acceleration $a$), the acceleration of the ball is measured relative to the lift:\n$$a_{\\text{rel}} = a_{\\text{ball}} - a_{\\text{lift}} = g - a$$\n\nTherefore, the observed accelerations are $g - a$ and $g$ respectively. Hence, the correct option is C.",
+    "explanation": "[IMG: jee_phy_nlom_img_181.png]\n\n- For a stationary observer on the ground (inertial frame), the ball falls under gravity alone with downward acceleration $g$.\n- For the observer inside the descending lift (non-inertial frame with downward acceleration $a$), the acceleration of the ball is measured relative to the lift:\n$$a_{\\text{rel}} = a_{\\text{ball}} - a_{\\text{lift}} = g - a$$\n\nTherefore, the observed accelerations are $g - a$ and $g$ respectively. Hence, the correct option is C.",
     "year": "2002",
     "shift": null,
     "date": null
   },
   {
-    "q": "When forces $F_1, F_2, F_3$ are acting on a particle of mass m such that $F_2$ and $F_3$ are mutually perpendicular, then the particle remains stationary. If the force $F_1$ is now removed then the acceleration of the particle is:\n\n[IMG: jee_phy_nlom_img_188.png]\n\n[IMG: jee_phy_nlom_img_189.png]",
+    "q": "When forces $F_1, F_2, F_3$ are acting on a particle of mass m such that $F_2$ and $F_3$ are mutually perpendicular, then the particle remains stationary. If the force $F_1$ is now removed then the acceleration of the particle is:\n\n[IMG: jee_phy_nlom_img_182.png]\n\n[IMG: jee_phy_nlom_img_183.png]",
     "type": "mcq",
     "options": [
       "$F_1 / m$",
@@ -2529,7 +2529,7 @@
       "$F_2 / m$"
     ],
     "answer": 1,
-    "explanation": "[IMG: jee_phy_nlom_img_190.png]\n\nSince the particle is initially stationary under the action of all three forces:\n$$\\vec{F}_1 + \\vec{F}_2 + \\vec{F}_3 = 0 \\implies \\vec{F}_2 + \\vec{F}_3 = -\\vec{F}_1$$\n\nThe magnitude of the resultant of $\\vec{F}_2$ and $\\vec{F}_3$ is:\n$$|\\vec{F}_2 + \\vec{F}_3| = |-\\vec{F}_1| = F_1$$\n\nWhen the force $\\vec{F}_1$ is removed, the remaining net force acting on the particle is the resultant of $\\vec{F}_2$ and $\\vec{F}_3$, which has a magnitude of $F_1$. Thus, the acceleration is:\n$$a = \\frac{F_{\\text{net}}}{m} = \\frac{F_1}{m}$$\n\nHence, the correct option is A.",
+    "explanation": "[IMG: jee_phy_nlom_img_184.png]\n\nSince the particle is initially stationary under the action of all three forces:\n$$\\vec{F}_1 + \\vec{F}_2 + \\vec{F}_3 = 0 \\implies \\vec{F}_2 + \\vec{F}_3 = -\\vec{F}_1$$\n\nThe magnitude of the resultant of $\\vec{F}_2$ and $\\vec{F}_3$ is:\n$$|\\vec{F}_2 + \\vec{F}_3| = |-\\vec{F}_1| = F_1$$\n\nWhen the force $\\vec{F}_1$ is removed, the remaining net force acting on the particle is the resultant of $\\vec{F}_2$ and $\\vec{F}_3$, which has a magnitude of $F_1$. Thus, the acceleration is:\n$$a = \\frac{F_{\\text{net}}}{m} = \\frac{F_1}{m}$$\n\nHence, the correct option is A.",
     "year": "2002",
     "shift": null,
     "date": null
@@ -2544,7 +2544,7 @@
       "$16\\text{ N}, 2\\text{ N}$"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_191.png]\n\nLet the two forces be $F_1$ (larger force) and $F_2$ (smaller force).\n\n1) We are given:\n$$F_1 + F_2 = 18 \\quad \\dots (i)$$\n\n2) Since the resultant $R = 12\\text{ N}$ is perpendicular to the smaller force $F_2$:\n$$F_1^2 = F_2^2 + R^2 \\implies F_1^2 - F_2^2 = R^2$$\n$$(F_1 - F_2)(F_1 + F_2) = 12^2 = 144$$\n\nSubstituting $F_1 + F_2 = 18$:\n$$(F_1 - F_2) \\times 18 = 144 \\implies F_1 - F_2 = 8 \\quad \\dots (ii)$$\n\n3) Solving equations (i) and (ii):\n$$2F_1 = 26 \\implies F_1 = 13\\text{ N}$$\n$$F_2 = 13 - 8 = 5\\text{ N}$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_185.png]\n\nLet the two forces be $F_1$ (larger force) and $F_2$ (smaller force).\n\n1) We are given:\n$$F_1 + F_2 = 18 \\quad \\dots (i)$$\n\n2) Since the resultant $R = 12\\text{ N}$ is perpendicular to the smaller force $F_2$:\n$$F_1^2 = F_2^2 + R^2 \\implies F_1^2 - F_2^2 = R^2$$\n$$(F_1 - F_2)(F_1 + F_2) = 12^2 = 144$$\n\nSubstituting $F_1 + F_2 = 18$:\n$$(F_1 - F_2) \\times 18 = 144 \\implies F_1 - F_2 = 8 \\quad \\dots (ii)$$\n\n3) Solving equations (i) and (ii):\n$$2F_1 = 26 \\implies F_1 = 13\\text{ N}$$\n$$F_2 = 13 - 8 = 5\\text{ N}$$\n\nHence, the correct option is B.",
     "year": "2002",
     "shift": null,
     "date": null
@@ -2614,13 +2614,13 @@
     "type": "integer",
     "options": [],
     "answer": 21,
-    "explanation": "[IMG: jee_phy_nlom_img_192.png]\n\nTo find the maximum horizontal force applied to the larger block so they move together without relative sliding:\n\nThe limiting friction force between the two blocks is:\n$$f_{s,\\text{max}} = \\mu m g$$\n\nThe maximum acceleration of the block $m$ is:\n$$a_{\\text{max}} = \\frac{f_{s,\\text{max}}}{m} = \\mu g = \\frac{3}{7} \\times 9.8 = 4.2\\text{ m/s}^2$$\n\nApplying Newton's second law on the combined system ($M + m$):\n$$F_{\\text{max}} = (M + m) a_{\\text{max}}$$\n$$F_{\\text{max}} = (4.5 + 0.5) \\times 4.2 = 5 \\times 4.2 = 21\\text{ N}$$\n\nHence, the maximum horizontal force is $21\\text{ N}$.",
+    "explanation": "[IMG: jee_phy_nlom_img_186.png]\n\nTo find the maximum horizontal force applied to the larger block so they move together without relative sliding:\n\nThe limiting friction force between the two blocks is:\n$$f_{s,\\text{max}} = \\mu m g$$\n\nThe maximum acceleration of the block $m$ is:\n$$a_{\\text{max}} = \\frac{f_{s,\\text{max}}}{m} = \\mu g = \\frac{3}{7} \\times 9.8 = 4.2\\text{ m/s}^2$$\n\nApplying Newton's second law on the combined system ($M + m$):\n$$F_{\\text{max}} = (M + m) a_{\\text{max}}$$\n$$F_{\\text{max}} = (4.5 + 0.5) \\times 4.2 = 5 \\times 4.2 = 21\\text{ N}$$\n\nHence, the maximum horizontal force is $21\\text{ N}$.",
     "year": "2021",
     "shift": "Morning",
     "date": "17th March"
   },
   {
-    "q": "A block of mass m slides along a floor, while a force of magnitude F is applied to it at an angle $\\theta$ as shown in the figure. The coefficient of kinetic friction is $\\mu_k$. Then, the block's acceleration a is given by (g is acceleration due to gravity):\n\n[IMG: jee_phy_nlom_img_193.png]",
+    "q": "A block of mass m slides along a floor, while a force of magnitude F is applied to it at an angle $\\theta$ as shown in the figure. The coefficient of kinetic friction is $\\mu_k$. Then, the block's acceleration a is given by (g is acceleration due to gravity):\n\n[IMG: jee_phy_nlom_img_187.png]",
     "type": "mcq",
     "options": [
       "$-\\frac{F}{m}\\cos\\theta - \\mu_k(g - \\frac{F}{m}\\sin\\theta)$",
@@ -2629,13 +2629,13 @@
       "$\\frac{F}{m}\\cos\\theta + \\mu_k(g - \\frac{F}{m}\\sin\\theta)$"
     ],
     "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_194.png]\n\nLet us resolve the force $F$ into components parallel and perpendicular to the floor:\n\n1) Vertical force balance:\n$$N + F \\sin \\theta = mg \\implies N = mg - F \\sin \\theta$$\n\n2) Horizontal force equation of motion:\n$$F \\cos \\theta - f_k = ma$$\n$$F \\cos \\theta - \\mu_k N = ma$$\n$$F \\cos \\theta - \\mu_k(mg - F \\sin \\theta) = ma$$\n\nDividing both sides by $m$:\n$$a = \\frac{F}{m}\\cos\\theta - \\mu_k\\left(g - \\frac{F}{m}\\sin\\theta\\right)$$\n\nHence, the correct option is B.",
+    "explanation": "[IMG: jee_phy_nlom_img_188.png]\n\nLet us resolve the force $F$ into components parallel and perpendicular to the floor:\n\n1) Vertical force balance:\n$$N + F \\sin \\theta = mg \\implies N = mg - F \\sin \\theta$$\n\n2) Horizontal force equation of motion:\n$$F \\cos \\theta - f_k = ma$$\n$$F \\cos \\theta - \\mu_k N = ma$$\n$$F \\cos \\theta - \\mu_k(mg - F \\sin \\theta) = ma$$\n\nDividing both sides by $m$:\n$$a = \\frac{F}{m}\\cos\\theta - \\mu_k\\left(g - \\frac{F}{m}\\sin\\theta\\right)$$\n\nHence, the correct option is B.",
     "year": "2021",
     "shift": "Morning",
     "date": "16th March"
   },
   {
-    "q": "A given object takes n times more time to slide down a $45^\\circ$ rough inclined plane as it takes to slide down a perfectly smooth $45^\\circ$ incline. The coefficient of kinetic friction between the object and the incline is :\n\n[IMG: jee_phy_nlom_img_195.png]",
+    "q": "A given object takes n times more time to slide down a $45^\\circ$ rough inclined plane as it takes to slide down a perfectly smooth $45^\\circ$ incline. The coefficient of kinetic friction between the object and the incline is :\n\n[IMG: jee_phy_nlom_img_189.png]",
     "type": "mcq",
     "options": [
       "$\\sqrt{1 - \\frac{1}{n^2}}$",
