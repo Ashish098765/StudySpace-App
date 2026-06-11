@@ -1230,6 +1230,31 @@
     "date": "16th March"
   },
   {
+    "q": "Two blocks ($m = 0.5\\text{ kg}$ and $M = 4.5\\text{ kg}$) are arranged on a horizontal frictionless table as shown in the figure. The coefficient of static friction between the two blocks is $\\frac{3}{7}$. Then, the maximum horizontal force that can be applied on the larger block so that the blocks move together is ______ N. (Round off to the nearest integer. Take, $g = 9.8\\text{ m/s}^{-2}$):",
+    "type": "integer",
+    "options": [],
+    "answer": 21,
+    "explanation": "[IMG: jee_phy_nlom_img_186.png]\n\nTo find the maximum horizontal force applied to the larger block so they move together without relative sliding:\n\nThe limiting friction force between the two blocks is:\n$$f_{s,\\text{max}} = \\mu m g$$\n\nThe maximum acceleration of the block $m$ is:\n$$a_{\\text{max}} = \\frac{f_{s,\\text{max}}}{m} = \\mu g = \\frac{3}{7} \\times 9.8 = 4.2\\text{ m/s}^2$$\n\nApplying Newton's second law on the combined system ($M + m$):\n$$F_{\\text{max}} = (M + m) a_{\\text{max}}$$\n$$F_{\\text{max}} = (4.5 + 0.5) \\times 4.2 = 5 \\times 4.2 = 21\\text{ N}$$\n\nHence, the maximum horizontal force is $21\\text{ N}$.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "17th March"
+  },
+  {
+    "q": "A block of mass m slides along a floor, while a force of magnitude F is applied to it at an angle $\\theta$ as shown in the figure. The coefficient of kinetic friction is $\\mu_k$. Then, the block's acceleration a is given by (g is acceleration due to gravity):\n\n[IMG: jee_phy_nlom_img_187.png]",
+    "type": "mcq",
+    "options": [
+      "$-\\frac{F}{m}\\cos\\theta - \\mu_k(g - \\frac{F}{m}\\sin\\theta)$",
+      "$\\frac{F}{m}\\cos\\theta - \\mu_k(g - \\frac{F}{m}\\sin\\theta)$",
+      "$\\frac{F}{m}\\cos\\theta - \\mu_k(g + \\frac{F}{m}\\sin\\theta)$",
+      "$\\frac{F}{m}\\cos\\theta + \\mu_k(g - \\frac{F}{m}\\sin\\theta)$"
+    ],
+    "answer": 2,
+    "explanation": "[IMG: jee_phy_nlom_img_188.png]\n\nLet us resolve the force $F$ into components parallel and perpendicular to the floor:\n\n1) Vertical force balance:\n$$N + F \\sin \\theta = mg \\implies N = mg - F \\sin \\theta$$\n\n2) Horizontal force equation of motion:\n$$F \\cos \\theta - f_k = ma$$\n$$F \\cos \\theta - \\mu_k N = ma$$\n$$F \\cos \\theta - \\mu_k(mg - F \\sin \\theta) = ma$$\n\nDividing both sides by $m$:\n$$a = \\frac{F}{m}\\cos\\theta - \\mu_k\\left(g - \\frac{F}{m}\\sin\\theta\\right)$$\n\nHence, the correct option is B.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "16th March"
+  },
+  {
     "q": "A modern grand-prix racing car of mass m is travelling on a flat track in a circular arc of radius R with a speed v. If the coefficient of static friction between the tyres and the track is $\\mu_s$, then the magnitude of the negative lift $f_L$ acting downwards on the car is (Assume forces on the four tyres are identical and g = acceleration due to gravity):\n\n[IMG: jee_phy_nlom_img_087.png]",
     "type": "mcq",
     "options": [
@@ -1750,6 +1775,21 @@
     ],
     "answer": 4,
     "explanation": "[IMG: jee_phy_nlom_img_129.png]\n\n1) Write equation of motion when the block slides down:\n$$mg \\sin 30^\\circ - f = ma$$\n$$2(10)(0.5) - f = 2(3)$$\n$$10 - f = 6 \\implies f = 4\\text{ N}$$\n\n2) Write equation of motion when the block is pushed up with the same acceleration:\n$$F - mg \\sin 30^\\circ - f = ma$$\n$$F - 10 - 4 = 2(3)$$\n$$F - 14 = 6 \\implies F = 20\\text{ N}$$\n\nHence, the correct option is D.",
+    "year": "2018",
+    "shift": "Morning",
+    "date": "15th April"
+  },
+  {
+    "q": "A given object takes n times more time to slide down a $45^\\circ$ rough inclined plane as it takes to slide down a perfectly smooth $45^\\circ$ incline. The coefficient of kinetic friction between the object and the incline is :\n\n[IMG: jee_phy_nlom_img_189.png]",
+    "type": "mcq",
+    "options": [
+      "$\\sqrt{1 - \\frac{1}{n^2}}$",
+      "$1 - \\frac{1}{n^2}$",
+      "$\\frac{1}{2 - n^2}$",
+      "$\\sqrt{\\frac{1}{1-n^2}}$"
+    ],
+    "answer": 2,
+    "explanation": "Let $t_1$ be the time taken to slide down the smooth inclined plane and $t_2$ be the time taken to slide down the rough inclined plane. We are given:\n$$t_2 = n t_1$$\n\nSince the sliding distance $s$ is identical in both cases:\n- Acceleration on smooth plane: $a_1 = g \\sin \\theta$\n- Acceleration on rough plane: $a_2 = g \\sin \\theta - \\mu_k g \\cos \\theta$\n\nUsing $s = \\frac{1}{2} a t^2 \\implies t \\propto \\frac{1}{\\sqrt{a}}$:\n$$\\frac{t_2}{t_1} = \\sqrt{\\frac{a_1}{a_2}} = n$$\n$$\\frac{a_1}{a_2} = n^2 \\implies a_1 = n^2 a_2$$\n$$g \\sin \\theta = n^2 (g \\sin \\theta - \\mu_k g \\cos \\theta)$$\n\nWith $\\theta = 45^\\circ$, we have $\\sin 45^\\circ = \\cos 45^\\circ$, which simplifies the relation to:\n$$1 = n^2 (1 - \\mu_k)$$\n$$1 - \\mu_k = \\frac{1}{n^2} \\implies \\mu_k = 1 - \\frac{1}{n^2}$$\n\nHence, the correct option is B.",
     "year": "2018",
     "shift": "Morning",
     "date": "15th April"
@@ -2608,45 +2648,5 @@
     "year": "2002",
     "shift": null,
     "date": null
-  },
-  {
-    "q": "Two blocks ($m = 0.5\\text{ kg}$ and $M = 4.5\\text{ kg}$) are arranged on a horizontal frictionless table as shown in the figure. The coefficient of static friction between the two blocks is $\\frac{3}{7}$. Then, the maximum horizontal force that can be applied on the larger block so that the blocks move together is ______ N. (Round off to the nearest integer. Take, $g = 9.8\\text{ m/s}^{-2}$):",
-    "type": "integer",
-    "options": [],
-    "answer": 21,
-    "explanation": "[IMG: jee_phy_nlom_img_186.png]\n\nTo find the maximum horizontal force applied to the larger block so they move together without relative sliding:\n\nThe limiting friction force between the two blocks is:\n$$f_{s,\\text{max}} = \\mu m g$$\n\nThe maximum acceleration of the block $m$ is:\n$$a_{\\text{max}} = \\frac{f_{s,\\text{max}}}{m} = \\mu g = \\frac{3}{7} \\times 9.8 = 4.2\\text{ m/s}^2$$\n\nApplying Newton's second law on the combined system ($M + m$):\n$$F_{\\text{max}} = (M + m) a_{\\text{max}}$$\n$$F_{\\text{max}} = (4.5 + 0.5) \\times 4.2 = 5 \\times 4.2 = 21\\text{ N}$$\n\nHence, the maximum horizontal force is $21\\text{ N}$.",
-    "year": "2021",
-    "shift": "Morning",
-    "date": "17th March"
-  },
-  {
-    "q": "A block of mass m slides along a floor, while a force of magnitude F is applied to it at an angle $\\theta$ as shown in the figure. The coefficient of kinetic friction is $\\mu_k$. Then, the block's acceleration a is given by (g is acceleration due to gravity):\n\n[IMG: jee_phy_nlom_img_187.png]",
-    "type": "mcq",
-    "options": [
-      "$-\\frac{F}{m}\\cos\\theta - \\mu_k(g - \\frac{F}{m}\\sin\\theta)$",
-      "$\\frac{F}{m}\\cos\\theta - \\mu_k(g - \\frac{F}{m}\\sin\\theta)$",
-      "$\\frac{F}{m}\\cos\\theta - \\mu_k(g + \\frac{F}{m}\\sin\\theta)$",
-      "$\\frac{F}{m}\\cos\\theta + \\mu_k(g - \\frac{F}{m}\\sin\\theta)$"
-    ],
-    "answer": 2,
-    "explanation": "[IMG: jee_phy_nlom_img_188.png]\n\nLet us resolve the force $F$ into components parallel and perpendicular to the floor:\n\n1) Vertical force balance:\n$$N + F \\sin \\theta = mg \\implies N = mg - F \\sin \\theta$$\n\n2) Horizontal force equation of motion:\n$$F \\cos \\theta - f_k = ma$$\n$$F \\cos \\theta - \\mu_k N = ma$$\n$$F \\cos \\theta - \\mu_k(mg - F \\sin \\theta) = ma$$\n\nDividing both sides by $m$:\n$$a = \\frac{F}{m}\\cos\\theta - \\mu_k\\left(g - \\frac{F}{m}\\sin\\theta\\right)$$\n\nHence, the correct option is B.",
-    "year": "2021",
-    "shift": "Morning",
-    "date": "16th March"
-  },
-  {
-    "q": "A given object takes n times more time to slide down a $45^\\circ$ rough inclined plane as it takes to slide down a perfectly smooth $45^\\circ$ incline. The coefficient of kinetic friction between the object and the incline is :\n\n[IMG: jee_phy_nlom_img_189.png]",
-    "type": "mcq",
-    "options": [
-      "$\\sqrt{1 - \\frac{1}{n^2}}$",
-      "$1 - \\frac{1}{n^2}$",
-      "$\\frac{1}{2 - n^2}$",
-      "$\\sqrt{\\frac{1}{1-n^2}}$"
-    ],
-    "answer": 2,
-    "explanation": "Let $t_1$ be the time taken to slide down the smooth inclined plane and $t_2$ be the time taken to slide down the rough inclined plane. We are given:\n$$t_2 = n t_1$$\n\nSince the sliding distance $s$ is identical in both cases:\n- Acceleration on smooth plane: $a_1 = g \\sin \\theta$\n- Acceleration on rough plane: $a_2 = g \\sin \\theta - \\mu_k g \\cos \\theta$\n\nUsing $s = \\frac{1}{2} a t^2 \\implies t \\propto \\frac{1}{\\sqrt{a}}$:\n$$\\frac{t_2}{t_1} = \\sqrt{\\frac{a_1}{a_2}} = n$$\n$$\\frac{a_1}{a_2} = n^2 \\implies a_1 = n^2 a_2$$\n$$g \\sin \\theta = n^2 (g \\sin \\theta - \\mu_k g \\cos \\theta)$$\n\nWith $\\theta = 45^\\circ$, we have $\\sin 45^\\circ = \\cos 45^\\circ$, which simplifies the relation to:\n$$1 = n^2 (1 - \\mu_k)$$\n$$1 - \\mu_k = \\frac{1}{n^2} \\implies \\mu_k = 1 - \\frac{1}{n^2}$$\n\nHence, the correct option is B.",
-    "year": "2018",
-    "shift": "Morning",
-    "date": "15th April"
   }
 ]
