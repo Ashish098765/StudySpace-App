@@ -1,0 +1,262 @@
+[
+  {
+    "q": "A force $\\vec{f} = x^2 y \\hat{i} + y^2 \\hat{j}$ acts on a particle in a plane $x + y = 10$. The work done by this force during a displacement from $(0, 0)$ to $(4\\text{ m}, 2\\text{ m})$ is _________ Joule (round off to the nearest integer)",
+    "type": "integer",
+    "options": [],
+    "answer": 152,
+    "explanation": "To calculate the work done by the force $\\vec{f} = x^2 y \\hat{i} + y^2 \\hat{j}$ along the constrained path $x + y = 10$:\n\nWe can express $y$ in terms of $x$ for the first component:\n$$y = 10 - x$$\n\nThe work done $W$ is the line integral of the force:\n$$W = \\int \\vec{f} \\cdot d\\vec{r} = \\int_{0}^{4} x^2 y \\, dx + \\int_{0}^{2} y^2 \\, dy$$\n\nSubstitute $y = 10 - x$ into the first integral:\n$$W = \\int_{0}^{4} x^2(10 - x) \\, dx + \\int_{0}^{2} y^2 \\, dy$$\n\nCalculate the first integral:\n$$\\int_{0}^{4} (10x^2 - x^3) \\, dx = \\left[ \\frac{10x^3}{3} - \\frac{x^4}{4} \\right]_{0}^{4} = \\left( \\frac{10(64)}{3} - \\frac{256}{4} \\right) - 0 = \\frac{640}{3} - 64$$\n\nCalculate the second integral:\n$$\\int_{0}^{2} y^2 \\, dy = \\left[ \\frac{y^3}{3} \\right]_{0}^{2} = \\frac{8}{3}$$\n\nCombine the results:\n$$W = \\left( \\frac{640}{3} - 64 \\right) + \\frac{8}{3} = \\frac{648}{3} - 64 = 216 - 64 = 152\\text{ J}$$",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "23rd January"
+  },
+  {
+    "q": "In a hydraulic lift, the surface area of the input piston is $6\\text{ cm}^2$ and that of the output piston is $1500\\text{ cm}^2$. If $100\\text{ N}$ force is applied to the input piston to raise the output piston by $20\\text{ cm}$, then the work done is _______ kJ.\n\n[IMG: hydraulic_lift_diagram]",
+    "type": "integer",
+    "options": [],
+    "answer": 5,
+    "explanation": "Using Pascal's principle for the hydraulic lift:\n$$\\frac{F_1}{A_1} = \\frac{F_2}{A_2}$$\n\nGiven:\n- $F_1 = 100\\text{ N}$\n- $A_1 = 6\\text{ cm}^2$\n- $A_2 = 1500\\text{ cm}^2$\n\n$$\\frac{100}{6} = \\frac{F_2}{1500} \\implies F_2 = \\frac{100 \\times 1500}{6} = 25000\\text{ N} = 25 \\times 10^3\\text{ N}$$\n\nThe displacement of the output piston is $d = 20\\text{ cm} = 0.2\\text{ m}$.\n\nThe work done is:\n$$W = F_2 \\times d = (25 \\times 10^3\\text{ N}) \\times 0.2\\text{ m} = 5000\\text{ J} = 5\\text{ kJ}$$",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "29th January"
+  },
+  {
+    "q": "A force $\\vec{F} = 2\\hat{i} + b\\hat{j} + \\hat{k}$ is applied on a particle and it undergoes a displacement $\\vec{d} = \\hat{i} - 2\\hat{j} - \\hat{k}$. What will be the value of $b$, if work done on the particle is zero.",
+    "type": "mcq",
+    "options": [
+      "$\\frac{1}{3}$",
+      "$\\frac{1}{2}$",
+      "0",
+      "2"
+    ],
+    "answer": 2,
+    "explanation": "The work done by a force during a displacement is given by their dot product:\n$$W = \\vec{F} \\cdot \\vec{d}$$\n\nSubstituting the given vectors:\n$$W = (2\\hat{i} + b\\hat{j} + \\hat{k}) \\cdot (\\hat{i} - 2\\hat{j} - \\hat{k}) = 2(1) + b(-2) + 1(-1)$$\n$$W = 2 - 2b - 1 = 1 - 2b$$\n\nSince the work done is zero:\n$$1 - 2b = 0 \\implies 2b = 1 \\implies b = \\frac{1}{2}$$\n\nHence, the correct option is B.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "22nd January"
+  },
+  {
+    "q": "A ball having kinetic energy KE, is projected at an angle of $60^\\circ$ from the horizontal. What will be the kinetic energy of ball at the highest point of its flight?",
+    "type": "mcq",
+    "options": [
+      "$\\frac{\\text{KE}}{2}$",
+      "$\\frac{\\text{KE}}{8}$",
+      "$\\frac{\\text{KE}}{4}$",
+      "$\\frac{\\text{KE}}{16}$"
+    ],
+    "answer": 3,
+    "explanation": "Let the initial velocity of projection be $v$. The initial kinetic energy is:\n$$\\text{KE} = \\frac{1}{2}mv^2$$\n\nAt the highest point of its projectile flight, the vertical component of velocity becomes zero ($v_y = 0$), while the horizontal component remains unchanged:\n$$v_x = v \\cos 60^\\circ = \\frac{v}{2}$$\n\nTherefore, the kinetic energy at the highest point is purely due to the horizontal velocity component:\n$$\\text{KE}_{top} = \\frac{1}{2} m v_x^2 = \\frac{1}{2} m \\left(\\frac{v}{2}\\right)^2 = \\frac{1}{4} \\left( \\frac{1}{2} m v^2 \\right) = \\frac{\\text{KE}}{4}$$\n\nHence, the correct option is C.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "23rd January"
+  },
+  {
+    "q": "A force $F = \\alpha + \\beta x^2$ acts on an object in the x-direction. The work done by the force is $5\\text{ J}$ when the object is displaced by $1\\text{ m}$. If the constant $\\alpha = 1\\text{ N}$ then $\\beta$ will be:",
+    "type": "mcq",
+    "options": [
+      "$15\\text{ N/m}^2$",
+      "$10\\text{ N/m}^2$",
+      "$12\\text{ N/m}^2$",
+      "$8\\text{ N/m}^2$"
+    ],
+    "answer": 3,
+    "explanation": "The work done by a variable force over a displacement from $x = 0$ to $x = 1\\text{ m}$ is:\n$$W = \\int_{0}^{1} F(x) \\, dx = \\int_{0}^{1} (\\alpha + \\beta x^2) \\, dx$$\n$$W = \\left[ \\alpha x + \\frac{\\beta x^3}{3} \\right]_{0}^{1} = \\alpha + \\frac{\\beta}{3}$$\n\nSubstitute the given values ($W = 5\\text{ J}$ and $\\alpha = 1\\text{ N}$):\n$$1 + \\frac{\\beta}{3} = 5$$\n$$\\frac{\\beta}{3} = 4 \\implies \\beta = 12\\text{ N/m}^2$$\n\nHence, the correct option is C.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "24th January"
+  },
+  {
+    "q": "Given below are two statements: one is labelled as Assertion A and the other is labelled as Reason R\n\nAssertion A: In a central force field, the work done is independent of the path chosen.\nReason R: Every force encountered in mechanics does not have an associated potential energy.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "A is false but R is true",
+      "Both A and R are true but R is NOT the correct explanation of A",
+      "A is true but R is false",
+      "Both A and R are true and R is the correct explanation of A"
+    ],
+    "answer": 2,
+    "explanation": "- Assertion A is true: Central forces are conservative forces, and for any conservative force field, the work done is path-independent.\n- Reason R is true: Only conservative forces have an associated potential energy function. Non-conservative forces (such as friction) do not have potential energy. However, Reason R is not the explanation for why central forces are path-independent.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "28th January"
+  },
+  {
+    "q": "A bead of mass $m$ slides without friction on the wall of a vertical circular hoop of radius $R$ as shown in the figure. The bead moves under the combined action of gravity and a massless spring ($k$) attached to the bottom of the hoop. The equilibrium length of the spring is $R$. If the bead is released from the top of the hoop with (negligible) zero initial speed, velocity of the bead, when the length of the spring becomes $R$, would be (spring constant is $k$, $g$ is acceleration due to gravity):\n\n[IMG: vertical_circular_hoop_bead_spring_diagram]",
+    "type": "mcq",
+    "options": [
+      "$\\sqrt{2Rg + \\frac{kR^2}{m}}$",
+      "$\\sqrt{3Rg + \\frac{kR^2}{m}}$",
+      "$\\sqrt{2Rg + \\frac{4kR^2}{m}}$",
+      "$2\\sqrt{gR + \\frac{kR^2}{m}}$"
+    ],
+    "answer": 2,
+    "explanation": "Let us analyze the initial and final states of the bead using conservation of mechanical energy:\n\n1) Initial position A (at the top of the hoop):\n- Vertical height (relative to the bottom as reference): $h_1 = 2R$\n- Initial speed: $v_1 = 0$\n- Spring length is $2R$. Since its natural/equilibrium length is $R$, elongation $x_1 = 2R - R = R$\n\n2) Final position B (where the spring length becomes $R$):\n- Spring is at its natural length, so elongation $x_2 = 0$\n- From geometry, the height of this position above the bottom is $h_2 = R/2$\n- Speed: $v_2 = v$\n\nBy Conservation of Mechanical Energy ($E_1 = E_2$):\n$$\\frac{1}{2} k x_1^2 + \\frac{1}{2} m v_1^2 + mgh_1 = \\frac{1}{2} k x_2^2 + \\frac{1}{2} m v_2^2 + mgh_2$$\n$$\\frac{1}{2} k R^2 + 0 + mg(2R) = 0 + \\frac{1}{2} m v^2 + mg \\left(\\frac{R}{2}\\right)$$\n$$\\frac{1}{2} k R^2 + 2mgR - \\frac{mgR}{2} = \\frac{1}{2} m v^2$$\n$$\\frac{1}{2} k R^2 + \\frac{3}{2} mgR = \\frac{1}{2} m v^2$$\n$$v^2 = 3gR + \\frac{kR^2}{m} \\implies v = \\sqrt{3gR + \\frac{kR^2}{m}}$$\n\nHence, the correct option is B.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "28th January"
+  },
+  {
+    "q": "A body of mass $4\\text{ kg}$ is placed on a plane at a point $P$ having coordinate $(3, 4)\\text{m}$. Under the action of force $\\vec{F} = (2\\hat{i} + 3\\hat{j})\\text{N}$, it moves to a new point $Q$ having coordinates $(6, 10)\\text{m}$ in $4\\text{ sec}$. The average power and instantaneous power at the end of $4\\text{ sec}$ are in the ratio of:",
+    "type": "mcq",
+    "options": [
+      "$4 : 3$",
+      "$13 : 6$",
+      "$1 : 2$",
+      "$6 : 13$"
+    ],
+    "answer": 4,
+    "explanation": "1) Calculate displacement $\\vec{S}$:\n$$\\vec{S} = \\vec{r}_f - \\vec{r}_i = (6-3)\\hat{i} + (10-4)\\hat{j} = 3\\hat{i} + 6\\hat{j}\\text{ m}$$\n\n2) Work done $W$:\n$$W = \\vec{F} \\cdot \\vec{S} = (2\\hat{i} + 3\\hat{j}) \\cdot (3\\hat{i} + 6\\hat{j}) = 6 + 18 = 24\\text{ J}$$\n\n3) Average power $\\langle P \\rangle$ over $t = 4\\text{ s}$:\n$$\\langle P \\rangle = \\frac{W}{t} = \\frac{24}{4} = 6\\text{ W}$$\n\n4) Acceleration of the body $\\vec{a}$:\n$$\\vec{a} = \\frac{\\vec{F}}{m} = \\frac{2\\hat{i} + 3\\hat{j}}{4} = 0.5\\hat{i} + 0.75\\hat{j}\\text{ m/s}^2$$\n\n5) Velocity at $t = 4\\text{ s}$ (starting from rest):\n$$\\vec{v} = \\vec{u} + \\vec{a}t = 0 + (0.5\\hat{i} + 0.75\\hat{j}) \\times 4 = 2\\hat{i} + 3\\hat{j}\\text{ m/s}$$\n\n6) Instantaneous power $P_{\\text{ins}}$ at $t = 4\\text{ s}$:\n$$P_{\\text{ins}} = \\vec{F} \\cdot \\vec{v} = (2\\hat{i} + 3\\hat{j}) \\cdot (2\\hat{i} + 3\\hat{j}) = 4 + 9 = 13\\text{ W}$$\n\nRatio:\n$$\\frac{\\langle P \\rangle}{P_{\\text{ins}}} = \\frac{6}{13}$$\n\nHence, the correct option is D.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "28th January"
+  },
+  {
+    "q": "A sand dropper drops sand of mass $m(t)$ on a conveyor belt at a rate proportional to the square root of speed ($v$) of the belt, i.e., $\\frac{dm}{dt} \\propto \\sqrt{v}$. If $P$ is the power delivered to run the belt at constant speed then which of the following relationship is true?",
+    "type": "mcq",
+    "options": [
+      "$P \\propto \\sqrt{v}$",
+      "$P \\propto v$",
+      "$P^2 \\propto v^3$",
+      "$P^2 \\propto v^5$"
+    ],
+    "answer": 4,
+    "explanation": "Given mass rate relation:\n$$\\frac{dm}{dt} = k\\sqrt{v}$$\n\nThe force required to keep the belt moving at a constant speed $v$ is:\n$$F = v \\frac{dm}{dt}$$\n\nThe power delivered $P$ is:\n$$P = F v = v^2 \\frac{dm}{dt}$$\n\nSubstituting $\\frac{dm}{dt}$:\n$$P = v^2 (k\\sqrt{v}) = k v^{5/2}$$\n\nSquaring both sides:\n$$P^2 \\propto v^5$$\n\nHence, the correct option is D.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "29th January"
+  },
+  {
+    "q": "A particle is released from height $S$ above the surface of the earth. At a certain height its kinetic energy is three times its potential energy. The height from the surface of the earth and the speed of the particle at that instant are respectively:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{S}{4}, \\frac{3gS}{2}$",
+      "$\\frac{S}{2}, \\frac{3gS}{2}$",
+      "$\\frac{S}{4}, \\sqrt{\\frac{3gS}{2}}$",
+      "$\\frac{S}{2}, \\sqrt{\\frac{3gS}{2}}$"
+    ],
+    "answer": 3,
+    "explanation": "Let the height of the particle from the surface of the Earth at this instant be $x$.\n\n1) Applying conservation of mechanical energy:\n$$E_{\\text{total}} = mgS$$\n\nAt height $x$:\n- Potential Energy: $U = mgx$\n- Kinetic Energy: $K = 3U = 3mgx$\n\n$$K + U = E_{\\text{total}} \\implies 3mgx + mgx = mgS$$\n$$4mgx = mgS \\implies x = \\frac{S}{4}$$\n\n2) Find speed $V$:\n$$K = \\frac{1}{2} m V^2 = 3mgx$$\n$$\\frac{1}{2} m V^2 = 3mg \\left( \\frac{S}{4} \\right) \\implies V^2 = \\frac{3gS}{2} \\implies V = \\sqrt{\\frac{3gS}{2}}$$\n\nHence, the correct option is C.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "3rd April"
+  },
+  {
+    "q": "A block of mass $25\\text{ kg}$ is pulled along a horizontal surface by a force at an angle $45^\\circ$ with the horizontal. The friction coefficient between the block and the surface is $0.25$. The block travels at a uniform velocity. The work done by the applied force during a displacement of $5\\text{ m}$ of the block is:\n\n[IMG: block_pulled_inclined_force_diagram]",
+    "type": "mcq",
+    "options": [
+      "$490\\text{ J}$",
+      "$970\\text{ J}$",
+      "$735\\text{ J}$",
+      "$245\\text{ J}$"
+    ],
+    "answer": 4,
+    "explanation": "Since the block moves with uniform velocity, its acceleration is zero ($a = 0$):\n\n1) Vertical force balance:\n$$N + F \\sin 45^\\circ = mg \\implies N = mg - \\frac{F}{\\sqrt{2}}$$\n\n2) Horizontal force balance:\n$$F \\cos 45^\\circ = f_k = \\mu N$$\n$$\\frac{F}{\\sqrt{2}} = \\mu \\left( mg - \\frac{F}{\\sqrt{2}} \\right)$$\n\nSubstituting $\\mu = 0.25$, $m = 25\\text{ kg}$, $g = 9.8\\text{ m/s}^2$:\n$$\\frac{F}{\\sqrt{2}} = 0.25 \\left( 25 \\times 9.8 - \\frac{F}{\\sqrt{2}} \\right)$$\n$$\\frac{F}{\\sqrt{2}} = 61.25 - 0.25 \\frac{F}{\\sqrt{2}}$$\n$$1.25 \\frac{F}{\\sqrt{2}} = 61.25 \\implies \\frac{F}{\\sqrt{2}} = 49 \\implies F = 49\\sqrt{2}\\text{ N}$$\n\n3) Calculate the work done by the applied force over $d = 5\\text{ m}$:\n$$W = F d \\cos 45^\\circ = F \\left(\\frac{1}{\\sqrt{2}}\\right) d = 49\\sqrt{2} \\times \\left(\\frac{1}{\\sqrt{2}}\\right) \\times 5 = 245\\text{ J}$$\n\nHence, the correct option is D.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "4th April"
+  },
+  {
+    "q": "An object of mass $1000\\text{ g}$ experiences a time dependent force $\\vec{F} = (2t\\hat{i} + 3t^2\\hat{j})\\text{ N}$. The power generated by the force at time $t$ is:",
+    "type": "mcq",
+    "options": [
+      "$(2t^2 + 18t^3)\\text{W}$",
+      "$(3t^3 + 5t^5)\\text{W}$",
+      "$(2t^3 + 3t^5)\\text{W}$",
+      "$(2t^2 + 3t^3)\\text{W}$"
+    ],
+    "answer": 3,
+    "explanation": "Given:\n- Mass, $m = 1000\\text{ g} = 1\\text{ kg}$\n- Force, $\\vec{F} = (2t\\hat{i} + 3t^2\\hat{j})\\text{ N}$\n\n1) Calculate acceleration vector $\\vec{a}$:\n$$\\vec{a} = \\frac{\\vec{F}}{m} = (2t\\hat{i} + 3t^2\\hat{j})\\text{ m/s}^2$$\n\n2) Integrate acceleration to find velocity vector $\\vec{v}$ (assuming starting from rest, $\\vec{u} = 0$):\n$$\\vec{v} = \\int \\vec{a} \\, dt = t^2\\hat{i} + t^3\\hat{j}$$\n\n3) Calculate power $P$ as the dot product of force and velocity:\n$$P = \\vec{F} \\cdot \\vec{v} = (2t\\hat{i} + 3t^2\\hat{j}) \\cdot (t^2\\hat{i} + t^3\\hat{j})$$\n$$P = 2t(t^2) + 3t^2(t^3) = (2t^3 + 3t^5)\\text{ W}$$\n\nHence, the correct option is C.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "7th April"
+  },
+  {
+    "q": "Which one of the following forces cannot be expressed in terms of potential energy?",
+    "type": "mcq",
+    "options": [
+      "Frictional force",
+      "Coulomb’s force",
+      "Restoring force",
+      "Gravitational force"
+    ],
+    "answer": 1,
+    "explanation": "Potential energy functions can only be defined for conservative forces (where work done is path-independent, e.g., Coulomb's force, spring restoring force, gravitational force). Frictional force is a non-conservative force which dissipates mechanical energy, so it cannot be expressed in terms of potential energy.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "7th April"
+  },
+  {
+    "q": "A spherical body of mass $2\\text{ kg}$ starting from rest acquires a kinetic energy of $10000\\text{J}$ at the end of $5^{\\text{th}}$ second. The force acted on the body is ___N.",
+    "type": "integer",
+    "options": [],
+    "answer": 40,
+    "explanation": "1) Find the final velocity $v$ at $t = 5\\text{ s}$:\n$$\\text{KE} = \\frac{1}{2} m v^2 = 10000$$\n$$\\frac{1}{2} (2) v^2 = 10000 \\implies v = 100\\text{ m/s}$$\n\n2) Since the body starts from rest ($u = 0$):\n$$v = ut + at$$\n$$100 = 0 + a(5) \\implies a = 20\\text{ m/s}^2$$\n\n3) Find force $F$:\n$$F = m a = 2 \\times 20 = 40\\text{ N}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "24th January"
+  },
+  {
+    "q": "A body of mass $1\\text{ kg}$ begins to move under the action of a time dependent force $\\vec{F} = (t\\hat{i} + 3t^2\\hat{j})\\text{ N}$, where $\\hat{i}$ and $\\hat{j}$ are the unit vectors along the x and y axes. The power developed by the above force, at the time $t = 2\\text{s}$ will be_____ W.",
+    "type": "integer",
+    "options": [],
+    "answer": 100,
+    "explanation": "Given:\n- Mass, $m = 1\\text{ kg}$\n- Force, $\\vec{F} = t\\hat{i} + 3t^2\\hat{j}\\text{ N}$\n\n1) Acceleration vector $\\vec{a}$:\n$$\\vec{a} = \\frac{\\vec{F}}{m} = (t\\hat{i} + 3t^2\\hat{j})\\text{ m/s}^2$$\n\n2) Integrate to find velocity vector $\\vec{v}$ (starting from rest):\n$$\\vec{v} = \\int_{0}^{t} (t\\hat{i} + 3t^2\\hat{j})\\, dt = \\frac{t^2}{2}\\hat{i} + t^3\\hat{j}\\text{ m/s}$$\n\n3) Power $P = \\vec{F} \\cdot \\vec{v}$:\n$$P = t \\left( \\frac{t^2}{2} \\right) + 3t^2(t^3) = \\frac{t^3}{2} + 3t^5$$\n\nAt $t = 2\\text{ s}$:\n$$P = \\frac{2^3}{2} + 3(2^5) = 4 + 3(32) = 4 + 96 = 100\\text{ W}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "24th January"
+  },
+  {
+    "q": "An object of mass 'm' initially at rest on a smooth horizontal plane starts moving under the action of force F = 2N. In the process of its linear motion, the angle $\\theta$ (as shown in figure) between the direction of force and horizontal varies as $\\theta = kx$, where k is a constant and x is the distance covered by the object from its initial position. The expression of kinetic energy of the object will be $E = n/k \\sin \\theta$. The value of n is _______.\n\n[IMG: force_angle_varies_incline_diagram]",
+    "type": "integer",
+    "options": [],
+    "answer": 2,
+    "explanation": "The horizontal component of the force driving the motion is $F \\cos \\theta$. \nUsing the work-energy theorem ($E = W$ starting from rest):\n$$E = \\int F \\cos \\theta \\, dx$$\n\nGiven $\\theta = kx \\implies dx = \\frac{d\\theta}{k}$:\n$$E = \\int_{0}^{\\theta} F \\cos \\theta \\left( \\frac{d\\theta}{k} \\right) = \\frac{F}{k} \\int_{0}^{\\theta} \\cos \\theta \\, d\\theta = \\frac{F}{k} \\sin \\theta$$\n\nSubstituting $F = 2\\text{ N}$:\n$$E = \\frac{2}{k} \\sin \\theta$$\n\nComparing with the expression $E = \\frac{n}{k} \\sin \\theta$, we get:\n$$n = 2$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "25th January"
+  },
+  {
+    "q": "A $0.4\\text{ kg}$ mass takes $8\\text{ s}$ to reach the ground when dropped from a certain height 'P' above the surface of the earth. The loss of potential energy in the last second of fall is ______ J. [Take $g = 10\\text{ m/s}^2$]",
+    "type": "integer",
+    "options": [],
+    "answer": 300,
+    "explanation": "1) Find the distance traveled by the dropping mass in the last second (the $8^{\\text{th}}$ second):\n$$S_n = u + \\frac{g}{2}(2n - 1)$$\n$$S_8 = 0 + \\frac{10}{2}(2 \\times 8 - 1) = 5(15) = 75\\text{ m}$$\n\n2) The loss of potential energy in this last second is equal to the work done by gravity:\n$$\\Delta U = m g S_8 = 0.4 \\times 10 \\times 75 = 300\\text{ J}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "29th January"
+  },
+  {
+    "q": "Identify the correct statements from the following:\n(A) Work done by a man in lifting a bucket out of a well by means of a rope tied to the bucket is negative.\n(B) Work done by gravitational force in lifting a bucket out of a well by a rope tied to the bucket is negative.\n(C) Work done by friction on a body sliding down an inclined plane is positive.\n(D) Work done by an applied force on a body moving on a rough horizontal plane with uniform velocity is zero.\n(E) Work done by the air resistance on an oscillating pendulum is negative.\n\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "B and E only",
+      "A and C only",
+      "B, D and E only",
+      "B and D only"
+    ],
+    "answer": 1,
+    "explanation": "- (A) is incorrect: The man exerts an upward pulling force and the bucket moves upward, so the work done is positive.\n- (B) is correct: Gravitational force is downwards while displacement is upwards, meaning the angle between them is $180^\\circ$ (negative work).\n- (C) is incorrect: Friction opposes the relative sliding down the incline, so the force is upwards while displacement is downwards (negative work).\n- (D) is incorrect: The applied force is in the direction of motion, so its work is positive (not zero).\n- (E) is correct: Air resistance always opposes the direction of motion of the pendulum bob (negative work).\n\nThus, statements (B) and (E) are correct.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "29th January"
+  },
+  {
+    "q": "A body of mass $2\\text{ kg}$ is initially at rest. It starts moving unidirectionally under the influence of a source of constant power P. Its displacement in $4\\text{ s}$ is $\\frac{1}{3}\\alpha^2\\sqrt{P}\\text{ m}$. The value of $\\alpha$ will be _______",
+    "type": "integer",
+    "options": [],
+    "answer": 4,
+    "explanation": "Since power $P$ is constant:\n$$P = F v = m v \\frac{dv}{dt}$$\n$$P \\, dt = m v \\, dv$$\n\nIntegrating both sides starting from rest ($v(0) = 0$):\n$$P t = \\frac{1}{2} m v^2 \\implies v = \\sqrt{\\frac{2P}{m}} t^{1/2}$$\n\nNow, integrate velocity to find the displacement $x$ at $t = 4\\text{ s}$:\n$$x = \\int_{0}^{4} v \\, dt = \\sqrt{\\frac{2P}{m}} \\int_{0}^{4} t^{1/2} \\, dt = \\sqrt{\\frac{2P}{m}} \\left[ \\frac{2}{3} t^{3/2} \\right]_{0}^{4}$$\n$$x = \\frac{2}{3} \\sqrt{\\frac{2P}{m}} (8) = \\frac{16}{3} \\sqrt{\\frac{2P}{m}}$$\n\nSubstitute mass $m = 2\\text{ kg}$:\n$$x = \\frac{16}{3} \\sqrt{\\frac{2P}{2}} = \\frac{16}{3} \\sqrt{P} = \\frac{1}{3} (4^2) \\sqrt{P}\\text{ m}$$\n\nComparing this with the given displacement expression $\\frac{1}{3}\\alpha^2\\sqrt{P}$:\n$$\\alpha = 4$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "30th January"
+  },
+  {
+    "q": "A body of mass $1\\text{ kg}$ collides head on elastically with a stationary body of mass $3\\text{ kg}$. After collision, the smaller body reverses its direction of motion and moves with a speed of $2\\text{ m/s}$. The initial speed of the smaller body before collision is _______ $\\text{ m/s}$.",
+    "type": "integer",
+    "options": [],
+    "answer": 4,
+    "explanation": "Let:\n- $m_1 = 1\\text{ kg}$, $u_1 = u$\n- $m_2 = 3\\text{ kg}$, $u_2 = 0$\n- $v_1 = -2\\text{ m/s}$ (velocity reversed)\n- $v_2 = v$\n\n1) From conservation of linear momentum:\n$$m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2$$\n$$1(u) + 0 = 1(-2) + 3v \\implies u = 3v - 2 \\quad \\dots (i)$$\n\n2) For an elastic collision, the coefficient of restitution $e = 1$:\n$$e = \\frac{v_2 - v_1}{u_1 - u_2} \\implies 1 = \\frac{v - (-2)}{u - 0}$$\n$$u = v + 2 \\quad \\dots (ii)$$\n\nEquating (i) and (ii):\n$$3v - 2 = v + 2 \\implies 2v = 4 \\implies v = 2\\text{ m/s}$$\n\nSubstitute $v = 2\\text{ m/s}$ back into (ii):\n$$u = 2 + 2 = 4\\text{ m/s}$$\n\nThus, the initial speed of the smaller body is $4\\text{ m/s}$.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "25th January"
+  }
+]
