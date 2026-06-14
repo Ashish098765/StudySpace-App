@@ -7,24 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            options: {
-                enableMenu: false
-            },
-            chtml: {
-                scale: 1.05,
-                minScale: 0.5
-            },
-            startup: { typeset: false }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
     <style>
         :root {
@@ -47,8 +32,9 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         
-        mjx-container { display: inline-block; vertical-align: baseline; margin: 0 1px; font-size: 100% !important; }
-        .q-text mjx-container { vertical-align: middle; }
+        /* KaTeX Specific Adjustments */
+        .katex { font-size: 1.1em; } /* Slightly boost math size to match Inter font */
+        .opt-text { line-height: 2.2; } /* Give fractions breathing room in the options list */
         
         body { 
             background-color: var(--bg-color); 
@@ -417,16 +403,21 @@
             }
         });
 
-        // --- ENHANCED MATH RE-RENDERING PIPELINE (FIXED CACHE CLEARING) ---
+        // --- ENHANCED MATH RE-RENDERING PIPELINE (USING KATEX) ---
         window.triggerMathRender = (elementId) => {
-            if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
-                const el = document.getElementById(elementId);
-                if (el) {
-                    // CRITICAL FIX: We must explicitly tell MathJax to forget the previous 
-                    // state of this container, otherwise it skips rendering the new equations.
-                    MathJax.typesetClear([el]); 
-                    MathJax.typesetPromise([el]).catch(err => console.warn('MathJax Error:', err));
-                }
+            const el = document.getElementById(elementId);
+            if (el && window.renderMathInElement) {
+                renderMathInElement(el, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false,
+                    // The core fix: auto-converts all inline fractions to display style
+                    macros: { "\\frac": "\\dfrac" } 
+                });
             }
         };
 
@@ -789,7 +780,7 @@
             const optContainer = document.getElementById('focus-options-container');
             optContainer.innerHTML = "";
 
-            if (q.type === "integer") {
+            if (q.type === "numerical" || q.type === "integer") {
                 const inputDiv = document.createElement('div');
                 inputDiv.className = "integer-input-container";
                 inputDiv.innerHTML = `
@@ -832,7 +823,7 @@
                 document.getElementById('focus-explanation-text').innerHTML = formatGenericText(q.explanation);
                 document.getElementById('focus-explanation-box').style.display = 'block';
                 
-                if (q.type !== "integer") {
+                if (q.type !== "numerical" && q.type !== "integer") {
                     const correctAnswers = Array.isArray(q.answer) ? q.answer.map(a => Number(a)) : [Number(q.answer)];
                     
                     // Pull student selection out from permanent local logs
@@ -930,7 +921,7 @@
                 const correctAnswers = Array.isArray(q.answer) ? q.answer.map(a => Number(a)) : [Number(q.answer)];
                 isCorrect = window.selectedOptions.length === correctAnswers.length &&
                             window.selectedOptions.every(val => correctAnswers.includes(val));
-            } else if (q.type === "integer") {
+            } else if (q.type === "numerical" || q.type === "integer") {
                 const userVal = parseFloat(document.getElementById('focus-integer-input').value);
                 const correctVal = parseFloat(q.answer);
                 isCorrect = Math.abs(userVal - correctVal) < 0.01; 
@@ -940,7 +931,7 @@
             document.getElementById('btn-check-focus').style.display = 'none';
             document.getElementById('btn-next-focus').style.display = 'block';
 
-            if (q.type === "integer") {
+            if (q.type === "numerical" || q.type === "integer") {
                 const field = document.getElementById('focus-integer-input');
                 field.disabled = true;
                 field.classList.add(isCorrect ? 'correct' : 'wrong');
@@ -1160,7 +1151,7 @@
                 } else if (isWrongHistory) {
                     // Pull their exact wrong choice from local history
                     const savedChoice = localStorage.getItem(`chosen_${q.uid}`);
-                    if (q.type === 'integer') {
+                    if (q.type === 'numerical' || q.type === 'integer') {
                         const savedInt = localStorage.getItem(`answer_${q.uid}`);
                         studentStatus = savedInt !== null ? `Student answered INCORRECTLY. They typed: ${savedInt}` : "Student answered INCORRECTLY.";
                     } else {
