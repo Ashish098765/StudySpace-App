@@ -553,7 +553,7 @@
     "subtopic": "Addition and Subtraction of Vectors"
   },
   {
-    "q": "If $\\vec{a}$ and $\\vec{b}$ makes an angle $\\cos^{-1}\\left(\\frac{5}{9}\right)$ with each other, then $|\\vec{a} + \\vec{b}| = \\sqrt{2}|\\vec{a} - \\vec{b}|$ for $|\\vec{a}| = n|\\vec{b}|$. The integer value of $n$ is ____",
+    "q": "If $\\vec{a}$ and $\\vec{b}$ makes an angle $\\cos^{-1}\\left(\\frac{5}{9}\\right)$ with each other, then $|\\vec{a} + \\vec{b}| = \\sqrt{2}|\\vec{a} - \\vec{b}|$ for $|\\vec{a}| = n|\\vec{b}|$. The integer value of $n$ is ____",
     "type": "numerical",
     "options": [],
     "answer": "3",
