@@ -14,10 +14,10 @@
     "q": "Two vectors $\\vec{X}$ and $\\vec{Y}$ have equal magnitude. The magnitude of $(\\vec{X} - \\vec{Y})$ is $n$ times the magnitude of $(\\vec{X} + \\vec{Y})$. The angle between $\\vec{X}$ and $\\vec{Y}$ is :",
     "type": "mcq",
     "options": [
-      "\\cos^{-1}\\left(\\frac{-n^2-1}{n^2-1}\\right)",
-      "\\cos^{-1}\\left(\\frac{n^2-1}{-n^2-1}\\right)",
-      "\\cos^{-1}\\left(\\frac{n^2+1}{-n^2-1}\\right)",
-      "\\cos^{-1}\\left(\\frac{n^2+1}{n^2-1}\\right)"
+      "$\\cos^{-1}\\left(\\frac{-n^2-1}{n^2-1}\\right)$",
+      "$\\cos^{-1}\\left(\\frac{n^2-1}{-n^2-1}\\right)$",
+      "$\\cos^{-1}\\left(\\frac{n^2+1}{-n^2-1}\\right)$",
+      "$\\cos^{-1}\\left(\\frac{n^2+1}{n^2-1}\\right)$"
     ],
     "answer": 1,
     "explanation": "Let the magnitude of the two vectors be $X = Y = a$, and the angle between them be $\\theta$.\nGiven:\n$$|\\vec{X} - \\vec{Y}| = n |\\vec{X} + \\vec{Y}|$$\nSquaring both sides:\n$$|\\vec{X} - \\vec{Y}|^2 = n^2 |\\vec{X} + \\vec{Y}|^2$$\n$$a^2 + a^2 - 2a^2\\cos\\theta = n^2(a^2 + a^2 + 2a^2\\cos\\theta)$$\n$$2a^2(1 - \\cos\\theta) = n^2 \\cdot 2a^2(1 + \\cos\\theta)$$\n$$1 - \\cos\\theta = n^2 + n^2\\cos\\theta$$\n$$\\cos\\theta(n^2 + 1) = 1 - n^2$$\n$$\\cos\\theta = \\frac{1-n^2}{n^2+1} = \\frac{n^2-1}{-n^2-1}$$\n$$\\theta = \\cos^{-1}\\left(\\frac{n^2-1}{-n^2-1}\\right)$$",
@@ -30,10 +30,10 @@
     "q": "A particle is moving with a velocity $\\vec{v} = K(y\\hat{i} + x\\hat{j})$, where $K$ is a constant. The general equation for its path is:",
     "type": "mcq",
     "options": [
-      "y^2 = x + \\text{constant}",
-      "xy = \\text{constant}",
-      "y = x^2 + \\text{constant}",
-      "y^2 = x^2 + \\text{constant}"
+      "$y^2 = x + \\text{constant}$",
+      "$xy = \\text{constant}$",
+      "$y = x^2 + \\text{constant}$",
+      "$y^2 = x^2 + \\text{constant}$"
     ],
     "answer": 3,
     "explanation": "The velocity vector is given by $\\vec{v} = v_x\\hat{i} + v_y\\hat{j} = K(y\\hat{i} + x\\hat{j})$.\nComparing components:\n$$v_x = \\frac{dx}{dt} = Ky$$\n$$v_y = \\frac{dy}{dt} = Kx$$\nDividing these equations:\n$$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt} = \\frac{Kx}{Ky} = \\frac{x}{y}$$\n$$y \\, dy = x \\, dx$$\nIntegrating both sides:\n$$\\int y \\, dy = \\int x \\, dx$$\n$$\\frac{y^2}{2} = \\frac{x^2}{2} + C'$$\n$$y^2 = x^2 + \\text{constant}$$",
@@ -54,7 +54,7 @@
     "subtopic": "Addition and Subtraction of Vectors"
   },
   {
-    "q": "Two forces $F_1$ and $F_2$ are acting on a body. One force has magnitude thrice that of the other force and the resultant of the two forces is equal to the force of larger magnitude. The angle between $F_1$ and $F_2$ is $\\cos^{-1}\\left(\\frac{1}{n}\right)$. The value of $|n|$ is _____.",
+    "q": "Two forces $F_1$ and $F_2$ are acting on a body. One force has magnitude thrice that of the other force and the resultant of the two forces is equal to the force of larger magnitude. The angle between $F_1$ and $F_2$ is $\\cos^{-1}\\left(\\frac{1}{n}\\right)$. The value of $|n|$ is _____.",
     "type": "integer",
     "options": [],
     "answer": "6",
@@ -68,10 +68,10 @@
     "q": "The angle between vector $\\vec{Q}$ and the resultant of $(2\\vec{Q} + 2\\vec{P})$ and $(2\\vec{Q} - 2\\vec{P})$ is :",
     "type": "mcq",
     "options": [
-      "\\tan^{-1} \\left( \\frac{2\\vec{Q}-2\\vec{P}}{2\\vec{Q}+2\\vec{P}} \\right)",
-      "0^\\circ",
-      "\\tan^{-1}(P/Q)",
-      "\\tan^{-1}(2Q/P)"
+      "$\\tan^{-1} \\left( \\frac{2\\vec{Q}-2\\vec{P}}{2\\vec{Q}+2\\vec{P}} \\right)$",
+      "$0^\\circ$",
+      "$\\tan^{-1}(P/Q)$",
+      "$\\tan^{-1}(2Q/P)$"
     ],
     "answer": 1,
     "explanation": "Let $\\vec{A} = 2\\vec{Q} + 2\\vec{P}$ and $\\vec{B} = 2\\vec{Q} - 2\\vec{P}$.\nTheir resultant $\\vec{R}$ is given by:\n$$\\vec{R} = \\vec{A} + \\vec{B} = (2\\vec{Q} + 2\\vec{P}) + (2\\vec{Q} - 2\\vec{P}) = 4\\vec{Q}$$\nSince the resultant vector $\\vec{R}$ is along the direction of vector $\\vec{Q}$, the angle between vector $\\vec{Q}$ and the resultant $\\vec{R}$ is $0^\\circ$.",
@@ -84,13 +84,13 @@
     "q": "Two forces having magnitude $A$ and $\\frac{A}{2}$ are perpendicular to each other. The magnitude of their resultant is:",
     "type": "mcq",
     "options": [
-      "\\frac{\\sqrt{5}A}{4}",
-      "\\frac{\\sqrt{5}A}{2}",
-      "\\frac{5A}{2}",
-      "\\frac{\\sqrt{5}A^2}{2}"
+      "$\\frac{\\sqrt{5}A}{4}$",
+      "$\\frac{\\sqrt{5}A}{2}$",
+      "$\\frac{5A}{2}$",
+      "$\\frac{\\sqrt{5}A^2}{2}$"
     ],
     "answer": 1,
-    "explanation": "Since the two forces are perpendicular, their resultant is given by:\n$$R = \\sqrt{F_1^2 + F_2^2}$$\n$$R = \\sqrt{A^2 + \\left(\\frac{A}{2}\right)^2} = \\sqrt{A^2 + \\frac{A^2}{4}} = \\sqrt{\\frac{5A^2}{4}} = \\frac{\\sqrt{5}A}{2}$$",
+    "explanation": "Since the two forces are perpendicular, their resultant is given by:\n$$R = \\sqrt{F_1^2 + F_2^2}$$\n$$R = \\sqrt{A^2 + \\left(\\frac{A}{2}\\right)^2} = \\sqrt{A^2 + \\frac{A^2}{4}} = \\sqrt{\\frac{5A^2}{4}} = \\frac{\\sqrt{5}A}{2}$$",
     "year": "2023",
     "shift": "Morning",
     "date": "8th April",
@@ -100,10 +100,10 @@
     "q": "When vector $\\vec{A} = 2\\hat{i} + 3\\hat{j} + 2\\hat{k}$ is subtracted from vector $\\vec{B}$, it gives a vector equal to $2\\hat{j}$. Then the magnitude of vector $\\vec{B}$ will be:",
     "type": "mcq",
     "options": [
-      "\\sqrt{5}",
-      "3",
-      "\\sqrt{6}",
-      "\\sqrt{33}"
+      "$\\sqrt{5}$",
+      "$3$",
+      "$\\sqrt{6}$",
+      "$\\sqrt{33}$"
     ],
     "answer": 3,
     "explanation": "According to the question:\n$$\\vec{B} - \\vec{A} = 2\\hat{j}$$\n$$\\vec{B} = \\vec{A} + 2\\hat{j}$$\nSubstitute the value of $\\vec{A}$:\n$$\\vec{B} = (2\\hat{i} + 3\\hat{j} + 2\\hat{k}) + 2\\hat{j} = 2\\hat{i} + 5\\hat{j} + 2\\hat{k}$$\nThe magnitude of vector $\\vec{B}$ is:\n$$|\\vec{B}| = \\sqrt{2^2 + 5^2 + 2^2} = \\sqrt{4 + 25 + 4} = \\sqrt{33}$$",
@@ -116,10 +116,10 @@
     "q": "A vector in $x-y$ plane makes an angle of $30^\\circ$ with $y$-axis. The magnitude of $y$-component of vector is $2\\sqrt{3}$. The magnitude of $x$-component of the vector will be :",
     "type": "mcq",
     "options": [
-      "\\frac{1}{\\sqrt{3}}",
-      "6",
-      "2",
-      "\\sqrt{3}"
+      "$\\frac{1}{\\sqrt{3}}$",
+      "$6$",
+      "$2$",
+      "$\\sqrt{3}$"
     ],
     "answer": 2,
     "explanation": "Let the vector be $\\vec{A}$ making an angle of $30^\\circ$ with the $y$-axis.\nThe components of the vector along the $y$ and $x$ axes are:\n$$A_y = A\\cos(30^\\circ)$$\n$$A_x = A\\sin(30^\\circ)$$\nGiven that $A_y = 2\\sqrt{3}$:\n$$2\\sqrt{3} = A\\cos(30^\\circ) = A\\frac{\\sqrt{3}}{2} \\implies A = 4$$\nNow, the $x$-component is:\n$$A_x = A\\sin(30^\\circ) = 4 \\times \\frac{1}{2} = 2$$",
@@ -132,13 +132,13 @@
     "q": "A person moved from $A$ to $B$ on a circular path as shown in figure. If the distance travelled by him is $60\\text{ m}$, then the magnitude of displacement would be: (Given $\\cos 135^\\circ = -0.7$)",
     "type": "mcq",
     "options": [
-      "42\\text{ m}",
-      "47\\text{ m}",
-      "19\\text{ m}",
-      "40\\text{ m}"
+      "$42\\text{ m}$",
+      "$47\\text{ m}$",
+      "$19\\text{ m}$",
+      "$40\\text{ m}$"
     ],
     "answer": 1,
-    "explanation": "The distance travelled along the circular path of radius $R$ is given by:\n$$\\text{Distance} = R\\theta = R \\times 135^\\circ \\times \\frac{\\pi}{180^circ}$$\n$$60 = R \\left( \\frac{3\\pi}{4} \\right) \\implies R = \\frac{80}{\\pi} \\approx 25.46\\text{ m}$$\nThe magnitude of the displacement is given by:\n$$d = 2R\\sin\\left(\\frac{\\theta}{2}\right) = 2R\\sin(67.5^\\circ)$$\nSince $\\sin(67.5^circ) = \\sqrt{\\frac{1-\\cos(135^\\circ)}{2}}$:\n$$\\sin(67.5^circ) = \\sqrt{\\frac{1-(-0.7)}{2}} = \\sqrt{0.85} \\approx 0.922$$\n$$d = 2 \\times 25.46 \\times 0.922 \\approx 47\\text{ m}$$",
+    "explanation": "The distance travelled along the circular path of radius $R$ is given by:\n$$\\text{Distance} = R\\theta = R \\times 135^\\circ \\times \\frac{\\pi}{180^\\circ}$$\n$$60 = R \\left( \\frac{3\\pi}{4} \\right) \\implies R = \\frac{80}{\\pi} \\approx 25.46\\text{ m}$$\nThe magnitude of the displacement is given by:\n$$d = 2R\\sin\\left(\\frac{\\theta}{2}\\right) = 2R\\sin(67.5^\\circ)$$\nSince $\\sin(67.5^\\circ) = \\sqrt{\\frac{1-\\cos(135^\\circ)}{2}}$:\n$$\\sin(67.5^\\circ) = \\sqrt{\\frac{1-(-0.7)}{2}} = \\sqrt{0.85} \\approx 0.922$$\n$$d = 2 \\times 25.46 \\times 0.922 \\approx 47\\text{ m}$$",
     "year": "2022",
     "shift": "Morning",
     "date": "25th July",
@@ -148,10 +148,10 @@
     "q": "The angle between vector $\\vec{A}$ and $(\\vec{A} - \\vec{B})$ is:",
     "type": "mcq",
     "options": [
-      "\\tan^{-1}\\left( \\frac{B\\cos\\theta}{A-B\\sin\\theta} \\right)",
-      "\\tan^{-1}\\left( \\frac{\\sqrt{3}B}{2A-B} \right)",
-      "\\tan^{-1}\\left( \\frac{-\\frac{B}{2}}{A-\\frac{\\sqrt{3}}{2}B} \right)",
-      "\\tan^{-1}\\left( \\frac{A}{0.7B} \right)"
+      "$\\tan^{-1}\\left( \\frac{B\\cos\\theta}{A-B\\sin\\theta} \\right)$",
+      "$\\tan^{-1}\\left( \\frac{\\sqrt{3}B}{2A-B} \\right)$",
+      "$\\tan^{-1}\\left( \\frac{-\\frac{B}{2}}{A-\\frac{\\sqrt{3}}{2}B} \\right)$",
+      "$\\tan^{-1}\\left( \\frac{A}{0.7B} \\right)$"
     ],
     "answer": 1,
     "explanation": "From the given vector diagram, the angle between $\\vec{A}$ and $\\vec{B}$ is $\\theta = 120^\\circ$.\nLet the vector $\\vec{R} = \\vec{A} - \\vec{B}$ make an angle $\\alpha$ with vector $\\vec{A}$.\nUsing the vector subtraction formula:\n$$\\tan\\alpha = \\frac{B\\sin\\theta}{A - B\\cos\\theta}$$\nSince $\\theta = 60^\\circ$ relative to the negative of $\\vec{B}$:\n$$\\tan\\alpha = \\frac{B\\sin(60^\\circ)}{A - B\\cos(60^\\circ)} = \\frac{B \\cdot \\frac{\\sqrt{3}}{2}}{A - B \\cdot \\frac{1}{2}} = \\frac{\\sqrt{3}B}{2A-B}$$\n$$\\alpha = \\tan^{-1}\\left( \\frac{\\sqrt{3}B}{2A-B} \\right)$$",
@@ -164,10 +164,10 @@
     "q": "If $\\vec{A}$ and $\\vec{B}$ are two vectors satisfying the relation $\\vec{A} \\cdot \\vec{B} = |\\vec{A} \\times \\vec{B}|$. Then the value of $|\\vec{A} - \\vec{B}|$ will be:",
     "type": "mcq",
     "options": [
-      "\\sqrt{A^2 + B^2}",
-      "\\sqrt{A^2 + B^2 + \\sqrt{2}AB}",
-      "\\sqrt{A^2 + B^2 + 2AB}",
-      "\\sqrt{A^2 + B^2 - \\sqrt{2}AB}"
+      "$\\sqrt{A^2 + B^2}$",
+      "$\\sqrt{A^2 + B^2 + \\sqrt{2}AB}$",
+      "$\\sqrt{A^2 + B^2 + 2AB}$",
+      "$\\sqrt{A^2 + B^2 - \\sqrt{2}AB}$"
     ],
     "answer": 3,
     "explanation": "We are given:\n$$\\vec{A} \\cdot \\vec{B} = |\\vec{A} \\times \\vec{B}| \\implies AB\\cos\\theta = AB\\sin\\theta \\implies \\tan\\theta = 1 \\implies \\theta = 45^\\circ$$\nThe magnitude of $\\vec{A} - \\vec{B}$ is:\n$$|\\vec{A} - \\vec{B}| = \\sqrt{A^2 + B^2 - 2AB\\cos(45^\\circ)}$$\n$$|\\vec{A} - \\vec{B}| = \\sqrt{A^2 + B^2 - 2AB \\left(\\frac{1}{\\sqrt{2}}\\right)} = \\sqrt{A^2 + B^2 - \\sqrt{2}AB}$$",
@@ -180,10 +180,10 @@
     "q": "Two forces $P$ and $Q$, of magnitude $2F$ and $3F$, respectively, are at an angle $\\theta$ with each other. If the force $Q$ is doubled, then their resultant also gets doubled. Then, the angle $\\theta$ is:",
     "type": "mcq",
     "options": [
-      "120^\\circ",
-      "60^\\circ",
-      "30^\\circ",
-      "90^\\circ"
+      "$120^\\circ$",
+      "$60^\\circ$",
+      "$30^\\circ$",
+      "$90^\\circ$"
     ],
     "answer": 0,
     "explanation": "Let $R$ be the initial resultant:\n$$R^2 = P^2 + Q^2 + 2PQ\\cos\\theta = (2F)^2 + (3F)^2 + 2(2F)(3F)\\cos\\theta$$\n$$R^2 = 13F^2 + 12F^2\\cos\\theta$$\nWhen $Q$ is doubled, its magnitude becomes $6F$, and the resultant is doubled to $2R$:\n$$(2R)^2 = (2F)^2 + (6F)^2 + 2(2F)(6F)\\cos\\theta$$\n$$4R^2 = 40F^2 + 24F^2\\cos\\theta$$\nMultiplying the first equation by 4 and equating:\n$$4(13F^2 + 12F^2\\cos\\theta) = 40F^2 + 24F^2\\cos\\theta$$\n$$52 + 48\\cos\\theta = 40 + 24\\cos\\theta$$\n$$24\\cos\\theta = -12 \\implies \\cos\\theta = -\\frac{1}{2} \\implies \\theta = 120^\\circ$$",
@@ -256,10 +256,10 @@
     "q": "$\\vec{A}$ is a vector quantity such that $|\\vec{A}| = \\text{non-zero constant}$. Which of the following expression is true for $\\vec{A}$?",
     "type": "mcq",
     "options": [
-      "\\vec{A} \\cdot \\vec{A} = 0",
-      "\\vec{A} \\times \\vec{A} < 0",
-      "\\vec{A} \\times \\vec{A} = 0",
-      "\\vec{A} \\times \\vec{A} > 0"
+      "$\\vec{A} \\cdot \\vec{A} = 0$",
+      "$\\vec{A} \\times \\vec{A} < 0$",
+      "$\\vec{A} \\times \\vec{A} = 0$",
+      "$\\vec{A} \\times \\vec{A} > 0$"
     ],
     "answer": 2,
     "explanation": "The cross product of any vector with itself is always the null vector because the angle $\\theta$ between a vector and itself is $0^\\circ$:\n$$\\vec{A} \\times \\vec{A} = A^2\\sin(0^\\circ)\\hat{n} = 0$$",
@@ -272,10 +272,10 @@
     "q": "What will be the projection of vector $\\vec{A} = \\hat{i} + \\hat{j} + \\hat{k}$ on vector $\\vec{B} = \\hat{i} + \\hat{j}$?",
     "type": "mcq",
     "options": [
-      "\\sqrt{2}(\\hat{i} + \\hat{j} + \\hat{k})",
-      "2(\\hat{i} + \\hat{j} + \\hat{k})",
-      "\\sqrt{2}(\\hat{i} + \\hat{j})",
-      "(\\hat{i} + \\hat{j})"
+      "$\\sqrt{2}(\\hat{i} + \\hat{j} + \\hat{k})$",
+      "$2(\\hat{i} + \\hat{j} + \\hat{k})$",
+      "$\\sqrt{2}(\\hat{i} + \\hat{j})$",
+      "$(\\hat{i} + \\hat{j})$"
     ],
     "answer": 3,
     "explanation": "The vector projection of $\\vec{A}$ on $\\vec{B}$ is:\n$$\\text{Projection of } \\vec{A} \\text{ on } \\vec{B} = \\left( \\frac{\\vec{A} \\cdot \\vec{B}}{|\\vec{B}|^2} \\right)\\vec{B}$$\n$$\\vec{A} \\cdot \\vec{B} = (1)(1) + (1)(1) + (1)(0) = 2$$\n$$|\\vec{B}|^2 = 1^2 + 1^2 = 2$$\n$$\\text{Projection} = \\left(\\frac{2}{2}\\right)(\\hat{i} + \\hat{j}) = \\hat{i} + \\hat{j}$$",
@@ -326,10 +326,10 @@
     "q": "For an experimental expression $y = \\frac{32.3\\times1125}{27.4}$, where all the digits are significant. Then to report the value of $y$ we should write",
     "type": "mcq",
     "options": [
-      "y = 1326.19",
-      "y = 1330",
-      "y = 1326.186",
-      "y = 1326.2"
+      "$y = 1326.19$",
+      "$y = 1330$",
+      "$y = 1326.186$",
+      "$y = 1326.2$"
     ],
     "answer": 1,
     "explanation": "According to the rules of multiplication/division in significant figures, the final result should possess the same number of significant figures as the term with the minimum significant figures.\nHere:\n- $32.3$ has 3 significant figures.\n- $1125$ has 4 significant figures.\n- $27.4$ has 3 significant figures.\nThus, the result should be reported to 3 significant figures.\nCalculating $y$:\n$$y = \\frac{32.3 \\times 1125}{27.4} \\approx 1326.186$$\nRounding $1326.186$ to 3 significant figures gives $1330$.",
@@ -342,10 +342,10 @@
     "q": "Time periods of oscillation of the same simple pendulum measured using four different measuring clocks were recorded as $4.62\\text{ s}, 4.632\\text{ s}, 4.6\\text{ s}$ and $4.64\\text{ s}$. The arithmetic mean of these readings in correct significant figure is :",
     "type": "mcq",
     "options": [
-      "5\\text{ s}",
-      "4.623\\text{ s}",
-      "4.6\\text{ s}",
-      "4.62\\text{ s}"
+      "$5\\text{ s}$",
+      "$4.623\\text{ s}$",
+      "$4.6\\text{ s}$",
+      "$4.62\\text{ s}$"
     ],
     "answer": 2,
     "explanation": "The arithmetic mean of the readings is:\n$$\\bar{t} = \\frac{4.62 + 4.632 + 4.6 + 4.64}{4} = \\frac{18.492}{4} = 4.623\\text{ s}$$\nWhen adding quantities, the final result should have the same number of decimal places as the quantity with the least number of decimal places.\n- $4.62$ (2 decimal places)\n- $4.632$ (3 decimal places)\n- $4.6$ (1 decimal place)\n- $4.64$ (2 decimal places)\nSince the minimum number of decimal places is 1 (from $4.6$), we round off the mean to 1 decimal place:\n$$\\bar{t} = 4.6\\text{ s}$$",
@@ -433,10 +433,10 @@
     "q": "A body of mass $(5 \\pm 0.5)\\text{ kg}$ is moving with a velocity of $(20 \\pm 0.4)\\text{ m/s}$. Its kinetic energy will be",
     "type": "mcq",
     "options": [
-      "(1000 \\pm 0.14) J",
-      "(500 \\pm 0.14) J",
-      "(500 \\pm 140) J",
-      "(1000 \\pm 140) J"
+      "$(1000 \\pm 0.14)\\text{ J}$",
+      "$(500 \\pm 0.14)\\text{ J}$",
+      "$(500 \\pm 140)\\text{ J}$",
+      "$(1000 \\pm 140)\\text{ J}$"
     ],
     "answer": 3,
     "explanation": "Kinetic energy $K$ is given by:\n$$K = \\frac{1}{2} M v^2 = \\frac{1}{2} (5) (20)^2 = 1000\\text{ J}$$\nTaking the relative error:\n$$\\frac{\\Delta K}{K} = \\frac{\\Delta M}{M} + 2\\frac{\\Delta v}{v}$$\nGiven $\\Delta M = 0.5$, $M = 5$, $\\Delta v = 0.4$, and $v = 20$:\n$$\\frac{\\Delta K}{1000} = \\frac{0.5}{5} + 2\\left(\\frac{0.4}{20}\\right) = 0.1 + 0.04 = 0.14$$\n$$\\Delta K = 0.14 \\times 1000 = 140\\text{ J}$$\nHence, the kinetic energy is $(1000 \\pm 140)\\text{ J}$.",
@@ -465,10 +465,10 @@
     "q": "If $Z = \\frac{A^2B^3}{C^4}$, then the relative error in $Z$ will be",
     "type": "mcq",
     "options": [
-      "\\left(\\frac{2\\Delta A}{A} + \\frac{3\\Delta B}{B} + \\frac{4\\Delta C}{C}\\right)",
-      "\\left(\\frac{\\Delta A}{A} + \\frac{\\Delta B}{B} + \\frac{\\Delta C}{C}\\right)",
-      "\\left(\\frac{2\\Delta A}{A} + \\frac{3\\Delta B}{B} - \\frac{4\\Delta C}{C}\\right)",
-      "\\left(\\frac{\\Delta A}{A} + \\frac{\\Delta B}{B} - \\frac{\\Delta C}{C}\\right)"
+      "$\\left(\\frac{2\\Delta A}{A} + \\frac{3\\Delta B}{B} + \\frac{4\\Delta C}{C}\\right)$",
+      "$\\left(\\frac{\\Delta A}{A} + \\frac{\\Delta B}{B} + \\frac{\\Delta C}{C}\\right)$",
+      "$\\left(\\frac{2\\Delta A}{A} + \\frac{3\\Delta B}{B} - \\frac{4\\Delta C}{C}\\right)$",
+      "$\\left(\\frac{\\Delta A}{A} + \\frac{\\Delta B}{B} - \\frac{\\Delta C}{C}\\right)$"
     ],
     "answer": 0,
     "explanation": "Given the relation:\n$$Z = \\frac{A^2B^3}{C^4}$$\nTaking log on both sides:\n$$\\ln Z = 2\\ln A + 3\\ln B - 4\\ln C$$\nDifferentiating to find the maximum relative error:\n$$\\frac{\\Delta Z}{Z} = 2\\frac{\\Delta A}{A} + 3\\frac{\\Delta B}{B} + 4\\frac{\\Delta C}{C}$$",
@@ -497,10 +497,10 @@
     "q": "A physical quantity $y$ is represented by the formula $y = m^2r^{-4} g^x l^{-\\frac{3}{2}}$. If the percentage errors found in $y, m, r, l$ and $g$ are $18, 1, 0.5, 4$ and $p$ respectively, then find the value of $x$ and $p$.",
     "type": "mcq",
     "options": [
-      "5 and \\pm 2",
-      "4 and \\pm 3",
-      "\\frac{16}{3} and \\pm \\frac{3}{2}",
-      "8 and \\pm 2"
+      "$5$ and $\\pm 2$",
+      "$4$ and $\\pm 3$",
+      "$\\frac{16}{3}$ and $\\pm \\frac{3}{2}$",
+      "$8$ and $\\pm 2$"
     ],
     "answer": 2,
     "explanation": "Given the formula:\n$$y = m^2 r^{-4} g^x l^{-3/2}$$\nTaking maximum relative error:\n$$\\frac{\\Delta y}{y} \\times 100 = 2\\frac{\\Delta m}{m} \\times 100 + 4\\frac{\\Delta r}{r} \\times 100 + x\\frac{\\Delta g}{g} \\times 100 + \\frac{3}{2}\\frac{\\Delta l}{l} \\times 100$$\nSubstituting the given percentage errors:\n$$18 = 2(1) + 4(0.5) + x(p) + \\frac{3}{2}(4)$$\n$$18 = 2 + 2 + xp + 6$$\n$$18 = 10 + xp \\implies xp = 8$$\nFrom the options, only $x = \\frac{16}{3}$ and $p = \\pm \\frac{3}{2}$ satisfies $|xp| = 8$.",
@@ -513,10 +513,10 @@
     "q": "The area of a square is $5.29\\text{ cm}^2$. The area of 7 such squares taking into account the significant figures is:",
     "type": "mcq",
     "options": [
-      "37.03 cm^2",
-      "37.030 cm^2",
-      "37.0 cm^2",
-      "37 cm^2"
+      "$37.03\\text{ cm}^2$",
+      "$37.030\\text{ cm}^2$",
+      "$37.0\\text{ cm}^2$",
+      "$37\\text{ cm}^2$"
     ],
     "answer": 0,
     "explanation": "Given the area of one square $A = 5.29\\text{ cm}^2$ (which has 3 significant figures).\nThe total area of 7 squares is:\n$$A_{\\text{total}} = 7 \\times 5.29 = 37.03\\text{ cm}^2$$\nSince $7$ is an exact constant and multiplication does not decrease the number of decimal places or significant figures of the measured quantity, the result should be reported as $37.03\\text{ cm}^2$ (which retains the same number of decimal places as the original measurement).",
@@ -529,13 +529,13 @@
     "q": "The diameter and height of a cylinder are measured by a meter scale to be $12.6 \\pm 0.1\\text{ cm}$ and $34.2 \\pm 0.1\\text{ cm}$, respectively. What will be the value of its volume in appropriate significant figures?",
     "type": "mcq",
     "options": [
-      "4264 \\pm 81 cm^3",
-      "4264.4 \\pm 81.0 cm^3",
-      "4260 \\pm 80 cm^3",
-      "4300 \\pm 80 cm^3"
+      "$4264 \\pm 81\\text{ cm}^3$",
+      "$4264.4 \\pm 81.0\\text{ cm}^3$",
+      "$4260 \\pm 80\\text{ cm}^3$",
+      "$4300 \\pm 80\\text{ cm}^3$"
     ],
     "answer": 2,
-    "explanation": "The volume of a cylinder is:\n$$V = \\pi r^2 h = \\pi \\left(\\frac{d}{2}\right)^2 h = \\frac{\\pi d^2 h}{4}$$\nCalculating the mean volume:\n$$V = \\frac{\\pi \\times (12.6)^2 \\times 34.2}{4} \\approx 4264.4\\text{ cm}^3$$\nTaking relative error:\n$$\\frac{\\Delta V}{V} = 2\\frac{\\Delta d}{d} + \\frac{\\Delta h}{h}$$\n$$\\Delta V = 4264.4 \\times \\left( 2\\frac{0.1}{12.6} + \\frac{0.1}{34.2} \\right) = 4264.4 \\times (0.01587 + 0.00292) \\approx 80.1\\text{ cm}^3 \\approx 80\\text{ cm}^3$$\nSince the measured values $12.6$ and $34.2$ have 3 significant figures, the final result should also be reported to 3 significant figures:\n$$V \\approx 4260 \\pm 80\\text{ cm}^3$$",
+    "explanation": "The volume of a cylinder is:\n$$V = \\pi r^2 h = \\pi \\left(\\frac{d}{2}\\right)^2 h = \\frac{\\pi d^2 h}{4}$$\nCalculating the mean volume:\n$$V = \\frac{\\pi \\times (12.6)^2 \\times 34.2}{4} \\approx 4264.4\\text{ cm}^3$$\nTaking relative error:\n$$\\frac{\\Delta V}{V} = 2\\frac{\\Delta d}{d} + \\frac{\\Delta h}{h}$$\n$$\\Delta V = 4264.4 \\times \\left( 2\\frac{0.1}{12.6} + \\frac{0.1}{34.2} \\right) = 4264.4 \\times (0.01587 + 0.00292) \\approx 80.1\\text{ cm}^3 \\approx 80\\text{ cm}^3$$\nSince the measured values $12.6$ and $34.2$ have 3 significant figures, the final result should also be reported to 3 significant figures:\n$$V \\approx 4260 \\pm 80\\text{ cm}^3$$",
     "year": "2019",
     "shift": "Evening",
     "date": "10th January",
@@ -568,7 +568,7 @@
     "type": "integer",
     "options": [],
     "answer": "150",
-    "explanation": "Since the resultant $\\vec{R} = \\vec{A} + \\vec{B}$ is perpendicular to $\\vec{A}$:\n$$\\vec{R} \\cdot \\vec{A} = 0 \\implies A^2 + AB\\cos\\theta = 0 \\implies \\cos\\theta = -\\frac{A}{B}$$\nUsing Pythagoras theorem in the right-angled triangle formed by vectors $\\vec{A}$, $\\vec{R}$ and $\\vec{B}$:\n$$R^2 + A^2 = B^2$$\nGiven $R = \\frac{B}{2}$:\n$$\\left(\\frac{B}{2}\right)^2 + A^2 = B^2 \\implies A^2 = B^2 - \\frac{B^2}{4} = \\frac{3}{4}B^2 \\implies A = \\frac{\\sqrt{3}}{2}B$$\nTherefore:\n$$\\cos\\theta = -\\frac{\\frac{\\sqrt{3}}{2}B}{B} = -\\frac{\\sqrt{3}}{2} \\implies \\theta = 150^\\circ$$",
+    "explanation": "Since the resultant $\\vec{R} = \\vec{A} + \\vec{B}$ is perpendicular to $\\vec{A}$:\n$$\\vec{R} \\cdot \\vec{A} = 0 \\implies A^2 + AB\\cos\\theta = 0 \\implies \\cos\\theta = -\\frac{A}{B}$$\nUsing Pythagoras theorem in the right-angled triangle formed by vectors $\\vec{A}$, $\\vec{R}$ and $\\vec{B}$:\n$$R^2 + A^2 = B^2$$\nGiven $R = \\frac{B}{2}$:\n$$\\left(\\frac{B}{2}\\right)^2 + A^2 = B^2 \\implies A^2 = B^2 - \\frac{B^2}{4} = \\frac{3}{4}B^2 \\implies A = \\frac{\\sqrt{3}}{2}B$$\nTherefore:\n$$\\cos\\theta = -\\frac{\\frac{\\sqrt{3}}{2}B}{B} = -\\frac{\\sqrt{3}}{2} \\implies \\theta = 150^\\circ$$",
     "year": "2024",
     "shift": "Evening",
     "date": "9th April",
@@ -578,10 +578,10 @@
     "q": "If two vectors $\\vec{A}$ and $\\vec{B}$ having equal magnitude $R$ are inclined at an angle $\\theta$, then",
     "type": "mcq",
     "options": [
-      "|\\vec{A} - \\vec{B}| = \\sqrt{2}R\\sin\\left(\\frac{\\theta}{2}\\right)",
-      "|\\vec{A} + \\vec{B}| = 2R\\sin\\left(\\frac{\\theta}{2}\\right)",
-      "|\\vec{A} + \\vec{B}| = 2R\\cos\\left(\\frac{\\theta}{2}\\right)",
-      "|\\vec{A} - \\vec{B}| = 2R\\cos\\left(\\frac{\\theta}{2}\\right)"
+      "$|\\vec{A} - \\vec{B}| = \\sqrt{2}R\\sin\\left(\\frac{\\theta}{2}\\right)$",
+      "$|\\vec{A} + \\vec{B}| = 2R\\sin\\left(\\frac{\\theta}{2}\\right)$",
+      "$|\\vec{A} + \\vec{B}| = 2R\\cos\\left(\\frac{\\theta}{2}\\right)$",
+      "$|\\vec{A} - \\vec{B}| = 2R\\cos\\left(\\frac{\\theta}{2}\\right)$"
     ],
     "answer": 2,
     "explanation": "Given $|\\vec{A}| = |\\vec{B}| = R$. The magnitude of their vector sum is:\n$$|\\vec{A} + \\vec{B}| = \\sqrt{R^2 + R^2 + 2R^2\\cos\\theta} = \\sqrt{2R^2(1 + \\cos\\theta)} = \\sqrt{4R^2\\cos^2\\left(\\frac{\\theta}{2}\\right)} = 2R\\cos\\left(\\frac{\\theta}{2}\\right)$$\nThe magnitude of their difference is:\n$$|\\vec{A} - \\vec{B}| = \\sqrt{R^2 + R^2 - 2R^2\\cos\\theta} = \\sqrt{2R^2(1 - \\cos\\theta)} = \\sqrt{4R^2\\sin^2\\left(\\frac{\\theta}{2}\\right)} = 2R\\sin\\left(\\frac{\\theta}{2}\\right)$$",
@@ -594,13 +594,13 @@
     "q": "A body is moving with constant speed, in a circle of radius $10\\text{ m}$. The body completes one revolution in $4\\text{ s}$. At the end of $3\\text{rd}$ second, the displacement of body (in m) from its starting point is:",
     "type": "mcq",
     "options": [
-      "30",
-      "15\\pi",
-      "5\\pi",
-      "10\\sqrt{2}"
+      "$30$",
+      "$15\\pi$",
+      "$5\\pi$",
+      "$10\\sqrt{2}$"
     ],
     "answer": 3,
-    "explanation": "The body completes one full revolution ($360^\\circ$) in $4\\text{ s}$.\nAt the end of $3\\text{ s}$, the angular displacement $\\theta$ is:\n$$\\theta = \\frac{3}{4} \\times 360^\\circ = 270^\\circ$$\nThe straight-line displacement between the starting position and the final position is:\n$$d = 2R\\sin\\left(\\frac{\\theta}{2}\right) = 2(10)\\sin(135^\\circ) = 20 \\times \\frac{1}{\\sqrt{2}} = 10\\sqrt{2}\\text{ m}$$",
+    "explanation": "The body completes one full revolution ($360^\\circ$) in $4\\text{ s}$.\nAt the end of $3\\text{ s}$, the angular displacement $\\theta$ is:\n$$\\theta = \\frac{3}{4} \\times 360^\\circ = 270^\\circ$$\nThe straight-line displacement between the starting position and the final position is:\n$$d = 2R\\sin\\left(\\frac{\\theta}{2}\\right) = 2(10)\\sin(135^\\circ) = 20 \\times \\frac{1}{\\sqrt{2}} = 10\\sqrt{2}\\text{ m}$$",
     "year": "2023",
     "shift": "Evening",
     "date": "31st January",
@@ -610,13 +610,13 @@
     "q": "Which of the following relations is true for two unit vector $\\hat{A}$ and $\\hat{B}$ making an angle $\\theta$ to each other?",
     "type": "mcq",
     "options": [
-      "|\\hat{A} + \\hat{B}| = |\\hat{A} - \\hat{B}|\\tan\\left(\\frac{\\theta}{2}\\right)",
-      "|\\hat{A} - \\hat{B}| = |\\hat{A} + \\hat{B}|\\tan\\left(\\frac{\\theta}{2}\\right)",
-      "|\\hat{A} + \\hat{B}| = |\\hat{A} - \\hat{B}|\\cos\\left(\\frac{\\theta}{2}\\right)",
-      "|\\hat{A} - \\hat{B}| = |\\hat{A} + \\hat{B}|\\cos\\left(\\frac{\\theta}{2}\\right)"
+      "$|\\hat{A} + \\hat{B}| = |\\hat{A} - \\hat{B}|\\tan\\left(\\frac{\\theta}{2}\\right)$",
+      "$|\\hat{A} - \\hat{B}| = |\\hat{A} + \\hat{B}|\\tan\\left(\\frac{\\theta}{2}\\right)$",
+      "$|\\hat{A} + \\hat{B}| = |\\hat{A} - \\hat{B}|\\cos\\left(\\frac{\\theta}{2}\\right)$",
+      "$|\\hat{A} - \\hat{B}| = |\\hat{A} + \\hat{B}|\\cos\\left(\\frac{\\theta}{2}\\right)$"
     ],
     "answer": 1,
-    "explanation": "Since $\\hat{A}$ and $\\hat{B}$ are unit vectors:\n$$|\\hat{A} + \\hat{B}| = 2\\cos\\left(\\frac{\\theta}{2}\right)$$\n$$|\\hat{A} - \\hat{B}| = 2\\sin\\left(\\frac{\\theta}{2}\right)$$\nDividing the second equation by the first:\n$$\\frac{|\\hat{A} - \\hat{B}|}{|\\hat{A} + \\hat{B}|} = \\frac{2\\sin\\left(\\frac{\\theta}{2}\right)}{2\\cos\\left(\\frac{\\theta}{2}\right)} = \\tan\\left(\\frac{\\theta}{2}\right)$$\n$$|\\hat{A} - \\hat{B}| = |\\hat{A} + \\hat{B}|\\tan\\left(\\frac{\\theta}{2}\right)$$",
+    "explanation": "Since $\\hat{A}$ and $\\hat{B}$ are unit vectors:\n$$|\\hat{A} + \\hat{B}| = 2\\cos\\left(\\frac{\\theta}{2}\\right)$$\n$$|\\hat{A} - \\hat{B}| = 2\\sin\\left(\\frac{\\theta}{2}\\right)$$\nDividing the second equation by the first:\n$$\\frac{|\\hat{A} - \\hat{B}|}{|\\hat{A} + \\hat{B}|} = \\frac{2\\sin\\left(\\frac{\\theta}{2}\\right)}{2\\cos\\left(\\frac{\\theta}{2}\\right)} = \\tan\\left(\\frac{\\theta}{2}\\right)$$\n$$|\\hat{A} - \\hat{B}| = |\\hat{A} + \\hat{B}|\\tan\\left(\\frac{\\theta}{2}\\right)$$",
     "year": "2022",
     "shift": "Morning",
     "date": "25th June",
@@ -626,13 +626,13 @@
     "q": "Two vectors $\\vec{A}$ and $\\vec{B}$ have equal magnitudes. If magnitude of $\\vec{A} + \\vec{B}$ is equal to two times the magnitude of $\\vec{A} - \\vec{B}$, then the angle between $\\vec{A}$ and $\\vec{B}$ will be",
     "type": "mcq",
     "options": [
-      "\\cos^{-1}\\left(\\frac{3}{5}\right)",
-      "\\cos^{-1}\\left(\\frac{1}{3}\right)",
-      "\\sin^{-1}\\left(\\frac{1}{3}\right)",
-      "\\sin^{-1}\\left(\\frac{3}{5}\right)"
+      "$\\cos^{-1}\\left(\\frac{3}{5}\\right)$",
+      "$\\cos^{-1}\\left(\\frac{1}{3}\\right)$",
+      "$\\sin^{-1}\\left(\\frac{1}{3}\\right)$",
+      "$\\sin^{-1}\\left(\\frac{3}{5}\\right)$"
     ],
     "answer": 0,
-    "explanation": "Given $|\\vec{A}| = |\\vec{B}| = R$.\n$$|\\vec{A} + \\vec{B}| = 2|\\vec{A} - \\vec{B}|$$\nSquaring both sides:\n$$|\\vec{A} + \\vec{B}|^2 = 4|\\vec{A} - \\vec{B}|^2$$\n$$R^2 + R^2 + 2R^2\\cos\\theta = 4(R^2 + R^2 - 2R^2\\cos\\theta)$$\n$$2R^2(1 + \\cos\\theta) = 8R^2(1 - \\cos\\theta)$$\n$$1 + \\cos\\theta = 4 - 4\\cos\\theta$$\n$$5\\cos\\theta = 3 \\implies \\cos\\theta = \\frac{3}{5} \\implies \\theta = \\cos^{-1}\\left(\\frac{3}{5}\right)$$",
+    "explanation": "Given $|\\vec{A}| = |\\vec{B}| = R$.\n$$|\\vec{A} + \\vec{B}| = 2|\\vec{A} - \\vec{B}|$$\nSquaring both sides:\n$$|\\vec{A} + \\vec{B}|^2 = 4|\\vec{A} - \\vec{B}|^2$$\n$$R^2 + R^2 + 2R^2\\cos\\theta = 4(R^2 + R^2 - 2R^2\\cos\\theta)$$\n$$2R^2(1 + \\cos\\theta) = 8R^2(1 - \\cos\\theta)$$\n$$1 + \\cos\\theta = 4 - 4\\cos\\theta$$\n$$5\\cos\\theta = 3 \\implies \\cos\\theta = \\frac{3}{5} \\implies \\theta = \\cos^{-1}\\left(\\frac{3}{5}\\right)$$",
     "year": "2022",
     "shift": "Morning",
     "date": "29th June",
@@ -642,13 +642,13 @@
     "q": "The magnitude of vectors $\\vec{OA}$, $\\vec{OB}$ and $\\vec{OC}$ in the given figure are equal. The direction of $\\vec{OA} + \\vec{OB} - \\vec{OC}$ with $x$-axis will be:",
     "type": "mcq",
     "options": [
-      "\\tan^{-1}\\left(\\frac{\\sqrt{3}-1+\\sqrt{2}}{1+\\sqrt{3}-\\sqrt{2}}\\right)",
-      "\\tan^{-1}\\left(\\frac{1-\\sqrt{3}-\\sqrt{2}}{1+\\sqrt{3}+\\sqrt{2}}\\right)",
-      "\\tan^{-1}\\left(\\frac{\\sqrt{3}-1+\\sqrt{2}}{1-\\sqrt{3}+\\sqrt{2}}\\right)",
-      "\\tan^{-1}\\left(\\frac{1+\\sqrt{3}-\\sqrt{2}}{1-\\sqrt{3}-\\sqrt{2}}\\right)"
+      "$\\tan^{-1}\\left(\\frac{\\sqrt{3}-1+\\sqrt{2}}{1+\\sqrt{3}-\\sqrt{2}}\\right)$",
+      "$\\tan^{-1}\\left(\\frac{1-\\sqrt{3}-\\sqrt{2}}{1+\\sqrt{3}+\\sqrt{2}}\\right)$",
+      "$\\tan^{-1}\\left(\\frac{\\sqrt{3}-1+\\sqrt{2}}{1-\\sqrt{3}+\\sqrt{2}}\\right)$",
+      "$\\tan^{-1}\\left(\\frac{1+\\sqrt{3}-\\sqrt{2}}{1-\\sqrt{3}-\\sqrt{2}}\\right)$"
     ],
     "answer": 1,
-    "explanation": "Let the magnitude of the vectors be $F$.\n- $\\vec{OA} = F\\cos(30^\\circ)\\hat{i} + F\\sin(30^\\circ)\\hat{j} = F\\left(\\frac{\\sqrt{3}}{2}\\hat{i} + \\frac{1}{2}\\hat{j}\right)$\n- $\\vec{OB} = F\\cos(60^\\circ)\\hat{i} - F\\sin(60^\\circ)\\hat{j} = F\\left(\\frac{1}{2}\\hat{i} - \\frac{\\sqrt{3}}{2}\\hat{j}\right)$\n- $\\vec{OC} = -F\\cos(45^\\circ)\\hat{i} + F\\sin(45^\\circ)\\hat{j} = F\\left(-\\frac{1}{\\sqrt{2}}\\hat{i} + \\frac{1}{\\sqrt{2}}\\hat{j}\right)$\n\nLet $\\vec{R} = \\vec{OA} + \\vec{OB} - \\vec{OC}$:\n$$R_x = F\\left( \\frac{\\sqrt{3}}{2} + \\frac{1}{2} - \\left(-\\frac{1}{\\sqrt{2}}\\right) \\right) = \\frac{F}{2}\\left( 1 + \\sqrt{3} + \\sqrt{2} \\right)$$\n$$R_y = F\\left( \\frac{1}{2} - \\frac{\\sqrt{3}}{2} - \\frac{1}{\\sqrt{2}} \\right) = \\frac{F}{2}\\left( 1 - \\sqrt{3} - \\sqrt{2} \\right)$$\n\nThe angle $\\theta$ with the $x$-axis is given by:\n$$\\tan\\theta = \\frac{R_y}{R_x} = \\frac{1 - \\sqrt{3} - \\sqrt{2}}{1 + \\sqrt{3} + \\sqrt{2}}$$\n$$\\theta = \\tan^{-1}\\left( \\frac{1 - \\sqrt{3} - \\sqrt{2}}{1 + \\sqrt{3} + \\sqrt{2}} \\right)$$",
+    "explanation": "Let the magnitude of the vectors be $F$.\n- $\\vec{OA} = F\\cos(30^\\circ)\\hat{i} + F\\sin(30^\\circ)\\hat{j} = F\\left(\\frac{\\sqrt{3}}{2}\\hat{i} + \\frac{1}{2}\\hat{j}\\right)$\n- $\\vec{OB} = F\\cos(60^\\circ)\\hat{i} - F\\sin(60^\\circ)\\hat{j} = F\\left(\\frac{1}{2}\\hat{i} - \\frac{\\sqrt{3}}{2}\\hat{j}\\right)$\n- $\\vec{OC} = -F\\cos(45^\\circ)\\hat{i} + F\\sin(45^\\circ)\\hat{j} = F\\left(-\\frac{1}{\\sqrt{2}}\\hat{i} + \\frac{1}{\\sqrt{2}}\\hat{j}\\right)$\n\nLet $\\vec{R} = \\vec{OA} + \\vec{OB} - \\vec{OC}$:\n$$R_x = F\\left( \\frac{\\sqrt{3}}{2} + \\frac{1}{2} - \\left(-\\frac{1}{\\sqrt{2}}\\right) \\right) = \\frac{F}{2}\\left( 1 + \\sqrt{3} + \\sqrt{2} \\right)$$\n$$R_y = F\\left( \\frac{1}{2} - \\frac{\\sqrt{3}}{2} - \\frac{1}{\\sqrt{2}} \\right) = \\frac{F}{2}\\left( 1 - \\sqrt{3} - \\sqrt{2} \\right)$$\n\nThe angle $\\theta$ with the $x$-axis is given by:\n$$\\tan\\theta = \\frac{R_y}{R_x} = \\frac{1 - \\sqrt{3} - \\sqrt{2}}{1 + \\sqrt{3} + \\sqrt{2}}$$\n$$\\theta = \\tan^{-1}\\left( \\frac{1 - \\sqrt{3} - \\sqrt{2}}{1 + \\sqrt{3} + \\sqrt{2}} \\right)$$",
     "year": "2021",
     "shift": "Morning",
     "date": "26th August",
@@ -658,10 +658,10 @@
     "q": "The resultant of these forces $\\vec{OP}, \\vec{OQ}, \\vec{OR}, \\vec{OS}$ and $\\vec{OT}$ is approximately ______ N.",
     "type": "mcq",
     "options": [
-      "-1.5\\hat{i} - 15.5\\hat{j}",
-      "9.25\\hat{i} + 5\\hat{j}",
-      "3\\hat{i} + 15\\hat{j}",
-      "2.5\\hat{i} - 14.5\\hat{j}"
+      "$-1.5\\hat{i} - 15.5\\hat{j}$",
+      "$9.25\\hat{i} + 5\\hat{j}$",
+      "$3\\hat{i} + 15\\hat{j}$",
+      "$2.5\\hat{i} - 14.5\\hat{j}$"
     ],
     "answer": 1,
     "explanation": "By resolving the forces along the $x$ and $y$ axes using components:\n- $F_{1x} = 10\\cos(30^\\circ) = 5\\sqrt{3} \\approx 8.5\\text{ N}$, $F_{1y} = 10\\sin(30^\\circ) = 5\\text{ N}$\n- Resolving and summing all other vectors along the coordinates yields the net horizontal and vertical components:\n$$\\sum F_x \\approx 9.25\\text{ N}$$\n$$\\sum F_y \\approx 5\\text{ N}$$\nThus, the resultant is $9.25\\hat{i} + 5\\hat{j}$ N.",
@@ -706,13 +706,13 @@
     "q": "Two vectors $\\vec{P}$ and $\\vec{Q}$ have equal magnitudes. If the magnitude of $\\vec{P} + \\vec{Q}$ is $n$ times the magnitude of $\\vec{P} - \\vec{Q}$, then angle between $\\vec{P}$ and $\\vec{Q}$ is",
     "type": "mcq",
     "options": [
-      "\\sin^{-1}\\left(\\frac{n-1}{n+1}\\right)",
-      "\\cos^{-1}\\left(\\frac{n-1}{n+1}\\right)",
-      "\\sin^{-1}\\left(\\frac{n^2-1}{n^2+1}\right)",
-      "\\cos^{-1}\\left(\\frac{n^2-1}{n^2+1}\right)"
+      "$\\sin^{-1}\\left(\\frac{n-1}{n+1}\\right)$",
+      "$\\cos^{-1}\\left(\\frac{n-1}{n+1}\\right)$",
+      "$\\sin^{-1}\\left(\\frac{n^2-1}{n^2+1}\\right)$",
+      "$\\cos^{-1}\\left(\\frac{n^2-1}{n^2+1}\\right)$"
     ],
     "answer": 3,
-    "explanation": "Let the magnitudes of $\\vec{P}$ and $\\vec{Q}$ be $a$.\n$$|\\vec{P} + \\vec{Q}| = n |\\vec{P} - \\vec{Q}|$$\nUsing vector magnitude relations:\n$$2a\\cos\\left(\\frac{\\theta}{2}\right) = n \\cdot 2a\\sin\\left(\\frac{\\theta}{2}\right) \\implies \\cot\\left(\\frac{\\theta}{2}\right) = n \\implies \\tan\\left(\\frac{\\theta}{2}\right) = \\frac{1}{n}$$\nNow we find $\\cos\\theta$ using double angle formula:\n$$\\cos\\theta = \\frac{1 - \\tan^2\\left(\\frac{\\theta}{2}\right)}{1 + \\tan^2\\left(\\frac{\\theta}{2}\right)} = \\frac{1 - \\frac{1}{n^2}}{1 + \\frac{1}{n^2}} = \\frac{n^2-1}{n^2+1}$$\n$$\\theta = \\cos^{-1}\\left(\\frac{n^2-1}{n^2+1}\right)$$",
+    "explanation": "Let the magnitudes of $\\vec{P}$ and $\\vec{Q}$ be $a$.\n$$|\\vec{P} + \\vec{Q}| = n |\\vec{P} - \\vec{Q}|$$\nUsing vector magnitude relations:\n$$2a\\cos\\left(\\frac{\\theta}{2}\\right) = n \\cdot 2a\\sin\\left(\\frac{\\theta}{2}\\right) \\implies \\cot\\left(\\frac{\\theta}{2}\\right) = n \\implies \\tan\\left(\\frac{\\theta}{2}\\right) = \\frac{1}{n}$$\nNow we find $\\cos\\theta$ using double angle formula:\n$$\\cos\\theta = \\frac{1 - \\tan^2\\left(\\frac{\\theta}{2}\\right)}{1 + \\tan^2\\left(\\frac{\\theta}{2}\\right)} = \\frac{1 - \\frac{1}{n^2}}{1 + \\frac{1}{n^2}} = \\frac{n^2-1}{n^2+1}$$\n$$\\theta = \\cos^{-1}\\left(\\frac{n^2-1}{n^2+1}\\right)$$",
     "year": "2021",
     "shift": "Evening",
     "date": "20th July",
@@ -770,10 +770,10 @@
     "q": "In the cube of side '$a$' shown in the figure, the vector from the central point of the face ABOD to the central point of the face BEFO will be:",
     "type": "mcq",
     "options": [
-      "\\frac{1}{2} a(\\hat{k} - \\hat{i})",
-      "\\frac{1}{2} a(\\hat{i} - \\hat{k})",
-      "\\frac{1}{2} a(\\hat{j} - \\hat{i})",
-      "\\frac{1}{2} a(\\hat{j} - \\hat{k})"
+      "$\\frac{1}{2} a(\\hat{k} - \\hat{i})$",
+      "$\\frac{1}{2} a(\\hat{i} - \\hat{k})$",
+      "$\\frac{1}{2} a(\\hat{j} - \\hat{i})$",
+      "$\\frac{1}{2} a(\\hat{j} - \\hat{k})$"
     ],
     "answer": 2,
     "explanation": "Let the origin be at $O(0,0,0)$.\n- Face ABOD lies in the $x-z$ plane. The center of face ABOD is:\n$$\\vec{r}_1 = \\frac{a}{2}\\hat{i} + 0\\hat{j} + \\frac{a}{2}\\hat{k}$$\n- Face BEFO lies in the $y-z$ plane. The center of face BEFO is:\n$$\\vec{r}_2 = 0\\hat{i} + \\frac{a}{2}\\hat{j} + \\frac{a}{2}\\hat{k}$$\n\nThe vector from the center of face ABOD to the center of face BEFO is:\n$$\\vec{r} = \\vec{r}_2 - \\vec{r}_1 = \\left(0 - \\frac{a}{2}\\right)\\hat{i} + \\left(\\frac{a}{2} - 0\\right)\\hat{j} + \\left(\\frac{a}{2} - \\frac{a}{2}\\right)\\hat{k}$$\n$$\\vec{r} = -\\frac{a}{2}\\hat{i} + \\frac{a}{2}\\hat{j} = \\frac{1}{2}a(\\hat{j} - \\hat{i})$$",
@@ -786,10 +786,10 @@
     "q": "Two vectors $\\vec{A}$ and $\\vec{B}$ have equal magnitudes. The magnitude of $(\\vec{A} + \\vec{B})$ is '$n$' times the magnitude of $(\\vec{A} - \\vec{B})$. The angle between $\\vec{A}$ and $\\vec{B}$ is:",
     "type": "mcq",
     "options": [
-      "\\cos^{-1}\\left[ \\frac{n^2-1}{n^2+1} \\right]",
-      "\\sin^{-1}\\left[ \\frac{n-1}{n+1} \\right]",
-      "\\cos^{-1}\\left[ \\frac{n-1}{n+1} \\right]",
-      "\\sin^{-1}\\left[ \\frac{n^2-1}{n^2+1} \\right]"
+      "$\\cos^{-1}\\left[ \\frac{n^2-1}{n^2+1} \\right]$",
+      "$\\sin^{-1}\\left[ \\frac{n-1}{n+1} \\right]$",
+      "$\\cos^{-1}\\left[ \\frac{n-1}{n+1} \\right]$",
+      "$\\sin^{-1}\\left[ \\frac{n^2-1}{n^2+1} \\right]$"
     ],
     "answer": 0,
     "explanation": "Let $|\\vec{A}| = |\\vec{B}| = x$ and the angle between them be $\\theta$.\nGiven:\n$$|\\vec{A} + \\vec{B}| = n|\\vec{A} - \\vec{B}|$$\nSquaring both sides:\n$$A^2 + B^2 + 2AB\\cos\\theta = n^2(A^2 + B^2 - 2AB\\cos\\theta)$$\n$$2x^2(1 + \\cos\\theta) = n^2 \\cdot 2x^2(1 - \\cos\\theta)$$\n$$1 + \\cos\\theta = n^2 - n^2\\cos\\theta$$\n$$\\cos\\theta(n^2 + 1) = n^2 - 1$$\n$$\\cos\\theta = \\frac{n^2-1}{n^2+1} \\implies \\theta = \\cos^{-1}\\left[ \\frac{n^2-1}{n^2+1} \\right]$$",
@@ -802,10 +802,10 @@
     "q": "A particle moves from the point $(2.0\\hat{i} + 4.0\\hat{j})\\text{ m}$, $t = 0$ with an initial velocity $(5.0\\hat{i} + 4.0\\hat{j})\\text{ m s}^{-1}$. It is acted upon by a constant force which produces a constant acceleration $(4.0\\hat{i} + 4.0\\hat{j})\\text{ m s}^{-2}$. What is the distance of the particle from the origin at time $2\\text{ s}$?",
     "type": "mcq",
     "options": [
-      "15 m",
-      "20\\sqrt{2} m",
-      "5 m",
-      "10\\sqrt{2} m"
+      "$15\\text{ m}$",
+      "$20\\sqrt{2}\\text{ m}$",
+      "$5\\text{ m}$",
+      "$10\\sqrt{2}\\text{ m}$"
     ],
     "answer": 1,
     "explanation": "Initial position: $\\vec{r}_0 = 2\\hat{i} + 4\\hat{j}$\nInitial velocity: $\\vec{u} = 5\\hat{i} + 4\\hat{j}$\nAcceleration: $\\vec{a} = 4\\hat{i} + 4\\hat{j}$\n\nThe position at $t = 2\\text{ s}$ is given by second equation of motion:\n$$\\vec{r} = \\vec{r}_0 + \\vec{u}t + \\frac{1}{2}\\vec{a}t^2$$\n$$\\vec{r} = (2\\hat{i} + 4\\hat{j}) + (5\\hat{i} + 4\\hat{j})(2) + \\frac{1}{2}(4\\hat{i} + 4\\hat{j})(2)^2$$\n$$\\vec{r} = (2\\hat{i} + 4\\hat{j}) + (10\\hat{i} + 8\\hat{j}) + (8\\hat{i} + 8\\hat{j}) = 20\\hat{i} + 20\\hat{j}$$\n\nThe distance of the particle from the origin is:\n$$d = |\\vec{r}| = \\sqrt{20^2 + 20^2} = 20\\sqrt{2}\\text{ m}$$",
@@ -829,10 +829,10 @@
     "q": "A particle moving in the $xy$-plane experiences a velocity dependent force $\\vec{F} = k(v_y\\hat{i} + v_x\\hat{j})$, where $v_x$ and $v_y$ are the $x$ and $y$ components of its velocity $\\vec{v}$. If $\\vec{a}$ is the acceleration of the particle, then which of the following statements is true for the particle?",
     "type": "mcq",
     "options": [
-      "quantity \\vec{v} \\times \\vec{a} is constant in time",
-      "\\vec{F} arises due to a magnetic field",
+      "quantity $\\vec{v} \\times \\vec{a}$ is constant in time",
+      "$\\vec{F}$ arises due to a magnetic field",
       "kinetic energy of particle is constant in time",
-      "quantity \\vec{v} \\cdot \\vec{a} is constant in time"
+      "quantity $\\vec{v} \\cdot \\vec{a}$ is constant in time"
     ],
     "answer": 0,
     "explanation": "Let's find the rate of change of kinetic energy:\n$$\\frac{dK}{dt} = \\vec{F} \\cdot \\vec{v} = k(v_y\\hat{i} + v_x\\hat{j}) \\cdot (v_x\\hat{i} + v_y\\hat{j}) = k(v_y v_x + v_x v_y) = 2kv_x v_y \\neq 0$$\nThus, kinetic energy is not constant.\n\nNow consider the acceleration:\n$$\\vec{a} = \\frac{\\vec{F}}{m} = \\frac{k}{m}(v_y\\hat{i} + v_x\\hat{j})$$\n$$\\vec{v} \\times \\vec{a} = (v_x\\hat{i} + v_y\\hat{j}) \\times \\frac{k}{m}(v_y\\hat{i} + v_x\\hat{j}) = \\frac{k}{m} (v_x^2\\hat{k} - v_y^2\\hat{k}) = \\frac{k}{m}(v_x^2 - v_y^2)\\hat{k}$$\nLet's check the rate of change of this cross product:\n$$\\frac{d}{dt}(\\vec{v} \\times \\vec{a}) = \\vec{v} \\times \\frac{d\\vec{a}}{dt} + \\frac{d\\vec{v}}{dt} \\times \\vec{a} = \\vec{v} \\times \\frac{d\\vec{a}}{dt} + \\vec{a} \\times \\vec{a} = \\vec{v} \\times \\frac{d\\vec{a}}{dt}$$\nIntegrating the equations of motion shows that $\\vec{v} \\times \\vec{a}$ remains constant in time.",
@@ -904,10 +904,10 @@
     "q": "In an experiment to measure focal length ($f$) of convex lens, the least counts of the measuring scales for the position of object ($u$) and for the position of image ($v$) are $\\Delta u$ and $\\Delta v$, respectively. The error in the measurement of the focal length of the convex lens will be:",
     "type": "mcq",
     "options": [
-      "2f \\left[ \\frac{\\Delta u}{u} + \\frac{\\Delta v}{v} \\right]",
-      "\\frac{\\Delta u}{u} + \\frac{\\Delta v}{v}",
-      "f^2 \\left[ \\frac{\\Delta u}{u^2} + \\frac{\\Delta v}{v^2} \\right]",
-      "f \\left[ \\frac{\\Delta u}{u} + \\frac{\\Delta v}{v} \\right]"
+      "$2f \\left[ \\frac{\\Delta u}{u} + \\frac{\\Delta v}{v} \\right]$",
+      "$\\frac{\\Delta u}{u} + \\frac{\\Delta v}{v}$",
+      "$f^2 \\left[ \\frac{\\Delta u}{u^2} + \\frac{\\Delta v}{v^2} \\right]$",
+      "$f \\left[ \\frac{\\Delta u}{u} + \\frac{\\Delta v}{v} \\right]$"
     ],
     "answer": 2,
     "explanation": "The lens formula is:\n$$\\frac{1}{f} = \\frac{1}{v} - \\frac{1}{u}$$\nDifferentiating both sides to get the absolute error relation:\n$$-\\frac{\\Delta f}{f^2} = -\\frac{\\Delta v}{v^2} - \\frac{\\Delta u}{u^2}$$\nTaking the maximum positive error combination:\n$$\\Delta f = f^2 \\left[ \\frac{\\Delta u}{u^2} + \\frac{\\Delta v}{v^2} \\right]$$",
@@ -952,10 +952,10 @@
     "q": "In an expression $a \\times 10^b$;",
     "type": "mcq",
     "options": [
-      "b is order of magnitude for a \\ge 5",
-      "b is order of magnitude for a \\le 5",
-      "a is order of magnitude for b \\le 5",
-      "b is order of magnitude for 5 < a \\le 10"
+      "$b$ is order of magnitude for $a \\ge 5$",
+      "$b$ is order of magnitude for $a \\le 5$",
+      "$a$ is order of magnitude for $b \\le 5$",
+      "$b$ is order of magnitude for 5 < $a \\le 10$"
     ],
     "answer": 1,
     "explanation": "For representing a number in scientific notation $a \\times 10^b$:\n- If $0.5 < a \\le 5$, then $b$ is the order of magnitude.\n- If $5 < a \\le 10$, then the order of magnitude is $b + 1$.\nThus, $b$ is the order of magnitude when $a \\le 5$.",
@@ -1194,10 +1194,10 @@
     "q": "For the four sets of three measured physical quantities as given below. Which of the following options is correct?\n\n(i) $A_1 = 24.36, B_1 = 0.0724, C_1 = 256.2$\n(ii) $A_2 = 24.44, B_2 = 16.082, C_2 = 240.2$\n(iii) $A_3 = 25.2, B_3 = 19.2812, C_3 = 236.183$\n(iv) $A_4 = 25, B_4 = 236.191, C_4 = 19.5$",
     "type": "mcq",
     "options": [
-      "A_4 + B_4 + C_4 < A_1 + B_1 + C_1 < A_3 + B_3 + C_3 < A_2 + B_2 + C_2",
-      "A_1 + B_1 + C_1 = A_2 + B_2 + C_2 = A_3 + B_3 + C_3 = A_4 + B_4 + C_4",
-      "A_1 + B_1 + C_1 < A_2 + B_2 + C_2 = A_3 + B_3 + C_3 < A_4 + B_4 + C_4",
-      "A_1 + B_1 + C_1 < A_3 + B_3 + C_3 < A_2 + B_2 + C_2 < A_4 + B_4 + C_4"
+      "$A_4 + B_4 + C_4 < A_1 + B_1 + C_1 < A_3 + B_3 + C_3 < A_2 + B_2 + C_2$",
+      "$A_1 + B_1 + C_1 = A_2 + B_2 + C_2 = A_3 + B_3 + C_3 = A_4 + B_4 + C_4$",
+      "$A_1 + B_1 + C_1 < A_2 + B_2 + C_2 = A_3 + B_3 + C_3 < A_4 + B_4 + C_4$",
+      "$A_1 + B_1 + C_1 < A_3 + B_3 + C_3 < A_2 + B_2 + C_2 < A_4 + B_4 + C_4$"
     ],
     "answer": 2,
     "explanation": "According to the rules of addition of significant figures, the sum must have the same number of decimal places as the number with the least decimal places.\n\n- (i) $A_1 + B_1 + C_1 = 24.36 + 0.0724 + 256.2 = 280.6324 \\implies 280.6$ (rounded to 1 decimal place)\n- (ii) $A_2 + B_2 + C_2 = 24.44 + 16.082 + 240.2 = 280.722 \\implies 280.7$ (rounded to 1 decimal place)\n- (iii) $A_3 + B_3 + C_3 = 25.2 + 19.2812 + 236.183 = 280.6642 \\implies 280.7$ (rounded to 1 decimal place)\n- (iv) $A_4 + B_4 + C_4 = 25 + 236.191 + 19.5 = 280.691 \\implies 281$ (rounded to 0 decimal places)\n\nComparing the values:\n$$280.6 < 280.7 = 280.7 < 281$$\nHence:\n$$A_1 + B_1 + C_1 < A_2 + B_2 + C_2 = A_3 + B_3 + C_3 < A_4 + B_4 + C_4$$",
@@ -1269,10 +1269,10 @@
     "q": "In an octagon $ABCDEFGH$ of equal side, what is the sum of $\\vec{AB} + \\vec{AC} + \\vec{AD} + \\vec{AE} + \\vec{AF} + \\vec{AG} + \\vec{AH}$, if, $\\vec{AO} = 2\\hat{i} + 3\\hat{j} - 4\\hat{k}$",
     "type": "mcq",
     "options": [
-      "16\\hat{i} + 24\\hat{j} - 32\\hat{k}",
-      "16\\hat{i} - 24\\hat{j} + 32\\hat{k}",
-      "16\\hat{i} + 24\\hat{j} + 32\\hat{k}",
-      "-16\\hat{i} - 24\\hat{j} + 32\\hat{k}"
+      "$16\\hat{i} + 24\\hat{j} - 32\\hat{k}$",
+      "$16\\hat{i} - 24\\hat{j} + 32\\hat{k}$",
+      "$16\\hat{i} + 24\\hat{j} + 32\\hat{k}$",
+      "$-16\\hat{i} - 24\\hat{j} + 32\\hat{k}$"
     ],
     "answer": 0,
     "explanation": "Let $O$ be the center of the regular octagon. The sum of vectors can be written as:\n$$\\vec{AB} + \\vec{AC} + \\vec{AD} + \\vec{AE} + \\vec{AF} + \\vec{AG} + \\vec{AH}$$\n$$= (\\vec{OB} - \\vec{OA}) + (\\vec{OC} - \\vec{OA}) + (\\vec{OD} - \\vec{OA}) + (\\vec{OE} - \\vec{OA}) + (\\vec{OF} - \\vec{OA}) + (\\vec{OG} - \\vec{OA}) + (\\vec{OH} - \\vec{OA})$$\n$$= (\\vec{OB} + \\vec{OC} + \\vec{OD} + \\vec{OE} + \\vec{OF} + \\vec{OG} + \\vec{OH}) - 7\\vec{OA}$$\n\nBy symmetry of a regular octagon:\n$$\\vec{OA} + \\vec{OB} + \\vec{OC} + \\vec{OD} + \\vec{OE} + \\vec{OF} + \\vec{OG} + \\vec{OH} = \\vec{0}$$\n$$\\vec{OB} + \\vec{OC} + \\vec{OD} + \\vec{OE} + \\vec{OF} + \\vec{OG} + \\vec{OH} = -\\vec{OA}$$\n\nSubstituting this back:\n$$\\text{Sum} = -\\vec{OA} - 7\\vec{OA} = -8\\vec{OA} = 8\\vec{AO}$$\n\nGiven $\\vec{AO} = 2\\hat{i} + 3\\hat{j} - 4\\hat{k}$:\n$$\\text{Sum} = 8(2\\hat{i} + 3\\hat{j} - 4\\hat{k}) = 16\\hat{i} + 24\\hat{j} - 32\\hat{k}$$",
