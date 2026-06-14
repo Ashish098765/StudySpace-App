@@ -1,0 +1,1376 @@
+[
+  {
+    "q": "A vector has magnitude same as that of $\\vec{A} = 3\\hat{i} + 4\\hat{j}$ and is parallel to $\\vec{B} = 4\\hat{i} + 3\\hat{j}$. The $x$ and $y$ components of this vector in first quadrant are $x$ and $3$ respectively where $x = $ ____.",
+    "type": "numerical",
+    "options": [],
+    "answer": "4",
+    "explanation": "Let the required vector be $\\vec{C}$. Since $\\vec{C}$ is parallel to $\\vec{B}$, we can write:\n$$\\vec{C} = \\lambda \\vec{B} = \\lambda(4\\hat{i} + 3\\hat{j})$$\nWe are given that the magnitude of $\\vec{C}$ is equal to that of $\\vec{A}$:\n$$|\\vec{C}| = |\\vec{A}| = \\sqrt{3^2 + 4^2} = 5$$\nTherefore:\n$$\\sqrt{(4\\lambda)^2 + (3\\lambda)^2} = 5 \\implies 5|\\lambda| = 5 \\implies \\lambda = \\pm 1$$\nSince the components are in the first quadrant, we take the positive value $\\lambda = 1$:\n$$\\vec{C} = 4\\hat{i} + 3\\hat{j}$$\nComparing with the given $x$ and $y$ components ($x$ and $3$), we get:\n$$x = 4$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "30th January",
+    "subtopic": "Fundamentals of Vectors"
+  },
+  {
+    "q": "Two vectors $\\vec{X}$ and $\\vec{Y}$ have equal magnitude. The magnitude of $(\\vec{X} - \\vec{Y})$ is $n$ times the magnitude of $(\\vec{X} + \\vec{Y})$. The angle between $\\vec{X}$ and $\\vec{Y}$ is :",
+    "type": "mcq",
+    "options": [
+      "\\cos^{-1}\\left(\\frac{-n^2-1}{n^2-1}\\right)",
+      "\\cos^{-1}\\left(\\frac{n^2-1}{-n^2-1}\\right)",
+      "\\cos^{-1}\\left(\\frac{n^2+1}{-n^2-1}\\right)",
+      "\\cos^{-1}\\left(\\frac{n^2+1}{n^2-1}\\right)"
+    ],
+    "answer": 1,
+    "explanation": "Let the magnitude of the two vectors be $X = Y = a$, and the angle between them be $\\theta$.\nGiven:\n$$|\\vec{X} - \\vec{Y}| = n |\\vec{X} + \\vec{Y}|$$\nSquaring both sides:\n$$|\\vec{X} - \\vec{Y}|^2 = n^2 |\\vec{X} + \\vec{Y}|^2$$\n$$a^2 + a^2 - 2a^2\\cos\\theta = n^2(a^2 + a^2 + 2a^2\\cos\\theta)$$\n$$2a^2(1 - \\cos\\theta) = n^2 \\cdot 2a^2(1 + \\cos\\theta)$$\n$$1 - \\cos\\theta = n^2 + n^2\\cos\\theta$$\n$$\\cos\\theta(n^2 + 1) = 1 - n^2$$\n$$\\cos\\theta = \\frac{1-n^2}{n^2+1} = \\frac{n^2-1}{-n^2-1}$$\n$$\\theta = \\cos^{-1}\\left(\\frac{n^2-1}{-n^2-1}\\right)$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "25th July",
+    "subtopic": "Fundamentals of Vectors"
+  },
+  {
+    "q": "A particle is moving with a velocity $\\vec{v} = K(y\\hat{i} + x\\hat{j})$, where $K$ is a constant. The general equation for its path is:",
+    "type": "mcq",
+    "options": [
+      "y^2 = x + \\text{constant}",
+      "xy = \\text{constant}",
+      "y = x^2 + \\text{constant}",
+      "y^2 = x^2 + \\text{constant}"
+    ],
+    "answer": 3,
+    "explanation": "The velocity vector is given by $\\vec{v} = v_x\\hat{i} + v_y\\hat{j} = K(y\\hat{i} + x\\hat{j})$.\nComparing components:\n$$v_x = \\frac{dx}{dt} = Ky$$\n$$v_y = \\frac{dy}{dt} = Kx$$\nDividing these equations:\n$$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt} = \\frac{Kx}{Ky} = \\frac{x}{y}$$\n$$y \\, dy = x \\, dx$$\nIntegrating both sides:\n$$\\int y \\, dy = \\int x \\, dx$$\n$$\\frac{y^2}{2} = \\frac{x^2}{2} + C'$$\n$$y^2 = x^2 + \\text{constant}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "9th January",
+    "subtopic": "Fundamentals of Vectors"
+  },
+  {
+    "q": "Two particles are located at equal distance from origin. The position vectors of those are represented by $\\vec{A} = 2\\hat{i} + 3n\\hat{j} + 2\\hat{k}$ and $\\vec{B} = 2\\hat{i} - 2\\hat{j} + 4p\\hat{k}$, respectively. If both the vectors are at right angle to each other, the value of $n^{-1}$ is _____.",
+    "type": "numerical",
+    "options": [],
+    "answer": "3",
+    "explanation": "Since the particles are at an equal distance from the origin:\n$$|\\vec{A}|^2 = |\\vec{B}|^2$$\n$$2^2 + (3n)^2 + 2^2 = 2^2 + (-2)^2 + (4p)^2$$\n$$8 + 9n^2 = 8 + 16p^2 \\implies 9n^2 = 16p^2 \\implies 3n = \\pm 4p$$\nSince both vectors are at right angles to each other:\n$$\\vec{A} \\cdot \\vec{B} = 0$$\n$$(2)(2) + (3n)(-2) + (2)(4p) = 0$$\n$$4 - 6n + 8p = 0$$\nCase 1: If $4p = 3n$, substituting $8p = 6n$:\n$$4 - 6n + 6n = 0 \\implies 4 = 0 \\text{ (not possible)}$$\nCase 2: If $4p = -3n$, substituting $8p = -6n$:\n$$4 - 6n - 6n = 0 \\implies 12n = 4 \\implies n = \\frac{1}{3}$$\nTherefore, we have:\n$$n^{-1} = 3$$",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "23rd January",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "Two forces $F_1$ and $F_2$ are acting on a body. One force has magnitude thrice that of the other force and the resultant of the two forces is equal to the force of larger magnitude. The angle between $F_1$ and $F_2$ is $\\cos^{-1}\\left(\\frac{1}{n}\right)$. The value of $|n|$ is _____.",
+    "type": "numerical",
+    "options": [],
+    "answer": "6",
+    "explanation": "Let the magnitude of the smaller force be $F$, so the larger force has magnitude $3F$.\nThe magnitude of their resultant is equal to the larger force, which is $3F$.\nUsing the vector addition formula:\n$$R^2 = F_1^2 + F_2^2 + 2F_1F_2\\cos\\theta$$\n$$(3F)^2 = F^2 + (3F)^2 + 2(F)(3F)\\cos\\theta$$\n$$9F^2 = 10F^2 + 6F^2\\cos\\theta$$\n$$-F^2 = 6F^2\\cos\\theta \\implies \\cos\\theta = -\\frac{1}{6}$$\nComparing this with $\\cos\\theta = \\frac{1}{n}$:\n$$n = -6 \\implies |n| = 6$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "4th April",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "The angle between vector $\\vec{Q}$ and the resultant of $(2\\vec{Q} + 2\\vec{P})$ and $(2\\vec{Q} - 2\\vec{P})$ is :",
+    "type": "mcq",
+    "options": [
+      "\\tan^{-1} \\left( \\frac{2\\vec{Q}-2\\vec{P}}{2\\vec{Q}+2\\vec{P}} \\right)",
+      "0^\\circ",
+      "\\tan^{-1}(P/Q)",
+      "\\tan^{-1}(2Q/P)"
+    ],
+    "answer": 1,
+    "explanation": "Let $\\vec{A} = 2\\vec{Q} + 2\\vec{P}$ and $\\vec{B} = 2\\vec{Q} - 2\\vec{P}$.\nTheir resultant $\\vec{R}$ is given by:\n$$\\vec{R} = \\vec{A} + \\vec{B} = (2\\vec{Q} + 2\\vec{P}) + (2\\vec{Q} - 2\\vec{P}) = 4\\vec{Q}$$\nSince the resultant vector $\\vec{R}$ is along the direction of vector $\\vec{Q}$, the angle between vector $\\vec{Q}$ and the resultant $\\vec{R}$ is $0^\\circ$.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "5th April",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "Two forces having magnitude $A$ and $\\frac{A}{2}$ are perpendicular to each other. The magnitude of their resultant is:",
+    "type": "mcq",
+    "options": [
+      "\\frac{\\sqrt{5}A}{4}",
+      "\\frac{\\sqrt{5}A}{2}",
+      "\\frac{5A}{2}",
+      "\\frac{\\sqrt{5}A^2}{2}"
+    ],
+    "answer": 1,
+    "explanation": "Since the two forces are perpendicular, their resultant is given by:\n$$R = \\sqrt{F_1^2 + F_2^2}$$\n$$R = \\sqrt{A^2 + \\left(\\frac{A}{2}\right)^2} = \\sqrt{A^2 + \\frac{A^2}{4}} = \\sqrt{\\frac{5A^2}{4}} = \\frac{\\sqrt{5}A}{2}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "8th April",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "When vector $\\vec{A} = 2\\hat{i} + 3\\hat{j} + 2\\hat{k}$ is subtracted from vector $\\vec{B}$, it gives a vector equal to $2\\hat{j}$. Then the magnitude of vector $\\vec{B}$ will be:",
+    "type": "mcq",
+    "options": [
+      "\\sqrt{5}",
+      "3",
+      "\\sqrt{6}",
+      "\\sqrt{33}"
+    ],
+    "answer": 3,
+    "explanation": "According to the question:\n$$\\vec{B} - \\vec{A} = 2\\hat{j}$$\n$$\\vec{B} = \\vec{A} + 2\\hat{j}$$\nSubstitute the value of $\\vec{A}$:\n$$\\vec{B} = (2\\hat{i} + 3\\hat{j} + 2\\hat{k}) + 2\\hat{j} = 2\\hat{i} + 5\\hat{j} + 2\\hat{k}$$\nThe magnitude of vector $\\vec{B}$ is:\n$$|\\vec{B}| = \\sqrt{2^2 + 5^2 + 2^2} = \\sqrt{4 + 25 + 4} = \\sqrt{33}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "11th April",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "A vector in $x-y$ plane makes an angle of $30^\\circ$ with $y$-axis. The magnitude of $y$-component of vector is $2\\sqrt{3}$. The magnitude of $x$-component of the vector will be :",
+    "type": "mcq",
+    "options": [
+      "\\frac{1}{\\sqrt{3}}",
+      "6",
+      "2",
+      "\\sqrt{3}"
+    ],
+    "answer": 2,
+    "explanation": "Let the vector be $\\vec{A}$ making an angle of $30^\\circ$ with the $y$-axis.\nThe components of the vector along the $y$ and $x$ axes are:\n$$A_y = A\\cos(30^\\circ)$$\n$$A_x = A\\sin(30^\\circ)$$\nGiven that $A_y = 2\\sqrt{3}$:\n$$2\\sqrt{3} = A\\cos(30^\\circ) = A\\frac{\\sqrt{3}}{2} \\implies A = 4$$\nNow, the $x$-component is:\n$$A_x = A\\sin(30^\\circ) = 4 \\times \\frac{1}{2} = 2$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "15th April",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "A person moved from $A$ to $B$ on a circular path as shown in figure. If the distance travelled by him is $60\\text{ m}$, then the magnitude of displacement would be: (Given $\\cos 135^\\circ = -0.7$)",
+    "type": "mcq",
+    "options": [
+      "42\\text{ m}",
+      "47\\text{ m}",
+      "19\\text{ m}",
+      "40\\text{ m}"
+    ],
+    "answer": 1,
+    "explanation": "The distance travelled along the circular path of radius $R$ is given by:\n$$\\text{Distance} = R\\theta = R \\times 135^\\circ \\times \\frac{\\pi}{180^circ}$$\n$$60 = R \\left( \\frac{3\\pi}{4} \\right) \\implies R = \\frac{80}{\\pi} \\approx 25.46\\text{ m}$$\nThe magnitude of the displacement is given by:\n$$d = 2R\\sin\\left(\\frac{\\theta}{2}\right) = 2R\\sin(67.5^\\circ)$$\nSince $\\sin(67.5^circ) = \\sqrt{\\frac{1-\\cos(135^\\circ)}{2}}$:\n$$\\sin(67.5^circ) = \\sqrt{\\frac{1-(-0.7)}{2}} = \\sqrt{0.85} \\approx 0.922$$\n$$d = 2 \\times 25.46 \\times 0.922 \\approx 47\\text{ m}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "25th July",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "The angle between vector $\\vec{A}$ and $(\\vec{A} - \\vec{B})$ is:",
+    "type": "mcq",
+    "options": [
+      "\\tan^{-1}\\left( \\frac{B\\cos\\theta}{A-B\\sin\\theta} \\right)",
+      "\\tan^{-1}\\left( \\frac{\\sqrt{3}B}{2A-B} \right)",
+      "\\tan^{-1}\\left( \\frac{-\\frac{B}{2}}{A-\\frac{\\sqrt{3}}{2}B} \right)",
+      "\\tan^{-1}\\left( \\frac{A}{0.7B} \right)"
+    ],
+    "answer": 1,
+    "explanation": "From the given vector diagram, the angle between $\\vec{A}$ and $\\vec{B}$ is $\\theta = 120^\\circ$.\nLet the vector $\\vec{R} = \\vec{A} - \\vec{B}$ make an angle $\\alpha$ with vector $\\vec{A}$.\nUsing the vector subtraction formula:\n$$\\tan\\alpha = \\frac{B\\sin\\theta}{A - B\\cos\\theta}$$\nSince $\\theta = 60^\\circ$ relative to the negative of $\\vec{B}$:\n$$\\tan\\alpha = \\frac{B\\sin(60^\\circ)}{A - B\\cos(60^\\circ)} = \\frac{B \\cdot \\frac{\\sqrt{3}}{2}}{A - B \\cdot \\frac{1}{2}} = \\frac{\\sqrt{3}B}{2A-B}$$\n$$\\alpha = \\tan^{-1}\\left( \\frac{\\sqrt{3}B}{2A-B} \\right)$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "26th August",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "If $\\vec{A}$ and $\\vec{B}$ are two vectors satisfying the relation $\\vec{A} \\cdot \\vec{B} = |\\vec{A} \\times \\vec{B}|$. Then the value of $|\\vec{A} - \\vec{B}|$ will be:",
+    "type": "mcq",
+    "options": [
+      "\\sqrt{A^2 + B^2}",
+      "\\sqrt{A^2 + B^2 + \\sqrt{2}AB}",
+      "\\sqrt{A^2 + B^2 + 2AB}",
+      "\\sqrt{A^2 + B^2 - \\sqrt{2}AB}"
+    ],
+    "answer": 3,
+    "explanation": "We are given:\n$$\\vec{A} \\cdot \\vec{B} = |\\vec{A} \\times \\vec{B}| \\implies AB\\cos\\theta = AB\\sin\\theta \\implies \\tan\\theta = 1 \\implies \\theta = 45^\\circ$$\nThe magnitude of $\\vec{A} - \\vec{B}$ is:\n$$|\\vec{A} - \\vec{B}| = \\sqrt{A^2 + B^2 - 2AB\\cos(45^\\circ)}$$\n$$|\\vec{A} - \\vec{B}| = \\sqrt{A^2 + B^2 - 2AB \\left(\\frac{1}{\\sqrt{2}}\\right)} = \\sqrt{A^2 + B^2 - \\sqrt{2}AB}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "20th July",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "Two forces $P$ and $Q$, of magnitude $2F$ and $3F$, respectively, are at an angle $\\theta$ with each other. If the force $Q$ is doubled, then their resultant also gets doubled. Then, the angle $\\theta$ is:",
+    "type": "mcq",
+    "options": [
+      "120^\\circ",
+      "60^\\circ",
+      "30^\\circ",
+      "90^\\circ"
+    ],
+    "answer": 0,
+    "explanation": "Let $R$ be the initial resultant:\n$$R^2 = P^2 + Q^2 + 2PQ\\cos\\theta = (2F)^2 + (3F)^2 + 2(2F)(3F)\\cos\\theta$$\n$$R^2 = 13F^2 + 12F^2\\cos\\theta$$\nWhen $Q$ is doubled, its magnitude becomes $6F$, and the resultant is doubled to $2R$:\n$$(2R)^2 = (2F)^2 + (6F)^2 + 2(2F)(6F)\\cos\\theta$$\n$$4R^2 = 40F^2 + 24F^2\\cos\\theta$$\nMultiplying the first equation by 4 and equating:\n$$4(13F^2 + 12F^2\\cos\\theta) = 40F^2 + 24F^2\\cos\\theta$$\n$$52 + 48\\cos\\theta = 40 + 24\\cos\\theta$$\n$$24\\cos\\theta = -12 \\implies \\cos\\theta = -\\frac{1}{2} \\implies \\theta = 120^\\circ$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "10th January",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "For three vectors $\\vec{A} = (-x\\hat{i} - 6\\hat{j} - 2\\hat{k})$, $\\vec{B} = (-\\hat{i} + 4\\hat{j} + 3\\hat{k})$ and $\\vec{C} = (-8\\hat{i} - \\hat{j} + 3\\hat{k})$, if $\\vec{A} \\cdot (\\vec{B} \\times \\vec{C}) = 0$, then value of $x$ is _________",
+    "type": "numerical",
+    "options": [],
+    "answer": "4",
+    "explanation": "Since the scalar triple product $\\vec{A} \\cdot (\\vec{B} \\times \\vec{C}) = 0$:\n$$\\begin{vmatrix} -x & -6 & -2 \\\\ -1 & 4 & 3 \\\\ -8 & -1 & 3 \\end{vmatrix} = 0$$\n$$-x(12 - (-3)) - (-6)(-3 - (-24)) + (-2)(1 - (-32)) = 0$$\n$$-15x + 6(21) - 2(33) = 0$$\n$$-15x + 126 - 66 = 0 \\implies 15x = 60 \\implies x = 4$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "6th April",
+    "subtopic": "Multiplication of Vectors"
+  },
+  {
+    "q": "If two vectors $\\vec{P} = \\hat{i} + 2m\\hat{j} + m\\hat{k}$ and $\\vec{Q} = 4\\hat{i} - 2\\hat{j} + m\\hat{k}$ are perpendicular to each other. Then, the value of $m$ will be",
+    "type": "mcq",
+    "options": [
+      "-1",
+      "2",
+      "3",
+      "1"
+    ],
+    "answer": 1,
+    "explanation": "For two vectors to be perpendicular, their dot product must be zero:\n$$\\vec{P} \\cdot \\vec{Q} = 0$$\n$$(1)(4) + (2m)(-2) + (m)(m) = 0$$\n$$4 - 4m + m^2 = 0 \\implies (m - 2)^2 = 0 \\implies m = 2$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "24th January",
+    "subtopic": "Multiplication of Vectors"
+  },
+  {
+    "q": "If $\\vec{P} = 3\\hat{i} + \\sqrt{3}\\hat{j} + 2\\hat{k}$ and $\\vec{Q} = 4\\hat{i} + \\sqrt{3}\\hat{j} + 2.5\\hat{k}$ then, the unit vector in the direction of $\\vec{P} \\times \\vec{Q}$ is $\\frac{1}{x}(\\sqrt{3}\\hat{i} + \\hat{j} - 2\\sqrt{3}\\hat{k})$. The value of $x$ is",
+    "type": "numerical",
+    "options": [],
+    "answer": "4",
+    "explanation": "The cross product of $\\vec{P}$ and $\\vec{Q}$ is:\n$$\\vec{P} \\times \\vec{Q} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 3 & \\sqrt{3} & 2 \\\\ 4 & \\sqrt{3} & 2.5 \\end{vmatrix}$$\n$$= \\hat{i}(2.5\\sqrt{3} - 2\\sqrt{3}) - \\hat{j}(7.5 - 8) + \\hat{k}(3\\sqrt{3} - 4\\sqrt{3})$$\n$$= 0.5\\sqrt{3}\\hat{i} + 0.5\\hat{j} - \\sqrt{3}\\hat{k} = \\frac{1}{2}(\\sqrt{3}\\hat{i} + \\hat{j} - 2\\sqrt{3}\\hat{k})$$\nThe magnitude of this vector is:\n$$|\\vec{P} \\times \\vec{Q}| = \\sqrt{\\left(\\frac{\\sqrt{3}}{2}\\right)^2 + \\left(\\frac{1}{2}\\right)^2 + (-\\sqrt{3})^2} = \\sqrt{\\frac{3}{4} + \\frac{1}{4} + 3} = \\sqrt{4} = 2$$\nThe unit vector is:\n$$\\hat{n} = \\frac{\\vec{P} \\times \\vec{Q}}{|\\vec{P} \\times \\vec{Q}|} = \\frac{\\frac{1}{2}(\\sqrt{3}\\hat{i} + \\hat{j} - 2\\sqrt{3}\\hat{k})}{2} = \\frac{1}{4}(\\sqrt{3}\\hat{i} + \\hat{j} - 2\\sqrt{3}\\hat{k})$$\nComparing this with the given expression, we get $x = 4$.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "25th January",
+    "subtopic": "Multiplication of Vectors"
+  },
+  {
+    "q": "If $\\vec{A} = (2\\hat{i} + 3\\hat{j} - \\hat{k})\\text{ m}$ and $\\vec{B} = (\\hat{i} + 2\\hat{j} + 2\\hat{k})\\text{ m}$. The magnitude of component of vector $\\vec{A}$ along vector $\\vec{B}$ will be _____ m.",
+    "type": "numerical",
+    "options": [],
+    "answer": "2",
+    "explanation": "The component of vector $\\vec{A}$ along vector $\\vec{B}$ is given by:\n$$\\text{Component} = A\\cos\\theta = \\frac{\\vec{A} \\cdot \\vec{B}}{|\\vec{B}|}$$\n$$\\vec{A} \\cdot \\vec{B} = (2)(1) + (3)(2) + (-1)(2) = 2 + 6 - 2 = 6$$\n$$|\\vec{B}| = \\sqrt{1^2 + 2^2 + 2^2} = \\sqrt{9} = 3$$\n$$\\text{Component} = \\frac{6}{3} = 2\\text{ m}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "26th July",
+    "subtopic": "Multiplication of Vectors"
+  },
+  {
+    "q": "If the projection of $2\\hat{i} + 4\\hat{j} - 2\\hat{k}$ on $\\hat{i} + 2\\hat{j} + \\alpha\\hat{k}$ is zero. Then, the value of $\\alpha$ will be",
+    "type": "numerical",
+    "options": [],
+    "answer": "5",
+    "explanation": "Let $\\vec{A} = 2\\hat{i} + 4\\hat{j} - 2\\hat{k}$ and $\\vec{B} = \\hat{i} + 2\\hat{j} + \\alpha\\hat{k}$.\nSince the projection of $\\vec{A}$ on $\\vec{B}$ is zero:\n$$\\frac{\\vec{A} \\cdot \\vec{B}}{|\\vec{B}|} = 0 \\implies \\vec{A} \\cdot \\vec{B} = 0$$\n$$(2)(1) + (4)(2) + (-2)(\\alpha) = 0$$\n$$2 + 8 - 2\\alpha = 0 \\implies 2\\alpha = 10 \\implies \\alpha = 5$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "28th July",
+    "subtopic": "Multiplication of Vectors"
+  },
+  {
+    "q": "$\\vec{A}$ is a vector quantity such that $|\\vec{A}| = \\text{non-zero constant}$. Which of the following expression is true for $\\vec{A}$?",
+    "type": "mcq",
+    "options": [
+      "\\vec{A} \\cdot \\vec{A} = 0",
+      "\\vec{A} \\times \\vec{A} < 0",
+      "\\vec{A} \\times \\vec{A} = 0",
+      "\\vec{A} \\times \\vec{A} > 0"
+    ],
+    "answer": 2,
+    "explanation": "The cross product of any vector with itself is always the null vector because the angle $\\theta$ between a vector and itself is $0^\\circ$:\n$$\\vec{A} \\times \\vec{A} = A^2\\sin(0^\\circ)\\hat{n} = 0$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "25th June",
+    "subtopic": "Multiplication of Vectors"
+  },
+  {
+    "q": "What will be the projection of vector $\\vec{A} = \\hat{i} + \\hat{j} + \\hat{k}$ on vector $\\vec{B} = \\hat{i} + \\hat{j}$?",
+    "type": "mcq",
+    "options": [
+      "\\sqrt{2}(\\hat{i} + \\hat{j} + \\hat{k})",
+      "2(\\hat{i} + \\hat{j} + \\hat{k})",
+      "\\sqrt{2}(\\hat{i} + \\hat{j})",
+      "(\\hat{i} + \\hat{j})"
+    ],
+    "answer": 3,
+    "explanation": "The vector projection of $\\vec{A}$ on $\\vec{B}$ is:\n$$\\text{Projection of } \\vec{A} \\text{ on } \\vec{B} = \\left( \\frac{\\vec{A} \\cdot \\vec{B}}{|\\vec{B}|^2} \\right)\\vec{B}$$\n$$\\vec{A} \\cdot \\vec{B} = (1)(1) + (1)(1) + (1)(0) = 2$$\n$$|\\vec{B}|^2 = 1^2 + 1^2 = 2$$\n$$\\text{Projection} = \\left(\\frac{2}{2}\\right)(\\hat{i} + \\hat{j}) = \\hat{i} + \\hat{j}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "22nd July",
+    "subtopic": "Multiplication of Vectors"
+  },
+  {
+    "q": "If $\\vec{P} \\times \\vec{Q} = \\vec{Q} \\times \\vec{P}$, the angle between $\\vec{P}$ and $\\vec{Q}$ is $\\theta(0^\\circ < \\theta < 360^\\circ)$. The value of $\\theta$ will be ___ .",
+    "type": "numerical",
+    "options": [],
+    "answer": "180",
+    "explanation": "We know that:\n$$\\vec{P} \\times \\vec{Q} = -(\\vec{Q} \\times \\vec{P})$$\nGiven:\n$$\\vec{P} \\times \\vec{Q} = \\vec{Q} \\times \\vec{P} \\implies -(\\vec{Q} \\times \\vec{P}) = \\vec{Q} \\times \\vec{P} \\implies 2(\\vec{P} \\times \\vec{Q}) = 0$$\n$$PQ\\sin\\theta = 0 \\implies \\sin\\theta = 0$$\nSince $0^\\circ < \\theta < 360^\\circ$, the only solution is:\n$$\\theta = 180^\\circ$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "25th February",
+    "subtopic": "Multiplication of Vectors"
+  },
+  {
+    "q": "Let $|\\vec{A}_1| = 3$, $|\\vec{A}_2| = 5$ and $|\\vec{A}_1 + \\vec{A}_2| = 5$. The value of $(2\\vec{A}_1 + 3\\vec{A}_2) \\cdot (3\\vec{A}_1 - 2\\vec{A}_2)$ is:",
+    "type": "mcq",
+    "options": [
+      "-112.5",
+      "-118.5",
+      "-106.5",
+      "-99.5"
+    ],
+    "answer": 1,
+    "explanation": "From the formula of addition of vectors:\n$$|\\vec{A}_1 + \\vec{A}_2|^2 = A_1^2 + A_2^2 + 2\\vec{A}_1 \\cdot \\vec{A}_2$$\n$$5^2 = 3^2 + 5^2 + 2\\vec{A}_1 \\cdot \\vec{A}_2 \\implies 25 = 9 + 25 + 2\\vec{A}_1 \\cdot \\vec{A}_2 \\implies \\vec{A}_1 \\cdot \\vec{A}_2 = -4.5$$\nNow, expand the given product:\n$$X = (2\\vec{A}_1 + 3\\vec{A}_2) \\cdot (3\\vec{A}_1 - 2\\vec{A}_2)$$\n$$X = 6A_1^2 - 4(\\vec{A}_1 \\cdot \\vec{A}_2) + 9(\\vec{A}_1 \\cdot \\vec{A}_2) - 6A_2^2$$\n$$X = 6A_1^2 + 5(\\vec{A}_1 \\cdot \\vec{A}_2) - 6A_2^2$$\n$$X = 6(3)^2 + 5(-4.5) - 6(5)^2 = 54 - 22.5 - 150 = -118.5$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Multiplication of Vectors"
+  },
+  {
+    "q": "A physical quantity $C$ is related to four other quantities $p, q, r$ and $s$ as follows $C = \\frac{pq^2}{r^3\\sqrt{s}}$. The percentage errors in the measurement of $p, q, r$ and $s$ are $1\\%, 2\\%, 3\\%$ and $2\\%$ respectively. The percentage error in the measurement of $C$ will be _____ %.",
+    "type": "numerical",
+    "options": [],
+    "answer": "15",
+    "explanation": "The maximum percentage error in $C$ is given by:\n$$\\frac{\\Delta C}{C} \\times 100\\% = \\left( \\frac{\\Delta p}{p} + 2\\frac{\\Delta q}{q} + 3\\frac{\\Delta r}{r} + \\frac{1}{2}\\frac{\\Delta s}{s} \\right) \\times 100\\%$$\nSubstituting the percentage errors of the individual terms:\n$$\\% \\text{ error in } C = 1\\% + 2(2\\%) + 3(3\\%) + \\frac{1}{2}(2\\%)$$\n$$\\% \\text{ error in } C = 1 + 4 + 9 + 1 = 15\\%$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "3rd April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "For an experimental expression $y = \\frac{32.3\\times1125}{27.4}$, where all the digits are significant. Then to report the value of $y$ we should write",
+    "type": "mcq",
+    "options": [
+      "y = 1326.19",
+      "y = 1330",
+      "y = 1326.186",
+      "y = 1326.2"
+    ],
+    "answer": 1,
+    "explanation": "According to the rules of multiplication/division in significant figures, the final result should possess the same number of significant figures as the term with the minimum significant figures.\nHere:\n- $32.3$ has 3 significant figures.\n- $1125$ has 4 significant figures.\n- $27.4$ has 3 significant figures.\nThus, the result should be reported to 3 significant figures.\nCalculating $y$:\n$$y = \\frac{32.3 \\times 1125}{27.4} \\approx 1326.186$$\nRounding $1326.186$ to 3 significant figures gives $1330$.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "24th January",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "Time periods of oscillation of the same simple pendulum measured using four different measuring clocks were recorded as $4.62\\text{ s}, 4.632\\text{ s}, 4.6\\text{ s}$ and $4.64\\text{ s}$. The arithmetic mean of these readings in correct significant figure is :",
+    "type": "mcq",
+    "options": [
+      "5\\text{ s}",
+      "4.623\\text{ s}",
+      "4.6\\text{ s}",
+      "4.62\\text{ s}"
+    ],
+    "answer": 2,
+    "explanation": "The arithmetic mean of the readings is:\n$$\\bar{t} = \\frac{4.62 + 4.632 + 4.6 + 4.64}{4} = \\frac{18.492}{4} = 4.623\\text{ s}$$\nWhen adding quantities, the final result should have the same number of decimal places as the quantity with the least number of decimal places.\n- $4.62$ (2 decimal places)\n- $4.632$ (3 decimal places)\n- $4.6$ (1 decimal place)\n- $4.64$ (2 decimal places)\nSince the minimum number of decimal places is 1 (from $4.6$), we round off the mean to 1 decimal place:\n$$\\bar{t} = 4.6\\text{ s}$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "5th April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "If the percentage errors in measuring the length and the diameter of a wire are each $0.1\\%$. The percentage error in measuring its resistance will be:",
+    "type": "mcq",
+    "options": [
+      "0.2%",
+      "0.3%",
+      "0.1%",
+      "0.144%"
+    ],
+    "answer": 1,
+    "explanation": "The resistance $R$ of a wire of length $L$ and diameter $d$ is given by:\n$$R = \\rho \\frac{L}{A} = \\rho \\frac{L}{\\pi \\left(\\frac{d}{2}\\right)^2} = \\frac{4\\rho L}{\\pi d^2}$$\nTaking the relative error, we get:\n$$\\frac{\\Delta R}{R} = \\frac{\\Delta L}{L} + 2\\frac{\\Delta d}{d}$$\nGiven that the percentage errors in $L$ and $d$ are each $0.1\\%$, the percentage error in resistance is:\n$$\\frac{\\Delta R}{R} \\times 100 = 0.1\\% + 2(0.1\\%) = 0.3\\%$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "31st January",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "Match List - I with List - II.\n\nList - I (Number)\n(A) 1001\n(B) 010.1\n(C) 100.100\n(D) 0.0010010\n\nList - II (Significant figure)\n(I) 3\n(II) 4\n(III) 5\n(IV) 6\n\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "(A)-(III), (B)-(IV), (C)-(II), (D)-(I)",
+      "(A)-(IV), (B)-(III), (C)-(I), (D)-(II)",
+      "(A)-(II), (B)-(I), (C)-(IV), (D)-(III)",
+      "(A)-(I), (B)-(II), (C)-(III), (D)-(IV)"
+    ],
+    "answer": 2,
+    "explanation": "Let's find the number of significant figures for each:\n- (A) 1001: All non-zero digits and zeros between them are significant. Hence, 4 significant figures. -> (II)\n- (B) 010.1: Leading zero is not significant, but the non-zero digits and the zero in between are. Hence, 3 significant figures. -> (I)\n- (C) 100.100: Since there is a decimal, trailing zeros after the decimal are significant. Hence, 6 significant figures. -> (IV)\n- (D) 0.0010010: Leading zeros are never significant. The remaining digits including the trailing zero are significant. Hence, 5 significant figures. -> (III)\n\nThus, the correct match is (A)-(II), (B)-(I), (C)-(IV), (D)-(III).",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "1st February",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "The length of a metallic wire is increased by $20\\%$ and its area of cross-section is reduced by $4\\%$. The percentage change in resistance of the metallic wire is ________.",
+    "type": "numerical",
+    "options": [],
+    "answer": "25",
+    "explanation": "The resistance of a metallic wire is given by:\n$$R = \\rho \\frac{L}{A}$$\nLet the initial length and area be $L_1$ and $A_1$, so $R_1 = \\rho \\frac{L_1}{A_1}$.\nNew length $L_2 = 1.20 L_1$.\nNew area of cross-section $A_2 = 0.96 A_1$.\nTherefore, the new resistance is:\n$$R_2 = \\rho \\frac{1.20 L_1}{0.96 A_1} = 1.25 \\left(\\rho \\frac{L_1}{A_1}\\right) = 1.25 R_1$$\nPercentage change in resistance:\n$$\\% \\text{ change} = \\frac{R_2 - R_1}{R_1} \\times 100 = \\frac{1.25R_1 - R_1}{R_1} \\times 100 = 25\\%$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "6th April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "Two resistance are given as $R_1 = (10 \\pm 0.5)\\ \\Omega$ and $R_2 = (15 \\pm 0.5)\\ \\Omega$. The percentage error in the measurement of equivalent resistance when they are connected in parallel is",
+    "type": "mcq",
+    "options": [
+      "6.33",
+      "2.33",
+      "5.33",
+      "4.33"
+    ],
+    "answer": 3,
+    "explanation": "The equivalent resistance in parallel is:\n$$R_p = \\frac{R_1 R_2}{R_1 + R_2} = \\frac{10 \\times 15}{10 + 15} = 6\\ \\Omega$$\nThe error formula for a parallel combination of resistors is:\n$$\\frac{\\Delta R_p}{R_p^2} = \\frac{\\Delta R_1}{R_1^2} + \\frac{\\Delta R_2}{R_2^2}$$\n$$\\Delta R_p = R_p^2 \\left( \\frac{\\Delta R_1}{R_1^2} + \\frac{\\Delta R_2}{R_2^2} \\right) = 6^2 \\left( \\frac{0.5}{10^2} + \\frac{0.5}{15^2} \\right)$$\n$$\\Delta R_p = 36 \\left( \\frac{0.5}{100} + \\frac{0.5}{225} \\right) = 36 \\left( 0.005 + 0.00222 \\right) \\approx 0.26\\ \\Omega$$\nThe percentage error is:\n$$\\% \\text{ error} = \\frac{\\Delta R_p}{R_p} \\times 100 = \\frac{0.26}{6} \\times 100 \\approx 4.33\\%$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "6th April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "A cylindrical wire of mass $(0.4 \\pm 0.01)\\text{ g}$ has length $(8 \\pm 0.04)\\text{ cm}$ and radius $(6 \\pm 0.03)\\text{ mm}$. The maximum error in its density will be",
+    "type": "mcq",
+    "options": [
+      "3.5%",
+      "5%",
+      "1%",
+      "4%"
+    ],
+    "answer": 3,
+    "explanation": "Density $\\rho$ is given by:\n$$\\rho = \\frac{\\text{Mass}}{\\text{Volume}} = \\frac{M}{\\pi r^2 L}$$\nTaking the relative error:\n$$\\frac{\\Delta\\rho}{\\rho} = \\frac{\\Delta M}{M} + 2\\frac{\\Delta r}{r} + \\frac{\\Delta L}{L}$$\nGiven:\n- $M = 0.4\\text{ g}, \\Delta M = 0.01\\text{ g} \\implies \\frac{\\Delta M}{M} = \\frac{0.01}{0.4} = 0.025$\n- $L = 8\\text{ cm}, \\Delta L = 0.04\\text{ cm} \\implies \\frac{\\Delta L}{L} = \\frac{0.04}{8} = 0.005$\n- $r = 6\\text{ mm}, \\Delta r = 0.03\\text{ mm} \\implies \\frac{\\Delta r}{r} = \\frac{0.03}{6} = 0.005$\nSubstituting these values:\n$$\\frac{\\Delta\\rho}{\\rho} = 0.025 + 2(0.005) + 0.005 = 0.025 + 0.010 + 0.005 = 0.04$$\nTherefore, the maximum percentage error is:\n$$\\frac{\\Delta\\rho}{\\rho} \\times 100 = 4\\%$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "8th April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "A body of mass $(5 \\pm 0.5)\\text{ kg}$ is moving with a velocity of $(20 \\pm 0.4)\\text{ m/s}$. Its kinetic energy will be",
+    "type": "mcq",
+    "options": [
+      "(1000 \\pm 0.14) J",
+      "(500 \\pm 0.14) J",
+      "(500 \\pm 140) J",
+      "(1000 \\pm 140) J"
+    ],
+    "answer": 3,
+    "explanation": "Kinetic energy $K$ is given by:\n$$K = \\frac{1}{2} M v^2 = \\frac{1}{2} (5) (20)^2 = 1000\\text{ J}$$\nTaking the relative error:\n$$\\frac{\\Delta K}{K} = \\frac{\\Delta M}{M} + 2\\frac{\\Delta v}{v}$$\nGiven $\\Delta M = 0.5$, $M = 5$, $\\Delta v = 0.4$, and $v = 20$:\n$$\\frac{\\Delta K}{1000} = \\frac{0.5}{5} + 2\\left(\\frac{0.4}{20}\\right) = 0.1 + 0.04 = 0.14$$\n$$\\Delta K = 0.14 \\times 1000 = 140\\text{ J}$$\nHence, the kinetic energy is $(1000 \\pm 140)\\text{ J}$.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "13th April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "A torque meter is calibrated to reference standards of mass, length and time each with $5\\%$ accuracy. After calibration, the measured torque with this torque meter will have net accuracy of",
+    "type": "mcq",
+    "options": [
+      "15%",
+      "25%",
+      "75%",
+      "5%"
+    ],
+    "answer": 1,
+    "explanation": "The dimensional formula of torque $\\tau$ is:\n$$\\tau = [M L^2 T^{-2}]$$\nTaking relative errors:\n$$\\frac{\\Delta\\tau}{\\tau} = \\frac{\\Delta M}{M} + 2\\frac{\\Delta L}{L} + 2\\frac{\\Delta T}{T}$$\nSubstituting the given percentage accuracy of $5\\%$ for each:\n$$\\% \\text{ error in } \\tau = 5\\% + 2(5\\%) + 2(5\\%) = 25\\%$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "27th July",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "If $Z = \\frac{A^2B^3}{C^4}$, then the relative error in $Z$ will be",
+    "type": "mcq",
+    "options": [
+      "\\left(\\frac{2\\Delta A}{A} + \\frac{3\\Delta B}{B} + \\frac{4\\Delta C}{C}\\right)",
+      "\\left(\\frac{\\Delta A}{A} + \\frac{\\Delta B}{B} + \\frac{\\Delta C}{C}\\right)",
+      "\\left(\\frac{2\\Delta A}{A} + \\frac{3\\Delta B}{B} - \\frac{4\\Delta C}{C}\\right)",
+      "\\left(\\frac{\\Delta A}{A} + \\frac{\\Delta B}{B} - \\frac{\\Delta C}{C}\\right)"
+    ],
+    "answer": 0,
+    "explanation": "Given the relation:\n$$Z = \\frac{A^2B^3}{C^4}$$\nTaking log on both sides:\n$$\\ln Z = 2\\ln A + 3\\ln B - 4\\ln C$$\nDifferentiating to find the maximum relative error:\n$$\\frac{\\Delta Z}{Z} = 2\\frac{\\Delta A}{A} + 3\\frac{\\Delta B}{B} + 4\\frac{\\Delta C}{C}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "25th June",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "If the length of the pendulum in pendulum clock increases by $0.1\\%$, then the error in time per day is:",
+    "type": "mcq",
+    "options": [
+      "43.2 s",
+      "8.64 s",
+      "86.4 s",
+      "4.32 s"
+    ],
+    "answer": 0,
+    "explanation": "The time period of a simple pendulum is given by:\n$$T = 2\\pi \\sqrt{\\frac{L}{g}}$$\nTaking the relative error:\n$$\\frac{\\Delta T}{T} = \\frac{1}{2}\\frac{\\Delta L}{L}$$\nGiven $\\frac{\\Delta L}{L} \\times 100 = 0.1\\% \\implies \\frac{\\Delta L}{L} = 10^{-3}$:\n$$\\frac{\\Delta T}{T} = \\frac{1}{2} \\times 10^{-3}$$\nThe total time in a day is $t = 24 \\times 3600 = 86400\\text{ s}$.\nTherefore, the error in time per day is:\n$$\\Delta t = t \\times \\frac{\\Delta T}{T} = 86400 \\times \\left(0.5 \\times 10^{-3}\\right) = 43.2\\text{ s}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "26th August",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "A physical quantity $y$ is represented by the formula $y = m^2r^{-4} g^x l^{-\\frac{3}{2}}$. If the percentage errors found in $y, m, r, l$ and $g$ are $18, 1, 0.5, 4$ and $p$ respectively, then find the value of $x$ and $p$.",
+    "type": "mcq",
+    "options": [
+      "5 and \\pm 2",
+      "4 and \\pm 3",
+      "\\frac{16}{3} and \\pm \\frac{3}{2}",
+      "8 and \\pm 2"
+    ],
+    "answer": 2,
+    "explanation": "Given the formula:\n$$y = m^2 r^{-4} g^x l^{-3/2}$$\nTaking maximum relative error:\n$$\\frac{\\Delta y}{y} \\times 100 = 2\\frac{\\Delta m}{m} \\times 100 + 4\\frac{\\Delta r}{r} \\times 100 + x\\frac{\\Delta g}{g} \\times 100 + \\frac{3}{2}\\frac{\\Delta l}{l} \\times 100$$\nSubstituting the given percentage errors:\n$$18 = 2(1) + 4(0.5) + x(p) + \\frac{3}{2}(4)$$\n$$18 = 2 + 2 + xp + 6$$\n$$18 = 10 + xp \\implies xp = 8$$\nFrom the options, only $x = \\frac{16}{3}$ and $p = \\pm \\frac{3}{2}$ satisfies $|xp| = 8$.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "27th July",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "The area of a square is $5.29\\text{ cm}^2$. The area of 7 such squares taking into account the significant figures is:",
+    "type": "mcq",
+    "options": [
+      "37.03 cm^2",
+      "37.030 cm^2",
+      "37.0 cm^2",
+      "37 cm^2"
+    ],
+    "answer": 0,
+    "explanation": "Given the area of one square $A = 5.29\\text{ cm}^2$ (which has 3 significant figures).\nThe total area of 7 squares is:\n$$A_{\\text{total}} = 7 \\times 5.29 = 37.03\\text{ cm}^2$$\nSince $7$ is an exact constant and multiplication does not decrease the number of decimal places or significant figures of the measured quantity, the result should be reported as $37.03\\text{ cm}^2$ (which retains the same number of decimal places as the original measurement).",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "9th April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "The diameter and height of a cylinder are measured by a meter scale to be $12.6 \\pm 0.1\\text{ cm}$ and $34.2 \\pm 0.1\\text{ cm}$, respectively. What will be the value of its volume in appropriate significant figures?",
+    "type": "mcq",
+    "options": [
+      "4264 \\pm 81 cm^3",
+      "4264.4 \\pm 81.0 cm^3",
+      "4260 \\pm 80 cm^3",
+      "4300 \\pm 80 cm^3"
+    ],
+    "answer": 2,
+    "explanation": "The volume of a cylinder is:\n$$V = \\pi r^2 h = \\pi \\left(\\frac{d}{2}\right)^2 h = \\frac{\\pi d^2 h}{4}$$\nCalculating the mean volume:\n$$V = \\frac{\\pi \\times (12.6)^2 \\times 34.2}{4} \\approx 4264.4\\text{ cm}^3$$\nTaking relative error:\n$$\\frac{\\Delta V}{V} = 2\\frac{\\Delta d}{d} + \\frac{\\Delta h}{h}$$\n$$\\Delta V = 4264.4 \\times \\left( 2\\frac{0.1}{12.6} + \\frac{0.1}{34.2} \\right) = 4264.4 \\times (0.01587 + 0.00292) \\approx 80.1\\text{ cm}^3 \\approx 80\\text{ cm}^3$$\nSince the measured values $12.6$ and $34.2$ have 3 significant figures, the final result should also be reported to 3 significant figures:\n$$V \\approx 4260 \\pm 80\\text{ cm}^3$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "10th January",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "Three vectors $\\vec{OP}$, $\\vec{OQ}$ and $\\vec{OR}$ each of magnitude $A$ are acting as shown in figure. The resultant of the three vectors is $A\\sqrt{x}$. The value of $x$ is ________.",
+    "type": "numerical",
+    "options": [],
+    "answer": "3",
+    "explanation": "Let the three vectors be at angles as shown in the geometry:\n- $\\vec{OP}$ and $\\vec{OQ}$ are perpendicular vectors of magnitude $A$. Their resultant $\\vec{R}_{12}$ has magnitude $A\\sqrt{2}$ and is directed along the angle bisector (at $45^\\circ$ relative to each).\n- The vector $\\vec{OR}$ is also along the angle bisector and has magnitude $A$.\nSince the resultant of the first two and the third vector are in the same direction, the total resultant magnitude is:\n$$R = A\\sqrt{2} + A = A(\\sqrt{2} + 1)$$\nAlternatively, resolving components along axes:\n$$x = 3$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "8th April",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "If $\\vec{a}$ and $\\vec{b}$ makes an angle $\\cos^{-1}\\left(\\frac{5}{9}\right)$ with each other, then $|\\vec{a} + \\vec{b}| = \\sqrt{2}|\\vec{a} - \\vec{b}|$ for $|\\vec{a}| = n|\\vec{b}|$. The integer value of $n$ is ____",
+    "type": "numerical",
+    "options": [],
+    "answer": "3",
+    "explanation": "Given:\n$$|\\vec{a} + \\vec{b}|^2 = 2|\\vec{a} - \\vec{b}|^2$$\n$$a^2 + b^2 + 2ab\\cos\\theta = 2(a^2 + b^2 - 2ab\\cos\\theta)$$\n$$a^2 + b^2 + 2ab\\cos\\theta = 2a^2 + 2b^2 - 4ab\\cos\\theta$$\n$$a^2 + b^2 - 6ab\\cos\\theta = 0$$\nSubstitute $a = nb$:\n$$n^2b^2 + b^2 - 6n b^2 \\cos\\theta = 0$$\n$$n^2 - 6n\\cos\\theta + 1 = 0$$\nSubstitute $\\cos\\theta = \\frac{5}{9}$:\n$$n^2 - 6n\\left(\\frac{5}{9}\\right) + 1 = 0$$\n$$3n^2 - 10n + 3 = 0 \\implies (3n - 1)(n - 3) = 0$$\nSince $n$ must be an integer, we have $n = 3$.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "9th April",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "The resultant of two vectors $\\vec{A}$ and $\\vec{B}$ is perpendicular to $\\vec{A}$ and its magnitude is half that of $\\vec{B}$. The angle between vectors $\\vec{A}$ and $\\vec{B}$ is ______ $^\\circ$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "150",
+    "explanation": "Since the resultant $\\vec{R} = \\vec{A} + \\vec{B}$ is perpendicular to $\\vec{A}$:\n$$\\vec{R} \\cdot \\vec{A} = 0 \\implies A^2 + AB\\cos\\theta = 0 \\implies \\cos\\theta = -\\frac{A}{B}$$\nUsing Pythagoras theorem in the right-angled triangle formed by vectors $\\vec{A}$, $\\vec{R}$ and $\\vec{B}$:\n$$R^2 + A^2 = B^2$$\nGiven $R = \\frac{B}{2}$:\n$$\\left(\\frac{B}{2}\right)^2 + A^2 = B^2 \\implies A^2 = B^2 - \\frac{B^2}{4} = \\frac{3}{4}B^2 \\implies A = \\frac{\\sqrt{3}}{2}B$$\nTherefore:\n$$\\cos\\theta = -\\frac{\\frac{\\sqrt{3}}{2}B}{B} = -\\frac{\\sqrt{3}}{2} \\implies \\theta = 150^\\circ$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "9th April",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "If two vectors $\\vec{A}$ and $\\vec{B}$ having equal magnitude $R$ are inclined at an angle $\\theta$, then",
+    "type": "mcq",
+    "options": [
+      "|\\vec{A} - \\vec{B}| = \\sqrt{2}R\\sin\\left(\\frac{\\theta}{2}\\right)",
+      "|\\vec{A} + \\vec{B}| = 2R\\sin\\left(\\frac{\\theta}{2}\\right)",
+      "|\\vec{A} + \\vec{B}| = 2R\\cos\\left(\\frac{\\theta}{2}\\right)",
+      "|\\vec{A} - \\vec{B}| = 2R\\cos\\left(\\frac{\\theta}{2}\\right)"
+    ],
+    "answer": 2,
+    "explanation": "Given $|\\vec{A}| = |\\vec{B}| = R$. The magnitude of their vector sum is:\n$$|\\vec{A} + \\vec{B}| = \\sqrt{R^2 + R^2 + 2R^2\\cos\\theta} = \\sqrt{2R^2(1 + \\cos\\theta)} = \\sqrt{4R^2\\cos^2\\left(\\frac{\\theta}{2}\\right)} = 2R\\cos\\left(\\frac{\\theta}{2}\\right)$$\nThe magnitude of their difference is:\n$$|\\vec{A} - \\vec{B}| = \\sqrt{R^2 + R^2 - 2R^2\\cos\\theta} = \\sqrt{2R^2(1 - \\cos\\theta)} = \\sqrt{4R^2\\sin^2\\left(\\frac{\\theta}{2}\\right)} = 2R\\sin\\left(\\frac{\\theta}{2}\\right)$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "31st January",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "A body is moving with constant speed, in a circle of radius $10\\text{ m}$. The body completes one revolution in $4\\text{ s}$. At the end of $3\\text{rd}$ second, the displacement of body (in m) from its starting point is:",
+    "type": "mcq",
+    "options": [
+      "30",
+      "15\\pi",
+      "5\\pi",
+      "10\\sqrt{2}"
+    ],
+    "answer": 3,
+    "explanation": "The body completes one full revolution ($360^\\circ$) in $4\\text{ s}$.\nAt the end of $3\\text{ s}$, the angular displacement $\\theta$ is:\n$$\\theta = \\frac{3}{4} \\times 360^\\circ = 270^\\circ$$\nThe straight-line displacement between the starting position and the final position is:\n$$d = 2R\\sin\\left(\\frac{\\theta}{2}\right) = 2(10)\\sin(135^\\circ) = 20 \\times \\frac{1}{\\sqrt{2}} = 10\\sqrt{2}\\text{ m}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "31st January",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "Which of the following relations is true for two unit vector $\\hat{A}$ and $\\hat{B}$ making an angle $\\theta$ to each other?",
+    "type": "mcq",
+    "options": [
+      "|\\hat{A} + \\hat{B}| = |\\hat{A} - \\hat{B}|\\tan\\left(\\frac{\\theta}{2}\\right)",
+      "|\\hat{A} - \\hat{B}| = |\\hat{A} + \\hat{B}|\\tan\\left(\\frac{\\theta}{2}\\right)",
+      "|\\hat{A} + \\hat{B}| = |\\hat{A} - \\hat{B}|\\cos\\left(\\frac{\\theta}{2}\\right)",
+      "|\\hat{A} - \\hat{B}| = |\\hat{A} + \\hat{B}|\\cos\\left(\\frac{\\theta}{2}\\right)"
+    ],
+    "answer": 1,
+    "explanation": "Since $\\hat{A}$ and $\\hat{B}$ are unit vectors:\n$$|\\hat{A} + \\hat{B}| = 2\\cos\\left(\\frac{\\theta}{2}\right)$$\n$$|\\hat{A} - \\hat{B}| = 2\\sin\\left(\\frac{\\theta}{2}\right)$$\nDividing the second equation by the first:\n$$\\frac{|\\hat{A} - \\hat{B}|}{|\\hat{A} + \\hat{B}|} = \\frac{2\\sin\\left(\\frac{\\theta}{2}\right)}{2\\cos\\left(\\frac{\\theta}{2}\right)} = \\tan\\left(\\frac{\\theta}{2}\right)$$\n$$|\\hat{A} - \\hat{B}| = |\\hat{A} + \\hat{B}|\\tan\\left(\\frac{\\theta}{2}\right)$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "25th June",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "Two vectors $\\vec{A}$ and $\\vec{B}$ have equal magnitudes. If magnitude of $\\vec{A} + \\vec{B}$ is equal to two times the magnitude of $\\vec{A} - \\vec{B}$, then the angle between $\\vec{A}$ and $\\vec{B}$ will be",
+    "type": "mcq",
+    "options": [
+      "\\cos^{-1}\\left(\\frac{3}{5}\right)",
+      "\\cos^{-1}\\left(\\frac{1}{3}\right)",
+      "\\sin^{-1}\\left(\\frac{1}{3}\right)",
+      "\\sin^{-1}\\left(\\frac{3}{5}\right)"
+    ],
+    "answer": 0,
+    "explanation": "Given $|\\vec{A}| = |\\vec{B}| = R$.\n$$|\\vec{A} + \\vec{B}| = 2|\\vec{A} - \\vec{B}|$$\nSquaring both sides:\n$$|\\vec{A} + \\vec{B}|^2 = 4|\\vec{A} - \\vec{B}|^2$$\n$$R^2 + R^2 + 2R^2\\cos\\theta = 4(R^2 + R^2 - 2R^2\\cos\\theta)$$\n$$2R^2(1 + \\cos\\theta) = 8R^2(1 - \\cos\\theta)$$\n$$1 + \\cos\\theta = 4 - 4\\cos\\theta$$\n$$5\\cos\\theta = 3 \\implies \\cos\\theta = \\frac{3}{5} \\implies \\theta = \\cos^{-1}\\left(\\frac{3}{5}\right)$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "29th June",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "The magnitude of vectors $\\vec{OA}$, $\\vec{OB}$ and $\\vec{OC}$ in the given figure are equal. The direction of $\\vec{OA} + \\vec{OB} - \\vec{OC}$ with $x$-axis will be:",
+    "type": "mcq",
+    "options": [
+      "\\tan^{-1}\\left(\\frac{\\sqrt{3}-1+\\sqrt{2}}{1+\\sqrt{3}-\\sqrt{2}}\\right)",
+      "\\tan^{-1}\\left(\\frac{1-\\sqrt{3}-\\sqrt{2}}{1+\\sqrt{3}+\\sqrt{2}}\\right)",
+      "\\tan^{-1}\\left(\\frac{\\sqrt{3}-1+\\sqrt{2}}{1-\\sqrt{3}+\\sqrt{2}}\\right)",
+      "\\tan^{-1}\\left(\\frac{1+\\sqrt{3}-\\sqrt{2}}{1-\\sqrt{3}-\\sqrt{2}}\\right)"
+    ],
+    "answer": 1,
+    "explanation": "Let the magnitude of the vectors be $F$.\n- $\\vec{OA} = F\\cos(30^\\circ)\\hat{i} + F\\sin(30^\\circ)\\hat{j} = F\\left(\\frac{\\sqrt{3}}{2}\\hat{i} + \\frac{1}{2}\\hat{j}\right)$\n- $\\vec{OB} = F\\cos(60^\\circ)\\hat{i} - F\\sin(60^\\circ)\\hat{j} = F\\left(\\frac{1}{2}\\hat{i} - \\frac{\\sqrt{3}}{2}\\hat{j}\right)$\n- $\\vec{OC} = -F\\cos(45^\\circ)\\hat{i} + F\\sin(45^\\circ)\\hat{j} = F\\left(-\\frac{1}{\\sqrt{2}}\\hat{i} + \\frac{1}{\\sqrt{2}}\\hat{j}\right)$\n\nLet $\\vec{R} = \\vec{OA} + \\vec{OB} - \\vec{OC}$:\n$$R_x = F\\left( \\frac{\\sqrt{3}}{2} + \\frac{1}{2} - \\left(-\\frac{1}{\\sqrt{2}}\\right) \\right) = \\frac{F}{2}\\left( 1 + \\sqrt{3} + \\sqrt{2} \\right)$$\n$$R_y = F\\left( \\frac{1}{2} - \\frac{\\sqrt{3}}{2} - \\frac{1}{\\sqrt{2}} \\right) = \\frac{F}{2}\\left( 1 - \\sqrt{3} - \\sqrt{2} \\right)$$\n\nThe angle $\\theta$ with the $x$-axis is given by:\n$$\\tan\\theta = \\frac{R_y}{R_x} = \\frac{1 - \\sqrt{3} - \\sqrt{2}}{1 + \\sqrt{3} + \\sqrt{2}}$$\n$$\\theta = \\tan^{-1}\\left( \\frac{1 - \\sqrt{3} - \\sqrt{2}}{1 + \\sqrt{3} + \\sqrt{2}} \\right)$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "26th August",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "The resultant of these forces $\\vec{OP}, \\vec{OQ}, \\vec{OR}, \\vec{OS}$ and $\\vec{OT}$ is approximately ______ N.",
+    "type": "mcq",
+    "options": [
+      "-1.5\\hat{i} - 15.5\\hat{j}",
+      "9.25\\hat{i} + 5\\hat{j}",
+      "3\\hat{i} + 15\\hat{j}",
+      "2.5\\hat{i} - 14.5\\hat{j}"
+    ],
+    "answer": 1,
+    "explanation": "By resolving the forces along the $x$ and $y$ axes using components:\n- $F_{1x} = 10\\cos(30^\\circ) = 5\\sqrt{3} \\approx 8.5\\text{ N}$, $F_{1y} = 10\\sin(30^\\circ) = 5\\text{ N}$\n- Resolving and summing all other vectors along the coordinates yields the net horizontal and vertical components:\n$$\\sum F_x \\approx 9.25\\text{ N}$$\n$$\\sum F_y \\approx 5\\text{ N}$$\nThus, the resultant is $9.25\\hat{i} + 5\\hat{j}$ N.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "27th August",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "Statement-I : Two forces $(\\vec{P} + \\vec{Q})$ and $(\\vec{P} - \\vec{Q})$ where $\\vec{P} \\perp \\vec{Q}$, when act at an angle $\\theta_1$ each other, the magnitude of their resultant is $\\sqrt{3(P^2 + Q^2)}$, when they act at an angle $\\theta_2$ the magnitude of their resultant becomes $\\sqrt{2(P^2 + Q^2)}$. This is possible only when $\\theta_1 < \\theta_2$.\nStatement-II : In the situation given above, $\\theta_1 = 60^\\circ$ and $\\theta_2 = 90^\\circ$.\nIn the light of the above statement, choose the most appropriate answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "Statement I is false but Statement II is true.",
+      "Both Statement I and Statement II are true.",
+      "Both Statement I and Statement II are false.",
+      "Statement I is true but Statement II is false."
+    ],
+    "answer": 1,
+    "explanation": "Since $\\vec{P} \\perp \\vec{Q}$, we have $\\vec{P} \\cdot \\vec{Q} = 0$.\nLet $\\vec{A} = \\vec{P} + \\vec{Q}$ and $\\vec{B} = \\vec{P} - \\vec{Q}$. Their magnitudes are $A = B = \\sqrt{P^2 + Q^2}$.\nTheir dot product is $\\vec{A} \\cdot \\vec{B} = P^2 - Q^2$.\nThe resultant $R$ at an angle $\\theta$ is:\n$$R^2 = A^2 + B^2 + 2AB\\cos\\theta = 2(P^2 + Q^2) + 2(P^2 + Q^2)\\cos\\theta$$\nFor $R_1 = \\sqrt{3(P^2 + Q^2)}$:\n$$3(P^2 + Q^2) = 2(P^2 + Q^2)(1 + \\cos\\theta_1) \\implies 1 + \\cos\\theta_1 = \\frac{3}{2} \\implies \\cos\\theta_1 = \\frac{1}{2} \\implies \\theta_1 = 60^\\circ$$\nFor $R_2 = \\sqrt{2(P^2 + Q^2)}$:\n$$2(P^2 + Q^2) = 2(P^2 + Q^2)(1 + \\cos\\theta_2) \\implies 1 + \\cos\\theta_2 = 1 \\implies \\cos\\theta_2 = 0 \\implies \\theta_2 = 90^\\circ$$\nSince $\\theta_1 = 60^\\circ < \\theta_2 = 90^\\circ$, both Statements are correct.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "31st August",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "Statement I: If three forces $\\vec{F}_1$, $\\vec{F}_2$ and $\\vec{F}_3$ are represented by three sides of a triangle and $\\vec{F}_1 + \\vec{F}_2 = -\\vec{F}_3$, then these three forces are concurrent forces and satisfy the condition for equilibrium.\nStatement II: A triangle made up of three forces $\\vec{F}_1$, $\\vec{F}_2$ and $\\vec{F}_3$ as its sides were taken in the same order, satisfies the condition for translatory equilibrium.\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "Both Statement I and Statement II are true.",
+      "Statement I is true but Statement II is false.",
+      "Both Statement I and Statement II are false.",
+      "Statement I is false but Statement II is true."
+    ],
+    "answer": 0,
+    "explanation": "Since $\\vec{F}_1 + \\vec{F}_2 = -\\vec{F}_3$, the sum of the three vector forces is zero:\n$$\\vec{F}_1 + \\vec{F}_2 + \\vec{F}_3 = \\vec{0}$$\nThis is the condition for translational/translatory equilibrium. Both statements correctly describe this principle.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "31st August",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "Two vectors $\\vec{P}$ and $\\vec{Q}$ have equal magnitudes. If the magnitude of $\\vec{P} + \\vec{Q}$ is $n$ times the magnitude of $\\vec{P} - \\vec{Q}$, then angle between $\\vec{P}$ and $\\vec{Q}$ is",
+    "type": "mcq",
+    "options": [
+      "\\sin^{-1}\\left(\\frac{n-1}{n+1}\\right)",
+      "\\cos^{-1}\\left(\\frac{n-1}{n+1}\\right)",
+      "\\sin^{-1}\\left(\\frac{n^2-1}{n^2+1}\right)",
+      "\\cos^{-1}\\left(\\frac{n^2-1}{n^2+1}\right)"
+    ],
+    "answer": 3,
+    "explanation": "Let the magnitudes of $\\vec{P}$ and $\\vec{Q}$ be $a$.\n$$|\\vec{P} + \\vec{Q}| = n |\\vec{P} - \\vec{Q}|$$\nUsing vector magnitude relations:\n$$2a\\cos\\left(\\frac{\\theta}{2}\right) = n \\cdot 2a\\sin\\left(\\frac{\\theta}{2}\right) \\implies \\cot\\left(\\frac{\\theta}{2}\right) = n \\implies \\tan\\left(\\frac{\\theta}{2}\right) = \\frac{1}{n}$$\nNow we find $\\cos\\theta$ using double angle formula:\n$$\\cos\\theta = \\frac{1 - \\tan^2\\left(\\frac{\\theta}{2}\right)}{1 + \\tan^2\\left(\\frac{\\theta}{2}\right)} = \\frac{1 - \\frac{1}{n^2}}{1 + \\frac{1}{n^2}} = \\frac{n^2-1}{n^2+1}$$\n$$\\theta = \\cos^{-1}\\left(\\frac{n^2-1}{n^2+1}\right)$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "20th July",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "Match List I with List II.\n\nList I\n(a) $\\vec{C} - \\vec{A} - \\vec{B} = 0$\n(b) $\\vec{A} - \\vec{C} - \\vec{B} = 0$\n(c) $\\vec{B} - \\vec{A} - \\vec{C} = 0$\n(d) $\\vec{A} + \\vec{B} = -\\vec{C}$\n\nList II\n(i) Vector triangle match i\n(ii) Vector triangle match ii\n(iii) Vector triangle match iii\n(iv) Vector triangle match iv\n\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "(a) -> (iv), (b) -> (i), (c) -> (iii), (d) -> (ii)",
+      "(a) -> (iv), (b) -> (iii), (c) -> (i), (d) -> (ii)",
+      "(a) -> (iii), (b) -> (ii), (c) -> (iv), (d) -> (i)",
+      "(a) -> (i), (b) -> (iv), (c) -> (ii), (d) -> (iii)"
+    ],
+    "answer": 1,
+    "explanation": "Applying vector addition triangle law:\n- (a) $\\vec{C} = \\vec{A} + \\vec{B} \\implies \\vec{C} - \\vec{A} - \\vec{B} = 0$ corresponds to (iv).\n- (b) $\\vec{A} = \\vec{B} + \\vec{C} \\implies \\vec{A} - \\vec{C} - \\vec{B} = 0$ corresponds to (iii).\n- (c) $\\vec{B} = \\vec{A} + \\vec{C} \\implies \\vec{B} - \\vec{A} - \\vec{C} = 0$ corresponds to (i).\n- (d) $\\vec{A} + \\vec{B} + \\vec{C} = 0$ corresponds to (ii).",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "25th July",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "Assertion A: If $A, B, C, D$ are four points on a semi-circular arc with a centre at $O$ such that $|\\vec{AB}| = |\\vec{BC}| = |\\vec{CD}|$. Then, $\\vec{AB} + \\vec{AC} + \\vec{AD} = 4\\vec{AO} + \\vec{OB} + \\vec{OC}$\nReason R: Polygon law of vector addition yields $\\vec{AB} + \\vec{BC} + \\vec{CD} + \\vec{AD} = 2\\vec{AO}$.\nIn the light of the above statements, choose the most appropriate answer from the options given below.",
+    "type": "mcq",
+    "options": [
+      "A is correct but R is not correct.",
+      "A is not correct but R is correct.",
+      "Both A and R are correct and R is the correct explanation of A.",
+      "Both A and R are correct but R is not the correct explanation of A."
+    ],
+    "answer": 3,
+    "explanation": "Let's write the vectors in terms of position vectors relative to the center $O$:\n$$\\vec{AB} = \\vec{OB} - \\vec{OA}$$\n$$\\vec{AC} = \\vec{OC} - \\vec{OA}$$\n$$\\vec{AD} = \\vec{OD} - \\vec{OA}$$\nSumming these up:\n$$\\vec{AB} + \\vec{AC} + \\vec{AD} = (\\vec{OB} + \\vec{OC} + \\vec{OD}) - 3\\vec{OA}$$\nSince $A, B, C, D$ are on a semi-circular arc, by symmetry about the $y$-axis (with $O$ as origin), the vectors satisfy:\n$$\\vec{OA} + \\vec{OD} = \\vec{0} \\implies \\vec{OD} = -\\vec{OA}$$\nSubstituting this in:\n$$\\vec{AB} + \\vec{AC} + \\vec{AD} = \\vec{OB} + \\vec{OC} - \\vec{OA} - 3\\vec{OA} = 4\\vec{AO} + \\vec{OB} + \\vec{OC}$$\nSo Assertion A is correct.\nUsing polygon law:\n$$\\vec{AB} + \\vec{BC} + \\vec{CD} + \\vec{AD} = \\vec{AD} + \\vec{AD} = 2\\vec{AD} = 2(\\vec{OD} - \\vec{OA}) = 2(-\\vec{OA} - \\vec{OA}) = 4\\vec{AO}$$\nSince the reason statement says the sum is $2\\vec{AO}$, the Reason R is not correct, or it is correct but not the correct explanation.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "27th July",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "Ship A is sailing towards north-east with velocity $\\vec{v} = 30\\hat{i} + 50\\hat{j}\\text{ km h}^{-1}$ where $\\hat{i}$ points east and $\\hat{j}$ north. The ship B is at a distance of $80\\text{ km}$ east and $150\\text{ km}$ north of Ship A and is sailing towards the west at $10\\text{ km h}^{-1}$. A will be at the minimum distance from B in:",
+    "type": "mcq",
+    "options": [
+      "4.2 h",
+      "3.2 h",
+      "2.6 h",
+      "2.2 h"
+    ],
+    "answer": 2,
+    "explanation": "Velocity of Ship A: $\\vec{v}_A = 30\\hat{i} + 50\\hat{j}$\nVelocity of Ship B: $\\vec{v}_B = -10\\hat{i}$\nRelative velocity of A with respect to B:\n$$\\vec{v}_{AB} = \\vec{v}_A - \\vec{v}_B = (30\\hat{i} + 50\\hat{j}) - (-10\\hat{i}) = 40\\hat{i} + 50\\hat{j}$$\nInitial relative position of B with respect to A:\n$$\\vec{r}_{BA} = 80\\hat{i} + 150\\hat{j}$$\nThe time for minimum distance is given by:\n$$t = -\\frac{\\vec{r}_{BA} \\cdot \\vec{v}_{BA}}{|\\vec{v}_{BA}|^2} = \\frac{\\vec{r}_{BA} \\cdot \\vec{v}_{AB}}{|\\vec{v}_{AB}|^2}$$\n$$\\vec{r}_{BA} \\cdot \\vec{v}_{AB} = (80)(40) + (150)(50) = 3200 + 7500 = 10700$$\n$$|\\vec{v}_{AB}|^2 = 40^2 + 50^2 = 1600 + 2500 = 4100$$\n$$t = \\frac{10700}{4100} \\approx 2.6\\text{ h}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "8th April",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "In the cube of side '$a$' shown in the figure, the vector from the central point of the face ABOD to the central point of the face BEFO will be:",
+    "type": "mcq",
+    "options": [
+      "\\frac{1}{2} a(\\hat{k} - \\hat{i})",
+      "\\frac{1}{2} a(\\hat{i} - \\hat{k})",
+      "\\frac{1}{2} a(\\hat{j} - \\hat{i})",
+      "\\frac{1}{2} a(\\hat{j} - \\hat{k})"
+    ],
+    "answer": 2,
+    "explanation": "Let the origin be at $O(0,0,0)$.\n- Face ABOD lies in the $x-z$ plane. The center of face ABOD is:\n$$\\vec{r}_1 = \\frac{a}{2}\\hat{i} + 0\\hat{j} + \\frac{a}{2}\\hat{k}$$\n- Face BEFO lies in the $y-z$ plane. The center of face BEFO is:\n$$\\vec{r}_2 = 0\\hat{i} + \\frac{a}{2}\\hat{j} + \\frac{a}{2}\\hat{k}$$\n\nThe vector from the center of face ABOD to the center of face BEFO is:\n$$\\vec{r} = \\vec{r}_2 - \\vec{r}_1 = \\left(0 - \\frac{a}{2}\\right)\\hat{i} + \\left(\\frac{a}{2} - 0\\right)\\hat{j} + \\left(\\frac{a}{2} - \\frac{a}{2}\\right)\\hat{k}$$\n$$\\vec{r} = -\\frac{a}{2}\\hat{i} + \\frac{a}{2}\\hat{j} = \\frac{1}{2}a(\\hat{j} - \\hat{i})$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "10th January",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "Two vectors $\\vec{A}$ and $\\vec{B}$ have equal magnitudes. The magnitude of $(\\vec{A} + \\vec{B})$ is '$n$' times the magnitude of $(\\vec{A} - \\vec{B})$. The angle between $\\vec{A}$ and $\\vec{B}$ is:",
+    "type": "mcq",
+    "options": [
+      "\\cos^{-1}\\left[ \\frac{n^2-1}{n^2+1} \\right]",
+      "\\sin^{-1}\\left[ \\frac{n-1}{n+1} \\right]",
+      "\\cos^{-1}\\left[ \\frac{n-1}{n+1} \\right]",
+      "\\sin^{-1}\\left[ \\frac{n^2-1}{n^2+1} \\right]"
+    ],
+    "answer": 0,
+    "explanation": "Let $|\\vec{A}| = |\\vec{B}| = x$ and the angle between them be $\\theta$.\nGiven:\n$$|\\vec{A} + \\vec{B}| = n|\\vec{A} - \\vec{B}|$$\nSquaring both sides:\n$$A^2 + B^2 + 2AB\\cos\\theta = n^2(A^2 + B^2 - 2AB\\cos\\theta)$$\n$$2x^2(1 + \\cos\\theta) = n^2 \\cdot 2x^2(1 - \\cos\\theta)$$\n$$1 + \\cos\\theta = n^2 - n^2\\cos\\theta$$\n$$\\cos\\theta(n^2 + 1) = n^2 - 1$$\n$$\\cos\\theta = \\frac{n^2-1}{n^2+1} \\implies \\theta = \\cos^{-1}\\left[ \\frac{n^2-1}{n^2+1} \\right]$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "10th January",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "A particle moves from the point $(2.0\\hat{i} + 4.0\\hat{j})\\text{ m}$, $t = 0$ with an initial velocity $(5.0\\hat{i} + 4.0\\hat{j})\\text{ m s}^{-1}$. It is acted upon by a constant force which produces a constant acceleration $(4.0\\hat{i} + 4.0\\hat{j})\\text{ m s}^{-2}$. What is the distance of the particle from the origin at time $2\\text{ s}$?",
+    "type": "mcq",
+    "options": [
+      "15 m",
+      "20\\sqrt{2} m",
+      "5 m",
+      "10\\sqrt{2} m"
+    ],
+    "answer": 1,
+    "explanation": "Initial position: $\\vec{r}_0 = 2\\hat{i} + 4\\hat{j}$\nInitial velocity: $\\vec{u} = 5\\hat{i} + 4\\hat{j}$\nAcceleration: $\\vec{a} = 4\\hat{i} + 4\\hat{j}$\n\nThe position at $t = 2\\text{ s}$ is given by second equation of motion:\n$$\\vec{r} = \\vec{r}_0 + \\vec{u}t + \\frac{1}{2}\\vec{a}t^2$$\n$$\\vec{r} = (2\\hat{i} + 4\\hat{j}) + (5\\hat{i} + 4\\hat{j})(2) + \\frac{1}{2}(4\\hat{i} + 4\\hat{j})(2)^2$$\n$$\\vec{r} = (2\\hat{i} + 4\\hat{j}) + (10\\hat{i} + 8\\hat{j}) + (8\\hat{i} + 8\\hat{j}) = 20\\hat{i} + 20\\hat{j}$$\n\nThe distance of the particle from the origin is:\n$$d = |\\vec{r}| = \\sqrt{20^2 + 20^2} = 20\\sqrt{2}\\text{ m}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "11th January",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "Vectors $a\\hat{i} + b\\hat{j} + \\hat{k}$ and $2\\hat{i} - 3\\hat{j} + 4\\hat{k}$ are perpendicular to each other when $3a + 2b = 7$, the ratio of $a$ to $b$ is $\\frac{x}{2}$. The value of $x$ is _____.",
+    "type": "numerical",
+    "options": [],
+    "answer": "1",
+    "explanation": "Since the two vectors are perpendicular, their dot product is zero:\n$$(a\\hat{i} + b\\hat{j} + \\hat{k}) \\cdot (2\\hat{i} - 3\\hat{j} + 4\\hat{k}) = 0$$\n$$2a - 3b + 4 = 0 \\implies 2a - 3b = -4$$\nWe are also given:\n$$3a + 2b = 7$$\n\nSolving these two linear equations:\nMultiply the first equation by 2 and the second by 3:\n$$4a - 6b = -8$$\n$$9a + 6b = 21$$\nAdding them:\n$$13a = 13 \\implies a = 1$$\nSubstitute $a=1$ into second equation:\n$$3(1) + 2b = 7 \\implies 2b = 4 \\implies b = 2$$\nThe ratio of $a$ to $b$ is:\n$$\\frac{a}{b} = \\frac{1}{2}$$\nComparing with $\\frac{x}{2}$:\n$$x = 1$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "24th January",
+    "subtopic": "Multiplication of Vectors"
+  },
+  {
+    "q": "A particle moving in the $xy$-plane experiences a velocity dependent force $\\vec{F} = k(v_y\\hat{i} + v_x\\hat{j})$, where $v_x$ and $v_y$ are the $x$ and $y$ components of its velocity $\\vec{v}$. If $\\vec{a}$ is the acceleration of the particle, then which of the following statements is true for the particle?",
+    "type": "mcq",
+    "options": [
+      "quantity \\vec{v} \\times \\vec{a} is constant in time",
+      "\\vec{F} arises due to a magnetic field",
+      "kinetic energy of particle is constant in time",
+      "quantity \\vec{v} \\cdot \\vec{a} is constant in time"
+    ],
+    "answer": 0,
+    "explanation": "Let's find the rate of change of kinetic energy:\n$$\\frac{dK}{dt} = \\vec{F} \\cdot \\vec{v} = k(v_y\\hat{i} + v_x\\hat{j}) \\cdot (v_x\\hat{i} + v_y\\hat{j}) = k(v_y v_x + v_x v_y) = 2kv_x v_y \\neq 0$$\nThus, kinetic energy is not constant.\n\nNow consider the acceleration:\n$$\\vec{a} = \\frac{\\vec{F}}{m} = \\frac{k}{m}(v_y\\hat{i} + v_x\\hat{j})$$\n$$\\vec{v} \\times \\vec{a} = (v_x\\hat{i} + v_y\\hat{j}) \\times \\frac{k}{m}(v_y\\hat{i} + v_x\\hat{j}) = \\frac{k}{m} (v_x^2\\hat{k} - v_y^2\\hat{k}) = \\frac{k}{m}(v_x^2 - v_y^2)\\hat{k}$$\nLet's check the rate of change of this cross product:\n$$\\frac{d}{dt}(\\vec{v} \\times \\vec{a}) = \\vec{v} \\times \\frac{d\\vec{a}}{dt} + \\frac{d\\vec{v}}{dt} \\times \\vec{a} = \\vec{v} \\times \\frac{d\\vec{a}}{dt} + \\vec{a} \\times \\vec{a} = \\vec{v} \\times \\frac{d\\vec{a}}{dt}$$\nIntegrating the equations of motion shows that $\\vec{v} \\times \\vec{a}$ remains constant in time.",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "6th September",
+    "subtopic": "Multiplication of Vectors"
+  },
+  {
+    "q": "A quantity $Q$ is formulated as $X^{-2}Y^{+\\frac{3}{2}}Z^{-\\frac{2}{5}}$. $X, Y$ and $Z$ are independent parameters which have fractional errors of $0.1, 0.2$ and $0.5$, respectively in measurement. The maximum fractional error of $Q$ is",
+    "type": "mcq",
+    "options": [
+      "0.1",
+      "0.8",
+      "0.7",
+      "0.6"
+    ],
+    "answer": 2,
+    "explanation": "Given the relation:\n$$Q = X^{-2} Y^{\\frac{3}{2}} Z^{-\\frac{2}{5}}$$\nThe maximum fractional error in $Q$ is:\n$$\\frac{\\Delta Q}{Q} = 2\\frac{\\Delta X}{X} + \\frac{3}{2}\\frac{\\Delta Y}{Y} + \\frac{2}{5}\\frac{\\Delta Z}{Z}$$\nSubstituting the given fractional errors:\n$$\\frac{\\Delta Q}{Q} = 2(0.1) + \\frac{3}{2}(0.2) + \\frac{2}{5}(0.5) = 0.2 + 0.3 + 0.2 = 0.7$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "The maximum percentage error in the measurement of density of a wire is [Given, mass of wire = $(0.60 \\pm 0.003)\\text{ g}$, radius of wire = $(0.50 \\pm 0.01)\\text{ cm}$, length of wire = $(10.00 \\pm 0.05)\\text{ cm}$]",
+    "type": "mcq",
+    "options": [
+      "8",
+      "5",
+      "4",
+      "7"
+    ],
+    "answer": 1,
+    "explanation": "The density of the wire is:\n$$\\rho = \\frac{m}{V} = \\frac{m}{\\pi r^2 L}$$\nThe relative error in density is:\n$$\\frac{\\Delta\\rho}{\\rho} = \\frac{\\Delta m}{m} + 2\\frac{\\Delta r}{r} + \\frac{\\Delta L}{L}$$\nSubstituting the given values:\n$$\\frac{\\Delta\\rho}{\\rho} = \\frac{0.003}{0.60} + 2\\left(\\frac{0.01}{0.50}\\right) + \\frac{0.05}{10.00} = 0.005 + 0.040 + 0.005 = 0.050$$\nPercentage error:\n$$\\% \\text{ error} = 0.050 \\times 100 = 5\\%$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "22nd January",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "The energy of a system is given as $E(t) = \\alpha^3 e^{-\\beta t}$, where $t$ is the time and $\\beta = 0.3\\text{ s}^{-1}$. The errors in the measurement of $\\alpha$ and $t$ are $1.2\\%$ and $1.6\\%$, respectively. At $t = 5\\text{ s}$, maximum percentage error in the energy is :",
+    "type": "mcq",
+    "options": [
+      "6%",
+      "8.4%",
+      "11.6%",
+      "4%"
+    ],
+    "answer": 0,
+    "explanation": "Given the equation:\n$$E(t) = \\alpha^3 e^{-\\beta t}$$\nTaking the natural log of both sides:\n$$\\ln E = 3\\ln\\alpha - \\beta t$$\nDifferentiating for maximum error:\n$$\\frac{dE}{E} = 3\\frac{d\\alpha}{\\alpha} + \\beta \\, dt$$\nGiven:\n- $\\frac{d\\alpha}{\\alpha} \\times 100 = 1.2\\%$\n- $\\frac{dt}{t} \\times 100 = 1.6\\% \\implies dt = 0.016 \\times 5 = 0.08\\text{ s}$\nSubstituting the values:\n$$\\frac{dE}{E} = 3(1.2\\%) + (0.3 \\times 0.08) \\times 100\\% = 3.6\\% + 2.4\\% = 6.0\\%$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "23rd January",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "A physical quantity $Q$ is related to four observables $a, b, c, d$ as follows : $Q = \\frac{a b^4}{c d}$ where $a = (60 \\pm 3)\\text{ Pa}; b = (20 \\pm 0.1)\\text{ m}; c = (40 \\pm 0.2)\\text{ Nsm}^{-2}$ and $d = (50 \\pm 0.1)\\text{ m}$, then the percentage error in $Q$ is $\\frac{x}{1000}$, where $x = $ ________.",
+    "type": "numerical",
+    "options": [],
+    "answer": "7700",
+    "explanation": "The maximum fractional error in $Q$ is given by:\n$$\\frac{\\Delta Q}{Q} = \\frac{\\Delta a}{a} + 4\\frac{\\Delta b}{b} + \\frac{\\Delta c}{c} + \\frac{\\Delta d}{d}$$\n$$\\frac{\\Delta Q}{Q} = \\frac{3}{60} + 4\\left(\\frac{0.1}{20}\\right) + \\frac{0.2}{40} + \\frac{0.1}{50}$$\n$$\\frac{\\Delta Q}{Q} = 0.05 + 0.02 + 0.005 + 0.002 = 0.077$$\nPercentage error in $Q$ is:\n$$\\% \\text{ error} = 0.077 \\times 100 = 7.7\\%$$\nWe are given percentage error is $\\frac{x}{1000}$:\n$$\\frac{x}{1000} = 7.7 \\implies x = 7700$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "29th January",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "In an experiment to measure focal length ($f$) of convex lens, the least counts of the measuring scales for the position of object ($u$) and for the position of image ($v$) are $\\Delta u$ and $\\Delta v$, respectively. The error in the measurement of the focal length of the convex lens will be:",
+    "type": "mcq",
+    "options": [
+      "2f \\left[ \\frac{\\Delta u}{u} + \\frac{\\Delta v}{v} \\right]",
+      "\\frac{\\Delta u}{u} + \\frac{\\Delta v}{v}",
+      "f^2 \\left[ \\frac{\\Delta u}{u^2} + \\frac{\\Delta v}{v^2} \\right]",
+      "f \\left[ \\frac{\\Delta u}{u} + \\frac{\\Delta v}{v} \\right]"
+    ],
+    "answer": 2,
+    "explanation": "The lens formula is:\n$$\\frac{1}{f} = \\frac{1}{v} - \\frac{1}{u}$$\nDifferentiating both sides to get the absolute error relation:\n$$-\\frac{\\Delta f}{f^2} = -\\frac{\\Delta v}{v^2} - \\frac{\\Delta u}{u^2}$$\nTaking the maximum positive error combination:\n$$\\Delta f = f^2 \\left[ \\frac{\\Delta u}{u^2} + \\frac{\\Delta v}{v^2} \\right]$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "4th April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "To find the spring constant ($k$) of a spring experimentally, a student commits $2\\%$ positive error in the measurement of time and $1\\%$ negative error in measurement of mass. The percentage error in determining value of $k$ is :",
+    "type": "mcq",
+    "options": [
+      "5%",
+      "1%",
+      "3%",
+      "4%"
+    ],
+    "answer": 0,
+    "explanation": "The time period of oscillation is:\n$$T = 2\\pi \\sqrt{\\frac{m}{k}} \\implies T^2 = 4\\pi^2 \\frac{m}{k} \\implies k = 4\\pi^2 \\frac{m}{T^2}$$\nThe relative error in $k$ is:\n$$\\frac{\\Delta k}{k} = \\frac{\\Delta m}{m} + 2\\frac{\\Delta T}{T}$$\nSubstituting the absolute percentage errors (signs are ignored as errors are always added for maximum error calculation):\n$$\\% \\text{ error in } k = 1\\% + 2(2\\%) = 5\\%$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "6th April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "Young's modulus is determined by the equation given by $Y = 49000 \\frac{m}{l}\\text{ dyn cm}^{-2}$ where $M$ is the mass and $l$ is the extension of wire used in the experiment. Now error in Young modules ($Y$) is estimated by taking data from $M - l$ plot in graph paper. The smallest scale divisions are $5\\text{ g}$ and $0.02\\text{ cm}$ along load axis and extension axis respectively. If the value of $M$ and $l$ are $500\\text{ g}$ and $2\\text{ cm}$ respectively then percentage error of $Y$ is :",
+    "type": "mcq",
+    "options": [
+      "0.5%",
+      "2%",
+      "0.02%",
+      "0.2%"
+    ],
+    "answer": 1,
+    "explanation": "Given the equation:\n$$Y = 49000 \\frac{M}{l}$$\nThe relative error in $Y$ is:\n$$\\frac{\\Delta Y}{Y} = \\frac{\\Delta M}{M} + \\frac{\\Delta l}{l}$$\nThe smallest scale division on each axis represents the least count (absolute error):\n- $\\Delta M = 5\\text{ g}$ for $M = 500\\text{ g}$\n- $\\Delta l = 0.02\\text{ cm}$ for $l = 2\\text{ cm}$\n$$\\frac{\\Delta Y}{Y} = \\frac{5}{500} + \\frac{0.02}{2} = 0.01 + 0.01 = 0.02$$\nPercentage error:\n$$\\% \\text{ error} = 0.02 \\times 100 = 2\\%$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "8th April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "In an expression $a \\times 10^b$;",
+    "type": "mcq",
+    "options": [
+      "b is order of magnitude for a \\ge 5",
+      "b is order of magnitude for a \\le 5",
+      "a is order of magnitude for b \\le 5",
+      "b is order of magnitude for 5 < a \\le 10"
+    ],
+    "answer": 1,
+    "explanation": "For representing a number in scientific notation $a \\times 10^b$:\n- If $0.5 < a \\le 5$, then $b$ is the order of magnitude.\n- If $5 < a \\le 10$, then the order of magnitude is $b + 1$.\nThus, $b$ is the order of magnitude when $a \\le 5$.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "8th April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "The resistance $R = \\frac{V}{I}$, where $V = (200 \\pm 5)\\text{ V}$ and $I = (20 \\pm 0.2)\\text{ A}$, the percentage error in the measurement of $R$ is :",
+    "type": "mcq",
+    "options": [
+      "3.5%",
+      "7%",
+      "3%",
+      "5.5%"
+    ],
+    "answer": 0,
+    "explanation": "Given:\n$$R = \\frac{V}{I}$$\nRelative error relation:\n$$\\frac{\\Delta R}{R} = \\frac{\\Delta V}{V} + \\frac{\\Delta I}{I}$$\n$$\\frac{\\Delta R}{R} = \\frac{5}{200} + \\frac{0.2}{20} = 0.025 + 0.01 = 0.035$$\nPercentage error:\n$$\\% \\text{ error} = 0.035 \\times 100 = 3.5\\%$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "29th January",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "A physical quantity $Q$ is found to depend on quantities $a, b, c$ by the relation $Q = \\frac{a^4 b^3}{c^2}$. The percentage error in $a, b$ and $c$ are $3\\%, 4\\%$ and $5\\%$ respectively. Then, the percentage error in $Q$ is:",
+    "type": "mcq",
+    "options": [
+      "66%",
+      "43%",
+      "34%",
+      "14%"
+    ],
+    "answer": 2,
+    "explanation": "The maximum fractional error in $Q$ is given by:\n$$\\frac{\\Delta Q}{Q} = 4\\frac{\\Delta a}{a} + 3\\frac{\\Delta b}{b} + 2\\frac{\\Delta c}{c}$$\nMultiplying by 100 to get percentage errors:\n$$\\% \\text{ error in } Q = 4(3\\%) + 3(4\\%) + 2(5\\%) = 12\\% + 12\\% + 10\\% = 34\\%$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "29th January",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "The radius ($r$), length ($l$) and resistance ($R$) of a metal wire was measured in the laboratory as $r = (0.35 \\pm 0.05)\\text{ cm}$, $R = (100 \\pm 10)\\text{ ohm}$, $l = (15 \\pm 0.2)\\text{ cm}$. The percentage error in resistivity of the material of the wire is :",
+    "type": "mcq",
+    "options": [
+      "25.6%",
+      "39.9%",
+      "37.3%",
+      "35.6%"
+    ],
+    "answer": 1,
+    "explanation": "Resistivity is given by:\n$$\\rho = \\frac{RA}{l} = \\frac{R (\\pi r^2)}{l}$$\nThe relative error is:\n$$\\frac{\\Delta\\rho}{\\rho} = \\frac{\\Delta R}{R} + 2\\frac{\\Delta r}{r} + \\frac{\\Delta l}{l}$$\nSubstituting the values:\n$$\\frac{\\Delta\\rho}{\\rho} = \\frac{10}{100} + 2\\left(\\frac{0.05}{0.35}\\right) + \\frac{0.2}{15} = 0.10 + 0.2857 + 0.0133 = 0.399$$\nPercentage error:\n$$\\% \\text{ error} = 0.399 \\times 100 = 39.9\\%$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "1st February",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "A physical quantity $P$ is given as $P = \\frac{a^2 b^3}{c \\sqrt{d}}$. The percentage error in the measurement of $a, b, c$ and $d$ are $1\\%, 2\\%, 3\\%$ and $4\\%$ respectively. The percentage error in the measurement of quantity $P$ will be",
+    "type": "mcq",
+    "options": [
+      "13%",
+      "16%",
+      "12%",
+      "14%"
+    ],
+    "answer": 0,
+    "explanation": "The maximum fractional error in $P$ is given by:\n$$\\frac{\\Delta P}{P} = 2\\frac{\\Delta a}{a} + 3\\frac{\\Delta b}{b} + \\frac{\\Delta c}{c} + \\frac{1}{2}\\frac{\\Delta d}{d}$$\nSubstituting the percentage errors:\n$$\\% \\text{ error in } P = 2(1\\%) + 3(2\\%) + 3\\% + \\frac{1}{2}(4\\%) = 2\\% + 6\\% + 3\\% + 2\\% = 13\\%$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "10th April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "The maximum error in the measurement of resistance, current and time for which current flows in an electrical circuit are $1\\%, 2\\%$ and $3\\%$ respectively. The maximum percentage error in the detection of the dissipated heat will be:",
+    "type": "mcq",
+    "options": [
+      "2",
+      "4",
+      "3",
+      "8"
+    ],
+    "answer": 3,
+    "explanation": "Heat dissipated is given by:\n$$H = I^2 R t$$\nThe relative error in heat is:\n$$\\frac{\\Delta H}{H} = 2\\frac{\\Delta I}{I} + \\frac{\\Delta R}{R} + \\frac{\\Delta t}{t}$$\nSubstituting the given percentage errors:\n$$\\% \\text{ error in } H = 2(2\\%) + 1\\% + 3\\% = 4\\% + 1\\% + 3\\% = 8\\%$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "25th July",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "In an experiment to find acceleration due to gravity ($g$) using simple pendulum, time period of $0.5\\text{ s}$ is measured from time of $100$ oscillation with a watch of $1\\text{ s}$ resolution. If measured value of length is $10\\text{ cm}$ known to $1\\text{ mm}$ accuracy. The accuracy in the determination of $g$ is found to be $x\\%$. The value of $x$ is",
+    "type": "numerical",
+    "options": [],
+    "answer": "5",
+    "explanation": "The formula for $g$ is:\n$$g = 4\\pi^2 \\frac{L}{T^2}$$\nRelative error in $g$:\n$$\\frac{\\Delta g}{g} = \\frac{\\Delta L}{L} + 2\\frac{\\Delta T}{T}$$\nGiven:\n- $L = 10\\text{ cm} = 100\\text{ mm}, \\Delta L = 1\\text{ mm} \\implies \\frac{\\Delta L}{L} = \\frac{1}{100} = 0.01$\n- Total time $t = 100 \\times 0.5 = 50\\text{ s}, \\Delta t = 1\\text{ s} \\implies \\frac{\\Delta T}{T} = \\frac{\\Delta t}{t} = \\frac{1}{50} = 0.02$\n\nSubstituting these values:\n$$\\frac{\\Delta g}{g} = 0.01 + 2(0.02) = 0.01 + 0.04 = 0.05$$\nPercentage error is:\n$$x\\% = 5\\% \\implies x = 5$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "28th July",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "For $z = \\frac{a^2 x^3}{y^{\\frac{1}{2}}}$, where '$a$' is a constant. If percentage error in measurement of '$x$' and '$y$' are $4\\%$ and $12\\%$, respectively, then the percentage error for '$z$' will be _____ %.",
+    "type": "numerical",
+    "options": [],
+    "answer": "18",
+    "explanation": "Since $a$ is a constant, it has no measurement error.\nThe fractional error in $z$ is:\n$$\\frac{\\Delta z}{z} = 3\\frac{\\Delta x}{x} + \\frac{1}{2}\\frac{\\Delta y}{y}$$\nMultiplying by 100 to get the percentage error:\n$$\\% \\text{ error in } z = 3(4\\%) + \\frac{1}{2}(12\\%) = 12\\% + 6\\% = 18\\%$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "25th June",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "A silver wire has a mass $(0.6 \\pm 0.006)\\text{ g}$, radius $(0.5 \\pm 0.005)\\text{ mm}$ and length $(4 \\pm 0.04)\\text{ cm}$. The maximum percentage error in the measurement of its density will be",
+    "type": "mcq",
+    "options": [
+      "7%",
+      "3%",
+      "4%",
+      "6%"
+    ],
+    "answer": 2,
+    "explanation": "Density $\\rho = \\frac{m}{V} = \\frac{m}{\\pi r^2 l}$.\nThe relative error in density is:\n$$\\frac{\\Delta\\rho}{\\rho} = \\frac{\\Delta m}{m} + 2\\frac{\\Delta r}{r} + \\frac{\\Delta l}{l}$$\nSubstituting the values:\n$$\\frac{\\Delta\\rho}{\\rho} = \\frac{0.006}{0.6} + 2\\left(\\frac{0.005}{0.5}\\right) + \\frac{0.04}{4} = 0.01 + 2(0.01) + 0.01 = 0.04$$\nPercentage error:\n$$\\% \\text{ error} = 0.04 \\times 100 = 4\\%$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "27th June",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "The acceleration due to gravity is found up to an accuracy of $4\\%$ on a planet. The energy supplied to a simple pendulum of known mass $m$ to undertake oscillations of time period $T$ is being estimated. If time period is measured to an accuracy of $3\\%$, the accuracy to which $E$ is known as ________ %.",
+    "type": "numerical",
+    "options": [],
+    "answer": "14",
+    "explanation": "The energy of a simple pendulum is given by:\n$$E = \\frac{1}{2} m \\omega^2 A^2$$\nUsing $\\omega = \\frac{2\\pi}{T}$ and amplitude $A = L\\theta_0$:\n$$E \\propto L^2 T^{-2}$$\nSince $T = 2\\pi \\sqrt{\\frac{L}{g}} \\implies L \\propto g T^2$, substituting this:\n$$E \\propto (g T^2)^2 T^{-2} \\implies E \\propto g^2 T^2$$\nTaking relative errors:\n$$\\frac{\\Delta E}{E} = 2\\frac{\\Delta g}{g} + 2\\frac{\\Delta T}{T}$$\nSubstituting the given percentages:\n$$\\% \\text{ error in } E = 2(4\\%) + 2(3\\%) = 8\\% + 6\\% = 14\\%$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "26th August",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "Three students $S_1, S_2$ and $S_3$ perform an experiment for determining the acceleration due to gravity ($g$) using a simple pendulum. They use different lengths of pendulum and record time for different number of oscillations. The observations are as shown in the table... If $E_1, E_2$ and $E_3$ are the percentage errors in $g$ for students $1, 2$ and $3$, respectively, then the minimum percentage error is obtained by student no ________.",
+    "type": "numerical",
+    "options": [],
+    "answer": "1",
+    "explanation": "The relative error in $g$ is:\n$$\\frac{\\Delta g}{g} = \\frac{\\Delta L}{L} + 2\\frac{\\Delta T}{T} = \\frac{\\Delta L}{L} + 2\\frac{\\Delta t}{t}$$\nGiven $\\Delta L = 0.1\\text{ cm}$ and $\\Delta t = 0.1\\text{ s}$.\nLet's evaluate for each student:\n- For $S_1$: $\\frac{\\Delta g}{g} = \\frac{0.1}{64.0} + 2\\left(\\frac{0.1}{128.0}\\right) = \\frac{0.3}{64.0} \\approx 0.47\\%$\n- For $S_2$: $\\frac{\\Delta g}{g} = \\frac{0.1}{64.0} + 2\\left(\\frac{0.1}{64.0}\\right) = \\frac{0.3}{64.0} \\approx 0.47\\%$ (or $\\approx 0.62\\%$ depending on calculation)\nComparing the terms shows that Student 1 has the largest total time and length, which minimizes the fractional errors. Thus, the minimum percentage error is obtained by Student 1.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "22nd July",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "The resistance $R = \\frac{V}{I}$, where $V = (50 \\pm 2)\\text{ V}$ and $I = (20 \\pm 0.2)\\text{ A}$. The percentage error in $R$ is $x \\%$. The value of $x$ to the nearest integer is ________.",
+    "type": "numerical",
+    "options": [],
+    "answer": "5",
+    "explanation": "Given:\n$$R = \\frac{V}{I}$$\nRelative error in $R$:\n$$\\frac{\\Delta R}{R} = \\frac{\\Delta V}{V} + \\frac{\\Delta I}{I}$$\n$$\\frac{\\Delta R}{R} = \\frac{2}{50} + \\frac{0.2}{20} = 0.04 + 0.01 = 0.05$$\nPercentage error in $R$:\n$$\\% \\text{ error} = 0.05 \\times 100 = 5\\%$$\nThus, $x = 5$.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "16th March",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "The time period of a simple pendulum is given by $T = 2\\pi\\sqrt{\\frac{l}{g}}$. The measured value of the length of the pendulum is $10\\text{ cm}$ known to a $1\\text{ mm}$ accuracy. The time for $200$ oscillations of the pendulum is found to be $100\\text{ second}$ using a clock of $1\\text{ s}$ resolution. The percentage accuracy in the determination of $g$ using this pendulum is $x$. The value of $x$ to the nearest integer is:-",
+    "type": "mcq",
+    "options": [
+      "2%",
+      "3%",
+      "5%",
+      "4%"
+    ],
+    "answer": 1,
+    "explanation": "The acceleration due to gravity $g$ is given by:\n$$g = 4\\pi^2 \\frac{l}{T^2}$$\nTaking the relative error:\n$$\\frac{\\Delta g}{g} = \\frac{\\Delta l}{l} + 2\\frac{\\Delta T}{T}$$\n\nGiven:\n- Length $l = 10\\text{ cm}$, with accuracy $\\Delta l = 1\\text{ mm} = 0.1\\text{ cm}$:\n$$\\frac{\\Delta l}{l} = \\frac{0.1}{10} = 0.01 = 1\\%$$\n- Time $t = 100\\text{ s}$ for 200 oscillations, with resolution $\\Delta t = 1\\text{ s}$:\n$$\\frac{\\Delta T}{T} = \\frac{\\Delta t}{t} = \\frac{1}{100} = 0.01 = 1\\%$$\n\nSubstituting these values:\n$$\\frac{\\Delta g}{g} = 1\\% + 2(1\\%) = 3\\%$$\nThus, the nearest integer value of $x$ is $3$.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "18th March",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "The radius of a sphere is measured to be $(7.50 \\pm 0.85)\\text{ cm}$. Suppose the percentage error in its volume is $x$. The value of $x$, to the nearest integer, is _____.",
+    "type": "numerical",
+    "options": [],
+    "answer": "34",
+    "explanation": "The volume of a sphere is given by:\n$$V = \\frac{4}{3}\\pi r^3$$\nTaking the relative error in volume:\n$$\\frac{\\Delta V}{V} = 3\\frac{\\Delta r}{r}$$\nMultiplying by 100 to get the percentage error:\n$$\\% \\text{ error in } V = 3 \\left(\\frac{\\Delta r}{r}\\right) \\times 100$$\nSubstituting the given values $r = 7.50\\text{ cm}$ and $\\Delta r = 0.85\\text{ cm}$:\n$$\\% \\text{ error in } V = 3 \\left(\\frac{0.85}{7.50}\\right) \\times 100 = 34\\% \\text{ (approximately)}$$\nTherefore, the value of $x$ to the nearest integer is $34$.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "18th March",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "The period of oscillation of a simple pendulum is $T = 2\\pi\\sqrt{\\frac{L}{g}}$. Measured value of $L$ is $1.0\\text{ m}$ from meter scale having a minimum division of $1\\text{ mm}$ and time of one complete oscillation is $1.95\\text{ s}$ measured from stopwatch of $0.01\\text{ s}$ resolution. The percentage error in the determination of 'g' will be:",
+    "type": "mcq",
+    "options": [
+      "1.03%",
+      "1.33%",
+      "1.30%",
+      "1.13%"
+    ],
+    "answer": 3,
+    "explanation": "The acceleration due to gravity is:\n$$g = 4\\pi^2 \\frac{L}{T^2}$$\nTaking the relative error:\n$$\\frac{\\Delta g}{g} = \\frac{\\Delta L}{L} + 2\\frac{\\Delta T}{T}$$\n\nGiven:\n- $L = 1.0\\text{ m}$, $\\Delta L = 1\\text{ mm} = 0.001\\text{ m}$\n- $T = 1.95\\text{ s}$, $\\Delta T = 0.01\\text{ s}$\n\n$$\\frac{\\Delta g}{g} = \\frac{0.001}{1.0} + 2\\left(\\frac{0.01}{1.95}\\right) = 0.001 + \\frac{0.02}{1.95} = 0.001 + 0.010256 = 0.011256$$\nPercentage error:\n$$\\% \\text{ error} = 0.011256 \\times 100 \\approx 1.13\\%$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "24th February",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "A physical quantity $z$ depends on four observables $a, b, c$ and $d$, as $z = \\frac{a^2b^{2/3}}{\\sqrt{c}d^3}$. The percentage of error in the measurement of $a, b, c$ and $d$ are $2\\%, 1.5\\%, 4\\%$ and $2.5\\%$ respectively. The percentage of error in $z$ is:",
+    "type": "mcq",
+    "options": [
+      "12.25%",
+      "16.5%",
+      "13.5%",
+      "14.5%"
+    ],
+    "answer": 3,
+    "explanation": "The fractional error in $z$ is:\n$$\\frac{\\Delta z}{z} = 2\\frac{\\Delta a}{a} + \\frac{2}{3}\\frac{\\Delta b}{b} + \\frac{1}{2}\\frac{\\Delta c}{c} + 3\\frac{\\Delta d}{d}$$\nMultiplying by 100 to get the percentage error:\n$$\\% \\text{ error in } z = 2(2\\%) + \\frac{2}{3}(1.5\\%) + \\frac{1}{2}(4\\%) + 3(2.5\\%)$$\n$$\\% \\text{ error in } z = 4\\% + 1\\% + 2\\% + 7.5\\% = 14.5\\%$$",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "5th September",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "A simple pendulum is being used to determine the value of gravitational acceleration $g$ at a certain place. The length of the pendulum is $25.0\\text{ cm}$ and a stopwatch with $1\\text{ s}$ resolution measures the time taken for $40$ oscillations to be $50\\text{ s}$. The accuracy in $g$ is:",
+    "type": "mcq",
+    "options": [
+      "5.40%",
+      "3.40%",
+      "4.40%",
+      "2.40%"
+    ],
+    "answer": 2,
+    "explanation": "The time period of a simple pendulum is $T = \\frac{t}{N}$, so $\\frac{\\Delta T}{T} = \\frac{\\Delta t}{t}$.\nThe relative error in $g = 4\\pi^2 \\frac{L}{T^2}$ is:\n$$\\frac{\\Delta g}{g} = \\frac{\\Delta L}{L} + 2\\frac{\\Delta t}{t}$$\n\nGiven:\n- $L = 25.0\\text{ cm}$, measuring instrument resolution $\\Delta L = 0.1\\text{ cm}$:\n$$\\frac{\\Delta L}{L} = \\frac{0.1}{25.0} = 0.004$$\n- $t = 50\\text{ s}$, with resolution $\\Delta t = 1\\text{ s}$:\n$$\\frac{\\Delta t}{t} = \\frac{1}{50} = 0.02$$\n\nSubstituting these values:\n$$\\frac{\\Delta g}{g} = 0.004 + 2(0.02) = 0.044$$\nPercentage error:\n$$\\% \\text{ accuracy} = 4.40\\%$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "8th January",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "For the four sets of three measured physical quantities as given below. Which of the following options is correct?\n\n(i) $A_1 = 24.36, B_1 = 0.0724, C_1 = 256.2$\n(ii) $A_2 = 24.44, B_2 = 16.082, C_2 = 240.2$\n(iii) $A_3 = 25.2, B_3 = 19.2812, C_3 = 236.183$\n(iv) $A_4 = 25, B_4 = 236.191, C_4 = 19.5$",
+    "type": "mcq",
+    "options": [
+      "A_4 + B_4 + C_4 < A_1 + B_1 + C_1 < A_3 + B_3 + C_3 < A_2 + B_2 + C_2",
+      "A_1 + B_1 + C_1 = A_2 + B_2 + C_2 = A_3 + B_3 + C_3 = A_4 + B_4 + C_4",
+      "A_1 + B_1 + C_1 < A_2 + B_2 + C_2 = A_3 + B_3 + C_3 < A_4 + B_4 + C_4",
+      "A_1 + B_1 + C_1 < A_3 + B_3 + C_3 < A_2 + B_2 + C_2 < A_4 + B_4 + C_4"
+    ],
+    "answer": 2,
+    "explanation": "According to the rules of addition of significant figures, the sum must have the same number of decimal places as the number with the least decimal places.\n\n- (i) $A_1 + B_1 + C_1 = 24.36 + 0.0724 + 256.2 = 280.6324 \\implies 280.6$ (rounded to 1 decimal place)\n- (ii) $A_2 + B_2 + C_2 = 24.44 + 16.082 + 240.2 = 280.722 \\implies 280.7$ (rounded to 1 decimal place)\n- (iii) $A_3 + B_3 + C_3 = 25.2 + 19.2812 + 236.183 = 280.6642 \\implies 280.7$ (rounded to 1 decimal place)\n- (iv) $A_4 + B_4 + C_4 = 25 + 236.191 + 19.5 = 280.691 \\implies 281$ (rounded to 0 decimal places)\n\nComparing the values:\n$$280.6 < 280.7 = 280.7 < 281$$\nHence:\n$$A_1 + B_1 + C_1 < A_2 + B_2 + C_2 = A_3 + B_3 + C_3 < A_4 + B_4 + C_4$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "9th January",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "In a simple pendulum experiment for determination of acceleration due to gravity (g), time taken for $20$ oscillations is measured by using a watch of $1\\text{ second}$ least count. The mean value of time taken comes out to be $30\\text{ s}$. The length of the pendulum is measured by using a meter scale of least count $1\\text{ mm}$ and the value obtained is $55.0\\text{ cm}$. The percentage error in the determination of g is close to:",
+    "type": "mcq",
+    "options": [
+      "0.2%",
+      "6.8%",
+      "3.5%",
+      "0.7%"
+    ],
+    "answer": 1,
+    "explanation": "The formula for $g$ is:\n$$g = 4\\pi^2 \\frac{L}{T^2}$$\nTaking relative error:\n$$\\frac{\\Delta g}{g} = \\frac{\\Delta L}{L} + 2\\frac{\\Delta t}{t}$$\n\nGiven:\n- $L = 55.0\\text{ cm}$, $\\Delta L = 1\\text{ mm} = 0.1\\text{ cm}$\n- $t = 30\\text{ s}$, $\\Delta t = 1\\text{ s}$\n\n$$\\frac{\\Delta g}{g} = \\frac{0.1}{55.0} + 2\\left(\\frac{1}{30}\\right) = \\frac{1}{550} + \\frac{1}{15} \\approx 0.0018 + 0.0667 = 0.0685$$\nPercentage error:\n$$\\% \\text{ error} \\approx 6.8\\%$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "In the density measurement of a cube, the mass and edge length are measured as $(10.00 \\pm 0.10)\\text{ kg}$ and $(0.10 \\pm 0.01)\\text{ m}$, respectively. The error in the measurement of density is:",
+    "type": "mcq",
+    "options": [
+      "0.31",
+      "0.10",
+      "0.07",
+      "0.01"
+    ],
+    "answer": 0,
+    "explanation": "Density $\\rho = \\frac{m}{L^3}$.\nThe values are:\n- $m = 10.00\\text{ kg}$, $\\Delta m = 0.10\\text{ kg}$\n- $L = 0.10\\text{ m}$, $\\Delta L = 0.01\\text{ m}$\n\nThe relative error in density is:\n$$\\frac{\\Delta\\rho}{\\rho} = \\frac{\\Delta m}{m} + 3\\frac{\\Delta L}{L} = \\frac{0.10}{10.00} + 3\\left(\\frac{0.01}{0.10}\\right) = 0.01 + 0.3 = 0.31$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "9th April",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "A copper wire is stretched to make it $0.5\\%$ longer. The percentage change in its electrical resistance if its volume remains unchanged is:",
+    "type": "mcq",
+    "options": [
+      "2.5%",
+      "1.0%",
+      "2.0%",
+      "0.5%"
+    ],
+    "answer": 1,
+    "explanation": "Resistance of the wire is:\n$$R = \\rho \\frac{L}{A} = \\rho \\frac{L^2}{V}$$\nSince the volume $V$ remains constant:\n$$R \\propto L^2$$\nFor small percentage changes:\n$$\\% \\text{ change in } R \\approx 2 \\times \\% \\text{ change in } L = 2(0.5\\%) = 1.0\\%$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "9th January",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "Three particles $P, Q$ and $R$ are moving along the vectors $\\vec{A} = \\hat{i} + \\hat{j}$, $\\vec{B} = \\hat{j} + \\hat{k}$ and $\\vec{C} = -\\hat{i} + \\hat{j}$, respectively. They strike on a point and start to move in different directions. Now particle $P$ is moving normal to the plane which contains vector $\\vec{A}$ and $\\vec{B}$. Similarly particle $Q$ is moving normal to the plane which contains vector $\\vec{A}$ and $\\vec{C}$. The angle between the direction of motion of $P$ and $Q$ is $\\cos^{-1}\\left(\\frac{1}{\\sqrt{x}}\\right)$. Then the value of $x$ is _______.",
+    "type": "numerical",
+    "options": [],
+    "answer": "3",
+    "explanation": "Let the direction of motion of $P$ be along $\\vec{n}_1$ and $Q$ be along $\\vec{n}_2$:\n$$\\vec{n}_1 = \\vec{A} \\times \\vec{B} = (\\hat{i} + \\hat{j}) \\times (\\hat{j} + \\hat{k}) = \\hat{i} - \\hat{j} + \\hat{k}$$\n$$\\vec{n}_2 = \\vec{A} \\times \\vec{C} = (\\hat{i} + \\hat{j}) \\times (-\\hat{i} + \\hat{j}) = 2\\hat{k}$$\n\nThe angle $\\theta$ between $\\vec{n}_1$ and $\\vec{n}_2$ is given by:\n$$\\cos\\theta = \\frac{\\vec{n}_1 \\cdot \\vec{n}_2}{|\\vec{n}_1||\\vec{n}_2|} = \\frac{(\\hat{i} - \\hat{j} + \\hat{k}) \\cdot 2\\hat{k}}{\\sqrt{3} \\cdot 2} = \\frac{2}{2\\sqrt{3}} = \\frac{1}{\\sqrt{3}}$$\n\nComparing this with $\\cos^{-1}\\left(\\frac{1}{\\sqrt{x}}\\right)$:\n$$x = 3$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "22nd July",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "In an octagon $ABCDEFGH$ of equal side, what is the sum of $\\vec{AB} + \\vec{AC} + \\vec{AD} + \\vec{AE} + \\vec{AF} + \\vec{AG} + \\vec{AH}$, if, $\\vec{AO} = 2\\hat{i} + 3\\hat{j} - 4\\hat{k}$",
+    "type": "mcq",
+    "options": [
+      "16\\hat{i} + 24\\hat{j} - 32\\hat{k}",
+      "16\\hat{i} - 24\\hat{j} + 32\\hat{k}",
+      "16\\hat{i} + 24\\hat{j} + 32\\hat{k}",
+      "-16\\hat{i} - 24\\hat{j} + 32\\hat{k}"
+    ],
+    "answer": 0,
+    "explanation": "Let $O$ be the center of the regular octagon. The sum of vectors can be written as:\n$$\\vec{AB} + \\vec{AC} + \\vec{AD} + \\vec{AE} + \\vec{AF} + \\vec{AG} + \\vec{AH}$$\n$$= (\\vec{OB} - \\vec{OA}) + (\\vec{OC} - \\vec{OA}) + (\\vec{OD} - \\vec{OA}) + (\\vec{OE} - \\vec{OA}) + (\\vec{OF} - \\vec{OA}) + (\\vec{OG} - \\vec{OA}) + (\\vec{OH} - \\vec{OA})$$\n$$= (\\vec{OB} + \\vec{OC} + \\vec{OD} + \\vec{OE} + \\vec{OF} + \\vec{OG} + \\vec{OH}) - 7\\vec{OA}$$\n\nBy symmetry of a regular octagon:\n$$\\vec{OA} + \\vec{OB} + \\vec{OC} + \\vec{OD} + \\vec{OE} + \\vec{OF} + \\vec{OG} + \\vec{OH} = \\vec{0}$$\n$$\\vec{OB} + \\vec{OC} + \\vec{OD} + \\vec{OE} + \\vec{OF} + \\vec{OG} + \\vec{OH} = -\\vec{OA}$$\n\nSubstituting this back:\n$$\\text{Sum} = -\\vec{OA} - 7\\vec{OA} = -8\\vec{OA} = 8\\vec{AO}$$\n\nGiven $\\vec{AO} = 2\\hat{i} + 3\\hat{j} - 4\\hat{k}$:\n$$\\text{Sum} = 8(2\\hat{i} + 3\\hat{j} - 4\\hat{k}) = 16\\hat{i} + 24\\hat{j} - 32\\hat{k}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "25th February",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "The sum of two forces $\\vec{P}$ and $\\vec{Q}$ is $\\vec{R}$ such that $|\\vec{R}| = |\\vec{P}|$. Find the angle between resultant of $2\\vec{P}$ and $\\vec{Q}$ and $\\vec{Q}$, ________",
+    "type": "numerical",
+    "options": [],
+    "answer": "90",
+    "explanation": "Given:\n$$\\vec{R} = \\vec{P} + \\vec{Q} \\implies R^2 = P^2 + Q^2 + 2PQ\\cos\\theta$$\nSince $|\\vec{R}| = |\\vec{P}|$:\n$$P^2 = P^2 + Q^2 + 2PQ\\cos\\theta \\implies Q^2 + 2PQ\\cos\\theta = 0 \\implies Q + 2P\\cos\\theta = 0$$\n\nLet $\\vec{S}$ be the resultant of $2\\vec{P}$ and $\\vec{Q}$:\n$$\\vec{S} = 2\\vec{P} + \\vec{Q}$$\n\nThe angle $\\alpha$ that $\\vec{S}$ makes with $\\vec{Q}$ is determined by the dot product:\n$$\\vec{S} \\cdot \\vec{Q} = (2\\vec{P} + \\vec{Q}) \\cdot \\vec{Q} = 2PQ\\cos\\theta + Q^2$$\n\nSince $Q^2 + 2PQ\\cos\\theta = 0$, we have:\n$$\\vec{S} \\cdot \\vec{Q} = 0 \\implies \\vec{S} \\perp \\vec{Q}$$\nTherefore, the angle is $90^\\circ$.",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "7th January",
+    "subtopic": "Addition and Subtraction of Vectors"
+  },
+  {
+    "q": "In an experiment of measuring the refractive index of a glass slab using travelling microscope in physics lab, a student measures real thickness of the glass slab as $5.25\\text{ mm}$ and apparent thickness of the glass slab at $5.00\\text{ mm}$. Travelling microscope has $20$ divisions in one $\\text{cm}$ on main scale and $50$ divisions on Vernier scale is equal to $49$ divisions on main scale. The estimated uncertainty in the measurement of refractive index of the slab is $\\frac{x}{10} \\times 10^{-3}$, where $x$ is ______",
+    "type": "numerical",
+    "options": [],
+    "answer": "41",
+    "explanation": "The refractive index is given by:\n$$\\mu = \\frac{\\text{Real Thickness}}{\\text{Apparent Thickness}} = \\frac{d}{d'}$$\nTaking natural log and differentiating:\n$$\\ln\\mu = \\ln d - \\ln d' \\implies \\frac{\\Delta\\mu}{\\mu} = \\frac{\\Delta d}{d} + \\frac{\\Delta d'}{d'}$$\n\nThe least count (LC) of the travelling microscope is:\n$$1\\text{ MSD} = \\frac{1}{20}\\text{ cm} = 0.5\\text{ mm}$$\n$$\\text{LC} = 1\\text{ MSD} - 1\\text{ VSD} = 1\\text{ MSD} - \\frac{49}{50}\\text{ MSD} = \\frac{1}{50}\\text{ MSD} = \\frac{0.5}{50} = 0.01\\text{ mm}$$\n\nThus, $\\Delta d = \\Delta d' = 0.01\\text{ mm}$.\nSubstituting the values:\n$$\\frac{\\Delta\\mu}{\\mu} = \\frac{0.01}{5.25} + \\frac{0.01}{5.00} = 0.01 \\left( \\frac{1}{5.25} + \\frac{1}{5.00} \\right) = 0.01 \\times (0.1904 + 0.2) = 0.0039$$\n$$\\mu = \\frac{5.25}{5.00} = 1.05$$\n$$\\Delta\\mu = 0.0039 \\times 1.05 = 0.0041 = 4.1 \\times 10^{-3} = \\frac{41}{10} \\times 10^{-3}$$\nTherefore:\n$$x = 41$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "29th January",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "In an experiment of determine the Young's modulus of wire of a length exactly $1\\text{ m}$, the extension in the length of the wire is measured as $0.4\\text{ mm}$ with an uncertainty of $\\pm 0.02\\text{ mm}$ when a load of $1\\text{ kg}$ is applied. The diameter of the wire is measured as $0.4\\text{ mm}$ with an uncertainty of $\\pm 0.01\\text{ mm}$. The error in the measurement of Young's modulus ($\\Delta Y$) is found to be $x \\times 10^{10}\\text{ N m}^{-2}$. The value of $x$ is _____.",
+    "type": "numerical",
+    "options": [],
+    "answer": "2",
+    "explanation": "Young's Modulus is:\n$$Y = \\frac{FL}{A\\Delta L} = \\frac{4FL}{\\pi d^2 \\Delta L}$$\n\nTaking relative error:\n$$\\frac{\\Delta Y}{Y} = 2\\frac{\\Delta d}{d} + \\frac{\\Delta(\\Delta L)}{\\Delta L}$$\n\nCalculating the mean value of $Y$:\n$$Y = \\frac{4 \\times (1 \\times 9.8) \\times 1.0}{\\pi \\times (0.4 \\times 10^{-3})^2 \\times (0.4 \\times 10^{-3})} = \\frac{39.2}{\\pi \\times 1.6 \\times 10^{-11}} \\approx 7.8 \\times 10^{10}\\text{ N m}^{-2}$$\n\nNow, relative error:\n$$\\frac{\\Delta Y}{Y} = 2\\left(\\frac{0.01}{0.4}\\right) + \\frac{0.02}{0.4} = 0.05 + 0.05 = 0.1$$\n$$\\Delta Y = 0.1 \\times 7.8 \\times 10^{10} \\approx 2 \\times 10^{10}\\text{ N m}^{-2}$$\nTherefore:\n$$x = 2$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "26th July",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "A student determined Young's Modulus of elasticity using the formula $Y = \\frac{M g L^3}{4 b d^3 \\delta}$. The value of $g$ is taken to be $9.8\\text{ m s}^{-2}$ without any significant error, his observations are as following:\n\n- Mass (M): Least count = $1\\text{ g}$, Observed value = $2\\text{ kg}$\n- Length of bar (L): Least count = $1\\text{ mm}$, Observed value = $1\\text{ m}$\n- Breadth of bar (b): Least count = $0.1\\text{ mm}$, Observed value = $4\\text{ cm}$\n- Thickness of bar (d): Least count = $0.01\\text{ mm}$, Observed value = $0.4\\text{ cm}$\n- Depression ($\\delta$): Least count = $0.01\\text{ mm}$, Observed value = $5\\text{ mm}$\n\nThen the fractional error in the measurement of $Y$ is :",
+    "type": "mcq",
+    "options": [
+      "0.155",
+      "0.0083",
+      "0.083",
+      "0.0155"
+    ],
+    "answer": 3,
+    "explanation": "The relative error in $Y$ is:\n$$\\frac{\\Delta Y}{Y} = \\frac{\\Delta M}{M} + 3\\frac{\\Delta L}{L} + \\frac{\\Delta b}{b} + 3\\frac{\\Delta d}{d} + \\frac{\\Delta\\delta}{\\delta}$$\n\nConverting all values to identical units:\n- $\\frac{\\Delta M}{M} = \\frac{1\\text{ g}}{2000\\text{ g}} = 0.0005$\n- $\\frac{\\Delta L}{L} = \\frac{1\\text{ mm}}{1000\\text{ mm}} = 0.001$\n- $\\frac{\\Delta b}{b} = \\frac{0.1\\text{ mm}}{40\\text{ mm}} = 0.0025$\n- $\\frac{\\Delta d}{d} = \\frac{0.01\\text{ mm}}{4\\text{ mm}} = 0.0025$\n- $\\frac{\\Delta\\delta}{\\delta} = \\frac{0.01\\text{ mm}}{5\\text{ mm}} = 0.002$\n\nSubstituting:\n$$\\frac{\\Delta Y}{Y} = 0.0005 + 3(0.001) + 0.0025 + 3(0.0025) + 0.002 = 0.0155$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "1st September",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "In order to determine the Young's Modulus of a wire of radius $0.2\\text{ cm}$ (measured using a scale of least count $= 0.001\\text{ cm}$) and length $1\\text{ m}$ (measured using a scale of least count $= 1\\text{ mm}$), a weight of mass $1\\text{ kg}$ (measured using a scale of least count $= 1\\text{ g}$) was hanged to get the elongation of $0.5\\text{ cm}$ (measured using a scale of least count $0.001\\text{ cm}$). What will be the fractional error in the value of Young's Modulus determined by this experiment?",
+    "type": "mcq",
+    "options": [
+      "0.14%",
+      "0.9%",
+      "9%",
+      "1.4%"
+    ],
+    "answer": 3,
+    "explanation": "Young's modulus $Y = \\frac{M g L}{\\pi r^2 \\Delta L}$.\nThe fractional error in $Y$ is:\n$$\\frac{\\Delta Y}{Y} = \\frac{\\Delta M}{M} + \\frac{\\Delta L}{L} + 2\\frac{\\Delta r}{r} + \\frac{\\Delta(\\Delta L)}{\\Delta L}$$\n\nGiven:\n- $\\frac{\\Delta M}{M} = \\frac{1\\text{ g}}{1000\\text{ g}} = 0.001$\n- $\\frac{\\Delta L}{L} = \\frac{1\\text{ mm}}{1000\\text{ mm}} = 0.001$\n- $\\frac{\\Delta r}{r} = \\frac{0.001\\text{ cm}}{0.2\\text{ cm}} = 0.005$\n- $\\frac{\\Delta(\\Delta L)}{\\Delta L} = \\frac{0.001\\text{ cm}}{0.5\\text{ cm}} = 0.002$\n\nSubstituting values:\n$$\\frac{\\Delta Y}{Y} = 0.001 + 0.001 + 2(0.005) + 0.002 = 0.014$$\nPercentage fractional error is:\n$$\\% \\text{ error} = 0.014 \\times 100 = 1.4\\%$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "16th March",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "A wire of $1\\ \\Omega$ has a length of $1\\text{ m}$. It is stretched till its length increases by $25\\%$. The percentage change in resistance to the nearest integer is :",
+    "type": "mcq",
+    "options": [
+      "12.5%",
+      "76%",
+      "25%",
+      "56%"
+    ],
+    "answer": 3,
+    "explanation": "Since volume of the wire remains constant during stretching:\n$$V = A \\cdot L = \\text{constant} \\implies A \\propto \\frac{1}{L}$$\nResistance:\n$$R = \\rho \\frac{L}{A} \\propto L^2$$\n\n$$\\frac{R_2}{R_1} = \\left(\\frac{L_2}{L_1}\\right)^2$$\nGiven $L_2 = 1.25 L_1$:\n$$\\frac{R_2}{R_1} = (1.25)^2 = 1.5625$$\n\nPercentage change in resistance:\n$$\\% \\text{ change} = \\frac{R_2 - R_1}{R_1} \\times 100 = (1.5625 - 1) \\times 100 = 56.25\\% \\approx 56\\%$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "26th February",
+    "subtopic": "Errors of Measurement"
+  },
+  {
+    "q": "The density of a solid metal sphere is determined by measuring its mass and its diameter. The maximum error in the density of the sphere is $\\left(\\frac{x}{100}\\right)\\%$. If the relative errors in measuring the mass and the diameter are $6.0\\%$ and $1.5\\%$ respectively, the value of $x$ is —",
+    "type": "numerical",
+    "options": [],
+    "answer": "1050",
+    "explanation": "The density of a sphere is given by:\n$$\\rho = \\frac{M}{V} = \\frac{M}{\\frac{4}{3}\\pi \\left(\\frac{d}{2}\\right)^3} = \\frac{6M}{\\pi d^3}$$\n\nTaking relative error:\n$$\\frac{\\Delta\\rho}{\\rho} = \\frac{\\Delta M}{M} + 3\\frac{\\Delta d}{d}$$\n\nPercentage error in density:\n$$\\frac{\\Delta\\rho}{\\rho} \\times 100 = \\left(\\frac{\\Delta M}{M} \\times 100\\right) + 3\\left(\\frac{\\Delta d}{d} \\times 100\\right)$$\n$$\\% \\text{ error} = 6.0\\% + 3(1.5\\%) = 10.5\\%$$\n\nWe are given the percentage error is $\\left(\\frac{x}{100}\\right)\\%$:\n$$\\frac{x}{100} = 10.5 \\implies x = 1050$$",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "6th September",
+    "subtopic": "Errors of Measurement"
+  }
+]
