@@ -325,24 +325,14 @@
     </div>
 
     <script type="module">
-        // --- FIREBASE V10 MODULAR IMPORTS ---
+        // --- SECURE LAMBDA BACKEND CONFIGURATION ---
+        const LAMBDA_URL = "https://xsg4j8u7ni.execute-api.us-east-1.amazonaws.com/default/studyspace-backend";
+
+        // --- FIREBASE AUTH IMPORTS ONLY ---
+        // (Firebase Auth keys are 100% public by design. Your Firestore DB logic has been removed and secured on AWS Lambda).
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-        import { 
-            getFirestore, 
-            doc, 
-            updateDoc, 
-            setDoc, 
-            increment, 
-            arrayUnion, 
-            getDoc,
-            collection,
-            getDocs,
-            writeBatch
-        } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-        // --- GLOBAL APP STATE MANAGEMENT ---
-        const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dyxyzz9r9/image/upload/f_auto,q_auto/";        
         const firebaseConfig = {
             apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
             authDomain: "studyspace-45780.firebaseapp.com",
@@ -355,11 +345,10 @@
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
-        const db = getFirestore(app);
         
         let currentUser = null;
         let isAIGenerating = false; 
-        let aiAbortController = null; // Instantly kills background stream race-conditions
+        let aiAbortController = null; 
         
         let correctIds = JSON.parse(localStorage.getItem('studySpace_correctIds')) || [];
         let wrongIds = JSON.parse(localStorage.getItem('studySpace_wrongIds')) || [];
@@ -379,26 +368,40 @@
         const screenExplorer = document.getElementById('chapter-explorer-screen');
         const screenList = document.getElementById('list-index-screen');
         const screenFocus = document.getElementById('quiz-focus-screen');
+        const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dyxyzz9r9/image/upload/f_auto,q_auto/";
 
         // --- AUTH SUBSCRIPTION TRACKER ---
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 currentUser = user;
-                const userRef = doc(db, "users", user.uid);
-                const snap = await getDoc(userRef);
-                if (snap.exists()) {
-                    const fbCorrect = snap.data().correctIds || [];
-                    const fbWrong = snap.data().wrongIds || [];
+                
+                // Fetch User's Data from AWS Lambda instead of Firestore
+                try {
+                    const response = await fetch(LAMBDA_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ action: 'getUserData', uid: user.uid })
+                    });
                     
-                    correctIds = [...new Set([...correctIds, ...fbCorrect])];
-                    wrongIds = [...new Set([...wrongIds, ...fbWrong])];
-                    
-                    localStorage.setItem('studySpace_correctIds', JSON.stringify(correctIds));
-                    localStorage.setItem('studySpace_wrongIds', JSON.stringify(wrongIds));
-                    
-                    if (document.getElementById('list-index-screen').style.display === 'block') {
-                        renderIndexList();
+                    if (response.ok) {
+                        const userData = await response.json();
+                        if (userData) {
+                            const fbCorrect = userData.correctIds || [];
+                            const fbWrong = userData.wrongIds || [];
+                            
+                            correctIds = [...new Set([...correctIds, ...fbCorrect])];
+                            wrongIds = [...new Set([...wrongIds, ...fbWrong])];
+                            
+                            localStorage.setItem('studySpace_correctIds', JSON.stringify(correctIds));
+                            localStorage.setItem('studySpace_wrongIds', JSON.stringify(wrongIds));
+                            
+                            if (document.getElementById('list-index-screen').style.display === 'block') {
+                                renderIndexList();
+                            }
+                        }
                     }
+                } catch (error) {
+                    console.error("Failed to load user data from Lambda:", error);
                 }
             }
         });
@@ -442,16 +445,9 @@
             
             let formatted = markdownTableToHTML(text);
 
-            // --- NEW: Lightweight Markdown Parser ---
-            
-            // 1. Parse Headings (e.g., ### Tutor's Feedback)
             formatted = formatted.replace(/^###\s+(.*$)/gim, '<h3 style="color: #818cf8; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.5px;">$1</h3>');
             formatted = formatted.replace(/^##\s+(.*$)/gim, '<h2 style="color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">$1</h2>');
-            
-            // 2. Parse Bold Text (**text**)
             formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong style="color: white; font-weight: 700;">$1</strong>');
-            
-            // 3. Convert standard line breaks to HTML breaks
             formatted = formatted.replace(/\n/g, '<br>');
             
             return injectInlineImages(formatted); 
@@ -724,14 +720,12 @@
 
         // --- QUESTION INTERFACE VIEW LOADING HOOK ---
         window.openFocusQuestion = (index) => {
-            // KILL PREVIOUS AI LOOPS INSTANTLY TO PREVENT LEAKAGE ON SWAP
             if (aiAbortController) {
                 aiAbortController.abort();
                 aiAbortController = null;
             }
             isAIGenerating = false;
             
-            // Wipe tab interfaces back to neutral slates
             document.getElementById('ai-explanation-text').innerHTML = `
                 <p style="color: var(--text-muted); font-style: italic; text-align: center; margin-top: 20px;">
                     <i class="fa-solid fa-robot"></i> Click "AI Tutor" to generate an explanation.
@@ -815,7 +809,6 @@
                 });
             }
 
-            // REDRAW HISTORICAL ATTEMPTS FOR CHOICE PROBLEMS
             if (isAttempted) {
                 document.getElementById('btn-check-focus').style.display = 'none';
                 document.getElementById('btn-next-focus').style.display = 'block';
@@ -825,8 +818,6 @@
                 
                 if (q.type !== "numerical" && q.type !== "integer") {
                     const correctAnswers = Array.isArray(q.answer) ? q.answer.map(a => Number(a)) : [Number(q.answer)];
-                    
-                    // Pull student selection out from permanent local logs
                     const savedChoice = localStorage.getItem(`chosen_${q.uid}`);
                     
                     correctAnswers.forEach(ansIdx => {
@@ -873,7 +864,7 @@
             document.getElementById('btn-check-focus').disabled = window.selectedOptions.length === 0;
         };
 
-        // --- OPTION CHOICE REGISTRATION WITH V10 FIREBASE SYNC ---
+        // --- OPTION CHOICE REGISTRATION VIA LAMBDA ---
         window.selectFocusOption = async (optIndex) => {
             if (isFocusAnswerChecked) return;
             selectedOptionIndex = optIndex;
@@ -884,27 +875,29 @@
                 localStorage.setItem(`chosen_${q.uid}`, optIndex);
             }
 
-            // Visually select the option
             document.querySelectorAll('#focus-options-container .marks-option').forEach(el => el.classList.remove('selected'));
             document.getElementById(`focus-opt-${optIndex}`).classList.add('selected');
             document.getElementById('btn-check-focus').disabled = false;
 
-            // Sync with Firebase using absolute 0-based indexing
             if (currentUser && q) {
                 const questionId = q.id || `q_${currentFocusIndex}`;
-                const responseDocRef = doc(db, "users", currentUser.uid, "responses", questionId);
-
                 try {
-                    console.log(`Saving choice tracker for user profile: ${currentUser.uid}`);
-                    await setDoc(responseDocRef, {
-                        questionText: q.q || "No text available",
-                        selectedOption: q.studentAnswer,
-                        correctOption: Number(q.answer), 
-                        isCorrect: q.studentAnswer === Number(q.answer) 
-                    }, { merge: true });
-                    console.log("Database update completed.");
-                } catch (dbError) {
-                    console.error("Firebase sync error:", dbError.message);
+                    console.log(`Sending response to AWS Lambda...`);
+                    await fetch(LAMBDA_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'saveResponse',
+                            uid: currentUser.uid,
+                            questionId: questionId,
+                            questionText: q.q || "No text available",
+                            selectedOption: q.studentAnswer,
+                            correctOption: Number(q.answer), 
+                            isCorrect: q.studentAnswer === Number(q.answer) 
+                        })
+                    });
+                } catch (error) {
+                    console.error("Lambda sync error:", error);
                 }
             }
         };
@@ -993,10 +986,7 @@
             document.getElementById('focus-explanation-text').innerHTML = formatGenericText(q.explanation);
             document.getElementById('focus-explanation-box').style.display = 'block';
             
-            // CRITICAL FIX: Ensure Standard Solution remains the default tab upon submission!
             window.switchSolutionTab('standard');
-
-            // --- NEW: Force MathJax to scan the newly revealed solution box ---
             setTimeout(() => triggerMathRender('focus-explanation-box'), 100);
         };
 
@@ -1008,7 +998,7 @@
             }
         };
 
-        // --- CORE METRIC UPDATE SYSTEM ---
+        // --- CORE METRIC UPDATE SYSTEM VIA LAMBDA ---
         async function updateFirebaseProgress(questionUid, isCorrect) {
             if (isCorrect && !correctIds.includes(questionUid)) {
                 correctIds.push(questionUid);
@@ -1020,33 +1010,31 @@
             localStorage.setItem('studySpace_wrongIds', JSON.stringify(wrongIds));
 
             if(!currentUser) return; 
-            
-            const documentTargetRef = doc(db, "users", currentUser.uid);
             const xpGain = isCorrect ? 8 : -2;
 
-            const updateData = { xp: increment(xpGain) };
-            if(isCorrect) updateData.correctIds = arrayUnion(questionUid);
-            else updateData.wrongIds = arrayUnion(questionUid);
-
             try {
-                await updateDoc(documentTargetRef, updateData);
-            } catch(e) {
-                await setDoc(documentTargetRef, {
-                    name: currentUser.displayName || "Scholar",
-                    xp: xpGain,
-                    correctIds: isCorrect ? [questionUid] : [],
-                    wrongIds: !isCorrect ? [questionUid] : []
+                await fetch(LAMBDA_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'updateProgress',
+                        uid: currentUser.uid,
+                        questionId: questionUid,
+                        isCorrect: isCorrect,
+                        xpDelta: xpGain,
+                        userName: currentUser.displayName || "Scholar"
+                    })
                 });
+            } catch(e) {
+                console.error("Lambda Progress Update Failed", e);
             }
         }
         
         // --- SOLUTION TABS & AI GENERATION PIPELINE ---
         window.switchSolutionTab = (tab) => {
-            // Reset UI states
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             
-            // Activate requested tab
             if (tab === 'standard') {
                 document.querySelectorAll('.tab-btn')[0].classList.add('active');
                 document.getElementById('tab-standard').classList.add('active');
@@ -1054,7 +1042,6 @@
                 document.querySelectorAll('.tab-btn')[1].classList.add('active');
                 document.getElementById('tab-ai').classList.add('active');
                 
-                // If it hasn't been generated yet, auto-trigger the Lambda call
                 const aiContainer = document.getElementById('ai-explanation-text');
                 if (aiContainer.innerHTML.includes('Click "AI Tutor"')) {
                     generateAISolution();
@@ -1062,14 +1049,12 @@
             }
         };
 
-        // --- HELPER: Compresses and converts image to Base64 in the browser ---
         const getCompressedBase64 = (url) => {
             return new Promise((resolve, reject) => {
                 const img = new Image();
-                img.crossOrigin = "Anonymous"; // Tells Cloudinary to allow the canvas to read it
+                img.crossOrigin = "Anonymous";
                 img.onload = () => {
                     const canvas = document.createElement("canvas");
-                    // Resize to max 1024px to guarantee it stays under Groq's 4MB limit
                     const MAX_SIZE = 1024;
                     let width = img.width;
                     let height = img.height;
@@ -1086,8 +1071,6 @@
                     canvas.height = height;
                     const ctx = canvas.getContext("2d");
                     ctx.drawImage(img, 0, 0, width, height);
-                    
-                    // Export as compressed JPEG
                     resolve(canvas.toDataURL("image/jpeg", 0.8));
                 };
                 img.onerror = (err) => reject(err);
@@ -1098,7 +1081,6 @@
         window.generateAISolution = async () => {
             const aiTextContainer = document.getElementById('ai-explanation-text');
             const q = filteredPracticeSet[currentFocusIndex];
-            
             if (!q) return;
 
             aiTextContainer.innerHTML = `
@@ -1112,7 +1094,6 @@
                 if (aiAbortController) aiAbortController.abort();
                 aiAbortController = new AbortController();
 
-                // 1. EXTRACT AND COMPRESS IMAGES IN THE BROWSER
                 const imagesToAnalyze = [];
                 const imgRegex = /\[IMG:\s*([^\]]+)\]/g;
                 const fullSearchText = q.q + " " + JSON.stringify(q.options || []);
@@ -1124,32 +1105,24 @@
                         if (!imagesToAnalyze.find(img => img.label === filename)) {
                             try {
                                 const rawUrl = `${CLOUDINARY_BASE_URL}${filename}`;
-                                // Browser downloads it, compresses it, and turns it into safe text!
                                 const base64Data = await getCompressedBase64(rawUrl);
                                 imagesToAnalyze.push({
                                     label: filename,
-                                    base64: base64Data // Sending actual image data, not just the URL
+                                    base64: base64Data
                                 });
-                            } catch (e) {
-                                console.error("Could not process image on frontend:", filename);
-                            }
+                            } catch (e) { console.error("Could not process image on frontend:", filename); }
                         }
                     }
                 }
 
-                // --- NEW: Contextual Personalization (Historical State Aware) ---
                 const cleanPrompt = q.q.replace(/\[IMG:\s*[^\]]+\]/g, "[See Attached Image]");
-                
-                // 1. Check global state to see if they got this right or wrong historically
                 const isCorrectHistory = correctIds.includes(q.uid);
                 const isWrongHistory = wrongIds.includes(q.uid);
                 
                 let studentStatus = "Did not attempt (Asked for help)";
-                
                 if (isCorrectHistory) {
                     studentStatus = "Student attempted and answered CORRECTLY.";
                 } else if (isWrongHistory) {
-                    // Pull their exact wrong choice from local history
                     const savedChoice = localStorage.getItem(`chosen_${q.uid}`);
                     if (q.type === 'numerical' || q.type === 'integer') {
                         const savedInt = localStorage.getItem(`answer_${q.uid}`);
@@ -1164,13 +1137,11 @@
                         }
                     }
                 } else if (q.studentAnswer !== undefined && q.studentAnswer !== null) {
-                    // Mid-session (they clicked an option but haven't hit "Check Answer" yet)
                     const letters = ['A', 'B', 'C', 'D'];
                     const tempLetter = letters[q.studentAnswer] !== undefined ? letters[q.studentAnswer] : q.studentAnswer;
                     studentStatus = `Student is currently considering Option ${tempLetter} but hasn't submitted yet.`;
                 }
                 
-                // 2. Format Correct Answer cleanly for the AI
                 let correctDisplay = q.answer;
                 if (q.type === 'mcq') {
                     const letters = ['A', 'B', 'C', 'D'];
@@ -1181,7 +1152,6 @@
                     correctDisplay = "Options " + arr.map(a => letters[a] || a).join(', ');
                 }
 
-                // 3. Build the highly contextual empathy prompt
                 const fullPrompt = `Question Body:
 ${cleanPrompt}
 
@@ -1196,21 +1166,20 @@ Instructions: Please solve this step-by-step.
 - If the Student's Status shows an INCORRECT answer, gently explain the exact misconception that led to their specific wrong choice before solving it. 
 - If they asked for help without attempting, guide them from scratch.`;
 
-                // ⚠️ REPLACE WITH YOUR LAMBDA URL
-                const LAMBDA_ENDPOINT = "https://tt6t4ollujq3rlwxibdoqtvt340monfz.lambda-url.us-east-1.on.aws/";
-                const response = await fetch(LAMBDA_ENDPOINT, {
+                // NOTE: Retained original AI Lambda endpoint for tutor text stream
+                const AI_LAMBDA_ENDPOINT = "https://tt6t4ollujq3rlwxibdoqtvt340monfz.lambda-url.us-east-1.on.aws/";
+                const response = await fetch(AI_LAMBDA_ENDPOINT, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         prompt: fullPrompt,
-                        images: imagesToAnalyze // Now contains the heavy base64 strings!
+                        images: imagesToAnalyze
                     }),
                     signal: aiAbortController.signal
                 });
 
                 if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
 
-                // 2. READ THE LIVE STREAM
                 const reader = response.body.getReader();
                 const decoder = new TextDecoder("utf-8");
                 let accumulatedText = "";
@@ -1239,7 +1208,6 @@ Instructions: Please solve this step-by-step.
                     }
                 }
 
-                // CRITICAL FIX: Safe, cached-cleared math rendering trigger
                 aiTextContainer.innerHTML = formatGenericText(accumulatedText);
                 setTimeout(() => triggerMathRender('ai-explanation-text'), 300);
 
@@ -1253,42 +1221,28 @@ Instructions: Please solve this step-by-step.
             }
         };
 
-        // --- DEEP PURGE PROFILE WIPE (100% CLEAN MODULAR SDK SLATE) ---
+        // --- DEEP PURGE PROFILE WIPE VIA LAMBDA ---
         window.clearUserProgress = async () => {
-            if (!auth.currentUser) {
+            if (!currentUser) {
                 alert("You must be signed in to reset your progress tracker.");
                 return;
             }
 
-            const userId = auth.currentUser.uid;
             const confirmReset = confirm("Are you sure you want to completely wipe all your scores, badges, and question attempts? This will completely reset your profile.");
             if (!confirmReset) return;
 
             try {
-                console.log(`Starting absolute modern database and cache purge for user: ${userId}`);
-                const batch = writeBatch(db);
-
-                // 1. Target subcollection queries using clean v10 Modular references
-                const responsesCollectionRef = collection(db, "users", userId, "responses");
-                const snapshot = await getDocs(responsesCollectionRef);
-                snapshot.forEach((docSnap) => {
-                    batch.delete(docSnap.ref);
+                console.log(`Requesting complete progress purge for user: ${currentUser.uid}`);
+                
+                await fetch(LAMBDA_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'clearProgress',
+                        uid: currentUser.uid
+                    })
                 });
 
-                // 2. Clear parent state metrics completely
-                const userDocRef = doc(db, "users", userId);
-                batch.set(userDocRef, {
-                    correctIds: [],
-                    wrongIds: [],
-                    xp: 0,
-                    score: 0
-                });
-
-                // 3. Commit the pipeline bundle to Firestore
-                await batch.commit();
-                console.log("Firestore document records completely wiped.");
-
-                // 4. Wipe out all lingering browser artifacts
                 localStorage.clear();
                 sessionStorage.clear();
 

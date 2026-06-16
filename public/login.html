@@ -99,7 +99,8 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, sendEmailVerification, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-        // ⚠️ PASTE YOUR FIREBASE CONFIG HERE ⚠️
+        
+        // Firebase Auth Config (Public API Keys - Safe to expose)
         const firebaseConfig = {
             apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
             authDomain: "studyspace-45780.firebaseapp.com",
@@ -110,9 +111,11 @@
             measurementId: "G-NVHDFF8JDN"
         };
 
+        const LAMBDA_URL = "https://xsg4j8u7ni.execute-api.us-east-1.amazonaws.com/default/studyspace-backend";
+
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
-        const provider = new GoogleAuthProvider(); // Re-added Google Provider
+        const provider = new GoogleAuthProvider(); 
 
         let isLoginMode = true;
         let selectedAvatar = "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix";
@@ -154,7 +157,25 @@
             }
         }
 
-        // Shared Teleport Logic (Used by both Google and Email login)
+        // Send a ping to AWS to ensure the user exists in the backend DB
+        async function syncUserToBackend(user, displayName) {
+            try {
+                await fetch(LAMBDA_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        action: 'initUser', 
+                        uid: user.uid,
+                        name: displayName || user.displayName || "Student",
+                        email: user.email
+                    })
+                });
+            } catch (e) {
+                console.error("Failed to sync user with AWS backend", e);
+            }
+        }
+
+        // Shared Teleport Logic
         function handleSuccessfulLogin() {
             const returnUrl = sessionStorage.getItem('returnUrl');
             if (returnUrl) {
@@ -169,7 +190,8 @@
         googleBtn.addEventListener('click', async () => {
             errorMsg.style.display = 'none';
             try {
-                await signInWithPopup(auth, provider);
+                const result = await signInWithPopup(auth, provider);
+                await syncUserToBackend(result.user);
                 handleSuccessfulLogin();
             } catch (error) {
                 errorMsg.style.display = 'block';
@@ -194,9 +216,8 @@
                     // --- SECURE LOGIN FLOW ---
                     const userCredential = await signInWithEmailAndPassword(auth, email, pass);
                     
-                    // NEW: Check if they actually clicked the link in their email!
                     if (!userCredential.user.emailVerified) {
-                        await signOut(auth); // Kick them back out
+                        await signOut(auth); 
                         throw new Error("Please verify your email address. Check your inbox!");
                     }
                     
@@ -214,29 +235,25 @@
                         photoURL: selectedAvatar
                     });
 
-                    // NEW: Send the verification email
-                    await sendEmailVerification(userCredential.user);
+                    await syncUserToBackend(userCredential.user, name);
                     
-                    // Immediately sign them out so they can't bypass the check
+                    await sendEmailVerification(userCredential.user);
                     await signOut(auth);
 
-                    // Change the UI to show a success message
                     submitBtn.disabled = false;
                     submitBtn.innerText = 'Create Account';
-                    errorMsg.style.color = "var(--accent)"; // Make it green!
+                    errorMsg.style.color = "var(--accent)"; 
                     errorMsg.innerText = "✅ Account created! Please check your email inbox to verify your account before logging in.";
                     errorMsg.style.display = 'block';
                     
-                    // Stop here. Do NOT run handleSuccessfulLogin()
                     return; 
                 }
 
             } catch (error) {
-                // Handle Errors
                 submitBtn.disabled = false;
                 submitBtn.innerText = isLoginMode ? 'Log In' : 'Create Account';
                 
-                errorMsg.style.color = "var(--danger)"; // Reset to red for errors
+                errorMsg.style.color = "var(--danger)"; 
                 errorMsg.style.display = 'block';
                 
                 if (error.code === 'auth/email-already-in-use') errorMsg.innerText = "❌ Email is already registered.";
