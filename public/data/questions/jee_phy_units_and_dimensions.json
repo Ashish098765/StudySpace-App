@@ -1,0 +1,1757 @@
+[
+  {
+    "q": "Match List I with List II\n\n$$\\begin{array}{l|l} \\textbf{List - I} & \\textbf{List - II} \\\\ \\hline \\text{(A) Surface tension} & \\text{I. } \\text{kg m}^{-1}\\text{s}^{-1} \\\\ \\text{(B) Pressure} & \\text{II. } \\text{kg m s}^{-1} \\\\ \\text{(C) Viscosity} & \\text{III. } \\text{kg m}^{-1}\\text{s}^{-2} \\\\ \\text{(D) Impulse} & \\text{IV. } \\text{kg s}^{-2} \\end{array}$$\n\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "A-IV, B-III, C-II, D-I",
+      "A-IV, B-III, C-I, D-II",
+      "A-III, B-IV, C-I, D-II",
+      "A-II, B-I, C-III, D-IV"
+    ],
+    "answer": 1,
+    "explanation": "Let's check the SI units for each physical quantity:\n- **Surface tension** ($T = F/l$): $[T] = \\frac{\\text{kg m s}^{-2}}{\\text{m}} = \\text{kg s}^{-2}$ (IV)\n- **Pressure** ($P = F/A$): $[P] = \\frac{\\text{kg m s}^{-2}}{\\text{m}^2} = \\text{kg m}^{-1}\\text{s}^{-2}$ (III)\n- **Viscosity** ($\\eta$): $F = 6\\pi\\eta r v \\implies [\\eta] = \\frac{\\text{kg m s}^{-2}}{\\text{m} \\cdot \\text{m s}^{-1}} = \\text{kg m}^{-1}\\text{s}^{-1}$ (I)\n- **Impulse** ($I = F \\cdot \\Delta t$): $[I] = \\text{kg m s}^{-2} \\cdot \\text{s} = \\text{kg m s}^{-1}$ (II)\n\nTherefore, (A) $\\rightarrow$ IV, (B) $\\rightarrow$ III, (C) $\\rightarrow$ I, (D) $\\rightarrow$ II.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "25th January",
+    "subtopic": "Units"
+  },
+  {
+    "q": "Match List I with List II\n\n$$\\begin{array}{l|l} \\textbf{List I} & \\textbf{List II} \\\\ \\hline \\text{(A) Torque} & \\text{(I) } \\text{kg m}^{-1}\\text{s}^{-2} \\\\ \\text{(B) Energy density} & \\text{(II) } \\text{kg m s}^{-1} \\\\ \\text{(C) Pressure gradient} & \\text{(III) } \\text{kg m}^{-2}\\text{s}^{-2} \\\\ \\text{(D) Impulse} & \\text{(IV) } \\text{kg m}^2\\text{s}^{-2} \\end{array}$$\n\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "A-IV, B-III, C-I, D-II",
+      "A-I, B-IV, C-III, D-II",
+      "A-IV, B-I, C-II, D-III",
+      "A-IV, B-I, C-III, D-II"
+    ],
+    "answer": 3,
+    "explanation": "Let's find the SI units of each quantity:\n- **Torque** ($\\tau = F \\cdot r$): $[\\tau] = \\text{kg m s}^{-2} \\cdot \\text{m} = \\text{kg m}^2\\text{s}^{-2}$ (IV)\n- **Energy density** ($E/V$): $[\\text{Energy density}] = \\frac{\\text{kg m}^2\\text{s}^{-2}}{\\text{m}^3} = \\text{kg m}^{-1}\\text{s}^{-2}$ (I)\n- **Pressure gradient** ($dP/dx$): $[\\text{Pressure gradient}] = \\frac{\\text{kg m}^{-1}\\text{s}^{-2}}{\\text{m}} = \\text{kg m}^{-2}\\text{s}^{-2}$ (III)\n- **Impulse** ($I = F \\cdot t$): $[I] = \\text{kg m s}^{-1}$ (II)\n\nTherefore, (A) $\\rightarrow$ IV, (B) $\\rightarrow$ I, (C) $\\rightarrow$ III, (D) $\\rightarrow$ II.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "30th January",
+    "subtopic": "Units"
+  },
+  {
+    "q": "Match List I with List II.\n\n$$\\begin{array}{l|l} \\textbf{List I} & \\textbf{List II} \\\\ \\hline \\text{(A) Torque} & \\text{(I) } \\text{Nms}^{-1} \\\\ \\text{(B) Stress} & \\text{(II) } \\text{Jkg}^{-1} \\\\ \\text{(C) Latent Heat} & \\text{(III) } \\text{Nm} \\\\ \\text{(D) Power} & \\text{(IV) } \\text{Nm}^{-2} \\end{array}$$\n\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "A - III, B - II, C - I, D - IV",
+      "A - III, B - IV, C - II, D - I",
+      "A - IV, B - I, C - III, D - II",
+      "A - II, B - III, C - I, D - IV"
+    ],
+    "answer": 1,
+    "explanation": "The matching is as follows:\n- **Torque**: Units are $\\text{N m}$ (III)\n- **Stress**: Force per unit area, units are $\\text{N m}^{-2}$ (IV)\n- **Latent Heat**: Heat per unit mass, units are $\\text{J kg}^{-1}$ (II)\n- **Power**: Work per unit time, units are $\\text{J s}^{-1}$ or $\\text{N m s}^{-1}$ (I)\n\nTherefore, (A) $\\rightarrow$ III, (B) $\\rightarrow$ IV, (C) $\\rightarrow$ II, (D) $\\rightarrow$ I.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "29th July",
+    "subtopic": "Units"
+  },
+  {
+    "q": "If $E$ and $H$ represents the intensity of electric field and magnetizing field respectively, then the unit of $\\frac{E}{H}$ will be:",
+    "type": "mcq",
+    "options": [
+      "joule",
+      "ohm",
+      "newton",
+      "mho"
+    ],
+    "answer": 1,
+    "explanation": "The ratio of the electric field intensity $E$ and the magnetic field intensity $H$ of an electromagnetic wave represents the impedance (or resistance) of the medium:\n$$Z = \\frac{E}{H}$$\nThe unit of impedance is Ohm ($\\Omega$).",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "27th August",
+    "subtopic": "Units"
+  },
+  {
+    "q": "The density of a material in SI units is $128\\text{ kg m}^{-3}$. In certain units in which the unit of length is $25\\text{ cm}$ and the unit of mass is $50\\text{ g}$, the numerical value of density of the material is:",
+    "type": "mcq",
+    "options": [
+      "410",
+      "16",
+      "40",
+      "640"
+    ],
+    "answer": 2,
+    "explanation": "Using the relation $n_1 u_1 = n_2 u_2$:\n$$128 \\left( \\frac{\\text{kg}}{\\text{m}^3} \\right) = n_2 \\left( \\frac{50\\text{ g}}{(25\\text{ cm})^3} \\right)$$\n$$n_2 = 128 \\left( \\frac{1000\\text{ g}}{50\\text{ g}} \\right) \\left( \\frac{25\\text{ cm}}{100\\text{ cm}} \\right)^3$$\n$$n_2 = 128 \\times 20 \\times \\left( \\frac{1}{4} \\right)^3 = 128 \\times 20 \\times \\frac{1}{64} = 2 \\times 20 = 40$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "10th January",
+    "subtopic": "Units"
+  },
+  {
+    "q": "If $\\mu_0$ and $\\varepsilon_0$ are the permeability and permittivity of free space, respectively, then the dimension of $\\left(\\frac{1}{\\mu_0 \\varepsilon_0}\\right)$ is :",
+    "type": "mcq",
+    "options": [
+      "L/T",
+      "L^2/T^2",
+      "T^2/L",
+      "T^2/L^2"
+    ],
+    "answer": 1,
+    "explanation": "The speed of light in free space is given by:\n$$c = \\frac{1}{\\sqrt{\\mu_0 \\varepsilon_0}} \\implies c^2 = \\frac{1}{\\mu_0 \\varepsilon_0}$$\nSince $c$ represents speed, its dimensions are $[\\text{L T}^{-1}]$.\nThus, the dimensions of $\\frac{1}{\\mu_0 \\varepsilon_0}$ are $[\\text{L T}^{-1}]^2 = [\\text{L}^2 \\text{T}^{-2}]$.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "2nd April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "A person measures mass of 3 different particles as $435.42\\text{ g}$, $226.3\\text{ g}$ and $0.125\\text{ g}$. According to the rules for arithmetic operations with significant figures, the additions of the masses of 3 particles will be.",
+    "type": "mcq",
+    "options": [
+      "661.845 g",
+      "662 g",
+      "661.8 g",
+      "661.84 g"
+    ],
+    "answer": 2,
+    "explanation": "When adding quantities with significant figures, the result should have the same number of decimal places as the number with the least decimal places.\n- $435.42\\text{ g}$ has 2 decimal places.\n- $226.3\\text{ g}$ has 1 decimal place (least decimal places).\n- $0.125\\text{ g}$ has 3 decimal places.\n\nAdding the masses:\n$$\\text{Sum} = 435.42 + 226.3 + 0.125 = 661.845\\text{ g}$$\nRounding to 1 decimal place gives $661.8\\text{ g}$.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "3rd April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If $\\epsilon_0$ denotes the permittivity of free space and $\\Phi_{\\text{E}}$ is the flux of the electric field through the area bounded by the closed surface, then dimension of $\\left(\\epsilon_0 \\frac{d\\Phi_{\\text{E}}}{dt}\\right)$ are that of :",
+    "type": "mcq",
+    "options": [
+      "Electric field",
+      "Electric potential",
+      "Electric charge",
+      "Electric current"
+    ],
+    "answer": 3,
+    "explanation": "According to Maxwell's displacement current formula:\n$$I_{\\text{d}} = \\epsilon_0 \\frac{d\\Phi_{\\text{E}}}{dt}$$\nHere, $I_{\\text{d}}$ is the displacement current. Hence, the dimensions of $\\epsilon_0 \\frac{d\\Phi_{\\text{E}}}{dt}$ are the same as that of electric current.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "7th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Which one of the following is the correct dimensional formula for the capacitance in F? M, L, T and C stand for unit of mass, length, time and charge,",
+    "type": "mcq",
+    "options": [
+      "[F] = [C^2M^{-1}L^{-2}T^2]",
+      "[F] = [C^2M^{-2}L^2T^2]",
+      "[F] = [CM^{-2}L^{-2}T^{-2}]",
+      "[F] = [CM^{-1}L^{-2}T^2]"
+    ],
+    "answer": 0,
+    "explanation": "We know that capacitance $C_{\\text{cap}} = \\frac{q}{V}$.\nThe potential difference is $V = \\frac{W}{q}$.\n$$C_{\\text{cap}} = \\frac{q^2}{W}$$\nDimensions of charge $q = [\\text{C}]$.\nDimensions of work $W = [\\text{M L}^2 \\text{T}^{-2}]$.\n$$[C_{\\text{cap}}] = \\frac{[\\text{C}]^2}{[\\text{M L}^2 \\text{T}^{-2}]} = [\\text{C}^2 \\text{M}^{-1} \\text{L}^{-2} \\text{T}^2]$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "22nd January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The position of a particle moving on $x$-axis is given by $x(t) = A \\sin t + B \\cos^2 t + C t^2 + D t$, where $t$ is time. The dimension of $\\frac{ABC}{D}$ is",
+    "type": "mcq",
+    "options": [
+      "L^2T^{-2}",
+      "L^2",
+      "L",
+      "L^3T^{-2}"
+    ],
+    "answer": 0,
+    "explanation": "According to the principle of homogeneity, each term on the right-hand side has dimensions of length $[\\text{L}]$:\n- $[A \\sin t] = [\\text{L}] \\implies [A] = [\\text{L}]$\n- $[B \\cos^2 t] = [\\text{L}] \\implies [B] = [\\text{L}]$\n- $[C t^2] = [\\text{L}] \\implies [C] = [\\text{L T}^{-2}]$\n- $[D t] = [\\text{L}] \\implies [D] = [\\text{L T}^{-1}]$\n\nNow, let's find the dimension of $\\frac{ABC}{D}$:\n$$\\left[ \\frac{ABC}{D} \\right] = \\frac{[\\text{L}][\\text{L}][\\text{L T}^{-2}]}{[\\text{L T}^{-1}]} = [\\text{L}^2 \\text{T}^{-1}]$$\nWait, checking the answer key: Q10 (1) which means \"L^2T^{-2}\". Let's verify the dimensions of cosine/sine functions. Here, $\\sin t$ is technically $\\sin(\\omega t)$, so if the argument $t$ is written directly as $t$, then the coefficients of $t$ in trig functions are implied to be 1, or $t$ is dimensionally time. If $t$ inside $\\sin t$ is a typo for $\\omega t$ where $\\omega$ has dimension $[\\text{T}^{-1}]$, then $[A] = [\\text{L}]$. If $[C] = [\\text{L T}^{-2}]$ and $[D] = [\\text{L T}^{-1}]$, then $[\\frac{ABC}{D}] = [\\frac{\\text{L} \\cdot \\text{L} \\cdot \\text{L T}^{-2}}{\\text{L T}^{-1}}] = [\\text{L}^2 \\text{T}^{-1}]$? Wait, if we check Option (1), it is $L^2T^{-2}$. Oh, in the PDF the option says (1) $L^2T^{-2}$, but in the solution key, it corresponds to Option 1.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "23rd January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The electric flux is $\\phi = a\\sigma + b\\lambda$ where $\\lambda$ and $\\sigma$ are linear and surface charge density, respectively. $\\left(\\frac{a}{b}\\right)$ represents",
+    "type": "mcq",
+    "options": [
+      "electric field",
+      "area",
+      "charge",
+      "displacement"
+    ],
+    "answer": 3,
+    "explanation": "Dimensions of electric flux $\\phi$ are:\n$$[\\phi] = [\\text{E} \\cdot \\text{A}] = [\\text{M L}^3 \\text{T}^{-3} \\text{A}^{-1}]$$\n\nGiven $\\phi = a\\sigma + b\\lambda$:\n- Surface charge density $\\sigma = \\frac{q}{\\text{Area}} \\implies [\\sigma] = [\\text{L}^{-2} \\text{T A}]$\n  $$[a] = \\frac{[\\phi]}{[\\sigma]} = \\frac{[\\text{M L}^3 \\text{T}^{-3} \\text{A}^{-1}]}{[\\text{L}^{-2} \\text{T A}]} = [\\text{M L}^5 \\text{T}^{-4} \\text{A}^{-2}]$$\n- Linear charge density $\\lambda = \\frac{q}{\\text{Length}} \\implies [\\lambda] = [\\text{L}^{-1} \\text{T A}]$\n  $$[b] = \\frac{[\\phi]}{[\\lambda]} = \\frac{[\\text{M L}^3 \\text{T}^{-3} \\text{A}^{-1}]}{[\\text{L}^{-1} \\text{T A}]} = [\\text{M L}^4 \\text{T}^{-4} \\text{A}^{-2}]$$\n\nThe ratio $\\frac{a}{b}$ is:\n$$\\left[ \\frac{a}{b} \\right] = \\frac{[\\text{M L}^5 \\text{T}^{-4} \\text{A}^{-2}]}{[\\text{M L}^4 \\text{T}^{-4} \\text{A}^{-2}]} = [\\text{L}]$$\nSince the dimension of $\\frac{a}{b}$ is length, it represents **displacement** (IV).",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "23rd January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "In a measurement, it is asked to find modulus of elasticity per unit torque applied on the system. The measured quantity has dimension of $[M^a L^b T^c]$. If $b = -3$, the value of $c$ is _________",
+    "type": "numerical",
+    "options": [],
+    "answer": "0",
+    "explanation": "The quantity is defined as:\n$$Q = \\frac{\\text{Modulus of Elasticity}}{\\text{Torque}}$$\n\n- Dimensions of Modulus of Elasticity ($Y$): $[Y] = [\\text{M L}^{-1} \\text{T}^{-2}]$\n- Dimensions of Torque ($\\tau$): $[\\tau] = [\\text{M L}^2 \\text{T}^{-2}]$\n\nSubstituting these into the formula for $Q$:\n$$[Q] = \\frac{[\\text{M L}^{-1} \\text{T}^{-2}]}{[\\text{M L}^2 \\text{T}^{-2}]} = [\\text{M}^0 \\text{L}^{-3} \\text{T}^0]$$\n\nComparing this with $[M^a L^b T^c]$:\n$$a = 0, \\quad b = -3, \\quad c = 0$$\nThus, the value of $c$ is $0$.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "28th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The pair of physical quantities not having same dimensions is :",
+    "type": "mcq",
+    "options": [
+      "Pressure and Young's modulus",
+      "Surface tension and impulse",
+      "Torque and energy",
+      "Angular momentum and Planck's constant"
+    ],
+    "answer": 1,
+    "explanation": "Let's check each pair:\n- **Pressure and Young's modulus**: Both have dimensions of $[\\text{M L}^{-1} \\text{T}^{-2}]$. (Same)\n- **Surface tension and impulse**:\n  - Surface tension: $[\\text{M T}^{-2}]$\n  - Impulse: $[\\text{M L T}^{-1}]$\n  These are not the same (different).\n- **Torque and energy**: Both have dimensions of $[\\text{M L}^2 \\text{T}^{-2}]$. (Same)\n- **Angular momentum and Planck's constant**: Both have dimensions of $[\\text{M L}^2 \\text{T}^{-1}]$. (Same)\n\nTherefore, Surface tension and impulse do not have the same dimensions.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "29th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The equation of stationary wave is: $y = 2a \\sin \\left(\\frac{2\\pi nt}{\\lambda}\\right) \\cos \\left(\\frac{2\\pi x}{\\lambda}\\right)$. Which of the following is NOT correct :",
+    "type": "mcq",
+    "options": [
+      "The dimensions of $n/\\lambda$ is [T]",
+      "The dimensions of n is [LT^{-1}]",
+      "The dimensions of x is [L]",
+      "The dimensions of nt is [L]"
+    ],
+    "answer": 0,
+    "explanation": "In trigonometric functions, the arguments must be dimensionless:\n- $\\left[ \\frac{2\\pi x}{\\lambda} \\right] = 1 \\implies [x] = [\\lambda] = [\\text{L}]$\n- $\\left[ \\frac{2\\pi nt}{\\lambda} \\right] = 1 \\implies [nt] = [\\lambda] = [\\text{L}] \\implies [n][\\text{T}] = [\\text{L}] \\implies [n] = [\\text{L T}^{-1}]$\n\nLet's check the options:\n- The dimensions of $\\frac{n}{\\lambda}$ is $\\frac{[\\text{L T}^{-1}]}{[\\text{L}]} = [\\text{T}^{-1}]$, which is NOT $[\\text{T}]$. Thus, option (1) is incorrect.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "4th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If $G$ be the gravitational constant and $u$ be the energy density then which of the following quantity have the dimensions as that of the $\\sqrt{uG}$ :",
+    "type": "mcq",
+    "options": [
+      "pressure gradient per unit mass",
+      "Gravitational potential",
+      "Energy per unit mass",
+      "Force per unit mass"
+    ],
+    "answer": 3,
+    "explanation": "The dimensions are:\n- Gravitational constant $G$: $[\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]$\n- Energy density $u$: $[\\text{M L}^{-1} \\text{T}^{-2}]$\n\nThus, dimensions of $\\sqrt{uG}$:\n$$[\\sqrt{uG}] = \\sqrt{[\\text{M L}^{-1} \\text{T}^{-2}][\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]} = \\sqrt{[\\text{L}^2 \\text{T}^{-4}]} = [\\text{L T}^{-2}]$$\nThis is the dimension of acceleration (or force per unit mass).",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "5th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The dimensional formula of latent heat is :",
+    "type": "mcq",
+    "options": [
+      "[ML^2T^{-2}]",
+      "[M^0L^2T^{-2}]",
+      "[MLT^{-2}]",
+      "[M^0LT^{-2}]"
+    ],
+    "answer": 1,
+    "explanation": "Latent heat $L$ is given by:\n$$L = \\frac{Q}{m}$$\nWhere $Q$ is heat energy ($[\\text{M L}^2 \\text{T}^{-2}]$) and $m$ is mass ($[\\text{M}]$).\n$$[L] = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{M}]} = [\\text{M}^0 \\text{L}^2 \\text{T}^{-2}]$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "9th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The equation of state of a real gas is given by $\\left(P + \\frac{a}{V^2}\\right)(V - b) = RT$, where $P$, $V$ and $T$ are pressure, volume and temperature respectively and $R$ is the universal gas constant. The dimensions of $\\frac{a}{b^2}$ is similar to that of :",
+    "type": "mcq",
+    "options": [
+      "PV",
+      "P",
+      "RT",
+      "R"
+    ],
+    "answer": 1,
+    "explanation": "By the principle of homogeneity:\n- $[\\frac{a}{V^2}] = [P] \\implies [a] = [P V^2]$\n- $[b] = [V] \\implies [b^2] = [V^2]$\n\nTherefore, the dimension of $\\frac{a}{b^2}$ is:\n$$\\left[ \\frac{a}{b^2} \\right] = \\frac{[P V^2]}{[V^2]} = [P]$$\nThis is similar to that of pressure $P$.",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "27th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The dimensional formula of angular impulse is :",
+    "type": "mcq",
+    "options": [
+      "[ML^{-2}T^{-1}]",
+      "[ML^2T^{-2}]",
+      "[MLT^{-1}]",
+      "[ML^2T^{-1}]"
+    ],
+    "answer": 3,
+    "explanation": "Angular impulse is the change in angular momentum, or torque integrated over time:\n$$\\text{Angular Impulse} = \\int \\tau \\, dt$$\nDimensions of Torque $\\tau$: $[\\text{M L}^2 \\text{T}^{-2}]$.\n$$\\text{Dimensions of Angular Impulse} = [\\text{M L}^2 \\text{T}^{-2}][\\text{T}] = [\\text{M L}^2 \\text{T}^{-1}]$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "1st February",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List I with List II\n\n$$\\begin{array}{l|l} \\textbf{List I} & \\textbf{List II} \\\\ \\hline \\text{A. Torque} & \\text{I. } \\text{M L}^{-2}\\text{T}^{-2} \\\\ \\text{B. Stress} & \\text{II. } \\text{M L}^2\\text{T}^{-2} \\\\ \\text{C. Pressure gradient} & \\text{III. } \\text{M L}^{-1}\\text{T}^{-1} \\\\ \\text{D. Coefficient of viscosity} & \\text{IV. } \\text{M L}^{-1}\\text{T}^{-2} \\end{array}$$\n\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "A-II, B-I, C-IV, D-III",
+      "A-IV, B-II, C-III, D-I",
+      "A-II, B-IV, C-I, D-III",
+      "A-III, B-IV, C-I, D-II"
+    ],
+    "answer": 2,
+    "explanation": "The matching is as follows:\n- **Torque**: $[\\text{M L}^2 \\text{T}^{-2}]$ (II)\n- **Stress**: $[\\text{M L}^{-1} \\text{T}^{-2}]$ (IV)\n- **Pressure gradient** ($dP/dx$): $[\\text{M L}^{-2} \\text{T}^{-2}]$ (I)\n- **Coefficient of viscosity**: $[\\text{M L}^{-1} \\text{T}^{-1}]$ (III)\n\nTherefore, A-II, B-IV, C-I, D-III.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List I with List II\n\n$$\\begin{array}{l|l} \\textbf{List-I} & \\textbf{List-II} \\\\ \\hline \\text{A Spring constant} & \\text{I } [\\text{T}^{-1}] \\\\ \\text{B Angular speed} & \\text{II } [\\text{MT}^{-2}] \\\\ \\text{C Angular momentum} & \\text{III } [\\text{ML}^2] \\\\ \\text{D Moment of Inertia} & \\text{IV } [\\text{ML}^2\\text{T}^{-1}] \\end{array}$$\n\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "A-I, B-III, C-II, D-IV",
+      "A-IV, B-I, C-III, D-II",
+      "A-II, B-I, C-IV, D-III",
+      "A-II, B-III, C-I, D-IV"
+    ],
+    "answer": 2,
+    "explanation": "The matching is as follows:\n- **Spring constant** ($k = F/x$): $[\\text{M T}^{-2}]$ (II)\n- **Angular speed** ($\\omega = \\theta/t$): $[\\text{T}^{-1}]$ (I)\n- **Angular momentum** ($L = r \\times p$): $[\\text{M L}^2 \\text{T}^{-1}]$ (IV)\n- **Moment of Inertia** ($I = m r^2$): $[\\text{M L}^2]$ (III)\n\nTherefore, A-II, B-I, C-IV, D-III.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "12th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List I with List II\n\n$$\\begin{array}{l|l} \\textbf{List I} & \\textbf{List II} \\\\ \\hline \\text{(A) Angular momentum} & \\text{(I) } [\\text{ML}^2 \\text{T}^{-2}] \\\\ \\text{(B) Torque} & \\text{(II) } [\\text{ML}^{-2} \\text{T}^{-2}] \\\\ \\text{(C) Stress} & \\text{(III) } [\\text{ML}^2 \\text{T}^{-1}] \\\\ \\text{(D) Pressure gradient} & \\text{(IV) } [\\text{ML}^{-1} \\text{T}^{-2}] \\end{array}$$\n\nChoose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "A-I, B-IV, C-III, D-II",
+      "A-III, B-I, C-IV, D-II",
+      "A-II, B-III, C-IV, D-I",
+      "A-IV, B-II, C-I, D-III"
+    ],
+    "answer": 1,
+    "explanation": "Matching the dimensions:\n- **Angular momentum**: $[\\text{M L}^2 \\text{T}^{-1}]$ (III)\n- **Torque**: $[\\text{M L}^2 \\text{T}^{-2}]$ (I)\n- **Stress**: $[\\text{M L}^{-1} \\text{T}^{-2}]$ (IV)\n- **Pressure gradient**: $[\\text{M L}^{-2} \\text{T}^{-2}]$ (II)\n\nTherefore, A-III, B-I, C-IV, D-II.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "31st January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If momentum $[P]$, area $[A]$ and time $[T]$ are taken as fundamental quantities, then the dimensional formula for coefficient of viscosity is",
+    "type": "mcq",
+    "options": [
+      "[PA^{-1} T^0]",
+      "[PAT^{-1}]",
+      "[PA^{-1} T]",
+      "[PA^{-1} T^{-1}]"
+    ],
+    "answer": 0,
+    "explanation": "Viscosity $\\eta$ has dimensions $[\\text{M L}^{-1} \\text{T}^{-1}]$.\nLet $\\eta \\propto P^x A^y T^z$.\nDimensions of momentum $P$: $[\\text{M L T}^{-1}]$\nDimensions of area $A$: $[\\text{L}^2]$\nDimensions of time $T$: $[\\text{T}]$\n\n$$[\\text{M L}^{-1} \\text{T}^{-1}] = [\\text{M L T}^{-1}]^x [\\text{L}^2]^y [\\text{T}]^z = \\text{M}^x \\text{L}^{x+2y} \\text{T}^{-x+z}$$\n\nComparing exponents:\n- For M: $x = 1$\n- For L: $x + 2y = -1 \\implies 1 + 2y = -1 \\implies y = -1$\n- For T: $-x + z = -1 \\implies -1 + z = -1 \\implies z = 0$\n\nThus, $[\\eta] = [P^1 A^{-1} T^0] = [\\text{P A}^{-1} \\text{T}^0]$.",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "25th July",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The dimensions of $\\left(\\frac{B^2}{\\mu_0}\\right)$ will be (if $\\mu_0$ : permeability of free space and $B$ : magnetic field)",
+    "type": "mcq",
+    "options": [
+      "[ML^2 T^{-2}]",
+      "[MLT^{-2}]",
+      "[ML^{-1} T^{-2}]",
+      "[ML^{-2} A^{-1}]"
+    ],
+    "answer": 2,
+    "explanation": "The quantity $\\frac{B^2}{\\mu_0}$ represents the energy density (magnetic energy per unit volume) in a magnetic field.\n$$\\text{Energy density} = \\frac{\\text{Energy}}{\\text{Volume}} = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}^3]} = [\\text{M L}^{-1} \\text{T}^{-2}]$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "28th July",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "An expression for a dimensionless quantity $P$ is given by $P = \\frac{\\alpha}{\\beta} \\log_{\\text{e}}\\left(\\frac{k T}{\\beta x}\\right)$; where $\\alpha$ and $\\beta$ are constants, $x$ is distance; $k$ is Boltzmann constant and $T$ is the temperature. Then the dimensions of $\\alpha$ will be",
+    "type": "mcq",
+    "options": [
+      "[M^0L^{-1}T^0]",
+      "[ML^0T^{-2}]",
+      "[MLT^{-2}]",
+      "[ML^2T^{-2}]"
+    ],
+    "answer": 2,
+    "explanation": "Since $P$ is dimensionless, the argument of the logarithm must also be dimensionless:\n$$\\left[ \\frac{kT}{\\beta x} \\right] = 1 \\implies [\\beta] = \\frac{[kT]}{[x]}$$\nSince $kT$ has dimensions of energy $[\\text{M L}^2 \\text{T}^{-2}]$ and $x$ is distance $[\\text{L}]$:\n$$[\\beta] = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}]} = [\\text{M L T}^{-2}]$$\n\nAlso, since $P$ is dimensionless:\n$$\\left[ \\frac{\\alpha}{\\beta} \\right] = 1 \\implies [\\alpha] = [\\beta] = [\\text{M L T}^{-2}]$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "26th June",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If $E, L, M$ and $G$ denote the quantities as energy, angular momentum, mass and constant of gravitation respectively, then the dimensions of $P$ in the formula $P = E L^2 M^{-5} G^{-2}$ are:",
+    "type": "mcq",
+    "options": [
+      "[M^1L^1T^{-2}]",
+      "[M^0L^1T^0]",
+      "[M^{-1}L^{-1}T^2]",
+      "[M^0L^0T^0]"
+    ],
+    "answer": 3,
+    "explanation": "Let's substitute the dimensions of each quantity:\n- $E = [\\text{M L}^2 \\text{T}^{-2}]$\n- $L = [\\text{M L}^2 \\text{T}^{-1}]$\n- $M = [\\text{M}]$\n- $G = [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]$\n\n$$[P] = [\\text{M L}^2 \\text{T}^{-2}] \\cdot [\\text{M L}^2 \\text{T}^{-1}]^2 \\cdot [\\text{M}]^{-5} \\cdot [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]^{-2}$$\n$$[P] = [\\text{M L}^2 \\text{T}^{-2}] \\cdot [\\text{M}^2 \\text{L}^4 \\text{T}^{-2}] \\cdot [\\text{M}]^{-5} \\cdot [\\text{M}^2 \\text{L}^{-6} \\text{T}^4]$$\n$$[P] = \\text{M}^{1+2-5+2} \\text{L}^{2+4-6} \\text{T}^{-2-2+4} = [\\text{M}^0 \\text{L}^0 \\text{T}^0]$$\nThus, $P$ is a dimensionless quantity.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "26th August",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List - I with List - II.\n\n$$\\begin{array}{l|l} \\textbf{List - I} & \\textbf{List - II} \\\\ \\hline \\text{(a) Torque} & \\text{(i) } \\text{MLT}^{-1} \\\\ \\text{(b) Impulse} & \\text{(ii) } \\text{MT}^{-2} \\\\ \\text{(c) Tension} & \\text{(iii) } \\text{ML}^2\\text{T}^{-2} \\\\ \\text{(d) Surface Tension} & \\text{(iv) } \\text{MLT}^{-2} \\end{array}$$\n\nChoose the most appropriate answer from the option given below :",
+    "type": "mcq",
+    "options": [
+      "(a)-(iii), (b)-(iv), (c)-(i), (d)-(ii)",
+      "(a)-(iii), (b)-(i), (c)-(iv), (d)-(ii)",
+      "(a)-(i), (b)-(iii), (c)-(iv), (d)-(ii)",
+      "(a)-(ii), (b)-(i), (c)-(iv), (d)-(iii)"
+    ],
+    "answer": 1,
+    "explanation": "Matching the physical quantities to their dimensional formula:\n- **Torque**: $[\\text{M L}^2 \\text{T}^{-2}]$ (iii)\n- **Impulse**: $[\\text{M L T}^{-1}]$ (i)\n- **Tension**: Force, so $[\\text{M L T}^{-2}]$ (iv)\n- **Surface Tension**: Force per unit length, so $[\\text{M T}^{-2}]$ (ii)\n\nTherefore, (a)-(iii), (b)-(i), (c)-(iv), (d)-(ii).",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "31st August",
+    "subtopic": "Units"
+  },
+  {
+    "q": "The force is given in terms of time $t$ and displacement $x$ by the equation $F = A \\cos Bx + C \\sin Dt$. The dimensional formula of $\\frac{AD}{B}$ is:",
+    "type": "mcq",
+    "options": [
+      "[M^0 L T^{-1}]",
+      "[M L^2 T^{-3}]",
+      "[M^1 L^1 T^{-2}]",
+      "[M^2 L^2 T^{-3}]"
+    ],
+    "answer": 1,
+    "explanation": "By the principle of homogeneity, the arguments of trigonometric functions are dimensionless:\n- $[Bx] = 1 \\implies [B] = [\\text{L}^{-1}]$\n- $[Dt] = 1 \\implies [D] = [\\text{T}^{-1}]$\n- $[A] = [F] = [\\text{M L T}^{-2}]$\n\nSubstituting these into the expression for $\\frac{AD}{B}$:\n$$\\left[ \\frac{AD}{B} \\right] = \\frac{[\\text{M L T}^{-2}][\\text{T}^{-1}]}{[\\text{L}^{-1}]} = [\\text{M L}^2 \\text{T}^{-3}]$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "25th July",
+    "subtopic": "Units"
+  },
+  {
+    "q": "Amount of solar energy received on the earth's surface per unit area per unit time is defined a solar constant. Dimension of solar constant is:",
+    "type": "mcq",
+    "options": [
+      "[M L^2 T^{-2}]",
+      "[M L^0 T^{-3}]",
+      "[M^2 L^0 T^{-1}]",
+      "[M L T^{-2}]"
+    ],
+    "answer": 1,
+    "explanation": "Solar constant $S$ is defined as:\n$$S = \\frac{\\text{Energy}}{\\text{Area} \\times \\text{Time}}$$\n$$[S] = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}^2][\\text{T}]} = [\\text{M T}^{-3}] = [\\text{M L}^0 \\text{T}^{-3}]$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "3rd September",
+    "subtopic": "Units"
+  },
+  {
+    "q": "Dimensional formula for thermal conductivity is (here $K$ denotes the temperature):",
+    "type": "mcq",
+    "options": [
+      "[M L T^{-2} K]",
+      "[M L T^{-2} K^{-2}]",
+      "[M L T^{-3} K]",
+      "[M L T^{-3} K^{-1}]"
+    ],
+    "answer": 3,
+    "explanation": "The rate of heat flow is given by:\n$$\\frac{dQ}{dt} = k A \\frac{\\Delta T}{d} \\implies k = \\frac{(dQ/dt) \\cdot d}{A \\cdot \\Delta T}$$\n\nSubstituting the dimensions:\n- $[dQ/dt] = [\\text{M L}^2 \\text{T}^{-3}]$\n- $[d] = [\\text{L}]$\n- $[A] = [\\text{L}^2]$\n- $[\\Delta T] = [\\text{K}]$\n\n$$[k] = \\frac{[\\text{M L}^2 \\text{T}^{-3}][\\text{L}]}{[\\text{L}^2][\\text{K}]} = [\\text{M L T}^{-3} \\text{K}^{-1}]$$",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "4th September",
+    "subtopic": "Units"
+  },
+  {
+    "q": "A quantity $f$ is given by $f = \\sqrt{\\frac{h c^5}{G}}$ where $c$ is speed of light, $G$ universal gravitational constant and $h$ is the Planck's constant. Dimension of $f$ is that of:",
+    "type": "mcq",
+    "options": [
+      "area",
+      "energy",
+      "momentum",
+      "volume"
+    ],
+    "answer": 1,
+    "explanation": "Substituting the dimensions of $h$, $c$, and $G$:\n- $[h] = [\\text{M L}^2 \\text{T}^{-1}]$\n- $[c] = [\\text{L T}^{-1}]$\n- $[G] = [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]$\n\n$$[f] = \\sqrt{ \\frac{[\\text{M L}^2 \\text{T}^{-1}][\\text{L T}^{-1}]^5}{[\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]} } = \\sqrt{ \\frac{\\text{M L}^7 \\text{T}^{-6}}{\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}} } = \\sqrt{ \\text{M}^2 \\text{L}^4 \\text{T}^{-4} } = [\\text{M L}^2 \\text{T}^{-2}]$$\nThis matches the dimension of **energy**.",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "9th January",
+    "subtopic": "Units"
+  },
+  {
+    "q": "Let $L, R, C$ and $V$ represent inductance, resistance, capacitance and voltage, respectively. The dimension of $\\frac{L}{RCV}$ in SI units will be:",
+    "type": "mcq",
+    "options": [
+      "[L T A]",
+      "[A^{-1}]",
+      "[L T^2]",
+      "[L A^{-2}]"
+    ],
+    "answer": 1,
+    "explanation": "We know that:\n- Time constant $\\tau_1 = \\frac{L}{R}$ has dimension of time $[\\text{T}]$.\n- Time constant $\\tau_2 = R C$ has dimension of time $[\\text{T}]$.\n- Thus, $\\frac{L}{R} \\cdot \\frac{1}{R C} = \\frac{L}{R^2 C}$ is dimensionless.\n- Now, we can express the given quantity as:\n$$\\frac{L}{R C V} = \\left(\\frac{L}{R}\\right) \\frac{1}{C V}$$\nSince $Q = C V$ is charge and $\\frac{L}{R}$ is time:\n$$\\left[ \\frac{L}{R C V} \\right] = \\frac{[\\text{T}]}{[\\text{I} \\cdot \\text{T}]} = [\\text{A}^{-1}]$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "12th January",
+    "subtopic": "Units"
+  },
+  {
+    "q": "Match List-I with List-II.\n\n$$\\begin{array}{l|l} \\textbf{List-I} & \\textbf{List-II} \\\\ \\hline \\text{(A) Heat capacity of body} & \\text{(I) Jkg}^{-1} \\\\ \\text{(B) Specific heat capacity of body} & \\text{(II) JK}^{-1} \\\\ \\text{(C) Latent heat} & \\text{(III) Jkg}^{-1}\\text{K}^{-1} \\\\ \\text{(D) Thermal conductivity} & \\text{(IV) Jm}^{-1}\\text{K}^{-1}\\text{s}^{-1} \\end{array}$$\n\nChoose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "(A)-(III), (B)-(I), (C)-(II), (D)-(IV)",
+      "(A)-(IV), (B)-(III), (C)-(II), (D)-(I)",
+      "(A)-(III), (B)-(IV), (C)-(I), (D)-(II)",
+      "(A)-(II), (B)-(III), (C)-(I), (D)-(IV)"
+    ],
+    "answer": 3,
+    "explanation": "By checking the SI units for each quantity:\n- **Heat capacity**: $[C] = \\frac{Q}{\\Delta T} \\implies \\text{J K}^{-1}$ (II)\n- **Specific heat capacity**: $[s] = \\frac{Q}{m \\Delta T} \\implies \\text{J kg}^{-1}\\text{K}^{-1}$ (III)\n- **Latent heat**: $[L] = \\frac{Q}{m} \\implies \\text{J kg}^{-1}$ (I)\n- **Thermal conductivity**: $[k] = \\frac{(dQ/dt) \\cdot d}{A \\cdot \\Delta T} \\implies \\text{J s}^{-1}\\text{m}^{-1}\\text{K}^{-1}$ or $\\text{J m}^{-1}\\text{K}^{-1}\\text{s}^{-1}$ (IV)\n\nTherefore, (A)-(II), (B)-(III), (C)-(I), (D)-(IV).",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "2nd April",
+    "subtopic": "Units"
+  },
+  {
+    "q": "Match List - I with List - II.\n\n$$\\begin{array}{l|l} \\textbf{List - I} & \\textbf{List - II} \\\\ \\hline \\text{(A) Magnetic induction} & \\text{(I) Ampere meter}^2 \\\\ \\text{(B) Magnetic intensity} & \\text{(II) Weber} \\\\ \\text{(C) Magnetic flux} & \\text{(III) Gauss} \\\\ \\text{(D) Magnetic moment} & \\text{(IV) Ampere/meter} \\end{array}$$\n\nChoose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "(A)-(I), (B)-(II), (C)-(III), (D)-(IV)",
+      "(A)-(III), (B)-(IV), (C)-(I), (D)-(II)",
+      "(A)-(III), (B)-(II), (C)-(I), (D)-(IV)",
+      "(A)-(III), (B)-(IV), (C)-(II), (D)-(I)"
+    ],
+    "answer": 3,
+    "explanation": "Matching the units:\n- **Magnetic induction** ($B$): unit is Tesla or Gauss (III)\n- **Magnetic intensity** ($H$): unit is Ampere/meter (IV)\n- **Magnetic flux** ($\\Phi_B$): unit is Weber (II)\n- **Magnetic moment** ($M$): unit is Ampere meter$^2$ (I)\n\nTherefore, (A)-(III), (B)-(IV), (C)-(II), (D)-(I).",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "29th January",
+    "subtopic": "Units"
+  },
+  {
+    "q": "Electric field in a certain region is given by $\\vec{E} = \\left( \\frac{A}{x^2}\\hat{i} + \\frac{B}{y^3}\\hat{j} \\right)$. The SI unit of $A$ and $B$ are :",
+    "type": "mcq",
+    "options": [
+      "N m^3 C^{-1}; N m^2 C^{-1}",
+      "N m^2 C^{-1}; N m^3 C^{-1}",
+      "N m^3 C; N m^2 C",
+      "N m^2 C; N m^3 C"
+    ],
+    "answer": 1,
+    "explanation": "The SI unit of electric field $E$ is $\\text{N C}^{-1}$.\nUsing dimensional consistency:\n- Unit of $\\frac{A}{x^2}$ is $\\text{N C}^{-1} \\implies [A] = \\text{N C}^{-1} \\cdot \\text{m}^2 = \\text{N m}^2\\text{C}^{-1}$\n- Unit of $\\frac{B}{y^3}$ is $\\text{N C}^{-1} \\implies [B] = \\text{N C}^{-1} \\cdot \\text{m}^3 = \\text{N m}^3\\text{C}^{-1}$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "30th January",
+    "subtopic": "Units"
+  },
+  {
+    "q": "Match List-(I) with List-(II).\n\n$$\\begin{array}{l|l} \\textbf{List-(I)} & \\textbf{List-(II)} \\\\ \\hline \\text{(a) } R_{\\text{H}} \\text{ (Rydberg constant)} & \\text{(i) kg m}^{-1}\\text{s}^{-1} \\\\ \\text{(b) } h \\text{ (Planck's constant)} & \\text{(ii) kg m}^2\\text{s}^{-1} \\\\ \\text{(c) } \\mu_{\\text{B}} \\text{ (Magnetic field energy density)} & \\text{(iii) m}^{-1} \\\\ \\text{(d) } \\eta \\text{ (coefficient of viscosity)} & \\text{(iv) kg m}^{-1}\\text{s}^{-2} \\end{array}$$\n\nChoose the most appropriate answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "(a) - (iv), (b) - (ii), (c) - (i), (d) - (iii)",
+      "(a) - (ii), (b) - (iii), (c) - (iv), (d) - (i)",
+      "(a) - (iii), (b) - (ii), (c) - (iv), (d) - (i)",
+      "(a) - (iii), (b) - (ii), (c) - (i), (d) - (iv)"
+    ],
+    "answer": 2,
+    "explanation": "Matching the physical quantities with their base units:\n- **Rydberg constant**: wave number unit, $\\text{m}^{-1}$ (iii)\n- **Planck's constant**: $h = E \\cdot t \\implies \\text{kg m}^2\\text{s}^{-1}$ (ii)\n- **Magnetic field energy density**: $\\frac{\\text{Energy}}{\\text{Volume}} \\implies \\text{kg m}^{-1}\\text{s}^{-2}$ (iv)\n- **Coefficient of viscosity**: $\\eta \\implies \\text{kg m}^{-1}\\text{s}^{-1}$ (i)\n\nTherefore, (a)-(iii), (b)-(ii), (c)-(iv), (d)-(i).",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "27th August",
+    "subtopic": "Units"
+  },
+  {
+    "q": "The equation for real gas is given by $\\left(P + \\frac{a}{V^2}\\right)(V - b) = RT$, where $P, V, T$ and $R$ are the pressure, volume, temperature and gas constant, respectively. The dimension of $a b^{-2}$ is equivalent to that of :",
+    "type": "mcq",
+    "options": [
+      "Planck's constant",
+      "Compressibility",
+      "Strain",
+      "Energy density"
+    ],
+    "answer": 3,
+    "explanation": "From the Vander Waals equation, by using the principle of homogeneity:\n- $[a] = [P V^2] = [\\text{M L}^{-1} \\text{T}^{-2} \\cdot \\text{L}^6] = [\\text{M L}^5 \\text{T}^{-2}]$\n- $[b] = [V] = [\\text{L}^3] \\implies [b^{-2}] = [\\text{L}^{-6}]$\n\n$$\\text{Dimension of } a b^{-2} = [\\text{M L}^5 \\text{T}^{-2}][\\text{L}^{-6}] = [\\text{M L}^{-1} \\text{T}^{-2}]$$\nThis has the same dimensions as pressure, stress, or **energy density**.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "2nd April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List-I with List-II.\n\n$$\\begin{array}{l|l} \\textbf{List-I} & \\textbf{List-II} \\\\ \\hline \\text{(A) Coefficient of viscosity} & \\text{(I) } [\\text{ML}^0\\text{T}^{-3}] \\\\ \\text{(B) Intensity of wave} & \\text{(II) } [\\text{ML}^{-2}\\text{T}^{-2}] \\\\ \\text{(C) Pressure gradient} & \\text{(III) } [\\text{M}^{-1}\\text{LT}^2] \\\\ \\text{(D) Compressibility} & \\text{(IV) } [\\text{ML}^{-1}\\text{T}^{-1}] \\end{array}$$\n\nChoose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "(A) - (I), (B) - (IV), (C) - (III), (D) - (II)",
+      "(A)-(IV), (B)-(I), (C)-(II), (D)-(III)",
+      "(A) - (IV), (B) - (II), (C) - (I), (D) - (III)",
+      "(A)-(II), (B)-(III), (C)-(IV), (D)-(I)"
+    ],
+    "answer": 1,
+    "explanation": "Matching the dimensions:\n- **Coefficient of viscosity**: $[\\text{M L}^{-1} \\text{T}^{-1}]$ (IV)\n- **Intensity of wave**: $\\frac{\\text{Power}}{\\text{Area}} \\implies [\\text{M T}^{-3}]$ (I)\n- **Pressure gradient**: $\\frac{dP}{dx} \\implies [\\text{M L}^{-2} \\text{T}^{-2}]$ (II)\n- **Compressibility**: $\\frac{1}{\\text{Bulk Modulus}} \\implies [\\text{M}^{-1} \\text{L T}^2]$ (III)\n\nTherefore, (A)-(IV), (B)-(I), (C)-(II), (D)-(III).",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "2nd April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Given a charge $q$, current $I$ and permeability of vacuum $\\mu_0$. Which of the following quantity has the dimension of momentum?",
+    "type": "mcq",
+    "options": [
+      "$qI / \\mu_0$",
+      "$q\\mu_0 I$",
+      "$q^2\\mu_0 I$",
+      "$q\\mu_0 / I$"
+    ],
+    "answer": 1,
+    "explanation": "Let's check the dimension of $q \\mu_0 I$:\n- $[q] = [\\text{A T}]$\n- $[I] = [\\text{A}]$\n- $[\\mu_0] = [\\text{M L T}^{-2} \\text{A}^{-2}]$\n\n$$[q \\mu_0 I] = [\\text{A T}][\\text{M L T}^{-2} \\text{A}^{-2}][\\text{A}] = [\\text{M L T}^{-1}]$$\nThis is precisely the dimension of **momentum**.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "2nd April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match the LIST-I with LIST-II.\n\n$$\\begin{array}{l|l} \\textbf{LIST-I} & \\textbf{LIST-II} \\\\ \\hline \\text{A. Gravitational constant} & \\text{I. } [\\text{LT}^{-2}] \\\\ \\text{B. Gravitational potential energy} & \\text{II. } [\\text{L}^2\\text{T}^{-2}] \\\\ \\text{C. Gravitational potential} & \\text{III. } [\\text{ML}^2\\text{T}^{-2}] \\\\ \\text{D. Acceleration due to gravity} & \\text{IV. } [\\text{M}^{-1}\\text{L}^3\\text{T}^{-2}] \\end{array}$$\n\nChoose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "A-IV, B-III, C-II, D-I",
+      "A-III, B-II, C-I, D-IV",
+      "A-II, B-IV, C-III, D-I",
+      "A-I, B-III, C-IV, D-II"
+    ],
+    "answer": 0,
+    "explanation": "Matching the gravitational terms with their dimensions:\n- **Gravitational constant** ($G$): $[\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]$ (IV)\n- **Gravitational potential energy**: $[\\text{M L}^2 \\text{T}^{-2}]$ (III)\n- **Gravitational potential**: $[\\text{L}^2 \\text{T}^{-2}]$ (II)\n- **Acceleration due to gravity**: $[\\text{L T}^{-2}]$ (I)\n\nTherefore, A-IV, B-III, C-II, D-I.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "3rd April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match the LIST-I with LIST-II.\n\n$$\\begin{array}{l|l} \\textbf{LIST-I} & \\textbf{LIST-II} \\\\ \\hline \\text{A. Boltzmann constant} & \\text{I. } \\text{ML}^2\\text{T}^{-1} \\\\ \\text{B. Coefficient of viscosity} & \\text{II. } \\text{MLT}^{-3}\\text{K}^{-1} \\\\ \\text{C. Planck's constant} & \\text{III. } \\text{ML}^2\\text{T}^{-2}\\text{K}^{-1} \\\\ \\text{D. Thermal conductivity} & \\text{IV. } \\text{ML}^{-1}\\text{T}^{-1} \\end{array}$$\n\nChoose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "A-III, B-IV, C-I, D-II",
+      "A-II, B-III, C-IV, D-I",
+      "A-III, B-II, C-I, D-IV",
+      "A-III, B-IV, C-II, D-I"
+    ],
+    "answer": 0,
+    "explanation": "Matching the dimensions of physical constants:\n- **Boltzmann constant**: $[\\text{M L}^2 \\text{T}^{-2} \\text{K}^{-1}]$ (III)\n- **Coefficient of viscosity**: $[\\text{M L}^{-1} \\text{T}^{-1}]$ (IV)\n- **Planck's constant**: $[\\text{M L}^2 \\text{T}^{-1}]$ (I)\n- **Thermal conductivity**: $[\\text{M L T}^{-3} \\text{K}^{-1}]$ (II)\n\nTherefore, A-III, B-IV, C-I, D-II.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "3rd April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "In an electromagnetic system, the quantity representing the ratio of electric flux and magnetic flux has dimension of $M^P L^Q T^R A^S$, where value of 'Q' and 'R' are",
+    "type": "mcq",
+    "options": [
+      "(3, -5)",
+      "(-2, 2)",
+      "(-2, 1)",
+      "(1, -1)"
+    ],
+    "answer": 3,
+    "explanation": "The ratio of electric flux $\\Phi_E$ and magnetic flux $\\Phi_B$ is:\n$$\\frac{\\Phi_E}{\\Phi_B} = \\frac{E A}{B A} = \\frac{E}{B}$$\nWe know from electrodynamics that $E = v B$ (where $v$ is velocity).\n$$\\frac{E}{B} = v = [\\text{L T}^{-1}] = [\\text{M}^0 \\text{L}^1 \\text{T}^{-1} \\text{A}^0]$$\nComparing with $M^P L^Q T^R A^S$:\n$$Q = 1, \\quad R = -1$$\nHence, the values are $(1, -1)$.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "4th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Given below are two statements :\nStatement (I) : The dimensions of Planck's constant and angular momentum are same.\nStatement (II) : In Bohr's model electron revolve around the nucleus only in those orbits for which angular momentum is integral multiple of Planck's constant.\nIn the light of the above statements, choose the most appropriate answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "Both Statement I and Statement II are correct",
+      "Statement I is incorrect but Statement II is correct",
+      "Statement I is correct but Statement II is incorrect",
+      "Both Statement I and Statement II are incorrect"
+    ],
+    "answer": 2,
+    "explanation": "Let's check the statements:\n- **Statement (I)**: Both Planck's constant ($h$) and angular momentum ($L$) have dimensions of $[\\text{M L}^2 \\text{T}^{-1}]$. This is **correct**.\n- **Statement (II)**: In Bohr's model, angular momentum is $L = n \\hbar = n \\frac{h}{2\\pi}$. This means angular momentum is an integral multiple of $\\frac{h}{2\\pi}$ (not Planck's constant $h$ itself). This is **incorrect**.\n\nThus, Statement I is correct but Statement II is incorrect.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "4th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "In an electromagnetic system, a quantity defined as the ratio of electric dipole moment and magnetic dipole moment has dimension of $M^P L^Q T^R A^S$. The value of P and Q are :",
+    "type": "mcq",
+    "options": [
+      "-1, 0",
+      "-1, 1",
+      "1, -1",
+      "0, -1"
+    ],
+    "answer": 3,
+    "explanation": "Let's determine the dimensions of each dipole moment:\n- **Electric dipole moment** ($p = q \\cdot d$): $[p] = [\\text{L T A}]$\n- **Magnetic dipole moment** ($M = I \\cdot A$): $[M] = [\\text{L}^2 \\text{A}]$\n\nThe ratio of the two is:\n$$\\left[ \\frac{p}{M} \\right] = \\frac{[\\text{L T A}]}{[\\text{L}^2 \\text{A}]} = [\\text{M}^0 \\text{L}^{-1} \\text{T}^1 \\text{A}^0]$$\nComparing with $M^P L^Q T^R A^S$, we find:\n$$P = 0, \\quad Q = -1$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "4th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The dimension of $\\sqrt{\\frac{\\mu_0}{\\epsilon_0}}$ is equal to that of : ($\\mu_0$ = Vacuum permeability and $\\epsilon_0$ = Vacuum permittivity)",
+    "type": "mcq",
+    "options": [
+      "Voltage",
+      "Capacitance",
+      "Inductance",
+      "Resistance"
+    ],
+    "answer": 3,
+    "explanation": "The quantity $Z_0 = \\sqrt{\\frac{\\mu_0}{\\epsilon_0}}$ represents the characteristic impedance (wave impedance) of free space.\nImpedance has the units of Ohm ($\\Omega$), which is equivalent to **resistance**.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "7th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List-I with List-II.\n\n$$\\begin{array}{l|l} \\textbf{List-I} & \\textbf{List-II} \\\\ \\hline \\text{(A) Mass density} & \\text{(I) } [\\text{ML}^2\\text{T}^{-3}] \\\\ \\text{(B) Impulse} & \\text{(II) } [\\text{MLT}^{-1}] \\\\ \\text{(C) Power} & \\text{(III) } [\\text{ML}^2\\text{T}^0] \\\\ \\text{(D) Moment of inertia} & \\text{(IV) } [\\text{ML}^{-3}\\text{T}^0] \\end{array}$$\n\nChoose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "(A)-(IV), (B)-(II), (C)-(III), (D)-(I)",
+      "(A)-(I), (B)-(III), (C)-(IV), (D)-(II)",
+      "(A)-(IV), (B)-(II), (C)-(I), (D)-(III)",
+      "(A)-(II), (B)-(III), (C)-(IV), (D)-(I)"
+    ],
+    "answer": 2,
+    "explanation": "Matching the quantities:\n- **Mass density**: $[\\text{M L}^{-3} \\text{T}^0]$ (IV)\n- **Impulse**: $[\\text{M L T}^{-1}]$ (II)\n- **Power**: $[\\text{M L}^2 \\text{T}^{-3}]$ (I)\n- **Moment of inertia**: $[\\text{M L}^2 \\text{T}^0]$ (III)\n\nTherefore, (A)-(IV), (B)-(II), (C)-(I), (D)-(III).",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "7th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If $B$ is magnetic field and $\\mu_0$ is permeability of free space, then the dimensions of $(B/\\mu_0)$ is",
+    "type": "mcq",
+    "options": [
+      "M L^2 T^{-2} A^{-1}",
+      "M T^{-2} A^{-1}",
+      "L^{-1} A",
+      "L T^{-2} A^{-1}"
+    ],
+    "answer": 2,
+    "explanation": "The quantity $H = \\frac{B}{\\mu_0}$ represents the magnetic field intensity.\nThe unit of magnetic intensity is Ampere/meter.\nThus, the dimensions of $B/\\mu_0$ are $[\\text{L}^{-1} \\text{A}]$.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "22nd January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List - I with List - II.\n\n$$\\begin{array}{l|l} \\textbf{List-I} & \\textbf{List-II} \\\\ \\hline \\text{(A) Permeability of free space} & \\text{(I) } [\\text{ML}^2\\text{T}^{-2}] \\\\ \\text{(B) Magnetic field} & \\text{(II) } [\\text{MT}^{-2}\\text{A}^{-1}] \\\\ \\text{(C) Magnetic moment} & \\text{(III) } [\\text{MLT}^{-2}\\text{A}^{-2}] \\\\ \\text{(D) Torsional constant} & \\text{(IV) } [\\text{L}^2\\text{A}] \\end{array}$$\n\nChoose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "(A)-(IV), (B)-(III), (C)-(I), (D)-(II)",
+      "(A)-(III), (B)-(II), (C)-(IV), (D)-(I)",
+      "(A)-(I), (B)-(IV), (C)-(II), (D)-(III)",
+      "(A)-(II), (B)-(I), (C)-(III), (D)-(IV)"
+    ],
+    "answer": 1,
+    "explanation": "Matching the quantities:\n- **Permeability of free space** ($\\mu_0$): $[\\text{M L T}^{-2} \\text{A}^{-2}]$ (III)\n- **Magnetic field** ($B$): $[\\text{M T}^{-2} \\text{A}^{-1}]$ (II)\n- **Magnetic moment** ($M$): $[\\text{L}^2 \\text{A}]$ (IV)\n- **Torsional constant** ($k = \\tau/\\theta$): $[\\text{M L}^2 \\text{T}^{-2}]$ (I)\n\nTherefore, (A)-(III), (B)-(II), (C)-(IV), (D)-(I).",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "23rd January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List - I with List - II.\n\n$$\\begin{array}{l|l} \\textbf{List-I} & \\textbf{List-II} \\\\ \\hline \\text{(A) Angular Impulse} & \\text{(I) } [\\text{M}^0\\text{L}^2\\text{T}^{-2}] \\\\ \\text{(B) Latent Heat} & \\text{(II) } [\\text{ML}^2\\text{T}^{-3}\\text{A}^{-1}] \\\\ \\text{(C) Electrical resistivity} & \\text{(III) } [\\text{ML}^2\\text{T}^{-1}] \\\\ \\text{(D) Electromotive force} & \\text{(IV) } [\\text{ML}^3\\text{T}^{-3}\\text{A}^{-2}] \\end{array}$$\n\nChoose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "(A)-(II), (B)-(I), (C)-(IV), (D)-(III)",
+      "(A)-(I), (B)-(III), (C)-(IV), (D)-(II)",
+      "(A)-(III), (B)-(I), (C)-(II), (D)-(IV)",
+      "(A)-(III), (B)-(I), (C)-(IV), (D)-(II)"
+    ],
+    "answer": 3,
+    "explanation": "Matching the physical quantities:\n- **Angular Impulse**: $[\\text{M L}^2 \\text{T}^{-1}]$ (III)\n- **Latent Heat**: $[\\text{M}^0 \\text{L}^2 \\text{T}^{-2}]$ (I)\n- **Electrical resistivity**: $[\\text{M L}^3 \\text{T}^{-3} \\text{A}^{-2}]$ (IV)\n- **Electromotive force**: $[\\text{M L}^2 \\text{T}^{-3} \\text{A}^{-1}]$ (II)\n\nTherefore, (A)-(III), (B)-(I), (C)-(IV), (D)-(II).",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "28th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The expression given below shows the variation of velocity ($v$) with time ($t$), $v = At^2 + \\frac{Bt}{C+t}$. The dimension of $ABC$ is :",
+    "type": "mcq",
+    "options": [
+      "[M^0 L^1 T^{-3}]",
+      "[M^0 L^2 T^{-2}]",
+      "[M^0 L^1 T^{-2}]",
+      "[M^0 L^2 T^{-3}]"
+    ],
+    "answer": 3,
+    "explanation": "Applying dimensional homogeneity:\n- $[At^2] = [v] \\implies [A][\\text{T}^2] = [\\text{L T}^{-1}] \\implies [A] = [\\text{L T}^{-3}]$\n- Since $C$ is added to $t$, $[C] = [t] = [\\text{T}]$\n- $\\left[ \\frac{Bt}{C+t} \\right] = [v] \\implies \\frac{[B][\\text{T}]}{[\\text{T}]} = [\\text{L T}^{-1}] \\implies [B] = [\\text{L T}^{-1}]$\n\nNow, dimensions of $ABC$:\n$$[ABC] = [\\text{L T}^{-3}][\\text{L T}^{-1}][\\text{T}] = [\\text{L}^2 \\text{T}^{-3}] = [\\text{M}^0 \\text{L}^2 \\text{T}^{-3}]$$",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "29th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List - I with List - II.\n\n$$\\begin{array}{l|l} \\textbf{List-I} & \\textbf{List-II} \\\\ \\hline \\text{(A) Young's Modulus} & \\text{(I) } [\\text{ML}^{-1}\\text{T}^{-1}] \\\\ \\text{(B) Torque} & \\text{(II) } [\\text{ML}^{-1}\\text{T}^{-2}] \\\\ \\text{(C) Coefficient of Viscosity} & \\text{(III) } [\\text{M}^{-1}\\text{L}^3\\text{T}^{-2}] \\\\ \\text{(D) Gravitational Constant} & \\text{(IV) } [\\text{ML}^2\\text{T}^{-2}] \\end{array}$$\n\nChoose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "(A)-(I), (B)-(III), (C)-(II), (D)-(IV)",
+      "(A)-(IV), (B)-(II), (C)-(III), (D)-(I)",
+      "(A)-(II), (B)-(IV), (C)-(I), (D)-(III)",
+      "(A)-(II), (B)-(I), (C)-(IV), (D)-(III)"
+    ],
+    "answer": 2,
+    "explanation": "Matching the quantities:\n- **Young's Modulus**: $[\\text{M L}^{-1} \\text{T}^{-2}]$ (II)\n- **Torque**: $[\\text{M L}^2 \\text{T}^{-2}]$ (IV)\n- **Coefficient of Viscosity**: $[\\text{M L}^{-1} \\text{T}^{-1}]$ (I)\n- **Gravitational Constant**: $[\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]$ (III)\n\nTherefore, (A)-(II), (B)-(IV), (C)-(I), (D)-(III).",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "29th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Applying the principle of homogeneity of dimensions, determine which one is correct, where $T$ is time period, $G$ is gravitational constant, $M$ is mass, $r$ is radius of orbit.",
+    "type": "mcq",
+    "options": [
+      "$T^2 = \\frac{4\\pi^2 r^2}{GM}$",
+      "$T^2 = \\frac{4\\pi^2 r}{GM^2}$",
+      "$T^2 = \\frac{4\\pi^2 r^3}{GM}$",
+      "$T^2 = 4\\pi^2 r^3$"
+    ],
+    "answer": 2,
+    "explanation": "Let's check the dimensions of the right-hand side of option (3):\n- $[r^3] = [\\text{L}^3]$\n- $[G] = [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]$\n- $[M] = [\\text{M}]$\n\n$$\\left[ \\frac{r^3}{GM} \\right] = \\frac{[\\text{L}^3]}{[\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}][\\text{M}]} = [\\text{T}^2]$$\nThis matches the dimension of $T^2$ on the left-hand side.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "4th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "What is the dimensional formula of $ab^{-1}$ in the equation $\\left(P + \\frac{a}{V^2}\\right)(V - b) = RT$, where letters have their usual meaning.",
+    "type": "mcq",
+    "options": [
+      "[M^{-1} L^5 T^3]",
+      "[M^0 L^7 T^4]",
+      "[ML^2 T^{-2}]",
+      "[M^0 L^3 T^{-2}]"
+    ],
+    "answer": 2,
+    "explanation": "By the principle of homogeneity of dimensions:\n- $[\\frac{a}{V^2}] = [P] \\implies [a] = [P V^2] = [\\text{M L}^{-1} \\text{T}^{-2} \\cdot \\text{L}^6] = [\\text{M L}^5 \\text{T}^{-2}]$\n- $[b] = [V] = [\\text{L}^3] \\implies [b^{-1}] = [\\text{L}^{-3}]$\n\nNow, the dimensional formula of $ab^{-1}$ is:\n$$[ab^{-1}] = [\\text{M L}^5 \\text{T}^{-2}][\\text{L}^{-3}] = [\\text{M L}^2 \\text{T}^{-2}]$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "5th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List I with List II\n\n$$\\begin{array}{l|l} \\textbf{LIST I} & \\textbf{LIST II} \\\\ \\hline \\text{A. Torque} & \\text{I. } [\\text{M}^1\\text{L}^1\\text{T}^{-2}\\text{A}^{-2}] \\\\ \\text{B. Magnetic field} & \\text{II. } [\\text{L}^2\\text{A}^1] \\\\ \\text{C. Magnetic moment} & \\text{III. } [\\text{M}^1\\text{T}^{-2}\\text{A}^{-1}] \\\\ \\text{D. Permeability of free space} & \\text{IV. } [\\text{M}^1\\text{L}^2\\text{T}^{-2}] \\end{array}$$\n\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "A-III, B-I, C-II, D-IV",
+      "A-IV, B-II, C-III, D-I",
+      "A-IV, B-III, C-II, D-I",
+      "A-I, B-III, C-II, D-IV"
+    ],
+    "answer": 2,
+    "explanation": "Matching the physical quantities to their dimensional formula:\n- **Torque**: $[\\text{M L}^2 \\text{T}^{-2}]$ (IV)\n- **Magnetic field**: $[\\text{M T}^{-2} \\text{A}^{-1}]$ (III)\n- **Magnetic moment**: $[\\text{L}^2 \\text{A}^1]$ (II)\n- **Permeability of free space**: $[\\text{M L T}^{-2} \\text{A}^{-2}]$ (I)\n\nTherefore, A-IV, B-III, C-II, D-I.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "6th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Given below are two statements :\nStatement (I) : Dimensions of specific heat is $[L^2 T^{-2} K^{-1}]$.\nStatement (II) : Dimensions of gas constant is $[ML^2 T^{-1} K^{-1}]$.\nIn the light of the above statements, choose the most appropriate answer from the options given below.",
+    "type": "mcq",
+    "options": [
+      "Both statement (I) and statement (II) are correct",
+      "Statement (I) is correct but statement (II) is incorrect",
+      "Both statement (I) and statement (II) are incorrect",
+      "Statement (I) is incorrect but statement (II) is correct"
+    ],
+    "answer": 1,
+    "explanation": "Let's check the statements:\n- **Statement (I)**: Specific heat capacity $s = \\frac{Q}{m \\Delta T} \\implies [s] = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{M}][\\text{K}]} = [\\text{L}^2 \\text{T}^{-2} \\text{K}^{-1}]$. This is **correct**.\n- **Statement (II)**: Universal gas constant $R = \\frac{P V}{n T} \\implies [R] = \\frac{[\\text{M L}^{-1} \\text{T}^{-2}][\\text{L}^3]}{[\\text{mol}][\\text{K}]} = [\\text{M L}^2 \\text{T}^{-2} \\text{K}^{-1} \\text{mol}^{-1}]$. Thus, the dimensions $[\\text{M L}^2 \\text{T}^{-1} \\text{K}^{-1}]$ given in the statement is **incorrect**.\n\nThus, Statement (I) is correct but statement (II) is incorrect.",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "6th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If $\\epsilon_0$ is the permittivity of free space and E is the electric field, then $\\epsilon_0E^2$ has the dimensions :",
+    "type": "mcq",
+    "options": [
+      "[M^{-1} L^{-3} T^4 A^2]",
+      "[ML^2 T^{-2}]",
+      "[M^0L^{-2}TA]",
+      "[ML^{-1} T^{-2}]"
+    ],
+    "answer": 3,
+    "explanation": "The quantity $u = \\frac{1}{2}\\epsilon_0 E^2$ represents the electrostatic energy density of the electric field.\n$$\\text{Energy density} = \\frac{\\text{Energy}}{\\text{Volume}} = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}^3]} = [\\text{M L}^{-1} \\text{T}^{-2}]$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The de-Broglie wavelength associated with a particle of mass $m$ and energy $E$ is $h/\\sqrt{2mE}$. The dimensional formula for Planck's constant is :",
+    "type": "mcq",
+    "options": [
+      "[ML^2 T^{-1}]",
+      "[ML^{-1} T^{-2}]",
+      "[MLT^{-2}]",
+      "[M^2 L^2 T^{-2}]"
+    ],
+    "answer": 0,
+    "explanation": "From de-Broglie relation:\n$$\\lambda = \\frac{h}{\\sqrt{2mE}} \\implies h = \\lambda \\sqrt{2mE}$$\n\nSubstituting the dimensions of $\\lambda$, $m$, and $E$:\n- $[\\lambda] = [\\text{L}]$\n- $[m] = [\\text{M}]$\n- $[E] = [\\text{M L}^2 \\text{T}^{-2}]$\n\n$$[h] = [\\text{L}] \\sqrt{[\\text{M}][\\text{M L}^2 \\text{T}^{-2}]} = [\\text{L}] \\sqrt{[\\text{M}^2 \\text{L}^2 \\text{T}^{-2}]} = [\\text{L}][\\text{M L T}^{-1}] = [\\text{M L}^2 \\text{T}^{-1}]$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "9th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Given below are two statements:\nStatement (I) : Planck's constant and angular momentum have the same dimensions.\nStatement (II) : Linear momentum and moment of force have the same dimensions.\nIn light of the above statements, choose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "Statement I is true but Statement II is false",
+      "Both Statement I and Statement II are false",
+      "Both Statement I and Statement II are true",
+      "Statement I is false but Statement II is true"
+    ],
+    "answer": 0,
+    "explanation": "Let's check the statements:\n- **Statement (I)**: Both Planck's constant ($h$) and angular momentum ($L$) have dimensions $[\\text{M L}^2 \\text{T}^{-1}]$. This is **true**.\n- **Statement (II)**: Linear momentum has dimensions $[\\text{M L T}^{-1}]$, whereas moment of force (torque) has dimensions $[\\text{M L}^2 \\text{T}^{-2}]$. These are not the same, so this is **false**.\n\nThus, Statement I is true but Statement II is false.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "27th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List-I with List-II.\n\n$$\\begin{array}{l|l} \\textbf{List-I} & \\textbf{List-II} \\\\ \\hline \\text{A. Coefficient of viscosity} & \\text{I. } [\\text{ML}^2\\text{T}^{-2}] \\\\ \\text{B. Surface Tension} & \\text{II. } [\\text{ML}^2\\text{T}^{-1}] \\\\ \\text{C. Angular momentum} & \\text{III. } [\\text{ML}^{-1} \\text{T}^{-1}] \\\\ \\text{D. Rotational kinetic energy} & \\text{IV. } [\\text{ML}^0\\text{T}^{-2}] \\end{array}$$\n\nChoose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "A-II, B-I, C-IV, D-III",
+      "A-I, B-II, C-III, D-IV",
+      "A-III, B-IV, C-II, D-I",
+      "A-IV, B-III, C-II, D-I"
+    ],
+    "answer": 2,
+    "explanation": "Let's check the dimensions:\n- **Coefficient of viscosity**: $[\\text{M L}^{-1} \\text{T}^{-1}]$ (III)\n- **Surface Tension**: $[\\text{M T}^{-2}] = [\\text{M L}^0 \\text{T}^{-2}]$ (IV)\n- **Angular momentum**: $[\\text{M L}^2 \\text{T}^{-1}]$ (II)\n- **Rotational kinetic energy**: $[\\text{M L}^2 \\text{T}^{-2}]$ (I)\n\nTherefore, the correct match is A-III, B-IV, C-II, D-I.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "30th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If mass is written as $m = k c^P G^{-1/2} h^{1/2}$, then the value of $P$ will be : (Constants have their usual meaning with $k$ a dimensionless constant)",
+    "type": "mcq",
+    "options": [
+      "1/2",
+      "1/3",
+      "2",
+      "-1/3"
+    ],
+    "answer": 0,
+    "explanation": "Substitute the dimensional formulas for each quantity:\n- $[c] = [\\text{L T}^{-1}]$\n- $[G] = [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]$\n- $[h] = [\\text{M L}^2 \\text{T}^{-1}]$\n\n$$[\\text{M}] = [\\text{L T}^{-1}]^P [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]^{-1/2} [\\text{M L}^2 \\text{T}^{-1}]^{1/2}$$\n$$[\\text{M}] = \\text{L}^P \\text{T}^{-P} \\cdot \\text{M}^{1/2} \\text{L}^{-3/2} \\text{T}^1 \\cdot \\text{M}^{1/2} \\text{L}^1 \\text{T}^{-1/2}$$\n$$[\\text{M}] = \\text{M}^{1/2+1/2} \\text{L}^{P-3/2+1} \\text{T}^{-P+1-1/2}$$\n$$[\\text{M}] = \\text{M}^1 \\text{L}^{P-1/2} \\text{T}^{-P+1/2}$$\n\nComparing exponents for L:\n$$P - 1/2 = 0 \\implies P = 1/2$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "30th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "A force is represented by $F = ax^2 + bt^{1/2}$, where $x =$ distance and $t =$ time. The dimensions of $\\frac{b^2}{a}$ are :",
+    "type": "mcq",
+    "options": [
+      "[ML^3 T^{-3}]",
+      "[MLT^{-2}]",
+      "[ML^{-1} T^{-1}]",
+      "[ML^2 T^{-3}]"
+    ],
+    "answer": 0,
+    "explanation": "By the principle of homogeneity of dimensions:\n- $[ax^2] = [F] \\implies [a][\\text{L}^2] = [\\text{M L T}^{-2}] \\implies [a] = [\\text{M L}^{-1} \\text{T}^{-2}]$\n- $[bt^{1/2}] = [F] \\implies [b][\\text{T}^{1/2}] = [\\text{M L T}^{-2}] \\implies [b] = [\\text{M L T}^{-5/2}]$\n\nNow, dimensions of $\\frac{b^2}{a}$:\n$$\\left[ \\frac{b^2}{a} \\right] = \\frac{[\\text{M L T}^{-5/2}]^2}{[\\text{M L}^{-1} \\text{T}^{-2}]} = \\frac{[\\text{M}^2 \\text{L}^2 \\text{T}^{-5}]}{[\\text{M L}^{-1} \\text{T}^{-2}]} = [\\text{M L}^3 \\text{T}^{-3}]$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "31st January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Consider two physical quantities $A$ and $B$ related to each other as $E = \\frac{B-x^2}{At}$ where $E, x$ and $t$ have dimensions of energy, length and time respectively. The dimension of $AB$ is",
+    "type": "mcq",
+    "options": [
+      "L^{-2}M^1T^0",
+      "L^2M^{-1}T^1",
+      "L^{-2}M^{-1}T^1",
+      "L^0M^{-1}T^1"
+    ],
+    "answer": 1,
+    "explanation": "By the principle of homogeneity:\n- $[B] = [x^2] = [\\text{L}^2]$\n- $[E] = \\left[ \\frac{B - x^2}{At} \\right] = \\frac{[\\text{L}^2]}{[A][\\text{T}]}$\n\nGiven $[E] = [\\text{M L}^2 \\text{T}^{-2}]$:\n$$[\\text{M L}^2 \\text{T}^{-2}] = \\frac{[\\text{L}^2]}{[A][\\text{T}]} \\implies [A] = [\\text{M}^{-1} \\text{T}^1]$$\n\nNow, dimensions of $AB$:\n$$[AB] = [A][B] = [\\text{M}^{-1} \\text{T}^1][\\text{L}^2] = [\\text{L}^2 \\text{M}^{-1} \\text{T}^1]$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "31st January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Dimension of $\\frac{1}{\\mu_0\\varepsilon_0}$ should be equal to",
+    "type": "mcq",
+    "options": [
+      "L T^{-1}",
+      "T^2 L^{-2}",
+      "L^2 T^{-2}",
+      "T L^{-1}"
+    ],
+    "answer": 2,
+    "explanation": "The velocity of light in free space is given by $c = \\frac{1}{\\sqrt{\\mu_0 \\varepsilon_0}}$, so:\n$$\\frac{1}{\\mu_0\\varepsilon_0} = c^2$$\nSince $[c] = [\\text{L T}^{-1}]$, the dimensions of $c^2$ are $[\\text{L}^2 \\text{T}^{-2}]$.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "8th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "In the equation $[X + \\frac{a}{Y^2}][Y - b] = RT$, $X$ is pressure, $Y$ is volume, $R$ is universal gas constant and $T$ is temperature. The physical quantity equivalent to the ratio $\\frac{a}{b}$ is:",
+    "type": "mcq",
+    "options": [
+      "Pressure gradient",
+      "Energy",
+      "Impulse",
+      "Coefficient of viscosity"
+    ],
+    "answer": 1,
+    "explanation": "By the principle of homogeneity:\n- $[\\frac{a}{Y^2}] = [X] \\implies [a] = [P V^2]$\n- $[b] = [Y] = [V]$\n\nNow, let's find the dimensions of $\\frac{a}{b}$:\n$$\\left[ \\frac{a}{b} \\right] = \\frac{[P V^2]}{[V]} = [P V]$$\nSince $PV = \\text{Pressure} \\times \\text{Volume}$, which is dimensionally equal to **work** or **energy**.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "13th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List I with List II\n\n$$\\begin{array}{l|l} \\textbf{List I} & \\textbf{List II} \\\\ \\hline \\text{A. Planck's constant (h)} & \\text{I. } [\\text{M}^1\\text{L}^2\\text{T}^{-2}] \\\\ \\text{B. Stopping potential } (V_{\\text{s}}) & \\text{II. } [\\text{M}^1\\text{L}^1\\text{T}^{-1}] \\\\ \\text{C. Work function } (\\phi) & \\text{III. } [\\text{M}^1\\text{L}^2\\text{T}^{-1}] \\\\ \\text{D. Momentum (p)} & \\text{IV. } [\\text{M}^1\\text{L}^2\\text{T}^{-3}\\text{A}^{-1}] \\end{array}$$\n\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "A - III, B - I, C - II, D - IV",
+      "A - III, B - IV, C - I, D - II",
+      "A - II, B - IV, C - III, D - I",
+      "A - I, B - III, C - IV, D - II"
+    ],
+    "answer": 1,
+    "explanation": "Matching physical terms with their dimensions:\n- **Planck's constant (h)**: $[\\text{M}^1 \\text{L}^2 \\text{T}^{-1}]$ (III)\n- **Stopping potential** ($V_{\\text{s}} = W/q$): $[\\text{M}^1 \\text{L}^2 \\text{T}^{-3} \\text{A}^{-1}]$ (IV)\n- **Work function** (energy): $[\\text{M}^1 \\text{L}^2 \\text{T}^{-2}]$ (I)\n- **Momentum (p)**: $[\\text{M}^1 \\text{L}^1 \\text{T}^{-1}]$ (II)\n\nTherefore, A-III, B-IV, C-I, D-II.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "24th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List I with List II\n\n$$\\begin{array}{l|l} \\textbf{List I} & \\textbf{List II} \\\\ \\hline \\text{(A) Young's Modulus (Y)} & \\text{(I) } [\\text{ML}^{-1} \\text{T}^{-1}] \\\\ \\text{(B) Co-efficient of Viscosity (\\eta)} & \\text{(II) } [\\text{ML}^2 \\text{T}^{-1}] \\\\ \\text{(C) Planck's Constant (h)} & \\text{(III) } [\\text{ML}^{-1} \\text{T}^{-2}] \\\\ \\text{(D) Work Function (\\phi)} & \\text{(IV) } [\\text{ML}^2 \\text{T}^{-2}] \\end{array}$$\n\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "A-II, B-III, C-IV, D-I",
+      "A-III, B-I, C-II, D-IV",
+      "A-I, B-III, C-IV, D-II",
+      "A-I, B-II, C-III, D-IV"
+    ],
+    "answer": 1,
+    "explanation": "Matching the dimensions:\n- **Young's Modulus**: $[\\text{M L}^{-1} \\text{T}^{-2}]$ (III)\n- **Co-efficient of Viscosity**: $[\\text{M L}^{-1} \\text{T}^{-1}]$ (I)\n- **Planck's Constant**: $[\\text{M L}^2 \\text{T}^{-1}]$ (II)\n- **Work Function**: $[\\text{M L}^2 \\text{T}^{-2}]$ (IV)\n\nTherefore, A-III, B-I, C-II, D-IV.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "25th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List I with List II :\n\n$$\\begin{array}{l|l} \\textbf{List-I (Physical Quantity)} & \\textbf{List-II (Dimensional Formula)} \\\\ \\hline \\text{(A) Pressure gradient} & \\text{(I) } [\\text{M}^0\\text{L}^2\\text{T}^{-2}] \\\\ \\text{(B) Energy density} & \\text{(II) } [\\text{M}^1\\text{L}^{-1}\\text{T}^{-2}] \\\\ \\text{(C) Electric Field} & \\text{(III) } [\\text{M}^1\\text{L}^{-2}\\text{T}^{-2}] \\\\ \\text{(D) Latent heat} & \\text{(IV) } [\\text{M}^1\\text{L}^1\\text{T}^{-3}\\text{A}^{-1}] \\end{array}$$\n\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "A-III, B-II, C-I, D-IV",
+      "A-II, B-III, C-IV, D-I",
+      "A-III, B-II, C-IV, D-I",
+      "A-II, B-III, C-I, D-IV"
+    ],
+    "answer": 2,
+    "explanation": "Matching the physical quantities to their dimensions:\n- **Pressure gradient** ($dP/dx$): $[\\text{M L}^{-2} \\text{T}^{-2}]$ (III)\n- **Energy density**: $[\\text{M L}^{-1} \\text{T}^{-2}]$ (II)\n- **Electric Field**: $[\\text{M L}^1 \\text{T}^{-3} \\text{A}^{-1}]$ (IV)\n- **Latent heat**: $[\\text{M}^0 \\text{L}^2 \\text{T}^{-2}]$ (I)\n\nTherefore, A-III, B-II, C-IV, D-I.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "29th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The equation of a circle is given by $x^2 + y^2 = a^2$, where $a$ is the radius. If the equation is modified to change the origin other than $(0, 0)$, then find out the correct dimensions of A and B in a new equation: $(x - At)^2 + \\left(y - \\frac{t}{B}\\right)^2 = a^2$. The dimensions of $t$ is given as $[T^{-1}]$.",
+    "type": "mcq",
+    "options": [
+      "A = [L^{-1}T], B = [LT^{-1}]",
+      "A = [LT], B = [L^{-1}T^{-1}]",
+      "A = [L^{-1}T^{-1}], B = [LT^{-1}]",
+      "A = [L^{-1}T^{-1}], B = [LT]"
+    ],
+    "answer": 1,
+    "explanation": "By the principle of homogeneity of dimensions, each term inside the bracket must have the dimension of length $[\\text{L}]$:\n- $[At] = [\\text{L}] \\implies [A] = \\frac{[\\text{L}]}{[\\text{T}^{-1}]} = [\\text{L T}]$\n- $\\left[ \\frac{t}{B} \\right] = [\\text{L}] \\implies [B] = \\frac{[t]}{[\\text{L}]} = \\frac{[\\text{T}^{-1}]}{[\\text{L}]} = [\\text{L}^{-1} \\text{T}^{-1}]$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "29th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If $R, X_{\\text{L}}$ and $X_{\\text{C}}$ represent resistance, inductive reactance and capacitive reactance. Then which of the following is dimensionless:",
+    "type": "mcq",
+    "options": [
+      "$R X_{\\text{L}} X_{\\text{C}}$",
+      "$\\frac{R}{\\sqrt{X_{\\text{L}} X_{\\text{C}}}}$",
+      "$\\frac{R}{X_{\\text{L}} X_{\\text{C}}}$",
+      "$R \\frac{X_{\\text{L}}}{X_{\\text{C}}}$"
+    ],
+    "answer": 1,
+    "explanation": "Resistance, inductive reactance, and capacitive reactance all have the same unit Ohm ($\\Omega$), which means they have identical dimensions $[\\text{M L}^2 \\text{T}^{-3} \\text{A}^{-2}]$.\nThus:\n$$\\left[ \\frac{R}{\\sqrt{X_{\\text{L}} X_{\\text{C}}}} \\right] = \\frac{[\\Omega]}{\\sqrt{[\\Omega][\\Omega]}} = 1$$\nThis quantity is dimensionless.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "31st January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "$\\left(P + \\frac{a}{V^2}\\right)(V-b) = RT$ represents the equation of state of some gases. Where $P$ is the pressure, $V$ is the volume, $T$ is the temperature and $a, b, R$ are the constants. The physical quantity, which has dimensional formula as that of $\\frac{b^2}{a}$, will be :",
+    "type": "mcq",
+    "options": [
+      "Bulk modulus",
+      "Modulus of rigidity",
+      "Compressibility",
+      "Energy density"
+    ],
+    "answer": 2,
+    "explanation": "From the equation of state:\n- $[b] = [V] = [\\text{L}^3] \\implies [b^2] = [\\text{L}^6]$\n- $[\\frac{a}{V^2}] = [P] \\implies [a] = [P V^2] = [\\text{M L}^{-1} \\text{T}^{-2} \\cdot \\text{L}^6] = [\\text{M L}^5 \\text{T}^{-2}]$\n\n$$\\left[ \\frac{b^2}{a} \\right] = \\frac{[\\text{L}^6]}{[\\text{M L}^5 \\text{T}^{-2}]} = [\\text{M}^{-1} \\text{L}^1 \\text{T}^2]$$\nSince Bulk modulus has dimensions $[\\text{M L}^{-1} \\text{T}^{-2}]$, its reciprocal, **compressibility**, has dimensions $[\\text{M}^{-1} \\text{L}^1 \\text{T}^2]$.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "1st February",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Which of the following physical quantities have the same dimensions?",
+    "type": "mcq",
+    "options": [
+      "Electric displacement ($\\vec{D}$) and surface charge density",
+      "Displacement current and electric field",
+      "Current density and surface charge density",
+      "Electric potential and energy"
+    ],
+    "answer": 0,
+    "explanation": "Electric displacement vector $\\vec{D}$ is defined as $\\vec{D} = \\varepsilon_0 \\vec{E} + \\vec{P}$. Its SI unit is Coulomb per square meter ($\\text{C m}^{-2}$), which is exactly the same unit as **surface charge density** (Charge/Area). Therefore, they have identical dimensions.",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "25th July",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "An expression of energy density is given by $u = \\frac{\\alpha}{\\beta}\\sin\\left(\\frac{\\alpha x}{kt}\\right)$, where $\\alpha, \\beta$ are constants, $x$ is displacement, $k$ is Boltzmann constant and $t$ is the temperature. The dimensions of $\\beta$ will be",
+    "type": "mcq",
+    "options": [
+      "$[ML^2T^{-2}\\theta^{-1}]$",
+      "[M^0L^2T^{-2}]",
+      "[M^0L^0T^0]",
+      "[M^0L^2T^0]"
+    ],
+    "answer": 3,
+    "explanation": "The argument of the sine function must be dimensionless:\n$$\\left[ \\frac{\\alpha x}{kt} \\right] = 1 \\implies [\\alpha] = \\frac{[kt]}{[x]}$$\nSince $kt$ is energy $[\\text{M L}^2 \\text{T}^{-2}]$:\n$$[\\alpha] = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}]} = [\\text{M L T}^{-2}]$$\n\nNow, energy density $u$ has dimensions $[\\text{M L}^{-1} \\text{T}^{-2}]$.\n$$[u] = \\left[ \\frac{\\alpha}{\\beta} \\right] \\implies [\\beta] = \\frac{[\\alpha]}{[u]} = \\frac{[\\text{M L T}^{-2}]}{[\\text{M L}^{-1} \\text{T}^{-2}]} = [\\text{L}^2] = [\\text{M}^0 \\text{L}^2 \\text{T}^0]$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "27th July",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Given below are two statements: One is labelled as Assertion (A) and other is labelled as Reason (R)\nAssertion (A) : Time period of oscillation of a liquid drop depends on surface tension ($S$), if density of the liquid is $\\rho$ and radius of the drop is $r$, then $T = K \\sqrt{\\frac{\\rho r^3}{S^{3/2}}}$ is dimensionally correct, where $K$ is dimensionless.\nReason (R) : Using dimensional analysis we get R.H.S. having different dimension than that of time period. In the light of above statements, choose the correct answer from the options given below.",
+    "type": "mcq",
+    "options": [
+      "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+      "Both (A) and (R) are true but (R) is not the correct explanation of (A)",
+      "(A) is true but (R) is false",
+      "(A) is false but (R) is true"
+    ],
+    "answer": 3,
+    "explanation": "Let's check the dimensions:\n- Left hand side: $[T] = [\\text{T}]$\n- Right hand side: $[\\text{R.H.S.}] = \\sqrt{ \\frac{[\\rho][r^3]}{[S]^{3/2}} }$\n  - Density $[\\rho] = [\\text{M L}^{-3}]$\n  - Radius $[r^3] = [\\text{L}^3]$\n  - Surface tension $[S] = [\\text{M T}^{-2}]$\n  \n$$[\\text{R.H.S.}] = \\sqrt{ \\frac{[\\text{M L}^{-3}][\\text{L}^3]}{[\\text{M T}^{-2}]^{1.5}} } = \\sqrt{ \\frac{\\text{M}}{\\text{M}^{1.5} \\text{T}^{-3}} } = \\sqrt{ \\text{M}^{-0.5} \\text{T}^3 } = [\\text{M}^{-0.25} \\text{T}^{1.5}]$$\nThis is not equal to $[\\text{T}]$. Thus, the Assertion (A) is **false**. Since (A) is false, Option (4) is correct.",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "29th July",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Identify the pair of physical quantities which have different dimensions:",
+    "type": "mcq",
+    "options": [
+      "Wave number and Rydberg's constant",
+      "Stress and Coefficient of elasticity",
+      "Coercivity and Magnetisation",
+      "Specific heat capacity and Latent heat"
+    ],
+    "answer": 3,
+    "explanation": "Let's check each pair:\n- **Wave number and Rydberg's constant**: Both have units of $\\text{m}^{-1}$. (Same dimensions)\n- **Stress and Coefficient of elasticity**: Both have units of $\\text{N m}^{-2}$. (Same dimensions)\n- **Coercivity and Magnetisation**: Both represent magnetic field intensity terms with units of $\\text{A m}^{-1}$. (Same dimensions)\n- **Specific heat capacity and Latent heat**:\n  - Specific heat capacity: $[\\text{L}^2 \\text{T}^{-2} \\text{K}^{-1}]$\n  - Latent heat: $[\\text{L}^2 \\text{T}^{-2}]$\n  These have **different** dimensions.",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "24th June",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Identify the pair of physical quantities that have same dimensions:",
+    "type": "mcq",
+    "options": [
+      "Velocity gradient and decay constant",
+      "Angular frequency and angular momentum",
+      "Wave number and Avogadro number",
+      "Wein's constant and Stephan's constant"
+    ],
+    "answer": 0,
+    "explanation": "Let's check the first pair:\n- **Velocity gradient**: $\\frac{v}{x} \\implies [\\text{T}^{-1}]$\n- **Decay constant** ($\\lambda$): $[\\text{T}^{-1}]$\nThese two quantities have identical dimensions.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "24th June",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The SI unit of a physical quantity is Pascal - sec. The dimensional formula of this quantity will be",
+    "type": "mcq",
+    "options": [
+      "ML^2 T^{-1}",
+      "M^{-1} L^3 T^0",
+      "ML^{-1} T^{-1}",
+      "ML^{-1} T^{-2}"
+    ],
+    "answer": 2,
+    "explanation": "Pascal is the unit of pressure:\n$$\\text{Pascal} = [\\text{M L}^{-1} \\text{T}^{-2}]$$\n$$\\text{Pascal - sec} = [\\text{M L}^{-1} \\text{T}^{-2}][\\text{T}] = [\\text{M L}^{-1} \\text{T}^{-1}]$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "27th June",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If $L, C$ and $R$ are the self inductance, capacitance and resistance respectively, which of the following does not have the dimension of time?",
+    "type": "mcq",
+    "options": [
+      "$\\sqrt{LC}$",
+      "$\\frac{L}{R}$",
+      "CR",
+      "$\\frac{L}{C}$"
+    ],
+    "answer": 3,
+    "explanation": "Let's check the dimensions of each:\n- Time constant of $LC$ circuit: $[\\sqrt{LC}] = [\\text{T}]$\n- Time constant of $LR$ circuit: $[\\frac{L}{R}] = [\\text{T}]$\n- Time constant of $RC$ circuit: $[CR] = [\\text{T}]$\n- For $L/C$, we have:\n  $$[L/C] = \\frac{[\\text{M L}^2 \\text{T}^{-2} \\text{A}^{-2}]}{[\\text{M}^{-1} \\text{L}^{-2} \\text{T}^4 \\text{A}^2]} = [\\text{M}^2 \\text{L}^4 \\text{T}^{-6} \\text{A}^{-4}] \\neq [\\text{T}]$$\nThus, $\\frac{L}{C}$ does not have the dimension of time.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "27th June",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Assertion A: Product of Pressure ($P$) and time ($t$) has the same dimension as that of coefficient of viscosity.\nReason: Coefficient of viscosity $= \\frac{\\text{Force}}{\\text{Velocity gradient}}$",
+    "type": "mcq",
+    "options": [
+      "Both A and R true, and R is correct explanation of A.",
+      "Both A and R are true but R is NOT the correct explanation of A.",
+      "A is true but R is false.",
+      "A is false but R is true."
+    ],
+    "answer": 2,
+    "explanation": "Let's check the dimensions:\n- Product of Pressure and time: $[P \\cdot t] = [\\text{M L}^{-1} \\text{T}^{-2}][\\text{T}] = [\\text{M L}^{-1} \\text{T}^{-1}]$.\n- Dimension of coefficient of viscosity ($\\eta$): $[\\eta] = [\\text{M L}^{-1} \\text{T}^{-1}]$. This is the same, so Assertion A is **true**.\n- Reason: The definition of the coefficient of viscosity is $\\eta = \\frac{\\text{Force}}{\\text{Area} \\times \\text{Velocity gradient}}$. The denominator in the Reason statement lacks the \"Area\" term, making the Reason formula incorrect. So Reason is **false**.\n\nThus, A is true but R is false.",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "28th June",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List - I with List - II :\n\n$$\\begin{array}{l|l} \\textbf{List - I} & \\textbf{List - II} \\\\ \\hline \\text{(a) Magnetic induction} & \\text{(i) } \\text{ML}^2 \\text{T}^{-2} \\text{A}^{-1} \\\\ \\text{(b) Magnetic flux} & \\text{(ii) } \\text{M}^0 \\text{L}^{-1} \\text{A} \\\\ \\text{(c) Magnetic permeability} & \\text{(iii) } \\text{MT}^{-2} \\text{A}^{-1} \\\\ \\text{(d) Magnetization} & \\text{(iv) } \\text{MLT}^{-2} \\text{A}^{-2} \\end{array}$$\n\nChoose the most appropriate answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "(a) - (iii), (b) - (ii), (c) - (iv), (d) - (i)",
+      "(a) - (iii), (b) - (i), (c) - (iv), (d) - (ii)",
+      "(a) - (ii), (b) - (iv), (c) - (i), (d) - (iii)",
+      "(a) - (ii), (b) - (i), (c) - (iv), (d) - (iii)"
+    ],
+    "answer": 1,
+    "explanation": "Matching the quantities with their dimensional formulas:\n- **Magnetic induction** ($B$): $[\\text{M T}^{-2} \\text{A}^{-1}]$ (iii)\n- **Magnetic flux** ($\\Phi_B$): $[\\text{M L}^2 \\text{T}^{-2} \\text{A}^{-1}]$ (i)\n- **Magnetic permeability** ($\\mu$): $[\\text{M L T}^{-2} \\text{A}^{-2}]$ (iv)\n- **Magnetization** ($M$): $[\\text{M}^0 \\text{L}^{-1} \\text{A}]$ (ii)\n\nTherefore, (a) - (iii), (b) - (i), (c) - (iv), (d) - (ii).",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "26th August",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Which of the following is not a dimensionless quantity?",
+    "type": "mcq",
+    "options": [
+      "Power factor",
+      "Quality factor",
+      "Permeability of free space ($\\mu_0$)",
+      "Relative magnetic permeability ($\\mu_r$)"
+    ],
+    "answer": 2,
+    "explanation": "Let's check each option:\n- **Power factor** ($\\cos\\phi$): Dimensionless.\n- **Quality factor** ($Q$): Dimensionless ratio.\n- **Permeability of free space** ($\\mu_0$): It has dimensions of $[\\text{M L T}^{-2} \\text{A}^{-2}]$ and units of $\\text{T m A}^{-1}$. (Not dimensionless)\n- **Relative magnetic permeability** ($\\mu_r$): Ratio of permeabilities, which is dimensionless.\n\nThus, permeability of free space is not a dimensionless quantity.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "27th August",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Which of the following equations is dimensionally incorrect?\nWhere $t =$ time, $h =$ height, $s =$ surface tension, $\\theta =$ angle, $\\rho =$ density, $a, r =$ radius, $g =$ the acceleration due to gravity, $V =$ volume, $p =$ pressure, $W =$ work done, $\\tau =$ torque, $\\epsilon =$ permittivity, $E =$ electric field, $J =$ current density, $L =$ length.",
+    "type": "mcq",
+    "options": [
+      "$W = \\tau\\theta$",
+      "$V = \\frac{\\pi p a^4}{8\\eta L}$",
+      "$h = \\frac{2s\\cos\\theta}{\\rho r g}$",
+      "$J = \\epsilon \\frac{\\partial E}{\\partial t}$"
+    ],
+    "answer": 1,
+    "explanation": "Let's check the dimensions of Poiseuille's formula in option (2):\n- The left-hand side is volume $V$, which has dimensions of $[\\text{L}^3]$.\n- The right-hand side represents the rate of volume flow $\\frac{dV}{dt} = \\frac{\\pi p a^4}{8\\eta L}$, which has dimensions of $[\\text{L}^3 \\text{T}^{-1}]$.\n\nSince the left-hand side $[\\text{L}^3]$ does not equal the right-hand side $[\\text{L}^3 \\text{T}^{-1}]$, this equation is dimensionally incorrect.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "31st August",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If velocity $[V]$ time $[T]$ and force $[F]$ are chosen as the base quantities, the dimensions of the mass will be :",
+    "type": "mcq",
+    "options": [
+      "[F V^{-1} T^{-1}]",
+      "[F T^{-1} V^{-1}]",
+      "[F T^2 V]",
+      "[F T V^{-1}]"
+    ],
+    "answer": 3,
+    "explanation": "According to Newton's second law of motion:\n$$F = m \\cdot a \\implies F = m \\cdot \\frac{v}{t} \\implies m = \\frac{F \\cdot t}{v}$$\n\nSubstituting the chosen base quantities:\n$$[m] = [F T V^{-1}]$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "31st August",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If time $(t)$, velocity $(v)$, and angular momentum $(l)$ are taken as the fundamental units. Then the dimension of mass $(m)$ in terms of $t, v$ and $l$ is:",
+    "type": "mcq",
+    "options": [
+      "[t^{-1} v^1 l^{-2}]",
+      "[t^1 v^2 l^{-1}]",
+      "[t^{-2} v^{-1} l^1]",
+      "[t^{-1} v^{-2} l^1]"
+    ],
+    "answer": 3,
+    "explanation": "We know that angular momentum is given by:\n$$L = m \\cdot v \\cdot r$$\nSince velocity $v = \\frac{r}{t} \\implies r = v \\cdot t$, substituting this in:\n$$L = m \\cdot v \\cdot (v \\cdot t) = m v^2 t$$\n$$m = L v^{-2} t^{-1}$$\nIn terms of fundamental units $t, v, l$:\n$$[m] = [t^{-1} v^{-2} l^1]$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "20th July",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The work done by a gas molecule in an isolated system is given by, $W = \\alpha \\beta^2 e^{-\\frac{x^2}{\\alpha k T}}$, where $x$ is the displacement, $k$ is the Boltzmann constant and $T$ is the temperature. $\\alpha$ and $\\beta$ are constants. Then the dimensions of $\\beta$ will be:",
+    "type": "mcq",
+    "options": [
+      "[M^2 L T^2]",
+      "[M L^2 T^{-2}]",
+      "[M L T^{-2}]",
+      "[M^0 L T^0]"
+    ],
+    "answer": 2,
+    "explanation": "The exponent of the exponential function must be dimensionless:\n$$\\left[ \\frac{x^2}{\\alpha k T} \\right] = 1 \\implies [\\alpha] = \\frac{[x^2]}{[k T]}$$\nSince $kT$ represents thermal energy $[\\text{M L}^2 \\text{T}^{-2}]$:\n$$[\\alpha] = \\frac{[\\text{L}^2]}{[\\text{M L}^2 \\text{T}^{-2}]} = [\\text{M}^{-1} \\text{T}^2]$$\n\nSince work done $W$ is $[\\text{M L}^2 \\text{T}^{-2}]$ and the exponential part is dimensionless:\n$$[W] = [\\alpha \\beta^2] \\implies [\\beta^2] = \\frac{[W]}{[\\alpha]} = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{M}^{-1} \\text{T}^2]} = [\\text{M}^2 \\text{L}^2 \\text{T}^{-4}]$$\n$$[\\beta] = [\\text{M L T}^{-2}]$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "24th February",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List - I with List - II :\n\n$$\\begin{array}{l|l} \\textbf{List - I} & \\textbf{List - II} \\\\ \\hline \\text{(a) } h \\text{ (Planck's constant)} & \\text{(i) } [\\text{MLT}^{-1}] \\\\ \\text{(b) } E \\text{ (kinetic energy)} & \\text{(ii) } [\\text{ML}^2\\text{T}^{-1}] \\\\ \\text{(c) } V \\text{ (electric potential)} & \\text{(iii) } [\\text{ML}^2\\text{T}^{-2}] \\\\ \\text{(d) } P \\text{ (linear momentum)} & \\text{(iv) } [\\text{ML}^2 \\text{I}^{-1}\\text{T}^{-3}] \\end{array}$$\n\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "(a) -> (ii), (b) -> (iii), (c) -> (iv), (d) -> (i)",
+      "(a) -> (i), (b) -> (ii), (c) -> (iv), (d) -> (iii)",
+      "(a) -> (iii), (b) -> (ii), (c) -> (iv), (d) -> (i)",
+      "(a) -> (iii), (b) -> (iv), (c) -> (ii), (d) -> (i)"
+    ],
+    "answer": 0,
+    "explanation": "Matching the quantities:\n- **Planck's constant** ($h$): $[\\text{M L}^2 \\text{T}^{-1}]$ (ii)\n- **Kinetic energy** ($E$): $[\\text{M L}^2 \\text{T}^{-2}]$ (iii)\n- **Electric potential** ($V = W/q$): $[\\text{M L}^2 \\text{T}^{-3} \\text{I}^{-1}]$ (iv)\n- **Linear momentum** ($P$): $[\\text{M L T}^{-1}]$ (i)\n\nTherefore, (a) -> (ii), (b) -> (iii), (c) -> (iv), (d) -> (i).",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "25th February",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If $\\epsilon$ is the electronic charge, $c$ is the speed of light in free space and $h$ is Planck's constant, the quantity $\\frac{1}{4\\pi\\varepsilon_0} \\frac{e^2}{hc}$ has dimensions of :",
+    "type": "mcq",
+    "options": [
+      "[M L T^0]",
+      "[M^0 L^0 T^0]",
+      "[M L T^{-1}]",
+      "[L C^{-1}]"
+    ],
+    "answer": 1,
+    "explanation": "The given expression represents the fine-structure constant ($\\alpha$):\n$$\\alpha = \\frac{e^2}{4\\pi \\varepsilon_0 h c}$$\nThis is a fundamental physical constant that is entirely dimensionless, so its dimensional formula is $[\\text{M}^0 \\text{L}^0 \\text{T}^0]$.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "25th February",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "In a typical combustion engine the workdone by a gas molecule is given by $W = \\alpha^2 \\beta e^{-\\frac{\\beta x^2}{kT}}$, where $x$ is the displacement, $k$ is the Boltzmann constant and $T$ is the temperature. If $\\alpha$ and $\\beta$ are constants, dimensions of $\\alpha$ will be:",
+    "type": "mcq",
+    "options": [
+      "[M L T^{-2}]",
+      "[M^2 L T^{-2}]",
+      "[M L T^{-1}]",
+      "[M^0 L T^0]"
+    ],
+    "answer": 3,
+    "explanation": "The exponent of the exponential function must be dimensionless:\n$$\\left[ \\frac{\\beta x^2}{kT} \\right] = 1 \\implies [\\beta] = \\frac{[kT]}{[x^2]}$$\nSince $kT$ represents energy $[\\text{M L}^2 \\text{T}^{-2}]$:\n$$[\\beta] = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}^2]} = [\\text{M T}^{-2}]$$\n\nSince work done $W$ is $[\\text{M L}^2 \\text{T}^{-2}]$:\n$$[W] = [\\alpha^2 \\beta] \\implies [\\alpha^2] = \\frac{[W]}{[\\beta]} = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{M T}^{-2}]} = [\\text{L}^2]$$\n$$[\\alpha] = [\\text{L}] = [\\text{M}^0 \\text{L}^1 \\text{T}^0]$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "26th February",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If $C$ and $V$ represent capacity and voltage respectively then what are the dimensions of $\\lambda$ where $C/V = \\lambda$?",
+    "type": "mcq",
+    "options": [
+      "[M^{-2} L^{-4} I^3 T^7]",
+      "[M^{-2} L^{-3} I^2 T^6]",
+      "[M^{-1} L^{-3} I^{-2} T^{-7}]",
+      "[M^{-3} L^{-4} I^3 T^7]"
+    ],
+    "answer": 0,
+    "explanation": "Let's substitute the dimensions of capacitance $C$ and voltage $V$:\n- $[C] = [\\text{M}^{-1} \\text{L}^{-2} \\text{T}^4 \\text{I}^2]$\n- $[V] = [\\text{M L}^2 \\text{T}^{-3} \\text{I}^{-1}]$\n\n$$\\left[ \\lambda \\right] = \\frac{[C]}{[V]} = \\frac{[\\text{M}^{-1} \\text{L}^{-2} \\text{T}^4 \\text{I}^2]}{[\\text{M L}^2 \\text{T}^{-3} \\text{I}^{-1}]} = [\\text{M}^{-2} \\text{L}^{-4} \\text{T}^7 \\text{I}^3]$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "26th February",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If speed $V$, area $A$ and force $F$ are chosen as fundamental units, then the dimension of Young's modulus will be :",
+    "type": "mcq",
+    "options": [
+      "F A^2 V^{-1}",
+      "F A^2 V^{-3}",
+      "F A^2 V^{-2}",
+      "F A^{-1} V^0"
+    ],
+    "answer": 3,
+    "explanation": "Young's modulus is stress per unit strain, so its dimensions are:\n$$[Y] = \\frac{[\\text{Stress}]}{[\\text{Strain}]} = \\frac{[F/A]}{1} = [F A^{-1} V^0]$$",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "2nd September",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If momentum $(P)$, area $(A)$ and time $(T)$ are taken to be the fundamental quantities then the dimensional formula for energy is :",
+    "type": "mcq",
+    "options": [
+      "[P^2 A T^{-2}]",
+      "[P A^{-1} T^{-1}]",
+      "[P A^{1/2} T^{-1}]",
+      "[P^{1/2} A T^{-1}]"
+    ],
+    "answer": 2,
+    "explanation": "Let Energy $E \\propto P^a A^b T^c$.\nSubstituting dimensions:\n- $[E] = [\\text{M L}^2 \\text{T}^{-2}]$\n- $[P] = [\\text{M L T}^{-1}]$\n- $[A] = [\\text{L}^2]$\n- $[T] = [\\text{T}]$\n\n$$[\\text{M L}^2 \\text{T}^{-2}] = [\\text{M L T}^{-1}]^a [\\text{L}^2]^b [\\text{T}]^c = \\text{M}^a \\text{L}^{a+2b} \\text{T}^{-a+c}$$\n\nComparing exponents:\n- For M: $a = 1$\n- For L: $a + 2b = 2 \\implies 1 + 2b = 2 \\implies b = 1/2$\n- For T: $-a + c = -2 \\implies -1 + c = -2 \\implies c = -1$\n\nThus:\n$$[E] = [P A^{1/2} T^{-1}]$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "2nd September",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "A quantity $x$ is given by $\\left(I F v^2 / W L^4\\right)$ in terms of moment of inertia $I$, force $F$, velocity $v$, work $W$ and length $L$. The dimensional formula for $x$ is same as that of :",
+    "type": "mcq",
+    "options": [
+      "planck's constant",
+      "force constant",
+      "energy density",
+      "coefficient of viscosity"
+    ],
+    "answer": 2,
+    "explanation": "Let's substitute the dimensions of each variable:\n- $[I] = [\\text{M L}^2]$\n- $[F] = [\\text{M L T}^{-2}]$\n- $[v] = [\\text{L T}^{-1}]$\n- $[W] = [\\text{M L}^2 \\text{T}^{-2}]$\n- $[L] = [\\text{L}]$\n\n$$[x] = \\frac{[\\text{M L}^2][\\text{M L T}^{-2}][\\text{L T}^{-1}]^2}{[\\text{M L}^2 \\text{T}^{-2}][\\text{L}]^4} = \\frac{\\text{M}^2 \\text{L}^5 \\text{T}^{-4}}{\\text{M L}^6 \\text{T}^{-2}} = [\\text{M L}^{-1} \\text{T}^{-2}]$$\nThis is the dimensional formula for pressure, stress, or **energy density**.",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "4th September",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The quantities $x = \\frac{1}{\\sqrt{\\mu_0\\epsilon_0}}$, $y = \\frac{E}{B}$ and $z = \\frac{l}{CR}$ are defined where C-capacitance, R-Resistance, $\\ell$-length, E-Electric field, B-magnetic field and $\\epsilon_0, \\mu_0$ - free space permittivity and permeability respectively. Then:",
+    "type": "mcq",
+    "options": [
+      "x, y and z have the same dimension.",
+      "Only x and z have the same dimension",
+      "Only x and y have the same dimension",
+      "Only y and z have the same dimension."
+    ],
+    "answer": 0,
+    "explanation": "Let's check the dimensions of each:\n- $x = \\frac{1}{\\sqrt{\\mu_0 \\varepsilon_0}} = c$ (speed of light) $\\implies [\\text{L T}^{-1}]$\n- $y = \\frac{E}{B} = v$ (velocity) $\\implies [\\text{L T}^{-1}]$\n- $z = \\frac{l}{CR} = \\frac{l}{\\tau}$ (length over time, since $CR = \\tau$ has dimensions of time) $\\implies [\\text{L T}^{-1}]$\n\nAll three quantities have the dimensions of velocity $[\\text{L T}^{-1}]$.",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "5th September",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Given, B is magnetic field induction, and $\\mu_0$ is the magnetic permeability of vacuum. The dimension of $\\frac{B^2}{2\\mu_0}$ is:",
+    "type": "mcq",
+    "options": [
+      "M L T^{-2}",
+      "M L^2 T^{-1}",
+      "M L^2 T^{-2}",
+      "M L^{-1} T^{-2}"
+    ],
+    "answer": 3,
+    "explanation": "The term $\\frac{B^2}{2\\mu_0}$ represents the magnetic energy density (energy per unit volume):\n$$\\left[ \\frac{B^2}{2\\mu_0} \\right] = \\frac{[\\text{Energy}]}{[\\text{Volume}]} = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}^3]} = [\\text{M L}^{-1} \\text{T}^{-2}]$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "7th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If Surface tension (S), Moment of Inertia (I) and Planck's constant (h), were to be taken as the fundamental units, the dimensional formula for linear momentum would be:",
+    "type": "mcq",
+    "options": [
+      "S^{1/2} I^{1/2} h^0",
+      "S^{1/2} I^{3/2} h^{-1}",
+      "S^{3/2} I^{1/2} h^0",
+      "S^{1/2} I^{1/2} h^{-1}"
+    ],
+    "answer": 0,
+    "explanation": "Let linear momentum $P \\propto S^x I^y h^z$.\nSubstituting dimensions:\n- $[P] = [\\text{M L T}^{-1}]$\n- $[S] = [\\text{M T}^{-2}]$\n- $[I] = [\\text{M L}^2]$\n- $[h] = [\\text{M L}^2 \\text{T}^{-1}]$\n\n$$[\\text{M L T}^{-1}] = [\\text{M T}^{-2}]^x [\\text{M L}^2]^y [\\text{M L}^2 \\text{T}^{-1}]^z = \\text{M}^{x+y+z} \\text{L}^{2y+2z} \\text{T}^{-2x-z}$$\n\nComparing exponents:\n- For L: $2y + 2z = 1 \\implies y + z = 1/2$\n- For M: $x + y + z = 1 \\implies x + 1/2 = 1 \\implies x = 1/2$\n- For T: $-2x - z = -1 \\implies -2(1/2) - z = -1 \\implies -1 - z = -1 \\implies z = 0$\n\nThen:\n$$y + 0 = 1/2 \\implies y = 1/2$$\n\nThus:\n$$[P] = [S^{1/2} I^{1/2} h^0]$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "In the formula $X = 5YZ^2$, $X$ and $Z$ have dimensions of capacitance and magnetic field, respectively. What are the dimensions of Y in SI units?",
+    "type": "mcq",
+    "options": [
+      "[M^{-1} L^{-2} T^4 A^2]",
+      "[M^{-2} L^0 T^{-4} A^{-2}]",
+      "[M^{-2} L^{-2} T^6 A^3]",
+      "[M^{-3} L^{-2} T^8 A^4]"
+    ],
+    "answer": 3,
+    "explanation": "We are given:\n$$Y = \\frac{X}{5Z^2}$$\n\nSubstituting the dimensions of capacitance ($X$) and magnetic field ($Z$):\n- $[X] = [\\text{M}^{-1} \\text{L}^{-2} \\text{T}^4 \\text{A}^2]$\n- $[Z] = [\\text{M T}^{-2} \\text{A}^{-1}]$\n\n$$[Y] = \\frac{[\\text{M}^{-1} \\text{L}^{-2} \\text{T}^4 \\text{A}^2]}{[\\text{M T}^{-2} \\text{A}^{-1}]^2} = \\frac{[\\text{M}^{-1} \\text{L}^{-2} \\text{T}^4 \\text{A}^2]}{[\\text{M}^2 \\text{T}^{-4} \\text{A}^{-2}]} = [\\text{M}^{-3} \\text{L}^{-2} \\text{T}^{8} \\text{A}^4]$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "10th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Which of the following combinations has the dimension of electrical resistance ($\\epsilon_0$ is the permittivity of vacuum and $\\mu_0$ is the permeability of vacuum)?",
+    "type": "mcq",
+    "options": [
+      "$\\frac{\\epsilon_0}{\\mu_0}$",
+      "$\\sqrt{\\frac{\\epsilon_0}{\\mu_0}}$",
+      "$\\frac{\\mu_0}{\\epsilon_0}$",
+      "$\\sqrt{\\frac{\\mu_0}{\\epsilon_0}}$"
+    ],
+    "answer": 3,
+    "explanation": "The wave impedance of free space is given by:\n$$Z_0 = \\sqrt{\\frac{\\mu_0}{\\varepsilon_0}}$$\nThis quantity has the unit of Ohm ($\\Omega$), which corresponds to electrical resistance.",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "12th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Expression for time in terms of G (universal gravitational constant), h (Planck constant) and c (speed of light) is proportional to:",
+    "type": "mcq",
+    "options": [
+      "$\\sqrt{\\frac{Gh}{c^3}}$",
+      "$\\sqrt{\\frac{hc^5}{G}}$",
+      "$\\sqrt{\\frac{Gh}{c^5}}$",
+      "$\\sqrt{\\frac{c^3}{Gh}}$"
+    ],
+    "answer": 2,
+    "explanation": "Let time $t \\propto G^a h^b c^c$.\nSubstituting dimensions:\n- $[t] = [\\text{T}]$\n- $[G] = [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]$\n- $[h] = [\\text{M L}^2 \\text{T}^{-1}]$\n- $[c] = [\\text{L T}^{-1}]$\n\n$$[\\text{T}] = [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]^a [\\text{M L}^2 \\text{T}^{-1}]^b [\\text{L T}^{-1}]^c$$\n$$[\\text{T}] = \\text{M}^{-a+b} \\text{L}^{3a+2b+c} \\text{T}^{-2a-b-c}$$\n\nComparing exponents:\n- For M: $-a + b = 0 \\implies a = b$\n- For L: $3a + 2b + c = 0 \\implies 5a + c = 0 \\implies c = -5a$\n- For T: $-2a - b - c = 1 \\implies -3a - (-5a) = 1 \\implies 2a = 1 \\implies a = 1/2$\n\nThen:\n- $b = 1/2$\n- $c = -5/2$\n\nThus:\n$$t \\propto \\sqrt{\\frac{Gh}{c^5}}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "9th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The force of interaction between two atoms is given by $F = \\alpha\\beta \\exp\\left(-\\frac{x^2}{\\alpha k T}\\right)$; where $x$ is the distance, $k$ is the Boltzmann constant and T is temperature and $\\alpha$ and $\\beta$ are two constants. The dimensions of $\\beta$ is:",
+    "type": "mcq",
+    "options": [
+      "M^0 L^2 T^{-4}",
+      "M^2 L T^{-4}",
+      "M L T^{-2}",
+      "M^2 L^2 T^{-2}"
+    ],
+    "answer": 1,
+    "explanation": "The exponent of the exponential function must be dimensionless:\n$$\\left[ \\frac{x^2}{\\alpha k T} \\right] = 1 \\implies [\\alpha] = \\frac{[x^2]}{[k T]}$$\nSince $kT$ represents energy $[\\text{M L}^2 \\text{T}^{-2}]$:\n$$[\\alpha] = \\frac{[\\text{L}^2]}{[\\text{M L}^2 \\text{T}^{-2}]} = [\\text{M}^{-1} \\text{T}^2]$$\n\nSince force $F$ is $[\\text{M L T}^{-2}]$ and the exponential part is dimensionless:\n$$[F] = [\\alpha \\beta] \\implies [\\beta] = \\frac{[F]}{[\\alpha]} = \\frac{[\\text{M L T}^{-2}]}{[\\text{M}^{-1} \\text{T}^2]} = [\\text{M}^2 \\text{L}^1 \\text{T}^{-4}]$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "11th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If speed (V), acceleration (A) and force (F) are considered as fundamental units, the dimension of Young's modulus will be :",
+    "type": "mcq",
+    "options": [
+      "V^{-2} A^2 F^{-2}",
+      "V^{-2} A^2 F^2",
+      "V^{-4} A^{-2} F",
+      "V^{-4} A^2 F"
+    ],
+    "answer": 3,
+    "explanation": "Let Young's modulus $Y \\propto V^a A^b F^c$.\nSubstituting dimensions:\n- $[Y] = [\\text{M L}^{-1} \\text{T}^{-2}]$\n- $[V] = [\\text{L T}^{-1}]$\n- $[A] = [\\text{L T}^{-2}]$\n- $[F] = [\\text{M L T}^{-2}]$\n\n$$[\\text{M L}^{-1} \\text{T}^{-2}] = [\\text{L T}^{-1}]^a [\\text{L T}^{-2}]^b [\\text{M L T}^{-2}]^c$$\n$$[\\text{M L}^{-1} \\text{T}^{-2}] = \\text{M}^c \\text{L}^{a+b+c} \\text{T}^{-a-2b-2c}$$\n\nComparing exponents:\n- For M: $c = 1$\n- For L: $a + b + c = -1 \\implies a + b + 1 = -1 \\implies a + b = -2$\n- For T: $-a - 2b - 2c = -2 \\implies a + 2b + 2 = 2 \\implies a + 2b = 0$\n\nSolving for $a$ and $b$:\n- $(a + 2b) - (a + b) = 0 - (-2) \\implies b = 2$\n- $a + 2 = -2 \\implies a = -4$\n\nThus:\n$$[Y] = [V^{-4} A^2 F^1]$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "11th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Given below are two statements :\nStatement I : Astronomical unit (Au), Parsec (Pc) and Light year (ly) are units for measuring astronomical distances.\nStatement II : Au < Parsec (Pc) < ly\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "Both Statements I and Statements II are incorrect",
+      "Statements I is correct but Statements II is incorrect",
+      "Both Statements I and Statements II are correct",
+      "Statements I is incorrect but Statements II is correct"
+    ],
+    "answer": 1,
+    "explanation": "Let's check the statements:\n- **Statement I**: Astronomical unit (Au), Parsec (Pc), and Light year (ly) are indeed standard astronomical units of length. This is **correct**.\n- **Statement II**: Comparing their values:\n  - $1\\text{ Au} \\approx 1.5 \\times 10^{11}\\text{ m}$\n  - $1\\text{ ly} \\approx 9.46 \\times 10^{15}\\text{ m}$\n  - $1\\text{ Pc} \\approx 3.08 \\times 10^{16}\\text{ m}$\n  Thus, the correct order is $\\text{Au} < \\text{ly} < \\text{Parsec}$. The statement $\\text{Au} < \\text{Parsec} < \\text{ly}$ is **incorrect**.\n\nHence, Statement I is correct but Statement II is incorrect.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "11th April",
+    "subtopic": "Units"
+  },
+  {
+    "q": "If force $(F)$, velocity $(V)$ and time $(T)$ are considered as fundamental physical quantity, then dimensional formula of density will be :",
+    "type": "mcq",
+    "options": [
+      "F V^4 T^{-6}",
+      "F V^{-4} T^{-2}",
+      "F V^{-2} T^2",
+      "F V^{-4} T^{-1}"
+    ],
+    "answer": 1,
+    "explanation": "Let density $d \\propto F^a V^b T^c$.\nSubstituting dimensions:\n- $[d] = [\\text{M L}^{-3}]$\n- $[F] = [\\text{M L T}^{-2}]$\n- $[V] = [\\text{L T}^{-1}]$\n- $[T] = [\\text{T}]$\n\n$$[\\text{M L}^{-3}] = [\\text{M L T}^{-2}]^a [\\text{L T}^{-1}]^b [\\text{T}]^c = \\text{M}^a \\text{L}^{a+b} \\text{T}^{-2a-b+c}$$\n\nComparing exponents:\n- For M: $a = 1$\n- For L: $a + b = -3 \\implies 1 + b = -3 \\implies b = -4$\n- For T: $-2a - b + c = 0 \\implies -2(1) - (-4) + c = 0 \\implies 2 + c = 0 \\implies c = -2$\n\nThus:\n$$[d] = [F^1 V^{-4} T^{-2}]$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "11th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The speed of a wave produced in water is given by $v = \\lambda^a g^b \\rho^c$. Where $\\lambda$, $g$ and $\\rho$ are wavelength of wave, acceleration due to gravity and density of water respectively. The values of $a, b$ and $c$ respectively, are",
+    "type": "mcq",
+    "options": [
+      "1, -1, 0",
+      "$\\frac{1}{2}, 0, \\frac{1}{2}$",
+      "1, 1, 0",
+      "$\\frac{1}{2}, \\frac{1}{2}, 0$"
+    ],
+    "answer": 3,
+    "explanation": "Let's substitute the dimensions of each quantity into the equation:\n- Speed $v = [\\text{L T}^{-1}]$\n- Wavelength $\\lambda = [\\text{L}]$\n- Acceleration due to gravity $g = [\\text{L T}^{-2}]$\n- Density $\\rho = [\\text{M L}^{-3}]$\n\n$$[\\text{L T}^{-1}] = [\\text{L}]^a [\\text{L T}^{-2}]^b [\\text{M L}^{-3}]^c = \\text{M}^c \\text{L}^{a+b-3c} \\text{T}^{-2b}$$\n\nComparing exponents:\n- For M: $c = 0$\n- For T: $-2b = -1 \\implies b = 1/2$\n- For L: $a + b - 3c = 1 \\implies a + 1/2 = 1 \\implies a = 1/2$\n\nThus, $a = 1/2, b = 1/2, c = 0$.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "15th April",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The frequency $(\\nu)$ of an oscillating liquid drop may depend upon radius $(r)$ of the drop, density $(\\rho)$ of liquid and the surface tension $(s)$ of the liquid as: $\\nu = r^a \\rho^b s^c$. The values of $a, b$ and $c$ respectively are",
+    "type": "mcq",
+    "options": [
+      "$\\left(-\\frac{3}{2}, -\\frac{1}{2}, \\frac{1}{2}\\right)$",
+      "$\\left(-\\frac{3}{2}, \\frac{1}{2}, \\frac{1}{2}\\right)$",
+      "$\\left(\\frac{3}{2}, \\frac{1}{2}, -\\frac{1}{2}\\right)$",
+      "$\\left(\\frac{3}{2}, -\\frac{1}{2}, \\frac{1}{2}\\right)$"
+    ],
+    "answer": 0,
+    "explanation": "Substituting dimensions on both sides:\n- Frequency $[\\nu] = [\\text{T}^{-1}]$\n- Radius $[r] = [\\text{L}]$\n- Density $[\\rho] = [\\text{M L}^{-3}]$\n- Surface tension $[s] = [\\text{M T}^{-2}]$\n\n$$[\\text{T}^{-1}] = [\\text{L}]^a [\\text{M L}^{-3}]^b [\\text{M T}^{-2}]^c = \\text{M}^{b+c} \\text{L}^{a-3b} \\text{T}^{-2c}$$\n\nComparing exponents:\n- For T: $-2c = -1 \\implies c = 1/2$\n- For M: $b + c = 0 \\implies b = -c = -1/2$\n- For L: $a - 3b = 0 \\implies a = 3b = 3(-1/2) = -3/2$\n\nThus, $a = -3/2, b = -1/2, c = 1/2$.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "24th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If the velocity of light $c$, universal gravitational constant $G$ and planck's constant $h$ are chosen as fundamental quantities. The dimensions of mass in the new system is:",
+    "type": "mcq",
+    "options": [
+      "[h^{1/2} c^{1/2} G^1]",
+      "[h^1 c^1 G^{-1}]",
+      "[h^{-1/2} c^{1/2} G^{1/2}]",
+      "[h^{1/2} c^{1/2} G^{-1/2}]"
+    ],
+    "answer": 3,
+    "explanation": "Let mass $m \\propto h^a c^b G^c$.\nSubstituting dimensions:\n- $[m] = [\\text{M}]$\n- $[h] = [\\text{M L}^2 \\text{T}^{-1}]$\n- $[c] = [\\text{L T}^{-1}]$\n- $[G] = [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]$\n\n$$[\\text{M}] = [\\text{M L}^2 \\text{T}^{-1}]^a [\\text{L T}^{-1}]^b [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]^c = \\text{M}^{a-c} \\text{L}^{2a+b+3c} \\text{T}^{-a-b-2c}$$\n\nComparing exponents:\n- For M: $a - c = 1 \\implies c = a - 1$\n- For L: $2a + b + 3c = 0 \\implies 2a + b + 3(a-1) = 0 \\implies 5a + b = 3 \\implies b = 3 - 5a$\n- For T: $-a - b - 2c = 0 \\implies a + b + 2c = 0 \\implies a + (3-5a) + 2(a-1) = 0$\n$$a + 3 - 5a + 2a - 2 = 0 \\implies -2a + 1 = 0 \\implies a = 1/2$$\n\nSubstituting $a = 1/2$:\n- $b = 3 - 5(1/2) = 1/2$\n- $c = 1/2 - 1 = -1/2$\n\nThus, $[m] = [h^{1/2} c^{1/2} G^{-1/2}]$.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "1st February",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Consider the efficiency of Carnot's engine is given by $\\eta = \\frac{\\alpha\\beta}{\\sin\\theta} \\log_{\\text{e}}\\left(\\frac{\\beta x}{kT}\\right)$, where $\\alpha$ and $\\beta$ are constants. If $T$ is temperature, $k$ is Boltzmann constant, $\\theta$ is angular displacement and $x$ has the dimensions of length. Then, choose the incorrect option.",
+    "type": "mcq",
+    "options": [
+      "Dimensions of $\\beta$ is same as that of force.",
+      "Dimensions of $\\alpha^{-1}x$ is same as that of energy.",
+      "Dimensions of $\\eta^{-1} \\sin\\theta$ is same as that of $\\alpha\\beta$",
+      "Dimensions of $\\alpha$ is same as that of $\\beta$"
+    ],
+    "answer": 3,
+    "explanation": "Let's check the correctness of each option:\n- The argument of $\\log$ is dimensionless:\n  $$\\left[ \\frac{\\beta x}{kT} \\right] = 1 \\implies [\\beta] = \\frac{[kT]}{[x]} = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}]} = [\\text{M L T}^{-2}]$$\n  This is the dimension of force. Hence, option (1) is correct.\n- Efficiency $\\eta$ and $\\sin\\theta$ are dimensionless, so $\\left[ \\frac{\\alpha\\beta}{\\sin\\theta} \\right] = 1 \\implies [\\alpha\\beta] = 1 \\implies [\\alpha] = [\\beta]^{-1} = [\\text{M}^{-1} \\text{L}^{-1} \\text{T}^2]$.\n- Since $[\\alpha] = [\\beta]^{-1}$, they do not have same dimensions. Hence, option (4) is incorrect.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "28th July",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The dimension of mutual inductance is",
+    "type": "mcq",
+    "options": [
+      "ML^2 T^{-2}A^{-1}",
+      "ML^2 T^{-2}A^{-2}",
+      "ML^2 T^{-3}A^{-1}",
+      "ML^2 T^{-3}A^{-2}"
+    ],
+    "answer": 1,
+    "explanation": "The induced electromotive force is given by $e = -M \\frac{dI}{dt}$, so:\n$$M = \\frac{e \\cdot dt}{dI}$$\n\nSubstituting the dimensions:\n- Electromotive force $e$ (voltage): $[\\text{M L}^2 \\text{T}^{-3} \\text{A}^{-1}]$\n- Time $dt$: $[\\text{T}]$\n- Current $dI$: $[\\text{A}]$\n\n$$[M] = \\frac{[\\text{M L}^2 \\text{T}^{-3} \\text{A}^{-1}][\\text{T}]}{[\\text{A}]} = [\\text{M L}^2 \\text{T}^{-2} \\text{A}^{-2}]$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "26th June",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "In van dar Wall equation $\\left[P + \\frac{a}{V^2}\\right][V - b] = RT$; $P$ is pressure, $V$ is volume, $R$ is universal gas constant and $T$ is temperature. The ratio of constants $\\frac{a}{b}$ is dimensionally equal to :",
+    "type": "mcq",
+    "options": [
+      "P/V",
+      "V/P",
+      "PV",
+      "PV^3"
+    ],
+    "answer": 2,
+    "explanation": "By the principle of homogeneity of dimensions:\n- $[\\frac{a}{V^2}] = [P] \\implies [a] = [P V^2]$\n- $[b] = [V]$\n\nTaking the ratio of the constants:\n$$\\left[ \\frac{a}{b} \\right] = \\frac{[P V^2]}{[V]} = [P V]$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "29th June",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "If force (F), length (L) and time (T) are taken as the fundamental quantities. Then what will be the dimension of density:",
+    "type": "mcq",
+    "options": [
+      "[FL^{-4} T^2]",
+      "[FL^{-3} T^3]",
+      "[FL^{-3} T^2]",
+      "[FL^{-5} T^2]"
+    ],
+    "answer": 0,
+    "explanation": "Let density $d \\propto F^a L^b T^c$.\nSubstituting dimensions:\n- $[d] = [\\text{M L}^{-3}]$\n- $[F] = [\\text{M L T}^{-2}]$\n- $[L] = [\\text{L}]$\n- $[T] = [\\text{T}]$\n\n$$[\\text{M L}^{-3}] = [\\text{M L T}^{-2}]^a [\\text{L}]^b [\\text{T}]^c = \\text{M}^a \\text{L}^{a+b} \\text{T}^{-2a+c}$$\n\nComparing exponents:\n- For M: $a = 1$\n- For L: $a + b = -3 \\implies 1 + b = -3 \\implies b = -4$\n- For T: $-2a + c = 0 \\implies -2(1) + c = 0 \\implies c = 2$\n\nThus:\n$$[d] = [F^1 L^{-4} T^2] = [\\text{F L}^{-4} \\text{T}^2]$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "27th August",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "Match List I with List II.\n\n$$\\begin{array}{l|l} \\textbf{List-I} & \\textbf{List-II} \\\\ \\hline \\text{(a) Capacitance, C} & \\text{(i) } \\text{M}^1 \\text{L}^1 \\text{T}^{-3}\\text{A}^{-1} \\\\ \\text{(b) Permittivity of free space, } \\varepsilon_0 & \\text{(ii) } \\text{M}^{-1} \\text{L}^{-3}\\text{T}^4\\text{A}^2 \\\\ \\text{(c) Permeability of free space, } \\mu_0 & \\text{(iii) } \\text{M}^{-1} \\text{L}^{-2}\\text{T}^4\\text{A}^2 \\\\ \\text{(d) Electric field, E} & \\text{(iv) } \\text{M}^1 \\text{L}^1 \\text{T}^{-2}\\text{A}^{-2} \\end{array}$$\n\nChoose the correct answer from the options given below",
+    "type": "mcq",
+    "options": [
+      "(a) -> (iii), (b) -> (ii), (c) -> (iv), (d) -> (i)",
+      "(a) -> (iii), (b) -> (iv), (c) -> (ii), (d) -> (i)",
+      "(a) -> (iv), (b) -> (ii), (c) -> (iii), (d) -> (i)",
+      "(a) -> (iv), (b) -> (iii), (c) -> (ii), (d) -> (i)"
+    ],
+    "answer": 0,
+    "explanation": "Matching the electrical terms to their dimensions:\n- **Capacitance, C**: $[\\text{M}^{-1} \\text{L}^{-2} \\text{T}^4 \\text{A}^2]$ (iii)\n- **Permittivity of free space, $\\varepsilon_0$**: $[\\text{M}^{-1} \\text{L}^{-3} \\text{T}^4 \\text{A}^2]$ (ii)\n- **Permeability of free space, $\\mu_0$**: $[\\text{M}^1 \\text{L}^1 \\text{T}^{-2} \\text{A}^{-2}]$ (iv)\n- **Electric field, E**: $[\\text{M}^1 \\text{L}^1 \\text{T}^{-3} \\text{A}^{-1}]$ (i)\n\nTherefore, (a) -> (iii), (b) -> (ii), (c) -> (iv), (d) -> (i).",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "27th July",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "The dimension of stopping potential $V_0$ in photoelectric effect in units of Planck's constant '$h$', speed of light '$c$' and Gravitational constant '$G$' and ampere A is:",
+    "type": "mcq",
+    "options": [
+      "h^{1/3} G^{2/3} c^{1/3} A^{-1}",
+      "h^0 c^5 G^{-1} A^{-1}",
+      "h^{-2/3} c^{-1/3} G^{4/3} A^{-1}",
+      "h^2 G^{3/2} c^{1/3} A^{-1}"
+    ],
+    "answer": 1,
+    "explanation": "Stopping potential is energy per unit charge:\n$$[V_0] = [\\text{M L}^2 \\text{T}^{-3} \\text{A}^{-1}]$$\nWe want to express this in terms of $h, c, G$ and $A$:\n- Energy has dimensions: $[E] = [\\text{M L}^2 \\text{T}^{-2}] = \\sqrt{\\frac{h c^5}{G}} = h^{1/2} c^{5/2} G^{-1/2}$\n- Planck time has dimensions: $[T] = \\sqrt{\\frac{h G}{c^5}} = h^{1/2} G^{1/2} c^{-5/2}$\n\nDividing Energy by Time to get power (dimensions $[\\text{M L}^2 \\text{T}^{-3}]$):\n$$\\frac{[E]}{[T]} = \\frac{h^{1/2} c^{5/2} G^{-1/2}}{h^{1/2} G^{1/2} c^{-5/2}} = h^0 c^5 G^{-1}$$\nCombining this with $A^{-1}$ for potential:\n$$[V_0] = [h^0 c^5 G^{-1} A^{-1}]$$",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "8th January",
+    "subtopic": "Dimensions"
+  },
+  {
+    "q": "In SI units, the dimensions of $\\sqrt{\\frac{\\epsilon_0}{\\mu_0}}$ is:",
+    "type": "mcq",
+    "options": [
+      "A T^2 M^{-1} L^{-1}",
+      "A^2 T^3 M^{-1} L^{-2}",
+      "A^{-1} T M L^3",
+      "A T^{-3} M L^{3/2}"
+    ],
+    "answer": 1,
+    "explanation": "The quantity $Y_0 = \\sqrt{\\frac{\\epsilon_0}{\\mu_0}}$ represents the characteristic admittance (wave admittance) of free space.\nAdmittance has units of $\\Omega^{-1}$:\n$$[Y_0] = [\\text{Resistance}]^{-1} = [\\text{M L}^2 \\text{T}^{-3} \\text{A}^{-2}]^{-1} = [\\text{A}^2 \\text{T}^3 \\text{M}^{-1} \\text{L}^{-2}]$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "8th April",
+    "subtopic": "Dimensions"
+  }
+]
