@@ -7,9 +7,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        startup: {
+          typeset: false // We trigger this manually after AI generation
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
         :root {
@@ -32,9 +41,9 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         
-        /* KaTeX Specific Adjustments */
-        .katex { font-size: 1.1em; } /* Slightly boost math size to match Inter font */
-        .opt-text { line-height: 2.2; } /* Give fractions breathing room in the options list */
+        /* MathJax Specific Adjustments */
+        mjx-container { font-size: 1.1em; } 
+        .opt-text { line-height: 2.2; } 
         
         body { 
             background-color: var(--bg-color); 
@@ -329,11 +338,9 @@
         const LAMBDA_URL = "https://nvq32ao6fel7xdvfcjhzatg5ja0reeqs.lambda-url.us-east-1.on.aws/";
 
         // --- FIREBASE AUTH IMPORTS ONLY ---
-        // (Firebase Auth keys are 100% public by design. Your Firestore DB logic has been removed and secured on AWS Lambda).
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
-       // Paste this OVER your old firebaseConfig in all 3 files
         const firebaseConfig = {
             apiKey: "AIzaSyB57PcjYtWktsOGKFLQmWX-Nc6HtYeZxp8",
             authDomain: "studyspace-f6e22.firebaseapp.com",
@@ -376,11 +383,16 @@
             if (user) {
                 currentUser = user;
                 
-                // Fetch User's Data from AWS Lambda instead of Firestore
                 try {
+                    // 2. ADDED AUTH TOKEN HERE
+                    const token = await user.getIdToken();
+                    
                     const response = await fetch(LAMBDA_URL, {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}` 
+                        },
                         body: JSON.stringify({ action: 'getUserData', uid: user.uid })
                     });
                     
@@ -407,21 +419,11 @@
             }
         });
 
-        // --- ENHANCED MATH RE-RENDERING PIPELINE (USING KATEX) ---
+        // --- 3. UPDATED MATH RENDERER TO USE MATHJAX ---
         window.triggerMathRender = (elementId) => {
             const el = document.getElementById(elementId);
-            if (el && window.renderMathInElement) {
-                renderMathInElement(el, {
-                    delimiters: [
-                        {left: '$$', right: '$$', display: true},
-                        {left: '$', right: '$', display: false},
-                        {left: '\\(', right: '\\)', display: false},
-                        {left: '\\[', right: '\\]', display: true}
-                    ],
-                    throwOnError: false,
-                    // The core fix: auto-converts all inline fractions to display style
-                    macros: { "\\frac": "\\dfrac" } 
-                });
+            if (el && window.MathJax) {
+                MathJax.typesetPromise([el]).catch((err) => console.log('MathJax error: ', err));
             }
         };
 
@@ -439,17 +441,33 @@
             });
         }
 
+        // --- 4. MATH PROTECTION FILTER ---
         function formatGenericText(text) {
             if (text === null || text === undefined) return "";
             if (typeof text !== 'string') text = String(text);
             if (text.trim() === "N/A" || text.trim() === "") return "<div style='color: var(--text-tertiary); font-style: italic;'>No detailed explanation available for this question.</div>";
             
+            // Step A: Protect the Math Blocks so the <br> tags don't slice them in half!
+            let mathBlocks = [];
+            let mathIndex = 0;
+            text = text.replace(/(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\$[\s\S]*?\$|\\\([\s\S]*?\\\))/g, (match) => {
+                mathBlocks.push(match);
+                return `___MATH_BLOCK_${mathIndex++}___`;
+            });
+
             let formatted = markdownTableToHTML(text);
 
             formatted = formatted.replace(/^###\s+(.*$)/gim, '<h3 style="color: #818cf8; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.5px;">$1</h3>');
             formatted = formatted.replace(/^##\s+(.*$)/gim, '<h2 style="color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">$1</h2>');
             formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong style="color: white; font-weight: 700;">$1</strong>');
+            
+            // Step B: Inject breaks
             formatted = formatted.replace(/\n/g, '<br>');
+            
+            // Step C: Restore the pristine math blocks
+            mathBlocks.forEach((block, idx) => {
+                formatted = formatted.replace(`___MATH_BLOCK_${idx}___`, block);
+            });
             
             return injectInlineImages(formatted); 
         }
@@ -458,8 +476,20 @@
             if (text === null || text === undefined) return "";
             if (typeof text !== 'string') text = String(text);
             
+            // Protect Math Blocks here as well
+            let mathBlocks = [];
+            let mathIndex = 0;
+            text = text.replace(/(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\$[\s\S]*?\$|\\\([\s\S]*?\\\))/g, (match) => {
+                mathBlocks.push(match);
+                return `___MATH_BLOCK_${mathIndex++}___`;
+            });
+
             let formatted = markdownTableToHTML(text);
             formatted = formatted.replace(/\n/g, '<br>');
+            
+            mathBlocks.forEach((block, idx) => {
+                formatted = formatted.replace(`___MATH_BLOCK_${idx}___`, block);
+            });
 
             if ((formatted.includes("List I") && formatted.includes("List II")) || 
                 (formatted.includes("Column I") && formatted.includes("Column II"))) {
@@ -883,10 +913,15 @@
             if (currentUser && q) {
                 const questionId = q.id || `q_${currentFocusIndex}`;
                 try {
-                    console.log(`Sending response to AWS Lambda...`);
+                    // 5. ADDED TOKEN HERE FOR CLOUD SYNC
+                    const token = await currentUser.getIdToken();
+                    
                     await fetch(LAMBDA_URL, {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
                         body: JSON.stringify({
                             action: 'saveResponse',
                             uid: currentUser.uid,
@@ -1014,9 +1049,15 @@
             const xpGain = isCorrect ? 8 : -2;
 
             try {
+                // 6. ADDED TOKEN HERE FOR PROGRESS SYNC
+                const token = await currentUser.getIdToken();
+                
                 await fetch(LAMBDA_URL, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
                     body: JSON.stringify({
                         action: 'updateProgress',
                         uid: currentUser.uid,
@@ -1167,7 +1208,6 @@ Instructions: Please solve this step-by-step.
 - If the Student's Status shows an INCORRECT answer, gently explain the exact misconception that led to their specific wrong choice before solving it. 
 - If they asked for help without attempting, guide them from scratch.`;
 
-                // NOTE: Retained original AI Lambda endpoint for tutor text stream
                 const AI_LAMBDA_ENDPOINT = "https://tt6t4ollujq3rlwxibdoqtvt340monfz.lambda-url.us-east-1.on.aws/";
                 const response = await fetch(AI_LAMBDA_ENDPOINT, {
                     method: "POST",
@@ -1210,6 +1250,7 @@ Instructions: Please solve this step-by-step.
                 }
 
                 aiTextContainer.innerHTML = formatGenericText(accumulatedText);
+                // Trigger MathJax after the full stream completes!
                 setTimeout(() => triggerMathRender('ai-explanation-text'), 300);
 
             } catch (error) {
@@ -1233,11 +1274,15 @@ Instructions: Please solve this step-by-step.
             if (!confirmReset) return;
 
             try {
-                console.log(`Requesting complete progress purge for user: ${currentUser.uid}`);
+                // 7. ADDED TOKEN HERE FOR DATA WIPE SYNC
+                const token = await currentUser.getIdToken();
                 
                 await fetch(LAMBDA_URL, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
                     body: JSON.stringify({
                         action: 'clearProgress',
                         uid: currentUser.uid
