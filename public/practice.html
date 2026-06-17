@@ -13,14 +13,38 @@
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           displayMath: [['$$', '$$'], ['\\[', '\\]']]
         },
+        svg: { 
+          fontCache: 'global' // Makes rendering much faster
+        },
         startup: {
-          typeset: false // We trigger this manually after AI generation
+          typeset: false 
         }
       };
     </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
     <style>
+        /* --- MathJax UI Polish --- */
+        mjx-container {
+            color: var(--text-main); /* Forces math to match your exact text color */
+        }
+        
+        /* Style only the large, standalone display math blocks */
+        mjx-container[jax="SVG"][display="true"] {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 1.25rem 1rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+            overflow-x: auto; 
+            overflow-y: hidden;
+            margin: 1.5rem 0 !important;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .q-text, .opt-text, .solution-text {
+            line-height: 1.9; /* Gives tall inline fractions breathing room */
+            letter-spacing: 0.2px;
+        }
+        
         :root {
             --bg-color: #09090b; 
             --surface: rgba(24, 24, 27, 0.6);
