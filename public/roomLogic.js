@@ -238,16 +238,27 @@ onSnapshot(collection(db, "rooms", ROOM_ID, "participants"), (snapshot) => {
 });
 
 
+// Add a connecting lock flag at the top of this section
+let isConnecting = false;
+
 // --- 5. JOINING THE ROOM ---
 btnJoin.onclick = async () => {
-    if (isJoined) return;
+    // Prevent multiple clicks while it's already working
+    if (isJoined || isConnecting) return;
+    isConnecting = true;
+    
     btnJoin.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Entering...';
     btnJoin.disabled = true;
 
     try {
-        myAgoraUid = await client.join(APP_ID, ROOM_ID, null, null);
+        // 1. Join Agora (Only if not already connected from a ghost session)
+        if (client.connectionState === "DISCONNECTED") {
+            myAgoraUid = await client.join(APP_ID, ROOM_ID, null, null);
+        } else {
+            myAgoraUid = client.uid; // Grab the existing ID if it's stuck open
+        }
         
-        // Announce myself to Firebase so everyone else sees my avatar!
+        // 2. Announce myself to Firebase
         await setDoc(doc(db, "rooms", ROOM_ID, "participants", String(myAgoraUid)), {
             name: currentUserData.name,
             avatar: currentUserData.avatar,
@@ -255,11 +266,17 @@ btnJoin.onclick = async () => {
             timestamp: serverTimestamp()
         });
 
+        // 3. Publish Local Tracks (Wrap in a try/catch in case they are already published)
         if (localAudioTrack && localVideoTrack) {
-            await client.publish([localAudioTrack, localVideoTrack]);
+            try {
+                await client.publish([localAudioTrack, localVideoTrack]);
+            } catch (publishErr) {
+                console.log("Tracks likely already published:", publishErr);
+            }
         }
         
         isJoined = true;
+        isConnecting = false;
         
         // Hide Lobby, Show Main Grid
         lobbyScreen.style.display = 'none';
@@ -271,9 +288,18 @@ btnJoin.onclick = async () => {
         
         adjustGrid();
     } catch (error) {
+        console.error("Connection Error:", error);
         alert("Failed to connect: " + (error.message || error));
+        
+        // CRITICAL FIX: If Firebase crashed, we MUST leave the Agora channel so it resets!
+        if (client.connectionState !== "DISCONNECTED") {
+            await client.leave();
+        }
+        
+        // Reset the button so the user can try again safely
         btnJoin.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> Join Room';
         btnJoin.disabled = false;
+        isConnecting = false;
     }
 };
 
