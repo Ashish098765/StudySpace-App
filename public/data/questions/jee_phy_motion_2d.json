@@ -102,7 +102,7 @@
     "options": [
       "$40\\sqrt{3} m s^{-1}$",
       "Zero",
-      "20 m s^{-1}",
+      "$20 m s^{-1}$",
       "$20\\sqrt{3} m s^{-1}$"
     ],
     "answer": 3,
@@ -261,10 +261,10 @@
     "q": "A girl standing on road holds her umbrella at $45^\\circ$ with the vertical to keep the rain away. If she starts running without umbrella with a speed of $15\\sqrt{2}\\text{ km h}^{-1}$, the rain drops hit her head vertically. The speed of rain drops with respect to the moving girl is",
     "type": "mcq",
     "options": [
-      "30 km h^{-1}",
+      "$30 km h^{-1}$",
       "$25/\\sqrt{2} km h^{-1}$",
       "$30/\\sqrt{2} km h^{-1}$",
-      "25 km h^{-1}"
+      "$25 km h^{-1}$"
     ],
     "answer": 2,
     "explanation": "Initially, $\\tan(45^\\circ) = \\frac{v_g}{v_r} = 1 \\implies v_r = v_g = 15\\sqrt{2}\\text{ km h}^{-1}$.\nWhen she runs at $15\\sqrt{2}\\text{ km h}^{-1}$, the relative velocity of rain with respect to the girl is purely vertical:\n$$v_{\\text{rel}} = v_r = 15\\sqrt{2}\\text{ km h}^{-1} = \\frac{30}{\\sqrt{2}}\\text{ km h}^{-1}$$",
@@ -830,10 +830,10 @@
     "q": "The ranges and heights for two projectiles projected with the same initial velocity at angles $42^\\circ$ and $48^\\circ$ with the horizontal are $R_1$, $R_2$ and $H_1$, $H_2$ respectively. Choose the correct option:",
     "type": "mcq",
     "options": [
-      "R_1 = R_2 and H_1 = H_2",
-      "R_1 = R_2 and H_1 < H_2",
-      "R_1 > R_2 and H_1 = H_2",
-      "R_1 < R_2 and H_1 < H_2"
+      "$R_1 = R_2$ and $H_1 = H_2$",
+      "$R_1 = R_2$ and $H_1 < H_2$",
+      "$R_1 > R_2$ and $H_1 = H_2$",
+      "$R_1 < R_2$ and $H_1 < H_2$"
     ],
     "answer": 1,
     "explanation": "- Since the projection angles are complementary ($42^\\circ + 48^\\circ = 90^\\circ$), the ranges are equal: $R_1 = R_2$.\n- Since $\\sin(42^\\circ) < \\sin(48^\\circ)$, and $H \\propto \\sin^2\\theta$, we have $H_1 < H_2$.\n\nThus, $R_1 = R_2$ and $H_1 < H_2$.",
@@ -878,10 +878,10 @@
     "q": "A shell is fired from a fixed artillery gun with an initial speed $u$ such that it hits the target on the ground at a distance $R$ from it. If $t_1$ and $t_2$ are the values of the time taken by it to hit the target in two possible ways, the product $t_1 t_2$ is:",
     "type": "mcq",
     "options": [
-      "R/2g",
-      "R/g",
-      "2R/g",
-      "R/4g"
+      "$R/2g$",
+      "$R/g$",
+      "$2R/g$",
+      "$R/4g$"
     ],
     "answer": 2,
     "explanation": "To hit the same target at distance $R$ with speed $u$, the complementary angles of projection are:\n$$\\theta_1 = \\theta, \\quad \\theta_2 = 90^\\circ - \\theta$$\nTimes of flight are:\n$$t_1 = \\frac{2u\\sin\\theta}{g}, \\quad t_2 = \\frac{2u\\cos\\theta}{g}$$\nProduct:\n$$t_1 t_2 = \\frac{4u^2\\sin\\theta\\cos\\theta}{g^2} = \\frac{2}{g} \\left(\\frac{u^2 \\sin 2\\theta}{g}\\right) = \\frac{2R}{g}$$",
@@ -894,10 +894,10 @@
     "q": "Two particles are projected from the same point with the same speed $u$ such that they have the same range $R$, but different maximum heights, $h_1$ and $h_2$. Which of the following is correct?",
     "type": "mcq",
     "options": [
-      "R^2 = h_1 h_2",
-      "R^2 = 4 h_1 h_2",
-      "R^2 = 2 h_1 h_2",
-      "R^2 = 16 h_1 h_2"
+      "$R^2 = h_1 h_2$",
+      "$R^2 = 4 h_1 h_2$",
+      "$R^2 = 2 h_1 h_2$",
+      "$R^2 = 16 h_1 h_2$"
     ],
     "answer": 3,
     "explanation": "For same range $R$, angles are complementary $\\theta$ and $90^\\circ - \\theta$:\n$$h_1 = \\frac{u^2 \\sin^2\\theta}{2g}, \\quad h_2 = \\frac{u^2 \\cos^2\\theta}{2g}$$\n$$h_1 h_2 = \\frac{u^4 \\sin^2\\theta\\cos^2\\theta}{4g^2}$$\n\nHorizontal range is:\n$$R = \\frac{2u^2 \\sin\\theta\\cos\\theta}{g} \\implies R^2 = \\frac{4 u^4 \\sin^2\\theta\\cos^2\\theta}{g^2} = 16 h_1 h_2$$",
@@ -993,7 +993,7 @@
       "$\\frac{t_1t_2}{t_2-t_1}$",
       "$\\frac{t_1+t_2}{2}$",
       "$\\frac{t_1t_2}{t_2+t_1}$",
-      "t_2 - t_1"
+      "$t_2 - t_1$"
     ],
     "answer": 2,
     "explanation": "Let $L$ be the length of the escalator.\n- Walking speed: $v_1 = L / t_1$\n- Escalator speed: $v_2 = L / t_2$\n- Speed when walking on moving escalator: $v = v_1 + v_2 = L \\left( \\frac{1}{t_1} + \\frac{1}{t_2} \\right)$\n\nTime taken:\n$$t = \\frac{L}{v} = \\frac{L}{L \\left( \\frac{t_1+t_2}{t_1t_2} \\right)} = \\frac{t_1t_2}{t_1+t_2}$$",
@@ -1113,10 +1113,10 @@
     "q": "A stone of mass $1\\text{ kg}$ is tied to end of a massless string of length $1\\text{ m}$. If the breaking tension of the string is $400\\text{ N}$, then maximum linear velocity, the stone can have without breaking the string, while rotating in horizontal plane, is:",
     "type": "mcq",
     "options": [
-      "20 m s^{-1}",
-      "40 m s^{-1}",
-      "400 m s^{-1}",
-      "10 m s^{-1}"
+      "$20 m s^{-1}$",
+      "$40 m s^{-1}$",
+      "$400 m s^{-1}$",
+      "$10 m s^{-1}$"
     ],
     "answer": 0,
     "explanation": "The maximum tension the string can withstand provides the necessary centripetal force for the rotation of the stone in the horizontal plane:\n$$T_{\\text{max}} = \\frac{m v_{\\text{max}}^2}{r}$$\n$$400 = \\frac{1 \\times v_{\\text{max}}^2}{1} \\implies v_{\\text{max}}^2 = 400 \\implies v_{\\text{max}} = 20\\text{ m s}^{-1}$$",
@@ -1209,10 +1209,10 @@
     "q": "A clock has a continuously moving second's hand of $0.1\\text{ m}$ length. The average acceleration of the tip of the hand (in units of $\\text{m s}^{-2}$) is of the order of :",
     "type": "mcq",
     "options": [
-      "10^{-3}",
-      "10^{-4}",
-      "10^{-2}",
-      "10^{-1}"
+      "$10^{-3}$",
+      "$10^{-4}$",
+      "$10^{-2}$",
+      "$10^{-1}$"
     ],
     "answer": 0,
     "explanation": "The second's hand completes one full revolution in $T = 60\\text{ s}$.\nIts angular velocity is:\n$$\\omega = \\frac{2\\pi}{T} = \\frac{2\\pi}{60} \\approx 0.1047\\text{ rad/s}$$\n\nThe centripetal acceleration of the tip is:\n$$a_c = \\omega^2 r = (0.1047)^2 \\times 0.1 \\approx 0.011 \\times 0.1 \\approx 1.1 \\times 10^{-3}\\text{ m s}^{-2}$$\nThis is of the order of $10^{-3}$.",
@@ -1228,7 +1228,7 @@
       "$10\\sqrt{3}\\text{ m/s}$",
       "zero",
       "$10\\sqrt{2}\\text{ m/s}$",
-      "10 m/s"
+      "$10 m/s$"
     ],
     "answer": 3,
     "explanation": "The magnitude of the change in velocity vector is given by:\n$$|\\Delta \\vec{v}| = 2v\\sin\\left(\\frac{\\theta}{2}\right)$$\nSubstituting the given values:\n$$|\\Delta \\vec{v}| = 2(10)\\sin(30^\\circ) = 20 \\times \\frac{1}{2} = 10\\text{ m/s}$$",

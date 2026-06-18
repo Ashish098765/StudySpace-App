@@ -3,10 +3,10 @@
     "q": "A body travels $102.5\\text{ m}$ in $n^{\\text{th}}$ second and $115.0\\text{ m}$ in $(n + 2)^{\\text{th}}$ second. The acceleration is :",
     "type": "mcq",
     "options": [
-      "6.25 m/s^2",
-      "12.5 m/s^2",
-      "9 m/s^2",
-      "5 m/s^2"
+      "$6.25 m/s^2$",
+      "$12.5 m/s^2$",
+      "$9 m/s^2$",
+      "$5 m/s^2$"
     ],
     "answer": 0,
     "explanation": "The distance travelled in the $t^{\\text{th}}$ second is given by:\n$$S_t = u + \\frac{a}{2}(2t - 1)$$\n\nUsing the given values:\n$$S_n = u + \\frac{a}{2}(2n - 1) = 102.5 \\quad \\text{--- (1)}$$\n$$S_{n+2} = u + \\frac{a}{2}(2(n+2) - 1) = u + \\frac{a}{2}(2n + 3) = 115.0 \\quad \\text{--- (2)}$$\n\nSubtracting equation (1) from (2):\n$$\\frac{a}{2}(2n + 3 - (2n - 1)) = 115.0 - 102.5$$\n$$\\frac{a}{2}(4) = 12.5 \\implies 2a = 12.5 \\implies a = 6.25\\text{ m/s}^2$$",
@@ -51,10 +51,10 @@
     "q": "A particle moving in a straight line covers half the distance with speed $6\\text{ m/s}$. The other half is covered in two equal time intervals with speeds $9\\text{ m/s}$ and $15\\text{ m/s}$ respectively. The average speed of the particle during the motion is :",
     "type": "mcq",
     "options": [
-      "10 m/s",
-      "8 m/s",
-      "9.2 m/s",
-      "8.8 m/s"
+      "$10 m/s$",
+      "$8 m/s$",
+      "$9.2 m/s$",
+      "$8.8 m/s$"
     ],
     "answer": 1,
     "explanation": "Let the total distance be $2d$. Thus, each half distance is $d$.\n- For the first half:\n  $$t_1 = \\frac{d}{6}$$\n- For the second half, let the total time be $2t'$. It is covered in two equal time intervals $t'$:\n  $$d = 9t' + 15t' = 24t' \\implies t' = \\frac{d}{24}$$\n  The total time for the second half is $2t' = \\frac{d}{12}$.\n\nThe total time for the whole journey is:\n$$t_{\\text{total}} = t_1 + 2t' = \\frac{d}{6} + \\frac{d}{12} = \\frac{3d}{12} = \\frac{d}{4}$$\nThe average speed is:\n$$v_{\\text{avg}} = \\frac{\\text{Total Distance}}{\\text{Total Time}} = \\frac{2d}{d/4} = 8\\text{ m/s}$$",
@@ -69,7 +69,7 @@
     "options": [
       "$v = \\frac{v_1+v_2}{2}$",
       "$\\frac{1}{v} = \\frac{1}{v_1} + \\frac{1}{v_2}$",
-      "v = v_1 + v_2",
+      "$v = v_1 + v_2$",
       "$\\frac{2}{v} = \\frac{1}{v_1} + \\frac{1}{v_2}$"
     ],
     "answer": 3,
@@ -83,10 +83,10 @@
     "q": "The distance travelled by an object in time $t$ is given by $s = (2.5)t^2$. The instantaneous speed of the object at $t = 5\\text{ s}$ will be :",
     "type": "mcq",
     "options": [
-      "25 m s^{-1}",
-      "5 m s^{-1}",
-      "62.5 m s^{-1}",
-      "12.5 m s^{-1}"
+      "$25 m s^{-1}$",
+      "$5 m s^{-1}$",
+      "$62.5 m s^{-1}$",
+      "$12.5 m s^{-1}$"
     ],
     "answer": 0,
     "explanation": "Instantaneous speed is given by the derivative of position with respect to time:\n$$v(t) = \\frac{ds}{dt} = \\frac{d}{dt}(2.5t^2) = 5t$$\nAt $t = 5\\text{ s}$:\n$$v(5) = 5(5) = 25\\text{ m s}^{-1}$$",
@@ -99,10 +99,10 @@
     "q": "The position of a particle related to time is given by $x = (5t^2 - 4t + 5)\\text{ m}$. The magnitude of velocity of the particle at $t = 2\\text{ s}$ will be :",
     "type": "mcq",
     "options": [
-      "06 m s^{-1}",
-      "14 m s^{-1}",
-      "10 m s^{-1}",
-      "16 m s^{-1}"
+      "$06 m s^{-1}$",
+      "$14 m s^{-1}$",
+      "$10 m s^{-1}$",
+      "$16 m s^{-1}$"
     ],
     "answer": 3,
     "explanation": "Velocity is the derivative of position with respect to time:\n$$v(t) = \\frac{dx}{dt} = \\frac{d}{dt}(5t^2 - 4t + 5) = 10t - 4$$\nAt $t = 2\\text{ s}$:\n$$v(2) = 10(2) - 4 = 16\\text{ m s}^{-1}$$",
@@ -131,10 +131,10 @@
     "q": "A vehicle travels $4\\text{ km}$ with speed of $3\\text{ km h}^{-1}$ and another $4\\text{ km}$ with speed of $5\\text{ km h}^{-1}$, then its average speed is :",
     "type": "mcq",
     "options": [
-      "4.25 km h^{-1}",
-      "3.50 km h^{-1}",
-      "4.00 km h^{-1}",
-      "3.75 km h^{-1}"
+      "$4.25 km h^{-1}$",
+      "$3.50 km h^{-1}$",
+      "$4.00 km h^{-1}$",
+      "$3.75 km h^{-1}$"
     ],
     "answer": 3,
     "explanation": "Since the distances are equal, the average speed is given by:\n$$v_{\\text{avg}} = \\frac{2v_1v_2}{v_1 + v_2}$$\n$$v_{\\text{avg}} = \\frac{2 \\times 3 \\times 5}{3 + 5} = \\frac{30}{8} = 3.75\\text{ km h}^{-1}$$",
@@ -174,10 +174,10 @@
     "q": "The relation between time $t$ and distance $x$ for a moving body is given as $t = mx^2 + nx$, where $m$ and $n$ are constants. The retardation of the motion is: (When $v$ stands for velocity)",
     "type": "mcq",
     "options": [
-      "2mv^3",
-      "2mnv^3",
-      "2nv^3",
-      "2n^2v^3"
+      "$2mv^3$",
+      "$2mnv^3$",
+      "$2nv^3$",
+      "$2n^2v^3$"
     ],
     "answer": 0,
     "explanation": "Differentiating the equation with respect to time $t$:\n$$1 = 2mx \\frac{dx}{dt} + n \\frac{dx}{dt} = v(2mx + n) \\implies v = \\frac{1}{2mx + n}$$\nDifferentiating again with respect to $t$:\n$$a = \\frac{dv}{dt} = \\frac{d}{dt}\\left( (2mx + n)^{-1} \\right) = -(2mx + n)^{-2} \\cdot 2m \\frac{dx}{dt} = -v^2 \\cdot 2mv = -2mv^3$$\nHence, the retardation is $2mv^3$.",
@@ -390,10 +390,10 @@
     "q": "The velocity ($v$) and time ($t$) graph of a body in a straight line motion is shown in the figure. The point $S$ is at $4.333$ seconds. The total distance covered by the body in $6\\text{ s}$ is :",
     "type": "mcq",
     "options": [
-      "37/3 m",
+      "$37/3 m$",
       "12m",
       "11m",
-      "49/4 m"
+      "$49/4 m$"
     ],
     "answer": 0,
     "explanation": "To find the total distance covered in $6\\text{ s}$, we calculate the absolute sum of the areas of the geometric shapes in the $v-t$ graph:\n- First part (above the axis, from $t=0$ to $t=4.333\\text{ s}$):\n  $$\\text{Area}_1 = \\frac{1}{2} \\times 4.333 \\times 4 + \\text{remaining trapezoidal area}$$\n- Second part (below the axis, from $t=4.333$ to $t=6\\text{ s}$):\n  $$\\text{Area}_2 = \\frac{1}{2} \\times (6 - 4.333) \\times |-2| = 1.667\\text{ m}$$\n\nSumming the areas gives the total distance of $\\frac{37}{3}\\text{ m}$.",
@@ -578,10 +578,10 @@
     "q": "Position of an ant (in metres) moving in $Y-Z$ plane is given by $S = 2t^2\\hat{j} + 5\\hat{k}$ (where $t$ is in second). The magnitude and direction of velocity of the ant at $t = 1\\text{ s}$ will be :",
     "type": "mcq",
     "options": [
-      "16 m s^{-1} in y-direction",
-      "4 m s^{-1} in x-direction",
-      "9 m s^{-1} in z-direction",
-      "4 m s^{-1} in y-direction"
+      "$16 m s^{-1}$ in y-direction",
+      "$4 m s^{-1}$ in x-direction",
+      "$9 m s^{-1}$ in z-direction",
+      "$4 m s^{-1}$ in y-direction"
     ],
     "answer": 3,
     "explanation": "Velocity is the derivative of position vector with respect to time:\n$$\\vec{v}(t) = \\frac{d\\vec{S}}{dt} = \\frac{d}{dt}(2t^2\\hat{j} + 5\\hat{k}) = 4t\\hat{j}$$\nAt $t = 1\\text{ s}$:\n$$\\vec{v} = 4\\hat{j}\\text{ m s}^{-1}$$\nThus, the magnitude is $4\\text{ m s}^{-1}$ in the $y$-direction.",
@@ -594,10 +594,10 @@
     "q": "A particle is moving in a straight line. The variation of position $x$ as a function of time $t$ is given as $x = (t^3 - 6t^2 + 20t + 15)\\text{ m}$. The velocity of the body when its acceleration becomes zero is:",
     "type": "mcq",
     "options": [
-      "4 m s^{-1}",
-      "8 m s^{-1}",
-      "10 m s^{-1}",
-      "6 m s^{-1}"
+      "$4 m s^{-1}$",
+      "$8 m s^{-1}$",
+      "$10 m s^{-1}$",
+      "$6 m s^{-1}$"
     ],
     "answer": 1,
     "explanation": "Velocity is:\n$$v = \\frac{dx}{dt} = 3t^2 - 12t + 20$$\nAcceleration is:\n$$a = \\frac{dv}{dt} = 6t - 12$$\nSetting acceleration to zero:\n$$6t - 12 = 0 \\implies t = 2\\text{ s}$$\nSubstitute $t=2$ into the velocity equation:\n$$v(2) = 3(2)^2 - 12(2) + 20 = 12 - 24 + 20 = 8\\text{ m s}^{-1}$$",
@@ -696,10 +696,10 @@
     "q": "A body at rest is moved along a horizontal straight line by a machine delivering a constant power. The distance moved by the body in time $t$ is proportional to:",
     "type": "mcq",
     "options": [
-      "t^{3/2}",
-      "t^{1/2}",
-      "t^{1/4}",
-      "t^{3/4}"
+      "$t^{3/2}$",
+      "$t^{1/2}$",
+      "$t^{1/4}$",
+      "$t^{3/4}$"
     ],
     "answer": 0,
     "explanation": "Since power $P$ is constant:\n$$P = F \\cdot v = m v \\frac{dv}{dt} \\implies v \\, dv = \\frac{P}{m} dt$$\nIntegrating both sides from rest:\n$$\\frac{v^2}{2} = \\frac{P}{m} t \\implies v = \\sqrt{\\frac{2P}{m}} t^{1/2}$$\nNow, distance $x$ is:\n$$x = \\int v \\, dt \\propto \\int t^{1/2} \\, dt = \\frac{2}{3} t^{3/2} \\implies x \\propto t^{3/2}$$",
@@ -744,10 +744,10 @@
     "q": "The velocity of a particle is $v = (v_0 + g t + F t^2)\\text{ m s}^{-1}$. Its position is $x = 0$ at $t = 0$; then its displacement after time $(t = 1\\text{ s})$ is:",
     "type": "mcq",
     "options": [
-      "v_0 + g + F",
+      "$v_0 + g + F$",
       "$v_0 + \\frac{g}{2} + \\frac{F}{3}$",
       "$v_0 + \\frac{g}{2} + F$",
-      "v_0 + 2g + 3F"
+      "$v_0 + 2g + 3F$"
     ],
     "answer": 1,
     "explanation": "Displacement $x$ is the integral of velocity over the time interval:\n$$x = \\int_{0}^{1} (v_0 + g t + F t^2) \\, dt = \\left[ v_0 t + \\frac{g t^2}{2} + \\frac{F t^3}{3} \\right]_{0}^{1} = v_0 + \\frac{g}{2} + \\frac{F}{3}$$",
@@ -817,7 +817,7 @@
       "(2p + 1) s",
       "$\\sqrt{(2p^2 - 2p + 1)}\\text{ s}$",
       "(2p - 1) s",
-      "(2p^2 - 2p + 1) s"
+      "$(2p^2 - 2p + 1) s$"
     ],
     "answer": 1,
     "explanation": "Using $S = \\frac{1}{2}at^2$:\n$$S_1 = \\frac{1}{2}a(p-1)^2$$\n$$S_2 = \\frac{1}{2}ap^2$$\nWe want to find time $t$ such that:\n$$\\frac{1}{2}at^2 = S_1 + S_2 = \\frac{1}{2}a(p-1)^2 + \\frac{1}{2}ap^2$$\n$$t^2 = (p-1)^2 + p^2 = p^2 - 2p + 1 + p^2 = 2p^2 - 2p + 1$$\n$$t = \\sqrt{2p^2 - 2p + 1}\\text{ s}$$",
@@ -948,10 +948,10 @@
     "q": "A bullet of mass $20\\text{ g}$ has an initial speed of $1\\text{ m s}^{-1}$, just before it starts penetrating a mud wall of thickness $20\\text{ cm}$. If the wall offers a mean resistance of $2.5 \\times 10^{-2}\\text{ N}$, the speed of the bullet after emerging from the other side of the wall is close to:",
     "type": "mcq",
     "options": [
-      "0.7 m s^{-1}",
-      "0.3 m s^{-1}",
-      "0.1 m s^{-1}",
-      "0.4 m s^{-1}"
+      "$0.7 m s^{-1}$",
+      "$0.3 m s^{-1}$",
+      "$0.1 m s^{-1}$",
+      "$0.4 m s^{-1}$"
     ],
     "answer": 0,
     "explanation": "Using the work-energy theorem:\n$$W = \\Delta K \\implies -F_r \\cdot d = \\frac{1}{2}m v_f^2 - \\frac{1}{2}m v_i^2$$\n$$-(2.5 \\times 10^{-2}) (0.2) = \\frac{1}{2} (20 \\times 10^{-3}) (v_f^2 - 1^2)$$\n$$-5 \\times 10^{-3} = 10^{-2} (v_f^2 - 1)$$\n$$-0.5 = v_f^2 - 1 \\implies v_f^2 = 0.5 \\implies v_f = \\sqrt{0.5} \\approx 0.7\\text{ m s}^{-1}$$",
@@ -1126,9 +1126,9 @@
     "type": "mcq",
     "options": [
       "3 drops/ 2 seconds",
-      "2 drops/second",
-      "1 drop/second",
-      "1 drop/7 seconds"
+      "$2 drops/second$",
+      "$1 drop/second$",
+      "$1 drop/7 seconds$"
     ],
     "answer": 2,
     "explanation": "Let the time interval between successive drops be $\\Delta t$.\nAt $t = 4\\text{ s}$, the distance fallen by the first drop is:\n$$s_1 = \\frac{1}{2}g(4)^2 = 8g$$\n\nThe next drop has been falling for a time $4 - \\Delta t$, and its distance is:\n$$s_2 = \\frac{1}{2}g(4 - \\Delta t)^2$$\n\nGiven the spacing is $34.3\\text{ m}$:\n$$s_1 - s_2 = 34.3 \\implies \\frac{1}{2}g \\left[ 16 - (4 - \\Delta t)^2 \\right] = 34.3$$\n$$4.9 \\left[ 16 - (16 - 8\\Delta t + \\Delta t^2) \\right] = 34.3$$\n$$8\\Delta t - \\Delta t^2 = 7 \\implies \\Delta t^2 - 8\\Delta t + 7 = 0$$\n$$(\\Delta t - 1)(\\Delta t - 7) = 0$$\n\nFor physically realistic solutions, $\\Delta t = 1\\text{ s}$. Thus, the rate is 1 drop/second.",
@@ -1222,9 +1222,9 @@
     "type": "mcq",
     "options": [
       "1",
-      "1/2",
-      "5/3",
-      "3/5"
+      "$1/2$",
+      "$5/3$",
+      "$3/5$"
     ],
     "answer": 2,
     "explanation": "We calculate the area under each section of the $v-t$ curve:\n- Positive Area $A_1 = \\frac{1}{2} \\times (20-0) \\times (20) = 200\\text{ m}$\n- Negative Area $A_2 = \\frac{1}{2} \\times (25-20) \\times (-20) = -50\\text{ m}$\n\n- Displacement $= 200 - 50 = 150\\text{ m}$\n- Distance $= 200 + 50 = 250\\text{ m}$\n\n$$\\text{Ratio} = \\frac{\\text{Distance}}{\\text{Displacement}} = \\frac{250}{150} = \\frac{5}{3}$$",
@@ -1360,10 +1360,10 @@
     "q": "A particle moves along the $x$-axis and has its displacement $x$ varying with time $t$ according to the equation $x = c_0 (t^2 - 2) + c(t - 2)^2$ where $c_0$ and $c$ are constants of appropriate dimensions. Then, which of the following statements is correct?",
     "type": "mcq",
     "options": [
-      "the acceleration of the particle is 2c_0",
+      "the acceleration of the particle is $2c_0$",
       "the acceleration of the particle is 2 c",
       "the initial velocity of the particle is 4 c",
-      "the acceleration of the particle is 2 (c + c_0)"
+      "the acceleration of the particle is $2(c + c_0)$"
     ],
     "answer": 3,
     "explanation": "Let's find the derivatives:\n$$x(t) = c_0 t^2 - 2c_0 + c(t^2 - 4t + 4)$$\nVelocity is:\n$$v(t) = \\frac{dx}{dt} = 2c_0 t + 2c(t - 2)$$\nAcceleration is:\n$$a(t) = \\frac{dv}{dt} = 2c_0 + 2c = 2(c_0 + c)$$\n\nHence, the acceleration of the particle is $2(c + c_0)$.",
@@ -1484,10 +1484,10 @@
     "q": "Train A and B are running on parallel tracks in the opposite directions with speed of $36\\text{ km hour}^{-1}$ and $72\\text{ km hour}^{-1}$, respectively. A person is walking in train A in the direction opposite to its motion with a speed of $1.8\\text{ km hour}^{-1}$. Speed (in $\\text{m s}^{-1}$) of this person as observed from train B will be close to: (take the distance between the tracks as negligible)",
     "type": "mcq",
     "options": [
-      "29.5 m s^{-1}",
-      "28.5 m s^{-1}",
-      "31.5 m s^{-1}",
-      "30.5 m s^{-1}"
+      "$29.5 m s^{-1}$",
+      "$28.5 m s^{-1}$",
+      "$31.5 m s^{-1}$",
+      "$30.5 m s^{-1}$"
     ],
     "answer": 2,
     "explanation": "Convert the velocities into SI units (let North be positive, South be negative):\n- $v_A = +36 \\times \\frac{5}{18} = +10\\text{ m/s}$ (North)\n- $v_B = -72 \\times \\frac{5}{18} = -20\\text{ m/s}$ (South)\n\nThe person is walking in train A in the opposite direction of its motion (South):\n$$v_p = v_A - 1.8 \\times \\frac{5}{18} = 10 - 0.5 = 9.5\\text{ m/s}$$\n\nVelocity of the person as observed from train B:\n$$v_{pB} = v_p - v_B = 9.5 - (-20) = 29.5\\text{ m/s}$$\nBased on the answer key, Option 3 is correct.",

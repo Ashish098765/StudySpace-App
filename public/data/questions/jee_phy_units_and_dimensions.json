@@ -83,10 +83,10 @@
     "q": "If $\\mu_0$ and $\\varepsilon_0$ are the permeability and permittivity of free space, respectively, then the dimension of $\\left(\\frac{1}{\\mu_0 \\varepsilon_0}\\right)$ is :",
     "type": "mcq",
     "options": [
-      "L/T",
-      "L^2/T^2",
-      "T^2/L",
-      "T^2/L^2"
+      "$L/T$",
+      "$L^2/T^2$",
+      "$T^2/L$",
+      "$T^2/L^2$"
     ],
     "answer": 1,
     "explanation": "The speed of light in free space is given by:\n$$c = \\frac{1}{\\sqrt{\\mu_0 \\varepsilon_0}} \\implies c^2 = \\frac{1}{\\mu_0 \\varepsilon_0}$$\nSince $c$ represents speed, its dimensions are $[\\text{L T}^{-1}]$.\nThus, the dimensions of $\\frac{1}{\\mu_0 \\varepsilon_0}$ are $[\\text{L T}^{-1}]^2 = [\\text{L}^2 \\text{T}^{-2}]$.",
@@ -131,10 +131,10 @@
     "q": "Which one of the following is the correct dimensional formula for the capacitance in F? M, L, T and C stand for unit of mass, length, time and charge,",
     "type": "mcq",
     "options": [
-      "[F] = [C^2M^{-1}L^{-2}T^2]",
-      "[F] = [C^2M^{-2}L^2T^2]",
-      "[F] = [CM^{-2}L^{-2}T^{-2}]",
-      "[F] = [CM^{-1}L^{-2}T^2]"
+      "$[F] = [C^2M^{-1}L^{-2}T^2]$",
+      "$[F] = [C^2M^{-2}L^2T^2]$",
+      "$[F] = [CM^{-2}L^{-2}T^{-2}]$",
+      "$[F] = [CM^{-1}L^{-2}T^2]$"
     ],
     "answer": 0,
     "explanation": "We know that capacitance $C_{\\text{cap}} = \\frac{q}{V}$.\nThe potential difference is $V = \\frac{W}{q}$.\n$$C_{\\text{cap}} = \\frac{q^2}{W}$$\nDimensions of charge $q = [\\text{C}]$.\nDimensions of work $W = [\\text{M L}^2 \\text{T}^{-2}]$.\n$$[C_{\\text{cap}}] = \\frac{[\\text{C}]^2}{[\\text{M L}^2 \\text{T}^{-2}]} = [\\text{C}^2 \\text{M}^{-1} \\text{L}^{-2} \\text{T}^2]$$",
@@ -147,13 +147,13 @@
     "q": "The position of a particle moving on $x$-axis is given by $x(t) = A \\sin t + B \\cos^2 t + C t^2 + D t$, where $t$ is time. The dimension of $\\frac{ABC}{D}$ is",
     "type": "mcq",
     "options": [
-      "L^2T^{-2}",
-      "L^2",
+      "$L^2T^{-2}$",
+      "$L^2$",
       "L",
-      "L^3T^{-2}"
+      "$L^3T^{-2}$"
     ],
     "answer": 0,
-    "explanation": "According to the principle of homogeneity, each term on the right-hand side has dimensions of length $[\\text{L}]$:\n- $[A \\sin t] = [\\text{L}] \\implies [A] = [\\text{L}]$\n- $[B \\cos^2 t] = [\\text{L}] \\implies [B] = [\\text{L}]$\n- $[C t^2] = [\\text{L}] \\implies [C] = [\\text{L T}^{-2}]$\n- $[D t] = [\\text{L}] \\implies [D] = [\\text{L T}^{-1}]$\n\nNow, let's find the dimension of $\\frac{ABC}{D}$:\n$$\\left[ \\frac{ABC}{D} \\right] = \\frac{[\\text{L}][\\text{L}][\\text{L T}^{-2}]}{[\\text{L T}^{-1}]} = [\\text{L}^2 \\text{T}^{-1}]$$\nWait, checking the answer key: Q10 (1) which means \"L^2T^{-2}\". Let's verify the dimensions of cosine/sine functions. Here, $\\sin t$ is technically $\\sin(\\omega t)$, so if the argument $t$ is written directly as $t$, then the coefficients of $t$ in trig functions are implied to be 1, or $t$ is dimensionally time. If $t$ inside $\\sin t$ is a typo for $\\omega t$ where $\\omega$ has dimension $[\\text{T}^{-1}]$, then $[A] = [\\text{L}]$. If $[C] = [\\text{L T}^{-2}]$ and $[D] = [\\text{L T}^{-1}]$, then $[\\frac{ABC}{D}] = [\\frac{\\text{L} \\cdot \\text{L} \\cdot \\text{L T}^{-2}}{\\text{L T}^{-1}}] = [\\text{L}^2 \\text{T}^{-1}]$? Wait, if we check Option (1), it is $L^2T^{-2}$. Oh, in the PDF the option says (1) $L^2T^{-2}$, but in the solution key, it corresponds to Option 1.",
+    "explanation": "According to the principle of homogeneity, each term on the right-hand side has dimensions of length $[\\text{L}]$:\n- $[A \\sin t] = [\\text{L}] \\implies [A] = [\\text{L}]$\n- $[B \\cos^2 t] = [\\text{L}] \\implies [B] = [\\text{L}]$\n- $[C t^2] = [\\text{L}] \\implies [C] = [\\text{L T}^{-2}]$\n- $[D t] = [\\text{L}] \\implies [D] = [\\text{L T}^{-1}]$\n\nNow, let's find the dimension of $\\frac{ABC}{D}$:\n$$\\left[ \\frac{ABC}{D} \\right] = \\frac{[\\text{L}][\\text{L}][\\text{L T}^{-2}]}{[\\text{L T}^{-1}]} = [\\text{L}^2 \\text{T}^{-1}]$$\nWait, checking the answer key: Q10 (1) which means \"$L^2T^{-2}$\". Let's verify the dimensions of cosine/sine functions. Here, $\\sin t$ is technically $\\sin(\\omega t)$, so if the argument $t$ is written directly as $t$, then the coefficients of $t$ in trig functions are implied to be 1, or $t$ is dimensionally time. If $t$ inside $\\sin t$ is a typo for $\\omega t$ where $\\omega$ has dimension $[\\text{T}^{-1}]$, then $[A] = [\\text{L}]$. If $[C] = [\\text{L T}^{-2}]$ and $[D] = [\\text{L T}^{-1}]$, then $[\\frac{ABC}{D}] = [\\frac{\\text{L} \\cdot \\text{L} \\cdot \\text{L T}^{-2}}{\\text{L T}^{-1}}] = [\\text{L}^2 \\text{T}^{-1}]$? Wait, if we check Option (1), it is $L^2T^{-2}$. Oh, in the PDF the option says (1) $L^2T^{-2}$, but in the solution key, it corresponds to Option 1.",
     "year": "2025",
     "shift": "Morning",
     "date": "23rd January",
@@ -206,10 +206,10 @@
     "q": "The equation of stationary wave is: $y = 2a \\sin \\left(\\frac{2\\pi nt}{\\lambda}\\right) \\cos \\left(\\frac{2\\pi x}{\\lambda}\\right)$. Which of the following is NOT correct :",
     "type": "mcq",
     "options": [
-      "The dimensions of $n/\\lambda$ is [T]",
-      "The dimensions of n is [LT^{-1}]",
-      "The dimensions of x is [L]",
-      "The dimensions of nt is [L]"
+      "The dimensions of $n/\\lambda$ is $[T]$",
+      "The dimensions of $n$ is $[LT^{-1}]$",
+      "The dimensions of $x$ is $[L]$",
+      "The dimensions of $nt$ is $[L]$"
     ],
     "answer": 0,
     "explanation": "In trigonometric functions, the arguments must be dimensionless:\n- $\\left[ \\frac{2\\pi x}{\\lambda} \\right] = 1 \\implies [x] = [\\lambda] = [\\text{L}]$\n- $\\left[ \\frac{2\\pi nt}{\\lambda} \\right] = 1 \\implies [nt] = [\\lambda] = [\\text{L}] \\implies [n][\\text{T}] = [\\text{L}] \\implies [n] = [\\text{L T}^{-1}]$\n\nLet's check the options:\n- The dimensions of $\\frac{n}{\\lambda}$ is $\\frac{[\\text{L T}^{-1}]}{[\\text{L}]} = [\\text{T}^{-1}]$, which is NOT $[\\text{T}]$. Thus, option (1) is incorrect.",
@@ -238,10 +238,10 @@
     "q": "The dimensional formula of latent heat is :",
     "type": "mcq",
     "options": [
-      "[ML^2T^{-2}]",
-      "[M^0L^2T^{-2}]",
-      "[MLT^{-2}]",
-      "[M^0LT^{-2}]"
+      "$[ML^2T^{-2}]$",
+      "$[M^0L^2T^{-2}]$",
+      "$[MLT^{-2}]$",
+      "$[M^0LT^{-2}]$"
     ],
     "answer": 1,
     "explanation": "Latent heat $L$ is given by:\n$$L = \\frac{Q}{m}$$\nWhere $Q$ is heat energy ($[\\text{M L}^2 \\text{T}^{-2}]$) and $m$ is mass ($[\\text{M}]$).\n$$[L] = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{M}]} = [\\text{M}^0 \\text{L}^2 \\text{T}^{-2}]$$",
@@ -270,10 +270,10 @@
     "q": "The dimensional formula of angular impulse is :",
     "type": "mcq",
     "options": [
-      "[ML^{-2}T^{-1}]",
-      "[ML^2T^{-2}]",
-      "[MLT^{-1}]",
-      "[ML^2T^{-1}]"
+      "$[ML^{-2}T^{-1}]$",
+      "$[ML^2T^{-2}]$",
+      "$[MLT^{-1}]$",
+      "$[ML^2T^{-1}]$"
     ],
     "answer": 3,
     "explanation": "Angular impulse is the change in angular momentum, or torque integrated over time:\n$$\\text{Angular Impulse} = \\int \\tau \\, dt$$\nDimensions of Torque $\\tau$: $[\\text{M L}^2 \\text{T}^{-2}]$.\n$$\\text{Dimensions of Angular Impulse} = [\\text{M L}^2 \\text{T}^{-2}][\\text{T}] = [\\text{M L}^2 \\text{T}^{-1}]$$",
@@ -334,10 +334,10 @@
     "q": "If momentum $[P]$, area $[A]$ and time $[T]$ are taken as fundamental quantities, then the dimensional formula for coefficient of viscosity is",
     "type": "mcq",
     "options": [
-      "[PA^{-1} T^0]",
-      "[PAT^{-1}]",
-      "[PA^{-1} T]",
-      "[PA^{-1} T^{-1}]"
+      "$[PA^{-1} T^0]$",
+      "$[PAT^{-1}]$",
+      "$[PA^{-1} T]$",
+      "$[PA^{-1} T^{-1}]$"
     ],
     "answer": 0,
     "explanation": "Viscosity $\\eta$ has dimensions $[\\text{M L}^{-1} \\text{T}^{-1}]$.\nLet $\\eta \\propto P^x A^y T^z$.\nDimensions of momentum $P$: $[\\text{M L T}^{-1}]$\nDimensions of area $A$: $[\\text{L}^2]$\nDimensions of time $T$: $[\\text{T}]$\n\n$$[\\text{M L}^{-1} \\text{T}^{-1}] = [\\text{M L T}^{-1}]^x [\\text{L}^2]^y [\\text{T}]^z = \\text{M}^x \\text{L}^{x+2y} \\text{T}^{-x+z}$$\n\nComparing exponents:\n- For M: $x = 1$\n- For L: $x + 2y = -1 \\implies 1 + 2y = -1 \\implies y = -1$\n- For T: $-x + z = -1 \\implies -1 + z = -1 \\implies z = 0$\n\nThus, $[\\eta] = [P^1 A^{-1} T^0] = [\\text{P A}^{-1} \\text{T}^0]$.",
@@ -350,10 +350,10 @@
     "q": "The dimensions of $\\left(\\frac{B^2}{\\mu_0}\\right)$ will be (if $\\mu_0$ : permeability of free space and $B$ : magnetic field)",
     "type": "mcq",
     "options": [
-      "[ML^2 T^{-2}]",
-      "[MLT^{-2}]",
-      "[ML^{-1} T^{-2}]",
-      "[ML^{-2} A^{-1}]"
+      "$[ML^2 T^{-2}]$",
+      "$[MLT^{-2}]$",
+      "$[ML^{-1} T^{-2}]$",
+      "$[ML^{-2} A^{-1}]$"
     ],
     "answer": 2,
     "explanation": "The quantity $\\frac{B^2}{\\mu_0}$ represents the energy density (magnetic energy per unit volume) in a magnetic field.\n$$\\text{Energy density} = \\frac{\\text{Energy}}{\\text{Volume}} = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}^3]} = [\\text{M L}^{-1} \\text{T}^{-2}]$$",
@@ -366,10 +366,10 @@
     "q": "An expression for a dimensionless quantity $P$ is given by $P = \\frac{\\alpha}{\\beta} \\log_{\\text{e}}\\left(\\frac{k T}{\\beta x}\\right)$; where $\\alpha$ and $\\beta$ are constants, $x$ is distance; $k$ is Boltzmann constant and $T$ is the temperature. Then the dimensions of $\\alpha$ will be",
     "type": "mcq",
     "options": [
-      "[M^0L^{-1}T^0]",
-      "[ML^0T^{-2}]",
-      "[MLT^{-2}]",
-      "[ML^2T^{-2}]"
+      "$[M^0L^{-1}T^0]$",
+      "$[ML^0T^{-2}]$",
+      "$[MLT^{-2}]$",
+      "$[ML^2T^{-2}]$"
     ],
     "answer": 2,
     "explanation": "Since $P$ is dimensionless, the argument of the logarithm must also be dimensionless:\n$$\\left[ \\frac{kT}{\\beta x} \\right] = 1 \\implies [\\beta] = \\frac{[kT]}{[x]}$$\nSince $kT$ has dimensions of energy $[\\text{M L}^2 \\text{T}^{-2}]$ and $x$ is distance $[\\text{L}]$:\n$$[\\beta] = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}]} = [\\text{M L T}^{-2}]$$\n\nAlso, since $P$ is dimensionless:\n$$\\left[ \\frac{\\alpha}{\\beta} \\right] = 1 \\implies [\\alpha] = [\\beta] = [\\text{M L T}^{-2}]$$",
@@ -382,10 +382,10 @@
     "q": "If $E, L, M$ and $G$ denote the quantities as energy, angular momentum, mass and constant of gravitation respectively, then the dimensions of $P$ in the formula $P = E L^2 M^{-5} G^{-2}$ are:",
     "type": "mcq",
     "options": [
-      "[M^1L^1T^{-2}]",
-      "[M^0L^1T^0]",
-      "[M^{-1}L^{-1}T^2]",
-      "[M^0L^0T^0]"
+      "$[M^1L^1T^{-2}]$",
+      "$[M^0L^1T^0]$",
+      "$[M^{-1}L^{-1}T^2]$",
+      "$[M^0L^0T^0]$"
     ],
     "answer": 3,
     "explanation": "Let's substitute the dimensions of each quantity:\n- $E = [\\text{M L}^2 \\text{T}^{-2}]$\n- $L = [\\text{M L}^2 \\text{T}^{-1}]$\n- $M = [\\text{M}]$\n- $G = [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]$\n\n$$[P] = [\\text{M L}^2 \\text{T}^{-2}] \\cdot [\\text{M L}^2 \\text{T}^{-1}]^2 \\cdot [\\text{M}]^{-5} \\cdot [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]^{-2}$$\n$$[P] = [\\text{M L}^2 \\text{T}^{-2}] \\cdot [\\text{M}^2 \\text{L}^4 \\text{T}^{-2}] \\cdot [\\text{M}]^{-5} \\cdot [\\text{M}^2 \\text{L}^{-6} \\text{T}^4]$$\n$$[P] = \\text{M}^{1+2-5+2} \\text{L}^{2+4-6} \\text{T}^{-2-2+4} = [\\text{M}^0 \\text{L}^0 \\text{T}^0]$$\nThus, $P$ is a dimensionless quantity.",
@@ -414,10 +414,10 @@
     "q": "The force is given in terms of time $t$ and displacement $x$ by the equation $F = A \\cos Bx + C \\sin Dt$. The dimensional formula of $\\frac{AD}{B}$ is:",
     "type": "mcq",
     "options": [
-      "[M^0 L T^{-1}]",
-      "[M L^2 T^{-3}]",
-      "[M^1 L^1 T^{-2}]",
-      "[M^2 L^2 T^{-3}]"
+      "$[M^0 L T^{-1}]$",
+      "$[M L^2 T^{-3}]$",
+      "$[M^1 L^1 T^{-2}]$",
+      "$[M^2 L^2 T^{-3}]$"
     ],
     "answer": 1,
     "explanation": "By the principle of homogeneity, the arguments of trigonometric functions are dimensionless:\n- $[Bx] = 1 \\implies [B] = [\\text{L}^{-1}]$\n- $[Dt] = 1 \\implies [D] = [\\text{T}^{-1}]$\n- $[A] = [F] = [\\text{M L T}^{-2}]$\n\nSubstituting these into the expression for $\\frac{AD}{B}$:\n$$\\left[ \\frac{AD}{B} \\right] = \\frac{[\\text{M L T}^{-2}][\\text{T}^{-1}]}{[\\text{L}^{-1}]} = [\\text{M L}^2 \\text{T}^{-3}]$$",
@@ -430,10 +430,10 @@
     "q": "Amount of solar energy received on the earth's surface per unit area per unit time is defined a solar constant. Dimension of solar constant is:",
     "type": "mcq",
     "options": [
-      "[M L^2 T^{-2}]",
-      "[M L^0 T^{-3}]",
-      "[M^2 L^0 T^{-1}]",
-      "[M L T^{-2}]"
+      "$[M L^2 T^{-2}]$",
+      "$[M L^0 T^{-3}]$",
+      "$[M^2 L^0 T^{-1}]$",
+      "$[M L T^{-2}]$"
     ],
     "answer": 1,
     "explanation": "Solar constant $S$ is defined as:\n$$S = \\frac{\\text{Energy}}{\\text{Area} \\times \\text{Time}}$$\n$$[S] = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}^2][\\text{T}]} = [\\text{M T}^{-3}] = [\\text{M L}^0 \\text{T}^{-3}]$$",
@@ -446,10 +446,10 @@
     "q": "Dimensional formula for thermal conductivity is (here $K$ denotes the temperature):",
     "type": "mcq",
     "options": [
-      "[M L T^{-2} K]",
-      "[M L T^{-2} K^{-2}]",
-      "[M L T^{-3} K]",
-      "[M L T^{-3} K^{-1}]"
+      "$[M L T^{-2} K]$",
+      "$[M L T^{-2} K^{-2}]$",
+      "$[M L T^{-3} K]$",
+      "$[M L T^{-3} K^{-1}]$"
     ],
     "answer": 3,
     "explanation": "The rate of heat flow is given by:\n$$\\frac{dQ}{dt} = k A \\frac{\\Delta T}{d} \\implies k = \\frac{(dQ/dt) \\cdot d}{A \\cdot \\Delta T}$$\n\nSubstituting the dimensions:\n- $[dQ/dt] = [\\text{M L}^2 \\text{T}^{-3}]$\n- $[d] = [\\text{L}]$\n- $[A] = [\\text{L}^2]$\n- $[\\Delta T] = [\\text{K}]$\n\n$$[k] = \\frac{[\\text{M L}^2 \\text{T}^{-3}][\\text{L}]}{[\\text{L}^2][\\text{K}]} = [\\text{M L T}^{-3} \\text{K}^{-1}]$$",
@@ -479,9 +479,9 @@
     "type": "mcq",
     "options": [
       "[L T A]",
-      "[A^{-1}]",
-      "[L T^2]",
-      "[L A^{-2}]"
+      "$[A^{-1}]$",
+      "$[L T^2]$",
+      "$[L A^{-2}]$"
     ],
     "answer": 1,
     "explanation": "We know that:\n- Time constant $\\tau_1 = \\frac{L}{R}$ has dimension of time $[\\text{T}]$.\n- Time constant $\\tau_2 = R C$ has dimension of time $[\\text{T}]$.\n- Thus, $\\frac{L}{R} \\cdot \\frac{1}{R C} = \\frac{L}{R^2 C}$ is dimensionless.\n- Now, we can express the given quantity as:\n$$\\frac{L}{R C V} = \\left(\\frac{L}{R}\\right) \\frac{1}{C V}$$\nSince $Q = C V$ is charge and $\\frac{L}{R}$ is time:\n$$\\left[ \\frac{L}{R C V} \\right] = \\frac{[\\text{T}]}{[\\text{I} \\cdot \\text{T}]} = [\\text{A}^{-1}]$$",
@@ -526,10 +526,10 @@
     "q": "Electric field in a certain region is given by $\\vec{E} = \\left( \\frac{A}{x^2}\\hat{i} + \\frac{B}{y^3}\\hat{j} \\right)$. The SI unit of $A$ and $B$ are :",
     "type": "mcq",
     "options": [
-      "N m^3 C^{-1}; N m^2 C^{-1}",
-      "N m^2 C^{-1}; N m^3 C^{-1}",
-      "N m^3 C; N m^2 C",
-      "N m^2 C; N m^3 C"
+      "$N m^3 C^{-1}; N m^2 C^{-1}$",
+      "$N m^2 C^{-1}; N m^3 C^{-1}$",
+      "$N m^3 C; N m^2 C$",
+      "$N m^2 C; N m^3 C$"
     ],
     "answer": 1,
     "explanation": "The SI unit of electric field $E$ is $\\text{N C}^{-1}$.\nUsing dimensional consistency:\n- Unit of $\\frac{A}{x^2}$ is $\\text{N C}^{-1} \\implies [A] = \\text{N C}^{-1} \\cdot \\text{m}^2 = \\text{N m}^2\\text{C}^{-1}$\n- Unit of $\\frac{B}{y^3}$ is $\\text{N C}^{-1} \\implies [B] = \\text{N C}^{-1} \\cdot \\text{m}^3 = \\text{N m}^3\\text{C}^{-1}$",
@@ -718,10 +718,10 @@
     "q": "If $B$ is magnetic field and $\\mu_0$ is permeability of free space, then the dimensions of $(B/\\mu_0)$ is",
     "type": "mcq",
     "options": [
-      "M L^2 T^{-2} A^{-1}",
-      "M T^{-2} A^{-1}",
-      "L^{-1} A",
-      "L T^{-2} A^{-1}"
+      "$M L^2 T^{-2} A^{-1}$",
+      "$M T^{-2} A^{-1}$",
+      "$L^{-1} A$",
+      "$L T^{-2} A^{-1}$"
     ],
     "answer": 2,
     "explanation": "The quantity $H = \\frac{B}{\\mu_0}$ represents the magnetic field intensity.\nThe unit of magnetic intensity is Ampere/meter.\nThus, the dimensions of $B/\\mu_0$ are $[\\text{L}^{-1} \\text{A}]$.",
@@ -766,10 +766,10 @@
     "q": "The expression given below shows the variation of velocity ($v$) with time ($t$), $v = At^2 + \\frac{Bt}{C+t}$. The dimension of $ABC$ is :",
     "type": "mcq",
     "options": [
-      "[M^0 L^1 T^{-3}]",
-      "[M^0 L^2 T^{-2}]",
-      "[M^0 L^1 T^{-2}]",
-      "[M^0 L^2 T^{-3}]"
+      "$[M^0 L^1 T^{-3}]$",
+      "$[M^0 L^2 T^{-2}]$",
+      "$[M^0 L^1 T^{-2}]$",
+      "$[M^0 L^2 T^{-3}]$"
     ],
     "answer": 3,
     "explanation": "Applying dimensional homogeneity:\n- $[At^2] = [v] \\implies [A][\\text{T}^2] = [\\text{L T}^{-1}] \\implies [A] = [\\text{L T}^{-3}]$\n- Since $C$ is added to $t$, $[C] = [t] = [\\text{T}]$\n- $\\left[ \\frac{Bt}{C+t} \\right] = [v] \\implies \\frac{[B][\\text{T}]}{[\\text{T}]} = [\\text{L T}^{-1}] \\implies [B] = [\\text{L T}^{-1}]$\n\nNow, dimensions of $ABC$:\n$$[ABC] = [\\text{L T}^{-3}][\\text{L T}^{-1}][\\text{T}] = [\\text{L}^2 \\text{T}^{-3}] = [\\text{M}^0 \\text{L}^2 \\text{T}^{-3}]$$",
@@ -814,10 +814,10 @@
     "q": "What is the dimensional formula of $ab^{-1}$ in the equation $\\left(P + \\frac{a}{V^2}\\right)(V - b) = RT$, where letters have their usual meaning.",
     "type": "mcq",
     "options": [
-      "[M^{-1} L^5 T^3]",
-      "[M^0 L^7 T^4]",
-      "[ML^2 T^{-2}]",
-      "[M^0 L^3 T^{-2}]"
+      "$[M^{-1} L^5 T^3]$",
+      "$[M^0 L^7 T^4]$",
+      "$[ML^2 T^{-2}]$",
+      "$[M^0 L^3 T^{-2}]$"
     ],
     "answer": 2,
     "explanation": "By the principle of homogeneity of dimensions:\n- $[\\frac{a}{V^2}] = [P] \\implies [a] = [P V^2] = [\\text{M L}^{-1} \\text{T}^{-2} \\cdot \\text{L}^6] = [\\text{M L}^5 \\text{T}^{-2}]$\n- $[b] = [V] = [\\text{L}^3] \\implies [b^{-1}] = [\\text{L}^{-3}]$\n\nNow, the dimensional formula of $ab^{-1}$ is:\n$$[ab^{-1}] = [\\text{M L}^5 \\text{T}^{-2}][\\text{L}^{-3}] = [\\text{M L}^2 \\text{T}^{-2}]$$",
@@ -862,10 +862,10 @@
     "q": "If $\\epsilon_0$ is the permittivity of free space and E is the electric field, then $\\epsilon_0E^2$ has the dimensions :",
     "type": "mcq",
     "options": [
-      "[M^{-1} L^{-3} T^4 A^2]",
-      "[ML^2 T^{-2}]",
-      "[M^0L^{-2}TA]",
-      "[ML^{-1} T^{-2}]"
+      "$[M^{-1} L^{-3} T^4 A^2]$",
+      "$[ML^2 T^{-2}]$",
+      "$[M^0L^{-2}TA]$",
+      "$[ML^{-1} T^{-2}]$"
     ],
     "answer": 3,
     "explanation": "The quantity $u = \\frac{1}{2}\\epsilon_0 E^2$ represents the electrostatic energy density of the electric field.\n$$\\text{Energy density} = \\frac{\\text{Energy}}{\\text{Volume}} = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}^3]} = [\\text{M L}^{-1} \\text{T}^{-2}]$$",
@@ -878,10 +878,10 @@
     "q": "The de-Broglie wavelength associated with a particle of mass $m$ and energy $E$ is $h/\\sqrt{2mE}$. The dimensional formula for Planck's constant is :",
     "type": "mcq",
     "options": [
-      "[ML^2 T^{-1}]",
-      "[ML^{-1} T^{-2}]",
-      "[MLT^{-2}]",
-      "[M^2 L^2 T^{-2}]"
+      "$[ML^2 T^{-1}]$",
+      "$[ML^{-1} T^{-2}]$",
+      "$[MLT^{-2}]$",
+      "$[M^2 L^2 T^{-2}]$"
     ],
     "answer": 0,
     "explanation": "From de-Broglie relation:\n$$\\lambda = \\frac{h}{\\sqrt{2mE}} \\implies h = \\lambda \\sqrt{2mE}$$\n\nSubstituting the dimensions of $\\lambda$, $m$, and $E$:\n- $[\\lambda] = [\\text{L}]$\n- $[m] = [\\text{M}]$\n- $[E] = [\\text{M L}^2 \\text{T}^{-2}]$\n\n$$[h] = [\\text{L}] \\sqrt{[\\text{M}][\\text{M L}^2 \\text{T}^{-2}]} = [\\text{L}] \\sqrt{[\\text{M}^2 \\text{L}^2 \\text{T}^{-2}]} = [\\text{L}][\\text{M L T}^{-1}] = [\\text{M L}^2 \\text{T}^{-1}]$$",
@@ -926,10 +926,10 @@
     "q": "If mass is written as $m = k c^P G^{-1/2} h^{1/2}$, then the value of $P$ will be : (Constants have their usual meaning with $k$ a dimensionless constant)",
     "type": "mcq",
     "options": [
-      "1/2",
-      "1/3",
+      "$1/2$",
+      "$1/3$",
       "2",
-      "-1/3"
+      "$-1/3$"
     ],
     "answer": 0,
     "explanation": "Substitute the dimensional formulas for each quantity:\n- $[c] = [\\text{L T}^{-1}]$\n- $[G] = [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]$\n- $[h] = [\\text{M L}^2 \\text{T}^{-1}]$\n\n$$[\\text{M}] = [\\text{L T}^{-1}]^P [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]^{-1/2} [\\text{M L}^2 \\text{T}^{-1}]^{1/2}$$\n$$[\\text{M}] = \\text{L}^P \\text{T}^{-P} \\cdot \\text{M}^{1/2} \\text{L}^{-3/2} \\text{T}^1 \\cdot \\text{M}^{1/2} \\text{L}^1 \\text{T}^{-1/2}$$\n$$[\\text{M}] = \\text{M}^{1/2+1/2} \\text{L}^{P-3/2+1} \\text{T}^{-P+1-1/2}$$\n$$[\\text{M}] = \\text{M}^1 \\text{L}^{P-1/2} \\text{T}^{-P+1/2}$$\n\nComparing exponents for L:\n$$P - 1/2 = 0 \\implies P = 1/2$$",
@@ -942,10 +942,10 @@
     "q": "A force is represented by $F = ax^2 + bt^{1/2}$, where $x =$ distance and $t =$ time. The dimensions of $\\frac{b^2}{a}$ are :",
     "type": "mcq",
     "options": [
-      "[ML^3 T^{-3}]",
-      "[MLT^{-2}]",
-      "[ML^{-1} T^{-1}]",
-      "[ML^2 T^{-3}]"
+      "$[ML^3 T^{-3}]$",
+      "$[MLT^{-2}]$",
+      "$[ML^{-1} T^{-1}]$",
+      "$[ML^2 T^{-3}]$"
     ],
     "answer": 0,
     "explanation": "By the principle of homogeneity of dimensions:\n- $[ax^2] = [F] \\implies [a][\\text{L}^2] = [\\text{M L T}^{-2}] \\implies [a] = [\\text{M L}^{-1} \\text{T}^{-2}]$\n- $[bt^{1/2}] = [F] \\implies [b][\\text{T}^{1/2}] = [\\text{M L T}^{-2}] \\implies [b] = [\\text{M L T}^{-5/2}]$\n\nNow, dimensions of $\\frac{b^2}{a}$:\n$$\\left[ \\frac{b^2}{a} \\right] = \\frac{[\\text{M L T}^{-5/2}]^2}{[\\text{M L}^{-1} \\text{T}^{-2}]} = \\frac{[\\text{M}^2 \\text{L}^2 \\text{T}^{-5}]}{[\\text{M L}^{-1} \\text{T}^{-2}]} = [\\text{M L}^3 \\text{T}^{-3}]$$",
@@ -958,10 +958,10 @@
     "q": "Consider two physical quantities $A$ and $B$ related to each other as $E = \\frac{B-x^2}{At}$ where $E, x$ and $t$ have dimensions of energy, length and time respectively. The dimension of $AB$ is",
     "type": "mcq",
     "options": [
-      "L^{-2}M^1T^0",
-      "L^2M^{-1}T^1",
-      "L^{-2}M^{-1}T^1",
-      "L^0M^{-1}T^1"
+      "$L^{-2}M^1T^0$",
+      "$L^2M^{-1}T^1$",
+      "$L^{-2}M^{-1}T^1$",
+      "$L^0M^{-1}T^1$"
     ],
     "answer": 1,
     "explanation": "By the principle of homogeneity:\n- $[B] = [x^2] = [\\text{L}^2]$\n- $[E] = \\left[ \\frac{B - x^2}{At} \\right] = \\frac{[\\text{L}^2]}{[A][\\text{T}]}$\n\nGiven $[E] = [\\text{M L}^2 \\text{T}^{-2}]$:\n$$[\\text{M L}^2 \\text{T}^{-2}] = \\frac{[\\text{L}^2]}{[A][\\text{T}]} \\implies [A] = [\\text{M}^{-1} \\text{T}^1]$$\n\nNow, dimensions of $AB$:\n$$[AB] = [A][B] = [\\text{M}^{-1} \\text{T}^1][\\text{L}^2] = [\\text{L}^2 \\text{M}^{-1} \\text{T}^1]$$",
@@ -974,10 +974,10 @@
     "q": "Dimension of $\\frac{1}{\\mu_0\\varepsilon_0}$ should be equal to",
     "type": "mcq",
     "options": [
-      "L T^{-1}",
-      "T^2 L^{-2}",
-      "L^2 T^{-2}",
-      "T L^{-1}"
+      "$L T^{-1}$",
+      "$T^2 L^{-2}$",
+      "$L^2 T^{-2}$",
+      "$T L^{-1}$"
     ],
     "answer": 2,
     "explanation": "The velocity of light in free space is given by $c = \\frac{1}{\\sqrt{\\mu_0 \\varepsilon_0}}$, so:\n$$\\frac{1}{\\mu_0\\varepsilon_0} = c^2$$\nSince $[c] = [\\text{L T}^{-1}]$, the dimensions of $c^2$ are $[\\text{L}^2 \\text{T}^{-2}]$.",
@@ -1054,10 +1054,10 @@
     "q": "The equation of a circle is given by $x^2 + y^2 = a^2$, where $a$ is the radius. If the equation is modified to change the origin other than $(0, 0)$, then find out the correct dimensions of A and B in a new equation: $(x - At)^2 + \\left(y - \\frac{t}{B}\\right)^2 = a^2$. The dimensions of $t$ is given as $[T^{-1}]$.",
     "type": "mcq",
     "options": [
-      "A = [L^{-1}T], B = [LT^{-1}]",
-      "A = [LT], B = [L^{-1}T^{-1}]",
-      "A = [L^{-1}T^{-1}], B = [LT^{-1}]",
-      "A = [L^{-1}T^{-1}], B = [LT]"
+      "$A = [L^{-1}T]$, $B = [LT^{-1}]$",
+      "A = [LT], $B = [L^{-1}T^{-1}]$",
+      "$A = [L^{-1}T^{-1}]$, $B = [LT^{-1}]$",
+      "$A = [L^{-1}T^{-1}]$, B = [LT]"
     ],
     "answer": 1,
     "explanation": "By the principle of homogeneity of dimensions, each term inside the bracket must have the dimension of length $[\\text{L}]$:\n- $[At] = [\\text{L}] \\implies [A] = \\frac{[\\text{L}]}{[\\text{T}^{-1}]} = [\\text{L T}]$\n- $\\left[ \\frac{t}{B} \\right] = [\\text{L}] \\implies [B] = \\frac{[t]}{[\\text{L}]} = \\frac{[\\text{T}^{-1}]}{[\\text{L}]} = [\\text{L}^{-1} \\text{T}^{-1}]$",
@@ -1119,9 +1119,9 @@
     "type": "mcq",
     "options": [
       "$[ML^2T^{-2}\\theta^{-1}]$",
-      "[M^0L^2T^{-2}]",
-      "[M^0L^0T^0]",
-      "[M^0L^2T^0]"
+      "$[M^0L^2T^{-2}]$",
+      "$[M^0L^0T^0]$",
+      "$[M^0L^2T^0]$"
     ],
     "answer": 3,
     "explanation": "The argument of the sine function must be dimensionless:\n$$\\left[ \\frac{\\alpha x}{kt} \\right] = 1 \\implies [\\alpha] = \\frac{[kt]}{[x]}$$\nSince $kt$ is energy $[\\text{M L}^2 \\text{T}^{-2}]$:\n$$[\\alpha] = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}]} = [\\text{M L T}^{-2}]$$\n\nNow, energy density $u$ has dimensions $[\\text{M L}^{-1} \\text{T}^{-2}]$.\n$$[u] = \\left[ \\frac{\\alpha}{\\beta} \\right] \\implies [\\beta] = \\frac{[\\alpha]}{[u]} = \\frac{[\\text{M L T}^{-2}]}{[\\text{M L}^{-1} \\text{T}^{-2}]} = [\\text{L}^2] = [\\text{M}^0 \\text{L}^2 \\text{T}^0]$$",
@@ -1182,10 +1182,10 @@
     "q": "The SI unit of a physical quantity is Pascal - sec. The dimensional formula of this quantity will be",
     "type": "mcq",
     "options": [
-      "ML^2 T^{-1}",
-      "M^{-1} L^3 T^0",
-      "ML^{-1} T^{-1}",
-      "ML^{-1} T^{-2}"
+      "$ML^2 T^{-1}$",
+      "$M^{-1} L^3 T^0$",
+      "$ML^{-1} T^{-1}$",
+      "$ML^{-1} T^{-2}$"
     ],
     "answer": 2,
     "explanation": "Pascal is the unit of pressure:\n$$\\text{Pascal} = [\\text{M L}^{-1} \\text{T}^{-2}]$$\n$$\\text{Pascal - sec} = [\\text{M L}^{-1} \\text{T}^{-2}][\\text{T}] = [\\text{M L}^{-1} \\text{T}^{-1}]$$",
@@ -1278,10 +1278,10 @@
     "q": "If velocity $[V]$ time $[T]$ and force $[F]$ are chosen as the base quantities, the dimensions of the mass will be :",
     "type": "mcq",
     "options": [
-      "[F V^{-1} T^{-1}]",
-      "[F T^{-1} V^{-1}]",
-      "[F T^2 V]",
-      "[F T V^{-1}]"
+      "$[F V^{-1} T^{-1}]$",
+      "$[F T^{-1} V^{-1}]$",
+      "$[F T^2 V]$",
+      "$[F T V^{-1}]$"
     ],
     "answer": 3,
     "explanation": "According to Newton's second law of motion:\n$$F = m \\cdot a \\implies F = m \\cdot \\frac{v}{t} \\implies m = \\frac{F \\cdot t}{v}$$\n\nSubstituting the chosen base quantities:\n$$[m] = [F T V^{-1}]$$",
@@ -1294,10 +1294,10 @@
     "q": "If time $(t)$, velocity $(v)$, and angular momentum $(l)$ are taken as the fundamental units. Then the dimension of mass $(m)$ in terms of $t, v$ and $l$ is:",
     "type": "mcq",
     "options": [
-      "[t^{-1} v^1 l^{-2}]",
-      "[t^1 v^2 l^{-1}]",
-      "[t^{-2} v^{-1} l^1]",
-      "[t^{-1} v^{-2} l^1]"
+      "$[t^{-1} v^1 l^{-2}]$",
+      "$[t^1 v^2 l^{-1}]$",
+      "$[t^{-2} v^{-1} l^1]$",
+      "$[t^{-1} v^{-2} l^1]$"
     ],
     "answer": 3,
     "explanation": "We know that angular momentum is given by:\n$$L = m \\cdot v \\cdot r$$\nSince velocity $v = \\frac{r}{t} \\implies r = v \\cdot t$, substituting this in:\n$$L = m \\cdot v \\cdot (v \\cdot t) = m v^2 t$$\n$$m = L v^{-2} t^{-1}$$\nIn terms of fundamental units $t, v, l$:\n$$[m] = [t^{-1} v^{-2} l^1]$$",
@@ -1310,10 +1310,10 @@
     "q": "The work done by a gas molecule in an isolated system is given by, $W = \\alpha \\beta^2 e^{-\\frac{x^2}{\\alpha k T}}$, where $x$ is the displacement, $k$ is the Boltzmann constant and $T$ is the temperature. $\\alpha$ and $\\beta$ are constants. Then the dimensions of $\\beta$ will be:",
     "type": "mcq",
     "options": [
-      "[M^2 L T^2]",
-      "[M L^2 T^{-2}]",
-      "[M L T^{-2}]",
-      "[M^0 L T^0]"
+      "$[M^2 L T^2]$",
+      "$[M L^2 T^{-2}]$",
+      "$[M L T^{-2}]$",
+      "$[M^0 L T^0]$"
     ],
     "answer": 2,
     "explanation": "The exponent of the exponential function must be dimensionless:\n$$\\left[ \\frac{x^2}{\\alpha k T} \\right] = 1 \\implies [\\alpha] = \\frac{[x^2]}{[k T]}$$\nSince $kT$ represents thermal energy $[\\text{M L}^2 \\text{T}^{-2}]$:\n$$[\\alpha] = \\frac{[\\text{L}^2]}{[\\text{M L}^2 \\text{T}^{-2}]} = [\\text{M}^{-1} \\text{T}^2]$$\n\nSince work done $W$ is $[\\text{M L}^2 \\text{T}^{-2}]$ and the exponential part is dimensionless:\n$$[W] = [\\alpha \\beta^2] \\implies [\\beta^2] = \\frac{[W]}{[\\alpha]} = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{M}^{-1} \\text{T}^2]} = [\\text{M}^2 \\text{L}^2 \\text{T}^{-4}]$$\n$$[\\beta] = [\\text{M L T}^{-2}]$$",
@@ -1342,10 +1342,10 @@
     "q": "If $\\epsilon$ is the electronic charge, $c$ is the speed of light in free space and $h$ is Planck's constant, the quantity $\\frac{1}{4\\pi\\varepsilon_0} \\frac{e^2}{hc}$ has dimensions of :",
     "type": "mcq",
     "options": [
-      "[M L T^0]",
-      "[M^0 L^0 T^0]",
-      "[M L T^{-1}]",
-      "[L C^{-1}]"
+      "$[M L T^0]$",
+      "$[M^0 L^0 T^0]$",
+      "$[M L T^{-1}]$",
+      "$[L C^{-1}]$"
     ],
     "answer": 1,
     "explanation": "The given expression represents the fine-structure constant ($\\alpha$):\n$$\\alpha = \\frac{e^2}{4\\pi \\varepsilon_0 h c}$$\nThis is a fundamental physical constant that is entirely dimensionless, so its dimensional formula is $[\\text{M}^0 \\text{L}^0 \\text{T}^0]$.",
@@ -1358,10 +1358,10 @@
     "q": "In a typical combustion engine the workdone by a gas molecule is given by $W = \\alpha^2 \\beta e^{-\\frac{\\beta x^2}{kT}}$, where $x$ is the displacement, $k$ is the Boltzmann constant and $T$ is the temperature. If $\\alpha$ and $\\beta$ are constants, dimensions of $\\alpha$ will be:",
     "type": "mcq",
     "options": [
-      "[M L T^{-2}]",
-      "[M^2 L T^{-2}]",
-      "[M L T^{-1}]",
-      "[M^0 L T^0]"
+      "$[M L T^{-2}]$",
+      "$[M^2 L T^{-2}]$",
+      "$[M L T^{-1}]$",
+      "$[M^0 L T^0]$"
     ],
     "answer": 3,
     "explanation": "The exponent of the exponential function must be dimensionless:\n$$\\left[ \\frac{\\beta x^2}{kT} \\right] = 1 \\implies [\\beta] = \\frac{[kT]}{[x^2]}$$\nSince $kT$ represents energy $[\\text{M L}^2 \\text{T}^{-2}]$:\n$$[\\beta] = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}^2]} = [\\text{M T}^{-2}]$$\n\nSince work done $W$ is $[\\text{M L}^2 \\text{T}^{-2}]$:\n$$[W] = [\\alpha^2 \\beta] \\implies [\\alpha^2] = \\frac{[W]}{[\\beta]} = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{M T}^{-2}]} = [\\text{L}^2]$$\n$$[\\alpha] = [\\text{L}] = [\\text{M}^0 \\text{L}^1 \\text{T}^0]$$",
@@ -1374,10 +1374,10 @@
     "q": "If $C$ and $V$ represent capacity and voltage respectively then what are the dimensions of $\\lambda$ where $C/V = \\lambda$?",
     "type": "mcq",
     "options": [
-      "[M^{-2} L^{-4} I^3 T^7]",
-      "[M^{-2} L^{-3} I^2 T^6]",
-      "[M^{-1} L^{-3} I^{-2} T^{-7}]",
-      "[M^{-3} L^{-4} I^3 T^7]"
+      "$[M^{-2} L^{-4} I^3 T^7]$",
+      "$[M^{-2} L^{-3} I^2 T^6]$",
+      "$[M^{-1} L^{-3} I^{-2} T^{-7}]$",
+      "$[M^{-3} L^{-4} I^3 T^7]$"
     ],
     "answer": 0,
     "explanation": "Let's substitute the dimensions of capacitance $C$ and voltage $V$:\n- $[C] = [\\text{M}^{-1} \\text{L}^{-2} \\text{T}^4 \\text{I}^2]$\n- $[V] = [\\text{M L}^2 \\text{T}^{-3} \\text{I}^{-1}]$\n\n$$\\left[ \\lambda \\right] = \\frac{[C]}{[V]} = \\frac{[\\text{M}^{-1} \\text{L}^{-2} \\text{T}^4 \\text{I}^2]}{[\\text{M L}^2 \\text{T}^{-3} \\text{I}^{-1}]} = [\\text{M}^{-2} \\text{L}^{-4} \\text{T}^7 \\text{I}^3]$$",
@@ -1390,10 +1390,10 @@
     "q": "If speed $V$, area $A$ and force $F$ are chosen as fundamental units, then the dimension of Young's modulus will be :",
     "type": "mcq",
     "options": [
-      "F A^2 V^{-1}",
-      "F A^2 V^{-3}",
-      "F A^2 V^{-2}",
-      "F A^{-1} V^0"
+      "$F A^2 V^{-1}$",
+      "$F A^2 V^{-3}$",
+      "$F A^2 V^{-2}$",
+      "$F A^{-1} V^0$"
     ],
     "answer": 3,
     "explanation": "Young's modulus is stress per unit strain, so its dimensions are:\n$$[Y] = \\frac{[\\text{Stress}]}{[\\text{Strain}]} = \\frac{[F/A]}{1} = [F A^{-1} V^0]$$",
@@ -1406,10 +1406,10 @@
     "q": "If momentum $(P)$, area $(A)$ and time $(T)$ are taken to be the fundamental quantities then the dimensional formula for energy is :",
     "type": "mcq",
     "options": [
-      "[P^2 A T^{-2}]",
-      "[P A^{-1} T^{-1}]",
-      "[P A^{1/2} T^{-1}]",
-      "[P^{1/2} A T^{-1}]"
+      "$[P^2 A T^{-2}]$",
+      "$[P A^{-1} T^{-1}]$",
+      "$[P A^{1/2} T^{-1}]$",
+      "$[P^{1/2} A T^{-1}]$"
     ],
     "answer": 2,
     "explanation": "Let Energy $E \\propto P^a A^b T^c$.\nSubstituting dimensions:\n- $[E] = [\\text{M L}^2 \\text{T}^{-2}]$\n- $[P] = [\\text{M L T}^{-1}]$\n- $[A] = [\\text{L}^2]$\n- $[T] = [\\text{T}]$\n\n$$[\\text{M L}^2 \\text{T}^{-2}] = [\\text{M L T}^{-1}]^a [\\text{L}^2]^b [\\text{T}]^c = \\text{M}^a \\text{L}^{a+2b} \\text{T}^{-a+c}$$\n\nComparing exponents:\n- For M: $a = 1$\n- For L: $a + 2b = 2 \\implies 1 + 2b = 2 \\implies b = 1/2$\n- For T: $-a + c = -2 \\implies -1 + c = -2 \\implies c = -1$\n\nThus:\n$$[E] = [P A^{1/2} T^{-1}]$$",
@@ -1454,10 +1454,10 @@
     "q": "Given, B is magnetic field induction, and $\\mu_0$ is the magnetic permeability of vacuum. The dimension of $\\frac{B^2}{2\\mu_0}$ is:",
     "type": "mcq",
     "options": [
-      "M L T^{-2}",
-      "M L^2 T^{-1}",
-      "M L^2 T^{-2}",
-      "M L^{-1} T^{-2}"
+      "$M L T^{-2}$",
+      "$M L^2 T^{-1}$",
+      "$M L^2 T^{-2}$",
+      "$M L^{-1} T^{-2}$"
     ],
     "answer": 3,
     "explanation": "The term $\\frac{B^2}{2\\mu_0}$ represents the magnetic energy density (energy per unit volume):\n$$\\left[ \\frac{B^2}{2\\mu_0} \\right] = \\frac{[\\text{Energy}]}{[\\text{Volume}]} = \\frac{[\\text{M L}^2 \\text{T}^{-2}]}{[\\text{L}^3]} = [\\text{M L}^{-1} \\text{T}^{-2}]$$",
@@ -1470,10 +1470,10 @@
     "q": "If Surface tension (S), Moment of Inertia (I) and Planck's constant (h), were to be taken as the fundamental units, the dimensional formula for linear momentum would be:",
     "type": "mcq",
     "options": [
-      "S^{1/2} I^{1/2} h^0",
-      "S^{1/2} I^{3/2} h^{-1}",
-      "S^{3/2} I^{1/2} h^0",
-      "S^{1/2} I^{1/2} h^{-1}"
+      "$S^{1/2} I^{1/2} h^0$",
+      "$S^{1/2} I^{3/2} h^{-1}$",
+      "$S^{3/2} I^{1/2} h^0$",
+      "$S^{1/2} I^{1/2} h^{-1}$"
     ],
     "answer": 0,
     "explanation": "Let linear momentum $P \\propto S^x I^y h^z$.\nSubstituting dimensions:\n- $[P] = [\\text{M L T}^{-1}]$\n- $[S] = [\\text{M T}^{-2}]$\n- $[I] = [\\text{M L}^2]$\n- $[h] = [\\text{M L}^2 \\text{T}^{-1}]$\n\n$$[\\text{M L T}^{-1}] = [\\text{M T}^{-2}]^x [\\text{M L}^2]^y [\\text{M L}^2 \\text{T}^{-1}]^z = \\text{M}^{x+y+z} \\text{L}^{2y+2z} \\text{T}^{-2x-z}$$\n\nComparing exponents:\n- For L: $2y + 2z = 1 \\implies y + z = 1/2$\n- For M: $x + y + z = 1 \\implies x + 1/2 = 1 \\implies x = 1/2$\n- For T: $-2x - z = -1 \\implies -2(1/2) - z = -1 \\implies -1 - z = -1 \\implies z = 0$\n\nThen:\n$$y + 0 = 1/2 \\implies y = 1/2$$\n\nThus:\n$$[P] = [S^{1/2} I^{1/2} h^0]$$",
@@ -1486,10 +1486,10 @@
     "q": "In the formula $X = 5YZ^2$, $X$ and $Z$ have dimensions of capacitance and magnetic field, respectively. What are the dimensions of Y in SI units?",
     "type": "mcq",
     "options": [
-      "[M^{-1} L^{-2} T^4 A^2]",
-      "[M^{-2} L^0 T^{-4} A^{-2}]",
-      "[M^{-2} L^{-2} T^6 A^3]",
-      "[M^{-3} L^{-2} T^8 A^4]"
+      "$[M^{-1} L^{-2} T^4 A^2]$",
+      "$[M^{-2} L^0 T^{-4} A^{-2}]$",
+      "$[M^{-2} L^{-2} T^6 A^3]$",
+      "$[M^{-3} L^{-2} T^8 A^4]$"
     ],
     "answer": 3,
     "explanation": "We are given:\n$$Y = \\frac{X}{5Z^2}$$\n\nSubstituting the dimensions of capacitance ($X$) and magnetic field ($Z$):\n- $[X] = [\\text{M}^{-1} \\text{L}^{-2} \\text{T}^4 \\text{A}^2]$\n- $[Z] = [\\text{M T}^{-2} \\text{A}^{-1}]$\n\n$$[Y] = \\frac{[\\text{M}^{-1} \\text{L}^{-2} \\text{T}^4 \\text{A}^2]}{[\\text{M T}^{-2} \\text{A}^{-1}]^2} = \\frac{[\\text{M}^{-1} \\text{L}^{-2} \\text{T}^4 \\text{A}^2]}{[\\text{M}^2 \\text{T}^{-4} \\text{A}^{-2}]} = [\\text{M}^{-3} \\text{L}^{-2} \\text{T}^{8} \\text{A}^4]$$",
@@ -1534,10 +1534,10 @@
     "q": "The force of interaction between two atoms is given by $F = \\alpha\\beta \\exp\\left(-\\frac{x^2}{\\alpha k T}\\right)$; where $x$ is the distance, $k$ is the Boltzmann constant and T is temperature and $\\alpha$ and $\\beta$ are two constants. The dimensions of $\\beta$ is:",
     "type": "mcq",
     "options": [
-      "M^0 L^2 T^{-4}",
-      "M^2 L T^{-4}",
-      "M L T^{-2}",
-      "M^2 L^2 T^{-2}"
+      "$M^0 L^2 T^{-4}$",
+      "$M^2 L T^{-4}$",
+      "$M L T^{-2}$",
+      "$M^2 L^2 T^{-2}$"
     ],
     "answer": 1,
     "explanation": "The exponent of the exponential function must be dimensionless:\n$$\\left[ \\frac{x^2}{\\alpha k T} \\right] = 1 \\implies [\\alpha] = \\frac{[x^2]}{[k T]}$$\nSince $kT$ represents energy $[\\text{M L}^2 \\text{T}^{-2}]$:\n$$[\\alpha] = \\frac{[\\text{L}^2]}{[\\text{M L}^2 \\text{T}^{-2}]} = [\\text{M}^{-1} \\text{T}^2]$$\n\nSince force $F$ is $[\\text{M L T}^{-2}]$ and the exponential part is dimensionless:\n$$[F] = [\\alpha \\beta] \\implies [\\beta] = \\frac{[F]}{[\\alpha]} = \\frac{[\\text{M L T}^{-2}]}{[\\text{M}^{-1} \\text{T}^2]} = [\\text{M}^2 \\text{L}^1 \\text{T}^{-4}]$$",
@@ -1550,10 +1550,10 @@
     "q": "If speed (V), acceleration (A) and force (F) are considered as fundamental units, the dimension of Young's modulus will be :",
     "type": "mcq",
     "options": [
-      "V^{-2} A^2 F^{-2}",
-      "V^{-2} A^2 F^2",
-      "V^{-4} A^{-2} F",
-      "V^{-4} A^2 F"
+      "$V^{-2} A^2 F^{-2}$",
+      "$V^{-2} A^2 F^2$",
+      "$V^{-4} A^{-2} F$",
+      "$V^{-4} A^2 F$"
     ],
     "answer": 3,
     "explanation": "Let Young's modulus $Y \\propto V^a A^b F^c$.\nSubstituting dimensions:\n- $[Y] = [\\text{M L}^{-1} \\text{T}^{-2}]$\n- $[V] = [\\text{L T}^{-1}]$\n- $[A] = [\\text{L T}^{-2}]$\n- $[F] = [\\text{M L T}^{-2}]$\n\n$$[\\text{M L}^{-1} \\text{T}^{-2}] = [\\text{L T}^{-1}]^a [\\text{L T}^{-2}]^b [\\text{M L T}^{-2}]^c$$\n$$[\\text{M L}^{-1} \\text{T}^{-2}] = \\text{M}^c \\text{L}^{a+b+c} \\text{T}^{-a-2b-2c}$$\n\nComparing exponents:\n- For M: $c = 1$\n- For L: $a + b + c = -1 \\implies a + b + 1 = -1 \\implies a + b = -2$\n- For T: $-a - 2b - 2c = -2 \\implies a + 2b + 2 = 2 \\implies a + 2b = 0$\n\nSolving for $a$ and $b$:\n- $(a + 2b) - (a + b) = 0 - (-2) \\implies b = 2$\n- $a + 2 = -2 \\implies a = -4$\n\nThus:\n$$[Y] = [V^{-4} A^2 F^1]$$",
@@ -1582,10 +1582,10 @@
     "q": "If force $(F)$, velocity $(V)$ and time $(T)$ are considered as fundamental physical quantity, then dimensional formula of density will be :",
     "type": "mcq",
     "options": [
-      "F V^4 T^{-6}",
-      "F V^{-4} T^{-2}",
-      "F V^{-2} T^2",
-      "F V^{-4} T^{-1}"
+      "$F V^4 T^{-6}$",
+      "$F V^{-4} T^{-2}$",
+      "$F V^{-2} T^2$",
+      "$F V^{-4} T^{-1}$"
     ],
     "answer": 1,
     "explanation": "Let density $d \\propto F^a V^b T^c$.\nSubstituting dimensions:\n- $[d] = [\\text{M L}^{-3}]$\n- $[F] = [\\text{M L T}^{-2}]$\n- $[V] = [\\text{L T}^{-1}]$\n- $[T] = [\\text{T}]$\n\n$$[\\text{M L}^{-3}] = [\\text{M L T}^{-2}]^a [\\text{L T}^{-1}]^b [\\text{T}]^c = \\text{M}^a \\text{L}^{a+b} \\text{T}^{-2a-b+c}$$\n\nComparing exponents:\n- For M: $a = 1$\n- For L: $a + b = -3 \\implies 1 + b = -3 \\implies b = -4$\n- For T: $-2a - b + c = 0 \\implies -2(1) - (-4) + c = 0 \\implies 2 + c = 0 \\implies c = -2$\n\nThus:\n$$[d] = [F^1 V^{-4} T^{-2}]$$",
@@ -1630,10 +1630,10 @@
     "q": "If the velocity of light $c$, universal gravitational constant $G$ and planck's constant $h$ are chosen as fundamental quantities. The dimensions of mass in the new system is:",
     "type": "mcq",
     "options": [
-      "[h^{1/2} c^{1/2} G^1]",
-      "[h^1 c^1 G^{-1}]",
-      "[h^{-1/2} c^{1/2} G^{1/2}]",
-      "[h^{1/2} c^{1/2} G^{-1/2}]"
+      "$[h^{1/2} c^{1/2} G^1]$",
+      "$[h^1 c^1 G^{-1}]$",
+      "$[h^{-1/2} c^{1/2} G^{1/2}]$",
+      "$[h^{1/2} c^{1/2} G^{-1/2}]$"
     ],
     "answer": 3,
     "explanation": "Let mass $m \\propto h^a c^b G^c$.\nSubstituting dimensions:\n- $[m] = [\\text{M}]$\n- $[h] = [\\text{M L}^2 \\text{T}^{-1}]$\n- $[c] = [\\text{L T}^{-1}]$\n- $[G] = [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]$\n\n$$[\\text{M}] = [\\text{M L}^2 \\text{T}^{-1}]^a [\\text{L T}^{-1}]^b [\\text{M}^{-1} \\text{L}^3 \\text{T}^{-2}]^c = \\text{M}^{a-c} \\text{L}^{2a+b+3c} \\text{T}^{-a-b-2c}$$\n\nComparing exponents:\n- For M: $a - c = 1 \\implies c = a - 1$\n- For L: $2a + b + 3c = 0 \\implies 2a + b + 3(a-1) = 0 \\implies 5a + b = 3 \\implies b = 3 - 5a$\n- For T: $-a - b - 2c = 0 \\implies a + b + 2c = 0 \\implies a + (3-5a) + 2(a-1) = 0$\n$$a + 3 - 5a + 2a - 2 = 0 \\implies -2a + 1 = 0 \\implies a = 1/2$$\n\nSubstituting $a = 1/2$:\n- $b = 3 - 5(1/2) = 1/2$\n- $c = 1/2 - 1 = -1/2$\n\nThus, $[m] = [h^{1/2} c^{1/2} G^{-1/2}]$.",
@@ -1662,10 +1662,10 @@
     "q": "The dimension of mutual inductance is",
     "type": "mcq",
     "options": [
-      "ML^2 T^{-2}A^{-1}",
-      "ML^2 T^{-2}A^{-2}",
-      "ML^2 T^{-3}A^{-1}",
-      "ML^2 T^{-3}A^{-2}"
+      "$ML^2 T^{-2}A^{-1}$",
+      "$ML^2 T^{-2}A^{-2}$",
+      "$ML^2 T^{-3}A^{-1}$",
+      "$ML^2 T^{-3}A^{-2}$"
     ],
     "answer": 1,
     "explanation": "The induced electromotive force is given by $e = -M \\frac{dI}{dt}$, so:\n$$M = \\frac{e \\cdot dt}{dI}$$\n\nSubstituting the dimensions:\n- Electromotive force $e$ (voltage): $[\\text{M L}^2 \\text{T}^{-3} \\text{A}^{-1}]$\n- Time $dt$: $[\\text{T}]$\n- Current $dI$: $[\\text{A}]$\n\n$$[M] = \\frac{[\\text{M L}^2 \\text{T}^{-3} \\text{A}^{-1}][\\text{T}]}{[\\text{A}]} = [\\text{M L}^2 \\text{T}^{-2} \\text{A}^{-2}]$$",
@@ -1678,10 +1678,10 @@
     "q": "In van dar Wall equation $\\left[P + \\frac{a}{V^2}\\right][V - b] = RT$; $P$ is pressure, $V$ is volume, $R$ is universal gas constant and $T$ is temperature. The ratio of constants $\\frac{a}{b}$ is dimensionally equal to :",
     "type": "mcq",
     "options": [
-      "P/V",
-      "V/P",
+      "$P/V$",
+      "$V/P$",
       "PV",
-      "PV^3"
+      "$PV^3$"
     ],
     "answer": 2,
     "explanation": "By the principle of homogeneity of dimensions:\n- $[\\frac{a}{V^2}] = [P] \\implies [a] = [P V^2]$\n- $[b] = [V]$\n\nTaking the ratio of the constants:\n$$\\left[ \\frac{a}{b} \\right] = \\frac{[P V^2]}{[V]} = [P V]$$",
@@ -1694,10 +1694,10 @@
     "q": "If force (F), length (L) and time (T) are taken as the fundamental quantities. Then what will be the dimension of density:",
     "type": "mcq",
     "options": [
-      "[FL^{-4} T^2]",
-      "[FL^{-3} T^3]",
-      "[FL^{-3} T^2]",
-      "[FL^{-5} T^2]"
+      "$[FL^{-4} T^2]$",
+      "$[FL^{-3} T^3]$",
+      "$[FL^{-3} T^2]$",
+      "$[FL^{-5} T^2]$"
     ],
     "answer": 0,
     "explanation": "Let density $d \\propto F^a L^b T^c$.\nSubstituting dimensions:\n- $[d] = [\\text{M L}^{-3}]$\n- $[F] = [\\text{M L T}^{-2}]$\n- $[L] = [\\text{L}]$\n- $[T] = [\\text{T}]$\n\n$$[\\text{M L}^{-3}] = [\\text{M L T}^{-2}]^a [\\text{L}]^b [\\text{T}]^c = \\text{M}^a \\text{L}^{a+b} \\text{T}^{-2a+c}$$\n\nComparing exponents:\n- For M: $a = 1$\n- For L: $a + b = -3 \\implies 1 + b = -3 \\implies b = -4$\n- For T: $-2a + c = 0 \\implies -2(1) + c = 0 \\implies c = 2$\n\nThus:\n$$[d] = [F^1 L^{-4} T^2] = [\\text{F L}^{-4} \\text{T}^2]$$",
@@ -1726,10 +1726,10 @@
     "q": "The dimension of stopping potential $V_0$ in photoelectric effect in units of Planck's constant '$h$', speed of light '$c$' and Gravitational constant '$G$' and ampere A is:",
     "type": "mcq",
     "options": [
-      "h^{1/3} G^{2/3} c^{1/3} A^{-1}",
-      "h^0 c^5 G^{-1} A^{-1}",
-      "h^{-2/3} c^{-1/3} G^{4/3} A^{-1}",
-      "h^2 G^{3/2} c^{1/3} A^{-1}"
+      "$h^{1/3} G^{2/3} c^{1/3} A^{-1}$",
+      "$h^0 c^5 G^{-1} A^{-1}$",
+      "$h^{-2/3} c^{-1/3} G^{4/3} A^{-1}$",
+      "$h^2 G^{3/2} c^{1/3} A^{-1}$"
     ],
     "answer": 1,
     "explanation": "Stopping potential is energy per unit charge:\n$$[V_0] = [\\text{M L}^2 \\text{T}^{-3} \\text{A}^{-1}]$$\nWe want to express this in terms of $h, c, G$ and $A$:\n- Energy has dimensions: $[E] = [\\text{M L}^2 \\text{T}^{-2}] = \\sqrt{\\frac{h c^5}{G}} = h^{1/2} c^{5/2} G^{-1/2}$\n- Planck time has dimensions: $[T] = \\sqrt{\\frac{h G}{c^5}} = h^{1/2} G^{1/2} c^{-5/2}$\n\nDividing Energy by Time to get power (dimensions $[\\text{M L}^2 \\text{T}^{-3}]$):\n$$\\frac{[E]}{[T]} = \\frac{h^{1/2} c^{5/2} G^{-1/2}}{h^{1/2} G^{1/2} c^{-5/2}} = h^0 c^5 G^{-1}$$\nCombining this with $A^{-1}$ for potential:\n$$[V_0] = [h^0 c^5 G^{-1} A^{-1}]$$",
@@ -1742,10 +1742,10 @@
     "q": "In SI units, the dimensions of $\\sqrt{\\frac{\\epsilon_0}{\\mu_0}}$ is:",
     "type": "mcq",
     "options": [
-      "A T^2 M^{-1} L^{-1}",
-      "A^2 T^3 M^{-1} L^{-2}",
-      "A^{-1} T M L^3",
-      "A T^{-3} M L^{3/2}"
+      "$A T^2 M^{-1} L^{-1}$",
+      "$A^2 T^3 M^{-1} L^{-2}$",
+      "$A^{-1} T M L^3$",
+      "$A T^{-3} M L^{3/2}$"
     ],
     "answer": 1,
     "explanation": "The quantity $Y_0 = \\sqrt{\\frac{\\epsilon_0}{\\mu_0}}$ represents the characteristic admittance (wave admittance) of free space.\nAdmittance has units of $\\Omega^{-1}$:\n$$[Y_0] = [\\text{Resistance}]^{-1} = [\\text{M L}^2 \\text{T}^{-3} \\text{A}^{-2}]^{-1} = [\\text{A}^2 \\text{T}^3 \\text{M}^{-1} \\text{L}^{-2}]$$",

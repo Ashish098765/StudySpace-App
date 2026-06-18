@@ -385,7 +385,7 @@
             if (!container) return; 
 
             try {
-                // Fetch the Top 3 users securely from Lambda
+                // Fetch the Top 3 users securely from Lambda (Public action, no token needed)
                 const response = await fetch(LAMBDA_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -424,9 +424,16 @@
                         let myName = window.auth.currentUser.displayName || 'Student';
 
                         try {
+                            // 1. GENERATE THE TOKEN
+                            const token = await window.auth.currentUser.getIdToken();
+
+                            // 2. SEND IT TO LAMBDA
                             const userRes = await fetch(LAMBDA_URL, {
                                 method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
+                                headers: { 
+                                    'Content-Type': 'application/json',
+                                    'Authorization': `Bearer ${token}` // <--- THIS UNLOCKS YOUR DATA
+                                },
                                 body: JSON.stringify({ action: 'getUserData', uid: uid })
                             });
 
