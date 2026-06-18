@@ -8,13 +8,13 @@ const APP_ID = "8a735e3d22a7475babf205eab01d8859";
 
 // --- FIREBASE CONFIGURATION ---
 const firebaseConfig = {
-    apiKey: "AIzaSyAN5R8PaIBuC9BxP52IW_EwkurHBOkYxxU",
-    authDomain: "studyspace-45780.firebaseapp.com",
-    projectId: "studyspace-45780",
-    storageBucket: "studyspace-45780.firebasestorage.app",
-    messagingSenderId: "212493442342",
-    appId: "1:212493442342:web:15b83a52a04bbf8567b5e7",
-    measurementId: "G-NVHDFF8JDN"
+    apiKey: "AIzaSyB57PcjYtWktsOGKFLQmWX-Nc6HtYeZxp8",
+    authDomain: "studyspace-f6e22.firebaseapp.com",
+    projectId: "studyspace-f6e22",
+    storageBucket: "studyspace-f6e22.firebasestorage.app",
+    messagingSenderId: "498741408880",
+    appId: "1:498741408880:web:bd5fdea00d10e9329130b5",
+    measurementId: "G-J1X8Y7KDQV"
 };
 
 const app = initializeApp(firebaseConfig);
