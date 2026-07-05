@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Import Map for Native 3D Addons inside your Module system -->
+    <!-- Import Map for Native 3D Addons -->
     <script type="importmap">
         {
             "imports": {
@@ -19,7 +19,7 @@
 
     <style>
         :root {
-            --bg-color: #09090b; /* True deep dark */
+            --bg-color: #09090b; 
             --surface: rgba(24, 24, 27, 0.6);
             --surface-hover: rgba(39, 39, 42, 0.8);
             --border-subtle: rgba(255, 255, 255, 0.08);
@@ -40,10 +40,9 @@
             color: var(--text-main);
             width: 100vw;
             height: 100vh;
-            overflow: hidden; /* Prevent native window scrolls so 3D context rules */
+            overflow: hidden; 
         }
         
-        /* --- 3D Background Canvas Layer --- */
         #webgl-container {
             position: absolute;
             top: 0;
@@ -53,7 +52,6 @@
             z-index: 1;
         }
 
-        /* --- 2D Overlays (Z-indexed above WebGL Canvas) --- */
         #auth-nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 1rem 5%; 
@@ -86,26 +84,36 @@
         .btn-logout { background-color: rgba(239, 68, 68, 0.1); color: var(--danger); padding: 0.4rem 1rem; border-radius: 99px; font-size: 0.8rem; font-weight: 600;}
         .btn-logout:hover { background-color: var(--danger); color: white; }
 
-        /* --- Floating Interactive 2D Display Panel (Spatial Board) --- */
+        /* --- 3D Perspectived Spatial Board (Back Right) --- */
         #spatial-board {
             position: absolute;
-            top: 100px;
-            right: 30px;
-            width: 340px;
-            max-height: calc(100vh - 140px);
-            background: rgba(24, 24, 27, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-subtle);
+            top: 120px;
+            right: 40px;
+            width: 360px;
+            max-height: calc(100vh - 160px);
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 24px;
             padding: 1.5rem;
             z-index: 10;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
             gap: 1.2rem;
             pointer-events: auto;
             overflow-y: auto;
+            
+            /* CSS 3D Transformation to angle it into the background */
+            transform: perspective(1200px) rotateY(-15deg);
+            transform-origin: right center;
+            box-shadow: -20px 20px 50px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.05);
+            transition: transform 0.4s ease;
+        }
+
+        #spatial-board:hover {
+            transform: perspective(1200px) rotateY(-8deg); /* Flattens slightly when reading */
+            background: rgba(24, 24, 27, 0.8);
         }
 
         .board-title { font-size: 1.1rem; font-weight: 700; display: flex; align-items: center; gap: 0.6rem; color: var(--text-main); border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.6rem; }
@@ -118,7 +126,6 @@
         .list-item:hover { border-color: var(--border-hover); background: rgba(255,255,255,0.02); }
         .list-item h4 { font-size: 0.9rem; font-weight: 600; }
 
-        /* --- Dynamic Spatial HUD Tooltip --- */
         #spatial-hud {
             position: absolute;
             bottom: 2rem;
@@ -171,7 +178,6 @@
         .dropdown-item i { font-size: 1.1rem; color: var(--text-main); }
         .dropdown-item:hover { background: var(--surface-hover); color: var(--text-main); }
 
-        /* --- Join Room Modal --- */
         .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
         .modal-overlay.active { opacity: 1; visibility: visible; }
         .modal-content { background: #18181b; border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 2.5rem; width: 90%; max-width: 420px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); transform: scale(0.95) translateY(20px); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -196,10 +202,8 @@
 </head>
 <body>
 
-    <!-- WebGL Rendering Matrix Context Box -->
     <div id="webgl-container"></div>
 
-    <!-- Top Navigation HUD Overlay -->
     <nav id="auth-nav">
         <a href="/" class="logo-text">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#paint0_linear)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -227,7 +231,6 @@
         </div>
     </nav>
 
-    <!-- Floating UI Monitor Board (Preserves asynchronous loading data metrics directly) -->
     <div id="spatial-board">
         <div>
             <h2 class="board-title"><i class="fa-solid fa-trophy" style="color: var(--gold);"></i> Top Scholars</h2>
@@ -239,7 +242,6 @@
         </div>
     </div>
 
-    <!-- Quick Actions Launch Box Container -->
     <div id="action-dropdown-box">
         <div class="session-dropdown-wrapper">
             <button class="btn-start-session" onclick="const menu = this.nextElementSibling; const isVis = menu.style.visibility === 'visible'; menu.style.visibility = isVis ? 'hidden' : 'visible'; menu.style.opacity = isVis ? '0' : '1';">
@@ -255,13 +257,11 @@
         </div>
     </div>
 
-    <!-- Hover Indicator Tooltip Matrix HUD -->
     <div id="spatial-hud">
         <i class="fa-solid fa-hand-pointer" style="color: var(--primary); margin-right: 6px;"></i> 
         Drag to look around. Hover over doors/objects to explore StudySpace.
     </div>
 
-    <!-- Join Room Overlay Window System -->
     <div id="join-modal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-icon"><i class="fa-solid fa-door-open"></i></div>
@@ -278,15 +278,13 @@
         </div>
     </div>
 
-    <!-- --- Firebase, Backend Engine & Three.js Framework Pipeline --- -->
     <script type="module">
         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-        // --- SECURE LAMBDA BACKEND CONFIGURATION ---
+        // --- FIREBASE CONFIGURATION ---
         const LAMBDA_URL = "https://nvq32ao6fel7xdvfcjhzatg5ja0reeqs.lambda-url.us-east-1.on.aws/";
 
-        // --- FIREBASE AUTH IMPORTS ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
         
@@ -304,7 +302,7 @@
         const auth = getAuth(app);
         window.auth = auth;
 
-        // --- AUTHENTICATION ACTION PORTALS ---
+        // UI Binding Logic
         const loginBtn = document.getElementById('nav-login-btn');
         const profileContainer = document.getElementById('user-profile-container');
         const profileName = document.getElementById('profile-name');
@@ -331,7 +329,7 @@
             });
         }
 
-        // --- BACKEND SECURE ASYNC LEADERBOARD ---
+        // Leaderboard Fetching
         function forceNumber(val) {
             const num = parseInt(val);
             if (isNaN(num)) return 0;
@@ -423,20 +421,22 @@
         
         loadLeaderboard();
 
-        // --- THREE.JS SPATIAL STUDY ROOM ENGINE ---
+        // --- NEW UPDATED SPATIAL LAYOUT COORDINATES ---
         let scene, camera, renderer, controls;
         let interactiveMeshes = [];
+        let aiAvatarGroup; 
+        
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
         const hudElement = document.getElementById('spatial-hud');
 
         function initSpatialEngine() {
             scene = new THREE.Scene();
-            scene.background = new THREE.Color(0x09090b); // StudySpace True Dark
-            scene.fog = new THREE.FogExp2(0x09090b, 0.025);
+            scene.background = new THREE.Color(0x09090b); 
+            scene.fog = new THREE.FogExp2(0x09090b, 0.02);
 
             camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.set(0, 6, 13); // Set perspective angle looking forward into room geometry
+            camera.position.set(0, 7, 16); 
 
             renderer = new THREE.WebGLRenderer({ antialias: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
@@ -444,29 +444,28 @@
             renderer.shadowMap.enabled = true;
             document.getElementById('webgl-container').appendChild(renderer.domElement);
 
-            // Controls config
             controls = new OrbitControls(camera, renderer.domElement);
             controls.enableDamping = true;
             controls.dampingFactor = 0.05;
-            controls.maxPolarAngle = Math.PI / 2 - 0.05; // Ground camera floor clipping bounds
+            controls.maxPolarAngle = Math.PI / 2 - 0.05; 
             controls.minDistance = 4;
-            controls.maxDistance = 22;
+            controls.maxDistance = 25;
 
-            // Lights architecture
-            const lightAmbient = new THREE.AmbientLight(0xffffff, 0.15);
+            // Lights
+            const lightAmbient = new THREE.AmbientLight(0xffffff, 0.2);
             scene.add(lightAmbient);
 
-            const spotIndigo = new THREE.SpotLight(0x6366f1, 2.5, 35, Math.PI/4, 0.4, 1);
-            spotIndigo.position.set(-6, 10, 4);
+            const spotIndigo = new THREE.SpotLight(0x6366f1, 3, 40, Math.PI/4, 0.4, 1);
+            spotIndigo.position.set(-6, 12, 8);
             scene.add(spotIndigo);
 
-            const spotEmerald = new THREE.SpotLight(0x10b981, 2, 35, Math.PI/4, 0.4, 1);
-            spotEmerald.position.set(6, 10, 4);
+            const spotEmerald = new THREE.SpotLight(0x10b981, 2, 40, Math.PI/4, 0.4, 1);
+            spotEmerald.position.set(6, 12, 0);
             scene.add(spotEmerald);
 
-            // Build Room boundaries
-            const floorGeo = new THREE.PlaneGeometry(35, 25);
-            const floorMat = new THREE.MeshStandardMaterial({ color: 0x121214, roughness: 0.75 });
+            // Floor
+            const floorGeo = new THREE.PlaneGeometry(50, 40);
+            const floorMat = new THREE.MeshStandardMaterial({ color: 0x121214, roughness: 0.8 });
             const floorGrid = new THREE.Mesh(floorGeo, floorMat);
             floorGrid.rotation.x = -Math.PI / 2;
             scene.add(floorGrid);
@@ -479,55 +478,88 @@
         }
 
         function buildSpatialAssets() {
-            // 1. Construct Public Study Rooms (Doorways)
+            // 1. FRONT & CENTER: The AI Avatar Placeholder (Glowing Core)
+            aiAvatarGroup = new THREE.Group();
+            
+            const coreGeo = new THREE.OctahedronGeometry(1.4, 2);
+            const coreMat = new THREE.MeshStandardMaterial({ color: 0x18181b, roughness: 0.1, metalness: 0.9 });
+            const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+            
+            const ringGeo = new THREE.TorusGeometry(1.9, 0.06, 16, 64);
+            const ringMat = new THREE.MeshStandardMaterial({ color: 0x6366f1, emissive: 0x6366f1, emissiveIntensity: 2 });
+            const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+            ringMesh.rotation.x = Math.PI / 2;
+
+            aiAvatarGroup.add(coreMesh);
+            aiAvatarGroup.add(ringMesh);
+            
+            // Positioning Avatar dead center, closer to user
+            aiAvatarGroup.position.set(0, 4, 6);
+            scene.add(aiAvatarGroup);
+
+            // 2. BACK LEFT: Floating Interactive Action Buttons (Features)
+            const features = [
+                { name: 'Question Bank', url: '/practice.html', color: 0x6366f1, pos: new THREE.Vector3(-6, 6, 0), geo: new THREE.BoxGeometry(1.2, 1.2, 1.2) },
+                { name: 'Live Collaboration', url: '/rooms', color: 0x34d399, pos: new THREE.Vector3(-8, 4, -2), geo: new THREE.TetrahedronGeometry(0.9, 0.5) },
+                { name: 'Performance Analytics', url: '/analytics', color: 0xfbbf24, pos: new THREE.Vector3(-5, 3.5, 2), geo: new THREE.TorusGeometry(0.8, 0.25, 16, 32) }
+            ];
+
+            features.forEach(feat => {
+                const featMat = new THREE.MeshStandardMaterial({ 
+                    color: feat.color, 
+                    emissive: feat.color, 
+                    emissiveIntensity: 0.2, 
+                    roughness: 0.2, 
+                    metalness: 0.5 
+                });
+                const featMesh = new THREE.Mesh(feat.geo, featMat);
+                featMesh.position.copy(feat.pos);
+                featMesh.userData = { type: 'feature', name: feat.name, url: feat.url };
+                
+                scene.add(featMesh);
+                interactiveMeshes.push(featMesh);
+            });
+
+            // 3. DEEP BACK LEFT: Room Doors
             const roomConfig = [
-                { name: 'General Lounge', route: 'public-general', color: 0xfbbf24, xPos: -6 },
-                { name: 'Pomodoro Focus', route: 'public-pomodoro', color: 0xef4444, xPos: 0 },
-                { name: 'Quiet Reading', route: 'public-quiet', color: 0x10b981, xPos: 6 }
+                { name: 'General Lounge', route: 'public-general', color: 0xfbbf24, pos: new THREE.Vector3(-12, 2.5, -6), rot: Math.PI / 6 },
+                { name: 'Pomodoro Focus', route: 'public-pomodoro', color: 0xef4444, pos: new THREE.Vector3(-9, 2.5, -10), rot: Math.PI / 8 },
+                { name: 'Quiet Reading', route: 'public-quiet', color: 0x10b981, pos: new THREE.Vector3(-5, 2.5, -13), rot: 0 }
             ];
 
             roomConfig.forEach(room => {
-                const doorBox = new THREE.BoxGeometry(2.2, 3.8, 0.3);
+                const doorBox = new THREE.BoxGeometry(2.5, 5, 0.2);
                 const doorMat = new THREE.MeshStandardMaterial({
                     color: room.color,
                     emissive: room.color,
                     emissiveIntensity: 0.15,
-                    roughness: 0.3
+                    roughness: 0.4
                 });
                 const doorMesh = new THREE.Mesh(doorBox, doorMat);
-                doorMesh.position.set(room.xPos, 1.9, -6);
+                doorMesh.position.copy(room.pos);
+                doorMesh.rotation.y = room.rot;
                 doorMesh.userData = { type: 'room', name: room.name, url: `/room.html?id=${room.route}` };
                 
                 scene.add(doorMesh);
                 interactiveMeshes.push(doorMesh);
             });
 
-            // 2. Center Collaborative Feature Interaction Deck Table
-            const deckGeo = new THREE.CylinderGeometry(3.5, 3.5, 0.8, 32);
-            const deckMat = new THREE.MeshStandardMaterial({ color: 0x18181b, roughness: 0.5 });
-            const deckTable = new THREE.Mesh(deckGeo, deckMat);
-            deckTable.position.set(0, 0.4, 2);
-            scene.add(deckTable);
-
-            // 3. Drop Interactive Core Feature Props on table array
-            const features = [
-                { name: 'Question Bank', url: '/practice.html', color: 0x6366f1, xOffset: -1.5, zOffset: 2, geo: new THREE.BoxGeometry(0.7, 0.3, 0.5) },
-                { name: 'Live Collaboration', url: '/rooms', color: 0x34d399, xOffset: 0, zOffset: 1, geo: new THREE.CylinderGeometry(0.3, 0.3, 0.5, 16) },
-                { name: 'Performance Analytics', url: '/analytics', color: 0xfbbf24, xOffset: 1.5, zOffset: 2, geo: new THREE.TorusGeometry(0.3, 0.12, 8, 24) }
-            ];
-
-            features.forEach(feat => {
-                const featMat = new THREE.MeshStandardMaterial({ color: feat.color, roughness: 0.2, metalness: 0.1 });
-                const featMesh = new THREE.Mesh(feat.geo, featMat);
-                featMesh.position.set(feat.xOffset, 1.0, feat.zOffset);
-                featMesh.userData = { type: 'feature', name: feat.name, url: feat.url };
-                
-                scene.add(featMesh);
-                interactiveMeshes.push(featMesh);
+            // 4. BACK RIGHT ANCHOR: A subtle glowing panel behind the HTML Leaderboard
+            const boardAnchorGeo = new THREE.PlaneGeometry(14, 18);
+            const boardAnchorMat = new THREE.MeshStandardMaterial({ 
+                color: 0x09090b, 
+                emissive: 0x6366f1, 
+                emissiveIntensity: 0.05,
+                transparent: true,
+                opacity: 0.3
             });
+            const boardAnchor = new THREE.Mesh(boardAnchorGeo, boardAnchorMat);
+            boardAnchor.position.set(12, 6, -4);
+            boardAnchor.rotation.y = -Math.PI / 8;
+            scene.add(boardAnchor);
         }
 
-        // Raycast Hover Matrix Detection
+        // Raycasting Logic
         function onSpatialHover(event) {
             mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
             mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -537,18 +569,16 @@
 
             if (intersections.length > 0) {
                 const target = intersections[0].object;
-                hudElement.innerHTML = `<i class="fa-solid fa-door-open" style="color: var(--primary); margin-right:6px;"></i> Click to Enter: <strong>${target.userData.name}</strong>`;
+                hudElement.innerHTML = `<i class="fa-solid fa-link" style="color: var(--primary); margin-right:6px;"></i> Click to access: <strong>${target.userData.name}</strong>`;
                 document.body.style.cursor = 'pointer';
             } else {
-                hudElement.innerHTML = `<i class="fa-solid fa-hand-pointer" style="color: var(--primary); margin-right: 6px;"></i> Drag to look around. Hover over doors/objects to explore StudySpace.`;
+                hudElement.innerHTML = `<i class="fa-solid fa-hand-pointer" style="color: var(--primary); margin-right: 6px;"></i> Drag to look around. Hover over items to explore.`;
                 document.body.style.cursor = 'default';
             }
         }
 
-        // Execution click tracking route handler
         function onSpatialInteract(event) {
-            // Block canvas rays hitting navigation overlay regions
-            if (event.clientY < 75 || event.clientX > (window.innerWidth - 380) && event.clientY < 500) return;
+            if (event.clientY < 75 || (event.clientX > (window.innerWidth - 380) && event.clientY > 100)) return;
 
             raycaster.setFromCamera(mouse, camera);
             const intersections = raycaster.intersectObjects(interactiveMeshes);
@@ -571,11 +601,22 @@
             requestAnimationFrame(renderFrameLoop);
             controls.update();
 
-            // Animate object vectors subtly on runtime tick loops
-            interactiveMeshes.forEach(mesh => {
+            const time = Date.now() * 0.001;
+
+            // Animate Center Avatar
+            if (aiAvatarGroup) {
+                aiAvatarGroup.position.y = 4 + Math.sin(time * 1.5) * 0.2; // Gentle hover
+                aiAvatarGroup.children[0].rotation.y = time * 0.4;         // Core spin
+                aiAvatarGroup.children[1].rotation.z = time * 0.8;         // Ring spin
+                aiAvatarGroup.children[1].rotation.x = Math.PI / 2 + Math.sin(time) * 0.15; // Ring wobble
+            }
+
+            // Animate Left-Side Floating Features
+            interactiveMeshes.forEach((mesh, index) => {
                 if (mesh.userData.type === 'feature') {
-                    mesh.rotation.y += 0.008;
-                    mesh.rotation.x += 0.003;
+                    mesh.rotation.y += 0.01;
+                    mesh.rotation.x += 0.005;
+                    mesh.position.y += Math.sin(time * 2 + index) * 0.003; 
                 }
             });
 
@@ -586,7 +627,6 @@
         renderFrameLoop();
     </script>
 
-    <!-- --- Standard Overlay Core Window Functionalities --- -->
     <script>
     function checkLogin() {
         if (!window.auth || !window.auth.currentUser) {
