@@ -1,0 +1,14 @@
+{
+    "Chemistry": [
+        { "id": "jee_chem_mole", "name": "Some Basic Concepts of Chemistry", "total": 0, "breakdown": { "2026": 0, "2025": 0, "2024": 0 } },
+        { "id": "jee_chem_structure_of_atom", "name": "Structure of Atom", "total": 0, "breakdown": { "2026": 0, "2025": 0, "2024": 0 } },
+        { "id": "jee_chem_periodicity", "name": "Classification of Elements and Periodicity in Properties", "total": 0, "breakdown": { "2026": 0, "2025": 0, "2024": 0 } },
+        { "id": "jee_chem_chemical_bonding", "name": "Chemical Bonding and Molecular Structure", "total": 0, "breakdown": { "2026": 0, "2025": 0, "2024": 0 } },
+        { "id": "jee_chem_thermodynamics", "name": "Thermodynamics", "total": 0, "breakdown": { "2026": 0, "2025": 0, "2024": 0 } },
+        { "id": "jee_chem_equilibrium", "name": "Equilibrium", "total": 0, "breakdown": { "2026": 0, "2025": 0, "2024": 0 } },
+        { "id": "jee_chem_redox", "name": "Redox Reactions", "total": 0, "breakdown": { "2026": 0, "2025": 0, "2024": 0 } },
+        { "id": "jee_chem_p_block", "name": "The p-block Elements", "total": 0, "breakdown": { "2026": 0, "2025": 0, "2024": 0 } },
+        { "id": "jee_chem_organic_basic_principles", "name": "Organic Chemistry-Some Basic Principles and Techniques", "total": 0, "breakdown": { "2026": 0, "2025": 0, "2024": 0 } },
+        { "id": "jee_chem_hydrocarbons", "name": "Hydrocarbons", "total": 0, "breakdown": { "2026": 0, "2025": 0, "2024": 0 } }
+    ]
+}
