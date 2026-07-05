@@ -8,43 +8,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root { --bg-color: #0f111a; --card-bg: #1e2130; --text-main: #f8fafc; --text-muted: #94a3b8; --primary: #6366f1; --danger: #ef4444; }
+        :root { 
+            --bg-color: #09090b; /* Synchronized True Dark */
+            --card-bg: #18181b; 
+            --text-main: #f8fafc; 
+            --text-muted: #94a3b8; 
+            --primary: #6366f1; 
+            --danger: #ef4444; 
+            --accent: #10b981;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         
-        body { background-color: var(--bg-color); color: var(--text-main); display: flex; align-items: center; justify-content: center; min-height: 100vh; background-image: radial-gradient(at 50% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%); }
+        body { background-color: var(--bg-color); color: var(--text-main); display: flex; align-items: center; justify-content: center; min-height: 100vh; background-image: radial-gradient(at 50% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%); }
         
-        .auth-container { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 3rem; width: 100%; max-width: 450px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
-        .auth-container h2 { font-size: 2rem; margin-bottom: 0.5rem; }
-        .auth-container p { color: var(--text-muted); margin-bottom: 2rem; }
+        .auth-container { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 3rem; width: 100%; max-width: 450px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6); }
+        .auth-container h2 { font-size: 2rem; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 800; }
+        .auth-container p { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
 
-        /* Google Button & Divider */
-        .btn-google { width: 100%; background: white; color: #0f111a; padding: 0.9rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.2s; }
+        .btn-google { width: 100%; background: white; color: #0f111a; padding: 0.9rem; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.2s; }
         .btn-google:hover { background: #f1f5f9; transform: translateY(-2px); }
         .divider { display: flex; align-items: center; text-align: center; margin: 1.5rem 0; color: var(--text-muted); font-size: 0.85rem; }
-        .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .divider span { padding: 0 15px; font-weight: 600; }
+        .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .divider span { padding: 0 15px; font-weight: 600; letter-spacing: 0.5px; }
 
         .input-group { margin-bottom: 1.2rem; text-align: left; }
-        .input-group label { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.4rem; }
-        .input-group input { width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 0.8rem 1rem; border-radius: 8px; outline: none; transition: 0.2s; }
-        .input-group input:focus { border-color: var(--primary); }
+        .input-group label { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.4rem; font-weight: 500; }
+        .input-group input { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); color: white; padding: 0.8rem 1rem; border-radius: 12px; outline: none; transition: 0.2s; font-size: 0.95rem; }
+        .input-group input:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(99,102,241,0.15); }
 
-        /* Avatar Grid */
         .avatar-section { display: none; margin-bottom: 1.5rem; text-align: left; }
-        .avatar-label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; display: block; }
+        .avatar-label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; display: block; font-weight: 500; }
         .avatar-grid { display: flex; gap: 10px; justify-content: space-between; }
         .avatar-option { width: 55px; height: 55px; border-radius: 50%; cursor: pointer; border: 3px solid transparent; opacity: 0.5; transition: all 0.2s; background: rgba(255,255,255,0.05); }
         .avatar-option:hover { opacity: 0.8; }
         .avatar-option.selected { border-color: var(--primary); opacity: 1; transform: scale(1.1); box-shadow: 0 0 15px rgba(99, 102, 241, 0.4); }
 
-        .btn-submit { width: 100%; background: var(--primary); color: white; padding: 0.9rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: 0.2s; margin-top: 0.5rem; }
+        .btn-submit { width: 100%; background: var(--primary); color: white; padding: 0.9rem; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: 0.2s; margin-top: 0.5rem; }
         .btn-submit:hover { filter: brightness(1.1); }
         
         .toggle-text { margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
         .toggle-text span { color: var(--primary); cursor: pointer; font-weight: 600; }
         .toggle-text span:hover { text-decoration: underline; }
 
-        .error-message { color: var(--danger); font-size: 0.85rem; margin-top: 1rem; display: none; }
+        .error-message { color: var(--danger); font-size: 0.85rem; margin-top: 1rem; display: none; line-height: 1.4; font-weight: 500; }
     </style>
 </head>
 <body>
@@ -68,11 +74,11 @@
             <div class="avatar-section" id="avatar-section">
                 <span class="avatar-label">Choose your Avatar</span>
                 <div class="avatar-grid" id="avatar-grid">
-                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Felix" class="avatar-option selected" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Felix">
-                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Aneka" class="avatar-option" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Aneka">
-                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Leo" class="avatar-option" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Leo">
-                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Mimi" class="avatar-option" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Mimi">
-                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Jack" class="avatar-option" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Jack">
+                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Felix" class="avatar-option selected" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Felix" alt="Avatar Option">
+                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Aneka" class="avatar-option" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Aneka" alt="Avatar Option">
+                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Leo" class="avatar-option" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Leo" alt="Avatar Option">
+                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Mimi" class="avatar-option" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Mimi" alt="Avatar Option">
+                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Jack" class="avatar-option" data-url="https://api.dicebear.com/7.x/adventurer/svg?seed=Jack" alt="Avatar Option">
                 </div>
             </div>
 
@@ -100,7 +106,6 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, sendEmailVerification, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
         
-       // Paste this OVER your old firebaseConfig in all 3 files
         const firebaseConfig = {
             apiKey: "AIzaSyB57PcjYtWktsOGKFLQmWX-Nc6HtYeZxp8",
             authDomain: "studyspace-f6e22.firebaseapp.com",
@@ -128,7 +133,6 @@
         const toggleText = document.getElementById('toggle-auth');
         const errorMsg = document.getElementById('error-msg');
 
-        // Avatar Selection Logic
         document.querySelectorAll('.avatar-option').forEach(img => {
             img.addEventListener('click', (e) => {
                 document.querySelectorAll('.avatar-option').forEach(i => i.classList.remove('selected'));
@@ -137,7 +141,6 @@
             });
         });
 
-        // UI Toggle Logic
         window.toggleMode = () => {
             isLoginMode = !isLoginMode;
             errorMsg.style.display = 'none';
@@ -155,9 +158,8 @@
                 document.getElementById('auth-subtitle').innerText = 'Set up your student profile';
                 toggleText.innerHTML = `Already have an account? <span onclick="toggleMode()">Log in here</span>`;
             }
-        }
+        };
 
-        // Send a ping to AWS to ensure the user exists in the backend DB
         async function syncUserToBackend(user, displayName) {
             try {
                 await fetch(LAMBDA_URL, {
@@ -175,7 +177,6 @@
             }
         }
 
-        // Shared Teleport Logic
         function handleSuccessfulLogin() {
             const returnUrl = sessionStorage.getItem('returnUrl');
             if (returnUrl) {
@@ -186,7 +187,6 @@
             }
         }
 
-        // --- 1. GOOGLE LOGIN FLOW ---
         googleBtn.addEventListener('click', async () => {
             errorMsg.style.display = 'none';
             try {
@@ -199,7 +199,6 @@
             }
         });
 
-        // --- 2. EMAIL/PASSWORD FLOW ---
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
@@ -213,30 +212,23 @@
 
            try {
                 if (isLoginMode) {
-                    // --- SECURE LOGIN FLOW ---
                     const userCredential = await signInWithEmailAndPassword(auth, email, pass);
-                    
                     if (!userCredential.user.emailVerified) {
                         await signOut(auth); 
                         throw new Error("Please verify your email address. Check your inbox!");
                     }
-                    
                     handleSuccessfulLogin();
-                    
                 } else {
-                    // --- SECURE SIGNUP FLOW ---
                     if (pass.length < 6) throw new Error("Password must be at least 6 characters.");
                     if (!name) throw new Error("Please enter a Display Name.");
 
                     const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
-                    
                     await updateProfile(userCredential.user, {
                         displayName: name,
                         photoURL: selectedAvatar
                     });
 
                     await syncUserToBackend(userCredential.user, name);
-                    
                     await sendEmailVerification(userCredential.user);
                     await signOut(auth);
 
@@ -245,10 +237,8 @@
                     errorMsg.style.color = "var(--accent)"; 
                     errorMsg.innerText = "✅ Account created! Please check your email inbox to verify your account before logging in.";
                     errorMsg.style.display = 'block';
-                    
                     return; 
                 }
-
             } catch (error) {
                 submitBtn.disabled = false;
                 submitBtn.innerText = isLoginMode ? 'Log In' : 'Create Account';
