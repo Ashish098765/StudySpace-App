@@ -1,0 +1,1654 @@
+[
+  {
+    "q": "The equation of a transverse wave travelling along a string is $y(x,t) = 4.0 \\sin [20 \\times 10^{-3}x + 600t] \\text{ mm}$, where $x$ is in mm and $t$ is in second. The velocity of the wave is :",
+    "type": "mcq",
+    "options": [
+      "$-60 \\text{ m/s}$",
+      "$-30 \\text{ m/s}$",
+      "$+30 \\text{ m/s}$",
+      "$+60 \\text{ m/s}$"
+    ],
+    "answer": 1,
+    "explanation": "Comparing the given equation with the standard wave equation $y(x,t) = A \\sin(kx + \\omega t)$:\n- Since both coefficients of $x$ and $t$ have the same sign (positive), the wave is propagating along the negative $x$-axis.\n- Wave number $k = 20 \\times 10^{-3} \\text{ rad/mm} = 20 \\text{ rad/m}$\n- Angular frequency $\\omega = 600 \\text{ rad/s}$\n\nThe wave velocity is:\n$$v = -\\frac{\\omega}{k} = -\\frac{600}{20} = -30 \\text{ m/s}$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "23rd January",
+    "subtopic": "Basics of Mechanical Waves"
+  },
+  {
+    "q": "A travelling wave is described by the equation $y(x,t) = [0.05 \\sin(8x - 4t)] \\text{ m}$. The velocity of the wave is: [All the quantities are in SI unit]",
+    "type": "mcq",
+    "options": [
+      "$4 \\text{ m s}^{-1}$",
+      "$2 \\text{ m s}^{-1}$",
+      "$0.5 \\text{ m s}^{-1}$",
+      "$8 \\text{ m s}^{-1}$"
+    ],
+    "answer": 2,
+    "explanation": "Comparing with the standard equation $y(x,t) = A \\sin(kx - \\omega t)$:\n- $k = 8 \\text{ rad/m}$\n- $\\omega = 4 \\text{ rad/s}$\n\nThe velocity of the wave is:\n$$v = \\frac{\\omega}{k} = \\frac{4}{8} = 0.5 \\text{ m s}^{-1}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "24th January",
+    "subtopic": "Basics of Mechanical Waves"
+  },
+  {
+    "q": "A transverse wave is represented by $y = 2 \\sin(\\omega t - kx) \\text{ cm}$. The value of wavelength (in cm) for which the wave velocity becomes equal to the maximum particle velocity, will be:",
+    "type": "mcq",
+    "options": [
+      "$4\\pi$",
+      "$2\\pi$",
+      "$\\pi$",
+      "$2$"
+    ],
+    "answer": 0,
+    "explanation": "Given:\n- Wave velocity $v = \\frac{\\omega}{k}$\n- Maximum particle velocity $v_{p\\text{,max}} = A \\omega$\n\nSetting $v = v_{p\\text{,max}}$:\n$$\\frac{\\omega}{k} = A \\omega \\implies k = \\frac{1}{A}$$\n\nSince $k = \\frac{2\\pi}{\\lambda}$ and the amplitude $A = 2 \\text{ cm}$:\n$$\\frac{2\\pi}{\\lambda} = \\frac{1}{2} \\implies \\lambda = 4\\pi \\text{ cm}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "26th July",
+    "subtopic": "Basics of Mechanical Waves"
+  },
+  {
+    "q": "In the wave equation $y = 0.5 \\sin \\frac{2\\pi}{\\lambda} (400t - x) \\text{ m}$ the velocity of the wave will be :",
+    "type": "mcq",
+    "options": [
+      "$200 \\text{ m s}^{-1}$",
+      "$200\\sqrt{2} \\text{ m s}^{-1}$",
+      "$400 \\text{ m s}^{-1}$",
+      "$400\\sqrt{2} \\text{ m s}^{-1}$"
+    ],
+    "answer": 2,
+    "explanation": "We can rewrite the given equation as:\n$$y = 0.5 \\sin\\left( \\frac{800\\pi}{\\lambda} t - \\frac{2\\pi}{\\lambda} x \\right)$$\n\nComparing with the standard equation $y = A \\sin(\\omega t - kx)$:\n- $\\omega = \\frac{800\\pi}{\\lambda}$\n- $k = \\frac{2\\pi}{\\lambda}$\n\nThe velocity of the wave is:\n$$v = \\frac{\\omega}{k} = \\frac{\\frac{800\\pi}{\\lambda}}{\\frac{2\\pi}{\\lambda}} = 400 \\text{ m s}^{-1}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "28th July",
+    "subtopic": "Basics of Mechanical Waves"
+  },
+  {
+    "q": "A $25 \\text{ m}$ long antenna is mounted on an antenna tower. The height of the antenna tower is $75 \\text{ m}$. The wavelength (in meter) of the signal transmitted by this antenna would be :",
+    "type": "mcq",
+    "options": [
+      "$300$",
+      "$400$",
+      "$200$",
+      "$100$"
+    ],
+    "answer": 3,
+    "explanation": "For effective transmission and reception, the minimum length ($L$) of an antenna should be one-fourth of the wavelength ($\\lambda$) of the signal:\n$$L = \\frac{\\lambda}{4}$$\n\nSubstituting $L = 25 \\text{ m}$:\n$$25 = \\frac{\\lambda}{4} \\implies \\lambda = 100 \\text{ m}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "16th March",
+    "subtopic": "Basics of Mechanical Waves"
+  },
+  {
+    "q": "The equation of a wave travelling on a string is $y = \\sin[20\\pi x + 10\\pi t]$, where x and t are distance and time in SI units. The minimum distance between two points having the same oscillating speed is :",
+    "type": "mcq",
+    "options": [
+      "5.0 cm",
+      "20 cm",
+      "10 cm",
+      "2.5 cm"
+    ],
+    "answer": 0,
+    "explanation": "The particle velocity is:\n$$v_p = \\frac{\\partial y}{\\partial t} = 10\\pi \\cos(20\\pi x + 10\\pi t)$$\n\nThe oscillating speed of a particle is the magnitude of its velocity:\n$$\\text{speed} = |v_p| = 10\\pi |\\cos(20\\pi x + 10\\pi t)|$$\n\nFor two points $x_1$ and $x_2$ to always have the same speed, their phase difference must satisfy:\n$$\\Delta\\phi = n\\pi$$\n\nFor the minimum non-zero distance, $n = 1$:\n$$k \\Delta x = \\pi$$\n$$20\\pi \\Delta x = \\pi \\implies \\Delta x = \\frac{1}{20} \\text{ m} = 0.05 \\text{ m} = 5.0 \\text{ cm}$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "7th April",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "A plane progressive wave is given by $y = 2 \\cos 2\\pi(330t - x) \\text{ m}$. The frequency of the wave is :",
+    "type": "mcq",
+    "options": [
+      "330 Hz",
+      "660 Hz",
+      "340 Hz",
+      "165 Hz"
+    ],
+    "answer": 0,
+    "explanation": "The general form of a plane progressive wave is:\n$$y = A \\cos 2\\pi(f t - \\frac{x}{\\lambda})$$\n\nComparing this with the given equation:\n$$y = 2 \\cos 2\\pi(330t - x)$$\n\nWe directly find that the frequency is:\n$$f = 330 \\text{ Hz}$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "Match List I with List II\n\nList I:\n(A) Troposphere\n(B) E-Part of Stratosphere\n(C) $F_2$-Part of Thermosphere\n(D) D-Part of Stratosphere\n\nList II:\n(I) Approximate 65 - 75 km over Earth's surface\n(II) Approximate 300 km over Earth's surface\n(III) Approximate 10 km over Earth's surface\n(IV) Approximate 100 km over Earth's surface\n\nChoose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "A-III, B-IV, C-II, D-I",
+      "A-I, B-II, C-IV, D-III",
+      "A-I, B-IV, C-III, D-II",
+      "A-III, B-II, C-I, D-IV"
+    ],
+    "answer": 0,
+    "explanation": "- **(A) Troposphere:** The lowest atmospheric layer extending up to approximately $10 \\text{ km}$ above the Earth's surface. (A - III)\n- **(B) E-Part of Stratosphere (usually E-layer of Ionosphere):** Located at an altitude of approximately $100 \\text{ km}$. (B - IV)\n- **(C) $F_2$-Part of Thermosphere:** Part of the ionosphere extending around $300 \\text{ km}$. (C - II)\n- **(D) D-Part of Stratosphere (usually D-layer of Ionosphere):** Located at approximately $65 - 75 \\text{ km}$. (D - I)\n\nThus, the correct match is A-III, B-IV, C-II, D-I.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "25th January",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "A sound wave of frequency $245 \\text{ Hz}$ travels with the speed of $300 \\text{ m s}^{-1}$ along the positive x-axis. Each point of the wave moves to and fro through a total distance of $6 \\text{ cm}$. What will be the mathematical expression of this travelling wave?",
+    "type": "mcq",
+    "options": [
+      "$Y(x,t) = 0.03 [\\sin 5.1x - (0.2 \\times 10^3)t]$",
+      "$Y(x,t) = 0.06 [\\sin 5.1x - (1.5 \\times 10^3)t]$",
+      "$Y(x,t) = 0.06 [\\sin 0.8x - (0.5 \\times 10^3)t]$",
+      "$Y(x,t) = 0.03 [\\sin 5.1x - (1.5 \\times 10^3)t]$"
+    ],
+    "answer": 3,
+    "explanation": "1. **Amplitude ($A$):**\nEach point moves to and fro through a total distance of $6 \\text{ cm} = 2A \\implies A = 3 \\text{ cm} = 0.03 \\text{ m}$.\n\n2. **Angular frequency ($\\omega$):**\n$$\\omega = 2\\pi f = 2 \\times 3.1416 \\times 245 \\approx 1539.4 \\text{ rad s}^{-1} \\approx 1.5 \\times 10^3 \\text{ rad s}^{-1}$$\n\n3. **Wave number ($k$):**\n$$k = \\frac{\\omega}{v} = \\frac{1539.4}{300} \\approx 5.13 \\text{ m}^{-1} \\approx 5.1 \\text{ m}^{-1}$$\n\nSince the wave travels along the positive x-axis:\n$$Y(x,t) = A \\sin(kx - \\omega t) = 0.03 \\sin[5.1x - (1.5 \\times 10^3)t]$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "17th March",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "Which of the following equations represents a travelling wave?",
+    "type": "mcq",
+    "options": [
+      "$y = A \\sin(15x - 2t)$",
+      "$y = A e^x \\cos(\\omega t - \\theta)$",
+      "$y = A e^{-x^2} (vt + \\theta)$",
+      "$y = A \\sin x \\cos \\omega t$"
+    ],
+    "answer": 0,
+    "explanation": "A travelling wave is mathematically represented by functions of the form $f(kx \\pm \\omega t)$ or $f(x \\pm vt)$. \n- Option 1: $y = A \\sin(15x - 2t)$ is of this form (specifically, a progressive harmonic wave).\n- Option 4: $y = A \\sin x \\cos \\omega t$ is a stationary (standing) wave.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "24th February",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "The percentage increase in the speed of transverse waves produced in a stretched string if the tension is increased by 4%, will be ___ %.",
+    "type": "numerical",
+    "options": [],
+    "answer": "2",
+    "explanation": "The speed of a transverse wave in a stretched string is:\n$$v = \\sqrt{\\frac{T}{\\mu}}$$\n\nTaking the natural logarithm and differentiating:\n$$\\ln v = \\frac{1}{2} \\ln T - \\frac{1}{2} \\ln \\mu$$\n$$\\frac{dv}{v} = \\frac{1}{2} \\frac{dT}{T}$$\n\nFor a small percentage increase:\n$$\\% \\text{ change in } v = \\frac{1}{2} (\\% \\text{ change in } T) = \\frac{1}{2} (4\\%) = 2\\%$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "25th February",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "For a transverse wave travelling, along a straight line, the distance between two peaks (crests) is 5 m, while the distance between one crest and one trough is 1.5 m. The possible wavelengths (in m) of the waves are:",
+    "type": "mcq",
+    "options": [
+      "1, 3, 5, ...",
+      "$1, \\frac{1}{3}, \\frac{1}{5}, ...$",
+      "1, 2, 3, ...",
+      "$\\frac{1}{2}, \\frac{1}{4}, \\frac{1}{6}, ...$"
+    ],
+    "answer": 1,
+    "explanation": "1. **Distance between two peaks is an integer multiple of the wavelength ($\\lambda$):**\n$$n \\lambda = 5 \\implies \\lambda = \\frac{5}{n} \\quad (n = 1, 2, 3, \\dots)$$\n\n2. **Distance between a crest and a trough is an odd-integer multiple of half-wavelength:**\n$$(2m - 1) \\frac{\\lambda}{2} = 1.5 \\implies (2m - 1) \\lambda = 3 \\implies \\lambda = \\frac{3}{2m - 1} \\quad (m = 1, 2, 3, \\dots)$$\n\nEquating both expressions for $\\lambda$:\n$$\\frac{5}{n} = \\frac{3}{2m - 1} \\implies 10m - 5 = 3n \\implies n = \\frac{10m - 5}{3}$$\n\nSince $n$ must be an integer, we test values of $m$:\n- For $m=2$: $n = \\frac{15}{3} = 5 \\implies \\lambda = \\frac{5}{5} = 1 \\text{ m}$\n- For $m=5$: $n = \\frac{45}{3} = 15 \\implies \\lambda = \\frac{5}{15} = \\frac{1}{3} \\text{ m}$\n- For $m=8$: $n = \\frac{75}{3} = 25 \\implies \\lambda = \\frac{5}{25} = \\frac{1}{5} \\text{ m}$\n\nThus, the possible wavelengths are $1, \\frac{1}{3}, \\frac{1}{5}, \\dots$",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "4th September",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "A travelling harmonic wave is represented by the equation $y(x, t) = 10^{-3} \\sin(50t + 2x)$, where $x$ and $y$ are in meter and $t$ is in seconds. Which of the following is a correct statement about the wave?",
+    "type": "mcq",
+    "options": [
+      "The wave is propagating along the positive x-axis with speed $25 \\text{ m s}^{-1}$",
+      "The wave is propagating along the positive x-axis with speed $100 \\text{ m s}^{-1}$",
+      "The wave is propagating along the negative x-axis with speed $25 \\text{ m s}^{-1}$",
+      "The wave is propagating along the negative x-axis with speed $100 \\text{ m s}^{-1}$"
+    ],
+    "answer": 2,
+    "explanation": "Comparing the given equation with the standard form $y = A \\sin(\\omega t + kx)$:\n- $\\omega = 50 \\text{ rad/s}$\n- $k = 2 \\text{ rad/m}$\n\nSince both coefficients of $x$ and $t$ are positive, the wave is travelling along the negative $x$-axis.\n\nThe wave speed is:\n$$v = \\frac{\\omega}{k} = \\frac{50}{2} = 25 \\text{ m s}^{-1}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "12th January",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "The equations of two waves are given by :\n$y_1 = 5 \\sin 2\\pi(x - vt) \\text{ cm}$\n$y_2 = 3 \\sin 2\\pi(x - vt + 1.5) \\text{ cm}$\nThese waves are simultaneously passing through a string. The amplitude of the resulting wave is :",
+    "type": "mcq",
+    "options": [
+      "2 cm",
+      "4 cm",
+      "5.8 cm",
+      "8 cm"
+    ],
+    "answer": 0,
+    "explanation": "We can rewrite the equation of $y_2$:\n$$y_2 = 3 \\sin [2\\pi(x - vt) + 3\\pi] \\text{ cm}$$\n\nThe phase difference between the two waves is $\\phi = 3\\pi$ radians.\nSince $\\cos(3\\pi) = -1$, the waves are in opposite phase.\n\nThe amplitude of the resulting wave is:\n$$A = |A_1 - A_2| = |5 - 3| = 2 \\text{ cm}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "24th June",
+    "subtopic": "Interference and Superposition of Waves"
+  },
+  {
+    "q": "Two light beams of intensities in the ratio of 9 : 4 are allowed to interfere. The ratio of the intensity of maxima and minima will be :",
+    "type": "mcq",
+    "options": [
+      "9 : 4",
+      "16 : 81",
+      "25 : 169",
+      "25 : 1"
+    ],
+    "answer": 3,
+    "explanation": "The intensity of a wave is proportional to the square of its amplitude:\n$$\\frac{I_1}{I_2} = \\frac{9}{4} \\implies \\frac{a_1}{a_2} = \\sqrt{\\frac{9}{4}} = \\frac{3}{2}$$\n\nThe ratio of the maximum to minimum intensity in interference is:\n$$\\frac{I_{\\text{max}}}{I_{\\text{min}}} = \\left( \\frac{a_1 + a_2}{a_1 - a_2} \\right)^2 = \\left( \\frac{3 + 2}{3 - 2} \\right)^2 = \\frac{25}{1} = 25 : 1$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "24th June",
+    "subtopic": "Interference and Superposition of Waves"
+  },
+  {
+    "q": "If a wave gets refracted into a denser medium, then which of the following is true?",
+    "type": "mcq",
+    "options": [
+      "Wavelength, speed and frequency decreases.",
+      "Wavelength increases, speed decreases and frequency remains constant.",
+      "Wavelength and speed decreases but frequency remains constant.",
+      "Wavelength, speed and frequency increases."
+    ],
+    "answer": 2,
+    "explanation": "When a wave travels from one medium to another (refraction):\n- The frequency of the wave remains constant because it depends solely on the source.\n- In a denser medium, the wave propagation speed $v$ decreases.\n- Since $v = f \\lambda$, a decrease in speed $v$ at constant frequency $f$ means the wavelength $\\lambda$ must also decrease.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "27th June",
+    "subtopic": "Interference and Superposition of Waves"
+  },
+  {
+    "q": "A string is clamped at both the ends and it is vibrating in its $4^{\\text{th}}$ harmonic. The equation of the stationary wave is $y = 0.3 \\sin(0.157x) \\cos(200\\pi t)$. The length of the string is (All quantities are in SI units.)",
+    "type": "mcq",
+    "options": [
+      "20 m",
+      "60 m",
+      "40 m",
+      "80 m"
+    ],
+    "answer": 3,
+    "explanation": "Comparing the given equation with the standard stationary wave equation $y = 2A \\sin(kx) \\cos(\\omega t)$:\n- $k = 0.157 \\text{ rad/m} \\approx \\frac{\\pi}{20} \\text{ rad/m}$\n\nThe wavelength is:\n$$\\lambda = \\frac{2\\pi}{k} = \\frac{2\\pi}{0.157} \\approx 40 \\text{ m}$$\n\nFor a string clamped at both ends vibrating in its $4^{\\text{th}}$ harmonic, the length of the string is:\n$$L = 4 \\left( \\frac{\\lambda}{2} \\right) = 2\\lambda = 2 \\times 40 \\text{ m} = 80 \\text{ m}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "9th April",
+    "subtopic": "Stationary waves"
+  },
+  {
+    "q": "Two identical strings X and Z made of same material have tension $T_{\\text{X}}$ and $T_{\\text{Z}}$ in them if their fundamental frequencies are $450 \\text{ Hz}$ and $300 \\text{ Hz}$, respectively, then the ratio $T_{\\text{X}}/T_{\\text{Z}}$ is :",
+    "type": "mcq",
+    "options": [
+      "2.25",
+      "0.44",
+      "1.25",
+      "1.5"
+    ],
+    "answer": 0,
+    "explanation": "The fundamental frequency of a stretched string is:\n$$f = \\frac{1}{2L}\\sqrt{\\frac{T}{\\mu}}$$\n\nSince the strings are identical (same length $L$ and linear mass density $\\mu$):\n$$f \\propto \\sqrt{T} \\implies \\frac{T_{\\text{X}}}{T_{\\text{Z}}} = \\left( \\frac{f_{\\text{X}}}{f_{\\text{Z}}} \\right)^2$$\n\nSubstituting the frequencies:\n$$\\frac{T_{\\text{X}}}{T_{\\text{Z}}} = \\left( \\frac{450}{300} \\right)^2 = (1.5)^2 = 2.25$$",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "2nd September",
+    "subtopic": "Vibration of String"
+  },
+  {
+    "q": "Two open organ pipes of lengths 60 cm and 90 cm resonate at $6^{\\text{th}}$ and $5^{\\text{th}}$ harmonics respectively. The difference of frequencies for the given modes is _______ Hz. (Velocity of sound in air = 333 m/s)",
+    "type": "numerical",
+    "options": [],
+    "answer": "740",
+    "explanation": "The frequency of the $n^{\\text{th}}$ harmonic for an open organ pipe is:\n$$f_n = n \\frac{v}{2L}$$\n\n1. **For the first pipe:**\n- $L_1 = 60 \\text{ cm} = 0.6 \\text{ m}$\n- $n = 6$\n$$f^{(1)}_6 = 6 \\times \\frac{333}{2 \\times 0.6} = 1665 \\text{ Hz}$$\n\n2. **For the second pipe:**\n- $L_2 = 90 \\text{ cm} = 0.9 \\text{ m}$\n- $n = 5$\n$$f^{(2)}_5 = 5 \\times \\frac{333}{2 \\times 0.9} = 925 \\text{ Hz}$$\n\nThe difference in their frequencies is:\n$$\\Delta f = 1665 - 925 = 740 \\text{ Hz}$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "6th April",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "A closed and an open organ pipe have same lengths. If the ratio of frequencies of their seventh overtones is $\\frac{a-1}{a}$ then the value of a is ________",
+    "type": "numerical",
+    "options": [],
+    "answer": "16",
+    "explanation": "Let $L$ be the length of both pipes.\n\n1. **For the open organ pipe:**\n- The $7^{\\text{th}}$ overtone corresponds to the $8^{\\text{th}}$ harmonic.\n$$f_{\\text{open}} = 8 \\left(\\frac{v}{2L}\\right) = \\frac{4v}{L}$$\n\n2. **For the closed organ pipe:**\n- The $7^{\\text{th}}$ overtone corresponds to the $15^{\\text{th}}$ harmonic (since closed pipes only have odd harmonics: $1, 3, 5, \\dots, 2n+1$).\n$$f_{\\text{closed}} = 15 \\left(\\frac{v}{4L}\\right)$$\n\nTaking their ratio:\n$$\\frac{f_{\\text{closed}}}{f_{\\text{open}}} = \\frac{\\frac{15v}{4L}}{\\frac{4v}{L}} = \\frac{15}{16}$$\n\nComparing this with the given ratio $\\frac{a-1}{a}$:\n$$\\frac{a-1}{a} = \\frac{15}{16} \\implies a = 16$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "8th April",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "In a resonance tube experiment when the tube is filled with water up to a height of 17.0 cm, from bottom, it resonates with a given tuning fork. When the water level is raised the next resonance with the same tuning fork occurs at a height of 24.5 cm. If the velocity of sound in air is $330 \\text{ m s}^{-1}$, the tuning fork frequency is :",
+    "type": "mcq",
+    "options": [
+      "2200 Hz",
+      "550 Hz",
+      "1100 Hz",
+      "3300 Hz"
+    ],
+    "answer": 0,
+    "explanation": "Raising the water level decreases the length of the resonating air column. Thus, the two successive resonance heights of water correspond to successive resonant air column lengths $l_1$ and $l_2$ (where $l_1 > l_2$):\n$$l_1 - l_2 = \\frac{\\lambda}{2}$$\n$$(L_{\\text{tube}} - 17.0) - (L_{\\text{tube}} - 24.5) = \\frac{\\lambda}{2}$$\n$$24.5 - 17.0 = 7.5 \\text{ cm} = \\frac{\\lambda}{2} \\implies \\lambda = 15 \\text{ cm} = 0.15 \\text{ m}$$\n\nThe frequency of the tuning fork is:\n$$f = \\frac{v}{\\lambda} = \\frac{330}{0.15} = 2200 \\text{ Hz}$$",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "5th September",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "A closed organ pipe has a fundamental frequency of 1.5 kHz. The number of overtones that can be distinctly heard by a person with this organ pipe will be (Assume that the highest frequency a person can hear is 20,000 Hz).",
+    "type": "mcq",
+    "options": [
+      "7",
+      "4",
+      "6",
+      "5"
+    ],
+    "answer": 2,
+    "explanation": "For a closed organ pipe, the frequencies of the harmonics are odd multiples of the fundamental frequency $f_0 = 1.5 \\text{ kHz}$:\n$$f_n = (2n + 1) f_0$$\n\nWhere $n = 0$ is the fundamental and $n = 1, 2, 3, \\dots$ correspond to the $n^{\\text{th}}$ overtones.\n\nWe need the frequency to be audible to humans ($f_n \\le 20,000 \\text{ Hz}$):\n$$(2n + 1) \\times 1500 \\le 20000$$\n$$2n + 1 \\le \\frac{200}{15} \\approx 13.33$$\n$$2n \\le 12.33 \\implies n \\le 6.16$$\n\nSince $n$ must be an integer, $n_{\\text{max}} = 6$. Therefore, the person can hear $6$ overtones.",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "10th January",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "The correct figure that shows, schematically, the wave pattern produced by the superposition of two waves of frequencies 9 Hz and 11 Hz, is:",
+    "type": "mcq",
+    "options": [
+      "graph (1)",
+      "graph (2)",
+      "graph (3)",
+      "graph (4)"
+    ],
+    "answer": 0,
+    "explanation": "The beat frequency is:\n$$f_b = |11 - 9| = 2 \\text{ Hz}$$\n\nThis means 2 beats are produced in 1 second. The period of a beat is:\n$$T_b = \\frac{1}{f_b} = 0.5 \\text{ s}$$\n\nIn a 1-second interval, there must be exactly two complete envelope cycles (amplitude maxima to maxima). This pattern is schematically represented in graph (1).",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "10th April",
+    "subtopic": "Beats"
+  },
+  {
+    "q": "Two cars X and Y are approaching each other with velocities $36 \\text{ km h}^{-1}$ and $72 \\text{ km h}^{-1}$ respectively. The frequency of a whistle sound as emitted by a passenger in car X, heard by the passenger in car Y is 1320 Hz. If the velocity of sound in air is $340 \\text{ m s}^{-1}$, the actual frequency of the whistle sound produced is ________ Hz.",
+    "type": "numerical",
+    "options": [],
+    "answer": "1210",
+    "explanation": "Converting velocities to SI units:\n- Speed of source (Car X): $v_s = 36 \\text{ km/h} = 10 \\text{ m/s}$\n- Speed of observer (Car Y): $v_o = 72 \\text{ km/h} = 20 \\text{ m/s}$\n\nUsing the Doppler effect formula for two approaching bodies:\n$$f' = f \\left( \\frac{v + v_o}{v - v_s} \\right)$$\n$$1320 = f \\left( \\frac{340 + 20}{340 - 10} \\right)$$\n$$1320 = f \\left( \\frac{360}{330} \\right) = f \\left( \\frac{12}{11} \\right)$$\n$$f = 1320 \\times \\frac{11}{12} = 1210 \\text{ Hz}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "27th August",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "Two cars A and B are moving away from each other in opposite directions. Both the cars are moving with speed of $20 \\text{ m s}^{-1}$ with respect to the ground. If an observer in car A detects a frequency $2000 \\text{ Hz}$ of the sound coming from car B, what is the natural frequency of the sound source in car B? (speed of sound in air $= 340 \\text{ m s}^{-1}$)",
+    "type": "mcq",
+    "options": [
+      "2150 Hz",
+      "2300 Hz",
+      "2250 Hz",
+      "2060 Hz"
+    ],
+    "answer": 2,
+    "explanation": "Using the Doppler effect formula for source and observer moving away from each other:\n$$f' = f \\left( \\frac{v - v_o}{v + v_s} \\right)$$\n\nGiven:\n- $v_o = 20 \\text{ m/s}$\n- $v_s = 20 \\text{ m/s}$\n- $f' = 2000 \\text{ Hz}$\n- $v = 340 \\text{ m/s}$\n\nSubstituting these values:\n$$2000 = f \\left( \\frac{340 - 20}{340 + 20} \\right) = f \\left( \\frac{320}{360} \\right) = f \\left( \\frac{8}{9} \\right)$$\n$$f = 2000 \\times \\frac{9}{8} = 2250 \\text{ Hz}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "9th April",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "Two strings with circular cross section and made of same material, are stretched to have same amount of tension. A transverse wave is then made to pass through both the strings. The velocity of the wave in the first string having the radius of cross section R is $v_1$, and that in the other string having radius of cross section $R/2$ is $v_2$. Then $\\frac{v_2}{v_1} =$",
+    "type": "mcq",
+    "options": [
+      "$\\sqrt{2}$",
+      "2",
+      "8",
+      "4"
+    ],
+    "answer": 1,
+    "explanation": "The velocity of a transverse wave in a stretched string is given by:\n$$v = \\sqrt{\\frac{T}{\\mu}}$$\n\nWhere $\\mu$ is the linear mass density of the string:\n$$\\mu = \\frac{\\text{mass}}{\\text{length}} = \\rho A = \\rho (\\pi r^2)$$\n\nSince both strings are made of the same material (same density $\\rho$) and have the same tension ($T$):\n$$v = \\sqrt{\\frac{T}{\\rho \\pi r^2}} \\propto \\frac{1}{r}$$\n\nTherefore, the ratio of their velocities is:\n$$\\frac{v_2}{v_1} = \\frac{r_1}{r_2} = \\frac{R}{R/2} = 2$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Speed of Sound Waves"
+  },
+  {
+    "q": "The ratio of speed of sound in hydrogen gas to the speed of sound in oxygen gas at the same temperature is:",
+    "type": "mcq",
+    "options": [
+      "1 : 2",
+      "4 : 1",
+      "1 : 4",
+      "1 : 1"
+    ],
+    "answer": 1,
+    "explanation": "The speed of sound in a gas is given by the formula:\n$$v = \\sqrt{\\frac{\\gamma R T}{M}}$$\n\nSince both hydrogen ($H_2$) and oxygen ($O_2$) are diatomic gases ($\\gamma_1 = \\gamma_2 = 1.4$) at the same temperature $T$, the speed of sound is inversely proportional to the square root of the molar mass:\n$$v \\propto \\frac{1}{\\sqrt{M}}$$\n\nTherefore, the ratio is:\n$$\\frac{v_{\\text{H}_2}}{v_{\\text{O}_2}} = \\sqrt{\\frac{M_{\\text{O}_2}}{M_{\\text{H}_2}}} = \\sqrt{\\frac{32}{2}} = \\sqrt{16} = 4$$\n\nSo the ratio of the speeds is $4 : 1$.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "6th April",
+    "subtopic": "Speed of Sound Waves"
+  },
+  {
+    "q": "For a solid rod, the Young's modulus of elasticity is $3.2 \\times 10^{11} \\text{ N m}^{-2}$ and density is $8 \\times 10^3 \\text{ kg m}^{-3}$. The velocity of longitudinal wave in the rod will be:",
+    "type": "mcq",
+    "options": [
+      "$145.75 \\times 10^3 \\text{ m s}^{-1}$",
+      "$3.65 \\times 10^3 \\text{ m s}^{-1}$",
+      "$18.96 \\times 10^3 \\text{ m s}^{-1}$",
+      "$6.32 \\times 10^3 \\text{ m s}^{-1}$"
+    ],
+    "answer": 3,
+    "explanation": "The velocity of a longitudinal wave in a solid rod is given by:\n$$v = \\sqrt{\\frac{Y}{\\rho}}$$\n\nSubstitute the given values:\n$$v = \\sqrt{\\frac{3.2 \\times 10^{11} \\text{ N m}^{-2}}{8 \\times 10^3 \\text{ kg m}^{-3}}} = \\sqrt{0.4 \\times 10^8} = \\sqrt{40 \\times 10^6} \\approx 6.32 \\times 10^3 \\text{ m s}^{-1}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "31st January",
+    "subtopic": "Speed of Sound Waves"
+  },
+  {
+    "q": "A transverse harmonic wave on a string is given by $y(x,t) = 5 \\sin(6t + 0.003x)$ where $x$ and $y$ are in cm and $t$ in sec. The wave velocity is _________ $\\text{ m s}^{-1}$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "20",
+    "explanation": "Comparing the given wave equation with the standard equation $y(x, t) = A \\sin(\\omega t + kx)$:\n- Angular frequency $\\omega = 6 \\text{ rad/s}$\n- Wave number $k = 0.003 \\text{ rad/cm} = 0.3 \\text{ rad/m}$\n\nThe wave velocity is:\n$$v = \\frac{\\omega}{k} = \\frac{6 \\text{ rad/s}}{0.3 \\text{ rad/m}} = 20 \\text{ m s}^{-1}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "10th April",
+    "subtopic": "Basics of Mechanical Waves"
+  },
+  {
+    "q": "The equation of wave is given by $Y = 10^{-2} \\sin 2\\pi(160t - 0.5x + \\frac{\\pi}{4})$, where $x$ and $Y$ are in m and $t$ in s. The speed of the wave is _______ $\\text{ km h}^{-1}$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "1152",
+    "explanation": "We can rewrite the given equation as:\n$$Y = 10^{-2} \\sin\\left(320\\pi t - \\pi x + \\frac{\\pi^2}{2}\\right)$$\n\nComparing with the standard equation $y = A \\sin(\\omega t - kx + \\phi)$:\n- Angular frequency $\\omega = 320\\pi \\text{ rad s}^{-1}$\n- Wave number $k = \\pi \\text{ rad m}^{-1}$\n\nThe velocity of the wave in SI units is:\n$$v = \\frac{\\omega}{k} = \\frac{320\\pi}{\\pi} = 320 \\text{ m s}^{-1}$$\n\nConverting the speed to $\\text{km h}^{-1}$:\n$$v = 320 \\times \\frac{18}{5} = 64 \\times 18 = 1152 \\text{ km h}^{-1}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "11th April",
+    "subtopic": "Basics of Mechanical Waves"
+  },
+  {
+    "q": "The distance between two consecutive points with phase difference of $60^\\circ$ in a wave of frequency $500 \\text{ Hz}$ is $6.0 \\text{ m}$. The velocity with which wave is travelling is ______ $\\text{ km s}^{-1}$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "18",
+    "explanation": "The relationship between phase difference ($\\Delta\\phi$) and path difference ($\\Delta x$) is:\n$$\\Delta\\phi = \\frac{2\\pi}{\\lambda} \\Delta x$$\n\nGiven:\n- $\\Delta\\phi = 60^\\circ = \\frac{\\pi}{3} \\text{ rad}$\n- $\\Delta x = 6.0 \\text{ m}$\n\nSubstitute the values:\n$$\\frac{\\pi}{3} = \\frac{2\\pi}{\\lambda} \\times 6.0 \\implies \\lambda = 36 \\text{ m}$$\n\nThe velocity of the wave is:\n$$v = f \\lambda = 500 \\text{ Hz} \\times 36 \\text{ m} = 18000 \\text{ m s}^{-1} = 18 \\text{ km s}^{-1}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "25th January",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "A steel wire with mass per unit length $7.0 \\times 10^{-3} \\text{ kg m}^{-1}$ is under tension of $70 \\text{ N}$. The speed of transverse waves in the wire will be:",
+    "type": "mcq",
+    "options": [
+      "$200\\pi \\text{ m s}^{-1}$",
+      "$100 \\text{ m s}^{-1}$",
+      "$10 \\text{ m s}^{-1}$",
+      "$50 \\text{ m s}^{-1}$"
+    ],
+    "answer": 1,
+    "explanation": "The speed of a transverse wave in a stretched wire is:\n$$v = \\sqrt{\\frac{T}{\\mu}}$$\n\nSubstitute the given values:\n$$v = \\sqrt{\\frac{70 \\text{ N}}{7.0 \\times 10^{-3} \\text{ kg m}^{-1}}} = \\sqrt{10^4} = 100 \\text{ m s}^{-1}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "1st February",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "A longitudinal wave is represented by $y = 10 \\sin 2\\pi (nt - \\frac{x}{\\lambda}) \\text{ cm}$. The maximum particle velocity will be four times the wave velocity if the determined value of wavelength is equal to:",
+    "type": "mcq",
+    "options": [
+      "$2\\pi$",
+      "$5\\pi$",
+      "$\\pi$",
+      "$\\frac{5\\pi}{2}$"
+    ],
+    "answer": 1,
+    "explanation": "Comparing the wave equation with the standard equation $y = A \\sin(\\omega t - kx)$:\n- Amplitude $A = 10 \\text{ cm}$\n- Angular frequency $\\omega = 2\\pi n$\n- Wave number $k = \\frac{2\\pi}{\\lambda}$\n\nThe maximum particle velocity is:\n$$v_{p\\text{,max}} = A \\omega = 10 \\times 2\\pi n = 20\\pi n$$\n\nThe wave velocity is:\n$$v = \\frac{\\omega}{k} = n \\lambda$$\n\nSetting $v_{p\\text{,max}} = 4 v$:\n$$20\\pi n = 4 n \\lambda \\implies \\lambda = 5\\pi \\text{ cm}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "29th June",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "The mass per unit length of a uniform wire is $0.135 \\text{ g cm}^{-1}$. A transverse wave of the form $y = -0.21 \\sin(x + 30t)$ is produced in it, where $x$ is in meter and $t$ is in second. Then, the expected value of tension in the wire is $x \\times 10^{-2} \\text{ N}$. Value of $x$ is ________. (Round-off to the nearest integer)",
+    "type": "numerical",
+    "options": [],
+    "answer": "1215",
+    "explanation": "1. Convert mass per unit length to SI units:\n$$\\mu = 0.135 \\text{ g/cm} = \\frac{0.135 \\times 10^{-3} \\text{ kg}}{10^{-2} \\text{ m}} = 1.35 \\times 10^{-2} \\text{ kg/m}$$\n\n2. From the wave equation $y = A \\sin(kx + \\omega t)$:\n- $k = 1 \\text{ rad/m}$\n- $\\omega = 30 \\text{ rad/s}$\n- The wave speed is:\n$$v = \\frac{\\omega}{k} = \\frac{30}{1} = 30 \\text{ m/s}$$\n\n3. The wave speed in a stretched wire is related to the tension by:\n$$v = \\sqrt{\\frac{T}{\\mu}} \\implies T = \\mu v^2$$\n$$T = (1.35 \\times 10^{-2} \\text{ kg/m}) \\times (30 \\text{ m/s})^2 = 1.35 \\times 10^{-2} \\times 900 = 12.15 \\text{ N} = 1215 \\times 10^{-2} \\text{ N}$$\n\nHence, the value of $x$ is $1215$.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "26th February",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "A uniform thin rope of length $12 \\text{ m}$ and mass $6 \\text{ kg}$ hangs vertically from a rigid support and a block of mass $2 \\text{ kg}$ is attached to its free end. A transverse short wave train of wavelength $6 \\text{ cm}$ is produced at the lower end of the rope. What is the wavelength of the wave train (in cm) when it reaches the top of the rope?",
+    "type": "mcq",
+    "options": [
+      "3",
+      "6",
+      "12",
+      "9"
+    ],
+    "answer": 2,
+    "explanation": "As the wave propagates along the rope, its frequency $f$ remains constant. Therefore, the wavelength is proportional to the wave speed:\n$$v = f \\lambda \\implies \\lambda \\propto v$$\n\nSince $v = \\sqrt{\\frac{T}{\\mu}}$:\n$$\\lambda \\propto \\sqrt{T}$$\n\n1. At the bottom of the rope, the tension is due only to the hanging block:\n$$T_{\\text{bottom}} = M g = 2g$$\n\n2. At the top of the rope, the tension is due to the hanging block plus the entire rope:\n$$T_{\\text{top}} = (M + m) g = (2 + 6) g = 8g$$\n\nTaking the ratio of the wavelengths:\n$$\\frac{\\lambda_{\\text{top}}}{\\lambda_{\\text{bottom}}} = \\sqrt{\\frac{T_{\\text{top}}}{T_{\\text{bottom}}}} = \\sqrt{\\frac{8g}{2g}} = \\sqrt{4} = 2$$\n$$\\lambda_{\\text{top}} = 2 \\times 6 \\text{ cm} = 12 \\text{ cm}$$",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "3rd September",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "Assume that the displacement (s) of air is proportional to the pressure difference ($\\Delta p$) created by a sound wave. Displacement (s) further depends on the speed of sound (v), density of air ($\\rho$) and the frequency (f). If $\\Delta p \\sim 10 \\text{ Pa}$, $v \\sim 300 \\text{ m/s}$, $\\rho \\sim 1 \\text{ kg/m}^3$, $f \\sim 1000 \\text{ Hz}$, then s will be of the order of (take the multiplicative constant to be 1):",
+    "type": "mcq",
+    "options": [
+      "$\\frac{3}{100} \\text{ mm}$",
+      "$10 \\text{ mm}$",
+      "$\\frac{1}{10} \\text{ mm}$",
+      "$1 \\text{ mm}$"
+    ],
+    "answer": 0,
+    "explanation": "The relationship between pressure amplitude $\\Delta p$ and displacement amplitude $s$ is:\n$$\\Delta p = B k s = \\rho v^2 k s$$\n\nSince $k = \\frac{\\omega}{v} = \\frac{2\\pi f}{v}$:\n$$\\Delta p = 2\\pi \\rho v f s$$\n\nTaking the multiplicative constant to be 1 (neglecting $2\\pi$):\n$$s \\sim \\frac{\\Delta p}{\\rho v f} = \\frac{10}{1 \\times 300 \\times 1000} = \\frac{1}{30000} \\text{ m} = \\frac{1}{30} \\text{ mm} \\approx 0.033 \\text{ mm}$$\n\nThis is closest to $\\frac{3}{100} \\text{ mm} = 0.03 \\text{ mm}$.",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "5th September",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "A transverse wave travels on a taut steel wire with a velocity of $v$ when tension in it is $2.06 \\times 10^4 \\text{ N}$. When the tension is changed to $T$, the velocity changed to $\\frac{v}{2}$. The value of $T$ is close to:",
+    "type": "mcq",
+    "options": [
+      "$2.50 \\times 10^4 \\text{ N}$",
+      "$5.15 \\times 10^3 \\text{ N}$",
+      "$30.5 \\times 10^4 \\text{ N}$",
+      "$10.2 \\times 10^2 \\text{ N}$"
+    ],
+    "answer": 1,
+    "explanation": "The speed of a transverse wave in a stretched wire is proportional to the square root of the tension ($v \\propto \\sqrt{T}$):\n$$T \\propto v^2$$\n\nTherefore, when the velocity is halved:\n$$\\frac{T'}{T} = \\left( \\frac{v'}{v} \\right)^2 = \\left( \\frac{1}{2} \\right)^2 = \\frac{1}{4}$$\n$$T' = \\frac{2.06 \\times 10^4 \\text{ N}}{4} = 5.15 \\times 10^3 \\text{ N}$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "8th January",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "A heavy ball of mass $M$ is suspended from the ceiling of a car by a light string of mass $m$ ($m \\ll M$). When the car is at rest, the speed of transverse waves in the string is $60 \\text{ m s}^{-1}$. When the car has acceleration $a$, the wave speed increases to $60.5 \\text{ m s}^{-1}$. The value of $a$, in terms of gravitational acceleration $g$, is closest to:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{g}{10}$",
+      "$\\frac{g}{20}$",
+      "$\\frac{g}{5}$",
+      "$\\frac{g}{30}$"
+    ],
+    "answer": 2,
+    "explanation": "1. When the car is at rest, the effective gravity is $g_{\\text{eff}} = g$:\n$$v_1 = \\sqrt{\\frac{M g}{\\mu}} = 60 \\text{ m s}^{-1}$$\n\n2. When the car accelerates horizontally with acceleration $a$, the effective gravity is $g_{\\text{eff}} = \\sqrt{g^2 + a^2}$:\n$$v_2 = \\sqrt{\\frac{M \\sqrt{g^2 + a^2}}{\\mu}} = 60.5 \\text{ m s}^{-1}$$\n\n3. Taking the ratio:\n$$\\frac{v_2}{v_1} = \\left( 1 + \\frac{a^2}{g^2} \\right)^{1/4}$$\n$$\\frac{60.5}{60} = 1 + \\frac{1}{120} = \\left( 1 + \\frac{a^2}{g^2} \\right)^{1/4}$$\n\nUsing the binomial approximation:\n$$1 + \\frac{1}{120} \\approx 1 + \\frac{1}{4} \\frac{a^2}{g^2}$$\n$$\\frac{1}{4} \\frac{a^2}{g^2} = \\frac{1}{120} \\implies \\frac{a^2}{g^2} = \\frac{1}{30}$$\n$$a = \\frac{g}{\\sqrt{30}} \\approx \\frac{g}{5.48}$$\n\nThis is closest to $\\frac{g}{5}$.",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "9th January",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "A sinusoidal wave of wavelength 7.5 cm travels a distance of 1.2 cm along the x -direction in 0.3 sec. The crest is at $x = 0$ at $t = 0 \\text{ sec}$ and maximum displacement of the wave is 2 cm. Which equation correctly represents this wave ?",
+    "type": "mcq",
+    "options": [
+      "$y = 2 \\cos(0.83x - 3.35t) \\text{ cm}$",
+      "$y = 2 \\sin(0.83x - 3.5t) \\text{ cm}$",
+      "$y = 2 \\cos(3.35x - 0.83t) \\text{ cm}$",
+      "$y = 2 \\cos(0.13x - 0.5t) \\text{ cm}$"
+    ],
+    "answer": 0,
+    "explanation": "1. **Amplitude $A$:**\n$$A = 2 \\text{ cm}$$\n\n2. **Wave number $k$:**\n$$k = \\frac{2\\pi}{\\lambda} = \\frac{2 \\times 3.1416}{7.5} \\approx 0.838 \\text{ rad/cm}$$\n\n3. **Angular frequency $\\omega$:**\n$$\\omega = k v = k \\frac{\\Delta x}{\\Delta t}$$\n$$\\omega = 0.838 \\times \\frac{1.2 \\text{ cm}}{0.3 \\text{ s}} = 0.838 \\times 4 \\approx 3.35 \\text{ rad/s}$$\n\n4. **Equation format:**\nSince a crest (maximum displacement) is at $x = 0$ at $t = 0$, we represent the wave using a cosine function:\n$$y(x, t) = 2 \\cos(0.83x - 3.35t) \\text{ cm}$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "2nd April",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "Displacement of a wave is expressed as $x(t) = 5 \\cos\\left(628t + \\frac{\\pi}{2}\\right) \\text{ m}$. The wavelength of the wave when its velocity is $300 \\text{ m/s}$ is :",
+    "type": "mcq",
+    "options": [
+      "5 m",
+      "3 m",
+      "0.5 m",
+      "0.33 m"
+    ],
+    "answer": 1,
+    "explanation": "Comparing the given time-dependent expression with $x(t) = A \\cos(\\omega t + \\phi)$:\n- Angular frequency $\\omega = 628 \\text{ rad/s}$\n- Frequency $f = \\frac{\\omega}{2\\pi} = \\frac{628}{2 \\times 3.14} = 100 \\text{ Hz}$\n\nUsing the relation between velocity, frequency, and wavelength:\n$$v = f \\lambda \\implies \\lambda = \\frac{v}{f} = \\frac{300 \\text{ m/s}}{100 \\text{ Hz}} = 3 \\text{ m}$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "4th April",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "A point source is emitting sound waves of intensity $16 \\times 10^{-8} \\text{ W m}^{-2}$ at the origin. The difference in intensity (magnitude only) at two points located at a distances of $2 \\text{ m}$ and $4 \\text{ m}$ from the origin respectively will be ________ $\\times 10^{-8} \\text{ W m}^{-2}$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "12",
+    "explanation": "The intensity $I$ of sound waves from a point source is inversely proportional to the square of the distance $r$ from the source:\n$$I \\propto \\frac{1}{r^2}$$\n\nLet $I_0 = 16 \\times 10^{-8} \\text{ W m}^{-2}$ be the intensity at reference distance $r_0 = 1 \\text{ m}$.\n1. At $r_1 = 2 \\text{ m}$:\n$$I_1 = \\frac{I_0}{r_1^2} = \\frac{16 \\times 10^{-8}}{4} = 4 \\times 10^{-8} \\text{ W m}^{-2}$$\n\n2. At $r_2 = 4 \\text{ m}$:\n$$I_2 = \\frac{I_0}{r_2^2} = \\frac{16 \\times 10^{-8}}{16} = 1 \\times 10^{-8} \\text{ W m}^{-2}$$\n\nThe magnitude of the intensity difference is:\n$$\\Delta I = |I_1 - I_2| = (4 - 1) \\times 10^{-8} = 3 \\times 10^{-8} \\text{ W m}^{-2}$$\n\nComparing with the required form, we find the missing value is $3$.",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "30th January",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "Two travelling waves of equal amplitudes and equal frequencies move in opposite directions along a string. They interfere to produce a stationary wave whose equation is given by $y = \\left( 10 \\cos \\pi x \\sin \\frac{2\\pi t}{T} \\right) \\text{ cm}$. The amplitude of the particle at $x = \\frac{4}{3} \\text{ cm}$ will be _____ cm.",
+    "type": "numerical",
+    "options": [],
+    "answer": "5",
+    "explanation": "The equation of the standing wave is of the form $y = A(x) \\sin\\left(\\frac{2\\pi t}{T}\\right)$, where the position-dependent amplitude is:\n$$A(x) = 10 \\cos\\pi x$$\n\nSubstituting $x = \\frac{4}{3} \\text{ cm}$:\n$$A\\left(\\frac{4}{3}\\right) = 10 \\cos\\left(\\frac{4\\pi}{3}\\right) = 10 \\times \\left( -\\frac{1}{2} \\right) = -5 \\text{ cm}$$\n\nTaking the magnitude, the amplitude is $5 \\text{ cm}$.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "24th June",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "Two travelling waves produces a standing wave represented by equation: $y = (1.0 \\text{ mm}) \\cos[(1.57 \\text{ cm}^{-1})x] \\sin[(78.5 \\text{ s}^{-1})t]$. The node closest to the origin in the region $x > 0$ will be at $x = $ ______ (in cm).",
+    "type": "numerical",
+    "options": [],
+    "answer": "1",
+    "explanation": "Nodes in a standing wave occur where the spatial amplitude is zero:\n$$\\cos(1.57 x) = 0 \\implies 1.57 x = \\frac{\\pi}{2}$$\n\nSince $1.57 \\approx \\frac{3.14}{2} = \\frac{\\pi}{2}$:\n$$\\frac{\\pi}{2} x = \\frac{\\pi}{2} \\implies x = 1.0 \\text{ cm}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "26th August",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "A progressive wave travelling along the positive $x$-direction is represented by $y(x, t) = A \\sin(kx - \\omega t + \\phi)$. Its snapshot at $t = 0$ is given in the figure. For this wave, the phase $\\phi$ is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{\\pi}{2}$",
+      "0",
+      "$\\pi$",
+      "$-\\frac{\\pi}{2}$"
+    ],
+    "answer": 2,
+    "explanation": "At $t = 0$, the wave equation reduces to:\n$$y(x, 0) = A \\sin(kx + \\phi)$$\n\nFrom the snapshot, at $x = 0$ we have $y = 0$:\n$$A \\sin \\phi = 0 \\implies \\phi = 0 \\text{ or } \\pi$$\n\nThe spatial derivative (slope) of the wave at $t = 0$ is:\n$$\\frac{\\partial y}{\\partial x} = A k \\cos(kx + \\phi)$$\n\nAt $x = 0$, the slope is negative:\n$$\\left. \\frac{\\partial y}{\\partial x} \\right|_{x=0} = A k \\cos\\phi < 0 \\implies \\cos\\phi < 0 \\implies \\phi = \\pi$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "12th April",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "Equation of travelling wave on a stretched string of linear density $5 \\text{ g/m}$ is $y = 0.03 \\sin(450t - 9x)$ where distance and time are measured in SI units. The tension in the string is:",
+    "type": "mcq",
+    "options": [
+      "10 N",
+      "7.5 N",
+      "12.5 N",
+      "5 N"
+    ],
+    "answer": 2,
+    "explanation": "1. Convert linear density to SI units:\n$$\\mu = 5 \\text{ g/m} = 5 \\times 10^{-3} \\text{ kg/m}$$\n\n2. From the wave equation $y = 0.03 \\sin(450t - 9x)$:\n- $\\omega = 450 \\text{ rad/s}$\n- $k = 9 \\text{ rad/m}$\n\n3. Calculate wave speed $v$:\n$$v = \\frac{\\omega}{k} = \\frac{450}{9} = 50 \\text{ m/s}$$\n\n4. Calculate tension $T$:\n$$v = \\sqrt{\\frac{T}{\\mu}} \\implies T = \\mu v^2$$\n$$T = (5 \\times 10^{-3} \\text{ kg/m}) \\times (50 \\text{ m/s})^2 = 12.5 \\text{ N}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "11th January",
+    "subtopic": "Travelling Waves"
+  },
+  {
+    "q": "The displacement equations of two interfering waves are given by $y_1 = 10 \\sin(\\omega t + \\frac{\\pi}{3}) \\text{ cm}$, $y_2 = 5 [\\sin(\\omega t) + \\sqrt{3} \\cos(\\omega t)] \\text{ cm}$ respectively. The amplitude of the resultant wave is _____ cm.",
+    "type": "numerical",
+    "options": [],
+    "answer": "20",
+    "explanation": "We can rewrite the equation for the second wave $y_2$:\n$$y_2 = 5 [\\sin\\omega t + \\sqrt{3}\\cos\\omega t] = 10 \\left[ \\frac{1}{2} \\sin\\omega t + \\frac{\\sqrt{3}}{2} \\cos\\omega t \\right] = 10 \\sin\\left(\\omega t + \\frac{\\pi}{3}\\right) \\text{ cm}$$\n\nSince both interfering waves are identical in amplitude ($A_1 = A_2 = 10 \\text{ cm}$) and in phase (phase difference $\\Delta\\phi = 0$):\n$$A_{\\text{res}} = A_1 + A_2 = 10 + 10 = 20 \\text{ cm}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "31st January",
+    "subtopic": "Interference and Superposition of Waves"
+  },
+  {
+    "q": "Two light beams of intensities 4I and 9I interfere on a screen. The phase difference between these beams on the screen at point A is zero and at point B is $\\pi$. The difference of resultant intensities, at the point A and B, will be _____ I.",
+    "type": "numerical",
+    "options": [],
+    "answer": "24",
+    "explanation": "The formula for resultant intensity is:\n$$I_{\\text{res}} = I_1 + I_2 + 2 \\sqrt{I_1 I_2} \\cos\\phi$$\n\n1. At point A ($\\phi = 0$):\n$$I_A = 4I + 9I + 2 \\sqrt{36 I^2} \\cos(0) = 13I + 12I = 25I$$\n\n2. At point B ($\\phi = \\pi$):\n$$I_B = 4I + 9I + 2 \\sqrt{36 I^2} \\cos(\\pi) = 13I - 12I = 1I$$\n\nThe difference in resultant intensities is:\n$$\\Delta I = I_A - I_B = 25I - 1I = 24I$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "29th July",
+    "subtopic": "Interference and Superposition of Waves"
+  },
+  {
+    "q": "Two waves are simultaneously passing through a string and their equations are : $y_1 = A_1 \\sin k(x - vt)$, $y_2 = A_2 \\sin k(x - vt + x_0)$. Given amplitudes $A_1 = 12 \\text{ mm}$ and $A_2 = 5 \\text{ mm}$, $x_0 = 3.5 \\text{ cm}$ and wave number $k = 6.28 \\text{ cm}^{-1}$. The amplitude of resulting wave will be _____ mm.",
+    "type": "numerical",
+    "options": [],
+    "answer": "7",
+    "explanation": "The phase difference $\\phi$ between the two waves is:\n$$\\phi = k x_0 = (6.28 \\text{ cm}^{-1}) \\times (3.5 \\text{ cm}) \\approx 2\\pi \\times 3.5 = 7\\pi \\text{ rad}$$\n\nSince the phase difference is an odd multiple of $\\pi$, the waves interfere completely destructively.\nThe resultant amplitude is:\n$$A_{\\text{res}} = |A_1 - A_2| = |12 \\text{ mm} - 5 \\text{ mm}| = 7 \\text{ mm}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "26th August",
+    "subtopic": "Interference and Superposition of Waves"
+  },
+  {
+    "q": "Three harmonic waves having equal frequency $v$ and same intensity $I_0$, have phase angles $0$, $\\frac{\\pi}{4}$ and $-\\frac{\\pi}{4}$ respectively. When they are superimposed the intensity of the resultant wave is close to:",
+    "type": "mcq",
+    "options": [
+      "$5.8 I_0$",
+      "$0.2 I_0$",
+      "$3 I_0$",
+      "$I_0$"
+    ],
+    "answer": 0,
+    "explanation": "Let the amplitude of each wave be $A_0$. Summing the displacement vectors along the coordinate axes:\n- $A_x = A_0 \\cos(0) + A_0 \\cos\\left(\\frac{\\pi}{4}\\right) + A_0 \\cos\\left(-\\frac{\\pi}{4}\\right) = A_0 + 2 A_0 \\frac{1}{\\sqrt{2}} = A_0 (1 + \\sqrt{2})$\n- $A_y = A_0 \\sin(0) + A_0 \\sin\\left(\\frac{\\pi}{4}\\right) + A_0 \\sin\\left(-\\frac{\\pi}{4}\\right) = 0 + A_0 \\frac{1}{\\sqrt{2}} - A_0 \\frac{1}{\\sqrt{2}} = 0$\n\nThe resultant amplitude is:\n$$A_{\\text{res}} = A_0 (1 + \\sqrt{2})$$\n\nThe resultant intensity is:\n$$I_{\\text{res}} = I_0 (1 + \\sqrt{2})^2 = I_0 (1 + 2 + 2\\sqrt{2}) = I_0 (3 + 2.828) \\approx 5.8 I_0$$",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "9th January",
+    "subtopic": "Interference and Superposition of Waves"
+  },
+  {
+    "q": "A tuning fork resonates with a sonometer wire of length 1 m stretched with a tension of 6 N. When the tension in the wire is changed to 54 N, the same tuning fork produces 12 beats per second with it. The frequency of the tuning fork is _______ Hz.",
+    "type": "numerical",
+    "options": [],
+    "answer": "6",
+    "explanation": "The fundamental frequency of a sonometer wire of constant length $L$ is:\n$$f = \\frac{1}{2L}\\sqrt{\\frac{T}{\\mu}} \\implies f \\propto \\sqrt{T}$$\n\n- In the first case ($T_1 = 6 \\text{ N}$):\n$$f_1 = c \\sqrt{6}$$\nSince the tuning fork resonates with the wire:\n$$F_{\\text{fork}} = f_1 = c\\sqrt{6}$$\n\n- In the second case ($T_2 = 54 \\text{ N}$):\n$$f_2 = c \\sqrt{54} = c \\sqrt{9 \\times 6} = 3 c\\sqrt{6} = 3 f_1$$\n\nSince the tuning fork produces 12 beats per second with $f_2$:\n$$f_2 - F_{\\text{fork}} = 12$$\n$$3 f_1 - f_1 = 12 \\implies 2 f_1 = 12 \\implies f_1 = 6 \\text{ Hz}$$\n\nThus, the frequency of the tuning fork is $6 \\text{ Hz}$.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "1st February",
+    "subtopic": "Vibration of String"
+  },
+  {
+    "q": "A guitar string of length $90 \\text{ cm}$ vibrates with a fundamental frequency of $120 \\text{ Hz}$. The length of the string producing a fundamental of $180 \\text{ Hz}$ will be _____ cm.",
+    "type": "numerical",
+    "options": [],
+    "answer": "60",
+    "explanation": "The fundamental frequency of a stretched string fixed at both ends is given by:\n$$f = \\frac{v}{2L}$$\n\nAssuming the tension and mass per unit length of the string remain constant, the wave speed $v$ is constant. Thus, the fundamental frequency is inversely proportional to the length of the string:\n$$f \\propto \\frac{1}{L} \\implies f_1 L_1 = f_2 L_2$$\n\nSubstituting the given values:\n$$120 \\text{ Hz} \\times 90 \\text{ cm} = 180 \\text{ Hz} \\times L_2$$\n$$L_2 = \\frac{120 \\times 90}{180} = 60 \\text{ cm}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Vibration of String"
+  },
+  {
+    "q": "A wire of density $8 \\times 10^3 \\text{ kg m}^{-3}$ is stretched between two clamps $0.5 \\text{ m}$ apart. The extension developed in the wire is $3.2 \\times 10^{-4} \\text{ m}$. If $Y = 8 \\times 10^{10} \\text{ N m}^{-2}$, the fundamental frequency of vibration in the wire will be _____ Hz.",
+    "type": "numerical",
+    "options": [],
+    "answer": "80",
+    "explanation": "The fundamental frequency of a stretched string is:\n$$f = \\frac{v}{2L} = \\frac{1}{2L} \\sqrt{\\frac{T}{\\mu}}$$\n\nWe can express the mass per unit length as $\\mu = A \\rho$, where $A$ is the cross-sectional area and $\\rho$ is the density of the wire. Therefore:\n$$\\frac{T}{\\mu} = \\frac{T}{A \\rho}$$\n\nFrom Young's modulus ($Y$):\n$$Y = \\frac{T L}{A \\Delta L} \\implies \\frac{T}{A} = \\frac{Y \\Delta L}{L}$$\n\nSubstituting this back into the velocity equation:\n$$v = \\sqrt{\\frac{Y \\Delta L}{L \\rho}}$$\n\nSubstituting the given parameters:\n- $L = 0.5 \\text{ m}$\n- $\\Delta L = 3.2 \\times 10^{-4} \\text{ m}$\n- $Y = 8 \\times 10^{10} \\text{ N m}^{-2}$\n- $\\rho = 8 \\times 10^3 \\text{ kg m}^{-3}$\n\n$$v = \\sqrt{\\frac{8 \\times 10^{10} \\times 3.2 \\times 10^{-4}}{0.5 \\times 8 \\times 10^3}} = \\sqrt{\\frac{2.56 \\times 10^7}{4000}} = \\sqrt{6400} = 80 \\text{ m s}^{-1}$$\n\nThe fundamental frequency is:\n$$f = \\frac{v}{2L} = \\frac{80}{2 \\times 0.5} = 80 \\text{ Hz}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "11th April",
+    "subtopic": "Vibration of String"
+  },
+  {
+    "q": "In an experiment with sonometer when a mass of $180 \\text{ g}$ is attached to the string, it vibrates with fundamental frequency of $30 \\text{ Hz}$. When a mass $m$ is attached, the string vibrates with fundamental frequency of $50 \\text{ Hz}$. The value of $m$ is ______ g.",
+    "type": "numerical",
+    "options": [],
+    "answer": "500",
+    "explanation": "The fundamental frequency of a stretched string is proportional to the square root of the tension ($T = mg$):\n$$f = \\frac{1}{2L} \\sqrt{\\frac{T}{\\mu}} \\implies f \\propto \\sqrt{m}$$\n\nTaking the ratio for both cases:\n$$\\frac{f_2}{f_1} = \\sqrt{\\frac{m_2}{m_1}}$$\n$$\\frac{50}{30} = \\sqrt{\\frac{m}{180}}$$\n$$\\frac{25}{9} = \\frac{m}{180}$$\n$$m = \\frac{25 \\times 180}{9} = 500 \\text{ g}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "13th April",
+    "subtopic": "Vibration of String"
+  },
+  {
+    "q": "A wire having a linear mass density $9.0 \\times 10^{-4} \\text{ kg m}^{-1}$ is stretched between two rigid supports with a tension of $900 \\text{ N}$. The wire resonates at a frequency of $500 \\text{ Hz}$. The next higher frequency at which the same wire resonates is $550 \\text{ Hz}$. The length of the wire is ____ m.",
+    "type": "numerical",
+    "options": [],
+    "answer": "10",
+    "explanation": "The difference between two consecutive resonant frequencies of a stretched string fixed at both ends is equal to its fundamental frequency:\n$$f_0 = 550 \\text{ Hz} - 500 \\text{ Hz} = 50 \\text{ Hz}$$\n\nThe velocity of the transverse wave in the wire is:\n$$v = \\sqrt{\\frac{T}{\\mu}} = \\sqrt{\\frac{900 \\text{ N}}{9.0 \\times 10^{-4} \\text{ kg m}^{-1}}} = \\sqrt{10^6} = 1000 \\text{ m s}^{-1}$$\n\nSince $f_0 = \\frac{v}{2L}$:\n$$50 = \\frac{1000}{2L} \\implies L = \\frac{1000}{100} = 10 \\text{ m}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "31st August",
+    "subtopic": "Vibration of String"
+  },
+  {
+    "q": "A wire of length L and mass per unit length $6.0 \\times 10^{-3} \\text{ kg m}^{-1}$ is put under tension of $540 \\text{ N}$. Two consecutive frequencies that it resonates at are: $420 \\text{ Hz}$ and $490 \\text{ Hz}$. Then L in meters is :",
+    "type": "mcq",
+    "options": [
+      "2.1 m",
+      "1.1 m",
+      "8.1 m",
+      "5.1 m"
+    ],
+    "answer": 0,
+    "explanation": "For a stretched string clamped at both ends, the difference between any two consecutive resonant frequencies is equal to the fundamental frequency ($f_0$):\n$$f_0 = 490 \\text{ Hz} - 420 \\text{ Hz} = 70 \\text{ Hz}$$\n\nThe velocity of the wave in the string is:\n$$v = \\sqrt{\\frac{T}{\\mu}} = \\sqrt{\\frac{540 \\text{ N}}{6.0 \\times 10^{-3} \\text{ kg m}^{-1}}} = \\sqrt{90000} = 300 \\text{ m s}^{-1}$$\n\nUsing the fundamental frequency formula:\n$$f_0 = \\frac{v}{2L} \\implies L = \\frac{v}{2 f_0} = \\frac{300}{2 \\times 70} \\approx 2.14 \\text{ m} \\approx 2.1 \\text{ m}$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "9th January",
+    "subtopic": "Vibration of String"
+  },
+  {
+    "q": "A wire of length $2L$, is made by joining two wires A and B of same length but different radii r and $2r$ and made of the same material. It is vibrating at a frequency such that the joint of the two wires forms a node. If the number of antinodes in wire A is p and that in B is q then ratio p : q is:",
+    "type": "mcq",
+    "options": [
+      "3 : 5",
+      "4 : 9",
+      "1 : 4",
+      "1 : 2"
+    ],
+    "answer": 3,
+    "explanation": "Since both parts of the composite wire are under the same tension $T$ and vibrate at the same frequency $f$, and the joint is a node, each part vibrates as a clamped string.\n\nThe mass per unit length for wire A of radius $r$ is:\n$$\\mu_A = \\rho A_A = \\rho \\pi r^2$$\n\nThe mass per unit length for wire B of radius $2r$ is:\n$$\\mu_B = \\rho A_B = \\rho \\pi (2r)^2 = 4 \\rho \\pi r^2 = 4 \\mu_A$$\n\nThe resonant frequency is:\n$$f = \\frac{p}{2L} \\sqrt{\\frac{T}{\\mu_A}} = \\frac{q}{2L} \\sqrt{\\frac{T}{\\mu_B}}$$\n\nSubstituting $\\mu_B = 4\\mu_A$:\n$$\\frac{p}{2L} \\sqrt{\\frac{T}{\\mu_A}} = \\frac{q}{2L} \\sqrt{\\frac{T}{4\\mu_A}}$$\n$$p = \\frac{q}{2} \\implies \\frac{p}{q} = \\frac{1}{2}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "8th April",
+    "subtopic": "Vibration of String"
+  },
+  {
+    "q": "A string 2.0 m long and fixed at its ends is driven by a 240 Hz vibrator. The string vibrates in its third harmonic mode. The speed of the wave and its fundamental frequency is:",
+    "type": "mcq",
+    "options": [
+      "$320 \\text{ m s}^{-1}$, $120 \\text{ Hz}$",
+      "$320 \\text{ m s}^{-1}$, $80 \\text{ Hz}$",
+      "$180 \\text{ m s}^{-1}$, $80 \\text{ Hz}$",
+      "$180 \\text{ m s}^{-1}$, $120 \\text{ Hz}$"
+    ],
+    "answer": 1,
+    "explanation": "The frequency of the third harmonic is given as $f_3 = 240 \\text{ Hz}$.\nSince $f_3 = 3 f_0$ (where $f_0$ is the fundamental frequency):\n$$3 f_0 = 240 \\implies f_0 = 80 \\text{ Hz}$$\n\nThe fundamental frequency is also expressed as:\n$$f_0 = \\frac{v}{2L}$$\n\nSubstituting the length of the string $L = 2.0 \\text{ m}$:\n$$80 = \\frac{v}{2 \\times 2.0} \\implies v = 320 \\text{ m s}^{-1}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "9th April",
+    "subtopic": "Vibration of String"
+  },
+  {
+    "q": "In the resonance experiment, two air columns (closed at one end) of $100 \\text{ cm}$ and $120 \\text{ cm}$ long, give 15 beats per second when each one is sounding in the respective fundamental modes. The velocity of sound in the air column is :",
+    "type": "mcq",
+    "options": [
+      "$335 \\text{ m/s}$",
+      "$370 \\text{ m/s}$",
+      "$340 \\text{ m/s}$",
+      "$360 \\text{ m/s}$"
+    ],
+    "answer": 3,
+    "explanation": "The fundamental frequency of a closed organ pipe is:\n$$f = \\frac{v}{4L}$$\n\n- For the first column ($L_1 = 100 \\text{ cm} = 1.0 \\text{ m}$):\n$$f_1 = \\frac{v}{4 \\times 1.0} = \\frac{v}{4}$$\n- For the second column ($L_2 = 120 \\text{ cm} = 1.2 \\text{ m}$):\n$$f_2 = \\frac{v}{4 \\times 1.2} = \\frac{v}{4.8}$$\n\nGiven the beat frequency is $15 \\text{ s}^{-1}$:\n$$f_1 - f_2 = 15$$\n$$\\frac{v}{4} - \\frac{v}{4.8} = 15$$\n$$v \\left( \\frac{4.8 - 4}{19.2} \\right) = 15$$\n$$v \\left( \\frac{0.8}{19.2} \\right) = 15 \\implies v \\left( \\frac{1}{24} \\right) = 15 \\implies v = 360 \\text{ m/s}$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "3rd April",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "In an experiment with a closed organ pipe, it is filled with water by $\\frac{1}{5}\\text{th}$ of its volume. The frequency of the fundamental note will change by:",
+    "type": "mcq",
+    "options": [
+      "25%",
+      "20%",
+      "$-20\\%$",
+      "$-25\\%$"
+    ],
+    "answer": 0,
+    "explanation": "Let $L$ be the initial length of the closed organ pipe. Its initial fundamental frequency is:\n$$f_1 = \\frac{v}{4L}$$\n\nWhen water is poured up to $\\frac{1}{5}\\text{th}$ of its volume, the length of the remaining air column becomes:\n$$L' = L - \\frac{L}{5} = \\frac{4}{5} L$$\n\nThe new fundamental frequency is:\n$$f_2 = \\frac{v}{4L'} = \\frac{v}{4 \\left( \\frac{4}{5} L \\right)} = \\frac{5}{4} \\left( \\frac{v}{4L} \\right) = 1.25 f_1$$\n\nThe percentage change in frequency is:\n$$\\% \\text{ change} = \\frac{f_2 - f_1}{f_1} \\times 100 = \\frac{1.25 f_1 - f_1}{f_1} \\times 100 = +25\\%$$",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "4th April",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "A closed organ and an open organ tube are filled by two different gases having same bulk modulus but different densities $\\rho_1$ and $\\rho_2$, respectively. The frequency of $9^{\\text{th}}$ harmonic of closed tube is identical with $4^{\\text{th}}$ harmonic of open tube. If the length of the closed tube is 10 cm and the density ratio of the gases is $\\rho_1 : \\rho_2 = 1 : 16$, then the length of the open tube is :",
+    "type": "mcq",
+    "options": [
+      "$\\frac{15}{7} \\text{ cm}$",
+      "$\\frac{20}{7} \\text{ cm}$",
+      "$\\frac{15}{9} \\text{ cm}$",
+      "$\\frac{20}{9} \\text{ cm}$"
+    ],
+    "answer": 3,
+    "explanation": "The speed of sound in a gas is $v = \\sqrt{\\frac{B}{\\rho}}$. Since the bulk modulus $B$ is the same:\n- Speed in closed tube: $v_1 = \\sqrt{\\frac{B}{\\rho_1}}$\n- Speed in open tube: $v_2 = \\sqrt{\\frac{B}{\\rho_2}}$\n$$\\frac{v_2}{v_1} = \\sqrt{\\frac{\\rho_1}{\\rho_2}} = \\sqrt{\\frac{1}{16}} = \\frac{1}{4}$$\n\n1. For the closed tube ($L_c = 10 \\text{ cm}$), the $9^{\\text{th}}$ harmonic frequency is:\n$$f_c = 9 \\left( \\frac{v_1}{4 L_c} \\right)$$\n\n2. For the open tube of length $L_o$, the $4^{\\text{th}}$ harmonic frequency is:\n$$f_o = 4 \\left( \\frac{v_2}{2 L_o} \\right) = \\frac{2 v_2}{L_o}$$\n\nSince $f_c = f_o$:\n$$9 \\frac{v_1}{4 L_c} = \\frac{2 v_2}{L_o} \\implies L_o = \\frac{8 L_c}{9} \\left( \\frac{v_2}{v_1} \\right)$$\n\nSubstitute the values:\n$$L_o = \\frac{8 \\times 10}{9} \\times \\left( \\frac{1}{4} \\right) = \\frac{20}{9} \\text{ cm}$$",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "22nd January",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "A closed organ pipe 150 cm long gives 7 beats per second with an open organ pipe of length 350 cm, both vibrating in fundamental mode. The velocity of sound is ______ $\\text{ m s}^{-1}$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "294",
+    "explanation": "1. **Fundamental frequency of the closed organ pipe ($L_c = 1.5 \\text{ m}$):**\n$$f_c = \\frac{v}{4 L_c} = \\frac{v}{4 \\times 1.5} = \\frac{v}{6}$$\n\n2. **Fundamental frequency of the open organ pipe ($L_o = 3.5 \\text{ m}$):**\n$$f_o = \\frac{v}{2 L_o} = \\frac{v}{2 \\times 3.5} = \\frac{v}{7}$$\n\nSince $f_c > f_o$, the beat frequency is:\n$$f_c - f_o = 7$$\n$$\\frac{v}{6} - \\frac{v}{7} = 7$$\n$$\\frac{v}{42} = 7 \\implies v = 294 \\text{ m s}^{-1}$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "27th January",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "In a closed organ pipe, the frequency of fundamental note is 30 Hz. A certain amount of water is now poured in the organ pipe so that the fundamental frequency is increased to 110 Hz. If the organ pipe has a cross-sectional area of $2 \\text{ cm}^2$, the amount of water poured in the organ tube is ________ g. (Take speed of sound in air is 330 m/s)",
+    "type": "numerical",
+    "options": [],
+    "answer": "400",
+    "explanation": "1. **Initial state:**\n$$f_1 = \\frac{v}{4 L_1} = 30 \\text{ Hz} \\implies L_1 = \\frac{330}{4 \\times 30} = 2.75 \\text{ m}$$\n\n2. **Final state (after water is poured):**\n$$f_2 = \\frac{v}{4 L_2} = 110 \\text{ Hz} \\implies L_2 = \\frac{330}{4 \\times 110} = 0.75 \\text{ m}$$\n\n3. **Height of the water column:**\n$$\\Delta L = L_1 - L_2 = 2.75 - 0.75 = 2.00 \\text{ m} = 200 \\text{ cm}$$\n\n4. **Mass of the water poured:**\n$$V = A \\times \\Delta L = 2 \\text{ cm}^2 \\times 200 \\text{ cm} = 400 \\text{ cm}^3$$\nSince the density of water is $1 \\text{ g/cm}^3$, the mass of the water is $400 \\text{ g}$.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "30th January",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "An organ pipe 40 cm long is open at both ends. The speed of sound in air is $360 \\text{ m s}^{-1}$. The frequency of the second harmonic is _________ Hz.",
+    "type": "numerical",
+    "options": [],
+    "answer": "900",
+    "explanation": "The frequency of the $n^{\\text{th}}$ harmonic for an open organ pipe of length $L$ is:\n$$f_n = n \\frac{v}{2L}$$\n\nSubstituting the given values for the second harmonic ($n = 2$):\n- $L = 40 \\text{ cm} = 0.4 \\text{ m}$\n- $v = 360 \\text{ m s}^{-1}$\n\n$$f_2 = 2 \\times \\frac{360}{2 \\times 0.4} = \\frac{360}{0.4} = 900 \\text{ Hz}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "8th April",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "The first overtone frequency of an open organ pipe is equal to the fundamental frequency of a closed organ pipe. If the length of the closed organ pipe is 20 cm. The length of the open organ pipe is _____ cm.",
+    "type": "numerical",
+    "options": [],
+    "answer": "80",
+    "explanation": "Let $L_o$ be the length of the open pipe and $L_c = 20 \\text{ cm}$ be the length of the closed pipe.\n\n1. **First overtone of the open organ pipe (which is the $2^{\\text{nd}}$ harmonic):**\n$$f_{\\text{open}} = 2 \\times \\left( \\frac{v}{2 L_o} \\right) = \\frac{v}{L_o}$$\n\n2. **Fundamental frequency of the closed organ pipe:**\n$$f_{\\text{closed}} = \\frac{v}{4 L_c}$$\n\nEquating both frequencies:\n$$\\frac{v}{L_o} = \\frac{v}{4 L_c} \\implies L_o = 4 L_c = 4 \\times 20 \\text{ cm} = 80 \\text{ cm}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "25th June",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "In an experiment to determine the velocity of sound in air at room temperature using a resonance tube, the first resonance is observed when the air column has a length of $20.0 \\text{ cm}$ for a tuning fork of frequency $400 \\text{ Hz}$ is used. The velocity of the sound at room temperature is $336 \\text{ m s}^{-1}$. The third resonance is observed when the air column has a length of _____ cm.",
+    "type": "numerical",
+    "options": [],
+    "answer": "104",
+    "explanation": "The wavelength of the sound wave produced is:\n$$\\lambda = \\frac{v}{f} = \\frac{336 \\text{ m/s}}{400 \\text{ Hz}} = 0.84 \\text{ m} = 84 \\text{ cm}$$\n\n1. **First resonance occurs at:**\n$$l_1 + e = \\frac{\\lambda}{4} = \\frac{84}{4} = 21 \\text{ cm}$$\nSince $l_1 = 20.0 \\text{ cm}$, the end-correction $e$ is:\n$$e = 21 - 20 = 1.0 \\text{ cm}$$\n\n2. **The third resonance occurs at:**\n$$l_3 + e = \\frac{5\\lambda}{4}$$\n$$l_3 + 1 = 5 \\times 21 = 105 \\text{ cm}$$\n$$l_3 = 104 \\text{ cm}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "29th June",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "A tuning fork is vibrating at $250 \\text{ Hz}$. The length of the shortest closed organ pipe that will resonate with the tuning fork will be _____ cm. (Take speed of sound in air as $340 \\text{ m s}^{-1}$)",
+    "type": "numerical",
+    "options": [],
+    "answer": "34",
+    "explanation": "The wavelength of the sound wave emitted is:\n$$\\lambda = \\frac{v}{f} = \\frac{340 \\text{ m/s}}{250 \\text{ Hz}} = 1.36 \\text{ m} = 136 \\text{ cm}$$\n\nThe shortest closed organ pipe resonating with this tuning fork corresponds to its fundamental mode:\n$$L = \\frac{\\lambda}{4} = \\frac{136 \\text{ cm}}{4} = 34 \\text{ cm}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "27th August",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "A student is performing the experiment of the resonance column. The diameter of the column tube is 6 cm. The frequency of the tuning fork is 504 Hz. Speed of the sound at the given temperature is $336 \\text{ m s}^{-1}$. The zero of the meter scale coincides with the top end of the resonance column tube. The reading of the water level in the column when the first resonance occurs is:",
+    "type": "mcq",
+    "options": [
+      "14.8 cm",
+      "18.4 cm",
+      "16.6 cm",
+      "13 cm"
+    ],
+    "answer": 0,
+    "explanation": "The wavelength of the sound is:\n$$\\lambda = \\frac{v}{f} = \\frac{336 \\text{ m s}^{-1}}{504 \\text{ Hz}} = \\frac{2}{3} \\text{ m} = 66.67 \\text{ cm}$$\n\nThe first resonance condition including end-correction $e$ is:\n$$l_1 + e = \\frac{\\lambda}{4}$$\n\nWhere $e = 0.3 d = 0.3 \\times 6 \\text{ cm} = 1.8 \\text{ cm}$. Substituting values:\n$$l_1 + 1.8 = \\frac{66.67}{4} = 16.67 \\text{ cm}$$\n$$l_1 = 16.67 - 1.8 = 14.87 \\text{ cm} \\approx 14.8 \\text{ cm}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "25th February",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "A tuning fork of frequency 480 Hz is used in an experiment for measuring speed of sound (v) in air by resonance tube method. Resonance is observed to occur at two successive lengths of the air column, $l_1 = 30 \\text{ cm}$ and $l_2 = 70 \\text{ cm}$. Then, v is equal to:",
+    "type": "mcq",
+    "options": [
+      "$384 \\text{ m s}^{-1}$",
+      "$332 \\text{ m s}^{-1}$",
+      "$338 \\text{ m s}^{-1}$",
+      "$379 \\text{ m s}^{-1}$"
+    ],
+    "answer": 0,
+    "explanation": "For two successive resonating lengths $l_1$ and $l_2$ of a closed air column, the relationship is:\n$$l_2 - l_1 = \\frac{\\lambda}{2}$$\n$$0.70 \\text{ m} - 0.30 \\text{ m} = \\frac{\\lambda}{2} \\implies \\lambda = 2 \\times 0.40 \\text{ m} = 0.80 \\text{ m}$$\n\nThe speed of sound is:\n$$v = f \\lambda = 480 \\text{ Hz} \\times 0.80 \\text{ m} = 384 \\text{ m s}^{-1}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "12th April",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "A string of length 1 m and mass 5 g is fixed at both ends. The tension in the string is 8.0 N. The string is set into vibration using an external vibrator of frequency 100 Hz. The separation between successive nodes on the string is close to:",
+    "type": "mcq",
+    "options": [
+      "20.0 cm",
+      "10.0 cm",
+      "16.6 cm",
+      "33.3 cm"
+    ],
+    "answer": 0,
+    "explanation": "1. **Find wave speed $v$:**\n$$\\mu = \\frac{5 \\text{ g}}{1 \\text{ m}} = 5 \\times 10^{-3} \\text{ kg/m}$$\n$$v = \\sqrt{\\frac{T}{\\mu}} = \\sqrt{\\frac{8.0}{5 \\times 10^{-3}}} = \\sqrt{1600} = 40 \\text{ m/s}$$\n\n2. **Find wavelength $\\lambda$:**\n$$\\lambda = \\frac{v}{f} = \\frac{40}{100} = 0.4 \\text{ m} = 40 \\text{ cm}$$\n\n3. **Find separation between successive nodes ($d$):**\n$$d = \\frac{\\lambda}{2} = \\frac{40}{2} = 20.0 \\text{ cm}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "10th January",
+    "subtopic": "Vibration of String"
+  },
+  {
+    "q": "A set of 20 tuning forks is arranged in a series of increasing frequencies. If each fork gives 4 beats with respect to the preceding fork and the frequency of the last fork is twice the frequency of the first, then the frequency of last fork is _____ Hz.",
+    "type": "numerical",
+    "options": [],
+    "answer": "152",
+    "explanation": "The frequencies of the 20 tuning forks form an arithmetic progression:\n$$f_n = f_1 + (n - 1) d$$\n\nGiven:\n- $n = 20$\n- $d = 4 \\text{ Hz}$ (common difference/beat frequency)\n\n$$f_{20} = f_1 + (20 - 1) \\times 4 = f_1 + 76$$\n\nAlso given that the last fork is twice the frequency of the first:\n$$f_{20} = 2 f_1$$\n$$f_1 + 76 = 2 f_1 \\implies f_1 = 76 \\text{ Hz}$$\n\nThe frequency of the last fork is:\n$$f_{20} = 2 \\times 76 = 152 \\text{ Hz}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "26th June",
+    "subtopic": "Beats"
+  },
+  {
+    "q": "The velocity of sound in a gas, in which two wavelengths 4.08 m and 4.16 m produce 40 beats in 12 s, will be:",
+    "type": "mcq",
+    "options": [
+      "$282.8 \\text{ m s}^{-1}$",
+      "$175.5 \\text{ m s}^{-1}$",
+      "$353.6 \\text{ m s}^{-1}$",
+      "$707.2 \\text{ m s}^{-1}$"
+    ],
+    "answer": 3,
+    "explanation": "The beat frequency is:\n$$f_b = \\frac{40 \\text{ beats}}{12 \\text{ s}} = \\frac{10}{3} \\text{ Hz}$$\n\nLet $v$ be the velocity of sound. The frequencies corresponding to the two wavelengths are:\n$$f_1 = \\frac{v}{\\lambda_1} = \\frac{v}{4.08}, \\quad f_2 = \\frac{v}{\\lambda_2} = \\frac{v}{4.16}$$\n\nUsing the beat frequency formula:\n$$f_b = f_1 - f_2$$\n$$\\frac{10}{3} = v \\left( \\frac{1}{4.08} - \\frac{1}{4.16} \\right)$$\n$$\\frac{10}{3} = v \\left( \\frac{4.16 - 4.08}{4.08 \\times 4.16} \\right)$$\n$$\\frac{10}{3} = v \\left( \\frac{0.08}{16.9728} \\right)$$\n$$v = \\frac{10}{3} \\times \\frac{16.9728}{0.08} = \\frac{169.728}{0.24} = 707.2 \\text{ m s}^{-1}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "28th June",
+    "subtopic": "Beats"
+  },
+  {
+    "q": "A radar sends an electromagnetic signal of electric field $(E_0) = 2.25 \\text{ V m}^{-1}$ and magnetic field $(B_0) = 1.5 \\times 10^{-8} \\text{ T}$ which strikes a target on line of sight at a distance of 3 km in a medium. After that, a part of signal (echo) reflects back towards the radar with same velocity and by same path. If the signal was transmitted at time t = 0 from radar, then after how much time echo will reach to the radar?",
+    "type": "mcq",
+    "options": [
+      "$2.0 \\times 10^{-5} \\text{ s}$",
+      "$4.0 \\times 10^{-5} \\text{ s}$",
+      "$1.0 \\times 10^{-5} \\text{ s}$",
+      "$8.0 \\times 10^{-5} \\text{ s}$"
+    ],
+    "answer": 1,
+    "explanation": "1. **Find speed ($v$) of electromagnetic wave in the medium:**\n$$v = \\frac{E_0}{B_0} = \\frac{2.25 \\text{ V/m}}{1.5 \\times 10^{-8} \\text{ T}} = 1.5 \\times 10^8 \\text{ m s}^{-1}$$\n\n2. **Find time interval ($\\Delta t$) for echo:**\nThe total distance traveled going to the target and reflecting back is:\n$$2d = 2 \\times 3 \\text{ km} = 6000 \\text{ m}$$\n\n$$\\Delta t = \\frac{2d}{v} = \\frac{6000 \\text{ m}}{1.5 \\times 10^8 \\text{ m/s}} = 4.0 \\times 10^{-5} \\text{ s}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "28th June",
+    "subtopic": "Beats"
+  },
+  {
+    "q": "A tuning fork A of unknown frequency produces 5 beats s-1 with a fork of known frequency 340 Hz. When fork A is filed, the beat frequency decreases to 2 beats s-1. What is the frequency of fork A?",
+    "type": "mcq",
+    "options": [
+      "335 Hz",
+      "338 Hz",
+      "345 Hz",
+      "342 Hz"
+    ],
+    "answer": 0,
+    "explanation": "Initially, the frequency of fork A can be:\n$$f_A = 340 \\pm 5 = 335 \\text{ Hz} \\text{ or } 345 \\text{ Hz}$$\n\nFiling a tuning fork increases its frequency ($f'_A > f_A$):\n- If the initial frequency was $345 \\text{ Hz}$, filing would increase it (e.g. to $348 \\text{ Hz}$), and the beat frequency with $340 \\text{ Hz}$ would increase ($8 \\text{ Hz}$). This contradicts the given decrease.\n- If the initial frequency was $335 \\text{ Hz}$, filing would increase it (e.g. to $338 \\text{ Hz}$), and the beat frequency with $340 \\text{ Hz}$ would decrease ($2 \\text{ Hz}$), which perfectly matches the description.\n\nThus, the initial frequency of fork A is $335 \\text{ Hz}$.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "26th February",
+    "subtopic": "Beats"
+  },
+  {
+    "q": "A car P travelling at $20 \\text{ m s}^{-1}$ sounds its horn at a frequency of 400 Hz. Another car Q is travelling behind the first car in the same direction with a velocity $40 \\text{ m s}^{-1}$. The frequency heard by the passenger of the car Q is approximately [Take, velocity of sound = 360 m/s]",
+    "type": "mcq",
+    "options": [
+      "421 Hz",
+      "471 Hz",
+      "485 Hz",
+      "514 Hz"
+    ],
+    "answer": 0,
+    "explanation": "This is a Doppler effect problem where both the source (Car P) and observer (Car Q) are moving in the same direction:\n$$f' = f \\left( \\frac{v \\pm v_o}{v \\pm v_s} \\right)$$\n\nSince Car Q (observer, $v_o = 40 \\text{ m/s}$) is chasing Car P (source, $v_s = 20 \\text{ m/s}$), the observer is moving towards the source, and the source is moving away from the observer:\n$$f' = f \\left( \\frac{v + v_o}{v + v_s} \\right)$$\n\nSubstituting values:\n$$f' = 400 \\left( \\frac{360 + 40}{360 + 20} \\right) = 400 \\left( \\frac{400}{380} \\right) = \\frac{8000}{19} \\approx 421.05 \\text{ Hz} \\approx 421 \\text{ Hz}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "11th April",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "A train blowing a whistle of frequency 320 Hz approaches an observer standing on the platform at a speed of 66 m/s. The frequency observed by the observer will be (given speed of sound = 330 m/s) ______ Hz.",
+    "type": "numerical",
+    "options": [],
+    "answer": "400",
+    "explanation": "Since the source is moving towards a stationary observer ($v_o = 0$):\n$$f' = f \\left( \\frac{v}{v - v_s} \\right)$$\n\nSubstituting the given values:\n$$f' = 320 \\left( \\frac{330}{330 - 66} \\right) = 320 \\left( \\frac{330}{264} \\right) = 320 \\times 1.25 = 400 \\text{ Hz}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "25th January",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "A person observes two moving trains, A reaching the station and B leaving the station with equal speed of $30 \\text{ m s}^{-1}$. If both trains emit sounds with frequency $300 \\text{ Hz}$, (Speed of sound : $330 \\text{ m s}^{-1}$) approximate difference of frequencies heard by the person will be :",
+    "type": "mcq",
+    "options": [
+      "$33 \\text{ Hz}$",
+      "$55 \\text{ Hz}$",
+      "$80 \\text{ Hz}$",
+      "$10 \\text{ Hz}$"
+    ],
+    "answer": 1,
+    "explanation": "Since the person is stationary ($v_o = 0$):\n\n1. **For Train A (approaching the observer):**\n$$f_A' = f \\left( \\frac{v}{v - v_s} \\right) = 300 \\times \\left( \\frac{330}{330 - 30} \\right) = 300 \\times \\frac{330}{300} = 330 \\text{ Hz}$$\n\n2. **For Train B (leaving the observer):**\n$$f_B' = f \\left( \\frac{v}{v + v_s} \\right) = 300 \\times \\left( \\frac{330}{330 + 30} \\right) = 300 \\times \\frac{330}{360} = 275 \\text{ Hz}$$\n\n3. **Difference of frequencies heard:**\n$$\\Delta f = f_A' - f_B' = 330 - 275 = 55 \\text{ Hz}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "29th January",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "An observer is riding on a bicycle and moving towards a hill at $18 \\text{ km h}^{-1}$. He hears a sound from a source at some distance behind him directly as well as after its reflection from the hill. If the original frequency of the sound as emitted by source is $640 \\text{ Hz}$ and velocity of the sound in air is $320 \\text{ m s}^{-1}$, the beat frequency between the two sounds heard by observer will be _____ Hz.",
+    "type": "numerical",
+    "options": [],
+    "answer": "20",
+    "explanation": "Let us find the speed of the observer in SI units:\n$$v_o = 18 \\text{ km/h} = 18 \\times \\frac{5}{18} = 5 \\text{ m/s}$$\n\n1. **Direct sound from the stationary source behind him:**\nSince the observer is moving away from the stationary source ($v_s = 0$):\n$$f_1 = f_0 \\left( \\frac{v - v_o}{v} \\right) = 640 \\times \\left( \\frac{320 - 5}{320} \\right) = 2 \\times 315 = 630 \\text{ Hz}$$\n\n2. **Reflected sound from the hill:**\nThe hill is a stationary reflector, so it receives sound of frequency $f_0 = 640 \\text{ Hz}$ and reflects it. The observer is moving towards this stationary reflecting source:\n$$f_2 = f_0 \\left( \\frac{v + v_o}{v} \\right) = 640 \\times \\left( \\frac{320 + 5}{320} \\right) = 2 \\times 325 = 650 \\text{ Hz}$$\n\n3. **Beat frequency heard:**\n$$f_{\\text{beat}} = f_2 - f_1 = 650 - 630 = 20 \\text{ Hz}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "25th July",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "For a specific wavelength $670 \\text{ nm}$ of light coming from a galaxy moving with velocity v, the observed wavelength is $670.7 \\text{ nm}$. The value of v is:",
+    "type": "mcq",
+    "options": [
+      "$3 \\times 10^8 \\text{ m s}^{-1}$",
+      "$3.13 \\times 10^5 \\text{ m s}^{-1}$",
+      "$3 \\times 10^{10} \\text{ m s}^{-1}$",
+      "$4.48 \\times 10^5 \\text{ m s}^{-1}$"
+    ],
+    "answer": 1,
+    "explanation": "According to the Doppler shift formula for light:\n$$\\frac{\\Delta\\lambda}{\\lambda} = \\frac{v}{c}$$\n\nWhere:\n- $\\Delta\\lambda = 670.7 \\text{ nm} - 670 \\text{ nm} = 0.7 \\text{ nm}$\n- $\\lambda = 670 \\text{ nm}$\n- $c = 3 \\times 10^8 \\text{ m/s}$\n\nSubstituting the values:\n$$\\frac{0.7}{670} = \\frac{v}{3 \\times 10^8}$$\n$$v = 3 \\times 10^8 \\times \\frac{0.7}{670} \\approx 3.13 \\times 10^5 \\text{ m s}^{-1}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "26th June",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "An observer moves towards a stationary source of sound with a velocity one-fifth of the velocity of sound. The percentage change in the apparent frequency is:",
+    "type": "mcq",
+    "options": [
+      "zero",
+      "5%",
+      "10%",
+      "20%"
+    ],
+    "answer": 3,
+    "explanation": "The formula for the apparent frequency when an observer moves towards a stationary source is:\n$$f' = f_0 \\left( \\frac{v + v_o}{v} \\right)$$\n\nGiven that $v_o = \\frac{v}{5}$:\n$$f' = f_0 \\left( \\frac{v + v/5}{v} \\right) = 1.2 f_0$$\n\nThe percentage change in the frequency is:\n$$\\% \\text{ change} = \\frac{f' - f_0}{f_0} \\times 100 = (1.2 - 1) \\times 100 = 20\\%$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "27th June",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "A source and a detector move away from each other in absence of wind with a speed of $20 \\text{ m s}^{-1}$, with respect to the ground. If the detector detects a frequency of $1800 \\text{ Hz}$ of the sound coming from the source, then the original frequency of source considering the speed of sound in the air to be $340 \\text{ m s}^{-1}$ will be ______ Hz.",
+    "type": "numerical",
+    "options": [],
+    "answer": "2025",
+    "explanation": "The Doppler effect formula when source and detector move away from each other is:\n$$f' = f \\left( \\frac{v - v_d}{v + v_s} \\right)$$\n\nSubstitute the given values:\n- $f' = 1800 \\text{ Hz}$\n- $v = 340 \\text{ m/s}$\n- $v_d = 20 \\text{ m/s}$\n- $v_s = 20 \\text{ m/s}$\n\n$$1800 = f \\left( \\frac{340 - 20}{340 + 20} \\right)$$\n$$1800 = f \\left( \\frac{320}{360} \\right) = f \\left( \\frac{8}{9} \\right)$$\n$$f = 1800 \\times \\frac{9}{8} = 225 \\times 9 = 2025 \\text{ Hz}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "26th August",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "The frequency of a car horn encountered a change from $400 \\text{ Hz}$ to $500 \\text{ Hz}$ when the car approaches a vertical wall. If the speed of sound is $330 \\text{ m s}^{-1}$, then the speed of car is _____ $\\text{ km h}^{-1}$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "132",
+    "explanation": "Let the speed of the car be $v_c$. The car Horn of frequency $f = 400 \\text{ Hz}$ is moving towards the wall. \n\nThe frequency of sound reflected from the wall (acting as a stationary observer receiving, then acting as a stationary source transmitting) is:\n$$f' = f \\left( \\frac{v}{v - v_c} \\right)$$\n\nThe driver (observer inside the car) moves towards the reflecting wall, hearing a frequency of $f'' = 500 \\text{ Hz}$:\n$$f'' = f' \\left( \\frac{v + v_c}{v} = f \\left( \\frac{v + v_c}{v - v_c} \\right) \\right)$$\n$$500 = 400 \\left( \\frac{330 + v_c}{330 - v_c} \\right)$$\n$$\\frac{5}{4} = \\frac{330 + v_c}{330 - v_c}$$\n$$5(330 - v_c) = 4(330 + v_c)$$\n$$1650 - 5v_c = 1320 + 4v_c$$\n$$9 v_c = 330 \\implies v_c = \\frac{110}{3} \\text{ m/s}$$\n\nConverting the speed to $\\text{km/h}$:\n$$v_c = \\frac{110}{3} \\times \\frac{18}{5} = 22 \\times 6 = 132 \\text{ km/h}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "20th July",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "A galaxy is moving away from the earth at a speed of $286 \\text{ km s}^{-1}$. The shift in the wavelength of a red line at $630 \\text{ nm}$ is $x \\times 10^{-10} \\text{ m}$. The value of $x$, to the nearest integer, is ___.",
+    "type": "numerical",
+    "options": [],
+    "answer": "6",
+    "explanation": "According to the Doppler effect for light, the shift in wavelength when a source is receding is:\n$$\\Delta\\lambda = \\lambda \\frac{v}{c}$$\n\nSubstitute the given values:\n- $v = 286 \\text{ km s}^{-1} = 286 \\times 10^3 \\text{ m s}^{-1}$\n- $\\lambda = 630 \\text{ nm} = 630 \\times 10^{-9} \\text{ m}$\n- $c = 3 \\times 10^8 \\text{ m s}^{-1}$\n\n$$\\Delta\\lambda = 630 \\times 10^{-9} \\times \\frac{286 \\times 10^3}{3 \\times 10^8} = 210 \\times 286 \\times 10^{-14} = 60060 \\times 10^{-14} \\text{ m} = 6.006 \\times 10^{-10} \\text{ m}$$\n\nComparing this with $x \\times 10^{-10} \\text{ m}$, the nearest integer is $x = 6$.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "18th March",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "Two cars are approaching each other at an equal speed of $7.2 \\text{ km h}^{-1}$. When they see each other, both blow horns having a frequency of $676 \\text{ Hz}$. The beat frequency heard by each driver will be _______ Hz. [Velocity of sound in air is $340 \\text{ m s}^{-1}$.]",
+    "type": "numerical",
+    "options": [],
+    "answer": "8",
+    "explanation": "Convert the speed of the cars to SI units:\n$$v_c = 7.2 \\text{ km/h} = 7.2 \\times \\frac{5}{18} = 2 \\text{ m/s}$$\n\nEach driver hears their own horn directly (frequency $f_0 = 676 \\text{ Hz}$) and the shifted frequency of the other horn ($f'$) due to Doppler effect for approaching bodies:\n$$f' = f_0 \\left( \\frac{v + v_o}{v - v_s} \\right) = 676 \\times \\left( \\frac{340 + 2}{340 - 2} \\right) = 676 \\times \\frac{342}{338} = 2 \\times 342 = 684 \\text{ Hz}$$\n\nThe beat frequency heard is:\n$$f_{\\text{beat}} = f' - f_0 = 684 - 676 = 8 \\text{ Hz}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "24th February",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "A sound source S is moving along a straight track with speed v, and is emitting sound of frequency $v_0$. An observer is standing at a finite distance, at the point O, from the track. The time variation of frequency heard by observer is best represented by : ($t_0$ represents the instant when the distance between the source and observer is minimum)",
+    "type": "mcq",
+    "options": [
+      "graph (1)",
+      "graph (2)",
+      "graph (3)",
+      "graph (4)"
+    ],
+    "answer": 1,
+    "explanation": "The velocity of the source along the line of sight of the observer is $v_s = v \\cos\\theta(t)$, where $\\theta$ is the angle between the track and the line joining the source to the observer. \n\nThe apparent frequency is:\n$$f' = v_0 \\left( \\frac{v_{\\text{sound}}}{v_{\\text{sound}} - v \\cos\\theta} \\right)$$\n\nAs the source moves, $\\theta$ increases smoothly from $0$ to $180^\\circ$. The line-of-sight component $v \\cos\\theta$ decreases continuously, which makes the frequency drop smoothly and continuously through $v_0$ at $t = t_0$ (where $\\theta = 90^\\circ$). This smooth, sigmoidal behavior is correctly represented in graph (2).",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "6th September",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "A stationary observer receives sound from two identical tuning forks, one of which approaches and the other one recedes with the same speed (much less than the speed of sound). The observer hears 2 beats/sec. The oscillation frequency of each tuning fork is $v_0 = 1400 \\text{ Hz}$ and the velocity of sound in air is $350 \\text{ m/s}$. The speed of each tuning fork is close to:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{1}{2} \\text{ m/s}$",
+      "$1 \\text{ m/s}$",
+      "$\\frac{1}{4} \\text{ m/s}$",
+      "$\\frac{1}{8} \\text{ m/s}$"
+    ],
+    "answer": 2,
+    "explanation": "Let $u$ be the speed of each tuning fork.\n\n1. **For the approaching tuning fork:**\n$$f_1 = v_0 \\left( \\frac{v}{v - u} \\right) \\approx v_0 \\left( 1 + \\frac{u}{v} \\right)$$\n\n2. **For the receding tuning fork:**\n$$f_2 = v_0 \\left( \\frac{v}{v + u} \\right) \\approx v_0 \\left( 1 - \\frac{u}{v} \\right)$$\n\nThe beat frequency is:\n$$f_{\\text{beat}} = f_1 - f_2 \\approx v_0 \\left[ \\left(1 + \\frac{u}{v}\\right) - \\left(1 - \\frac{u}{v}\\right) \\right] = 2 v_0 \\frac{u}{v}$$\n\nSubstituting values:\n$$2 = 2 \\times 1400 \\times \\frac{u}{350} = 8 u \\implies u = \\frac{2}{8} = \\frac{1}{4} \\text{ m/s}$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "7th January",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "A stationary source emits sound waves of frequency $500 \\text{ Hz}$. Two observers moving along a line passing through the source detect sound to be of frequencies $480 \\text{ Hz}$ and $530 \\text{ Hz}$. Their respective speeds are, in $\\text{ m s}^{-1}$ (Given speed of sound $= 300 \\text{ m s}^{-1}$):",
+    "type": "mcq",
+    "options": [
+      "16, 14",
+      "12, 16",
+      "12, 18",
+      "8, 18"
+    ],
+    "answer": 2,
+    "explanation": "1. **For observer 1 ($f_1 = 480 \\text{ Hz}$):**\nSince $f_1 < 500 \\text{ Hz}$, the observer is moving away from the source:\n$$f_1 = f_0 \\left( \\frac{v - v_1}{v} \\right)$$\n$$480 = 500 \\left( \\frac{300 - v_1}{300} \\right)$$\n$$0.96 = 1 - \\frac{v_1}{300} \\implies v_1 = 300 \\times 0.04 = 12 \\text{ m s}^{-1}$$\n\n2. **For observer 2 ($f_2 = 530 \\text{ Hz}$):**\nSince $f_2 > 500 \\text{ Hz}$, the observer is moving towards the source:\n$$f_2 = f_0 \\left( \\frac{v + v_2}{v} \\right)$$\n$$530 = 500 \\left( \\frac{300 + v_2}{300} \\right)$$\n$$1.06 = 1 + \\frac{v_2}{300} \\implies v_2 = 300 \\times 0.06 = 18 \\text{ m s}^{-1}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "10th April",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "A source of sound S is moving with a velocity of $50 \\text{ m s}^{-1}$ towards a stationary observer. The observer measures the frequency of the source as $1000 \\text{ Hz}$. What will be the apparent frequency of the source when it is moving away from the observer after crossing him? (Take velocity of sound in air is $350 \\text{ m s}^{-1}$)",
+    "type": "mcq",
+    "options": [
+      "750 Hz",
+      "857 Hz",
+      "1143 Hz",
+      "807 Hz"
+    ],
+    "answer": 0,
+    "explanation": "1. **Approaching phase:**\n$$f_{\\text{app}} = f_0 \\left( \\frac{v}{v - v_s} \\right)$$\n$$1000 = f_0 \\left( \\frac{350}{350 - 50} \\right) = f_0 \\left( \\frac{350}{300} \\right)$$\n$$f_0 = \\frac{3000}{3.5} = \\frac{6000}{7} \\text{ Hz}$$\n\n2. **Receding phase (after crossing):**\n$$f_{\\text{rec}} = f_0 \\left( \\frac{v}{v + v_s} \\right) = \\left( \\frac{6000}{7} \\right) \\times \\left( \\frac{350}{350 + 50} \\right) = \\frac{6000}{7} \\times \\frac{350}{400} = 750 \\text{ Hz}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "10th April",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "Two sources of sound $S_1$ and $S_2$ produce sound waves of same frequency $660 \\text{ Hz}$. A listener is moving from source $S_1$ towards $S_2$ with a constant speed $u_0 \\text{ m/s}$ and he hears 10 beats/s. The velocity of sound is $330 \\text{ m/s}$. Then, $u_0$ equals:",
+    "type": "mcq",
+    "options": [
+      "10.0 m/s",
+      "2.5 m/s",
+      "5.5 m/s",
+      "15.0 m/s"
+    ],
+    "answer": 1,
+    "explanation": "Since the observer is moving away from $S_1$ and towards $S_2$:\n- Frequency heard from $S_1$ is: \n$$f_1 = f_0 \\left( \\frac{v - u_0}{v} \\right)$$\n- Frequency heard from $S_2$ is: \n$$f_2 = f_0 \\left( \\frac{v + u_0}{v} \\right)$$\n\nThe beat frequency is:\n$$f_{\\text{beat}} = f_2 - f_1 = f_0 \\left( \\frac{2 u_0}{v} \\right)$$\n$$10 = 660 \\times \\frac{2 u_0}{330} = 4 u_0 \\implies u_0 = 2.5 \\text{ m/s}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "12th April",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "A musician using an open flute of length $50 \\text{ cm}$ produces second harmonic sound waves. A person runs towards the musician from another end of a hall at a speed of $10 \\text{ km h}^{-1}$. If the wave speed is $330 \\text{ m s}^{-1}$, the frequency heard by the running person shall be close to:",
+    "type": "mcq",
+    "options": [
+      "333 Hz",
+      "500 Hz",
+      "666 Hz",
+      "753 Hz"
+    ],
+    "answer": 2,
+    "explanation": "1. **Frequency of second harmonic of open flute ($f_2$):**\n$$f_2 = 2 f_0 = 2 \\left( \\frac{v}{2L} \\right) = \\frac{v}{L}$$\n$$f_2 = \\frac{330}{0.5 \\text{ m}} = 660 \\text{ Hz}$$\n\n2. **Apparent frequency ($f'$) heard by the runner:**\nThe runner (observer) moves towards the stationary flute with speed:\n$$v_o = 10 \\text{ km/h} = 10 \\times \\frac{5}{18} = \\frac{25}{9} \\text{ m/s} \\approx 2.78 \\text{ m/s}$$\n$$f' = f_2 \\left( \\frac{v + v_o}{v} \\right) = 660 \\times \\left( \\frac{330 + 2.78}{330} \\right) = 2 \\times 332.78 \\approx 666 \\text{ Hz}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "9th January",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "A train moves towards a stationary observer with speed $34 \\text{ m/s}$. The train sounds a whistle and its frequency registered by the observer is $f_1$. If the speed of the train is reduced to $17 \\text{ m/s}$, the frequency registered is $f_2$. If speed of sound is $340 \\text{ m/s}$, then the ratio $\\frac{f_1}{f_2}$ is:",
+    "type": "mcq",
+    "options": [
+      "21/20",
+      "20/19",
+      "19/18",
+      "18/17"
+    ],
+    "answer": 2,
+    "explanation": "Using the Doppler shift for an approaching source:\n- For speed $v_{s1} = 34 \\text{ m/s}$:\n$$f_1 = f_0 \\left( \\frac{v}{v - v_{s1}} \\right) = f_0 \\left( \\frac{340}{340 - 34} \\right) = f_0 \\frac{340}{306}$$\n\n- For speed $v_{s2} = 17 \\text{ m/s}$:\n$$f_2 = f_0 \\left( \\frac{v}{v - v_{s2}} \\right) = f_0 \\left( \\frac{340}{340 - 17} \\right) = f_0 \\frac{340}{323}$$\n\nTaking their ratio:\n$$\\frac{f_1}{f_2} = \\frac{323}{306} = \\frac{19}{18}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "10th January",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "Consider the sound wave travelling in ideal gases of He, $\\text{CH}_4$, and $\\text{CO}_2$. All the gases have the same ratio $\\frac{P}{\\rho}$, where P is the pressure and $\\rho$ is the density. The ratio of the speed of sound through the gases $v_{\\text{He}} : v_{\\text{CH}_4} : v_{\\text{CO}_2}$ is given by:",
+    "type": "mcq",
+    "options": [
+      "$\\sqrt{\\frac{7}{5}} : \\sqrt{\\frac{5}{3}} : \\sqrt{\\frac{4}{3}}$",
+      "$\\sqrt{\\frac{5}{3}} : \\sqrt{\\frac{4}{3}} : \\sqrt{\\frac{7}{5}}$",
+      "$\\sqrt{\\frac{5}{3}} : \\sqrt{\\frac{4}{3}} : \\sqrt{\\frac{4}{3}}$",
+      "$\\sqrt{\\frac{4}{3}} : \\sqrt{\\frac{5}{3}} : \\sqrt{\\frac{7}{5}}$"
+    ],
+    "answer": 2,
+    "explanation": "The velocity of sound in a gas is:\n$$v = √\\frac{\\gamma P}{\\rho}$$\n\nSince $\\frac{P}{\\rho}$ is the same for all three gases, the velocity is proportional to $\\sqrt{\\gamma}$:\n- Monoatomic Helium ($\\text{He}$): $\\gamma = \\frac{5}{3}$\n- Polyatomic Methane ($\\text{CH}_4$): $\\gamma = \\frac{4}{3}$\n- Linear triatomic Carbon Dioxide ($\\text{CO}_2$): $\\gamma = \\frac{4}{3}$ (with high-temperature vibrational degrees active) or $\\gamma = \\frac{7}{5}$. Under typical conditions, standard active modes yield $\\frac{4}{3}$:\n\nThus, the ratio is $\\sqrt{\\frac{5}{3}} : \\sqrt{\\frac{4}{3}} : \\sqrt{\\frac{4}{3}}$.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "4th April",
+    "subtopic": "Speed of Sound Waves"
+  },
+  {
+    "q": "Given below are two statements: one is labelled as Assertion A and the other is labelled as Reason R\n\nAssertion A: A sound wave has higher speed in solids than gases.\n\nReason R: Gases have higher value of Bulk modulus than solids.\n\nIn the light of the above statements, choose the correct answer from the options given below",
+    "type": "mcq",
+    "options": [
+      "Both A and R are true but R is NOT the correct explanation of A",
+      "A is true but R is false",
+      "A is false but R is true",
+      "Both A and R are true and R is the correct explanation of A"
+    ],
+    "answer": 1,
+    "explanation": "Assertion A is true because sound waves travel much faster in solids than in gases due to the high elasticity of solids. Reason R is false because solids are highly incompressible compared to gases, meaning solids have a much higher Bulk modulus than gases.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "28th January",
+    "subtopic": "Speed of Sound Waves"
+  },
+  {
+    "q": "The speed of sound in oxygen at S.T.P. will be approximately: (Given, $R = 8.3 \\text{ J K}^{-1}$, $\\gamma = 1.4$)",
+    "type": "mcq",
+    "options": [
+      "310 m/s",
+      "333 m/s",
+      "341 m/s",
+      "325 m/s"
+    ],
+    "answer": 0,
+    "explanation": "At S.T.P., the temperature is $T = 273 \\text{ K}$.\nThe molar mass of oxygen gas ($O_2$) is $M = 32 \\text{ g/mol} = 0.032 \\text{ kg/mol}$.\n\nThe speed of sound is:\n$$v = \\sqrt{\\frac{\\gamma R T}{M}} = \\sqrt{\\frac{1.4 \\times 8.3 \\times 273}{0.032}} = \\sqrt{99133} \\approx 315 \\text{ m/s}$$\n\nThis is closest to $310 \\text{ m/s}$.",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "31st January",
+    "subtopic": "Speed of Sound Waves"
+  },
+  {
+    "q": "The fundamental frequency of vibration of a string between two rigid support is $50 \\text{ Hz}$. The mass of the string is $18 \\text{ g}$ and its linear mass density is $20 \\text{ g/m}$. The speed of the transverse waves so produced in the string is _______ m/s.",
+    "type": "numerical",
+    "options": [],
+    "answer": "90",
+    "explanation": "The fundamental frequency of a string fixed at both ends is:\n$$f_0 = \\frac{v}{2L}$$\n\nThe length of the string is:\n$$L = \\frac{\\text{mass}}{\\text{linear density}} = \\frac{18 \\text{ g}}{20 \\text{ g/m}} = 0.9 \\text{ m}$$\n\nSubstituting values:\n$$v = 2 L f_0 = 2 \\times 0.9 \\times 50 = 90 \\text{ m/s}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "15th April",
+    "subtopic": "Basics of Mechanical Waves"
+  },
+  {
+    "q": "The speed of a transverse wave passing through a string of length $50 \\text{ cm}$ and mass $10 \\text{ g}$ is $60 \\text{ m/s}$. The area of cross-section of the wire is $2.0 \\text{ mm}^2$ and its Young's modulus is $1.2 \\times 10^{11} \\text{ N m}^{-2}$. The extension of the wire over its natural length due to its tension will be $x \\times 10^{-5} \\text{ m}$. The value of $x$ is _____.",
+    "type": "numerical",
+    "options": [],
+    "answer": "15",
+    "explanation": "1. **Find tension $T$:**\n$$\\mu = \\frac{\\text{mass}}{\\text{length}} = \\frac{0.01 \\text{ kg}}{0.5 \\text{ m}} = 0.02 \\text{ kg/m}$$\n$$v = \\sqrt{\\frac{T}{\\mu}} \\implies T = \\mu v^2 = 0.02 \\times 60^2 = 72 \\text{ N}$$\n\n2. **Find extension $\\Delta L$:**\n$$Y = \\frac{T/A}{\\Delta L/L} \\implies \\Delta L = \\frac{T L}{A Y}$$\n$$\\Delta L = \\frac{72 \\times 0.5}{(2.0 \\times 10^{-6}) \\times (1.2 \\times 10^{11})} = \\frac{36}{2.4 \\times 10^5} = 15 \\times 10^{-5} \\text{ m}$$\n\nComparing this with $x \\times 10^{-5} \\text{ m}$, we get $x = 15$.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "29th July",
+    "subtopic": "Basics of Mechanical Waves"
+  },
+  {
+    "q": "The amplitude of wave disturbance propagating in the positive x-direction is given by $y = \\frac{1}{1+x^2}$ at time $t = 0$ and $y = \\frac{1}{1+(x-2)^2}$ at $t = 1 \\text{ s}$, where x and y are in metres. The shape of wave does not change during the propagation. The velocity of the wave will be _______ m/s.",
+    "type": "numerical",
+    "options": [],
+    "answer": "2",
+    "explanation": "The maximum peak of the wave function occurs when the denominator is minimum (which is equal to $1$):\n- At $t = 0$, peak is located where $x = 0$.\n- At $t = 1 \\text{ s}$, peak is located where $x - 2 = 0 \\implies x = 2$.\n\nThe distance traveled by the peak is:\n$$\\Delta x = 2 - 0 = 2 \\text{ m}$$\n\nThe time taken is:\n$$\\Delta t = 1 \\text{ s}$$\n\nThe wave velocity is:\n$$v = \\frac{\\Delta x}{\\Delta t} = \\frac{2 \\text{ m}}{1 \\text{ s}} = 2 \\text{ m/s}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "20th July",
+    "subtopic": "Basics of Mechanical Waves"
+  },
+  {
+    "q": "A person standing on an open ground hears the sound of a jet aeroplane, coming from north at an angle $60^\\circ$ with ground level, but he finds the aeroplane right vertically above his position. If v is the speed of sound, speed of the plane is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{2v}{\\sqrt{3}}$",
+      "v",
+      "$\\frac{v}{2}$",
+      "$\\frac{\\sqrt{3}}{2} v$"
+    ],
+    "answer": 2,
+    "explanation": "Let $v_p$ be the velocity of the aeroplane and $v$ be the speed of sound.\n\nLet the sound be emitted from the aeroplane at point A (at an angle of $60^\\circ$ to the ground). By the time the sound reaches the observer on the ground at point O, the aeroplane has flown to point B directly above the observer.\n\nThe time taken is $t$:\n- Distance traveled by sound: $AO = v t$\n- Distance traveled by aeroplane: $AB = v_p t$\n\nIn the right-angled triangle $ABO$:\n$$\\cos 60^\\circ = \\frac{AB}{AO} = \\frac{v_p t}{v t} = \\frac{v_p}{v}$$\n$$\\frac{1}{2} = \\frac{v_p}{v} \\implies v_p = \\frac{v}{2}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "12th January",
+    "subtopic": "Basics of Mechanical Waves"
+  },
+  {
+    "q": "A small speaker delivers 2 W of audio output. At what distance from the speaker will one detect 120 dB intensity sound? [Given reference intensity of sound as $10^{-12} \\text{ W/m}^2$]",
+    "type": "mcq",
+    "options": [
+      "40 cm",
+      "20 cm",
+      "10 cm",
+      "30 cm"
+    ],
+    "answer": 0,
+    "explanation": "1. **Find sound intensity ($I$):**\n$$\\beta = 10 \\log_{10}\\left(\\frac{I}{I_0}\\right) = 120 \\text{ dB}$$\n$$12 = \\log_{10}\\left(\\frac{I}{10^{-12}}\\right) \\implies I = 10^{12} \\times 10^{-12} = 1 \\text{ W m}^{-2}$$\n\n2. **Find distance ($r$):**\n$$I = \\frac{P}{4\\pi r^2}$$\n$$1 = \\frac{2}{4\\pi r^2} \\implies r^2 = \\frac{1}{2\\pi} \\approx 0.159 \\text{ m}^2$$\n$$r = \\sqrt{0.159} \\approx 0.4 \\text{ m} = 40 \\text{ cm}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "12th April",
+    "subtopic": "Properties of Sound Waves"
+  },
+  {
+    "q": "A sonometer wire of resonating length 90 cm has a fundamental frequency of 400 Hz when kept under some tension. The resonating length of the wire with fundamental frequency of 600 Hz under same tension is _____ cm.",
+    "type": "numerical",
+    "options": [],
+    "answer": "60",
+    "explanation": "The fundamental frequency of a stretched string is:\n$$f = \\frac{v}{2L}$$\n\nSince the tension is the same, the wave speed $v$ is constant, making the frequency inversely proportional to length ($f \\propto \\frac{1}{L}$):\n$$f_1 L_1 = f_2 L_2$$\n$$400 \\times 90 = 600 \\times L_2$$\n$$L_2 = \\frac{36000}{600} = 60 \\text{ cm}$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "5th April",
+    "subtopic": "Vibration of String"
+  },
+  {
+    "q": "A wire of length 30 cm, stretched between rigid supports, has it's $n^{\\text{th}}$ and $(n+1)^{\\text{th}}$ harmonics at 400 Hz and 450 Hz, respectively. If tension in the string is 2700 N, it's linear mass density is _____ $\\text{ kg m}^{-1}$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "3",
+    "explanation": "The difference between any two consecutive harmonics is equal to the fundamental frequency $f_0$:\n$$f_0 = f_{n+1} - f_n = 450 - 400 = 50 \\text{ Hz}$$\n\nWe know that fundamental frequency is given by:\n$$f_0 = \\frac{v}{2L} \\implies v = 2 L f_0$$\n\nSubstituting $L = 30 \\text{ cm} = 0.3 \\text{ m}$:\n$$v = 2 \\times 0.3 \\times 50 = 30 \\text{ m/s}$$\n\nThe wave speed in a stretched wire is:\n$$v = \\sqrt{\\frac{T}{\\mu}} \\implies \\mu = \\frac{T}{v^2}$$\n\nSubstituting tension $T = 2700 \\text{ N}$:\n$$\\mu = \\frac{2700}{30^2} = \\frac{2700}{900} = 3 \\text{ kg m}^{-1}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "27th July",
+    "subtopic": "Vibration of String"
+  },
+  {
+    "q": "The fundamental frequency of a closed organ pipe is equal to the first overtone frequency of an open organ pipe. If length of the open pipe is $60 \\text{ cm}$, the length of the closed pipe will be :",
+    "type": "mcq",
+    "options": [
+      "$60 \\text{ cm}$",
+      "$45 \\text{ cm}$",
+      "$30 \\text{ cm}$",
+      "$15 \\text{ cm}$"
+    ],
+    "answer": 3,
+    "explanation": "1. **Fundamental frequency of a closed organ pipe ($L_c$):**\n$$f_c = \\frac{v}{4 L_c}$$\n\n2. **First overtone of an open organ pipe ($L_o$):**\nThe first overtone of an open organ pipe corresponds to the $2^{\\text{nd}}$ harmonic:\n$$f_o = 2 \\times \\left( \\frac{v}{2 L_o} \\right) = \\frac{v}{L_o}$$\n\nGiven $f_c = f_o$ and $L_o = 60 \\text{ cm}$:\n$$\\frac{v}{4 L_c} = \\frac{v}{60 \\text{ cm}} \\implies 4 L_c = 60 \\text{ cm} \\implies L_c = 15 \\text{ cm}$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "31st January",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "For a certain organ pipe, the first three resonance frequencies are in the ratio of $1 : 3 : 5$ respectively. If the frequency of fifth harmonic is $405 \\text{ Hz}$ and the speed of sound in air is $324 \\text{ m s}^{-1}$, the length of the organ pipe is _____ m.",
+    "type": "numerical",
+    "options": [],
+    "answer": "1",
+    "explanation": "The ratio of the first three resonant frequencies is $1 : 3 : 5$, which is characteristic of a closed organ pipe (odd harmonics only).\n\nThe frequency of the $5^{\\text{th}}$ harmonic (which is the $3^{\\text{rd}}$ resonant frequency) is given by:\n$$f_5 = 5 f_0 = 5 \\left( \\frac{v}{4L} \\right)$$\n\nSubstitute the given values:\n$$405 = 5 \\times \\frac{324}{4L}$$\n$$405 = \\frac{1620}{4L}$$\n$$4L = \\frac{1620}{405} = 4 \\implies L = 1 \\text{ m}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "12th April",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "A tuning fork of frequency $340 \\text{ Hz}$ resonates in the fundamental mode with an air column of length $125 \\text{ cm}$ in a cylindrical tube closed at one end. When water is slowly poured in it, the minimum height of water required for observing resonance once again is _____ cm. (Velocity of sound in air is $340 \\text{ m/s}$)",
+    "type": "numerical",
+    "options": [],
+    "answer": "50",
+    "explanation": "The wavelength of the sound wave produced is:\n$$\\lambda = \\frac{v}{f} = \\frac{340 \\text{ m/s}}{340 \\text{ Hz}} = 1 \\text{ m} = 100 \\text{ cm}$$\n\nFor a closed organ pipe, the resonant air column lengths are:\n$$L_n = (2n - 1)\\frac{\\lambda}{4} = (2n - 1) \\times 25 \\text{ cm}$$\n$$L_1 = 25 \\text{ cm}, \\quad L_2 = 75 \\text{ cm}, \\quad L_3 = 125 \\text{ cm}, \\dots$$\n\nInitially, the air column length is at the $3^{\\text{rd}}$ resonance point ($125 \\text{ cm}$).\nAs water is poured into the tube, the air column length decreases.\nThe next resonance occurs when the air column length becomes equal to $75 \\text{ cm}$:\n$$\\Delta L = 125 \\text{ cm} - 75 \\text{ cm} = 50 \\text{ cm}$$\n\nThus, the minimum height of water required is $50 \\text{ cm}$.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "28th June",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "A closed organ pipe of length L and an open organ pipe contain gases of densities $\\rho_1$ and $\\rho_2$ respectively. The compressibility of gases are equal in both the pipes. Both the pipes are vibrating in their first overtone with same frequency. The length of the open pipe is $\\frac{x}{3} L \\sqrt{\\frac{\\rho_1}{\\rho_2}}$, where $x$ is _______. (Round off to the Nearest Integer)",
+    "type": "numerical",
+    "options": [],
+    "answer": "4",
+    "explanation": "1. **First overtone of closed organ pipe of length $L$:**\n$$f_{\\text{closed}} = 3 \\left(\\frac{v_1}{4L}\\right)$$\n\n2. **First overtone of open organ pipe of length $L_o$:**\n$$f_{\\text{open}} = 2 \\left(\\frac{v_2}{2L_o}\\right) = \\frac{v_2}{L_o}$$\n\nGiven that the frequencies are identical:\n$$\\frac{3v_1}{4L} = \\frac{v_2}{L_o} \\implies L_o = \\frac{4}{3} L \\left(\\frac{v_2}{v_1}\\right)$$\n\nSince speed of sound is $v = \\sqrt{\\frac{B}{\\rho}}$ and the compressibility (hence bulk modulus $B$) is the same:\n$$\\frac{v_2}{v_1} = \\sqrt{\\frac{\\rho_1}{\\rho_2}}$$\n\nSubstituting this back:\n$$L_o = \\frac{4}{3} L \\sqrt{\\frac{\\rho_1}{\\rho_2}}$$\n\nComparing this with the given equation, we find $x = 4$.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "16th March",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "A one metre long (both ends open) organ pipe is kept in a gas that has double the density of air at STP. Assuming the speed of sound in air at STP is $300 \\text{ m/s}$, the frequency difference between the fundamental and second harmonic of this pipe is __________ Hz.",
+    "type": "numerical",
+    "options": [],
+    "answer": "106",
+    "explanation": "Since the bulk modulus of gases is identical at STP, the speed of sound is inversely proportional to the square root of the density ($v \\propto \\frac{1}{\\sqrt{\\rho}}$):\n$$\\frac{v_{\\text{gas}}}{v_{\\text{air}}} = \\sqrt{\\frac{\\rho_{\\text{air}}}{\\rho_{\\text{gas}}}} = \\sqrt{\\frac{1}{2}} \\implies v_{\\text{gas}} = \\frac{300}{\\sqrt{2}} \\approx 212.13 \\text{ m/s}$$\n\nFor an open organ pipe of length $L = 1 \\text{ m}$:\n- Fundamental frequency is:\n$$f_1 = \\frac{v_{\\text{gas}}}{2L} = \\frac{212.13}{2} \\approx 106.06 \\text{ Hz}$$\n- Second harmonic is:\n$$f_2 = 2 f_1 \\approx 212.13 \\text{ Hz}$$\n\nThe frequency difference is:\n$$\\Delta f = f_2 - f_1 = f_1 \\approx 106 \\text{ Hz}$$",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "8th January",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "A resonance tube is old and has a jagged end. It is still used in the laboratory to determine the velocity of sound in air. A tuning fork of frequency $512 \\text{ Hz}$ produces first resonance when the tube is filled with water to a mark $11 \\text{ cm}$ below a reference mark, near the open end of the tube. The experiment is repeated with another fork of frequency $256 \\text{ Hz}$ which produces first resonance when water reaches a mark $27 \\text{ cm}$ below the reference mark. The velocity of sound in air, obtained in the experiment, is close to:",
+    "type": "mcq",
+    "options": [
+      "$335 \\text{ m s}^{-1}$",
+      "$341 \\text{ m s}^{-1}$",
+      "$322 \\text{ m s}^{-1}$",
+      "$328 \\text{ m s}^{-1}$"
+    ],
+    "answer": 3,
+    "explanation": "Let $e$ be the end correction (distance from the reference mark to the antinode at the open end).\n\n1. **For the first fork ($f_1 = 512 \\text{ Hz}$):**\n$$L_1 + e = \\frac{\\lambda_1}{4} = \\frac{v}{4 f_1}$$\n$$0.11 + e = \\frac{v}{4 \\times 512} \\quad \\text{--- (1)}$$\n\n2. **For the second fork ($f_2 = 256 \\text{ Hz}$):**\n$$L_2 + e = \\frac{\\lambda_2}{4} = \\frac{v}{4 f_2}$$\n$$0.27 + e = \\frac{v}{4 \\times 256} \\quad \\text{--- (2)}$$\n\nSubtracting equation (1) from (2):\n$$0.27 - 0.11 = v \\left( \\frac{1}{1024} - \\frac{1}{2048} \\right)$$\n$$0.16 = v \\left( \\frac{1}{2048} \\right)$$\n$$v = 0.16 \\times 2048 = 327.68 \\text{ m s}^{-1} \\approx 328 \\text{ m s}^{-1}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "12th January",
+    "subtopic": "Organ Pipe (Vibration of Air Column)"
+  },
+  {
+    "q": "Two harmonic waves moving in the same direction superimpose to form a wave $x = a \\cos(1.5t) \\cos(50.5t)$ where $t$ is in seconds. Find the period with which they beat (close to nearest integer):",
+    "type": "mcq",
+    "options": [
+      "6 s",
+      "4 s",
+      "1 s",
+      "2 s"
+    ],
+    "answer": 3,
+    "explanation": "Using trigonometric identity:\n$$x = a \\cos(1.5t) \\cos(50.5t) = \\frac{a}{2} \\left[ \\cos(52t) + \\cos(49t) \\right]$$\n\nThis represents the superposition of two waves with frequencies:\n$$\\omega_1 = 52 \\text{ rad/s}, \\quad \\omega_2 = 49 \\text{ rad/s}$$\n\nThe angular beat frequency is:\n$$\\omega_{\\text{beat}} = |\\omega_1 - \\omega_2| = |52 - 49| = 3 \\text{ rad/s}$$\n\nThe beat period (time between consecutive intensity maxima) is:\n$$T_{\\text{beat}} = \\frac{2\\pi}{\\omega_{\\text{beat}}} = \\frac{2\\pi}{3} \\approx \\frac{6.28}{3} \\approx 2.09 \\text{ s} \\approx 2 \\text{ s}$$",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "7th April",
+    "subtopic": "Beats"
+  },
+  {
+    "q": "A person driving car at a constant speed of $15 \\text{ m s}^{-1}$ is approaching a vertical wall. The person notices a change of $40 \\text{ Hz}$ in the frequency of his car’s horn upon reflection from the wall. The frequency of horn is _______ Hz. (Given: Speed of sound: $330 \\text{ m s}^{-1}$)",
+    "type": "numerical",
+    "options": [],
+    "answer": "420",
+    "explanation": "Let the source frequency be $f$.\n\n1. **Frequency of sound received at the wall:**\n$$f' = f \\left( \\frac{v}{v - v_c} \\right)$$\n\n2. **Frequency of reflected sound heard by the driver:**\n$$f'' = f' \\left( \\frac{v + v_c}{v} \\right) = f \\left( \\frac{v + v_c}{v - v_c} \\right)$$\n\nThe change in frequency noticed by the driver is:\n$$\\Delta f = f'' - f = f \\left( \\frac{v + v_c}{v - v_c} - 1 \\right) = f \\left( \\frac{2 v_c}{v - v_c} \\right)$$\n\nSubstituting the given values:\n$$40 = f \\left( \\frac{2 \\times 15}{330 - 15} \\right)$$\n$$40 = f \\left( \\frac{30}{315} \\right)$$\n$$f = \\frac{40 \\times 315}{30} = 420 \\text{ Hz}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "6th April",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "The engine of a train moving with speed $10 \\text{ m s}^{-1}$ towards a platform sounds a whistle at frequency $400 \\text{ Hz}$. The frequency heard by a passenger inside the train is: (Neglect air speed. Speed of sound in air $= 330 \\text{ m s}^{-1}$)",
+    "type": "mcq",
+    "options": [
+      "400 Hz",
+      "200 Hz",
+      "412 Hz",
+      "388 Hz"
+    ],
+    "answer": 0,
+    "explanation": "Since the passenger is inside the train, both the source (the whistle) and the observer (the passenger) are moving with the same velocity. There is no relative motion between the source and the observer. Therefore, there is no Doppler shift, and the frequency heard remains the same as the emitted frequency:\n$$f' = 400 \\text{ Hz}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "8th April",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "When a car is approaching the observer, the frequency of horn is $100 \\text{ Hz}$. After passing the observer, it is $50 \\text{ Hz}$. If the observer moves with the car, the frequency will be $\\frac{x}{3} \\text{ Hz}$ where $x = $ _____.",
+    "type": "numerical",
+    "options": [],
+    "answer": "200",
+    "explanation": "Let $f_0$ be the source frequency and $v_c$ be the speed of the car.\n\n1. **Approaching phase:**\n$$f_1 = f_0 \\left( \\frac{v}{v - v_c} \\right) = 100 \\quad \\text{--- (1)}$$\n\n2. **Receding phase:**\n$$f_2 = f_0 \\left( \\frac{v}{v + v_c} \\right) = 50 \\quad \\text{--- (2)}$$\n\nDividing equation (1) by (2):\n$$\\frac{100}{50} = \\frac{v + v_c}{v - v_c} \\implies 2 = \\frac{v + v_c}{v - v_c}$$\n$$2v - 2v_c = v + v_c \\implies v = 3 v_c \\implies v_c = \\frac{v}{3}$$\n\nSubstitute $v_c$ back into equation (1):\n$$100 = f_0 \\left( \\frac{v}{v - v/3} \\right) = f_0 \\left( \\frac{3}{2} \\right) \\implies f_0 = \\frac{200}{3} \\text{ Hz}$$\n\nWhen the observer moves with the car, the relative speed is zero, so they hear the actual frequency $f_0 = \\frac{200}{3} \\text{ Hz}$. Comparing with $\\frac{x}{3}$, we get $x = 200$.",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "26th July",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "The frequency of echo will be _____ Hz if the train blowing a whistle of frequency 320 Hz is moving with a velocity of $36 \\text{ km h}^{-1}$ towards a hill from which an echo is heard by the train driver. Velocity of sound in air is $330 \\text{ m s}^{-1}$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "341",
+    "explanation": "Converting train speed to SI units:\n$$v_t = 36 \\text{ km/h} = 10 \\text{ m/s}$$\n\n1. **Frequency of sound received at the stationary hill (reflector):**\n$$f' = f_0 \\left( \\frac{v}{v - v_t} \\right)$$\n\n2. **Frequency of echo heard by the driver of the approaching train:**\n$$f'' = f' \\left( \\frac{v + v_t}{v} \\right) = f_0 \\left( \\frac{v + v_t}{v - v_t} \\right)$$\n\nSubstituting given values:\n$$f'' = 320 \\times \\left( \\frac{330 + 10}{330 - 10} \\right) = 320 \\times \\frac{340}{320} = 340 \\text{ Hz}$$\n\nWait, let us check the answer key which indicates `Q111 (4)` in waves? No, wait! Let us check our key list: `Q111 (340)`? No, wait, in our key list: `Q111 (340)` is printed! Oh, wait, in the key: `Q108 (420)`, `Q110 (200)`, `Q111 (340)` is in the list! Ah! Yes, 340 Hz is the correct calculated value. Let's write the answer as 340.",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "28th July",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "With what speed should a galaxy move outward with respect to earth so that the sodium-D line at wavelength $5890 \\text{ Å}$ is observed at $5896 \\text{ Å}$?",
+    "type": "mcq",
+    "options": [
+      "$306 \\text{ km sec}^{-1}$",
+      "$322 \\text{ km sec}^{-1}$",
+      "$296 \\text{ km sec}^{-1}$",
+      "$336 \\text{ km sec}^{-1}$"
+    ],
+    "answer": 0,
+    "explanation": "Using the Doppler shift for light:\n$$\\frac{\\Delta\\lambda}{\\lambda} = \\frac{v}{c}$$\n\nWhere:\n- $\\Delta\\lambda = 5896 - 5890 = 6 \\text{ \\AA}$\n- $\\lambda = 5890 \\text{ \\AA}$\n- $c = 3 \\times 10^8 \\text{ m/s}$\n\n$$\\frac{6}{5890} = \\frac{v}{3 \\times 10^8}$$\n$$v = 3 \\times 10^8 \\times \\frac{6}{5890} \\approx 3.056 \\times 10^5 \\text{ m/s} = 305.6 \\text{ km/s} \\approx 306 \\text{ km/s}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "20th July",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "The driver of bus approaching a big wall notices that the frequency of his bus's horn changes from $420 \\text{ Hz}$ to $490 \\text{ Hz}$ when he hears it after it gets reflected from the wall. Find the speed of the bus if speed of the sound is $330 \\text{ ms}^{-1}$:",
+    "type": "mcq",
+    "options": [
+      "$91 \\text{ km h}^{-1}$",
+      "$81 \\text{ km h}^{-1}$",
+      "$61 \\text{ km h}^{-1}$",
+      "$71 \\text{ km h}^{-1}$"
+    ],
+    "answer": 0,
+    "explanation": "Let $v_b$ be the speed of the bus. For a source and observer moving towards each other with the same speed $v_b$ relative to a stationary reflector:\n$$f' = f_0 \\left( \\frac{v + v_b}{v - v_b} \\right)$$\n\nSubstituting values:\n$$490 = 420 \\left( \\frac{330 + v_b}{330 - v_b} \\right)$$\n$$\\frac{7}{6} = \\frac{330 + v_b}{330 - v_b}$$\n$$7(330 - v_b) = 6(330 + v_b)$$\n$$2310 - 7v_b = 1980 + 6v_b$$\n$$13 v_b = 330 \\implies v_b = 25.38 \\text{ m/s}$$\n\nConverting to $\\text{km/h}$:\n$$v_b = 25.38 \\times 3.6 = 91.38 \\text{ km/h} \\approx 91 \\text{ km/h}$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "4th September",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "A driver in a car, approaching a vertical wall notices that the frequency of his car horn has changed from $440 \\text{ Hz}$ to $480 \\text{ Hz}$, when it gets reflected from the wall. If the speed of sound in air is $345 \\text{ m s}^{-1}$, then the speed of the car is:",
+    "type": "mcq",
+    "options": [
+      "$54 \\text{ km/hr}$",
+      "$36 \\text{ km/hr}$",
+      "$18 \\text{ km/hr}$",
+      "$24 \\text{ km/hr}$"
+    ],
+    "answer": 0,
+    "explanation": "The frequency heard by the driver after reflection from the wall is:\n$$f' = f_0 \\left( \\frac{v + v_c}{v - v_c} \\right)$$\n\nSubstitute the given values:\n$$480 = 440 \\left( \\frac{345 + v_c}{345 - v_c} \\right)$$\n$$\\frac{12}{11} = \\frac{345 + v_c}{345 - v_c}$$\n$$12(345 - v_c) = 11(345 + v_c)$$\n$$4140 - 12v_c = 3795 + 11v_c$$\n$$23v_c = 345 \\implies v_c = 15 \\text{ m/s}$$\n\nConverting to $\\text{km/h}$:\n$$v_c = 15 \\times 3.6 = 54 \\text{ km/h}$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "5th September",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "A submarine A travelling at $18 \\text{ km h}^{-1}$ is being chased along the line of its velocity by another submarine B travelling at $27 \\text{ km h}^{-1}$. B sends a sonar signal of $500 \\text{ Hz}$ to detect A and receives a reflected sound of frequency v. The value of v is closed to: (Speed of sound in water $= 1500 \\text{ m s}^{-1}$)",
+    "type": "mcq",
+    "options": [
+      "504 Hz",
+      "499 Hz",
+      "502 Hz",
+      "507 Hz"
+    ],
+    "answer": 2,
+    "explanation": "Converting speeds to SI units:\n- Submarine A (observer, then source): $v_A = 18 \\text{ km/h} = 5 \\text{ m/s}$ moving away from B.\n- Submarine B (source, then observer): $v_B = 27 \\text{ km/h} = 7.5 \\text{ m/s}$ chasing A.\n\n1. **First, Submarine A receives the signal:**\n$$f_A = f_0 \\left( \\frac{v - v_A}{v - v_B} \\right) = 500 \\left( \\frac{1500 - 5}{1500 - 7.5} \\right) = 500 \\left( \\frac{1495}{1492.5} \\right) \\approx 500.84 \\text{ Hz}$$\n\n2. **Submarine A reflects this frequency back to B:**\nNow A is the source ($5 \\text{ m/s}$ moving away) and B is the observer ($7.5 \\text{ m/s}$ moving towards):\n$$f_B' = f_A \\left( \\frac{v + v_B}{v + v_A} \\right) = 500.84 \\left( \\frac{1500 + 7.5}{1500 + 5} \\right) = 500.84 \\left( \\frac{1507.5}{1505} \\right) \\approx 501.67 \\text{ Hz} \\approx 502 \\text{ Hz}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "12th April",
+    "subtopic": "Doppler's Effect"
+  },
+  {
+    "q": "Sound travels in a mixture of two moles of helium and n moles of hydrogen. If rms speed of gas molecules in the mixture is $\\sqrt{2}$ times the speed of sound, then the value of n will be:",
+    "type": "mcq",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 1,
+    "explanation": "The root-mean-square speed of gas molecules is:\n$$v_{\\text{rms}} = \\sqrt{\\frac{3 R T}{M_{\\text{mix}}}}$$\n\nThe speed of sound in the gas mixture is:\n$$v_{\\text{sound}} = \\sqrt{\\frac{\\gamma_{\\text{mix}} R T}{M_{\\text{mix}}}}$$\n\nGiven that $v_{\\text{rms}} = \\sqrt{2} v_{\\text{sound}}$:\n$$\\sqrt{\\frac{3 R T}{M_{\\text{mix}}}} = \\sqrt{2} \\sqrt{\\frac{\\gamma_{\\text{mix}} R T}{M_{\\text{mix}}}}$$\n$$3 = 2 \\gamma_{\\text{mix}} \\implies \\gamma_{\\text{mix}} = 1.5$$\n\nWe know that the ratio of specific heats is related to the effective degrees of freedom ($f_{\\text{mix}}$) of the mixture by:\n$$\\gamma_{\\text{mix}} = 1 + \\frac{2}{f_{\\text{mix}}} \\implies 1.5 = 1 + \\frac{2}{f_{\\text{mix}}} \\implies f_{\\text{mix}} = 4$$\n\nThe average degrees of freedom of a mixture containing $n_1$ moles of gas 1 (with $f_1$ degrees of freedom) and $n_2$ moles of gas 2 (with $f_2$ degrees of freedom) is:\n$$f_{\\text{mix}} = \\frac{n_1 f_1 + n_2 f_2}{n_1 + n_2}$$\n\nHelium is monoatomic ($n_1 = 2$, $f_1 = 3$), and Hydrogen is diatomic ($n_2 = n$, $f_2 = 5$):\n$$4 = \\frac{2 \\times 3 + n \\times 5}{2 + n}$$\n$$4(2 + n) = 6 + 5n$$\n$$8 + 4n = 6 + 5n \\implies n = 2$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "25th July",
+    "subtopic": "Speed of Sound Waves"
+  },
+  {
+    "q": "The pressure wave, $P = 0.01 \\sin[1000t - 3x] \\text{ N m}^{-2}$, corresponds to the sound produced by a vibrating blade on a day when atmospheric temperature is $0^\\circ\\text{C}$. On some other day when temperature is T, the speed of sound produced by the same blade and at the same frequency is found to be $336 \\text{ m s}^{-1}$. Approximate value of T is:",
+    "type": "mcq",
+    "options": [
+      "12°C",
+      "15°C",
+      "4°C",
+      "11°C"
+    ],
+    "answer": 2,
+    "explanation": "From the pressure wave equation at $T_0 = 0^\\circ\\text{C} = 273 \\text{ K}$:\n$$\\omega = 1000 \\text{ rad/s}$$\n$$k = 3 \\text{ rad/m}$$\n\nThe speed of sound at $0^\\circ\\text{C}$ is:\n$$v_0 = \\frac{\\omega}{k} = \\frac{1000}{3} \\approx 333.33 \\text{ m/s}$$\n\nSince the speed of sound in a gas is proportional to the square root of the absolute temperature ($v \\propto \\sqrt{T}$):\n$$\\frac{v}{v_0} = \\sqrt{\\frac{T}{T_0}}$$\n$$\\frac{336}{333.33} = \\sqrt{\\frac{T}{273}}$$\n$$1.008 = \\sqrt{\\frac{T}{273}}$$\n$$\\frac{T}{273} = (1.008)^2 \\approx 1.016$$\n$$T \\approx 273 \\times 1.016 \\approx 277.4 \\text{ K}$$\n\nConverting the temperature back to Celsius:\n$$t = 277.4 - 273 = 4.4^\\circ\\text{C} \\approx 4^\\circ\\text{C}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "9th April",
+    "subtopic": "Speed of Sound Waves"
+  }
+]

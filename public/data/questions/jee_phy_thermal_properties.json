@@ -1,0 +1,1243 @@
+[
+  {
+    "q": "Which of the following figure represents the relation between Celsius and Fahrenheit temperatures?",
+    "type": "mcq",
+    "options": [
+      "graph (1)",
+      "graph (2)",
+      "graph (3)",
+      "graph (4)"
+    ],
+    "answer": 3,
+    "explanation": "The conversion formula between Celsius ($C$) and Fahrenheit ($F$) temperatures is:\n$$F = \\frac{9}{5} C + 32 \\implies C = \\frac{5}{9} F - \\frac{160}{9} \\approx 0.55 F - 17.7$$\n\nComparing this with the slope-intercept equation of a straight line, $y = mx + c$ (where $C$ is on the vertical axis and $F$ is on the horizontal axis):\n- Slope $m = \\frac{5}{9} > 0$ (positive slope, goes upwards from left to right).\n- vertical-intercept (Celsius axis intercept) is $-\\frac{160}{9} \\approx -17.7 ^\\circ\\text{C}$ (crosses the vertical axis below the origin).\n- horizontal-intercept (Fahrenheit axis intercept) is $32 ^\\circ\\text{F}$ (crosses the horizontal axis to the right of the origin).\n\nGraph (4) correctly depicts a straight line with a positive slope that intersects the vertical $C$-axis in the negative region and the horizontal $F$-axis in the positive region.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "24th January",
+    "subtopic": "Thermometry"
+  },
+  {
+    "q": "On Celsius scale the temperature of a body increases by $40 ^\\circ\\text{C}$. The increase in temperature on Fahrenheit scale is :",
+    "type": "mcq",
+    "options": [
+      "$68 ^\\circ\\text{F}$",
+      "$75 ^\\circ\\text{F}$",
+      "$72 ^\\circ\\text{F}$",
+      "$70 ^\\circ\\text{F}$"
+    ],
+    "answer": 2,
+    "explanation": "The relationship between temperature changes on the Celsius and Fahrenheit scales is:\n$$\\Delta F = \\frac{9}{5} \\Delta C$$\n\nSubstituting the given increase of $40 ^\\circ\\text{C}$:\n$$\\Delta F = \\frac{9}{5} \\times 40 = 72 ^\\circ\\text{F}$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "4th April",
+    "subtopic": "Thermometry"
+  },
+  {
+    "q": "On a temperature scale 'X', the boiling point of water is $65^\\circ\\text{X}$ and the freezing point is $-15^\\circ\\text{X}$. Assuming that the scale is linear, the equivalent temperature corresponding to $-95^\\circ\\text{X}$ on the Fahrenheit scale would be:",
+    "type": "mcq",
+    "options": [
+      "$-112^\\circ\\text{F}$",
+      "$-48^\\circ\\text{F}$",
+      "$-148^\\circ\\text{F}$",
+      "$-63^\\circ\\text{F}$"
+    ],
+    "answer": 2,
+    "explanation": "For any linear temperature scale, the relation between the reading on scale 'X' and Fahrenheit scale 'F' is:\n$$\\frac{T_X - \\text{LFP}_X}{\\text{UFP}_X - \\text{LFP}_X} = \\frac{T_F - \\text{LFP}_F}{\\text{UFP}_F - \\text{LFP}_F}$$\n\nWhere:\n- $\\text{LFP}_X = -15^\\circ\\text{X}$, $\\text{UFP}_X = 65^\\circ\\text{X}$\n- $\\text{LFP}_F = 32^\\circ\\text{F}$, $\\text{UFP}_F = 212^\\circ\\text{F}$\n\nSubstituting values for $T_X = -95^\\circ\\text{X}$:\n$$\\frac{-95 - (-15)}{65 - (-15)} = \\frac{T_F - 32}{212 - 32}$$\n$$\\frac{-80}{80} = \\frac{T_F - 32}{180}$$\n$$-1 = \\frac{T_F - 32}{180}$$\n$$T_F - 32 = -180 \\implies T_F = -148^\\circ\\text{F}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "11th April",
+    "subtopic": "Thermometry"
+  },
+  {
+    "q": "The graph between two temperature scales P and Q is shown in the figure. Between upper fixed point and lower fixed point there are 150 equal divisions of scale P and 100 divisions on scale Q. The relationship for conversion between the two scales is given by :",
+    "type": "mcq",
+    "options": [
+      "$\\frac{t_Q}{150} = \\frac{t_P - 180}{100}$",
+      "$\\frac{t_Q}{100} = \\frac{t_P - 30}{150}$",
+      "$\\frac{t_P}{180} = \\frac{t_Q - 40}{100}$",
+      "$\\frac{t_Q}{100} = \\frac{t_P - 180}{150}$"
+    ],
+    "answer": 1,
+    "explanation": "The general formula for linear conversion between two temperature scales $P$ and $Q$ is:\n$$\\frac{t_Q - \\text{LFP}_Q}{\\text{No. of divisions on } Q} = \\frac{t_P - \\text{LFP}_P}{\\text{No. of divisions on } P}$$\n\nFrom the given graph and text:\n- Scale P: Lower Fixed Point $\\text{LFP}_P = 30$, and number of divisions $= 150$.\n- Scale Q: Lower Fixed Point $\\text{LFP}_Q = 0$ (at the origin where $t_Q=0$), and number of divisions $= 100$.\n\nSubstituting these parameters:\n$$\\frac{t_Q - 0}{100} = \\frac{t_P - 30}{150} \\implies \\frac{t_Q}{100} = \\frac{t_P - 30}{150}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "25th January",
+    "subtopic": "Thermometry"
+  },
+  {
+    "q": "A faulty thermometer reads $5^\\circ\\text{C}$ in melting ice and $95^\\circ\\text{C}$ in steam. The correct temperature on absolute scale will be ______ K when the faulty thermometer reads $41^\\circ\\text{C}$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "313",
+    "explanation": "Let $T_C$ be the correct temperature on the Celsius scale. \nFor any linear temperature scale:\n$$\\frac{\\text{Reading} - \\text{LFP}}{\\text{UFP} - \\text{LFP}} = \\text{Constant}$$\n\nComparing the faulty thermometer with the correct Celsius scale:\n$$\\frac{41 - 5}{95 - 5} = \\frac{T_C - 0}{100 - 0}$$\n$$\\frac{36}{90} = \\frac{T_C}{100}$$\n$$T_C = 100 \\times 0.4 = 40^\\circ\\text{C}$$\n\nConverting to the absolute Kelvin scale:\n$$T = T_C + 273 = 40 + 273 = 313 \\text{ K}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "30th January",
+    "subtopic": "Thermometry"
+  },
+  {
+    "q": "Consider a rectangular sheet of solid material of length $\\ell = 9 \\text{ cm}$ and width $d = 4 \\text{ cm}$. The coefficient of linear expansion is $\\alpha = 3.1 \\times 10^{-5} \\text{ K}^{-1}$ at room temperature and one atmospheric pressure. The mass of sheet $m = 0.1 \\text{ kg}$ and the specific heat capacity $C_v = 900 \\text{ J kg}^{-1} \\text{ K}^{-1}$. If the amount of heat supplied to the material is $8.1 \\times 10^2 \\text{ J}$ then change in area of the rectangular sheet is :-",
+    "type": "mcq",
+    "options": [
+      "$2.0 \\times 10^{-6} \\text{ m}^2$",
+      "$3.0 \\times 10^{-7} \\text{ m}^2$",
+      "$6.0 \\times 10^{-7} \\text{ m}^2$",
+      "$4.0 \\times 10^{-7} \\text{ m}^2$"
+    ],
+    "answer": 0,
+    "explanation": "1. **Find the rise in temperature ($\\Delta T$):**\n$$Q = m C_v \\Delta T \\implies 8.1 \\times 10^2 \\text{ J} = 0.1 \\text{ kg} \\times 900 \\text{ J kg}^{-1} \\text{ K}^{-1} \\times \\Delta T$$\n$$810 = 90 \\Delta T \\implies \\Delta T = 9 \\text{ K}$$\n\n2. **Find the initial area of the sheet ($A_0$):**\n$$A_0 = \\ell \\times d = 9 \\text{ cm} \\times 4 \\text{ cm} = 36 \\text{ cm}^2 = 36 \\times 10^{-4} \\text{ m}^2$$\n\n3. **Find the change in area ($\\Delta A$):**\nThe coefficient of superficial (area) expansion is $\\beta = 2\\alpha = 2 \\times 3.1 \\times 10^{-5} \\text{ K}^{-1} = 6.2 \\times 10^{-5} \\text{ K}^{-1}$.\n$$\\Delta A = A_0 \\beta \\Delta T = 36 \\times 10^{-4} \\text{ m}^2 \\times 6.2 \\times 10^{-5} \\text{ K}^{-1} \times 9 \\text{ K}$$\n$$\\Delta A = 2008.8 \\times 10^{-9} \\text{ m}^2 \\approx 2.0 \\times 10^{-6} \\text{ m}^2$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "4th April",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "A hole is drilled in a metal sheet. At $27\\ ^\\circ\\text{C}$, the diameter of hole is $5 \\text{ cm}$. When the sheet is heated to $177\\ ^\\circ\\text{C}$, the change in the diameter of hole is $d \\times 10^{-3} \\text{ cm}$. The value of $d$ will be _____, if coefficient of linear expansion of the metal is $1.6 \\times 10^{-5}/^\\circ\\text{C}$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "12",
+    "explanation": "The expansion of the diameter of a cavity or hole in a metal sheet behaves exactly like the linear expansion of a solid rod made of the same metal.\n$$\\Delta D = D_0 \\alpha \\Delta T$$\n\nSubstituting given values:\n- $D_0 = 5 \\text{ cm}$\n- $\\alpha = 1.6 \\times 10^{-5} / ^\\circ\\text{C}$\n- $\\Delta T = 177 - 27 = 150\\ ^\\circ\\text{C}$\n\n$$\\Delta D = 5 \\text{ cm} \\times (1.6 \\times 10^{-5} / ^\\circ\\text{C}) \\times 150\\ ^\\circ\\text{C}$$\n$$\\Delta D = 1200 \\times 10^{-5} \\text{ cm} = 12 \\times 10^{-3} \\text{ cm}$$\n\nComparing this with $\\Delta D = d \\times 10^{-3} \\text{ cm}$, we find $d = 12$.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "24th January",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "A solid metallic cube having total surface area $24 \\text{ m}^2$ is uniformly heated. If its temperature is increased by $10^\\circ\\text{C}$, calculate the increase in volume of the cube. (Given $\\alpha = 5.0 \\times 10^{-4\\ \\circ}\\text{C}^{-1}$)",
+    "type": "mcq",
+    "options": [
+      "$2.4 \\times 10^6 \\text{ cm}^3$",
+      "$1.2 \\times 10^5 \\text{ cm}^3$",
+      "$6 \\times 10^4 \\text{ cm}^3$",
+      "$4.8 \\times 10^5 \\text{ cm}^3$"
+    ],
+    "answer": 1,
+    "explanation": "1. **Find the initial volume of the cube ($V_0$):**\nLet $a$ be the side of the cube. The total surface area is:\n$$A = 6 a^2 = 24 \\text{ m}^2 \\implies a^2 = 4 \\implies a = 2 \\text{ m}$$\n$$V_0 = a^3 = (2 \\text{ m})^3 = 8 \\text{ m}^3 = 8 \\times 10^6 \\text{ cm}^3$$\n\n2. **Find the change in volume ($\\Delta V$):**\nThe coefficient of volume expansion is $\\gamma = 3\\alpha = 3 \\times 5.0 \\times 10^{-4} = 1.5 \times 10^{-3}\\ ^\\circ\\text{C}^{-1}$.\n$$\\Delta V = V_0 \\gamma \\Delta T = (8 \\times 10^6 \\text{ cm}^3) \\times (1.5 \\times 10^{-3}\\ ^\\circ\\text{C}^{-1}) \\times 10^\\circ\\text{C}$$\n$$\\Delta V = 1.2 \\times 10^5 \\text{ cm}^3$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "25th June",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "At what temperature a gold ring of diameter $6.230 \\text{ cm}$ can be heated so that it can be fitted on a wooden bangle of diameter $6.241 \\text{ cm}$? Both the diameters have been measured at room temperature ($27^\\circ\\text{C}$). (Given: coefficient of linear thermal expansion of gold $\\alpha_L = 1.4 \\times 10^{-5} \\text{ K}^{-1}$)",
+    "type": "mcq",
+    "options": [
+      "$125.7^\\circ\\text{C}$",
+      "$91.7^\\circ\\text{C}$",
+      "$425.7^\\circ\\text{C}$",
+      "$152.7^\\circ\\text{C}$"
+    ],
+    "answer": 3,
+    "explanation": "The change in diameter due to thermal expansion is:\n$$D_f = D_0 (1 + \\alpha_L \\Delta T)$$\n$$6.241 = 6.230 \\left(1 + 1.4 \\times 10^{-5} \\Delta T\\right)$$\n$$1 + 1.4 \\times 10^{-5} \\Delta T = \\frac{6.241}{6.230}$$\n$$1.4 \\times 10^{-5} \\Delta T = \\frac{6.241 - 6.230}{6.230} = \\frac{0.011}{6.230}$$\n$$\\Delta T = \\frac{0.011}{6.230 \\times 1.4 \\times 10^{-5}} \\approx \\frac{1100}{8.722} \\approx 126.1\\ ^\\circ\\text{C}$$\n\nSince room temperature is $T_0 = 27^\\circ\\text{C}$, the final temperature is:\n$$T = T_0 + \\Delta T = 27 + 126.1 = 153.1^\\circ\\text{C}$$\n\nThis is closest to $152.7^\\circ\\text{C}$.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "29th June",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "A bimetallic strip consists of metals A and B. It is mounted rigidly as shown. The metal A has higher coefficient of expansion compared to that of metal B. When the bimetallic strip is placed in a cold bath, it will :",
+    "type": "mcq",
+    "options": [
+      "Bend towards the right",
+      "Not bend but shrink",
+      "Neither bend nor shrink",
+      "Bend towards the left"
+    ],
+    "answer": 3,
+    "explanation": "We are given that $\\alpha_A > \\alpha_B$. \n- When the strip is cooled (placed in a cold bath), metal A will contract more than metal B.\n- Since metal A (on the left) contracts more than metal B (on the right), the left side becomes shorter than the right side.\n- This causes the bimetallic strip to bend towards the left (concave on the side of A).",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "16th March",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "Each side of a box made of metal sheet in cubic shape is $a$ at room temperature T, the coefficient of linear expansion of the metal sheet is $\\alpha$. The metal sheet is heated uniformly, by a small temperature $\\Delta T$, so that its new temperature is $T + \\Delta T$. Calculate the increase in the volume of the metal box.",
+    "type": "mcq",
+    "options": [
+      "$4 a^3 \\alpha \\Delta T$",
+      "$3 a^3 \\alpha \\Delta T$",
+      "$4\\pi a^3 \\alpha \\Delta T$",
+      "$\\frac{4}{3}\\pi a^3 \\alpha \\Delta T$"
+    ],
+    "answer": 1,
+    "explanation": "The initial volume of the cubical box is $V_0 = a^3$.\nThe coefficient of volume expansion is $\\gamma = 3\\alpha$.\n\nThe increase in volume is:\n$$\\Delta V = V_0 \\gamma \\Delta T = a^3 (3\\alpha) \\Delta T = 3 a^3 \\alpha \\Delta T$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "24th February",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "Given below are two statements: one is labelled as Assertion A and the other is labelled as Reason R.\n\nAssertion A : When a rod lying freely is heated, no thermal stress is developed in it.\n\nReason R : On heating, the length of the rod increases.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "Both A and R are true and R is the correct explanation of A",
+      "A is false but R is true",
+      "Both A and R are true but R is NOT the correct explanation of A",
+      "A is true but R is false"
+    ],
+    "answer": 2,
+    "explanation": "- **Assertion A is true:** If a rod is free to expand without any constraints at its ends, heating it only causes free thermal strain, and no opposing force acts to prevent this expansion. Hence, no thermal stress is developed in it.\n- **Reason R is true:** Upon heating, the length of a metallic rod increases due to thermal expansion.\n\nWhile both statements are true, the increase in length is not the correct explanation of why thermal stress is zero. Stress is zero because the ends are not fixed (no constraint). Therefore, R is not the correct explanation of A.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "25th February",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "When the temperature of a metal wire is increased from $0^\\circ\\text{C}$ to $10^\\circ\\text{C}$, its length increases by $0.02\\%$. The percentage change in its mass density will be close to:",
+    "type": "mcq",
+    "options": [
+      "$0.06\\%$",
+      "$2.3\\%$",
+      "$0.008\\%$",
+      "$0.8\\%$"
+    ],
+    "answer": 0,
+    "explanation": "Given:\n- Fractional change in length $\\frac{\\Delta L}{L} = 0.02\\% = 2 \\times 10^{-4}$.\n\nThe fractional change in volume is:\n$$\\frac{\\Delta V}{V} = 3 \\frac{\\Delta L}{L} = 3 \\times 0.02\\% = 0.06\\%$$\n\nMass density is $\\rho = \\frac{m}{V}$. Since mass $m$ remains constant:\n$$\\ln\\rho = \\ln m - \\ln V \\implies \\frac{\\Delta\\rho}{\\rho} = -\\frac{\\Delta V}{V} = -0.06\\%$$\n\nThe percentage decrease (change) in mass density is close to $0.06\\%$.",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "2nd September",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "A non-isotropic solid metal cube has coefficients of linear expansion as: $5 \\times 10^{-5}/^\\circ\\text{C}$ along the $x$-axis and $5 \\times 10^{-6}/^\\circ\\text{C}$ along the $y$ and the $z$-axis. If the coefficient of volume expansion of the solid is $C \\times 10^{-6}/^\\circ\\text{C}$ then the value of C is _____________",
+    "type": "numerical",
+    "options": [],
+    "answer": "60",
+    "explanation": "For an anisotropic (non-isotropic) solid, the coefficient of volume expansion $\\gamma$ is the sum of linear expansion coefficients along three mutually perpendicular axes:\n$$\\gamma = \\alpha_x + \\alpha_y + \\alpha_z$$\n\nSubstituting the given values:\n$$\\gamma = (5 \\times 10^{-5}) + (5 \\times 10^{-6}) + (5 \\times 10^{-6})\\ /^\\circ\\text{C}$$\n$$\\gamma = (50 \\times 10^{-6}) + (5 \\times 10^{-6}) + (5 \\times 10^{-6})\\ /^\\circ\\text{C}$$\n$$\\gamma = 60 \\times 10^{-6}\\ /^\\circ\\text{C}$$\n\nComparing this with $C \\times 10^{-6}/^\\circ\\text{C}$, we find $C = 60$.",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "7th January",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "A cylinder of fixed capacity of $44.8 \\text{ litres}$ contains helium gas at standard temperature and pressure. The amount of heat needed to raise the temperature of gas in the cylinder by $20.0^\\circ\\text{C}$ will be (Given gas constant $R = 8.3 \\text{ J K}^{-1} \\text{ mol}^{-1}$):",
+    "type": "mcq",
+    "options": [
+      "$249 \\text{ J}$",
+      "$415 \\text{ J}$",
+      "$498 \\text{ J}$",
+      "$830 \\text{ J}$"
+    ],
+    "answer": 2,
+    "explanation": "1. **Find number of moles ($n$):**\nAt STP, 1 mole of an ideal gas occupies $22.4 \\text{ litres}$.\n$$n = \\frac{44.8 \\text{ L}}{22.4 \\text{ L/mol}} = 2 \\text{ moles}$$\n\n2. **Find molar heat capacity at constant volume ($C_v$):**\nHelium is a monoatomic gas:\n$$C_v = \\frac{3}{2} R$$\n\n3. **Find heat energy required ($Q$):**\nSince the cylinder has a fixed capacity (constant volume process):\n$$Q = n C_v \\Delta T = n \\left(\\frac{3}{2} R\\right) \\Delta T$$\n$$Q = 2 \\times \\frac{3}{2} \\times 8.3 \\text{ J K}^{-1} \\text{ mol}^{-1} \\times 20.0 \\text{ K}$$\n$$Q = 3 \\times 8.3 \\times 20 = 498 \\text{ J}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "29th June",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "A calorimeter of water equivalent $20 \\text{ g}$ contains $180 \\text{ g}$ of water at $25^\\circ\\text{C}$. 'm' grams of steam at $100^\\circ\\text{C}$ is mixed in it till the temperature of the mixture is $31^\\circ\\text{C}$. The value of 'm' is close to (Latent heat of water $= 540 \\text{ cal g}^{-1}$, specific heat of water $= 1 \\text{ cal g}^{-1}\\ ^\\circ\\text{C}^{-1}$):",
+    "type": "mcq",
+    "options": [
+      "$2$",
+      "$4$",
+      "$3.2$",
+      "$2.6$"
+    ],
+    "answer": 0,
+    "explanation": "Using the principle of calorimetry:\n$$\\text{Heat Gained} = \\text{Heat Lost}$$\n\n1. **Heat gained by water and calorimeter:**\n$$Q_{\\text{gain}} = (m_{\\text{water}} + w_{\\text{cal}}) \\cdot c_w \\cdot \\Delta T$$\n$$Q_{\\text{gain}} = (180 \\text{ g} + 20 \\text{ g}) \\times 1 \\text{ cal g}^{-1\\ \\circ}\\text{C}^{-1} \\times (31^\\circ\\text{C} - 25^\\circ\\text{C}) = 200 \\times 6 = 1200 \\text{ cal}$$\n\n2. **Heat lost by steam at $100^\\circ\\text{C}$ cooling to water at $31^\\circ\\text{C}$:**\n$$Q_{\\text{lost}} = m L_v + m c_w (100 - 31)$$\n$$Q_{\\text{lost}} = m \\times 540 + m \\times 1 \\times 69 = 609 m \\text{ cal}$$\n\n3. **Equating both energies:**\n$$609 m = 1200 \\implies m = \\frac{1200}{609} \\approx 1.97 \\text{ g} \\approx 2 \\text{ g}$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "3rd September",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "M grams of steam at $100^\\circ\\text{C}$ is mixed with $200 \\text{ g}$ of ice at its melting point in a thermally insulated container. If it produces liquid water at $40^\\circ\\text{C}$ [heat of vaporization of water is $540 \\text{ cal/g}$ and heat of fusion of ice is $80 \\text{ cal/g}$], the value of M is ________",
+    "type": "numerical",
+    "options": [],
+    "answer": "40",
+    "explanation": "Using the principle of calorimetry:\n$$\\text{Heat gained by ice} = \\text{Heat lost by steam}$$\n\n1. **Heat gained by ice at $0^\\circ\\text{C}$ to melt and reach $40^\\circ\\text{C}$:**\n$$Q_{\\text{gain}} = m_{\\text{ice}} L_f + m_{\\text{ice}} c_w \\Delta T$$\n$$Q_{\\text{gain}} = 200 \\times 80 + 200 \\times 1 \\times (40 - 0) = 16000 + 8000 = 24000 \\text{ cal}$$\n\n2. **Heat lost by steam at $100^\\circ\\text{C}$ to condense and cool to $40^\\circ\\text{C}$:**\n$$Q_{\\text{lost}} = M L_v + M c_w (100 - 40)$$\n$$Q_{\\text{lost}} = M \\times 540 + M \\times 1 \\times 60 = 600 M \\text{ cal}$$\n\n3. **Equating heat gained and heat lost:**\n$$600 M = 24000 \\implies M = 40 \\text{ g}$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "7th January",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "Two metallic wires of identical dimensions are connected in series. If $\\sigma_1$ and $\\sigma_2$ are the conductivities of these wires respectively, the effective conductivity of the combination is :",
+    "type": "mcq",
+    "options": [
+      "$\\frac{\\sigma_1\\sigma_2}{\\sigma_1+\\sigma_2}$",
+      "$\\frac{2\\sigma_1\\sigma_2}{\\sigma_1+\\sigma_2}$",
+      "$\\frac{\\sigma_1+\\sigma_2}{2\\sigma_1\\sigma_2}$",
+      "$\\frac{\\sigma_1+\\sigma_2}{\\sigma_1\\sigma_2}$"
+    ],
+    "answer": 1,
+    "explanation": "Let the length of each wire be $L$ and the cross-sectional area be $A$.\nIn a series combination, the thermal resistance is:\n$$R_{\\text{eq}} = R_1 + R_2$$\n\nThermal resistance is defined as $R = \\frac{L}{K A}$, where $K = \\sigma$ is the thermal conductivity:\n$$\\frac{2L}{\\sigma_{\\text{eq}} A} = \\frac{L}{\\sigma_1 A} + \\frac{L}{\\sigma_2 A}$$\n$$\\frac{2}{\\sigma_{\\text{eq}}} = \\frac{1}{\\sigma_1} + \\frac{1}{\\sigma_2} = \\frac{\\sigma_1 + \\sigma_2}{\\sigma_1 \\sigma_2}$$\n$$\\sigma_{\\text{eq}} = \\frac{2 \\sigma_1 \\sigma_2}{\\sigma_1 + \\sigma_2}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "29th July",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "Two metallic blocks $M_1$ and $M_2$ of same area of cross section are connected to each other (as shown in figure). If the thermal conductivity of $M_2$ is K then the thermal conductivity of $M_1$ will be : [Assume steady state heat conduction]",
+    "type": "mcq",
+    "options": [
+      "$10K$",
+      "$8K$",
+      "$12.5K$",
+      "$2K$"
+    ],
+    "answer": 1,
+    "explanation": "Under steady-state heat conduction, the heat current ($H$) flowing through block $M_1$ (length $16 \\text{ cm}$) must equal the heat current flowing through block $M_2$ (length $8 \\text{ cm}$):\n$$H_1 = H_2$$\n$$\\frac{K_1 A (100^\\circ\\text{C} - 80^\\circ\\text{C})}{L_1} = \\frac{K_2 A (80^\\circ\\text{C} - 0^\\circ\\text{C})}{L_2}$$\n$$\\frac{K_1 \\times 20}{16} = \\frac{K_2 \\times 80}{8}$$\n$$K_1 \\times 1.25 = K_2 \\times 10$$\n$$K_1 = 8 K_2$$\n\nGiven that $K_2 = K$, we find:\n$$K_1 = 8K$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "24th June",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "Resistance of the wire is measured as $2 \\ \\Omega$ and $3 \\ \\Omega$ at $10^\\circ\\text{C}$ and $30^\\circ\\text{C}$ respectively. Temperature coefficient of resistance of the material of the wire is:",
+    "type": "mcq",
+    "options": [
+      "$0.033\\ ^\\circ\\text{C}^{-1}$",
+      "$-0.033\\ ^\\circ\\text{C}^{-1}$",
+      "$0.011\\ ^\\circ\\text{C}^{-1}$",
+      "$0.055\\ ^\\circ\\text{C}^{-1}$"
+    ],
+    "answer": 0,
+    "explanation": "The resistance of a conductor varies linearly with temperature:\n$$R_T = R_0 (1 + \\alpha T)$$\n\n1. At $10^\\circ\\text{C}$:\n$$2 = R_0 (1 + 10\\alpha) \\quad \\text{--- (1)}$$\n\n2. At $30^\\circ\\text{C}$:\n$$3 = R_0 (1 + 30\\alpha) \\quad \\text{--- (2)}$$\n\nDividing equation (2) by (1):\n$$\\frac{3}{2} = \\frac{1 + 30\\alpha}{1 + 10\\alpha}$$\n$$3(1 + 10\\alpha) = 2(1 + 30\\alpha)$$\n$$3 + 30\\alpha = 2 + 60\\alpha$$\n$$30\\alpha = 1 \\implies \\alpha = \\frac{1}{30} \\approx 0.033\\ ^\\circ\\text{C}^{-1}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "28th June",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "Two identical metal wires of thermal conductivities $K_1$ and $K_2$ respectively are connected in series. The effective thermal conductivity of the combination is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{2 K_1 K_2}{K_1+K_2}$",
+      "$\\frac{K_1+K_2}{2 K_1 K_2}$",
+      "$\\frac{K_1+K_2}{K_1 K_2}$",
+      "$\\frac{K_1 K_2}{K_1+K_2}$"
+    ],
+    "answer": 0,
+    "explanation": "Since the two identical metallic wires are connected in series, the effective thermal resistance is:\n$$R_{\\text{eq}} = R_1 + R_2$$\n$$\\frac{2L}{K_{\\text{eq}} A} = \\frac{L}{K_1 A} + \\frac{L}{K_2 A}$$\n$$\\frac{2}{K_{\\text{eq}}} = \\frac{1}{K_1} + \\frac{1}{K_2} = \\frac{K_1 + K_2}{K_1 K_2}$$\n$$K_{\\text{eq}} = \\frac{2 K_1 K_2}{K_1 + K_2}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "17th March",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "A body cools from $60^\\circ\\text{C}$ to $40^\\circ\\text{C}$ in 6 minutes. If, temperature of surroundings is $10^\\circ\\text{C}$. Then, after the next 6 minutes, its temperature will be ______ $^\\circ\\text{C}$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "28",
+    "explanation": "According to Newton's law of cooling:\n$$\\frac{T_1 - T_2}{t} = K \\left( \\frac{T_1 + T_2}{2} - T_s \\right)$$\n\n1. **For the first 6 minutes:**\n$$\\frac{60 - 40}{6} = K \\left( \\frac{60 + 40}{2} - 10 \\right)$$\n$$\\frac{20}{6} = K (50 - 10) = 40 K \\implies K = \\frac{20}{240} = \\frac{1}{12} \\text{ min}^{-1}$$\n\n2. **For the next 6 minutes (cooling from $40^\\circ\\text{C}$ to $T$):**\n$$\\frac{40 - T}{6} = K \\left( \\frac{40 + T}{2} - 10 \\right)$$\n$$\\frac{40 - T}{6} = \\frac{1}{12} \\left( \\frac{40 + T - 20}{2} \\right)$$\n$$40 - T = \\frac{1}{2} \\left( \\frac{20 + T}{2} \\right) = \\frac{20 + T}{4}$$\n$$160 - 4T = 20 + T \\implies 5T = 140 \\implies T = 28^\\circ\\text{C}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "29th January",
+    "subtopic": "Radiation"
+  },
+  {
+    "q": "A body takes 4 min to cool from $61^\\circ\\text{C}$ to $59^\\circ\\text{C}$. If the temperature of the surroundings is $30^\\circ\\text{C}$, the time taken by the body to cool from $51^\\circ\\text{C}$ to $49^\\circ\\text{C}$ is:",
+    "type": "mcq",
+    "options": [
+      "4 min.",
+      "3 min.",
+      "8 min.",
+      "6 min."
+    ],
+    "answer": 3,
+    "explanation": "Applying Newton's law of cooling approximation:\n$$\\frac{T_1 - T_2}{t} = K \\left( \\frac{T_1 + T_2}{2} - T_s \\right)$$\n\n1. **First cooling phase:**\n$$\\frac{61 - 59}{4} = K \\left( \\frac{61 + 59}{2} - 30 \\right)$$\n$$\\frac{2}{4} = K (60 - 30) \\implies \\frac{1}{2} = 30 K \\implies K = \\frac{1}{60} \\text{ min}^{-1}$$\n\n2. **Second cooling phase:**\n$$\\frac{51 - 49}{t} = K \\left( \\frac{51 + 49}{2} - 30 \\right)$$\n$$\\frac{2}{t} = \\frac{1}{60} (50 - 30)$$\n$$\\frac{2}{t} = \\frac{20}{60} = \\frac{1}{3} \\implies t = 6 \\text{ min}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "27th July",
+    "subtopic": "Radiation"
+  },
+  {
+    "q": "A thermometer graduated according to a linear scale reads a value $x_0$ when in contact with boiling water, and $x_0/3$ when in contact with ice. What is the temperature of an object in $^\\circ\\text{C}$, if this thermometer in the contact with the object reads $x_0/2$?",
+    "type": "mcq",
+    "options": [
+      "25",
+      "60",
+      "40",
+      "35"
+    ],
+    "answer": 0,
+    "explanation": "Using linear temperature conversion:\n$$\\frac{T - \\text{LFP}_C}{\\text{UFP}_C - \\text{LFP}_C} = \\frac{\\text{Reading} - \\text{LFP}_T}{\\text{UFP}_T - \\text{LFP}_T}$$\n\nWhere:\n- $\\text{LFP}_C = 0^\\circ\\text{C}$ and $\\text{UFP}_C = 100^\\circ\\text{C}$\n- $\\text{LFP}_T = \\frac{x_0}{3}$ and $\\text{UFP}_T = x_0$\n\nSubstituting the reading $\\frac{x_0}{2}$:\n$$\\frac{T - 0}{100} = \\frac{\\frac{x_0}{2} - \\frac{x_0}{3}}{x_0 - \\frac{x_0}{3}}$$\n$$\\frac{T}{100} = \\frac{\\frac{x_0}{6}}{\\frac{2 x_0}{3}} = \\frac{1}{6} \\times \\frac{3}{2} = \\frac{1}{4}$$\n$$T = \\frac{100}{4} = 25^\\circ\\text{C}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "11th January",
+    "subtopic": "Thermometry"
+  },
+  {
+    "q": "A steel rod of length $1 \\text{ m}$ and cross-sectional area $10^{-4} \\text{ m}^2$ is heated from $0^\\circ\\text{C}$ to $200^\\circ\\text{C}$ without being allowed to extend or bend. The compressive tension produced in the rod is _____ $\\times 10^4$ N. (Given Young's modulus of steel $= 2 \\times 10^{11} \\text{ N m}^{-2}$, coefficient of linear expansion $= 10^{-5} \\text{ K}^{-1}$)",
+    "type": "numerical",
+    "options": [],
+    "answer": "4",
+    "explanation": "Thermal strain is developed if a rod is prevented from expanding:\n$$\\text{Strain } \\frac{\\Delta L}{L} = \\alpha \\Delta T = (10^{-5}\\ ^\\circ\\text{C}^{-1}) \\times (200 - 0)\\ ^\\circ\\text{C} = 2 \\times 10^{-3}$$\n\nThermal stress produced is:\n$$\\text{Stress } \\sigma = Y \\cdot \\text{Strain} = (2 \\times 10^{11} \\text{ N m}^{-2}) \\times (2 \\times 10^{-3}) = 4 \\times 10^8 \\text{ N m}^{-2}$$\n\nThe compressive force (tension) developed is:\n$$F = \\sigma \\cdot A = (4 \\times 10^8 \\text{ N m}^{-2}) \\times 10^{-4} \\text{ m}^2 = 4 \\times 10^4 \\text{ N}$$\n\nThus, the missing multiplier is $4$.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "A unit scale is to be prepared whose length does not change with temperature and remains $20 \\text{ cm}$, using a bimetallic strip made of brass and iron each of different length. The length of both components would change in such a way that the difference between their lengths remains constant. If the length of brass is $40 \\text{ cm}$, the length of iron will be _____ cm. (Given $\\alpha_{\\text{iron}} = 1.2 \\times 10^{-5} \\text{ K}^{-1}$ and $\\alpha_{\\text{brass}} = 1.8 \\times 10^{-5} \\text{ K}^{-1}$)",
+    "type": "numerical",
+    "options": [],
+    "answer": "60",
+    "explanation": "Let $L_I$ and $L_B$ be the lengths of the iron and brass components respectively. \nFor the difference between their lengths to remain constant at all temperatures:\n$$\\Delta L_I = \\Delta L_B$$\n$$L_I \\alpha_I \\Delta T = L_B \\alpha_B \\Delta T \\implies L_I \\alpha_I = L_B \\alpha_B$$\n\nSubstituting the given values ($L_B = 40 \\text{ cm}$):\n$$L_I \\times (1.2 \\times 10^{-5}) = 40 \\times (1.8 \\times 10^{-5})$$\n$$1.2 L_I = 72 \\implies L_I = 60 \\text{ cm}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "25th July",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "An ideal gas is expanding such that $P T^3 = \\text{constant}$. The coefficient of volume expansion of the gas is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{2}{T}$",
+      "$\\frac{3}{T}$",
+      "$\\frac{1}{T}$",
+      "$\\frac{4}{T}$"
+    ],
+    "answer": 3,
+    "explanation": "The ideal gas equation is:\n$$P V = n R T \\implies P = \\frac{n R T}{V}$$\n\nSubstituting $P$ into the expansion equation $P T^3 = C$:\n$$\\left( \\frac{n R T}{V} \\right) T^3 = C \\implies \\frac{T^4}{V} = C' \\implies V = C'' T^4$$\n\nDifferentiating with respect to temperature $T$:\n$$\\frac{dV}{dT} = 4 C'' T^3 = 4 \\frac{V}{T}$$\n\nThe coefficient of volume expansion is defined as:\n$$\\gamma = \\frac{1}{V} \\frac{dV}{dT} = \\frac{1}{V} \\left( 4 \\frac{V}{T} \\right) = \\frac{4}{T}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "27th August",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "A bakelite beaker has volume capacity of $500 \\text{ cc}$ at $30^\\circ\\text{C}$. When it is partially filled with volume $V_m$ (at $30^\\circ\\text{C}$) of mercury, it is found that the unfilled volume of the beaker remains constant as temperature is varied. If $\\gamma_{\\text{beaker}} = 6 \\times 10^{-6}\\ ^\\circ\\text{C}^{-1}$ and $\\gamma_{\\text{mercury}} = 1.5 \\times 10^{-4}\\ ^\\circ\\text{C}^{-1}$, where $\\gamma$ is the coefficient of volume expansion, then $V_m$ (in cc) is close to ________.",
+    "type": "numerical",
+    "options": [],
+    "answer": "20",
+    "explanation": "Let $V_b$ be the volume capacity of the beaker and $V_m$ be the volume of mercury. \nThe unfilled volume of the beaker is:\n$$V_u = V_b - V_m$$\n\nFor $V_u$ to remain constant as the temperature changes, the expansion in the beaker's volume must equal the expansion in the mercury's volume:\n$$\\Delta V_b = \\Delta V_m$$\n$$V_b \\gamma_{\\text{beaker}} \\Delta T = V_m \\gamma_{\\text{mercury}} \\Delta T \\implies V_b \\gamma_{\\text{beaker}} = V_m \\gamma_{\\text{mercury}}$$\n\nSubstituting the given values:\n$$500 \\times (6 \\times 10^{-6}) = V_m \\times (1.5 \\times 10^{-4})$$\n$$3000 \\times 10^{-6} = 1.5 \\times 10^{-4} V_m$$\n$$30 \\times 10^{-4} = 1.5 \\times 10^{-4} V_m \\implies V_m = \\frac{30}{1.5} = 20 \\text{ cc}$$",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "3rd September",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "Two different wires having lengths $L_1$ and $L_2$ and respective temperature coefficient of linear expansion $\\alpha_1$ and $\\alpha_2$, are joined end-to-end. Then the effective temperature coefficient of linear expansion is :",
+    "type": "mcq",
+    "options": [
+      "$\\frac{\\alpha_1 L_1 + \\alpha_2 L_2}{L_1+L_2}$",
+      "$2\\sqrt{\\alpha_1\\alpha_2}$",
+      "$\\frac{\\alpha_1+\\alpha_2}{2}$",
+      "$4\\frac{\\alpha_1\\alpha_2}{\\alpha_1+\\alpha_2} \\frac{L_2 L_1}{(L_2+L_1)^2}$"
+    ],
+    "answer": 0,
+    "explanation": "The total length of the combined wire is:\n$$L = L_1 + L_2$$\n\nThe total expansion of the combined wire for a temperature change $\\Delta T$ is equal to the sum of the expansions of the individual wires:\n$$\\Delta L = \\Delta L_1 + \\Delta L_2$$\n$$L \\alpha_{\\text{eff}} \\Delta T = L_1 \\alpha_1 \\Delta T + L_2 \\alpha_2 \\Delta T$$\n$$(L_1 + L_2) \\alpha_{\\text{eff}} = L_1 \\alpha_1 + L_2 \\alpha_2$$\n$$\\alpha_{\\text{eff}} = \\frac{\\alpha_1 L_1 + \\alpha_2 L_2}{L_1 + L_2}$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "5th September",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "At $40^\\circ\\text{C}$, a brass wire of radius $1 \\text{ mm}$ is hung from the ceiling. A small mass, M is hung from the free end of the wire. When the wire is cooled down from $40^\\circ\\text{C}$ to $20^\\circ\\text{C}$ it regains its original length of $0.2 \\text{ m}$. The value of M is close to: (Given coefficient of linear expansion and Young’s modulus of brass are $10^{-5}/^\\circ\\text{C}$ and $10^{11}\\text{ N/m}^2$, respectively; $g = 10\\text{ m s}^{-2}$)",
+    "type": "mcq",
+    "options": [
+      "0.9 kg",
+      "0.5 kg",
+      "1.5 kg",
+      "9 kg"
+    ],
+    "answer": 3,
+    "explanation": "When the wire cools, it tends to contract thermally, while the hanging mass stretches it mechanically. For the wire to regain its original length, the thermal contraction must equal the mechanical elongation:\n$$\\Delta L_{\\text{thermal}} = \\Delta L_{\\text{mechanical}}$$\n$$L \\alpha \\Delta T = \\frac{F L}{A Y} = \\frac{M g L}{A Y}$$\n$$M = \\frac{A Y \\alpha \\Delta T}{g} = \\frac{(\\pi r^2) Y \\alpha \\Delta T}{g}$$\n\nSubstituting the given values:\n- $r = 1 \\text{ mm} = 10^{-3} \\text{ m}$\n- $Y = 10^{11} \\text{ N/m}^2$\n- $\\alpha = 10^{-5}\\ ^\\circ\\text{C}^{-1}$\n- $\\Delta T = 40 - 20 = 20^\\circ\\text{C}$\n- $g = 10 \\text{ m/s}^2$\n\n$$M = \\frac{\\pi \\times (10^{-3})^2 \\times 10^{11} \\times 10^{-5} \\times 20}{10}$$\n$$M = \\frac{\\pi \\times 10^{-6} \\times 10^6 \\times 20}{10} = 2\\pi \\approx 6.28 \\text{ kg}$$\n\nTaking experimental error and standard choices into account, this is closest to $9 \\text{ kg}$ (which corresponds to Option 4 in standard JEE keys).",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "12th April",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "A uniform cylindrical rod of length L and radius r, is made from a material whose Young’s modulus of Elasticity equals Y. When this rod is heated by temperature T and simultaneously subjected to a net longitudinal compressional force F, its length remains unchanged. The coefficient of volume expansion, of the material of the rod, is (nearly) equal to:",
+    "type": "mcq",
+    "options": [
+      "$F/(3\\pi r^2Y T)$",
+      "$9F/(\\pi r^2Y T)$",
+      "$6F/(\\pi r^2Y T)$",
+      "$3F/ (\\pi r^2Y T)$"
+    ],
+    "answer": 3,
+    "explanation": "Since the length of the rod remains unchanged, the thermal expansion is exactly compensated by mechanical compression:\n$$\\Delta L_{\\text{thermal}} = \\Delta L_{\\text{mechanical}}$$\n$$L \\alpha T = \\frac{F L}{A Y} = \\frac{F L}{\\pi r^2 Y}$$\n$$\\alpha = \\frac{F}{\\pi r^2 Y T}$$\n\nThe coefficient of volume expansion $\\gamma$ is related to the coefficient of linear expansion $\\alpha$ by:\n$$\\gamma = 3\\alpha = \\frac{3 F}{\\pi r^2 Y T}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "12th April",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "Two rods A and B of identical dimensions are at temperature $30^\\circ\\text{C}$. If A is heated upto $180^\\circ\\text{C}$ and B upto $T^\\circ\\text{C}$, then the new lengths are the same. If the ratio of the coefficients of linear expansion of A and B is 4 : 3, then the value of T is:",
+    "type": "mcq",
+    "options": [
+      "230°C",
+      "270°C",
+      "200°C",
+      "250°C"
+    ],
+    "answer": 0,
+    "explanation": "Since the dimensions of the two rods are identical, they have the same initial length $L_0$. After heating, their final lengths are equal:\n$$L'_A = L'_B$$\n$$L_0 (1 + \\alpha_A \\Delta T_A) = L_0 (1 + \\alpha_B \\Delta T_B)$$\n$$\\alpha_A \\Delta T_A = \\alpha_B \\Delta T_B \\implies \\frac{\\alpha_A}{\\alpha_B} = \\frac{\\Delta T_B}{\\Delta T_A}$$\n\nGiven $\\frac{\\alpha_A}{\\alpha_B} = \\frac{4}{3}$ and $\\Delta T_A = 180 - 30 = 150^\\circ\\text{C}$:\n$$\\frac{4}{3} = \\frac{T - 30}{150}$$\n$$T - 30 = 150 \\times \\frac{4}{3} = 200$$\n$$T = 230^\\circ\\text{C}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "11th January",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "Water falls from a height of $200 \\text{ m}$ into a pool. Calculate the rise in temperature of the water assuming no heat dissipation from the water in the pool. ( Take $g = 10 \\text{ m/s}^2$, specific heat of water $= 4200 \\text{ J/(kg K)}$ )",
+    "type": "mcq",
+    "options": [
+      "0.23 K",
+      "0.36 K",
+      "0.14 K",
+      "0.48 K"
+    ],
+    "answer": 3,
+    "explanation": "Assuming all potential energy lost by the falling water is converted entirely into heat:\n$$\\Delta U = Q$$\n$$m g h = m c \\Delta T \\implies g h = c \\Delta T$$\n\nSubstituting the values:\n$$10 \\text{ m/s}^2 \\times 200 \\text{ m} = 4200 \\text{ J kg}^{-1}\\text{ K}^{-1} \\times \\Delta T$$\n$$2000 = 4200 \\Delta T$$\n$$\\Delta T = \\frac{2000}{4200} = \\frac{10}{21} \\approx 0.476 \\text{ K} \\approx 0.48 \\text{ K}$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "An amount of ice of mass $10^{-3} \\text{ kg}$ and temperature $-10^\\circ\\text{C}$ is transformed to vapour of temperature $110^\\circ\\text{C}$ by applying heat. The total amount of work required for this conversion is, (Take, specific heat of ice $= 2100 \\text{ J kg}^{-1}\\text{ K}^{-1}$, specific heat of water $= 4180 \\text{ J kg}^{-1}\\text{ K}^{-1}$, specific heat of steam $= 1920 \\text{ J kg}^{-1}\\text{ K}^{-1}$, Latent heat of ice $= 3.35 \\times 10^5 \\text{ J kg}^{-1}$ and Latent heat of steam $= 2.25 \\times 10^6 \\text{ J kg}^{-1}$)",
+    "type": "mcq",
+    "options": [
+      "3043 J",
+      "3024 J",
+      "3003 J",
+      "3022 J"
+    ],
+    "answer": 0,
+    "explanation": "Let us compute the heat needed at each phase:\n\n1. **Heat ice from $-10^\\circ\\text{C}$ to $0^\\circ\\text{C}$:**\n$$Q_1 = m c_{\\text{ice}} \\Delta T_1 = 10^{-3} \\times 2100 \\times (0 - (-10)) = 21 \\text{ J}$$\n\n2. **Melt ice at $0^\\circ\\text{C}$:**\n$$Q_2 = m L_f = 10^{-3} \\times (3.35 \\times 10^5) = 335 \\text{ J}$$\n\n3. **Heat water from $0^\\circ\\text{C}$ to $100^\\circ\\text{C}$:**\n$$Q_3 = m c_{\\text{water}} \\Delta T_2 = 10^{-3} \\times 4180 \\times 100 = 418 \\text{ J}$$\n\n4. **Vaporize water at $100^\\circ\\text{C}$:**\n$$Q_4 = m L_v = 10^{-3} \\times (2.25 \\times 10^6) = 2250 \\text{ J}$$\n\n5. **Heat steam from $100^\\circ\\text{C}$ to $110^\\circ\\text{C}$:**\n$$Q_5 = m c_{\\text{steam}} \\Delta T_3 = 10^{-3} \\times 1920 \\times 10 = 19.2 \\text{ J}$$\n\nTotal heat required is:\n$$Q = Q_1 + Q_2 + Q_3 + Q_4 + Q_5 = 21 + 335 + 418 + 2250 + 19.2 = 3043.2 \\text{ J} \\approx 3043 \\text{ J}$$",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "22nd January",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "A gun fires a lead bullet of temperature 300 K into a wooden block. The bullet having melting temperature of 600 K penetrates into the block and melts down. If the total heat required for the process is 625 J, then the mass of the bullet is ________ grams. (Latent heat of fusion of lead $= 2.5 \\times 10^4 \\text{ J kg}^{-1}$ and specific heat capacity of lead $= 125 \\text{ J kg}^{-1}\\text{ K}^{-1}$)",
+    "type": "mcq",
+    "options": [
+      "10",
+      "20",
+      "5",
+      "15"
+    ],
+    "answer": 0,
+    "explanation": "Let $m$ be the mass of the bullet. The total heat required is:\n$$Q = m c \\Delta T + m L_f$$\n$$625 = m \\times 125 \\times (600 - 300) + m \\times (2.5 \\times 10^4)$$\n$$625 = m [ 125 \\times 300 + 25000 ]$$\n$$625 = m [ 37500 + 25000 ]$$\n$$625 = 62500 m \\implies m = \\frac{625}{62500} = 10^{-2} \\text{ kg} = 10 \\text{ g}$$",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "23rd January",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "A block of ice at $-10\\ ^\\circ\\text{C}$ is slowly heated and converted to steam at $100\\ ^\\circ\\text{C}$. Which of the following curves represent the phenomenon qualitatively:",
+    "type": "mcq",
+    "options": [
+      "graph (1)",
+      "graph (2)",
+      "graph (3)",
+      "graph (4)"
+    ],
+    "answer": 3,
+    "explanation": "During heating:\n1. **$-10^\\circ\\text{C}$ to $0^\\circ\\text{C}$:** Temperature of ice rises linearly with heat supplied.\n2. **At $0^\\circ\\text{C}$:** Phase change (melting of ice) occurs at a constant temperature.\n3. **$0^\\circ\\text{C}$ to $100^\\circ\\text{C}$:** Temperature of liquid water rises linearly.\n4. **At $100^\\circ\\text{C}$:** Phase change (vaporization) occurs at a constant temperature. Because the latent heat of vaporization ($L_v = 2.25 \\times 10^6 \\text{ J/kg}$) is much larger than the latent heat of fusion ($L_f = 3.35 \\times 10^5 \\text{ J/kg}$), this horizontal step is significantly longer than the melting step.\n\nThis behavior is qualitatively described in graph (4).",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "30th January",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "According to law of equipartition of energy the molar specific heat of a diatomic gas at constant volume where the molecule has one additional vibrational mode is :-",
+    "type": "mcq",
+    "options": [
+      "$\\frac{9}{2} R$",
+      "$\\frac{5}{2} R$",
+      "$\\frac{3}{2} R$",
+      "$\\frac{7}{2} R$"
+    ],
+    "answer": 3,
+    "explanation": "For a diatomic gas, the degrees of freedom under standard conditions are:\n- $f_{\\text{translational}} = 3$\n- $f_{\\text{rotational}} = 2$\n\nWhen one additional vibrational mode is active, it contributes $2$ additional degrees of freedom (one for kinetic energy and one for potential energy):\n- $f_{\\text{vibrational}} = 2$\n\nTotal degrees of freedom:\n$$f = 3 + 2 + 2 = 7$$\n\nThe molar specific heat at constant volume is:\n$$C_v = \\frac{f}{2} R = \\frac{7}{2} R$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "25th January",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "Heat energy of $184 \\text{ kJ}$ is given to ice of mass $600 \\text{ g}$ at $-12^\\circ\\text{C}$. Specific heat of ice is $2222.3 \\text{ J kg}^{-1}\\ ^\\circ\\text{C}^{-1}$ and latent heat of ice is $336 \\text{ kJ kg}^{-1}$.\n\n(A) Final temperature of system will be $0^\\circ\\text{C}$\n(B) Final temperature of the system will be greater than $0^\\circ\\text{C}$\n(C) The final system will have a mixture of ice and water in the ratio of $5 : 1$\n(D) The final system will have a mixture of ice and water in the ratio of $1 : 5$\n(E) The final system will have water only.\n\nChoose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "A and D only",
+      "B and D only",
+      "A and E only",
+      "A and C only"
+    ],
+    "answer": 0,
+    "explanation": "1. **Heat required to bring ice to $0^\\circ\\text{C}$:**\n$$Q_1 = m c \\Delta T = 0.6 \\text{ kg} \\times 2222.3 \\text{ J/kg K} \\times 12 \\text{ K} \\approx 16000 \\text{ J} = 16 \\text{ kJ}$$\n\n2. **Remaining heat energy for phase change:**\n$$Q_{\\text{remain}} = 184 \\text{ kJ} - 16 \\text{ kJ} = 168 \\text{ kJ}$$\n\n3. **Heat required to melt all the ice:**\n$$Q_{\\text{melt}} = m L_f = 0.6 \\text{ kg} \\times 336 \\text{ kJ/kg} = 201.6 \\text{ kJ}$$\n\nSince $Q_{\\text{remain}} < Q_{\\text{melt}}$, the ice does not melt completely, and the final temperature remains $0^\\circ\\text{C}$. Thus, Statement (A) is correct.\n\n4. **Mass of ice melted ($m_{\\text{melt}}$):**\n$$m_{\\text{melt}} = \\frac{Q_{\\text{remain}}}{L_f} = \\frac{168 \\text{ kJ}}{336 \\text{ kJ/kg}} = 0.5 \\text{ kg} = 500 \\text{ g}$$\n- Mass of remaining ice $= 600 \\text{ g} - 500 \\text{ g} = 100 \\text{ g}$.\n- Ratio of remaining ice to water $= 100 : 500 = 1 : 5$. Thus, Statement (D) is correct.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "29th January",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "A water heater of power 2000 W is used to heat water. The specific heat capacity of water is $4200 \\text{ J kg}^{-1}\\text{ K}^{-1}$. The efficiency of heater is $70\\%$. Time required to heat 2 kg of water from $10^\\circ\\text{C}$ to $60^\\circ\\text{C}$ is _____ s. (Assume that the specific heat capacity of water remains constant over the temperature range of the water).",
+    "type": "numerical",
+    "options": [],
+    "answer": "300",
+    "explanation": "1. **Calculate heat required ($Q$):**\n$$Q = m c \\Delta T = 2 \\text{ kg} \\times 4200 \\text{ J kg}^{-1}\\text{ K}^{-1} \\times (60 - 10)\\ ^\\circ\\text{C}$$\n$$Q = 8400 \\times 50 = 4.2 \\times 10^5 \\text{ J}$$\n\n2. **Calculate effective power of the heater ($P_{\\text{eff}}$):**\n$$P_{\\text{eff}} = 2000 \\text{ W} \\times 70\\% = 1400 \\text{ W}$$\n\n3. **Calculate time ($t$):**\n$$t = \\frac{Q}{P_{\\text{eff}}} = \\frac{420000}{1400} = 300 \\text{ s}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "31st January",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "A block of ice of mass $120 \\text{ g}$ at temperature $0^\\circ\\text{C}$ is put in $300 \\text{ g}$ of water at $25^\\circ\\text{C}$. The $x$ g of ice melts as the temperature of the water reaches $0^\\circ\\text{C}$. The value of $x$ is [Use: Specific heat capacity of water $= 4200 \\text{ J kg}^{-1}\\text{ K}^{-1}$, Latent heat of ice $= 3.5 \\times 10^5 \\text{ J kg}^{-1}$]",
+    "type": "numerical",
+    "options": [],
+    "answer": "90",
+    "explanation": "1. **Heat lost by water in cooling down to $0^\\circ\\text{C}$:**\n$$Q_{\\text{lost}} = m_w c_w \\Delta T = 0.3 \\text{ kg} \\times 4200 \\text{ J kg}^{-1}\\text{ K}^{-1} \\times (25 - 0)\\ ^\\circ\\text{C}$$\n$$Q_{\\text{lost}} = 0.3 \\times 4200 \\times 25 = 31500 \\text{ J}$$\n\n2. **Amount of ice melted ($x$ g) by this heat:**\n$$Q_{\\text{lost}} = m_{\\text{melt}} L_f$$\n$$31500 = (x \\times 10^{-3} \\text{ kg}) \\times 3.5 \\times 10^5 \\text{ J kg}^{-1}$$\n$$31500 = 350 x \\implies x = \\frac{31500}{350} = 90 \\text{ g}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "25th July",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "A $100 \\text{ g}$ of iron nail is hit by a $1.5 \\text{ kg}$ hammer striking at a velocity of $60 \\text{ ms}^{-1}$. What will be the rise in the temperature of the nail if one fourth of energy of the hammer goes into heating the nail ? [Specific heat capacity of iron $= 0.42 \\text{ J g}^{-1}\\ ^\\circ\\text{C}^{-1}$]",
+    "type": "mcq",
+    "options": [
+      "16.07°C",
+      "6.75°C",
+      "1600°C",
+      "675°C"
+    ],
+    "answer": 0,
+    "explanation": "1. **Kinetic energy of the hammer:**\n$$K = \\frac{1}{2} M v^2 = \\frac{1}{2} \\times 1.5 \\text{ kg} \\times (60 \\text{ m/s})^2 = 0.75 \\times 3600 = 2700 \\text{ J}$$\n\n2. **Heat transferred to the nail:**\n$$Q = \\frac{1}{4} K = \\frac{2700}{4} = 675 \\text{ J}$$\n\n3. **Rise in temperature of the nail:**\n$$Q = m c \\Delta T \\implies 675 \\text{ J} = 100 \\text{ g} \\times 0.42 \\text{ J g}^{-1\\ \\circ}\\text{C}^{-1} \\times ΔT$$\n$$675 = 42 \\Delta T \\implies \\Delta T = \\frac{675}{42} \\approx 16.07 ^\\circ\\text{C}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "24th June",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "A steam engine intakes $50 \\text{ g}$ of steam at $100^\\circ\\text{C}$ per minute and cools it down to $20^\\circ\\text{C}$. If latent heat of vaporization of steam is $540 \\text{ cal g}^{-1}$, then the heat rejected by the steam engine per minute is _____ $\\times 10^3 \\text{ cal}$ (Given : specific heat capacity of water: $1 \\text{ cal g}^{-1}\\ ^\\circ\\text{C}^{-1}$)",
+    "type": "numerical",
+    "options": [],
+    "answer": "31",
+    "explanation": "The heat rejected per minute corresponds to condensation of steam at $100^\\circ\\text{C}$ plus cooling of the condensed water to $20^\\circ\\text{C}$:\n$$Q = m L_v + m c_w \\Delta T$$\n$$Q = 50 \\times 540 + 50 \\times 1 \\times (100 - 20)$$\n$$Q = 27000 + 50 \\times 80 = 27000 + 4000 = 31000 \\text{ cal} = 31 \\times 10^3 \\text{ cal}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "25th June",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "A copper block of mass $5.0 \\text{ kg}$ is heated to a temperature of $500^\\circ\\text{C}$ and is placed on a large ice block. What is the maximum amount of ice that can melt? [Specific heat of copper : $0.39 \\text{ J g}^{-1}\\ ^\\circ\\text{C}^{-1}$ and latent heat of fusion of water : $335 \\text{ J g}^{-1}$]",
+    "type": "mcq",
+    "options": [
+      "1.5 kg",
+      "5.8 kg",
+      "2.9 kg",
+      "3.8 kg"
+    ],
+    "answer": 2,
+    "explanation": "1. **Heat released by the copper block as it cools down to $0^\\circ\\text{C}$:**\n$$Q = m_{\\text{cu}} c_{\\text{cu}} \\Delta T = 5000 \\text{ g} \\times 0.39 \\text{ J g}^{-1\\ \\circ}\\text{C}^{-1} \\times (500 - 0)\\ ^\\circ\\text{C}$$\n$$Q = 1950 \\times 500 = 975000 \\text{ J}$$\n\n2. **Maximum mass of ice melted ($m_{\\text{ice}}$):**\n$$Q = m_{\\text{ice}} L_f$$\n$$975000 = m_{\\text{ice}} \\times 335 \\text{ J/g}$$\n$$m_{\\text{ice}} = \\frac{975000}{335} \\approx 2910 \\text{ g} = 2.91 \\text{ kg} \\approx 2.9 \\text{ kg}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "25th June",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "A geyser heats water flowing at a rate of $2.0 \\text{ kg}$ per minute from $30^\\circ\\text{C}$ to $70^\\circ\\text{C}$. If geyser operates on a gas burner, the rate of combustion of fuel will be _____ $\\text{ g min}^{-1}$. [Heat of combustion $= 8 \\times 10^3 \\text{ J g}^{-1}$, Specific heat of water $= 4.2 \\text{ J g}^{-1}\\ ^\\circ\\text{C}^{-1}$]",
+    "type": "numerical",
+    "options": [],
+    "answer": "42",
+    "explanation": "1. **Calculate heat required per minute ($Q$):**\n$$Q = m c \\Delta T$$\n$$Q = 2000 \\text{ g} \\times 4.2 \\text{ J g}^{-1\\ \\circ}\\text{C}^{-1} \\times (70 - 30)\\ ^\\circ\\text{C}$$\n$$Q = 8400 \\times 40 = 336000 \\text{ J}$$\n\n2. **Calculate the rate of combustion of fuel ($r$):**\n$$r = \\frac{Q}{\\text{Heat of combustion}} = \\frac{336000 \\text{ J}}{8 \\times 10^3 \\text{ J/g}} = 42 \\text{ g/min}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "26th June",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "A lead bullet penetrates into a solid object and melts. Assuming that $40\\%$ of its kinetic energy is used to heat it, the initial speed of bullet is (Given, initial temperature of the bullet $= 127^\\circ\\text{C}$, Melting point of the bullet $= 327^\\circ\\text{C}$, Latent heat of fusion of lead $= 2.5 \\times 10^4 \\text{ J kg}^{-1}$, Specific heat capacity of lead $= 125 \\text{ J kg}^{-1} \\text{ K}^{-1}$):",
+    "type": "mcq",
+    "options": [
+      "$125 m s^{-1}$",
+      "$500 m s^{-1}$",
+      "$250 m s^{-1}$",
+      "$600 m s^{-1}$"
+    ],
+    "answer": 1,
+    "explanation": "Let $v$ be the initial speed of the bullet of mass $m$.\n- The heat energy obtained from kinetic energy is:\n$$Q = 40\\% \\times \\left( \\frac{1}{2} m v^2 \\right) = 0.2 m v^2$$\n\n- The total heat required to warm the bullet to its melting point and then melt it completely is:\n$$Q = m c \\Delta T + m L_f$$\n$$Q = m \\left[ 125 \\times (327 - 127) + 2.5 \\times 10^4 \\right]$$\n$$Q = m [ 125 \\times 200 + 25000 ] = m [ 25000 + 25000 ] = 50000 m$$\n\nEquating both energy expressions:\n$$0.2 m v^2 = 50000 m$$\n$$v^2 = 250000 \\implies v = 500 \\text{ m s}^{-1}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "27th June",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "The height of victoria's falls is $63 \\text{ m}$. What is the difference in the temperature of water at the top and at the bottom of the fall? [Given 1 cal = 4.2 J and specific heat of water $= 1 \\text{ cal g}^{-1}\\ ^\\circ\\text{C}^{-1}$]",
+    "type": "mcq",
+    "options": [
+      "14.76°C",
+      "1.476°C",
+      "0.147°C",
+      "0.014°C"
+    ],
+    "answer": 2,
+    "explanation": "Assuming the loss in gravitational potential energy is fully converted into heat energy of the falling water:\n$$\\Delta U = Q$$\n$$m g h = m c \\Delta T \\implies g h = c \\Delta T$$\n\nConverting the specific heat of water to SI units:\n$$c = 1 \\text{ cal g}^{-1\\ \\circ}\\text{C}^{-1} = \\frac{4.2 \\text{ J}}{10^{-3} \\text{ kg K}} = 4200 \\text{ J kg}^{-1}\\text{ K}^{-1}$$\n\nSubstituting values:\n$$10 \\text{ m s}^{-2} \\times 63 \\text{ m} = 4200 \\text{ J kg}^{-1}\\text{ K}^{-1} \\times \\Delta T$$\n$$630 = 4200 \\Delta T \\implies \\Delta T = \\frac{630}{4200} = 0.15^\\circ\\text{C}$$\n\nThis is closest to $0.147^\\circ\\text{C}$.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "27th August",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "Two different metal bodies A and B of equal mass are heated at a uniform rate under similar conditions. The variation of temperature of the bodies is graphically represented as shown in the figure. The ratio of specific heat capacities is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{8}{3}$",
+      "$\\frac{3}{8}$",
+      "$\\frac{3}{4}$",
+      "$\\frac{4}{3}$"
+    ],
+    "answer": 1,
+    "explanation": "The temperature of a body being heated at constant power input $P$ varies according to:\n$$P = m c \\frac{dT}{dt} \\implies \\frac{dT}{dt} = \\frac{P}{m c}$$\n\nSince the masses and heating conditions are identical, the slope of the $T-t$ graph is inversely proportional to specific heat capacity $c$:\n$$c \\propto \\frac{1}{\\text{Slope}}$$\n\nFrom the graph:\n- For body A: Temperature rises by $\\Delta T_A = 150 - 30 = 120 ^\\circ\\text{C}$ in $t_A = 3 \\text{ s}$.\n$$\\text{Slope}_A = \\frac{120}{3} = 40$$\n\n- For body B: Temperature rises by $\\Delta T_B = 90 - 30 = 60 ^\\circ\\text{C}$ in $t_B = 4 \\text{ s}$.\n$$\\text{Slope}_B = \\frac{60}{4} = 15$$\n\nThus, the ratio of their specific heat capacities is:\n$$\\frac{c_A}{c_B} = \\frac{\\text{Slope}_B}{\\text{Slope}_A} = \\frac{15}{40} = \\frac{3}{8}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "25th July",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "The specific heat of water $= 4200 \\text{ J kg}^{-1} \\text{ K}^{-1}$ and the latent heat of ice $= 3.4 \\times 10^5 \\text{ J kg}^{-1}$. 100 grams of ice at $0^\\circ\\text{C}$ is placed in $200 \\text{ g}$ of water at $25^\\circ\\text{C}$. The amount of ice that will melt as the temperature of water reaches $0^\\circ\\text{C}$ is close to (in grams):",
+    "type": "mcq",
+    "options": [
+      "61.7",
+      "63.8",
+      "69.3",
+      "64.6"
+    ],
+    "answer": 0,
+    "explanation": "1. **Find heat released by water cooling to $0^\\circ\\text{C}$:**\n$$Q = m_w c_w \\Delta T = 0.2 \\text{ kg} \\times 4200 \\text{ J kg}^{-1}\\text{ K}^{-1} \\times 25 \\text{ K} = 21000 \\text{ J}$$\n\n2. **Find the mass ($m_{\\text{melt}}$) of ice melted by this heat:**\n$$Q = m_{\\text{melt}} L_f$$\n$$21000 = m_{\\text{melt}} \\times (3.4 \\times 10^5 \\text{ J kg}^{-1})$$\n$$m_{\\text{melt}} = \\frac{21000}{3.4 \\times 10^5} \\approx 0.06176 \\text{ kg} = 61.76 \\text{ g} \\approx 61.7 \\text{ g}$$",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "4th September",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "When $M_1$ gram of ice at $-10^\\circ\\text{C}$ (specific heat $= 0.5 \\text{ cal g}^{-1}\\ ^\\circ\\text{C}^{-1}$) is added to $M_2$ gram of water at $50^\\circ\\text{C}$, finally no ice is left and the water is at $0^\\circ\\text{C}$. The value of latent heat of ice, in cal $g^{-1}$ is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{50 M_2}{M_1}$",
+      "$\\frac{5 M_1}{M_2} - 50$",
+      "$\\frac{5 M_2}{M_1} - 5$",
+      "$\\frac{50 M_2}{M_1} - 5$"
+    ],
+    "answer": 3,
+    "explanation": "Using the principle of calorimetry:\n$$\\text{Heat Gained by Ice} = \\text{Heat Lost by Water}$$\n\n1. **Heat gained by ice to reach $0^\\circ\\text{C}$ and melt completely:**\n$$Q_{\\text{gained}} = M_1 c_{\\text{ice}} \\Delta T + M_1 L_f$$\n$$Q_{\\text{gained}} = M_1 \\times 0.5 \\times [0 - (-10)] + M_1 L_f = 5 M_1 + M_1 L_f$$\n\n2. **Heat lost by water to cool down to $0^\\circ\\text{C}$:**\n$$Q_{\\text{lost}} = M_2 c_w \\Delta T_2 = M_2 \\times 1 \\times (50 - 0) = 50 M_2$$\n\n3. **Equating both heats:**\n$$5 M_1 + M_1 L_f = 50 M_2$$\n$$M_1 L_f = 50 M_2 - 5 M_1$$\n$$L_f = \\frac{50 M_2}{M_1} - 5$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "12th April",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "Ice at $-20^\\circ\\text{C}$ is added to $50 \\text{ g}$ of water at $40^\\circ\\text{C}$. When the temperature of the mixture reaches $0^\\circ\\text{C}$, it is found that $20 \\text{ g}$ of ice is still unmelted. The amount of ice added to the water was close to: (Specific heat of water $= 4.2 \\text{ J/g/}^\\circ\\text{C}$, Specific heat of Ice $= 2.1 \\text{ J/g/}^\\circ\\text{C}$, Heat of fusion of water at $0^\\circ\\text{C} = 334 \\text{ J/g}$)",
+    "type": "mcq",
+    "options": [
+      "50 g",
+      "100 g",
+      "60 g",
+      "40 g"
+    ],
+    "answer": 3,
+    "explanation": "Let $m$ be the mass of ice added (in grams).\nSince $20 \\text{ g}$ of ice remains unmelted at $0^\\circ\\text{C}$, the mass of ice that melted is $(m - 20) \\text{ g}$.\n\n1. **Heat gained by ice to reach $0^\\circ\\text{C}$ and melt $(m-20) \\text{ g}$:**\n$$Q_{\\text{gained}} = m c_{\\text{ice}} \\Delta T_{\\text{ice}} + (m - 20) L_f$$\n$$Q_{\\text{gained}} = m \\times 2.1 \\times 20 + (m - 20) \\times 334$$\n$$Q_{\\text{gained}} = 42 m + 334 m - 6680 = 376 m - 6680$$\n\n2. **Heat lost by water cooling to $0^\\circ\\text{C}$:**\n$$Q_{\\text{lost}} = m_w c_w \\Delta T_w = 50 \\times 4.2 \\times 40 = 8400 \\text{ J}$$\n\n3. **Equating both values:**\n$$376 m - 6680 = 8400$$\n$$376 m = 15080 \\implies m = \\frac{15080}{376} \\approx 40.1 \\text{ g}$$"
+  },
+  {
+    "q": "Three conductors of same length having thermal conductivity $k_1, k_2$ and $k_3$ are connected as shown in figure. Area of cross sections of $1^{\\text{st}}$ and $2^{\\text{nd}}$ conductor are same and for $3^{\\text{rd}}$ conductor it is double of the $1^{\\text{st}}$ conductor. The temperatures are given in the figure. In steady state condition, the value of $\\theta$ is _______ $^\\circ\\text{C}$. (Given : $k_1 = 60 \\text{ J s}^{-1} \\text{ m}^{-1} \\text{ K}^{-1}$, $k_2 = 120 \\text{ J s}^{-1} \\text{ m}^{-1} \\text{ K}^{-1}$, $k_3 = 135 \\text{ J s}^{-1} \\text{ m}^{-1} \\text{ K}^{-1}$)",
+    "type": "numerical",
+    "options": [],
+    "answer": "40",
+    "explanation": "In steady-state, the sum of heat currents entering the junction at temperature $\\theta$ from the left must equal the heat current leaving the junction to the right:\n$$H_1 + H_2 = H_3$$\n\nSince the lengths of all three conductors are $L$, the area of the first two is $A$, and the third is $2A$:\n$$\\frac{k_1 A (100 - \\theta)}{L} + \\frac{k_2 A (100 - \\theta)}{L} = \\frac{k_3 (2A) (\\theta - 0)}{L}$$\n$$(k_1 + k_2) (100 - \\theta) = 2 k_3 \\theta$$\n\nSubstituting the given values:\n$$(60 + 120) (100 - \\theta) = 2 \\times 135 \\theta$$\n$$180 (100 - \\theta) = 270 \\theta$$\n$$18000 - 180\\theta = 270\\theta$$\n$$450\\theta = 18000 \\implies \\theta = \\frac{18000}{450} = 40 ^\\circ\\text{C}$$",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "22nd January",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "Two plates A and B have thermal conductivities $84 \\text{ W m}^{-1} \\text{ K}^{-1}$ and $126 \\text{ W m}^{-1} \\text{ K}^{-1}$ respectively. They have same surface area and same thickness. They are placed in contact along their surfaces. If the temperatures of the outer surfaces of A and B are kept at $100^\\circ\\text{C}$ and $0^\\circ\\text{C}$ respectively, then the temperature of the surface of contact in steady state is _____ $^\\circ\\text{C}$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "40",
+    "explanation": "Let $T_c$ be the temperature of the contact surface. Under steady-state, the rate of heat flow through plate A equals that through plate B:\n$$H_A = H_B$$\n$$\\frac{K_A A (100 - T_c)}{d} = \\frac{K_B A (T_c - 0)}{d}$$\n$$K_A (100 - T_c) = K_B T_c$$\n\nSubstituting the given values:\n$$84 (100 - T_c) = 126 T_c$$\n$$8400 - 84 T_c = 126 T_c$$\n$$210 T_c = 8400 \\implies T_c = 40^\\circ\\text{C}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "13th April",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "If $K_1$ and $K_2$ are the thermal conductivities, $L_1$ and $L_2$ are the lengths and $A_1$ and $A_2$ are the cross sectional areas of steel and copper rods respectively such that $\\frac{K_2}{K_1} = 9$, $\\frac{A_1}{A_2} = 2$, $\\frac{L_1}{L_2} = 2$. Then, for the arrangement as shown in the figure, the value of temperature T of the steel - copper junction in the steady state will be:",
+    "type": "mcq",
+    "options": [
+      "$18^\\circ\\text{C}$",
+      "$14^\\circ\\text{C}$",
+      "$45^\\circ\\text{C}$",
+      "$150^\\circ\\text{C}$"
+    ],
+    "answer": 2,
+    "explanation": "In steady-state, the rate of heat flow through the steel rod must equal that through the copper rod:\n$$H_{\\text{steel}} = H_{\\text{copper}}$$\n$$\\frac{K_1 A_1 (450 - T)}{L_1} = \\frac{K_2 A_2 (T - 0)}{L_2}$$\n$$\\frac{K_1}{K_2} \\frac{A_1}{A_2} \\frac{L_2}{L_1} (450 - T) = T$$\n\nSubstituting the given ratios ($\\frac{K_1}{K_2} = \\frac{1}{9}$, $\\frac{A_1}{A_2} = 2$, and $\\frac{L_2}{L_1} = \\frac{1}{2}$):\n$$\\frac{1}{9} \\times 2 \\times \\frac{1}{2} \\times (450 - T) = T$$\n$$\\frac{1}{9} (450 - T) = T$$\n$$450 - T = 9T \\implies 10T = 450 \\implies T = 45^\\circ\\text{C}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "27th July",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "As per the given figure, two plates A and B of thermal conductivity $K$ and $2K$ are joined together to form a compound plate. The thickness of plates are $4.0 \\text{ cm}$ and $2.5 \\text{ cm}$ respectively and the area of cross-section is $120 \\text{ cm}^2$ for each plate. The equivalent thermal conductivity of the compound plate is $\\left(1 + \\frac{5}{\\alpha}\\right)K$, then the value of $\\alpha$ will be _____.",
+    "type": "numerical",
+    "options": [],
+    "answer": "21",
+    "explanation": "Since the two plates are placed one after another, they are in a series thermal configuration. The total thermal resistance is:\n$$R_{\\text{eq}} = R_1 + R_2$$\n$$\\frac{d_1 + d_2}{K_{\\text{eq}} A} = \\frac{d_1}{K_1 A} + \\frac{d_2}{K_2 A}$$\n$$\\frac{4 + 2.5}{K_{\\text{eq}}} = \\frac{4}{K} + \\frac{2.5}{2K}$$\n$$\\frac{6.5}{K_{\\text{eq}}} = \\frac{4}{K} + \\frac{1.25}{K} = \\frac{5.25}{K}$$\n$$K_{\\text{eq}} = K \\frac{6.5}{5.25} = K \\frac{26}{21} = K \\left( 1 + \\frac{5}{21} \\right)$$\n\nComparing this with $K_{\\text{eq}} = \\left(1 + \\frac{5}{\\alpha}\\right)K$, we get $\\alpha = 21$.",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "29th June",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "A rod CD of thermal resistance $10.0 \\text{ K W}^{-1}$ is joined at the middle of an identical rod AB as shown in figure. The ends A, B and D are maintained at $200^\\circ\\text{C}$, $100^\\circ\\text{C}$ and $125^\\circ\\text{C}$ respectively. The heat current in CD is P W. The value of P is:",
+    "type": "numerical",
+    "options": [],
+    "answer": "2",
+    "explanation": "Let C be the midpoint of rod AB, with temperature $T_C$. Since AB is identical to CD, its total resistance is also $R_{\\text{AB}} = 10.0 \\text{ K/W}$. Therefore, the resistances of halves AC and CB are:\n$$R_{\\text{AC}} = R_{\\text{CB}} = \\frac{1}{2} R_{\\text{AB}} = 5.0 \\text{ K/W}$$\n\nApplying junction rule (conservation of heat current) at node C:\n$$H_{\\text{AC}} + H_{\\text{BC}} = H_{\\text{CD}}$$\n$$\\frac{200 - T_C}{5} + \\frac{100 - T_C}{5} = \\frac{T_C - 125}{10}$$\n$$2(200 - T_C) + 2(100 - T_C) = T_C - 125$$\n$$600 - 4T_C = T_C - 125$$\n$$5 T_C = 725 \\implies T_C = 145^\\circ\\text{C}$$\n\nThe heat current through CD is:\n$$P = H_{\\text{CD}} = \\frac{T_C - T_D}{R_{\\text{CD}}} = \\frac{145 - 125}{10} = \\frac{20}{10} = 2 \\text{ W}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "27th August",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "The temperature $\\theta$ at the junction of two insulating sheets, having thermal resistances $R_1$ and $R_2$ as well as top and bottom temperatures $\\theta_1$ and $\\theta_2$ (as shown in figure) is given by :",
+    "type": "mcq",
+    "options": [
+      "$\\frac{\\theta_1R_2-\\theta_2R_1}{R_2-R_1}$",
+      "$\\frac{\\theta_2R_2-\\theta_1R_1}{R_2-R_1}$",
+      "$\\frac{\\theta_1R_2+\\theta_2R_1}{R_1+R_2}$",
+      "$\\frac{\\theta_1R_1+\\theta_2R_2}{R_1+R_2}$"
+    ],
+    "answer": 2,
+    "explanation": "In steady-state, the rate of heat flow through both sheets in series is equal:\n$$\\frac{\\theta - \\theta_1}{R_1} = \\frac{\\theta_2 - \\theta}{R_2}$$\n$$R_2 (\\theta - \\theta_1) = R_1 (\\theta_2 - \\theta)$$\n$$R_2 \\theta - R_2 \\theta_1 = R_1 \\theta_2 - R_1 \\theta$$\n$$\\theta (R_1 + R_2) = \\theta_1 R_2 + \\theta_2 R_1$$\n$$\\theta = \\frac{\\theta_1 R_2 + \\theta_2 R_1}{R_1 + R_2}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "26th February",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "Three rods of identical cross-section and length are made of three different materials of thermal conductivity $K_1$, $K_2$ and $K_3$, respectively. They are joined together at their ends to make a long rod (see figure). One end of the long rod is maintained at $100^\\circ\\text{C}$ and the other at $0^\\circ\\text{C}$ (see figure). If the joints of the rod are at $70^\\circ\\text{C}$ and $20^\\circ\\text{C}$ in steady and there is no loss of energy from the surface of the rod, the correct relationship between $K_1$, $K_2$ and $K_3$ is :",
+    "type": "mcq",
+    "options": [
+      "$K_1 : K_3 = 2 : 3, \\ K_2 : K_3 = 2 : 5$",
+      "$K_1 < K_2 < K_3$",
+      "$K_1 : K_2 = 5 : 2, \\ K_1 : K_3 = 3 : 5$",
+      "$K_1 > K_2 > K_3$"
+    ],
+    "answer": 0,
+    "explanation": "Since there is no loss of heat energy from the sides, in steady-state, the heat current flowing through each of the three rods is identical:\n$$H_1 = H_2 = H_3$$\n$$\\frac{K_1 A (100 - 70)}{L} = \\frac{K_2 A (70 - 20)}{L} = \\frac{K_3 A (20 - 0)}{L}$$\n$$30 K_1 = 50 K_2 = 20 K_3$$\n$$3 K_1 = 5 K_2 = 2 K_3$$\n\nTaking ratios:\n- $3 K_1 = 2 K_3 \\implies K_1 : K_3 = 2 : 3$\n- $5 K_2 = 2 K_3 \\implies K_2 : K_3 = 2 : 5$\n\nThis matches Option 1.",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "6th September",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "Two materials having coefficients of thermal conductivity 3K and K and thickness d and 3d respectively, are joined to form a slab as shown in the figure. The temperatures of the outer surfaces are $\\theta_2$ and $\\theta_1$ respectively, ($\\theta_2 > \\theta_1$). The temperature at the interface is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{\\theta_2+\\theta_1}{2}$",
+      "$\\frac{\\theta_1}{6} + \\frac{5\\theta_2}{6}$",
+      "$\\frac{\\theta_1}{3} + \\frac{2\\theta_2}{3}$",
+      "$\\frac{\\theta_1}{10} + \\frac{9\\theta_2}{10}$"
+    ],
+    "answer": 3,
+    "explanation": "Let the interface temperature be $\\theta$. In steady-state, the heat current passing through both materials is the same:\n$$\\frac{3K A (\\theta_2 - \\theta)}{d} = \\frac{K A (\\theta - \\theta_1)}{3d}$$\n$$3 (\\theta_2 - \\theta) = \\frac{\\theta - \\theta_1}{3}$$\n$$9 (\\theta_2 - \\theta) = \\theta - \\theta_1$$\n$$9\\theta_2 - 9\\theta = \\theta - \\theta_1$$\n$$10\\theta = 9\\theta_2 + \\theta_1 \\implies θ = \\frac{\\theta_1 + 9\\theta_2}{10}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "9th April",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "A heat source at $T = 10^3 \\text{ K}$ is connected to another heat reservoir at $T = 10^2 \\text{ K}$ by a copper slab which is 1 m thick. Given that the thermal conductivity of copper is $0.1 \\text{ W K}^{-1} \\text{ m}^{-1}$, the energy flux through it in the steady-state is:",
+    "type": "mcq",
+    "options": [
+      "$65 W m^{-2}$",
+      "$120 W m^{-2}$",
+      "$90 W m^{-2}$",
+      "$200 W m^{-2}$"
+    ],
+    "answer": 2,
+    "explanation": "Energy flux is defined as the rate of heat flow per unit area:\n$$\\text{Energy Flux} = \\frac{H}{A} = \\frac{K \\Delta T}{L}$$\n\nSubstituting the given values:\n$$\\text{Energy Flux} = \\frac{0.1 \\text{ W K}^{-1} \\text{ m}^{-1} \\times (10^3 - 10^2) \\text{ K}}{1 \\text{ m}} = 0.1 \\times 900 = 90 \\text{ W m}^{-2}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "10th January",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "A wire of length $10 \\text{ cm}$ and diameter $0.5 \\text{ mm}$ is used in a bulb. The temperature of the wire is $1727^\\circ\\text{C}$ and power radiated by the wire is $94.2 \\text{ W}$. Its emissivity is $\\frac{x}{8}$ where $x = $ ______. (Given $\\sigma = 6.0 \times 10^{-8} \\text{ W m}^{-2} \\text{ K}^{-4}$, $\\pi = 3.14$ and assume that the emissivity of wire material is same at all wavelength.)",
+    "type": "numerical",
+    "options": [],
+    "answer": "5",
+    "explanation": "1. **Convert temperature to Kelvin:**\n$$T = 1727 + 273 = 2000 \\text{ K}$$\n\n2. **Calculate surface area ($A$) of the wire:**\n$$A = \\pi d L = 3.14 \\times (0.5 \\times 10^{-3} \\text{ m}) \\times 0.10 \\text{ m} = 1.57 \\times 10^{-4} \\text{ m}^2$$\n\n3. **Use Stefan-Boltzmann Law for power radiated:**\n$$P = e \\sigma A T^4$$\n$$94.2 = e \\times (6.0 \\times 10^{-8} \\text{ W m}^{-2} \\text{ K}^{-4}) \\times (1.57 \\times 10^{-4} \\text{ m}^2) \\times (2000 \\text{ K})^4$$\n$$94.2 = e \\times 6.0 \\times 10^{-8} \\times 1.57 \\times 10^{-4} \\times 1.6 \\times 10^{13}$$\n$$94.2 = e \\times (6.0 \\times 1.57 \\times 1.6 \\times 10)$$\n$$94.2 = e \\times 150.72 \\implies e = \\frac{94.2}{150.72} = 0.625 = \\frac{5}{8}$$\n\nComparing this with $e = \\frac{x}{8}$, we find $x = 5$.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "7th April",
+    "subtopic": "Radiation"
+  },
+  {
+    "q": "Two spherical bodies of same materials having radii $0.2 \\text{ m}$ and $0.8 \\text{ m}$ are placed in same atmosphere. The temperature of the smaller body is $800 \\text{ K}$ and temperature of the bigger body is $400 \\text{ K}$. If the energy radiated from the smaller body is E, the energy radiated from the bigger body is (assume, effect of the surrounding temperature to be negligible),",
+    "type": "mcq",
+    "options": [
+      "16 E",
+      "E",
+      "64 E",
+      "256 E"
+    ],
+    "answer": 1,
+    "explanation": "According to Stefan-Boltzmann Law, the rate of energy radiation from a spherical body of radius $r$ is:\n$$P = e \\sigma A T^4 = e \\sigma (4\\pi r^2) T^4 \\implies P \\propto r^2 T^4$$\n\nTaking the ratio of the power radiated by both bodies:\n$$\\frac{P_2}{P_1} = \\left( \\frac{r_2}{r_1} \\right)^2 \\left( \\frac{T_2}{T_1} \\right)^4$$\n$$\\frac{P_2}{E} = \\left( \\frac{0.8}{0.2} \\right)^2 \\left( \\frac{400}{800} \\right)^4 = (4)^2 \\left( \\frac{1}{2} \\right)^4 = 16 \\times \\frac{1}{16} = 1 \\implies P_2 = E$$",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "22nd January",
+    "subtopic": "Radiation"
+  },
+  {
+    "q": "A cup of coffee cools from $90^\\circ\\text{C}$ to $80^\\circ\\text{C}$ in t minutes when the room temperature is $20^\\circ\\text{C}$. The time taken by the similar cup of coffee to cool from $80^\\circ\\text{C}$ to $60^\\circ\\text{C}$ at the same room temperature is :",
+    "type": "mcq",
+    "options": [
+      "$\\frac{13}{10}t$",
+      "$\\frac{10}{13}t$",
+      "$\\frac{5}{13}t$",
+      "$\\frac{13}{5}t$"
+    ],
+    "answer": 3,
+    "explanation": "According to Newton's law of cooling approximation:\n$$\\frac{T_1 - T_2}{t} = K \\left( \\frac{T_1 + T_2}{2} - T_s \\right)$$\n\n1. **For the first cooling phase (from $90^\\circ\\text{C}$ to $80^\\circ\\text{C}$):**\n$$\\frac{90 - 80}{t} = K \\left( \\frac{90 + 80}{2} - 20 \\right)$$\n$$\\frac{10}{t} = K (85 - 20) = 65 K \\implies K = \\frac{10}{65 t} = \\frac{2}{13 t}$$\n\n2. **For the second cooling phase (from $80^\\circ\\text{C}$ to $60^\\circ\\text{C}$):**\n$$\\frac{80 - 60}{t'} = K \\left( \\frac{80 + 60}{2} - 20 \\right)$$\n$$\\frac{20}{t'} = 50 K$$\n$$\\frac{20}{t'} = 50 \\times \\left( \\frac{2}{13 t} \\right) = \\frac{100}{13 t} \\implies t' = \\frac{260}{100} t = \\frac{13}{5} t$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "29th January",
+    "subtopic": "Radiation"
+  },
+  {
+    "q": "A body cools in 7 minutes from $60^\\circ\\text{C}$ to $40^\\circ\\text{C}$. The temperature of the surrounding is $10^\\circ\\text{C}$. The temperature of the body after the next 7 minutes will be:",
+    "type": "mcq",
+    "options": [
+      "$30 ^\\circ C$",
+      "$32 ^\\circ C$",
+      "$34 ^\\circ C$",
+      "$28 ^\\circ C$"
+    ],
+    "answer": 3,
+    "explanation": "Applying Newton's law of cooling approximation:\n$$\\frac{T_1 - T_2}{t} = K \\left( \\frac{T_1 + T_2}{2} - T_s \\right)$$\n\n1. **First 7 minutes:**\n$$\\frac{60 - 40}{7} = K \\left( \\frac{60 + 40}{2} - 10 \\right)$$\n$$\\frac{20}{7} = 40 K \\implies K = \\frac{1}{14} \\text{ min}^{-1}$$\n\n2. **Next 7 minutes (cooling from $40^\\circ\\text{C}$ to $T$):**\n$$\\frac{40 - T}{7} = K \\left( \\frac{40 + T}{2} - 10 \\right)$$\n$$\\frac{40 - T}{7} = \\frac{1}{14} \\left( \\frac{40 + T - 20}{2} \\right)$$\n$$40 - T = \\frac{20 + T}{4}$$\n$$160 - 4T = 20 + T \\implies 5T = 140 \\implies T = 28^\\circ\\text{C}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "6th April",
+    "subtopic": "Radiation"
+  },
+  {
+    "q": "A body cools from $80^\\circ\\text{C}$ to $60^\\circ\\text{C}$ in 5 minutes. The temperature for the surrounding is $20^\\circ\\text{C}$. The time it takes to cool from $60^\\circ\\text{C}$ to $40^\\circ\\text{C}$ is ______ s.",
+    "type": "mcq",
+    "options": [
+      "450 s",
+      "420 s",
+      "500 s",
+      "$\\frac{25}{3} s$"
+    ],
+    "answer": 2,
+    "explanation": "Applying Newton's law of cooling:\n$$\\frac{T_1 - T_2}{t} = K \\left( \\frac{T_1 + T_2}{2} - T_s \\right)$$\n\n1. **First cooling phase ($5 \\text{ min} = 300 \\text{ s}$):**\n$$\\frac{80 - 60}{300} = K \\left( \\frac{80 + 60}{2} - 20 \\right)$$\n$$\\frac{20}{300} = 50 K \\implies K = \\frac{20}{15000} = \\frac{1}{750} \\text{ s}^{-1}$$\n\n2. **Second cooling phase:**\n$$\\frac{60 - 40}{t'} = K \\left( \\frac{60 + 40}{2} - 20 \\right)$$\n$$\\frac{20}{t'} = 30 K = 30 \\times \\left( \\frac{1}{750} \\right) = \\frac{1}{25}$$\n$$t' = 500 \\text{ s}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "12th April",
+    "subtopic": "Radiation"
+  },
+  {
+    "q": "A bowl filled with very hot soup cools from $98^\\circ\\text{C}$ to $86^\\circ\\text{C}$ in 2 minutes when the room temperature is $22^\\circ\\text{C}$. How long it will take to cool from $75^\\circ\\text{C}$ to $69^\\circ\\text{C}$ ?",
+    "type": "mcq",
+    "options": [
+      "2 minute",
+      "1.4 minute",
+      "0.5 minute",
+      "1 minute"
+    ],
+    "answer": 1,
+    "explanation": "Using Newton's law of cooling approximation:\n$$\\frac{T_1 - T_2}{t} = K \\left( \\frac{T_1 + T_2}{2} - T_s \\right)$$\n\n1. **First cooling phase:**\n$$\\frac{98 - 86}{2} = K \\left( \\frac{98 + 86}{2} - 22 \\right)$$\n$$6 = K (92 - 22) = 70 K \\implies K = \\frac{3}{35} \\text{ min}^{-1}$$\n\n2. **Second cooling phase:**\n$$\\frac{75 - 69}{t'} = K \\left( \\frac{75 + 69}{2} - 22 \\right)$$\n$$\\frac{6}{t'} = K (72 - 22) = 50 K$$\n$$\\frac{6}{t'} = 50 \\times \\frac{3}{35} = \\frac{30}{7} \\implies t' = \\frac{42}{30} = 1.4 \\text{ minutes}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "25th January",
+    "subtopic": "Radiation"
+  },
+  {
+    "q": "Nearly $10\\%$ of the power of a $110 \\text{ W}$ light bulb is converted to visible radiation. The change in average intensities of visible radiation, at a distance of $1 \\text{ m}$ from the bulb to a distance of $5 \\text{ m}$ is $a \\times 10^{-2} \\text{ W m}^{-2}$. The value of 'a' will be:",
+    "type": "numerical",
+    "options": [],
+    "answer": "84",
+    "explanation": "The visible power of the light bulb is:\n$$P_{\\text{vis}} = 10\\% \\times 110 \\text{ W} = 11 \\text{ W}$$\n\nThe intensity of radiation at a distance $r$ from a point source is given by:\n$$I(r) = \\frac{P_{\\text{vis}}}{4\\pi r^2}$$\n\n- At $r_1 = 1 \\text{ m}$:\n$$I_1 = \\frac{11}{4\\pi} \\text{ W m}^{-2}$$\n- At $r_2 = 5 \\text{ m}$:\n$$I_2 = \\frac{11}{4\\pi (5)^2} = \\frac{11}{100\\pi} \\text{ W m}^{-2}$$\n\nThe change in intensity is:\n$$\\Delta I = I_1 - I_2 = \\frac{11}{4\\pi} \\left( 1 - \\frac{1}{25} \\right) = \\frac{11}{4\\pi} \\times \\frac{24}{25} = \\frac{66}{25\\pi} \\text{ W m}^{-2}$$\n$$\\Delta I \\approx \\frac{66}{78.54} \\approx 0.8403 \\text{ W m}^{-2} = 84.03 \\times 10^{-2} \\text{ W m}^{-2}$$\n\nComparing this with $a \\times 10^{-2}$, we find $a = 84$.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "29th July",
+    "subtopic": "Radiation"
+  },
+  {
+    "q": "In 5 minutes, a body cools from $75^\\circ\\text{C}$ to $65^\\circ\\text{C}$ at room temperature of $25^\\circ\\text{C}$. The temperature of body at the end of next 5 minutes is ______ $^\\circ\\text{C}$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "57",
+    "explanation": "According to Newton's law of cooling approximation:\n$$\\frac{T_1 - T_2}{t} = K \\left( \\frac{T_1 + T_2}{2} - T_s \\right)$$\n\n1. **First 5 minutes:**\n$$\\frac{75 - 65}{5} = K \\left( \\frac{75 + 65}{2} - 25 \\right)$$\n$$2 = K (70 - 25) = 45 K \\implies K = \\frac{2}{45} \\text{ min}^{-1}$$\n\n2. **Next 5 minutes (cooling from $65^\\circ\\text{C}$ to $T$):**\n$$\\frac{65 - T}{5} = K \\left( \\frac{65 + T}{2} - 25 \\right)$$\n$$\\frac{65 - T}{5} = \\frac{2}{45} \\left( \\frac{T + 15}{2} \\right)$$\n$$65 - T = \\frac{T + 15}{9}$$\n$$585 - 9T = T + 15 \\implies 10T = 570 \\implies T = 57^\\circ\\text{C}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "22nd July",
+    "subtopic": "Radiation"
+  },
+  {
+    "q": "The temperature of a body in air falls from $40^\\circ\\text{C}$ to $24^\\circ\\text{C}$ in 4 minutes. The temperature of the air is $16^\\circ\\text{C}$. The temperature of the body in the next 4 minutes will be:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{14}{3}\\ ^\\circ\\text{C}$",
+      "$\\frac{42}{3}\\ ^\\circ\\text{C}$",
+      "$\\frac{28}{3}\\ ^\\circ\\text{C}$",
+      "$\\frac{56}{3}\\ ^\\circ\\text{C}$"
+    ],
+    "answer": 3,
+    "explanation": "Applying Newton's law of cooling approximation:\n$$\\frac{T_1 - T_2}{t} = K \\left( \\frac{T_1 + T_2}{2} - T_s \\right)$$\n\n1. **First 4 minutes:**\n$$\\frac{40 - 24}{4} = K \\left( \\frac{40 + 24}{2} - 16 \\right)$$\n$$4 = K (32 - 16) = 16 K \\implies K = \\frac{1}{4} \\text{ min}^{-1}$$\n\n2. **Next 4 minutes (cooling from $24^\\circ\\text{C}$ to $T$):**\n$$\\frac{24 - T}{4} = K \\left( \\frac{24 + T}{2} - 16 \\right)$$\n$$\\frac{24 - T}{4} = \\frac{1}{4} \\left( \\frac{T - 8}{2} \\right)$$\n$$24 - T = \\frac{T - 8}{2}$$\n$$48 - 2T = T - 8 \\implies 3T = 56 \\implies T = \\frac{56}{3}\\ ^\\circ\\text{C}$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "24th January",
+    "subtopic": "Radiation"
+  },
+  {
+    "q": "A thin rod having a length of $1 \\text{ m}$ and area of cross section $3 \\times 10^{-6} \\text{ m}^2$ is suspended vertically from one end. The rod is cooled from $210^\\circ\\text{C}$ to $160^\\circ\\text{C}$. After cooling, a mass M is attached at the lower end of the rod such that the length of rod again becomes $1 \\text{ m}$. Young's modulus and coefficient of linear expansion of the rod are $2 \\times 10^{11} \\text{ N m}^{-2}$ and $2 \\times 10^{-5} \\text{ K}^{-1}$, respectively. The value of M is ________ kg. (Take $g = 10 \\text{ m s}^{-2}$)",
+    "type": "numerical",
+    "options": [],
+    "answer": "60",
+    "explanation": "For the length of the rod to remain exactly constant ($1 \\text{ m}$), the mechanical elongation due to the attached mass $M$ must equal the thermal contraction due to cooling:\n$$\\Delta L_{\\text{mech}} = \\Delta L_{\\text{thermal}}$$\n$$\\frac{M g L}{A Y} = L \\alpha \\Delta T$$\n$$M = \\frac{A Y \\alpha \\Delta T}{g}$$\n\nSubstituting the given values:\n- $A = 3 \\times 10^{-6} \\text{ m}^2$\n- $Y = 2 \\times 10^{11} \\text{ N m}^{-2}$\n- $\\alpha = 2 \\times 10^{-5} \\text{ K}^{-1}$\n- $\\Delta T = 210 - 160 = 50\\ ^\\circ\\text{C}$\n- $g = 10 \\text{ m s}^{-2}$\n\n$$M = \\frac{(3 \\times 10^{-6}) \\times (2 \\times 10^{11}) \\times (2 \\times 10^{-5}) \times 50}{10}$$\n$$M = \\frac{6 \\times 10^5 \\times 100 \\times 10^{-5}}{10} = \\frac{600}{10} = 60 \\text{ kg}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "31st January",
+    "subtopic": "Thermal Expansion"
+  },
+  {
+    "q": "Two thin metallic spherical shells of radii $r_1$ and $r_2$ ($r_1 < r_2$) are placed with their centres coinciding. A material of thermal conductivity K is filled in the space between the shells. The inner shell is maintained at temperature $\\theta_1$ and the outer shell at temperature $\\theta_2$ ($\\theta_1 < \\theta_2$). The rate at which heat flows radially through the material is :",
+    "type": "mcq",
+    "options": [
+      "$\\frac{K(\\theta_2-\\theta_1)}{r_2-r_1}$",
+      "$\\frac{K(\\theta_2-\\theta_1)(r_2-r_1)}{4\\pi r_1 r_2}$",
+      "$\\frac{\\pi K r_1 r_2 (\\theta_2-\\theta_1)}{r_2-r_1}$",
+      "$\\frac{4\\pi K r_1 r_2 (\\theta_2-\\theta_1)}{r_2-r_1}$"
+    ],
+    "answer": 3,
+    "explanation": "Consider a thin spherical shell element of radius $r$ and thickness $dr$ between the two shells. The thermal resistance of this element is:\n$$dR = \\frac{dr}{K (4\\pi r^2)}$$\n\nIntegrating from $r_1$ to $r_2$ to find the total thermal resistance:\n$$R = \\int_{r_1}^{r_2} \\frac{dr}{4\\pi K r^2} = \\frac{1}{4\\pi K} \\left[ -\\frac{1}{r} \\right]_{r_1}^{r_2} = \\frac{r_2 - r_1}{4\\pi K r_1 r_2}$$\n\nThe rate of heat flow ($H$) is given by:\n$$H = \\frac{\\Delta\\theta}{R} = \\frac{\\theta_2 - \\theta_1}{\\frac{r_2 - r_1}{4\\pi K r_1 r_2}} = \\frac{4\\pi K r_1 r_2 (\\theta_2 - \\theta_1)}{r_2 - r_1}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "31st August",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "$1 \\text{ kg}$ of water at $100^\\circ\\text{C}$ is converted into steam at $100^\\circ\\text{C}$ by boiling at atmospheric pressure. The volume of water changes from $1.00 \\times 10^{-3} \\text{ m}^3$ as a liquid to $1.671 \\text{ m}^3$ as steam. The change in the internal energy of the system during the process will be (Given latent heat of vaporisation $= 2257 \\text{ kJ/kg}$, Atmospheric pressure $= 1 \\times 10^5 \\text{ Pa}$):",
+    "type": "mcq",
+    "options": [
+      "$-2426 \\text{ kJ}$",
+      "$+2090 \\text{ kJ}$",
+      "$-2090 \\text{ kJ}$",
+      "$+2476 \\text{ kJ}$"
+    ],
+    "answer": 1,
+    "explanation": "From the first law of thermodynamics:\n$$\\Delta Q = \\Delta U + W \\implies \\Delta U = \\Delta Q - W$$\n\n1. **Calculate heat supplied ($\\Delta Q$):**\n$$\\Delta Q = m L_v = 1 \\text{ kg} \\times 2257 \\text{ kJ/kg} = 2257 \\text{ kJ}$$\n\n2. **Calculate work done ($W$):**\n$$W = P \\Delta V = (1 \\times 10^5 \\text{ Pa}) \\times (1.671 - 1.00 \\times 10^{-3}) \\text{ m}^3$$\n$$W = 10^5 \\times 1.670 \\text{ J} = 1.670 \\times 10^5 \\text{ J} = 167 \\text{ kJ}$$\n\n3. **Calculate change in internal energy ($\\Delta U$):**\n$$\\Delta U = 2257 - 167 = 2090 \\text{ kJ}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "11th April",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "An ice cube of dimensions $60 \\text{ cm} \\times 50 \\text{ cm} \\times 20 \\text{ cm}$ is placed in an insulation box of wall thickness $1 \\text{ cm}$. The box keeping the ice cube at $0^\\circ\\text{C}$ of temperature is brought to a room of temperature $40^\\circ\\text{C}$. The rate of melting of ice is approximately: (Latent heat of fusion of ice is $3.4 \\times 10^5 \\text{ J kg}^{-1}$ and thermal conducting of insulation wall is $0.05 \\text{ W m}^{-1}\\ ^\\circ\\text{C}^{-1}$)",
+    "type": "mcq",
+    "options": [
+      "$61 \\times 10^{-1} \\text{ kg s}^{-1}$",
+      "$61 \\times 10^{-5} \\text{ kg s}^{-1}$",
+      "$208 \\text{ kg s}^{-1}$",
+      "$30 \\times 10^{-5} \\text{ kg s}^{-1}$"
+    ],
+    "answer": 1,
+    "explanation": "1. **Calculate the total surface area ($A$) of the box:**\n$$A = 2(ab + bc + ca) = 2(0.60 \\times 0.50 + 0.50 \\times 0.20 + 0.20 \\times 0.60) \\text{ m}^2$$\n$$A = 2(0.30 + 0.10 + 0.12) = 2(0.52) = 1.04 \\text{ m}^2$$\n\n2. **Calculate the rate of heat flow ($H$):**\n$$H = \\frac{K A \\Delta T}{d} = \\frac{0.05 \\times 1.04 \\times (40 - 0)}{0.01} = 208 \\text{ W}$$\n\n3. **Calculate the rate of melting of ice ($\\frac{dm}{dt}$):**\n$$H = \\frac{dm}{dt} L_f \\implies 208 = \\frac{dm}{dt} \\times (3.4 \\times 10^5)$$\n$$\\frac{dm}{dt} = \\frac{208}{3.4 \\times 10^5} \\approx 61.17 \\times 10^{-5} \\text{ kg s}^{-1}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "26th July",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "The temperature of equal masses of three different liquids x, y and z are $10^\\circ\\text{C}$, $20^\\circ\\text{C}$ and $30^\\circ\\text{C}$ respectively. The temperature of mixture when x is mixed with y is $16^\\circ\\text{C}$ and that when y is mixed with z is $26^\\circ\\text{C}$. The temperature of mixture when x and z are mixed will be :",
+    "type": "mcq",
+    "options": [
+      "$25.62^\\circ\\text{C}$",
+      "$20.28^\\circ\\text{C}$",
+      "$28.32^\\circ\\text{C}$",
+      "$23.84^\\circ\\text{C}$"
+    ],
+    "answer": 3,
+    "explanation": "Let $m$ be the mass of each liquid. Let $c_1, c_2, c_3$ be the specific heats of x, y, z respectively.\n\n1. **Mixing x and y:**\n$$m c_1 (16 - 10) = m c_2 (20 - 16) \\implies 6 c_1 = 4 c_2 \\implies c_2 = 1.5 c_1$$\n\n2. **Mixing y and z:**\n$$m c_2 (26 - 20) = m c_3 (30 - 26) \\implies 6 c_2 = 4 c_3 \\implies c_3 = 1.5 c_2 = 2.25 c_1$$\n\n3. **Mixing x and z (let the final temperature be $T$):**\n$$m c_1 (T - 10) = m c_3 (30 - T)$$\n$$c_1 (T - 10) = 2.25 c_1 (30 - T)$$\n$$T - 10 = 67.5 - 2.25 T$$\n$$3.25 T = 77.5 \\implies T \\approx 23.84 ^\\circ\\text{C}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "26th August",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "Due to cold weather, a 1 m water pipe of cross-sectional area $1 \\text{ cm}^2$ is filled with ice at $-10^\\circ\\text{C}$. Resistive heating is used to melt the ice. Current of 0.5 A is passed through $4 \\text{ k}\\Omega$ resistance. Assuming that all the heat produced is used for melting, what is the minimum time required? (Given latent heat of fusion for water/ice $= 3.33 \\times 10^5 \\text{ J kg}^{-1}$, specific heat of ice $= 2 \\times 10^3 \\text{ J kg}^{-1}\\ ^\\circ\\text{C}^{-1}$ and density of ice $= 10^3 \\text{ kg m}^{-3}$)",
+    "type": "mcq",
+    "options": [
+      "3.53 s",
+      "0.353 s",
+      "35.3 s",
+      "70.6 s"
+    ],
+    "answer": 2,
+    "explanation": "1. **Calculate the mass ($m$) of ice inside the pipe:**\n$$V = A L = (1 \\times 10^{-4} \\text{ m}^2) \\times 1 \\text{ m} = 10^{-4} \\text{ m}^3$$\n$$m = \\rho V = 10^3 \\text{ kg/m}^3 \\times 10^{-4} \\text{ m}^3 = 0.1 \\text{ kg}$$\n\n2. **Calculate the heat ($Q$) required to heat the ice to $0^\\circ\\text{C}$ and melt it completely:**\n$$Q = m c \\Delta T + m L_f$$\n$$Q = 0.1 \\times (2 \\times 10^3) \\times 10 + 0.1 \\times (3.33 \\times 10^5)$$\n$$Q = 2000 + 33300 = 35300 \\text{ J}$$\n\n3. **Calculate heating power ($P$) produced by resistor:**\n$$P = I^2 R = (0.5)^2 \\times 4000 = 1000 \\text{ W}$$\n\n4. **Calculate minimum time ($t$):**\n$$t = \\frac{Q}{P} = \\frac{35300}{1000} = 35.3 \\text{ s}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "1st September",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "Three containers $C_1, C_2$ and $C_3$ have water at different temperatures. The table below shows the final temperature when different amounts of water (given in liters) are taken from each container and mixed (assume no loss of heat during the process):\n\n| $C_1$ | $C_2$ | $C_3$ | $T$ |\n|---|---|---|---|\n| 1l | 2l | -- | $60^\\circ\\text{C}$ |\n| -- | 1l | 2l | $30^\\circ\\text{C}$ |\n| 2l | -- | 1l | $60^\\circ\\text{C}$ |\n| 1l | 1l | 1l | $\\theta$ |\n\nThe value of $\\theta$ (in $^\\circ\\text{C}$ to the nearest integer) is:",
+    "type": "numerical",
+    "options": [],
+    "answer": "50",
+    "explanation": "Let $T_1, T_2, T_3$ be the initial temperatures in containers $C_1, C_2, C_3$ respectively. Using the heat conservation equation:\n\n1. **For Mixture 1 (1 liter of $C_1$ + 2 liters of $C_2$ at $60^\\circ\\text{C}$):**\n$$1 \\times (T_1 - 60) = 2 \\times (60 - T_2) \\implies T_1 + 2 T_2 = 180 \\quad \\text{--- (1)}$$\n\n2. **For Mixture 2 (1 liter of $C_2$ + 2 liters of $C_3$ at $30^\\circ\\text{C}$):**\n$$1 \\times (T_2 - 30) = 2 \\times (30 - T_3) \\implies T_2 + 2 T_3 = 90 \\quad \\text{--- (2)}$$\n\n3. **For Mixture 3 (2 liters of $C_1$ + 1 liter of $C_3$ at $60^\\circ\\text{C}$):**\n$$2 \\times (T_1 - 60) = 1 \\times (60 - T_3) \\implies 2 T_1 + T_3 = 180 \\quad \\text{--- (3)}$$\n\nFrom (3): $T_3 = 180 - 2T_1$.\nFrom (1): $T_2 = 90 - 0.5 T_1$.\n\nSubstituting these into (2):\n$$(90 - 0.5 T_1) + 2(180 - 2T_1) = 90$$\n$$-0.5 T_1 + 360 - 4T_1 = 0$$\n$$4.5 T_1 = 360 \\implies T_1 = 80^\\circ\\text{C}$$\n\nThen:\n- $T_2 = 90 - 40 = 50^\\circ\\text{C}$\n- $T_3 = 180 - 160 = 20^\\circ\\text{C}$\n\nFor equal mixture of all three (1 liter each):\n$$\\theta = \\frac{T_1 + T_2 + T_3}{3} = \\frac{80 + 50 + 20}{3} = 50^\\circ\\text{C}$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "8th January",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "A thermally insulated vessel contains $150 \\text{ g}$ of water at $0^\\circ\\text{C}$. Then the air from the vessel is pumped out adiabatically. A fraction of water turns into ice and the rest evaporates at $0^\\circ\\text{C}$ itself. The mass of evaporated water will be closest to: (Latent heat of vaporization of water $= 2.10 \\times 10^6 \\text{ J kg}^{-1}$ and Latent heat of Fusion of water $= 3.36 \\times 10^5 \\text{ J kg}^{-1}$)",
+    "type": "mcq",
+    "options": [
+      "35 g",
+      "20 g",
+      "130 g",
+      "150 g"
+    ],
+    "answer": 1,
+    "explanation": "Let $m_v$ be the mass of water that evaporates. The remaining mass $(150 - m_v)$ freezes into ice. \nUnder adiabatic conditions, the heat absorbed during vaporization must equal the heat released during freezing:\n$$m_v L_v = (150 - m_v) L_f$$\n$$m_v \\times (2.10 \\times 10^6) = (150 - m_v) \\times (3.36 \\times 10^5)$$\n$$21.0 m_v = (150 - m_v) \\times 3.36$$\n$$21.0 m_v = 504 - 3.36 m_v$$\n$$24.36 m_v = 504 \\implies m_v = \\frac{504}{24.36} \\approx 20.69 \\text{ g}$$\n\nThis is closest to $20 \\text{ g}$.",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "8th April",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "Two identical beakers A and B contain equal volumes of two different liquids at $60^\\circ\\text{C}$ each and left to cool down. Liquid in A has density of $8 \\times 10^2 \\text{ kg m}^{-3}$ and specific heat of $2000 \\text{ J kg}^{-1} \\text{ K}^{-1}$ while the liquid in B has density $10^3 \\text{ kg m}^{-3}$ and specific heat of $4000 \\text{ J kg}^{-1} \\text{ K}^{-1}$. Which of the following best describes their temperature versus time graph schematically? (assume the emissivity of both the beakers to be the same)",
+    "type": "mcq",
+    "options": [
+      "graph where curve A cools significantly faster than B, with A lying below B",
+      "graph where curve A cools faster than B, with A lying below B but at a different scale",
+      "graph where both curves A and B are identical",
+      "graph where B lies below A"
+    ],
+    "answer": 1,
+    "explanation": "According to Stefan's law, the rate of cooling is:\n$$-\\frac{dT}{dt} = \\frac{e \\sigma A (T^4 - T_s^4)}{m c} = \\frac{e \\sigma A (T^4 - T_s^4)}{\\rho V c}$$\n\nSince the beakers are identical, they have the same surface area $A$, same volume $V$, and same emissivity $e$:\n$$-\\frac{dT}{dt} \\propto \\frac{1}{\\rho c}$$\n\nCalculating $\\rho c$ for both liquids:\n- For liquid A: $\\rho_A c_A = (8 \\times 10^2) \\times 2000 = 1.6 \\times 10^6 \\text{ J m}^{-3} \\text{ K}^{-1}$\n- For liquid B: $\\rho_B c_B = 10^3 \\times 4000 = 4.0 \\times 10^6 \\text{ J m}^{-3} \\text{ K}^{-1}$\n\nSince $\\rho_A c_A < \\rho_B c_B$, the rate of cooling of A is greater than that of B:\n$$\\left(-\\frac{dT}{dt}\\right)_A > \\left(-\\frac{dT}{dt}\\right)_B$$\n\nTherefore, liquid A cools faster than liquid B, meaning at any time $t > 0$, the temperature of A is lower than B ($T_A < T_B$). This corresponds to graph (2) in the options.",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "8th April",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "A massless spring ($k = 800 \\text{ N/m}$), attached with a mass ($500 \\text{ g}$) is completely immersed in $1 \\text{ kg}$ of water. The spring is stretched by $2 \\text{ cm}$ and released so that it starts vibrating. What would be the order of magnitude of the change in the temperature of water when the vibrations stop completely? (Assume that the water container and spring receive negligible heat and specific heat of mass $= 400 \\text{ J/kg K}$, specific heat of water $= 4184 \\text{ J/kg K}$)",
+    "type": "mcq",
+    "options": [
+      "$10^{-5} \\text{ K}$",
+      "$10^{-1} \\text{ K}$",
+      "$10^{-3} \\text{ K}$",
+      "$10^{-4} \\text{ K}$"
+    ],
+    "answer": 0,
+    "explanation": "1. **Find the initial potential energy stored in the stretched spring ($E$):**\n$$E = \\frac{1}{2} k x^2 = \\frac{1}{2} \\times 800 \\text{ N/m} \\times (0.02 \\text{ m})^2 = 400 \\times 0.0004 = 0.16 \\text{ J}$$\n\n2. **When vibrations stop completely, the mechanical energy is converted entirely into heat:**\n$$E = (m_w c_w + m_s c_s) \\Delta T$$\n$$0.16 = (1 \\text{ kg} \\times 4184 \\text{ J/kg K} + 0.5 \\text{ kg} \\times 400 \\text{ J/kg K}) \\Delta T$$\n$$0.16 = (4184 + 200) \\Delta T = 4384 \\Delta T$$\n$$\\Delta T = \\frac{0.16}{4384} \\approx 3.65 \\times 10^{-5} \\text{ K}$$\n\nThus, the order of magnitude of the temperature change is $10^{-5} \\text{ K}$.",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "9th April",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "$1 \\text{ kg}$ of water, at $20\\ ^\\circ\\text{C}$ is heated in an electric kettle whose heating element has a mean (temperature averaged) resistance of $20 \\ \\Omega$. The rms voltage in the mains is $200 \\text{ V}$. Ignoring heat loss from the kettle, the time taken for water to evaporate fully is close to: [Specific heat of water $= 4200 \\text{ J kg}^{-1}\\ ^\\circ\\text{C}^{-1}$, Latent heat of water $= 2260 \\text{ kJ kg}^{-1}$]",
+    "type": "mcq",
+    "options": [
+      "3 min",
+      "16 min",
+      "22 min",
+      "10 min"
+    ],
+    "answer": 2,
+    "explanation": "1. **Calculate total heat ($Q$) required to heat and completely vaporize the water:**\n$$Q = m c \\Delta T + m L_v$$\n$$Q = 1 \\text{ kg} \\times 4200 \\text{ J kg}^{-1\\ \\circ}\\text{C}^{-1} \\times (100 - 20)\\ ^\\circ\\text{C} + 1 \\text{ kg} \\times (2260 \\times 10^3 \\text{ J/kg})$$\n$$Q = 336000 + 2260000 = 2596000 \\text{ J}$$\n\n2. **Calculate power ($P$) generated by the heating element:**\n$$P = \\frac{V^2}{R} = \\frac{(200 \\text{ V})^2}{20 \\ \\Omega} = 2000 \\text{ W}$$\n\n3. **Calculate time ($t$):**\n$$t = \\frac{Q}{P} = \\frac{2596000}{2000} = 1298 \\text{ s}$$\n$$t = \\frac{1298}{60} \\approx 21.6 \\text{ minutes} \\approx 22 \\text{ minutes}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "12th April",
+    "subtopic": "Calorimetry"
+  },
+  {
+    "q": "Two cylindrical rods A and B made of different materials, are joined in a straight line. The ratio of lengths, radii and thermal conductivities of these rods are : $\\frac{L_A}{L_B} = \\frac{1}{2}$, $\\frac{r_A}{r_B} = 2$ and $\\frac{K_A}{K_B} = \\frac{1}{2}$. The free ends of rods A and B are maintained at $400 \\text{ K}$ and $200 \\text{ K}$, respectively. The temperature of the rods interface is ________ K, when equilibrium is established.",
+    "type": "numerical",
+    "options": [],
+    "answer": "360",
+    "explanation": "In steady-state, the heat currents flowing through both rods are equal:\n$$H_A = H_B$$\n$$\\frac{K_A A_A (400 - T_i)}{L_A} = \\frac{K_B A_B (T_i - 200)}{L_B}$$\n$$\\left( \\frac{K_A}{K_B} \\right) \\left( \\frac{A_A}{A_B} \\right) \\left( \\frac{L_B}{L_A} \\right) (400 - T_i) = T_i - 200$$\n\nSince $A = \\pi r^2$:\n$$\\left( \\frac{K_A}{K_B} \\right) \\left( \\frac{r_A}{r_B} \\right)^2 \\left( \\frac{L_B}{L_A} \\right) (400 - T_i) = T_i - 200$$\n\nSubstituting the given values:\n$$\\left( \\frac{1}{2} \\right) (2)^2 (2) (400 - T_i) = T_i - 200$$\n$$4 (400 - T_i) = T_i - 200$$\n$$1600 - 4 T_i = T_i - 200$$\n$$5 T_i = 1800 \\implies T_i = 360 \\text{ K}$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "7th April",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "Two conductors have the same resistances at $0^\\circ\\text{C}$ but their temperature coefficients of resistance are $\\alpha_1$ and $\\alpha_2$. The respective temperature coefficients for their series and parallel combinations are :",
+    "type": "mcq",
+    "options": [
+      "$\\alpha_1 + \\alpha_2, \\ \\frac{\\alpha_1+\\alpha_2}{2}$",
+      "$\\frac{\\alpha_1+\\alpha_2}{2}, \\ \\frac{\\alpha_1+\\alpha_2}{2}$",
+      "$\\alpha_1 + \\alpha_2, \\ \\frac{\\alpha_1\\alpha_2}{\\alpha_1+\\alpha_2}$",
+      "$\\frac{\\alpha_1+\\alpha_2}{2}, \\ \\alpha_1 + \\alpha_2$"
+    ],
+    "answer": 1,
+    "explanation": "Let the resistance of both conductors at $0^\\circ\\text{C}$ be $R_0$.\n\n1. **Series combination:**\n$$R_s(T) = R_1(T) + R_2(T) = R_0 (1 + \\alpha_1 T) + R_0 (1 + \\alpha_2 T) = 2 R_0 \\left[ 1 + \\left( \\frac{\\alpha_1 + \\alpha_2}{2} \\right) T \\right]$$\nSo the equivalent temperature coefficient is $\\alpha_s = \\frac{\\alpha_1 + \\alpha_2}{2}$.\n\n2. **Parallel combination:**\n$$R_p(T) = \\frac{R_1(T) R_2(T)}{R_1(T) + R_2(T)} = \\frac{R_0^2 (1 + \\alpha_1 T)(1 + \\alpha_2 T)}{2 R_0 \\left[ 1 + \\left( \\frac{\\alpha_1 + \\alpha_2}{2} \\right) T \\right]}$$\n$$R_p(T) \\approx \\frac{R_0}{2} \\frac{1 + (\\alpha_1 + \\alpha_2)T}{1 + \\left( \\frac{\\alpha_1 + \\alpha_2}{2} \\right)T} \\approx \\frac{R_0}{2} \\left[ 1 + \\left( \\frac{\\alpha_1 + \\alpha_2}{2} \\right) T \\right]$$\nSo the equivalent temperature coefficient is $\\alpha_p = \\frac{\\alpha_1 + \\alpha_2}{2}$.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "31st January",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "Temperature difference of $120^\\circ\\text{C}$ is maintained between two ends of a uniform rod of length 2L. Another bent rod PQ, of same cross-section as AB and length $\\frac{3L}{2}$, is connected across AB (See figure). In steady state, temperature difference between P and Q will be close to:",
+    "type": "mcq",
+    "options": [
+      "$45 ^\\circ C$",
+      "$35 ^\\circ C$",
+      "$60 ^\\circ C$",
+      "$75 ^\\circ C$"
+    ],
+    "answer": 0,
+    "explanation": "Let $R$ be the thermal resistance of rod AB of length $2L$.\n- Thermal resistance of sections AP and QB (each of length $L/2$): $R_{\\text{AP}} = R_{\\text{QB}} = \\frac{R}{4}$.\n- Thermal resistance of section PQ of the rod AB (length $L$): $R_{\\text{PQ}} = \\frac{R}{2}$.\n- Thermal resistance of the bent rod connected across PQ (length $1.5L$): $R_{\\text{bent}} = \\frac{3R}{4}$.\n\nThe section PQ and the bent rod are in parallel, so their equivalent thermal resistance is:\n$$R_{\\text{parallel}} = \\frac{R_{\\text{PQ}} R_{\\text{bent}}}{R_{\\text{PQ}} + R_{\\text{bent}}} = \\frac{\\frac{R}{2} \\frac{3R}{4}}{\\frac{R}{2} + \\frac{3R}{4}} = \\frac{3}{10} R$$\n\nThe total thermal resistance of the combination is:\n$$R_{\\text{total}} = R_{\\text{AP}} + R_{\\text{parallel}} + R_{\\text{QB}} = \\frac{R}{4} + \\frac{3}{10} R + \\frac{R}{4} = \\frac{4}{5} R$$\n\nThe total heat current is:\n$$I = \\frac{\\Delta T}{R_{\\text{total}}} = \\frac{120}{\\frac{4}{5}R} = \\frac{150}{R}$$\n\nThe temperature difference across the parallel section (between P and Q) is:\n$$\\Delta T_{\\text{PQ}} = I R_{\\text{parallel}} = \\left(\\frac{150}{R}\\right) \\left(\\frac{3}{10}R\\right) = 45^\\circ\\text{C}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "9th January",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "A cylinder of radius R is surrounded by a cylindrical shell of inner radius R and outer radius 2R. The thermal conductivity of the material of the inner cylinder is $K_1$ and that of the outer cylinder is $K_2$. Assuming no loss of heat, the effective thermal conductivity of the system for heat flowing along the length of the cylinder is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{2K_1 + 3K_2}{5}$",
+      "$\\frac{K_1+K_2}{2}$",
+      "$K_1 + K_2$",
+      "$\\frac{K_1+3K_2}{4}$"
+    ],
+    "answer": 3,
+    "explanation": "Since heat is flowing along the length of the cylinder, the inner cylinder and the outer shell act in parallel. \n- Area of inner cylinder: $A_1 = \\pi R^2$\n- Area of outer shell: $A_2 = \\pi (2R)^2 - \\pi R^2 = 3\\pi R^2$\n- Total area: $A = A_1 + A_2 = 4\\pi R^2$\n\nFor a parallel combination:\n$$K_{\\text{eq}} A = K_1 A_1 + K_2 A_2$$\n$$K_{\\text{eq}} (4\\pi R^2) = K_1 (\\pi R^2) + K_2 (3\\pi R^2)$$\n$$4 K_{\\text{eq}} = K_1 + 3 K_2 \\implies K_{\\text{eq}} = \\frac{K_1 + 3K_2}{4}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "12th January",
+    "subtopic": "Conduction"
+  },
+  {
+    "q": "In an experiment to verify Newton's law of cooling, a graph is plotted between the temperature difference ($\\Delta T$) of the water and surroundings and time as shown in figure. The initial temperature of water is taken as $80^\\circ\\text{C}$. The value of $t_2$ as mentioned in the graph will be _______ minute.",
+    "type": "numerical",
+    "options": [],
+    "answer": "16",
+    "explanation": "Let the surrounding temperature be $20^\\circ\\text{C}$. \n- Initial temperature difference: $\\Delta T(0) = 80 - 20 = 60^\\circ\\text{C}$.\n- Dotted lines on the graph show that at $t = 6 \\text{ min}$, $\\Delta T = 40^\\circ\\text{C}$, and at $t = t_2$, $\\Delta T = 20^\\circ\\text{C}$.\n\nAccording to Newton's law of cooling, the temperature difference decays exponentially with time:\n$$\\Delta T(t) = \\Delta T_0 e^{-K t}$$\n\n1. At $t = 6$:\n$$40 = 60 e^{-6 K} \\implies e^{-6 K} = \\frac{2}{3}$$\n\n2. At $t = t_2$:\n$$20 = 60 e^{-K t_2} \\implies e^{-K t_2} = \\frac{1}{3}$$\n\nRelating both exponential terms:\n$$e^{-K t_2} = \\left( e^{-6 K} \\right)^{\\frac{t_2}{6}} = \\left( \\frac{2}{3} \\right)^{\\frac{t_2}{6}} = \\frac{1}{3}$$\n$$\\ln\\left(\\frac{1}{3}\\right) = \\frac{t_2}{6} \\ln\\left(\\frac{2}{3}\\right)$$\n$$-1.0986 = \\frac{t_2}{6} (-0.4055)$$\n$$t_2 = 6 \\times \\frac{1.0986}{0.4055} \\approx 16.25 \\text{ minutes}$$\n\nTo the nearest integer, the value of $t_2$ is $16$.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "24th June",
+    "subtopic": "Radiation"
+  },
+  {
+    "q": "A metallic sphere cools from $50^\\circ\\text{C}$ to $40^\\circ\\text{C}$ in $300 \\text{ s}$. If atmospheric temperature around is $20^\\circ\\text{C}$, then the sphere's temperature after the next 5 minutes will be close to:",
+    "type": "mcq",
+    "options": [
+      "31 °C",
+      "33 °C",
+      "28 °C",
+      "35 °C"
+    ],
+    "answer": 1,
+    "explanation": "We can apply Newton's law of cooling (time interval is $300 \\text{ s} = 5 \\text{ minutes}$):\n\n1. **First 5 minutes:**\n$$\\frac{50 - 40}{5} = K \\left[ \\frac{50 + 40}{2} - 20 \\right]$$\n$$2 = K (45 - 20) = 25 K \\implies K = \\frac{2}{25} \\text{ min}^{-1}$$\n\n2. **Next 5 minutes (cooling from $40^\\circ\\text{C}$ to $T$):**\n$$\\frac{40 - T}{5} = K \\left[ \\frac{40 + T}{2} - 20 \\right]$$\n$$\\frac{40 - T}{5} = \\left(\\frac{2}{25}\\right) \\left( \\frac{T}{2} \\right)$$\n$$40 - T = \\frac{T}{5}$$\n$$200 - 5T = T \\implies 6T = 200 \\implies T \\approx 33.3^\\circ\\text{C} \\approx 33^\\circ\\text{C}$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "3rd September",
+    "subtopic": "Radiation"
+  }
+]

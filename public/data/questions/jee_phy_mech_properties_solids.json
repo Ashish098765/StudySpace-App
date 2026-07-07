@@ -73,10 +73,10 @@
     "q": "A long wire having cross-sectional area $6.25 \\times 10^{-4}\\text{ m}^2$ and Young's modulus is $10^{10}\\text{ N m}^{-2}$ is subjected to a load of 250 N, then the elongation in the wire will be : (Length of the wire is 100 m)",
     "type": "mcq",
     "options": [
-      "6.25 \\times 10^{-3} m",
-      "4 \\times 10^{-4} m",
-      "6.25 \\times 10^{-6} m",
-      "4 \\times 10^{-3} m"
+      "$6.25 \\times 10^{-3} m$",
+      "$4 \\times 10^{-4} m$",
+      "$6.25 \\times 10^{-6} m$",
+      "$4 \\times 10^{-3} m$"
     ],
     "answer": 3,
     "explanation": "Using the relation for elongation:\n$$\\Delta L = \\frac{F L}{A Y}$$\n\nGiven $F = 250\\text{ N}$, $L = 100\\text{ m}$, $A = 6.25 \\times 10^{-4}\\text{ m}^2$, $Y = 10^{10}\\text{ N m}^{-2}$:\n$$\\Delta L = \\frac{250 \\times 100}{(6.25 \\times 10^{-4}) \\times 10^{10}} = \\frac{2.5 \\times 10^4}{6.25 \\times 10^6} = 4 \\times 10^{-3}\\text{ m}$$\nThis matches Option (4).",
@@ -116,10 +116,10 @@
     "q": "A wire of length $L$ is hanging from a fixed support. The length changes to $L_1$ and $L_2$ when masses $1\\text{ kg}$ and $2\\text{ kg}$ are suspended respectively from its free end. Then the value of $L$ is equal to",
     "type": "mcq",
     "options": [
-      "\\sqrt{L_1 L_2}",
-      "\\frac{L_1+L_2}{2}",
-      "2L_1 - L_2",
-      "3L_1 - L_2"
+      "$\\sqrt{L_1 L_2}$",
+      "$\\frac{L_1+L_2}{2}$",
+      "$2L_1 - L_2$",
+      "$3L_1 - L_2$"
     ],
     "answer": 2,
     "explanation": "Let the elongation per unit suspended mass be $k$.\nFor $1\\text{ kg}$ mass:\n$$L_1 = L + k \\implies k = L_1 - L$$\n\nFor $2\\text{ kg}$ mass:\n$$L_2 = L + 2k$$\n\nSubstituting the value of $k$:\n$$L_2 = L + 2(L_1 - L) = 2L_1 - L \\implies L = 2L_1 - L_2$$\nThis matches Option (3).",
@@ -132,10 +132,10 @@
     "q": "A steel wire having a radius of $2.0\\text{ mm}$, carrying a load of $4\\text{ kg}$, is hanging from a ceiling. Given that $g = 3.1\\pi\\text{ m s}^{-2}$, what will be the tensile stress that would be developed in the wire?",
     "type": "mcq",
     "options": [
-      "5.2 \\times 10^6 N m^{-2}",
-      "6.2 \\times 10^6 N m^{-2}",
-      "4.8 \\times 10^6 N m^{-2}",
-      "3.1 \\times 10^6 N m^{-2}"
+      "$5.2 \\times 10^6 N m^{-2}$",
+      "$6.2 \\times 10^6 N m^{-2}$",
+      "$4.8 \\times 10^6 N m^{-2}$",
+      "$3.1 \\times 10^6 N m^{-2}$"
     ],
     "answer": 3,
     "explanation": "Tensile stress is:\n$$\\text{Stress} = \\frac{F}{A} = \\frac{m g}{\\pi r^2}$$\n$$\\text{Stress} = \\frac{4 \\times 3.1\\pi}{\\pi \\times (2.0 \\times 10^{-3})^2} = \\frac{12.4}{4 \\times 10^{-6}} = 3.1 \\times 10^6\\text{ N m}^{-2}$$\nThis matches Option (4).",
@@ -218,10 +218,10 @@
     "q": "The bulk modulus of a liquid is $3 \\times 10^{10}\\text{ N m}^{-2}$. The pressure required to reduce the volume of liquid by $2\\%$ is :",
     "type": "mcq",
     "options": [
-      "3 \\times 10^8 N m^{-2}",
-      "6 \\times 10^8 N m^{-2}",
-      "9 \\times 10^8 N m^{-2}",
-      "12 \\times 10^8 N m^{-2}"
+      "$3 \\times 10^8 N m^{-2}$",
+      "$6 \\times 10^8 N m^{-2}$",
+      "$9 \\times 10^8 N m^{-2}$",
+      "$12 \\times 10^8 N m^{-2}$"
     ],
     "answer": 1,
     "explanation": "Using the relation for Bulk modulus:\n$$\\Delta P = B \\frac{\\Delta V}{V}$$\nGiven $B = 3 \\times 10^{10}\\text{ N m}^{-2}$ and $\\frac{\\Delta V}{V} = 2\\% = 0.02$:\n$$\\Delta P = (3 \\times 10^{10}) \\times 0.02 = 6 \\times 10^8\\text{ N m}^{-2}$$\nThis matches Option (2).",
@@ -267,10 +267,10 @@
     "q": "Two steel wires having same length are suspended from a ceiling under the same load. If the ratio of their energy stored per unit volume is $1 : 4$, the ratio of their diameters is:",
     "type": "mcq",
     "options": [
-      "\\sqrt{2} : 1",
+      "$\\sqrt{2} : 1$",
       "1 : 2",
       "2 : 1",
-      "1 : \\sqrt{2}"
+      "$1 : \\sqrt{2}$"
     ],
     "answer": 0,
     "explanation": "Energy stored per unit volume is:\n$$u = \\frac{1}{2} \\frac{\\text{Stress}^2}{Y} = \\frac{1}{2Y} \\left( \\frac{F}{A} \\right)^2 = \\frac{1}{2Y} \\left( \\frac{4F}{\\pi d^2} \\right)^2 \\propto \\frac{1}{d^4}$$\n\nTherefore:\n$$\\frac{u_1}{u_2} = \\left( \\frac{d_2}{d_1} \\right)^4 \\implies \\frac{1}{4} = \\left( \\frac{d_2}{d_1} \\right)^4$$\n$$\\frac{d_2}{d_1} = \\frac{1}{\\sqrt{2}} \\implies \\frac{d_1}{d_2} = \\sqrt{2} : 1$$\nThis matches Option (1).",
@@ -343,7 +343,7 @@
     "type": "mcq",
     "options": [
       "3 times",
-      "\\frac{3}{2} times",
+      "$\\frac{3}{2} times$",
       "4 times",
       "2 times"
     ],
@@ -419,7 +419,7 @@
     "type": "mcq",
     "options": [
       "4l",
-      "\\frac{l}{2}",
+      "$\\frac{l}{2}$",
       "3l",
       "l"
     ],
@@ -434,10 +434,10 @@
     "q": "A force is applied to a steel wire $A$, rigidly clamped at one end. As a result elongation in the wire is $0.2\\text{ mm}$. If same force is applied to another steel wire $B$ of double the length and a diameter $2.4$ times that of the wire $A$, the elongation in the wire $B$ will be (wires having uniform circular cross sections)",
     "type": "mcq",
     "options": [
-      "6.06 \\times 10^{-2} mm",
-      "2.77 \\times 10^{-2} mm",
-      "3.0 \\times 10^{-2} mm",
-      "6.9 \\times 10^{-2} mm"
+      "$6.06 \\times 10^{-2} mm$",
+      "$2.77 \\times 10^{-2} mm$",
+      "$3.0 \\times 10^{-2} mm$",
+      "$6.9 \\times 10^{-2} mm$"
     ],
     "answer": 3,
     "explanation": "Since elongation $\\Delta L \\propto \\frac{L}{d^2}$ when the force is the same:\n$$\\Delta L_B = \\Delta L_A \\times \\left( \\frac{L_B}{L_A} \\right) \\times \\left( \\frac{d_A}{d_B} \\right)^2$$\n$$\\Delta L_B = 0.2 \\times 2 \\times \\left( \\frac{1}{2.4} \\right)^2 = \\frac{0.4}{5.76} \\approx 0.0694\\text{ mm} = 6.94 \\times 10^{-2}\\text{ mm}$$\nThis matches Option (4).",
@@ -493,10 +493,10 @@
     "q": "The area of cross section of the rope used to lift a load by a crane is $2.5 \times 10^{-4}\\text{ m}^2$. The maximum lifting capacity of the crane is 10 metric tons. To increase the lifting capacity of the crane to 25 metric tons, the required area of cross section of the rope should be (take $g = 10\\text{ m s}^{-2}$)",
     "type": "mcq",
     "options": [
-      "6.25 \\times 10^{-4} m^2",
-      "10 \\times 10^{-4} m^2",
-      "1 \\times 10^{-4} m^2",
-      "1.67 \\times 10^{-4} m^2"
+      "$6.25 \\times 10^{-4} m^2$",
+      "$10 \\times 10^{-4} m^2$",
+      "$1 \\times 10^{-4} m^2$",
+      "$1.67 \\times 10^{-4} m^2$"
     ],
     "answer": 0,
     "explanation": "Since the material of the rope is the same, the maximum allowable tensile stress remains constant:\n$$\\text{Stress}_{\\text{limit}} = \\frac{F_{\\text{limit}}}{A} = \\text{constant} \\implies A \\propto F_{\\text{limit}}$$\n\nTherefore, to support 2.5 times the load (since 25 metric tons is 2.5 times 10 metric tons), the area of cross section must be increased by 2.5 times:\n$$A' = 2.5 A = 2.5 \\times (2.5 \\times 10^{-4}\\text{ m}^2) = 6.25 \\times 10^{-4}\\text{ m}^2$$\nThis matches Option (1).",
@@ -525,10 +525,10 @@
     "q": "The force required to stretch a wire of cross-section $1\\text{ cm}^2$ to double its length will be: (Given Yong's modulus of the wire $= 2 \\times 10^{11}\\text{ N m}^{-2}$)",
     "type": "mcq",
     "options": [
-      "1 \\times 10^7 N",
-      "1. 5 \\times 10^7 N",
-      "2 \\times 10^7 N",
-      "2. 5 \\times 10^7 N"
+      "$1 \\times 10^7 N$",
+      "$1. 5 \\times 10^7 N$",
+      "$2 \\times 10^7 N$",
+      "$2. 5 \\times 10^7 N$"
     ],
     "answer": 2,
     "explanation": "To stretch a wire to double its length means the final length is $2L$, so the elongation is $\\Delta L = L$, and the strain is:\n$$\\text{Strain} = \\frac{\\Delta L}{L} = 1$$\n\nUsing Young's modulus formula:\n$$\\text{Stress} = Y \\times \\text{Strain} \\implies \\frac{F}{A} = Y \\implies F = Y A$$\n\nGiven $A = 1\\text{ cm}^2 = 10^{-4}\\text{ m}^2$ and $Y = 2 \\times 10^{11}\\text{ N m}^{-2}$:\n$$F = (2 \\times 10^{11}) \\times 10^{-4} = 2 \\times 10^7\\text{ N}$$\nThis matches Option (3).",
@@ -579,10 +579,10 @@
     "q": "A uniform heavy rod of weight $10\\text{ kg m s}^{-2}$, cross-sectional area $100\\text{ cm}^2$ and length 20 cm is hanging from a fixed support. Young modulus of the material of the rod is $2 \\times 10^{11}\\text{ N m}^{-2}$. Neglecting the lateral contraction, find the elongation of rod due to its own weight:",
     "type": "mcq",
     "options": [
-      "5 \\times 10^{-10} m",
-      "4 \\times 10^{-8} m",
-      "5 \\times 10^{-8} m",
-      "2 \\times 10^{-9} m"
+      "$5 \\times 10^{-10} m$",
+      "$4 \\times 10^{-8} m$",
+      "$5 \\times 10^{-8} m$",
+      "$2 \\times 10^{-9} m$"
     ],
     "answer": 0,
     "explanation": "Given data:\nWeight of the rod $W = 10\\text{ N}$ (since $10\\text{ kg m s}^{-2} = 10\\text{ N}$)\nLength $L = 20\\text{ cm} = 0.2\\text{ m}$\nArea $A = 100\\text{ cm}^2 = 10^{-2}\\text{ m}^2$\nYoung's modulus $Y = 2 \\times 10^{11}\\text{ N m}^{-2}$\n\nThe elongation of a heavy rod due to its own weight is:\n$$\\Delta L = \\frac{W L}{2 A Y} = \\frac{10 \\times 0.2}{2 \\times 10^{-2} \\times (2 \\times 10^{11})} = \\frac{2}{4 \\times 10^9} = 5 \\times 10^{-10}\\text{ m}$$\nThis matches Option (1).",
@@ -595,10 +595,10 @@
     "q": "Four identical hollow cylindrical columns of mild steel support a big structure of mass $50 \\times 10^3$ kg. The inner and outer radii of each column are 50 cm and 100 cm respectively. Assuming uniform local distribution, calculate the compression strain of each column. [use $Y = 2.0 \\times 10^{11}$ Pa, g = 9.8 m $s^{-2}$]",
     "type": "mcq",
     "options": [
-      "1. 87 \\times 10^{-3}",
-      "2. 60 \\times 10^{-7}",
-      "3. 60 \\times 10^{-8}",
-      "7. 07 \\times 10^{-4}"
+      "$1. 87 \\times 10^{-3}$",
+      "$2. 60 \\times 10^{-7}$",
+      "$3. 60 \\times 10^{-8}$",
+      "$7. 07 \\times 10^{-4}$"
     ],
     "answer": 1,
     "explanation": "Total mass $M = 50 \\times 10^3\\text{ kg} \\implies$ Total force $F = M g = 4.9 \\times 10^5\\text{ N}$.\nSince there are 4 columns, the load on each column is:\n$$F_{\\text{each}} = \\frac{4.9 \\times 10^5}{4} = 1.225 \\times 10^5\\text{ N}$$\n\nThe cross-sectional area of one hollow column is:\n$$A = \\pi (R_{\\text{outer}}^2 - R_{\\text{inner}}^2) = \\pi (1.0^2 - 0.5^2) = 0.75\\pi\\text{ m}^2 \\approx 2.356\\text{ m}^2$$\n\nThe compressive strain is:\n$$\\varepsilon = \\frac{\\text{Stress}}{Y} = \\frac{F_{\\text{each}}}{A Y} = \\frac{1.225 \\times 10^5}{2.356 \\times 2.0 \\times 10^{11}} \\approx 2.60 \\times 10^{-7}$$\nThis matches Option (2).",
@@ -611,10 +611,10 @@
     "q": "The value of tension in a long thin metal wire has been changed from $T_1$ to $T_2$. The lengths of the metal wire at two different values of tension $T_1$ and $T_2$ are $\\ell_1$ and $\\ell_2$, respectively. The actual length of the metal wire is:",
     "type": "mcq",
     "options": [
-      "\\frac{T_1\\ell_2-T_2\\ell_1}{T_1-T_2}",
-      "\\frac{T_1\\ell_1-T_2\\ell_2}{T_1-T_2}",
-      "\\frac{\\ell_1+\\ell_2}{2}",
-      "\\sqrt{T_1 T_2\\ell_1\\ell_2}"
+      "$\\frac{T_1\\ell_2-T_2\\ell_1}{T_1-T_2}$",
+      "$\\frac{T_1\\ell_1-T_2\\ell_2}{T_1-T_2}$",
+      "$\\frac{\\ell_1+\\ell_2}{2}$",
+      "$\\sqrt{T_1 T_2\\ell_1\\ell_2}$"
     ],
     "answer": 0,
     "explanation": "Let the natural length of the wire be $L_0$ and its stiffness be $k$:\n$$\\ell_1 = L_0 + \\frac{T_1}{k} \\implies k = \\frac{T_1}{\\ell_1 - L_0}$$\n$$\\ell_2 = L_0 + \\frac{T_2}{k} \\implies k = \\frac{T_2}{\\ell_2 - L_0}$$\n\nEquating both expressions for $k$:\n$$\\frac{T_1}{\\ell_1 - L_0} = \\frac{T_2}{\\ell_2 - L_0} \\implies T_1 (\\ell_2 - L_0) = T_2 (\\ell_1 - L_0)$$\n$$T_1 \\ell_2 - T_1 L_0 = T_2 \\ell_1 - T_2 L_0 \\implies L_0 (T_1 - T_2) = T_1 \\ell_2 - T_2 \\ell_1$$\n$$L_0 = \\frac{T_1 \\ell_2 - T_2 \\ell_1}{T_1 - T_2}$$\nThis matches Option (1).",
@@ -627,10 +627,10 @@
     "q": "The length of a metal wire is $\\ell_1$, when the tension in it is $T_1$ and is $\\ell_2$ when the tension is $T_2$. The natural length of the wire is:",
     "type": "mcq",
     "options": [
-      "\\sqrt{\\ell_1 \\ell_2}",
-      "\\frac{\\ell_1 T_2 - \\ell_2 T_1}{T_2 - T_1}",
-      "\\frac{\\ell_1 T_2 + \\ell_2 T_1}{T_2 + T_1}",
-      "\\frac{\\ell_1 + \\ell_2}{2}"
+      "$\\sqrt{\\ell_1 \\ell_2}$",
+      "$\\frac{\\ell_1 T_2 - \\ell_2 T_1}{T_2 - T_1}$",
+      "$\\frac{\\ell_1 T_2 + \\ell_2 T_1}{T_2 + T_1}$",
+      "$\\frac{\\ell_1 + \\ell_2}{2}$"
     ],
     "answer": 1,
     "explanation": "This follows the same relation as derived in the previous question, rearranged slightly:\n$$L_0 = \\frac{\\ell_1 T_2 - \\ell_2 T_1}{T_2 - T_1}$$\nThis matches Option (2).",
@@ -643,10 +643,10 @@
     "q": "Two wires of same length and radius are joined end to end and loaded. The Young's moduli of the materials of the two wires are $Y_1$ and $Y_2$. The combination behaves as a single wire then its Young's modulus is:",
     "type": "mcq",
     "options": [
-      "Y = \\frac{2Y_1Y_2}{3(Y_1+Y_2)}",
-      "Y = \\frac{2Y_1Y_2}{Y_1+Y_2}",
-      "Y = \\frac{Y_1Y_2}{2(Y_1+Y_2)}",
-      "Y = \\frac{Y_1Y_2}{Y_1+Y_2}"
+      "$Y = \\frac{2Y_1Y_2}{3(Y_1+Y_2)}$",
+      "$Y = \\frac{2Y_1Y_2}{Y_1+Y_2}$",
+      "$Y = \\frac{Y_1Y_2}{2(Y_1+Y_2)}$",
+      "$Y = \\frac{Y_1Y_2}{Y_1+Y_2}$"
     ],
     "answer": 1,
     "explanation": "Since they are joined end-to-end, they act in series. For the combination, the total length is $2L$ and the cross-sectional area remains $A$:\n$$\\Delta L_{\\text{combo}} = \\Delta L_1 + \\Delta L_2$$\n$$\\frac{F (2L)}{A Y_{\\text{combo}}} = \\frac{F L}{A Y_1} + \\frac{F L}{A Y_2}$$\n$$\\frac{2}{Y_{\\text{combo}}} = \\frac{1}{Y_1} + \\frac{1}{Y_2} = \\frac{Y_1 + Y_2}{Y_1 Y_2}$$\n$$Y_{\\text{combo}} = \\frac{2 Y_1 Y_2}{Y_1 + Y_2}$$\nThis matches Option (2).",
@@ -681,10 +681,10 @@
     "q": "The length of metallic wire is $\\ell_1$ when tension in it is $T_1$. It is $\\ell_2$ when the tension is $T_2$. The original length of the wire will be :",
     "type": "mcq",
     "options": [
-      "\\frac{T_2\\ell_1+T_1\\ell_2}{T_1+T_2}",
-      "\\frac{\\ell_1+\\ell_2}{2}",
-      "\\frac{T_2\\ell_1-T_1\\ell_2}{T_2-T_1}",
-      "\\frac{T_1\\ell_1-T_2\\ell_2}{T_2-T_1}"
+      "$\\frac{T_2\\ell_1+T_1\\ell_2}{T_1+T_2}$",
+      "$\\frac{\\ell_1+\\ell_2}{2}$",
+      "$\\frac{T_2\\ell_1-T_1\\ell_2}{T_2-T_1}$",
+      "$\\frac{T_1\\ell_1-T_2\\ell_2}{T_2-T_1}$"
     ],
     "answer": 2,
     "explanation": "This follows the same relation as derived in the previous questions:\n$$L_0 = \\frac{T_2 \\ell_1 - T_1 \\ell_2}{T_2 - T_1}$$\nThis matches Option (3).",
@@ -735,10 +735,10 @@
     "q": "A rod, of length L at room temperature and uniform area of cross section A, is made of a metal having coefficient of linear expansion $\\alpha\\text{ / }^\\circ\\text{C}$. It is observed that an external compressive force F is applied on each of its ends, prevents any change in the length of the rod when its temperature rises by $\\Delta T\\text{ K}$. Young's modulus, Y for this metal is:",
     "type": "mcq",
     "options": [
-      "\\frac{F}{A\\alpha(\\Delta T-273)}",
-      "\\frac{2F}{A\\alpha\\Delta T}",
-      "\\frac{F}{A\\alpha\\Delta T}",
-      "\\frac{F}{2A\\alpha\\Delta T}"
+      "$\\frac{F}{A\\alpha(\\Delta T-273)}$",
+      "$\\frac{2F}{A\\alpha\\Delta T}$",
+      "$\\frac{F}{A\\alpha\\Delta T}$",
+      "$\\frac{F}{2A\\alpha\\Delta T}$"
     ],
     "answer": 2,
     "explanation": "The thermal strain produced when temperature is increased by $\\Delta T$ is:\n$$\\varepsilon = \\alpha \\Delta T$$\n\nThe compressive stress produced by the force $F$ to prevent this expansion is:\n$$\\sigma = \\frac{F}{A}$$\n\nUsing the definition of Young's modulus:\n$$Y = \\frac{\\text{Stress}}{\\text{Strain}} = \\frac{F}{A \\alpha \\Delta T}$$\nThis matches Option (3).",
@@ -827,10 +827,10 @@
     "q": "Choose the correct relationship between Poisson ratio ($\\sigma$), bulk modulus (K) and modulus of rigidity ($\\eta$) of a given solid object:",
     "type": "mcq",
     "options": [
-      "\\sigma = \\frac{3K-2\\eta}{6K+2\\eta}",
-      "\\sigma = \\frac{6K+2\\eta}{3K-2\\eta}",
-      "\\sigma = \\frac{3K+2\\eta}{6K+2\\eta}",
-      "\\sigma = \\frac{3K-2\\eta}{6K-2\\eta}"
+      "$\\sigma = \\frac{3K-2\\eta}{6K+2\\eta}$",
+      "$\\sigma = \\frac{6K+2\\eta}{3K-2\\eta}$",
+      "$\\sigma = \\frac{3K+2\\eta}{6K+2\\eta}$",
+      "$\\sigma = \\frac{3K-2\\eta}{6K-2\\eta}$"
     ],
     "answer": 0,
     "explanation": "We know the relations:\n$$Y = 3K(1-2\\sigma) \\quad \\text{and} \\quad Y = 2\\eta(1+\\sigma)$$\n\nEquating both equations for $Y$:\n$$3K(1-2\\sigma) = 2\\eta(1+\\sigma)$$\n$$3K - 6K\\sigma = 2\\eta + 2\\eta\\sigma \\implies 3K - 2\\eta = (6K+2\\eta)\\sigma$$\n$$\\sigma = \\frac{3K-2\\eta}{6K+2\\eta}$$\nThis matches Option (1).",
@@ -854,10 +854,10 @@
     "q": "An object is located at 2 km beneath the surface of the water. If the fractional compression is $\\frac{\\Delta V}{V} = 1.36\\%$, the ratio of hydraulic stress to the corresponding hydraulic strain will be _____ [Given: density of water is $1000\\text{ kg m}^{-3}$ and $g = 9.8\\text{ m s}^{-2}$.]",
     "type": "mcq",
     "options": [
-      "1. 96 \\times 10^7 N m^{-2}",
-      "1. 44 \\times 10^7 N m^{-2}",
-      "2. 26 \\times 10^9 N m^{-2}",
-      "1. 44 \\times 10^9 N m^{-2}"
+      "$1. 96 \\times 10^7 N m^{-2}$",
+      "$1. 44 \\times 10^7 N m^{-2}$",
+      "$2. 26 \\times 10^9 N m^{-2}$",
+      "$1. 44 \\times 10^9 N m^{-2}$"
     ],
     "answer": 3,
     "explanation": "The ratio of hydraulic stress to strain is the Bulk modulus:\n$$B = \\frac{\\Delta P}{\\Delta V / V}$$\n\nHydrostatic pressure at $2\\text{ km}$ is:\n$$\\Delta P = \\rho g h = 1000 \\times 9.8 \\times 2000 = 1.96 \\times 10^7\\text{ Pa}$$\n\nNow, substitute $\\Delta P$ and strain $\\frac{\\Delta V}{V} = 1.36\\% = 0.0136$:\n$$B = \\frac{1.96 \\times 10^7}{0.0136} \\approx 1.44 \\times 10^9\\text{ N m}^{-2}$$\nThis matches Option (4).",
@@ -870,10 +870,10 @@
     "q": "The normal density of a material is $\\rho$ and its bulk modulus of elasticity is K. The magnitude of increase in density of material, when a pressure P is applied uniformly on all sides, will be :",
     "type": "mcq",
     "options": [
-      "\\frac{P K}{\\rho}",
-      "\\frac{\\rho P}{K}",
-      "\\frac{\\rho K}{P}",
-      "\\frac{K}{\\rho P}"
+      "$\\frac{P K}{\\rho}$",
+      "$\\frac{\\rho P}{K}$",
+      "$\\frac{\\rho K}{P}$",
+      "$\\frac{K}{\\rho P}$"
     ],
     "answer": 1,
     "explanation": "Since mass is conserved, $M = \\rho V = \\text{constant}$:\n$$V d\\rho + \\rho dV = 0 \\implies \\frac{d\\rho}{\\rho} = -\\frac{dV}{V}$$\n\nFrom Bulk Modulus definition:\n$$K = \\frac{P}{-\\Delta V / V} \\implies -\\frac{\\Delta V}{V} = \\frac{P}{K}$$\n\nThus:\n$$\\frac{\\Delta \\rho}{\\rho} = \\frac{P}{K} \\implies \\Delta \\rho = \\frac{\\rho P}{K}$$\nThis matches Option (2).",
@@ -913,10 +913,10 @@
     "q": "A cylindrical rod of length 1 m and radius 4 cm is mounted vertically. It is subjected to a shear force of $10^5\\text{ N}$ at the top. Considering infinitesimally small displacement in the upper edge, the angular displacement $\\theta$ of the rod axis from its original position would be : (shear moduli, $G = 10^{10}\\text{ N/m}^2$)",
     "type": "mcq",
     "options": [
-      "1/160\\pi",
-      "1/4\\pi",
-      "1/40\\pi",
-      "1/2\\pi"
+      "$1/160\\pi$",
+      "$1/4\\pi$",
+      "$1/40\\pi$",
+      "$1/2\\pi$"
     ],
     "answer": 0,
     "explanation": "The shear strain (angular displacement) is:\n$$\\theta = \\frac{F}{A G} = \\frac{F}{\\pi R^2 G}$$\n$$\\theta = \\frac{10^5}{\\pi \\times (0.04)^2 \\times 10^{10}} = \\frac{10^5}{16\\pi \\times 10^6} = \\frac{1}{160\\pi}$$\nThis matches Option (1).",
@@ -1061,10 +1061,10 @@
     "q": "If Y, K and $\\eta$ are the values of Young's modulus, bulk modulus and modulus of rigidity of any material respectively. Choose the correct relation for these parameters.",
     "type": "mcq",
     "options": [
-      "Y = \\frac{9K\\eta}{3K-\\eta} N m^{-2}",
-      "\\eta = \\frac{3YK}{9K+Y} N m^{-2}",
-      "K = \\frac{Y\\eta}{9\\eta-3Y} N m^{-2}",
-      "Y = \\frac{9K\\eta}{2\\eta+3K} N m^{-2}"
+      "$Y = \\frac{9K\\eta}{3K-\\eta} N m^{-2}$",
+      "$\\eta = \\frac{3YK}{9K+Y} N m^{-2}$",
+      "$K = \\frac{Y\\eta}{9\\eta-3Y} N m^{-2}$",
+      "$Y = \\frac{9K\\eta}{2\\eta+3K} N m^{-2}$"
     ],
     "answer": 2,
     "explanation": "The relationship between Young's modulus $Y$, Bulk modulus $K$, and shear modulus $\\eta$ is given by the equation:\n$$\\frac{9}{Y} = \\frac{3}{\\eta} + \\frac{1}{K}$$\n\nRearranging to express $K$ in terms of $Y$ and $\\eta$:\n$$\\frac{1}{K} = \\frac{9}{Y} - \\frac{3}{\\eta} = \\frac{9\\eta - 3Y}{Y\\eta}$$\n$$K = \\frac{Y\\eta}{9\\eta - 3Y}$$\nThis matches Option (3).",
@@ -1077,10 +1077,10 @@
     "q": "A boy’s catapult is made of rubber cord which is 42 cm long, with 6 mm diameter of cross-section and of negligible mass. The boy keeps a stone weighing 0.02 kg on it and stretches the cord by 20 cm by applying a constant force. When released, the stone flies off with a velocity of 20 m $s^{-1}$. Neglect the change in the area of cross-section of the cord while stretched. The Young’s modulus of rubber is closest to:",
     "type": "mcq",
     "options": [
-      "10^6 N m^{-2}",
-      "10^4 N m^{-2}",
-      "10^8 N m^{-2}",
-      "10^3 N m^{-2}"
+      "$10^6 N m^{-2}$",
+      "$10^4 N m^{-2}$",
+      "$10^8 N m^{-2}$",
+      "$10^3 N m^{-2}$"
     ],
     "answer": 0,
     "explanation": "The elastic potential energy stored in the stretched rubber cord of the catapult is converted completely into the kinetic energy of the stone.\n$$U = \\frac{1}{2} \\frac{A Y (\\Delta L)^2}{L} = \\frac{1}{2} m v^2$$\n\nGiven parameters:\nMass of stone $m = 0.02\\text{ kg}$\nVelocity $v = 20\\text{ m/s}$\nRadius of cross section $r = 3\\text{ mm} = 3 \\times 10^{-3}\\text{ m} \\implies A = \\pi r^2 \\approx 1.13 \\times 10^{-5}\\text{ m}^2$\nOriginal length $L = 0.42\\text{ m}$\nElongation $\\Delta L = 20\\text{ cm} = 0.2\\text{ m}$\n\nSubstituting the values:\n$$\\frac{1}{2} \\times \\frac{(\\pi \\times 9 \\times 10^{-6}) Y \\times (0.2)^2}{0.42} = \\frac{1}{2} \\times 0.02 \\times 20^2$$\n$$\\frac{9\\pi \\times 10^{-6} \\times 0.04}{0.42} Y = 4$$\n$$2.693 \\times 10^{-6} Y = 4 \\implies Y \\approx 1.48 \\times 10^6\\text{ N m}^{-2}$$\n\nThis is closest in order of magnitude to $10^6\\text{ N m}^{-2}$, matching Option (1).",
@@ -1093,10 +1093,10 @@
     "q": "In an experiment, brass and steel wires of length 1 m each with areas of cross section 1 $mm^2$ are used. The wires are connected in series and one end of the combined wire is connected to a rigid support and other end is subjected to elongation. The stress required to produce a net elongation of 0.2 mm is, [Given, the Young's Modulus for steel and brass are, respectively, $120 \\times 10^9$ N/$m^2$ and $60 \\times 10^9$ N/$m^2$]",
     "type": "mcq",
     "options": [
-      "8.0 \\times 10^6 N/m^2",
-      "1.2 \\times 10^6 N/m^2",
-      "0.2 \\times 10^6 N/m^2",
-      "1.8 \\times 10^6 N m^{-2}"
+      "$8.0 \\times 10^6 N/m^2$",
+      "$1.2 \\times 10^6 N/m^2$",
+      "$0.2 \\times 10^6 N/m^2$",
+      "$1.8 \\times 10^6 N m^{-2}$"
     ],
     "answer": 0,
     "explanation": "Since the wires are in series, the tensile stress $\\sigma$ is same in both wires. The total elongation is:\n$$\\Delta L = \\Delta L_{\\text{steel}} + \\Delta L_{\\text{brass}}$$\n$$\\Delta L = \\frac{\\sigma L}{Y_{\\text{steel}}} + \\frac{\\sigma L}{Y_{\\text{brass}}} = \\sigma L \\left( \\frac{1}{Y_{\\text{steel}}} + \\frac{1}{Y_{\\text{brass}}} \\right)$$\n\nSubstituting the values:\n$$0.2 \\times 10^{-3} = \\sigma \\times 1 \\times \\left( \\frac{1}{120 \\times 10^9} + \\frac{1}{60 \\times 10^9} \\right)$$\n$$0.2 \\times 10^{-3} = \\sigma \\left( \\frac{3}{120 \\times 10^9} \\right) = \\frac{\\sigma}{40 \\times 10^9}$$\n$$\\sigma = 0.2 \\times 10^{-3} \\times 40 \\times 10^9 = 8.0 \\times 10^6\\text{ N/m}^2$$\nThis matches Option (1).",

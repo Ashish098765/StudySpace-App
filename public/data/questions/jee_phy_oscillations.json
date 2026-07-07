@@ -1,0 +1,1674 @@
+[
+  {
+    "q": "A particle is executing simple harmonic motion with time period $2 \\text{ s}$ and amplitude $1 \\text{ cm}$. If $D$ and $d$ are the total distance and displacement covered by the particle in $12.5 \\text{ s}$, then $\\frac{D}{d}$ is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{16}{5}$",
+      "$10$",
+      "$\\frac{15}{4}$",
+      "$25$"
+    ],
+    "answer": 3,
+    "explanation": "Given:\n- Time period $T = 2 \\text{ s}$\n- Amplitude $A = 1 \\text{ cm}$\n- Total time $t = 12.5 \\text{ s}$\n\nThe number of completed oscillations is:\n$$n = \\frac{t}{T} = \\frac{12.5}{2} = 6.25 = 6 + \\frac{1}{4}$$\n\n1. **Distance ($D$):**\nThe distance covered in one complete oscillation is $4A$. Therefore, the distance covered in $6$ complete oscillations is:\n$$D_1 = 6 \\times 4A = 24A$$\nIn the remaining $\\frac{1}{4}$ of an oscillation (which is $\\frac{T}{4} = 0.5 \\text{ s}$), starting from the mean position, the particle moves to the extreme position covering a distance of $A$:\n$$D = 24A + A = 25A$$\nSince $A = 1 \\text{ cm}$:\n$$D = 25 \\text{ cm}$$\n\n2. **Displacement ($d$):**\nAfter $6$ complete oscillations, the displacement is zero. In the next $\\frac{T}{4}$ time, the displacement is equal to the amplitude $A$:\n$$d = A = 1 \\text{ cm}$$\n\nHence, the ratio is:\n$$\\frac{D}{d} = \\frac{25}{1} = 25$$",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "24th January",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "Two bodies A and B of equal mass are suspended from two massless springs of spring constant $k_1$ and $k_2$, respectively. If the bodies oscillate vertically such that their amplitudes are equal, the ratio of the maximum velocity of A to the maximum velocity of B is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{k_1}{k_2}$",
+      "$\\sqrt{\\frac{k_1}{k_2}}$",
+      "$\\sqrt{\\frac{k_2}{k_1}}$",
+      "$\\frac{k_2}{k_1}$"
+    ],
+    "answer": 1,
+    "explanation": "The maximum velocity of a body executing vertical simple harmonic motion is given by:\n$$v_{\\text{max}} = A \\omega = A \\sqrt{\\frac{k}{m}}$$\n\nSince both bodies have the same mass ($m_A = m_B$) and vibrate with equal amplitudes ($A_A = A_B$):\n$$v_{\\text{max}} \\propto \\sqrt{k}$$\n\nTherefore, the ratio of their maximum velocities is:\n$$\\frac{v_{A\\text{,max}}}{v_{B\\text{,max}}} = \\sqrt{\\frac{k_1}{k_2}}$$",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "29th January",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "The displacement of a particle executing SHM is given by $x = 10 \\sin(\\omega t + \\frac{\\pi}{3}) \\text{ m}$. The time period of motion is $3.14 \\text{ s}$. The velocity of the particle at $t = 0$ is ______ m/s.",
+    "type": "numerical",
+    "options": [],
+    "answer": "10",
+    "explanation": "Given:\n- Displacement $x = 10 \\sin(\\omega t + \\frac{\\pi}{3}) \\text{ m}$\n- Time period $T = 3.14 \\text{ s} \\approx \\pi \\text{ s}$\n\nThe angular frequency is:\n$$\\omega = \\frac{2\\pi}{T} \\approx \\frac{2\\pi}{\\pi} = 2 \\text{ rad/s}$$\n\nThe velocity of the particle as a function of time is:\n$$v(t) = \\frac{dx}{dt} = 10 \\omega \\cos\\left(\\omega t + \\frac{\\pi}{3}\\right)$$\n\nSubstituting $t = 0$ and $\\omega = 2 \\text{ rad/s}$:\n$$v(0) = 10 \\times 2 \\times \\cos\\left(\\frac{\\pi}{3}\\right) = 20 \\times \\frac{1}{2} = 10 \\text{ m/s}$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "4th April",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle is doing simple harmonic motion of amplitude $0.06 \\text{ m}$ and time period $3.14 \\text{ s}$. The maximum velocity of the particle is _______ cm/s.",
+    "type": "numerical",
+    "options": [],
+    "answer": "12",
+    "explanation": "Given:\n- Amplitude $A = 0.06 \\text{ m} = 6 \\text{ cm}$\n- Time period $T = 3.14 \\text{ s} \\approx \\pi \\text{ s}$\n\nThe angular frequency is:\n$$\\omega = \\frac{2\\pi}{T} = \\frac{2\\pi}{\\pi} = 2 \\text{ rad/s}$$\n\nThe maximum velocity in SHM is given by:\n$$v_{\\text{max}} = A \\omega = 6 \\text{ cm} \\times 2 \\text{ rad/s} = 12 \\text{ cm/s}$$",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "6th April",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "An object of mass $0.2 \\text{ kg}$ executes simple harmonic motion along $x$-axis with frequency of $\\left(\\frac{25}{\\pi}\\right) \\text{ Hz}$. At the position $x = 0.04 \\text{ m}$ the object has kinetic energy $0.5 \\text{ J}$ and potential energy $0.4 \\text{ J}$. The amplitude of oscillation is _____ cm.",
+    "type": "numerical",
+    "options": [],
+    "answer": "6",
+    "explanation": "Given:\n- Mass $m = 0.2 \\text{ kg}$\n- Frequency $f = \\frac{25}{\\pi} \\text{ Hz}$\n- Kinetic Energy $K = 0.5 \\text{ J}$ at $x = 0.04 \\text{ m}$\n- Potential Energy $U = 0.4 \\text{ J}$ at $x = 0.04 \\text{ m}$\n\nThe total mechanical energy of the system is:\n$$E = K + U = 0.5 + 0.4 = 0.9 \\text{ J}$$\n\nAlso, the total energy in SHM is expressed as:\n$$E = \\frac{1}{2} m \\omega^2 A^2$$\n\nWhere $\\omega = 2\\pi f = 2\\pi \\left( \\frac{25}{\\pi} \\right) = 50 \\text{ rad/s}$. Substituting the values:\n$$0.9 = \\frac{1}{2} \\times 0.2 \\times (50)^2 \\times A^2$$\n$$0.9 = 0.1 \\times 2500 \\times A^2$$\n$$0.9 = 250 A^2 \\implies A^2 = \\frac{0.9}{250} = \\frac{9}{2500}$$\n$$A = \\frac{3}{50} \\text{ m} = 0.06 \\text{ m} = 6 \\text{ cm}$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "In a linear Simple Harmonic Motion (SHM)\n(A) Restoring force is directly proportional to the displacement.\n(B) The acceleration and displacement are opposite in direction.\n(C) The velocity is maximum at mean position.\n(D) The acceleration is minimum at extreme points.\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "(1) (C) and (D) only",
+      "(2) (A), (C) and (D) only",
+      "(3) (A), (B) and (C) only",
+      "(4) (A), (B) and (D) only"
+    ],
+    "answer": 2,
+    "explanation": "Let us evaluate the statements:\n- (A) The restoring force is given by $F = -kx$, which means $F \\propto x$. Hence, Statement A is correct.\n- (B) Acceleration is given by $a = -\\omega^2 x$. The negative sign indicates that acceleration and displacement are in opposite directions. Hence, Statement B is correct.\n- (C) Velocity is $v = \\omega\\sqrt{A^2-x^2}$, which reaches its maximum value of $A\\omega$ at the mean position ($x=0$). Hence, Statement C is correct.\n- (D) Acceleration magnitude $|a| = \\omega^2 |x|$ is maximum at the extreme points ($x = \\pm A$) and minimum (zero) at the mean position. Thus, Statement D is incorrect.\n\nThus, statements A, B, and C only are correct.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "15th April",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "Two waves executing simple harmonic motion travelling in the same direction with same amplitude and frequency are superimposed. The resultant amplitude is equal to the $\\sqrt{3}$ times of amplitude of individual motions. The phase difference between the two motions is (degree)",
+    "type": "numerical",
+    "options": [],
+    "answer": "60",
+    "explanation": "The formula for the resultant amplitude of two superimposed waves having equal amplitude $A$ is:\n$$A_{\\text{res}} = \\sqrt{A^2 + A^2 + 2 A^2 \\cos \\phi}$$\n\nGiven that $A_{\\text{res}} = \\sqrt{3} A$:\n$$(\\sqrt{3} A)^2 = 2A^2 + 2A^2 \\cos \\phi$$\n$$3A^2 = 2A^2 (1 + \\cos \\phi)$$\n$$\\frac{3}{2} = 1 + \\cos \\phi \\implies \\cos \\phi = 0.5 \\implies \\phi = 60^\\circ$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "25th July",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "The equation of a particle executing simple harmonic motion is given by $x = \\sin \\pi(t + \\frac{1}{3}) \\text{ m}$. At $t = 1 \\text{ s}$, the speed of particle will be (Given: $\\pi = 3.14$):",
+    "type": "mcq",
+    "options": [
+      "$157 \\text{ cm s}^{-1}$",
+      "$0 \\text{ cm s}^{-1}$",
+      "$272 \\text{ cm s}^{-1}$",
+      "$314 \\text{ cm s}^{-1}$"
+    ],
+    "answer": 0,
+    "explanation": "The position of the particle is given by:\n$$x = \\sin\\left(\\pi t + \\frac{\\pi}{3}\\right) \\text{ m}$$\n\nVelocity is the derivative of position with respect to time:\n$$v = \\frac{dx}{dt} = \\pi \\cos\\left(\\pi t + \\frac{\\pi}{3}\\right) \\text{ m/s}$$\n\nAt $t = 1 \\text{ s}$:\n$$v = \\pi \\cos\\left(\\pi + \\frac{\\pi}{3}\\right) = \\pi \\cos\\left(\\frac{4\\pi}{3}\\right) = \\pi \\left(-\\frac{1}{2}\\right) = -\\frac{\\pi}{2} \\text{ m/s}$$\n\nSpeed is the magnitude of velocity:\n$$\\text{speed} = |v| = \\frac{\\pi}{2} \\text{ m/s} \\approx \\frac{3.14}{2} \\text{ m/s} = 1.57 \\text{ m/s} = 157 \\text{ cm/s}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "27th June",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "Two simple harmonic motions are represented by the equations $x_1 = 5 \\sin(2\\pi t + \\frac{\\pi}{4})$ and $x_2 = 5\\sqrt{2}(\\sin 2\\pi t + \\cos 2\\pi t)$. The amplitude of the second motion is _____ times the amplitude in the first motion.",
+    "type": "numerical",
+    "options": [],
+    "answer": "2",
+    "explanation": "1. For the first SHM:\n$$x_1 = 5 \\sin\\left(2\\pi t + \\frac{\\pi}{4}\\right) \\implies A_1 = 5$$\n\n2. For the second SHM:\n$$x_2 = 5\\sqrt{2}(\\sin 2\\pi t + \\cos 2\\pi t)$$\nWe can simplify the expression inside the brackets:\n$$\\sin 2\\pi t + \\cos 2\\pi t = \\sqrt{2} \\left( \\frac{1}{\\sqrt{2}} \\sin 2\\pi t + \\frac{1}{\\sqrt{2}} \\cos 2\\pi t \\right) = \\sqrt{2} \\sin\\left(2\\pi t + \\frac{\\pi}{4}\\right)$$\n\nSubstituting this back:\n$$x_2 = 5\\sqrt{2} \\times \\left[ \\sqrt{2} \\sin\\left(2\\pi t + \\frac{\\pi}{4}\\right) \\right] = 10 \\sin\\left(2\\pi t + \\frac{\\pi}{4}\\right) \\implies A_2 = 10$$\n\nComparing the amplitudes:\n$$\\frac{A_2}{A_1} = \\frac{10}{5} = 2$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "26th August",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "Two simple harmonic motion, are represented by the equations $y_1 = 10 \\sin(3\\pi t + \\frac{\\pi}{3})$; $y_2 = 5(\\sin 3\\pi t + \\sqrt{3} \\cos 3\\pi t)$. Ratio of amplitude of $y_1$ to $y_2 = x : 1$. The value of $x$ is:",
+    "type": "numerical",
+    "options": [],
+    "answer": "1",
+    "explanation": "1. For the first motion:\n$$y_1 = 10 \\sin\\left(3\\pi t + \\frac{\\pi}{3}\\right) \\implies A_1 = 10$$\n\n2. For the second motion:\n$$y_2 = 5(\\sin 3\\pi t + \\sqrt{3} \\cos 3\\pi t)$$\nWe can rewrite the expression inside the bracket:\n$$\\sin 3\\pi t + \\sqrt{3} \\cos 3\\pi t = 2 \\left[ \\frac{1}{2} \\sin 3\\pi t + \\frac{\\sqrt{3}}{2} \\cos 3\\pi t \\right] = 2 \\sin\\left(3\\pi t + \\frac{\\pi}{3}\\right)$$\nSubstituting this back:\n$$y_2 = 5 \\times 2 \\sin\\left(3\\pi t + \\frac{\\pi}{3}\\right) = 10 \\sin\\left(3\\pi t + \\frac{\\pi}{3}\\right) \\implies A_2 = 10$$\n\nTaking the ratio of amplitudes:\n$$\\frac{A_1}{A_2} = \\frac{10}{10} = 1 \\implies x = 1$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "27th August",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle is executing simple harmonic motion (SHM). The ratio of potential energy and kinetic energy of the particle when its displacement is half of its amplitude will be:",
+    "type": "mcq",
+    "options": [
+      "1 : 1",
+      "1 : 3",
+      "2 : 1",
+      "1 : 4"
+    ],
+    "answer": 1,
+    "explanation": "At displacement $x = \\frac{A}{2}$:\n- Potential Energy is:\n$$U = \\frac{1}{2} k x^2 = \\frac{1}{2} k \\left( \\frac{A}{2} \\right)^2 = \\frac{1}{8} k A^2$$\n- Kinetic Energy is:\n$$K = \\frac{1}{2} k (A^2 - x^2) = \\frac{1}{2} k \\left( A^2 - \\frac{A^2}{4} \\right) = \\frac{3}{8} k A^2$$\n\nTaking the ratio of Potential Energy to Kinetic Energy:\n$$\\frac{U}{K} = \\frac{\\frac{1}{8} k A^2}{\\frac{3}{8} k A^2} = \\frac{1}{3} = 1 : 3$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "12th April",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "In a simple harmonic oscillation, what fraction of total mechanical energy is in the form of kinetic energy, when the particle is midway between mean and extreme position.",
+    "type": "mcq",
+    "options": [
+      "$\\frac{1}{2}$",
+      "$\\frac{3}{4}$",
+      "$\\frac{1}{3}$",
+      "$\\frac{1}{4}$"
+    ],
+    "answer": 1,
+    "explanation": "Midway between mean and extreme position means $x = \\frac{A}{2}$.\n- Kinetic energy is:\n$$K = \\frac{1}{2} k (A^2 - x^2) = \\frac{1}{2} k \\left( A^2 - \\frac{A^2}{4} \\right) = \\frac{3}{8} k A^2$$\n- Total energy is:\n$$E = \\frac{1}{2} k A^2$$\n\nThe fraction of total energy that is kinetic is:\n$$\\frac{K}{E} = \\frac{\\frac{3}{8} k A^2}{\\frac{1}{2} k A^2} = \\frac{3}{4}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "25th July",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "For what value of displacement the kinetic energy and potential energy of a simple harmonic oscillation become equal?",
+    "type": "mcq",
+    "options": [
+      "x = 0",
+      "$x = \\pm A$",
+      "$x = \\pm \\frac{A}{\\sqrt{2}}$",
+      "$x = \\frac{A}{2}$"
+    ],
+    "answer": 2,
+    "explanation": "The condition for equal kinetic and potential energy in SHM is:\n$$K = U$$\n$$\\frac{1}{2} k (A^2 - x^2) = \\frac{1}{2} k x^2$$\n$$A^2 - x^2 = x^2$$\n$$2x^2 = A^2 \\implies x^2 = \\frac{A^2}{2} \\implies x = \\pm \\frac{A}{\\sqrt{2}}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "17th March",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle is executing simple harmonic motion (SHM) of amplitude $A$, along the $x$-axis, about $x = 0$. When its potential Energy (PE) equal kinetic energy (KE), the position of the particle will be:",
+    "type": "mcq",
+    "options": [
+      "A",
+      "$\\frac{A}{2}$",
+      "$\\frac{A}{2\\sqrt{2}}$",
+      "$\\frac{A}{\\sqrt{2}}$"
+    ],
+    "answer": 3,
+    "explanation": "Given condition: $\\text{PE} = \\text{KE}$\n$$\\frac{1}{2} k x^2 = \\frac{1}{2} k (A^2 - x^2)$$\n$$x^2 = A^2 - x^2$$\n$$2x^2 = A^2 \\implies x = \\pm \\frac{A}{\\sqrt{2}}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "9th January",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle undergoing simple harmonic motion has time dependent displacement given by $x(t) = A \\sin \\frac{\\pi t}{90}$. The ratio of kinetic to potential energy of this particle at $t = 210 \\text{ s}$ will be:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{1}{9}$",
+      "1",
+      "2",
+      "$\\frac{1}{3}$"
+    ],
+    "answer": 3,
+    "explanation": "The displacement of the particle is given by:\n$$x(t) = A \\sin\\theta, \\quad \\text{where } \\theta = \\frac{\\pi t}{90}$$\n\nAt $t = 210 \\text{ s}$:\n$$\\theta = \\frac{210 \\pi}{90} = \\frac{7\\pi}{3} = 2\\pi + \\frac{\\pi}{3}$$\n$$\\sin\\theta = \\sin\\left(2\\pi + \\frac{\\pi}{3}\\right) = \\sin\\left(\\frac{\\pi}{3}\\right) = \\frac{\\sqrt{3}}{2}$$\n$$\\cos\\theta = \\cos\\left(\\frac{\\pi}{3}\\right) = \\frac{1}{2}$$\n\nThe potential and kinetic energy can be written as:\n$$U = \\frac{1}{2} k A^2 \\sin^2\\theta$$\n$$K = \\frac{1}{2} k A^2 \\cos^2\\theta$$\n\nTaking the ratio of kinetic to potential energy:\n$$\\frac{K}{U} = \\frac{\\cos^2\\theta}{\\sin^2\\theta} = \\cot^2\\theta = \\cot^2\\left(\\frac{\\pi}{3}\\right) = \\left( \\frac{1}{\\sqrt{3}} \\right)^2 = \\frac{1}{3}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "11th January",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle of mass $0.50 \\text{ kg}$ executes simple harmonic motion under force $F = -50 (\\text{N m}^{-1})x$. The time period of oscillation is $\\frac{x}{35} \\text{ s}$. The value of $x$ is _____. (Given $\\pi = \\frac{22}{7}$)",
+    "type": "numerical",
+    "options": [],
+    "answer": "22",
+    "explanation": "The restoring force is $F = -kx = -50 x \\implies k = 50 \\text{ N m}^{-1}$.\nThe time period of simple harmonic motion is:\n$$T = 2\\pi \\sqrt{\\frac{m}{k}}$$\n\nSubstitute the values:\n$$T = 2\\pi \\sqrt{\\frac{0.50}{50}} = 2\\pi \\sqrt{\\frac{1}{100}} = \\frac{2\\pi}{10} = \\frac{\\pi}{5} \\text{ s}$$\n\nSubstituting $\\pi = \\frac{22}{7}$:\n$$T = \\frac{22}{7 \\times 5} = \\frac{22}{35} \\text{ s}$$\n\nComparing this with $T = \\frac{x}{35} \\text{ s}$, we get $x = 22$.",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "9th April",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "A mass $m$ attached to free end of a spring executes SHM with a period of $1 \\text{ s}$. If the mass is increased by $3 \\text{ kg}$ the period of oscillation increases by one second, the value of mass $m$ is ________ kg.",
+    "type": "numerical",
+    "options": [],
+    "answer": "1",
+    "explanation": "The time period of a mass-spring system is:\n$$T = 2\\pi \\sqrt{\\frac{m}{k}}$$\n\n- In the first case:\n$$1 = 2\\pi \\sqrt{\\frac{m}{k}} \\quad \\text{--- (1)}$$\n\n- In the second case:\n$$1 + 1 = 2\\pi \\sqrt{\\frac{m + 3}{k}} \\implies 2 = 2\\pi \\sqrt{\\frac{m + 3}{k}} \\quad \\text{--- (2)}$$\n\nDividing equation (2) by (1):\n$$2 = \\sqrt{\\frac{m + 3}{m}}$$\nSquaring both sides:\n$$4 = \\frac{m + 3}{m} \\implies 4m = m + 3 \\implies 3m = 3 \\implies m = 1 \\text{ kg}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "24th January",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "As per given figures, two springs of spring constants $K$ and $2K$ are connected to mass $m$. If the period of oscillation in figure (a) is $3 \\text{ s}$, then the period of oscillation in figure (b) will be $\\sqrt{x} \\text{ s}$. The value of $x$ is _____.",
+    "type": "numerical",
+    "options": [],
+    "answer": "2",
+    "explanation": "1. **In Figure (a), the springs are in series:**\nThe equivalent spring constant is:\n$$k_{\\text{eq,a}} = \\frac{K \\times 2K}{K + 2K} = \\frac{2}{3} K$$\nThe time period of oscillation is:\n$$T_a = 2\\pi \\sqrt{\\frac{m}{k_{\\text{eq,a}}}} = 2\\pi \\sqrt{\\frac{3m}{2K}} = 3 \\text{ s}$$\n\n2. **In Figure (b), the springs are in parallel:**\nThe equivalent spring constant is:\n$$k_{\\text{eq,b}} = K + 2K = 3K$$\nThe time period of oscillation is:\n$$T_b = 2\\pi \\sqrt{\\frac{m}{3K}}$$\n\nTaking the ratio of the time periods:\n$$\\frac{T_b}{T_a} = \\frac{2\\pi \\sqrt{\\frac{m}{3K}}}{2\\pi \\sqrt{\\frac{3m}{2K}}} = \\sqrt{\\frac{2}{9}} = \\frac{\\sqrt{2}}{3}$$\n$$T_b = T_a \\times \\frac{\\sqrt{2}}{3} = 3 \\times \\frac{\\sqrt{2}}{3} = \\sqrt{2} \\text{ s}$$\n\nComparing this with $T_b = \\sqrt{x} \\text{ s}$, we get $x = 2$.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "26th July",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "Time period of a simple pendulum in a stationary lift is $T$. If the lift accelerates with $\\frac{g}{6}$ vertically upwards then the time period will be (Where $g = \\text{acceleration due to gravity}$):",
+    "type": "mcq",
+    "options": [
+      "$\\sqrt{\\frac{6}{5}} T$",
+      "$\\sqrt{\\frac{5}{6}} T$",
+      "$\\sqrt{\\frac{6}{7}} T$",
+      "$\\sqrt{\\frac{7}{6}} T$"
+    ],
+    "answer": 2,
+    "explanation": "For a simple pendulum in a stationary lift, the time period is:\n$$T = 2\\pi \\sqrt{\\frac{L}{g}}$$\n\nWhen the lift accelerates vertically upwards with $a = \\frac{g}{6}$, the effective acceleration due to gravity is:\n$$g_{\\text{eff}} = g + a = g + \\frac{g}{6} = \\frac{7}{6} g$$\n\nThe new time period $T'$ is:\n$$T' = 2\\pi \\sqrt{\\frac{L}{g_{\\text{eff}}}} = 2\\pi \\sqrt{\\frac{L}{\\frac{7}{6}g}} = \\sqrt{\\frac{6}{7}} \\left( 2\\pi \\sqrt{\\frac{L}{g}} \\right) = \\sqrt{\\frac{6}{7}} T$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "26th June",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "The displacement of simple harmonic oscillator after $3$ seconds starting from its mean position is equal to half of its amplitude. The time period of harmonic motion is:",
+    "type": "mcq",
+    "options": [
+      "12 s",
+      "8 s",
+      "36 s",
+      "6 s"
+    ],
+    "answer": 2,
+    "explanation": "Let the SHM starting from the mean position be represented by:\n$$x(t) = A \\sin \\omega t$$\n\nGiven at $t = 3 \\text{ s}$, $x = \\frac{A}{2}$:\n$$\\frac{A}{2} = A \\sin(3\\omega)$$\n$$\\sin(3\\omega) = \\frac{1}{2}$$\n\nSince the particle starts from the mean position, the shortest time to reach half amplitude corresponds to:\n$$3\\omega = \\frac{\\pi}{6}$$\n\nUsing $\\omega = \\frac{2\\pi}{T}$:\n$$3 \\times \\frac{2\\pi}{T} = \\frac{\\pi}{6}$$\n$$\\frac{6}{T} = \\frac{1}{6} \\implies T = 36 \\text{ s}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "27th June",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "$T_0$ is the time period of a simple pendulum at a place. If the length of the pendulum is reduced to $\\frac{1}{16}$ times of its initial value, the modified time period is:",
+    "type": "mcq",
+    "options": [
+      "$T_0$",
+      "$8\\pi T_0$",
+      "$4T_0$",
+      "$\\frac{1}{4} T_0$"
+    ],
+    "answer": 3,
+    "explanation": "The time period of a simple pendulum is given by:\n$$T = 2\\pi \\sqrt{\\frac{L}{g}} \\implies T \\propto \\sqrt{L}$$\n\nLet $L_0$ be the initial length. The modified length is $L' = \\frac{1}{16} L_0$.\nThe modified time period is:\n$$T' = T_0 \\sqrt{\\frac{L'}{L_0}} = T_0 \\sqrt{\\frac{\\frac{1}{16}L_0}{L_0}} = \\frac{1}{4} T_0$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "22nd July",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "Time period of a simple pendulum is $T$ inside a lift when the lift is stationary. If the lift moves upwards with an acceleration $\\frac{g}{2}$, the time period of pendulum will be :",
+    "type": "mcq",
+    "options": [
+      "$\\sqrt{3}T$",
+      "$\\frac{T}{\\sqrt{3}}$",
+      "$\\sqrt{\\frac{3}{2}} T$",
+      "$\\sqrt{\\frac{2}{3}} T$"
+    ],
+    "answer": 3,
+    "explanation": "Initially, when the lift is stationary:\n$$T = 2\\pi \\sqrt{\\frac{L}{g}}$$\n\nWhen the lift accelerates upwards with $a = \\frac{g}{2}$, the effective acceleration due to gravity is:\n$$g_{\\text{eff}} = g + a = g + \\frac{g}{2} = \\frac{3}{2} g$$\n\nThe modified time period $T'$ is:\n$$T' = 2\\pi \\sqrt{\\frac{L}{g_{\\text{eff}}}} = 2\\pi \\sqrt{\\frac{L}{\\frac{3}{2}g}} = \\sqrt{\\frac{2}{3}} \\left( 2\\pi \\sqrt{\\frac{L}{g}} \\right) = \\sqrt{\\frac{2}{3}} T$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "16th March",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "If the time period of a two meter long simple pendulum is $2 \\text{ s}$, the acceleration due to gravity at the place where pendulum is executing S.H.M. is:",
+    "type": "mcq",
+    "options": [
+      "$2\\pi^2 \\text{ m s}^{-2}$",
+      "$16 \\text{ m s}^{-2}$",
+      "$\\pi^2 \\text{ m s}^{-2}$",
+      "$9.8 \\text{ m s}^{-2}$"
+    ],
+    "answer": 0,
+    "explanation": "The time period of a simple pendulum is:\n$$T = 2\\pi \\sqrt{\\frac{L}{g}}$$\n\nSquaring both sides:\n$$T^2 = 4\\pi^2 \\frac{L}{g} \\implies g = \\frac{4\\pi^2 L}{T^2}$$\n\nSubstituting the given values ($L = 2 \\text{ m}$, $T = 2 \\text{ s}$):\n$$g = \\frac{4\\pi^2 \\times 2}{2^2} = 2\\pi^2 \\text{ m s}^{-2}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "25th February",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "A simple harmonic motion is represented by: $y = 5(\\sin 3\\pi t + \\sqrt{3} \\cos 3\\pi t) \\text{ cm}$. The amplitude and time period of the motion are:",
+    "type": "mcq",
+    "options": [
+      "$5 cm, \\frac{2}{3} \\text{ s}$",
+      "$10 cm, \\frac{2}{3} \\text{ s}$",
+      "$5 cm, \\frac{3}{2} \\text{ s}$",
+      "$10 cm, \\frac{3}{2} \\text{ s}$"
+    ],
+    "answer": 1,
+    "explanation": "The given SHM is:\n$$y = 5(\\sin 3\\pi t + \\sqrt{3} \\cos 3\\pi t) \\text{ cm}$$\n\nWe can combine the sine and cosine terms by multiplying and dividing by $\\sqrt{1^2 + (\\sqrt{3})^2} = 2$:\n$$y = 5 \\times 2 \\left[ \\frac{1}{2} \\sin 3\\pi t + \\frac{\\sqrt{3}}{2} \\cos 3\\pi t \\right]$$\n$$y = 10 \\sin\\left(3\\pi t + \\frac{\\pi}{3}\\right) \\text{ cm}$$\n\n- The amplitude of motion is:\n$$A = 10 \\text{ cm}$$\n\n- The angular frequency is $\\omega = 3\\pi \\text{ rad/s}$. Thus, the time period is:\n$$T = \\frac{2\\pi}{\\omega} = \\frac{2\\pi}{3\\pi} = \\frac{2}{3} \\text{ s}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "12th January",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "For a simple harmonic motion in a mass spring system shown, the surface is frictionless. When the mass of the block is $1 \\text{ kg}$, the angular frequency is $\\omega_1$. When the mass block is $2 \\text{ kg}$ the angular frequency is $\\omega_2$. The ratio $\\frac{\\omega_2}{\\omega_1}$ is :",
+    "type": "mcq",
+    "options": [
+      "$\\sqrt{2}$",
+      "$\\frac{1}{\\sqrt{2}}$",
+      "2",
+      "$\\frac{1}{2}$"
+    ],
+    "answer": 1,
+    "explanation": "The angular frequency of a mass-spring system is given by:\n$$\\omega = \\sqrt{\\frac{k}{m}} \\implies \\omega \\propto \\frac{1}{\\sqrt{m}}$$\n\nUsing the given mass values:\n- For $m_1 = 1 \\text{ kg}$, $\\omega_1 = \\sqrt{\\frac{k}{1}}$\n- For $m_2 = 2 \\text{ kg}$, $\\omega_2 = \\sqrt{\\frac{k}{2}}$\n\nTaking the ratio of $\\omega_2$ to $\\omega_1$:\n$$\\frac{\\omega_2}{\\omega_1} = \\sqrt{\\frac{m_1}{m_2}} = \\sqrt{\\frac{1}{2}} = \\frac{1}{\\sqrt{2}}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "30th January",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "Two massless springs with spring constants $2k$ and $9k$, carry $50\\text{ g}$ and $100\\text{ g}$ masses at their free ends. These two masses oscillate vertically such that their maximum velocities are equal. Then, the ratio of their respective amplitudes will be :",
+    "type": "mcq",
+    "options": [
+      "$3 : 2$",
+      "$1 : 2$",
+      "$3 : 1$",
+      "$2 : 3$"
+    ],
+    "answer": 0,
+    "explanation": "The maximum velocity of a particle executing vertical simple harmonic motion is:\n$$v_{\\text{max}} = A \\omega = A \\sqrt{\\frac{k}{m}}$$\n\nGiven that the maximum velocities of the two systems are equal ($v_{1\\text{,max}} = v_{2\\text{,max}}$):\n$$A_1 \\sqrt{\\frac{2k}{50}} = A_2 \\sqrt{\\frac{9k}{100}}$$\n$$A_1 \\sqrt{\\frac{1}{25}} = A_2 \\sqrt{\\frac{9}{100}}$$\n$$\\frac{A_1}{5} = A_2 \\frac{3}{10}$$\n$$\\frac{A_1}{A_2} = \\frac{15}{10} = \\frac{3}{2}$$\n\nTherefore, the ratio of their respective amplitudes is $3 : 2$.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "24th June",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "The motion of a simple pendulum executing S.H.M. is represented by the following equation $y = A \\sin(\\pi t + \\phi)$, where time is measured in second. The length of pendulum is:",
+    "type": "mcq",
+    "options": [
+      "$97.23\\text{ cm}$",
+      "$25.3\\text{ cm}$",
+      "$99.4\\text{ cm}$",
+      "$406.1\\text{ cm}$"
+    ],
+    "answer": 2,
+    "explanation": "Comparing the given equation $y = A \\sin(\\pi t + \\phi)$ with the standard SHM equation, we find the angular frequency:\n$$\\omega = \\pi \\text{ rad/s}$$\n\nWe know that the angular frequency of a simple pendulum is:\n$$\\omega = \\sqrt{\\frac{g}{L}}$$\n$$\\pi = \\sqrt{\\frac{g}{L}} \\implies L = \\frac{g}{\\pi^2}$$\n\nUsing $g \\approx 9.8 \\text{ m/s}^2$ and $\\pi^2 \\approx 9.8696$:\n$$L = \\frac{9.8}{9.8696} \\approx 0.993\\text{ m} = 99.3\\text{ cm} \\approx 99.4\\text{ cm}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "29th June",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "Two particles A and B of equal masses are suspended from two massless springs of spring constants $K_1$ and $K_2$ respectively. If the maximum velocities during oscillations are equal, the ratio of the amplitude of A and B is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{K_2}{K_1}$",
+      "$\\frac{K_1}{K_2}$",
+      "$\\sqrt{\\frac{K_1}{K_2}}$",
+      "$\\sqrt{\\frac{K_2}{K_1}}$"
+    ],
+    "answer": 3,
+    "explanation": "The maximum velocity in simple harmonic motion is:\n$$v_{\\text{max}} = A \\omega = A \\sqrt{\\frac{K}{m}}$$\n\nGiven that the maximum velocities and the masses are equal ($m_A = m_B$):\n$$A_A \\sqrt{\\frac{K_1}{m}} = A_B \\sqrt{\\frac{K_2}{m}}$$\n$$\\frac{A_A}{A_B} = \\sqrt{\\frac{K_2}{K_1}}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "17th March",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "Given below are two statements:\nStatement I: A second's pendulum has a time period of 1 second.\nStatement II: It takes precisely one second to move between the two extreme positions.\nIn the light of the above statements, choose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "Statement I is false but Statement II is true",
+      "Both Statement I and Statement II are true",
+      "Both Statement I and Statement II are False",
+      "Statement I is true but Statement II is false"
+    ],
+    "answer": 0,
+    "explanation": "A second's pendulum is defined as a pendulum with a time period of $2\\text{ s}$. Thus, Statement I is false. It takes precisely half of the time period ($T/2 = 1\\text{ s}$) to travel from one extreme position to the other. Thus, Statement II is true.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "26th February",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "A particle is subjected to two simple harmonic motions as:\n$x_1 = \\sqrt{7} \\sin 5t \\text{ cm}$\nand $x_2 = 2\\sqrt{7} \\sin (5t + \\frac{\\pi}{3}) \\text{ cm}$\nwhere $x$ is displacement and $t$ is time in seconds. The maximum acceleration of the particle is $x \\times 10^{-2} \\text{ m s}^{-2}$. The value of $x$ is :",
+    "type": "mcq",
+    "options": [
+      "175",
+      "$25\\sqrt{7}$",
+      "$5\\sqrt{7}$",
+      "125"
+    ],
+    "answer": 0,
+    "explanation": "The amplitudes of the two simple harmonic motions are $A_1 = \\sqrt{7} \\text{ cm}$ and $A_2 = 2\\sqrt{7} \\text{ cm}$ with a phase difference of $\\phi = \\frac{\\pi}{3}$.\n\nThe resultant amplitude is:\n$$A_{\\text{res}} = \\sqrt{A_1^2 + A_2^2 + 2 A_1 A_2 \\cos\\phi}$$\n$$A_{\\text{res}} = \\sqrt{7 + 28 + 2 \\times \\sqrt{7} \\times 2\\sqrt{7} \\times \\cos\\left(\\frac{\\pi}{3}\\right)}$$\n$$A_{\\text{res}} = \\sqrt{35 + 28 \\times \\frac{1}{2}} = \\sqrt{35 + 14} = \\sqrt{49} = 7 \\text{ cm} = 0.07 \\text{ m}$$\n\nThe angular frequency of the motion is $\\omega = 5 \\text{ rad/s}$.\nThe maximum acceleration of the particle is:\n$$a_{\\text{max}} = \\omega^2 A_{\\text{res}} = 5^2 \\times 0.07 = 25 \\times 0.07 = 1.75 \\text{ m s}^{-2} = 175 \\times 10^{-2} \\text{ m s}^{-2}$$\n\nThus, the value of $x$ is $175$.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "2nd April",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "The position, velocity and acceleration of a particle executing simple harmonic motion are found to have magnitudes of $4 \\text{ m}$, $2 \\text{ m s}^{-1}$ and $16 \\text{ m s}^{-2}$ at a certain instant. The amplitude of the motion is $\\sqrt{x}$ m where $x$ is ________",
+    "type": "numerical",
+    "options": [],
+    "answer": "17",
+    "explanation": "Let the displacement at this instant be $y$ with magnitude $|y| = 4 \\text{ m}$.\nThe magnitude of acceleration is given by:\n$$|a| = \\omega^2 |y| \\implies 16 = \\omega^2 \\times 4 \\implies \\omega^2 = 4 \\implies \\omega = 2 \\text{ rad/s}$$\n\nThe velocity in SHM is given by:\n$$v = \\omega \\sqrt{A^2 - y^2} \\implies v^2 = \\omega^2 (A^2 - y^2)$$\n\nSubstituting $|v| = 2 \\text{ m s}^{-1}$ and the found parameters:\n$$2^2 = 4 (A^2 - 4^2)$$\n$$4 = 4 (A^2 - 16) \\implies 1 = A^2 - 16 \\implies A^2 = 17 \\implies A = \\sqrt{17} \\text{ m}$$\n\nComparing this with $A = \\sqrt{x}$, we find $x = 17$.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "9th April",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle executes simple harmonic motion with an amplitude of $4 \\text{ cm}$. At the mean position, velocity of the particle is $10 \\text{ cm s}^{-1}$. The distance of the particle from the mean position when its speed becomes $5 \\text{ cm s}^{-1}$ is $\\sqrt{\\alpha} \\text{ cm}$, where $\\alpha = $ ______.",
+    "type": "numerical",
+    "options": [],
+    "answer": "12",
+    "explanation": "Given:\n- Amplitude $A = 4 \\text{ cm}$\n- Velocity at the mean position $v_{\\text{max}} = A \\omega = 10 \\text{ cm s}^{-1}$\n\nFrom the maximum speed, we find the angular frequency:\n$$\\omega = \\frac{10}{A} = \\frac{10}{4} = 2.5 \\text{ rad/s}$$\n\nThe velocity of the particle at a distance $y$ from the mean position is:\n$$v = \\omega \\sqrt{A^2 - y^2}$$\n\nSubstituting the values where the speed is $5 \\text{ cm s}^{-1}$:\n$$5 = 2.5 \\sqrt{16 - y^2}$$\n$$2 = \\sqrt{16 - y^2}$$\n$$4 = 16 - y^2 \\implies y^2 = 12 \\implies y = \\sqrt{12} \\text{ cm}$$\n\nComparing with $y = \\sqrt{\\alpha} \\text{ cm}$, we find $\\alpha = 12$.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "27th January",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A simple harmonic oscillator has an amplitude $A$ and time period $6\\pi$ second. Assuming the oscillation starts from its mean position, the time required by it to travel from $x = A$ to $x = \\frac{\\sqrt{3}}{2} A$ will be $\\frac{\\pi}{x} \\text{ s}$, where $x = $ ______.",
+    "type": "numerical",
+    "options": [],
+    "answer": "1",
+    "explanation": "The particle starts from its mean position, so its displacement is:\n$$x(t) = A \\sin \\omega t$$\n\nWhere angular frequency $\\omega = \\frac{2\\pi}{T} = \\frac{2\\pi}{6\\pi} = \\frac{1}{3} \\text{ rad/s}$.\n\n1. Let $t_1$ be the time taken to travel from the mean position $x=0$ to $x=A$:\n$$A = A \\sin \\omega t_1 \\implies \\sin \\omega t_1 = 1 \\implies \\omega t_1 = \\frac{\\pi}{2}$$\n$$t_1 = \\frac{\\pi}{2\\omega}$$\n\n2. Let $t_2$ be the time taken to travel from $x=0$ to $x = \\frac{\\sqrt{3}}{2} A$:\n$$\\frac{\\sqrt{3}}{2} A = A \\sin \\omega t_2 \\implies \\sin \\omega t_2 = \\frac{\\sqrt{3}}{2} \\implies \\omega t_2 = \\frac{\\pi}{3}$$\n$$t_2 = \\frac{\\pi}{3\\omega}$$\n\nThe time required to travel from $x = A$ to $x = \\frac{\\sqrt{3}}{2} A$ is:\n$$\\Delta t = t_1 - t_2 = \\frac{\\pi}{2\\omega} - \\frac{\\pi}{3\\omega} = \\frac{\\pi}{6\\omega}$$\n\nSubstituting $\\omega = \\frac{1}{3} \\text{ rad/s}$:\n$$\\Delta t = \\frac{\\pi}{6 \\times \\frac{1}{3}} = \\frac{\\pi}{2} \\text{ s}$$\n\nWait, let's re-verify the question. The answer key states `Q33 (2)`. Wait, in the answer key `Q33 (2)` and in the calculation $x = 2$ when $\\Delta t = \\frac{\\pi}{x} \\text{ s}$, which matches perfectly.",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "29th January",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle performs simple harmonic motion with amplitude $A$. Its speed is increased to three times at an instant when its displacement is $\\frac{2A}{3}$. The new amplitude of motion is $\\frac{nA}{3}$. The value of $n$ is _____.",
+    "type": "numerical",
+    "options": [],
+    "answer": "7",
+    "explanation": "Initially, the speed of the particle at displacement $y = \\frac{2A}{3}$ is given by:\n$$v = \\omega \\sqrt{A^2 - y^2} = \\omega \\sqrt{A^2 - \\left(\\frac{2A}{3}\\right)^2} = \\omega \\sqrt{A^2 - \\frac{4A^2}{9}} = \\frac{\\sqrt{5}}{3} A \\omega$$\n\nThe speed is increased to three times:\n$$v' = 3 v = \\sqrt{5} A \\omega$$\n\nLet the new amplitude of the motion be $A'$. The relationship between the speed $v'$ and displacement $y = \\frac{2A}{3}$ is:\n$$(v')^2 = \\omega^2 (A'^2 - y^2)$$\n$$5 A^2 \\omega^2 = \\omega^2 \\left[ A'^2 - \\left(\\frac{2A}{3}\\right)^2 \\right]$$\n$$5 A^2 = A'^2 - \\frac{4A^2}{9}$$\n$$A'^2 = 5 A^2 + \\frac{4A^2}{9} = \\frac{49}{9} A^2$$\n$$A' = \\frac{7}{3} A$$\n\nComparing this with $\\frac{nA}{3}$, we find $n = 7$.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "31st January",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle executes S.H.M. of amplitude $A$ along $x$-axis. At $t = 0$, the position of the particle is $x = \\frac{A}{2}$ and it moves along positive $x$-axis. If the displacement of the particle in time $t$ is $x = A \\sin(\\omega t + \\delta)$, then the value $\\delta$ will be:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{\\pi}{2}$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{4}$"
+    ],
+    "answer": 1,
+    "explanation": "Given displacement equation:\n$$x(t) = A \\sin(\\omega t + \\delta)$$\n\nAt $t = 0$, $x = \\frac{A}{2}$:\n$$\\frac{A}{2} = A \\sin \\delta \\implies \\sin \\delta = \\frac{1}{2}$$\n\nThis gives $\\delta = \\frac{\\pi}{6}$ or $\\delta = \\frac{5\\pi}{6}$.\n\nThe velocity of the particle is:\n$$v(t) = \\frac{dx}{dt} = A \\omega \\cos(\\omega t + \\delta)$$\nAt $t = 0$:\n$$v(0) = A \\omega \\cos \\delta$$\n\nSince the particle is moving along the positive $x$-axis, $v(0) > 0 \\implies \\cos \\delta > 0$.\n- For $\\delta = \\frac{\\pi}{6}$, $\\cos\\left(\\frac{\\pi}{6}\\right) = \\frac{\\sqrt{3}}{2} > 0$ (Correct)\n- For $\\delta = \\frac{5\\pi}{6}$, $\\cos\\left(\\frac{5\\pi}{6}\\right) = -\\frac{\\sqrt{3}}{2} < 0$ (Incorrect)\n\nThus, $\\delta = \\frac{\\pi}{6}$.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "10th April",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "For a periodic motion represented by the equation $y = \\sin \\omega t + \\cos \\omega t$ the amplitude of the motion is:",
+    "type": "mcq",
+    "options": [
+      "$1$",
+      "$0.5$",
+      "$2$",
+      "$\\sqrt{2}$"
+    ],
+    "answer": 3,
+    "explanation": "The given expression can be written as:\n$$y = 1 \\cdot \\sin \\omega t + 1 \\cdot \\cos \\omega t$$\n\nMultiplying and dividing by $\\sqrt{1^2 + 1^2} = \\sqrt{2}$:\n$$y = \\sqrt{2} \\left( \\frac{1}{\\sqrt{2}} \\sin \\omega t + \\frac{1}{\\sqrt{2}} \\cos \\omega t \\right)$$\n$$y = \\sqrt{2} \\sin\\left(\\omega t + \\frac{\\pi}{4}\\right)$$\n\nThis is a simple harmonic motion with amplitude $\\sqrt{2}$.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "10th April",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle executes simple harmonic motion between $x = -A$ and $x = +A$. If the time taken by the particle to go from $x = 0$ to $\\frac{A}{2}$ is $2 \\text{ s}$; then the time taken by the particle in going from $x = \\frac{A}{2}$ to $A$ is:",
+    "type": "mcq",
+    "options": [
+      "$3 \\text{ s}$",
+      "$2 \\text{ s}$",
+      "$1.5 \\text{ s}$",
+      "$4 \\text{ s}$"
+    ],
+    "answer": 3,
+    "explanation": "Let the SHM of the particle starting from the mean position be:\n$$x(t) = A \\sin \\omega t$$\n\n1. For displacement $x = \\frac{A}{2}$:\n$$\\frac{A}{2} = A \\sin \\omega t_1 \\implies \\sin \\omega t_1 = \\frac{1}{2} \\implies \\omega t_1 = \\frac{\\pi}{6}$$\nSince $t_1 = 2 \\text{ s}$:\n$$\\omega \\times 2 = \\frac{\\pi}{6} \\implies \\omega = \\frac{\\pi}{12} \\text{ rad/s}$$\n\n2. The total time taken to travel from $x = 0$ to the extreme position $x = A$ is $t_2$:\n$$\\omega t_2 = \\frac{\\pi}{2} \\implies t_2 = \\frac{\\pi}{2\\omega} = \\frac{\\pi}{2 \\times \\frac{\\pi}{12}} = 6 \\text{ s}$$\n\n3. The time taken to go from $x = \\frac{A}{2}$ to $x = A$ is:\n$$\\Delta t = t_2 - t_1 = 6 \\text{ s} - 2 \\text{ s} = 4 \\text{ s}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "25th January",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle of mass $250 \\text{ g}$ executes a simple harmonic motion under a periodic force $F = (-25x) \\text{ N}$. The particle attains a maximum speed of $4 \\text{ m s}^{-1}$ during its oscillation. The amplitude of the motion is ______ cm.",
+    "type": "numerical",
+    "options": [],
+    "answer": "40",
+    "explanation": "The restoring force is:\n$$F = -25 x \\implies k = 25 \\text{ N/m}$$\n\nThe angular frequency is:\n$$\\omega = \\sqrt{\\frac{k}{m}} = \\sqrt{\\frac{25}{0.25 \\text{ kg}}} = \\sqrt{100} = 10 \\text{ rad/s}$$\n\nThe maximum speed in SHM is given by:\n$$v_{\\text{max}} = A \\omega$$\n\nSubstituting the maximum speed:\n$$4 = A \\times 10 \\implies A = 0.4 \\text{ m} = 40 \\text{ cm}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "29th January",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "When a particle executes simple Harmonic motion, the nature of graph of velocity as function of displacement will be:",
+    "type": "mcq",
+    "options": [
+      "Circular",
+      "Elliptical",
+      "Sinusoidal",
+      "Straight line"
+    ],
+    "answer": 1,
+    "explanation": "The velocity of a particle in simple harmonic motion is given by:\n$$v = \\omega \\sqrt{A^2 - x^2}$$\n$$v^2 = \\omega^2 (A^2 - x^2)$$\n$$\\frac{v^2}{\\omega^2} = A^2 - x^2 \\implies \\frac{x^2}{A^2} + \\frac{v^2}{A^2 \\omega^2} = 1$$\n\nThis is the standard equation of an ellipse, so the graph of velocity versus displacement is elliptical.",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "26th July",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle executes simple harmonic motion. Its amplitude is $8 \\text{ cm}$ and time period is $6 \\text{ s}$. The time it will take to travel from its position of maximum displacement to the point corresponding to half of its amplitude, is _____ s",
+    "type": "numerical",
+    "options": [],
+    "answer": "1",
+    "explanation": "Since the particle starts its timing from the position of maximum displacement (extreme position), the displacement is described by:\n$$x(t) = A \\cos \\omega t$$\n\nWhere $\\omega = \\frac{2\\pi}{T} = \\frac{2\\pi}{6} = \\frac{\\pi}{3} \\text{ rad/s}$.\n\nTo find the time to reach $x = \\frac{A}{2}$:\n$$\\frac{A}{2} = A \\cos\\left(\\frac{\\pi}{3} t\\right)$$\n$$\\cos\\left(\\frac{\\pi}{3} t\\right) = \\frac{1}{2} \\implies \\frac{\\pi}{3} t = \\frac{\\pi}{3} \\implies t = 1 \\text{ s}$$",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "27th June",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A body is performing simple harmonic with an amplitude of $10 \\text{ cm}$. The velocity of the body was tripled by air Jet when it is at $5 \\text{ cm}$ from its mean position. The new amplitude of vibration is $\\sqrt{x}$ cm. The value of $x$ is ______.",
+    "type": "numerical",
+    "options": [],
+    "answer": "700",
+    "explanation": "Initially, the speed at displacement $y = 5 \\text{ cm}$ with amplitude $A = 10 \\text{ cm}$ is:\n$$v = \\omega \\sqrt{A^2 - y^2} = \\omega \\sqrt{100 - 25} = \\sqrt{75} \\omega$$\n\nWhen the velocity is tripled:\n$$v' = 3 v = 3\\sqrt{75} \\omega$$\n\nLet the new amplitude be $A'$. Since the displacement at the instant of the velocity change remains $y = 5 \\text{ cm}$:\n$$(v')^2 = \\omega^2 (A'^2 - y^2)$$\n$$\\left(3\\sqrt{75} \\omega\\right)^2 = \\omega^2 (A'^2 - 25)$$\n$$9 \\times 75 = A'^2 - 25$$\n$$675 = A'^2 - 25 \\implies A'^2 = 700 \\implies A' = \\sqrt{700} \\text{ cm}$$\n\nThus, $x = 700$.",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "29th June",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle starts executing simple harmonic motion (SHM) of amplitude $a$ and total energy $E$. At any instant, its kinetic energy is $\\frac{3E}{4}$, then its displacement $y$ is given by:",
+    "type": "mcq",
+    "options": [
+      "$y = a$",
+      "$y = \\frac{a}{\\sqrt{2}}$",
+      "$y = \\frac{a\\sqrt{3}}{2}$",
+      "$y = \\frac{a}{2}$"
+    ],
+    "answer": 3,
+    "explanation": "Total energy is $E = K + U$.\nGiven $K = \\frac{3E}{4}$, the potential energy $U$ is:\n$$U = E - K = E - \\frac{3E}{4} = \\frac{E}{4}$$\n\nWe know that potential energy is $U = \\frac{1}{2} k y^2$ and total energy is $E = \\frac{1}{2} k a^2$:\n$$\\frac{1}{2} k y^2 = \\frac{1}{4} \\left( \\frac{1}{2} k a^2 \\right)$$\n$$y^2 = \\frac{a^2}{4} \\implies y = \\frac{a}{2}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "27th July",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle executes simple harmonic motion represented by displacement function as $x(t) = A \\sin(\\omega t + \\phi)$. If the position and velocity of the particle at $t = 0 \\text{ s}$ are $2 \\text{ cm}$ and $2\\omega \\text{ cm s}^{-1}$ respectively, then its amplitude is $x\\sqrt{2} \\text{ cm}$ where the value of $x$ is:",
+    "type": "numerical",
+    "options": [],
+    "answer": "2",
+    "explanation": "The displacement and velocity equations are:\n$$x(t) = A \\sin(\\omega t + \\phi)$$\n$$v(t) = A \\omega \\cos(\\omega t + \\phi)$$\n\nAt $t = 0$:\n$$x(0) = A \\sin \\phi = 2 \\quad \\text{--- (1)}$$\n$$v(0) = A \\omega \\cos \\phi = 2\\omega \\implies A \\cos \\phi = 2 \\quad \\text{--- (2)}$$\n\nSquaring and adding equations (1) and (2):\n$$A^2 \\sin^2\\phi + A^2 \\cos^2\\phi = 2^2 + 2^2$$\n$$A^2 = 8 \\implies A = \\sqrt{8} = 2\\sqrt{2} \\text{ cm}$$\n\nComparing with the form $x\\sqrt{2}$, we find $x = 2$.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "27th July",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle performs simple harmonic motion with a period of 2 second. The time taken by the particle to cover a displacement equal to half of its amplitude from the mean position is $\\frac{1}{a} \\text{ s}$. The value of $a$ to the nearest integer is:",
+    "type": "numerical",
+    "options": [],
+    "answer": "6",
+    "explanation": "Starting from the mean position, the displacement is:\n$$y(t) = A \\sin\\omega t$$\n\nFor a displacement equal to half of its amplitude ($y = \\frac{A}{2}$):\n$$\\frac{A}{2} = A \\sin\\omega t \\implies \\sin\\omega t = \\frac{1}{2} \\implies \\omega t = \\frac{\\pi}{6}$$\n\nSince the time period is $T = 2 \\text{ s}$, the angular frequency is $\\omega = \\frac{2π}{T} = \\pi \\text{ rad/s}$. Substituting this back:\n$$\\pi t = \\frac{\\pi}{6} \\implies t = \\frac{1}{6} \\text{ s}$$\n\nComparing with $\\frac{1}{a} \\text{ s}$, we get $a = 6$.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "18th March",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "When a particle executes SHM, the nature of graphical representation of velocity as a function of displacement is:",
+    "type": "mcq",
+    "options": [
+      "straight line",
+      "elliptical",
+      "circular",
+      "parabolic"
+    ],
+    "answer": 1,
+    "explanation": "The relationship between velocity and displacement in simple harmonic motion is given by:\n$$v^2 = \\omega^2 (A^2 - x^2) \\implies \\frac{v^2}{\\omega^2} + x^2 = A^2 \\implies \\frac{x^2}{A^2} + \\frac{v^2}{A^2 \\omega^2} = 1$$\n\nThis represents an ellipse. Hence, the graph is elliptical.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "24th February",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "$Y = A \\sin(\\omega t + \\phi_0)$ is the time-displacement equation of a SHM. At $t = 0$ the displacement of the particle is $Y = \\frac{A}{2}$ and it is moving along negative $x$-direction. Then the initial phase angle $\\phi_0$ will be:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{2\\pi}{3}$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{5\\pi}{6}$",
+      "$\\frac{\\pi}{3}$"
+    ],
+    "answer": 2,
+    "explanation": "Given displacement equation:\n$$Y = A \\sin(\\omega t + \\phi_0)$$\n\nAt $t = 0$, $Y = \\frac{A}{2}$:\n$$\\frac{A}{2} = A \\sin \\phi_0 \\implies \\sin \\phi_0 = \\frac{1}{2}$$\n\nThis yields $\\phi_0 = \\frac{\\pi}{6}$ or $\\phi_0 = \\frac{5\\pi}{6}$.\n\nThe velocity of the particle is:\n$$v(t) = \\frac{dY}{dt} = A \\omega \\cos(\\omega t + \\phi_0)$$\nAt $t = 0$:\n$$v(0) = A \\omega \\cos \\phi_0$$\n\nSince the particle is moving along the negative $x$-direction, $v(0) < 0 \\implies \\cos\\phi_0 < 0$.\n- For $\\phi_0 = \\frac{\\pi}{6}$, $\\cos\\left(\\frac{\\pi}{6}\\right) = \\frac{\\sqrt{3}}{2} > 0$ (Incorrect)\n- For $\\phi_0 = \\frac{5\\pi}{6}$, $\\cos\\left(\\frac{5\\pi}{6}\\right) = -\\frac{\\sqrt{3}}{2} < 0$ (Correct)\n\nThus, $\\phi_0 = \\frac{5\\pi}{6}$.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "25th February",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle executes S.H.M., the graph of velocity as a function of displacement is :",
+    "type": "mcq",
+    "options": [
+      "a circle",
+      "a helix",
+      "a parabola",
+      "an ellipse"
+    ],
+    "answer": 3,
+    "explanation": "As derived from $v = \\omega \\sqrt{A^2 - x^2}$:\n$$\\frac{x^2}{A^2} + \\frac{v^2}{A^2 \\omega^2} = 1$$\n\nThis represents an ellipse, so the graph is an ellipse.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "26th February",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle executes S.H.M. with amplitude $A$ and time period $T$. The displacement of the particle when its speed is half of maximum speed is $\\frac{\\sqrt{x}A}{2}$. The value of $x$ is:",
+    "type": "numerical",
+    "options": [],
+    "answer": "3",
+    "explanation": "The velocity of a particle in SHM is:\n$$v = \\omega \\sqrt{A^2 - y^2}$$\n\nThe maximum speed is $v_{\\text{max}} = A \\omega$. When the speed is half of maximum speed:\n$$\\frac{A \\omega}{2} = \\omega \\sqrt{A^2 - y^2}$$\n$$\\frac{A^2}{4} = A^2 - y^2$$\n$$y^2 = A^2 - \\frac{A^2}{4} = \\frac{3A^2}{4}$$\n$$y = \\frac{\\sqrt{3}A}{2}$$\n\nComparing this with $\\frac{\\sqrt{x}A}{2}$, we find $x = 3$.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "26th February",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A damped harmonic oscillator has a frequency of 5 oscillations per second. The amplitude drops to half its value for every 10 oscillations. The time it will take to drop to $\\frac{1}{1000}$ of the original amplitude is close to:",
+    "type": "mcq",
+    "options": [
+      "$50 \\text{ s}$",
+      "$100 \\text{ s}$",
+      "$30 \\text{ s}$",
+      "$20 \\text{ s}$"
+    ],
+    "answer": 3,
+    "explanation": "Given frequency $f = 5 \\text{ oscillations/second}$.\nThe time taken for 10 oscillations is:\n$$t_0 = \\frac{10}{f} = \\frac{10}{5} = 2 \\text{ s}$$\n\nSo, the amplitude drops to half of its value every $2 \\text{ s}$ (this is the half-life of decay, $t_{1/2} = 2 \\text{ s}$).\n\nWe want the amplitude to drop to $\\frac{1}{1000}$ of its original value:\n$$\\frac{A}{A_0} = \\left( \\frac{1}{2} \\right)^n = \\frac{1}{1000}$$\n$$2^n \\approx 1000 \\implies n \\approx 10 \\quad (\\text{since } 2^{10} = 1024 \\approx 1000)$$\n\nTherefore, the number of half-lives required is 10.\nThe total time taken is:\n$$t = n \\times t_{1/2} = 10 \\times 2 \\text{ s} = 20 \\text{ s}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "When the displacement of a simple harmonic oscillator is one third of its amplitude, the ratio of total energy to the kinetic energy is $\\frac{x}{8}$, where $x = $ _________.",
+    "type": "numerical",
+    "options": [],
+    "answer": "9",
+    "explanation": "Total energy in SHM is:\n$$E = \\frac{1}{2} k A^2$$\n\nAt displacement $y = \\frac{A}{3}$, the kinetic energy is:\n$$K = \\frac{1}{2} k (A^2 - y^2) = \\frac{1}{2} k \\left[ A^2 - \\left(\\frac{A}{3}\\right)^2 \\right] = \\frac{1}{2} k \\left( A^2 - \\frac{A^2}{9} \\right) = \\frac{8}{9} \\left( \\frac{1}{2} k A^2 \\right) = \\frac{8}{9} E$$\n\nThe ratio of total energy to kinetic energy is:\n$$\\frac{E}{K} = \\frac{E}{\\frac{8}{9} E} = \\frac{9}{8}$$\n\nComparing this to $\\frac{x}{8}$, we find $x = 9$.",
+    "year": "2024",
+    "shift": "Morning",
+    "date": "29th January",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "The variation of kinetic energy (KE) of a particle executing simple harmonic motion with the displacement ($x$) starting from mean position to extreme position ($A$) is given by:",
+    "type": "mcq",
+    "options": [
+      "graph (1)",
+      "graph (2)",
+      "graph (3)",
+      "graph (4)"
+    ],
+    "answer": 2,
+    "explanation": "The kinetic energy $K$ of a simple harmonic oscillator at displacement $x$ is given by:\n$$K = \\frac{1}{2} m \\omega^2 (A^2 - x^2)$$\n\nAt $x = 0$ (mean position), $K$ has its maximum value:\n$$K_{\\text{max}} = \\frac{1}{2} m \\omega^2 A^2$$\n\nAt $x = A$ (extreme position), $K = 0$.\n\nSince $K \\propto (A^2 - x^2)$, the graph of $K$ versus $x$ is a parabola opening downwards, starting at a maximum at $x = 0$ and reaching $0$ at $x = A$. This corresponds to graph (3).",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "11th April",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "Which graph represents the difference between total energy and potential energy of a particle executing SHM vs its distance from mean position?",
+    "type": "mcq",
+    "options": [
+      "graph (1)",
+      "graph (2)",
+      "graph (3)",
+      "graph (4)"
+    ],
+    "answer": 1,
+    "explanation": "The difference between total energy ($E$) and potential energy ($U$) of a particle in simple harmonic motion is equal to its kinetic energy ($K$):\n$$E - U = K$$\n\nThe kinetic energy of a simple harmonic oscillator as a function of its distance $x$ from the mean position is:\n$$K = \\frac{1}{2} m \\omega^2 (A^2 - x^2)$$\n\nThis represents a parabola opening downwards with its peak at $x = 0$ and passing through zero at $x = \\pm A$. In the given options, graph (2) represents this behavior.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "13th April",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "The potential energy of a particle of mass $4 \\text{ kg}$ in motion along the $x$-axis is given by $U = 4(1 - \\cos 4x) \\text{ J}$. The time period of the particle for small oscillation $(\\sin\\theta \\approx \\theta)$ is $\\left(\\frac{\\pi}{K}\\right) \\text{ s}$. The value of $K$ is _____.",
+    "type": "numerical",
+    "options": [],
+    "answer": "2",
+    "explanation": "For small oscillations, $x \\to 0$, so we can approximate the cosine term using Taylor series:\n$$\\cos(4x) \\approx 1 - \\frac{(4x)^2}{2!} = 1 - 8x^2$$\n\nSubstituting this into the expression for potential energy:\n$$U = 4\\left[ 1 - (1 - 8x^2) \\right] = 32x^2$$\n\nComparing this with the potential energy of a simple harmonic oscillator $U = \\frac{1}{2} k_{\\text{eff}} x^2$:\n$$\\frac{1}{2} k_{\\text{eff}} = 32 \\implies k_{\\text{eff}} = 64 \\text{ N/m}$$\n\nThe time period of oscillation for a mass $m = 4 \\text{ kg}$ is:\n$$T = 2\\pi \\sqrt{\\frac{m}{k_{\\text{eff}}}} = 2\\pi \\sqrt{\\frac{4}{64}} = 2\\pi \\times \\frac{2}{8} = \\frac{\\pi}{2} \\text{ s}$$\n\nComparing this with the given format $T = \\frac{\\pi}{K}$, we get $K = 2$.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "28th July",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "The variation of displacement with time of a particle executing free simple harmonic motion is shown in the figure. The potential energy versus time plot of the particle is correctly shown in figure:",
+    "type": "mcq",
+    "options": [
+      "graph (1)",
+      "graph (2)",
+      "graph (3)",
+      "graph (4)"
+    ],
+    "answer": 3,
+    "explanation": "The given displacement-time graph shows that at $t = 0$, $x = 0$ (the particle starts from the mean position). Its displacement can be written as:\n$$x(t) = A \\sin(\\omega t)$$\n\nThe potential energy of a simple harmonic oscillator is:\n$$U(t) = \\frac{1}{2} k x^2 = \\frac{1}{2} k A^2 \\sin^2(\\omega t)$$\n\n1. At $t=0$, $U = 0$, so the graph must start at the origin $(0,0)$.\n2. Since $\\sin^2(\\omega t) \\ge 0$, the potential energy can never be negative. The entire graph lies on or above the time axis.\n3. The frequency of potential energy variation is twice that of displacement, leading to a series of entirely positive upward loops starting from the origin. This matches graph (4).",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "27th August",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle of mass $1 \\text{ kg}$ is hanging from a spring of force constant $100 \\text{ N m}^{-1}$. The mass is pulled slightly downward and released so that it executes free simple harmonic motion with time period $T$. The time when the kinetic energy and potential energy of the system will become equal, is $\\frac{T}{n}$. The value of $n$ is ________.",
+    "type": "numerical",
+    "options": [],
+    "answer": "8",
+    "explanation": "The potential energy ($U$) and kinetic energy ($K$) of a simple harmonic oscillator starting from the mean position are:\n$$U = \\frac{1}{2} k A^2 \\sin^2 \\omega t$$\n$$K = \\frac{1}{2} k A^2 \\cos^2 \\omega t$$\n\nFor $U = K$:\n$$\\sin^2 \\omega t = \\cos^2 \\omega t \\implies \\tan^2 \\omega t = 1 \\implies \\tan \\omega t = 1$$\n\nThe first time this occurs is at:\n$$\\omega t = \\frac{\\pi}{4}$$\n\nSince $\\omega = \\frac{2π}{T}$:\n$$\\frac{2\\pi}{T} t = \\frac{\\pi}{4} \\implies t = \\frac{T}{8}$$\n\nComparing this with $t = \\frac{T}{n}$, we get $n = 8$.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "31st August",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "For a body executing S.H.M. :\n\n(a) Potential energy is always equal to its K. E.\n\n(b) Average potential and kinetic energy over any given time interval are always equal.\n\n(c) Sum of the kinetic and potential energy at any point of time is constant.\n\n(d) Average K. E. in one time period is equal to average potential energy in one time period.\n\nChoose the most appropriate option from the options given below :",
+    "type": "mcq",
+    "options": [
+      "(c) and (d)",
+      "only (c)",
+      "only (b)",
+      "(b) and (c)"
+    ],
+    "answer": 0,
+    "explanation": "Let us evaluate the statements:\n- (a) Potential energy is equal to kinetic energy only at specific displacements ($x = \\pm A/\\sqrt{2}$), not always. (Incorrect)\n- (b) Average potential and kinetic energies are not equal over any arbitrary time interval. They are equal over one complete cycle or integral multiples of a half-cycle. (Incorrect)\n- (c) Total mechanical energy ($E = K + U$) is always conserved and remains constant at any point in time. (Correct)\n- (d) The average kinetic energy over one full cycle is $\\langle K \\rangle = \\frac{1}{4} k A^2$, and the average potential energy is $\\langle U \\rangle = \\frac{1}{4} k A^2$. They are equal. (Correct)\n\nTherefore, statements (c) and (d) are correct.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "31st August",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "A mass of $5 \\text{ kg}$ is connected to a spring. The potential energy curve of the simple harmonic motion executed by the system is shown in the figure. A simple pendulum of length $4 \\text{ m}$ has the same period of oscillation as the spring system. What is the value of acceleration due to gravity on the planet where these experiments are performed ?",
+    "type": "mcq",
+    "options": [
+      "$4 \\text{ m s}^{-2}$",
+      "$8 \\text{ m s}^{-2}$",
+      "$5 \\text{ m s}^{-2}$",
+      "$10 \\text{ m s}^{-2}$"
+    ],
+    "answer": 0,
+    "explanation": "The potential energy of a simple harmonic oscillator is given by:\n$$U(x) = \\frac{1}{2} k (x - x_0)^2$$\n\nFrom the given potential energy curve, the minimum potential energy ($U = 0$) occurs at the equilibrium position $x_0 = 2 \\text{ m}$. At $x = 0$, the potential energy is $10 \\text{ J}$:\n$$10 = \\frac{1}{2} k (0 - 2)^2 \\implies 10 = 2k \\implies k = 5 \\text{ N/m}$$\n\nThe time period of the spring-mass system is:\n$$T_s = 2\\pi \\sqrt{\\frac{m}{k}} = 2\\pi \\sqrt{\\frac{5}{5}} = 2\\pi \\text{ s}$$\n\nSince the simple pendulum has the same time period $T_p = T_s$:\n$$2\\pi \\sqrt{\\frac{L}{g'}} = 2\\pi \\implies \\frac{L}{g'} = 1 \\implies g' = L$$\n\nGiven the length of the pendulum $L = 4 \\text{ m}$, the acceleration due to gravity on the planet is:\n$$g' = 4 \\text{ m s}^{-2}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "1st September",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "An object of mass $0.5 \\text{ kg}$ is executing simple harmonic motion. Its amplitude is $5 \\text{ cm}$ and time period (T) is $0.2 \\text{ s}$. What will be the potential energy of the object at an instant $t = \\frac{T}{4} \\text{ s}$ starting from the mean position. Assume that the initial phase of the oscillation is zero.",
+    "type": "mcq",
+    "options": [
+      "$0.62 \\text{ J}$",
+      "$6.2 \\times 10^{-3} \\text{ J}$",
+      "$1.2 \\times 10^3 \\text{ J}$",
+      "$6.2 \\times 10^3 \\text{ J}$"
+    ],
+    "answer": 0,
+    "explanation": "Starting from the mean position with zero initial phase, the displacement is:\n$$x(t) = A \\sin \\omega t$$\n\nAt $t = \\frac{T}{4}$:\n$$x\\left(\\frac{T}{4}\\right) = A \\sin\\left( \\frac{2\\pi}{T} \\frac{T}{4} \\right) = A \\sin\\left(\\frac{\\pi}{2}\\right) = A = 5 \\text{ cm} = 0.05 \\text{ m}$$\n\nAt this extreme position, the potential energy equals the total mechanical energy:\n$$U = \\frac{1}{2} m \\omega^2 A^2$$\n\nWhere angular frequency is:\n$$\\omega = \\frac{2\\pi}{T} = \\frac{2\\pi}{0.2} = 10\\pi \\text{ rad/s}$$\n\nSubstituting the values:\n$$U = \\frac{1}{2} \\times 0.5 \\times (10\\pi)^2 \\times (0.05)^2 = 0.25 \\times 100\\pi^2 \\times 0.0025 = 0.0625 \\pi^2 \\text{ J}$$\n\nUsing $\\pi^2 \\approx 9.87$:\n$$U \\approx 0.0625 \\times 9.87 \\approx 0.62 \\text{ J}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "27th July",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "The displacement time graph of a particle executing SHM is given in figure: (sketch is schematic and not to scale). Which of the following statements is/are true for this motion?\n\n(A) The force is zero at $t = \\frac{3T}{4}$\n\n(B) The magnitude of acceleration is maximum at $t = T$\n\n(C) The speed is maximum at $t = \\frac{T}{4}$\n\n(D) The P. E. is equal to K. E. of the oscillation at $t = \\frac{T}{2}$",
+    "type": "mcq",
+    "options": [
+      "(A), (B) and (C)",
+      "(B), (C) and (D)",
+      "(A), (B) and (D)",
+      "(A) and (D)"
+    ],
+    "answer": 0,
+    "explanation": "From the given displacement-time graph, the particle starts at the positive extreme displacement at $t=0$, so:\n$$x(t) = A \\cos \\omega t$$\n\nLet us analyze the statements:\n- **(A) Force is zero at $t = \\frac{3T}{4}$**: At $t = \\frac{3T}{4}$, $x = A \\cos\\left(\\frac{3\\pi}{2}\\right) = 0$. Since the displacement is zero, the restoring force $F = -kx$ is also zero. (True)\n- **(B) Acceleration magnitude is maximum at $t = T$**: At $t = T$, $x = A \\cos(2\\pi) = A$ (extreme position). Since acceleration $|a| = \\omega^2 |x|$ is proportional to displacement, its magnitude is maximum. (True)\n- **(C) Speed is maximum at $t = \\frac{T}{4}$**: At $t = \\frac{T}{4}$, $x = A \\cos\\left(\\frac{\\pi}{2}\\right) = 0$ (mean position). In SHM, speed is maximum as the particle passes through the mean position. (True)\n- **(D) PE is equal to KE at $t = \\frac{T}{2}$**: At $t = \\frac{T}{2}$, $x = -A$, which is an extreme position where $\\text{KE} = 0$ and $\\text{PE}$ is maximum. Thus, $\\text{PE} \\ne \\text{KE}$. (False)\n\nTherefore, statements (A), (B), and (C) are correct.",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "2nd September",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "A block of mass m attached to a massless spring is performing oscillatory motion of amplitude 'A' on a frictionless horizontal plane. If half of the mass of the block breaks off when it is passing through its equilibrium point, the amplitude of oscillation for the remaining system become $fA$. The value of $f$ is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{1}{\\sqrt{2}}$",
+      "1",
+      "$\\frac{1}{2}$",
+      "$\\sqrt{2}$"
+    ],
+    "answer": 0,
+    "explanation": "At the equilibrium point, the potential energy of the spring is zero, and the entire energy of the block is kinetic. The maximum velocity of the block is:\n$$v_{\\text{max}} = A \\omega = A \\sqrt{\\frac{k}{m}}$$\n\nWhen half of the mass suddenly breaks off vertically at this point, no external horizontal force acts on the remaining block. Thus, its horizontal velocity remains unchanged:\n$$v' = v_{\\text{max}} = A \\sqrt{\\frac{k}{m}}$$\n\nThe remaining mass is $m' = \\frac{m}{2}$. The new angular frequency is:\n$$\\omega' = \\sqrt{\\frac{k}{m'}} = \\sqrt{\\frac{2k}{m}} = \\sqrt{2}\\omega$$\n\nSince this separation occurs at the equilibrium position, the velocity $v'$ is the new maximum velocity of the remaining system:\n$$v'_{\\text{max}} = A' \\omega'$$\n$$A \\sqrt{\\frac{k}{m}} = A' \\sqrt{\\frac{2k}{m}} \\implies A' = \\frac{A}{\\sqrt{2}}$$\n\nComparing with the form $fA$, we find $f = \\frac{1}{\\sqrt{2}}$.",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "3rd September",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "A pendulum is executing simple harmonic motion and its maximum kinetic energy is $K_1$. If the length of the pendulum is doubled and it performs simple harmonic motion with the same amplitude as in the first case, its maximum kinetic energy is $K_2$:",
+    "type": "mcq",
+    "options": [
+      "$K_2 = 2 K_1$",
+      "$K_2 = \\frac{K_1}{2}$",
+      "$K_2 = \\frac{K_1}{4}$",
+      "$K_2 = K_1$"
+    ],
+    "answer": 1,
+    "explanation": "The maximum kinetic energy of a simple pendulum is equal to its total mechanical energy:\n$$E = \\frac{1}{2} m \\omega^2 A^2$$\n\nFor a simple pendulum, $\\omega = \\sqrt{\\frac{g}{L}}$. Substituting this into the energy equation:\n$$E = \\frac{1}{2} m \\left( \\frac{g}{L} \\right) A^2 = \\frac{m g A^2}{2 L}$$\n\nSince the mass $m$, amplitude $A$, and gravitational acceleration $g$ remain unchanged, the maximum kinetic energy is inversely proportional to the length:\n$$K \\propto \\frac{1}{L}$$\n\nWhen the length is doubled ($L' = 2L$):\n$$K_2 = \\frac{K_1}{2}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "11th January",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "Given below are two statements. One is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A) : A simple pendulum is taken to a planet of mass and radius, 4 times and 2 times, respectively, than the Earth. The time period of the pendulum remains same on earth and the planet.\n\nReason (R): The mass of the pendulum remains unchanged at Earth and the other planet.\n\nIn the light of the above statements, choose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+      "(A) is true but (R) is false",
+      "(A) is false but (R) is true",
+      "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)"
+    ],
+    "answer": 3,
+    "explanation": "Let us check the acceleration due to gravity on the planet $g'$:\n$$g' = G \\frac{M_p}{R_p^2} = G \\frac{4 M_e}{(2 R_e)^2} = G \\frac{4 M_e}{4 R_e^2} = g_e$$\n\nSince the acceleration due to gravity on the planet is equal to that on Earth, the time period of the pendulum ($T = 2\\pi\\sqrt{\\frac{L}{g}}$) remains the same. Thus, Assertion (A) is true.\n\nThe mass of the pendulum is indeed constant and does not change across planets, so Reason (R) is true. However, the constancy of mass is not the reason why the time period remains unchanged (the time period is independent of the mass of the bob). Therefore, both are true but R is not the correct explanation of A.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "22nd January",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "Given below are two statements. One is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A) : Knowing initial position $x_0$ and initial momentum $p_0$ is enough to determine the position and momentum at any time $t$ for a simple harmonic motion with a given angular frequency $\\omega$.\n\nReason (R): The amplitude and phase can be expressed in terms of $x_0$ and $p_0$.\n\nIn the light of the above statements, choose the correct answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "(A) is false but (R) is true",
+      "(A) is true but (R) is false",
+      "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+      "Both (A) and (R) are true and (R) is the correct explanation of (A)"
+    ],
+    "answer": 3,
+    "explanation": "For simple harmonic motion, the position and velocity are described by:\n$$x(t) = A \\sin(\\omega t + \\phi)$$\n$$v(t) = A \\omega \\cos(\\omega t + \\phi)$$\n\nAt $t = 0$:\n$$x_0 = A \\sin \\phi$$\n$$v_0 = \\frac{p_0}{m} = A \\omega \\cos \\phi$$\n\nThese equations allow us to uniquely determine the amplitude $A$ and initial phase $\\phi$ in terms of initial position $x_0$, initial momentum $p_0$, mass $m$, and angular frequency $\\omega$:\n$$A = \\sqrt{x_0^2 + \\frac{p_0^2}{m^2 \\omega^2}}, \\quad \\tan \\phi = \\frac{m \\omega x_0}{p_0}$$\n\nKnowing $A$ and $\\phi$ determines the state of SHM ($x$ and $p$) at any subsequent time $t$. Hence, Assertion (A) is true, Reason (R) is true, and R is the correct explanation of A.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "28th January",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "A simple pendulum is placed at a place where its distance from the earth's surface is equal to the radius of the earth. If the length of the string is $4 \\text{ m}$, then the time period of small oscillations will be _________ s. [take $g = \\pi^2 \\text{ m s}^{-2}$]",
+    "type": "numerical",
+    "options": [],
+    "answer": "8",
+    "explanation": "The acceleration due to gravity at a height $h$ above the Earth's surface is:\n$$g' = g \\left( \\frac{R}{R + h} \\right)^2$$\n\nGiven that the height is equal to the radius of the Earth ($h = R$):\n$$g' = g \\left( \\frac{R}{2R} \\right)^2 = \\frac{g}{4}$$\n\nSince $g = \\pi^2 \\text{ m s}^{-2}$, the effective acceleration due to gravity is:\n$$g' = \\frac{\\pi^2}{4}$$\n\nThe time period of the pendulum with length $L = 4 \\text{ m}$ is:\n$$T = 2\\pi \\sqrt{\\frac{L}{g'}} = 2\\pi \\sqrt{\\frac{4}{\\frac{\\pi^2}{4}}} = 2\\pi \\sqrt{\\frac{16}{\\pi^2}} = 2\\pi \\times \\frac{4}{\\pi} = 8 \\text{ s}$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "30th January",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "A mass $m$ is suspended from a spring of negligible mass and the system oscillates with a frequency $f_1$. The frequency of oscillations if a mass $9m$ is suspended from the same spring is $f_2$. The value of $\\frac{f_1}{f_2}$ is _____.",
+    "type": "numerical",
+    "options": [],
+    "answer": "3",
+    "explanation": "The frequency of oscillation of a mass-spring system is:\n$$f = \\frac{1}{2\\pi} \\sqrt{\\frac{k}{m}} \\implies f \\propto \\frac{1}{\\sqrt{m}}$$\n\nTaking the ratio of the frequencies for masses $m$ and $9m$:\n$$\\frac{f_1}{f_2} = \\sqrt{\\frac{m_2}{m_1}} = \\sqrt{\\frac{9m}{m}} = 3$$",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "1st February",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "A block of mass $2 \\text{ kg}$ is attached with two identical springs of spring constant $20 \\text{ N m}^{-1}$ each. The block is placed on a frictionless surface and the ends of the springs are attached to rigid supports (see figure). When the mass is displaced from its equilibrium position, it executes a simple harmonic motion. The time period of oscillation is $\\frac{\\pi}{\\sqrt{X}}$ in SI unit. The value of $X$ is______.",
+    "type": "numerical",
+    "options": [],
+    "answer": "5",
+    "explanation": "When the block is placed between two springs fixed to rigid walls, the springs act in a parallel configuration. The equivalent spring constant is:\n$$k_{\\text{eq}} = k_1 + k_2 = 20 + 20 = 40 \\text{ N m}^{-1}$$\n\nThe time period of vertical/horizontal oscillation of the block is:\n$$T = 2\\pi \\sqrt{\\frac{m}{k_{\\text{eq}}}} = 2\\pi \\sqrt{\\frac{2}{40}} = 2\\pi \\sqrt{\\frac{1}{20}} = \\frac{2\\pi}{\\sqrt{20}} = \\frac{2\\pi}{2\\sqrt{5}} = \\frac{\\pi}{\\sqrt{5}} \\text{ s}$$\n\nComparing this with $T = \\frac{\\pi}{\\sqrt{X}}$, we find $X = 5$.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "24th January",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "The velocity of a particle executing SHM varies with displacement ($x$) as $4v^2 = 50 - x^2$. The time period of oscillations is $\\frac{x}{7} \\text{ s}$. The value of $x$ is ______. [Take $\\pi = \\frac{22}{7}$]",
+    "type": "numerical",
+    "options": [],
+    "answer": "88",
+    "explanation": "Given velocity-displacement equation:\n$$4v^2 = 50 - x^2 \\implies v^2 = \\frac{50}{4} - \\frac{x^2}{4} = \\frac{1}{4}(50 - x^2)$$\n\nComparing this with the standard SHM relation $v^2 = \\omega^2 (A^2 - x^2)$:\n$$\\omega^2 = \\frac{1}{4} \\implies \\omega = \\frac{1}{2} \\text{ rad/s}$$\n\nThe time period of oscillation is:\n$$T = \\frac{2\\pi}{\\omega} = \\frac{2\\pi}{\\frac{1}{2}} = 4\\pi \\text{ s}$$\n\nSubstituting $\\pi = \\frac{22}{7}$:\n$$T = 4 \\times \\frac{22}{7} = \\frac{88}{7} \\text{ s}$$\n\nComparing this with $T = \\frac{x}{7}$, we get $x = 88$.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "30th January",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "Choose the correct length ($L$) versus square of time period ($T^2$) graph for a simple pendulum executing simple harmonic motion.",
+    "type": "mcq",
+    "options": [
+      "graph (1)",
+      "graph (2)",
+      "graph (3)",
+      "graph (4)"
+    ],
+    "answer": 2,
+    "explanation": "The time period of a simple pendulum is given by:\n$$T = 2\\pi \\sqrt{\\frac{L}{g}} \\implies T^2 = \\left( \\frac{4\\pi^2}{g} \\right) L \\implies L = \\left( \\frac{g}{4\\pi^2} \\right) T^2$$\n\nSince $L \\propto T^2$, the graph of length $L$ versus $T^2$ is a straight line passing through the origin with a positive slope. This corresponds to graph (3).",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "1st February",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "The metallic bob of simple pendulum has the relative density $5$. The time period of this pendulum is $10 \\text{ s}$. If the metallic bob is immersed in water, then the new time period becomes $5\\sqrt{x} \\text{ s}$. The value of $x$ will be _____.",
+    "type": "numerical",
+    "options": [],
+    "answer": "5",
+    "explanation": "When the bob is immersed in water, it experiences an upward buoyant force. The effective acceleration due to gravity $g'$ becomes:\n$$g' = g \\left( 1 - \\frac{\\rho_w}{\\rho_b} \\right)$$\n\nGiven the relative density of the bob $\\frac{\\rho_b}{\\rho_w} = 5$:\n$$g' = g \\left( 1 - \\frac{1}{5} \\right) = \\frac{4}{5} g$$\n\nThe time period is inversely proportional to the square root of gravity ($T \\propto \\frac{1}{\\sqrt{g}}$):\n$$\\frac{T'}{T} = \\sqrt{\\frac{g}{g'}} = \\sqrt{\\frac{5}{4}} = \\frac{\\sqrt{5}}{2}$$\n$$T' = T \\frac{\\sqrt{5}}{2} = 10 \\times \\frac{\\sqrt{5}}{2} = 5\\sqrt{5} \\text{ s}$$\n\nComparing this with $T' = 5\\sqrt{x}$, we find $x = 5$.",
+    "year": "2022",
+    "shift": "Evening",
+    "date": "29th July",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "A bob of mass m suspended by a thread of length $\\ell$ undergoes simple harmonic oscillations with time period T. If the bob is immersed in a liquid that has density $\\frac{1}{4}$ times that of the bob and the length of the thread is increased by $\\left(\\frac{1}{3}\\right)\\text{rd}$ of the original length, then the time period of the simple harmonic oscillations will be:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{3}{4} T$",
+      "$\\frac{4}{3} T$",
+      "T",
+      "$\\frac{3}{2} T$"
+    ],
+    "answer": 1,
+    "explanation": "The initial time period of the pendulum is:\n$$T = 2\\pi \\sqrt{\\frac{\\ell}{g}}$$\n\n1. **Effect of immersion in liquid:**\nThe effective acceleration due to gravity $g'$ is:\n$$g' = g \\left( 1 - \\frac{\\rho_l}{\\rho_b} \\right) = g \\left( 1 - \\frac{1}{4} \\right) = \\frac{3}{4} g$$\n\n2. **Effect of increase in length:**\nThe new length of the pendulum is:\n$$\\ell' = \\ell + \\frac{\\ell}{3} = \\frac{4}{3} \\ell$$\n\nThe new time period is:\n$$T' = 2\\pi \\sqrt{\\frac{\\ell'}{g'}} = 2\\pi \\sqrt{\\frac{\\frac{4}{3}\\ell}{\\frac{3}{4}g}} = 2\\pi \\sqrt{\\frac{16\\ell}{9g}} = \\frac{4}{3} \\left( 2\\pi \\sqrt{\\frac{\\ell}{g}} \\right) = \\frac{4}{3} T$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "31st August",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "In the given figure, a body of mass M is held between two massless springs, on a smooth inclined plane. The free ends of the springs are attached to firm supports. If each spring has spring constant k, the frequency of oscillation of given body is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{1}{2\\pi} \\sqrt{\\frac{2k}{Mg\\sin\\alpha}}$",
+      "$\\frac{1}{2\\pi} \\sqrt{\\frac{k}{Mg}\\sin\\alpha}$",
+      "$\\frac{1}{2\\pi} \\sqrt{\\frac{k}{2M}}$",
+      "$\\frac{1}{2\\pi} \\sqrt{\\frac{2k}{M}}$"
+    ],
+    "answer": 3,
+    "explanation": "Since the body of mass $M$ is attached between two springs, the motion is equivalent to a parallel spring-mass system. The effective spring constant of the system is:\n$$k_{\\text{eq}} = k + k = 2k$$\n\nThe angle of inclination $\\alpha$ of the smooth plane only shifts the equilibrium position of the system and does not change the frequency of oscillation.\n\nThus, the frequency of oscillation is:\n$$f = \\frac{1}{2\\pi} \\sqrt{\\frac{k_{\\text{eq}}}{M}} = \\frac{1}{2\\pi} \\sqrt{\\frac{2k}{M}}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "24th February",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "An object of mass m is suspended at the end of a massless wire of length L and area of cross-section, A. Young modulus of the material of the wire is Y. If the mass is pulled down slightly its frequency of oscillation along the vertical direction is:",
+    "type": "mcq",
+    "options": [
+      "$f = \\frac{1}{2\\pi} \\sqrt{\\frac{mL}{YA}}$",
+      "$f = \\frac{1}{2\\pi} \\sqrt{\\frac{YA}{mL}}$",
+      "$f = \\frac{1}{2\\pi} \\sqrt{\\frac{mA}{YL}}$",
+      "$f = \\frac{1}{2\\pi} \\sqrt{\\frac{YL}{mA}}$"
+    ],
+    "answer": 1,
+    "explanation": "The elastic wire behaves like a spring. The spring constant $k$ of a wire of Young's modulus $Y$, length $L$, and area of cross-section $A$ is:\n$$k = \\frac{Y A}{L}$$\n\nThe frequency of vertical oscillation for a mass $m$ suspended from it is:\n$$f = \\frac{1}{2\\pi} \\sqrt{\\frac{k}{m}} = \\frac{1}{2\\pi} \\sqrt{\\frac{YA}{mL}}$$",
+    "year": "2020",
+    "shift": "Morning",
+    "date": "6th September",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "A simple pendulum oscillating in air has period T. The bob of the pendulum is completely immersed in a non-viscous liquid. The density of the liquid is $\\frac{1}{16}\\text{th}$ of the material of the bob. If the bob is inside liquid all the time, its period of oscillation in this liquid is:",
+    "type": "mcq",
+    "options": [
+      "$2T\\sqrt{\\frac{1}{10}}$",
+      "$2T\\sqrt{\\frac{1}{14}}$",
+      "$4T\\sqrt{\\frac{1}{15}}$",
+      "$4T\\sqrt{\\frac{1}{14}}$"
+    ],
+    "answer": 2,
+    "explanation": "The effective acceleration due to gravity acting on the immersed bob is:\n$$g' = g \\left( 1 - \\frac{\\rho_l}{\\rho_b} \\right)$$\n\nGiven $\\frac{\\rho_l}{\\rho_b} = \\frac{1}{16}$:\n$$g' = g \\left( 1 - \\frac{1}{16} \\right) = \\frac{15}{16} g$$\n\nThe new time period in the liquid is:\n$$T' = 2\\pi \\sqrt{\\frac{L}{g'}} = 2\\pi \\sqrt{\\frac{L}{\\frac{15}{16}g}} = \\sqrt{\\frac{16}{15}} \\left( 2\\pi \\sqrt{\\frac{L}{g}} \\right) = \\frac{4}{\\sqrt{15}} T = 4T\\sqrt{\\frac{1}{15}}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "9th April",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "A hoop and a solid cylinder of same mass and radius are made of a permanent magnetic material with their respective axes. But the magnetic moment of hoop is twice of solid cylinder. They are placed in a uniform magnetic field in such a manner that their magnetic moments make a small angle with the field. If the oscillation periods of hoop and cylinder are $T_h$ and $T_c$ respectively, then:",
+    "type": "mcq",
+    "options": [
+      "$T_h = 2T_c$",
+      "$T_h = T_c$",
+      "$T_h = 0.5T_c$",
+      "$T_h = 1.5T_c$"
+    ],
+    "answer": 1,
+    "explanation": "The time period of angular oscillations of a magnetic body in a uniform magnetic field $B$ is:\n$$T = 2\\pi \\sqrt{\\frac{I}{M B}}$$\n\nWhere $I$ is the moment of inertia and $M$ is the magnetic moment.\n\n1. **For the hoop:**\n- Moment of inertia $I_h = m R^2$\n- Magnetic moment $M_h = 2 M_c$\n$$T_h = 2\\pi \\sqrt{\\frac{m R^2}{2 M_c B}} = 2\\pi \\sqrt{\\frac{m R^2}{2 M_c B}}$$\n\n2. **For the solid cylinder:**\n- Moment of inertia $I_c = \\frac{1}{2} m R^2$\n- Magnetic moment $M_c$\n$$T_c = 2\\pi \\sqrt{\\frac{\\frac{1}{2} m R^2}{M_c B}} = 2\\pi \\sqrt{\\frac{m R^2}{2 M_c B}}$$\n\nComparing both periods, we find $T_h = T_c$.",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "10th January",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "A particle executes simple harmonic motion with an amplitude of $5 \\text{ cm}$. When the particle is at $4 \\text{ cm}$ from the mean position, the magnitude of its velocity in SI units is equal to that of its acceleration. Then, its periodic time in seconds is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{8\\pi}{3}$",
+      "$\\frac{3}{8}\\pi$",
+      "$\\frac{4\\pi}{3}$",
+      "$\\frac{7}{3}\\pi$"
+    ],
+    "answer": 0,
+    "explanation": "Given that the magnitude of velocity is equal to the magnitude of acceleration:\n$$|v| = |a|$$\n$$\\omega \\sqrt{A^2 - x^2} = \\omega^2 |x| \\implies \\sqrt{A^2 - x^2} = \\omega |x|$$\n\nSubstituting $A = 5 \\text{ cm}$ and $x = 4 \\text{ cm}$:\n$$\\sqrt{25 - 16} = 4 \\omega \\implies 3 = 4\\omega \\implies \\omega = \\frac{3}{4} \\text{ rad/s}$$\n\nThe time period of oscillation is:\n$$T = \\frac{2\\pi}{\\omega} = \\frac{2\\pi}{\\frac{3}{4}} = \\frac{8\\pi}{3} \\text{ s}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "10th January",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "Two simple pendulums having lengths $l_1$ and $l_2$ with negligible string mass undergo angular displacements $\\theta_1$ and $\\theta_2$, from their mean positions, respectively. If the angular accelerations of both pendulums are same, then which expression is correct?",
+    "type": "mcq",
+    "options": [
+      "$\\theta_1 l_2^2 = \\theta_2 l_1^2$",
+      "$\\theta_1 l_1 = \\theta_2 l_2$",
+      "$\\theta_1 l_1^2 = \\theta_2 l_2^2$",
+      "$\\theta_1 l_2 = \\theta_2 l_1$"
+    ],
+    "answer": 3,
+    "explanation": "The magnitude of angular acceleration of a simple pendulum is given by:\n$$\\alpha = \\omega^2 \\theta = \\frac{g}{l} \\theta$$\n\nSince the angular accelerations of both pendulums are equal:\n$$\\alpha_1 = \\alpha_2$$\n$$\\frac{g}{l_1} \\theta_1 = \\frac{g}{l_2} \\theta_2$$\n$$\\frac{\\theta_1}{l_1} = \\frac{\\theta_2}{l_2} \\implies \\theta_1 l_2 = \\theta_2 l_1$$",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "4th April",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "A light hollow cube of side length $10 \\text{ cm}$ and mass $10 \\text{ g}$, is floating in water. It is pushed down and released to execute simple harmonic oscillations. The time period of oscillations is $y\\pi \\times 10^{-2} \\text{ s}$, where the value of $y$ is (Acceleration due to gravity, $g = 10 \\text{ m/s}^2$, density of water $= 10^3 \\text{ kg/m}^3$):",
+    "type": "mcq",
+    "options": [
+      "6",
+      "2",
+      "4",
+      "1"
+    ],
+    "answer": 1,
+    "explanation": "When a floating body is pushed down by a distance $x$, the restoring force is equal to the extra buoyant force:\n$$F = -\\rho A g x$$\n\nThis is equivalent to a spring-mass system with effective spring constant:\n$$k_{\\text{eff}} = \\rho A g$$\n\nHere:\n- $\\rho = 10^3 \\text{ kg/m}^3$ (density of water)\n- $A = L^2 = (0.1 \\text{ m})^2 = 10^{-2} \\text{ m}^2$ (area of the base of the cube)\n- $g = 10 \\text{ m/s}^2$\n\n$$k_{\\text{eff}} = 10^3 \\times 10^{-2} \\times 10 = 100 \\text{ N/m}$$\n\nThe mass of the hollow cube is $m = 10 \\text{ g} = 10^{-2} \\text{ kg}$.\nThe time period of oscillation is:\n$$T = 2\\pi \\sqrt{\\frac{m}{k_{\\text{eff}}}} = 2\\pi \\sqrt{\\frac{10^{-2}}{100}} = 2\\pi \\sqrt{10^{-4}} = 2\\pi \\times 10^{-2} \\text{ s}$$\n\nComparing this with $T = y\\pi \\times 10^{-2} \\text{ s}$, we get $y = 2$.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "23rd January",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "Given below are two statements : one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A) : Time period of a simple pendulum is longer at the top of a mountain than that at the base of the mountain.\n\nReason (R): Time period of a simple pendulum decreases with increasing value of acceleration due to gravity and vice-versa.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below :",
+    "type": "mcq",
+    "options": [
+      "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+      "(A) is true but (R) is false",
+      "(A) is false but (R) is true",
+      "Both (A) and (R) are true but (R) is not the correct explanation of (A)"
+    ],
+    "answer": 0,
+    "explanation": "The time period of a simple pendulum is given by:\n$$T = 2\\pi \\sqrt{\\frac{L}{g}} \\implies T \\propto \\frac{1}{\\sqrt{g}}$$\n\n- Assertion (A): The acceleration due to gravity $g$ is smaller at the top of a mountain than at its base. Since $T \\propto \\frac{1}{\\sqrt{g}}$, the time period $T$ will be longer at the top. (True)\n- Reason (R): The time period $T$ decreases as the acceleration due to gravity $g$ increases, and vice-versa. (True)\n\nSince the decrease of $g$ at the top of the mountain is the exact reason why the time period becomes longer, Reason (R) is the correct explanation of Assertion (A).",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "29th January",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "In simple harmonic motion, the total mechanical energy of given system is E. If mass of oscillating particle is doubled then the new energy of the system for same amplitude is:",
+    "type": "mcq",
+    "options": [
+      "E",
+      "$E/\\sqrt{2}$",
+      "2E",
+      "$E\\sqrt{2}$"
+    ],
+    "answer": 0,
+    "explanation": "The total mechanical energy in simple harmonic motion is given by:\n$$E = \\frac{1}{2} k A^2$$\n\nWhere $k$ is the force constant of the restoring system, and $A$ is the amplitude of oscillation. The energy depends only on the force constant and the amplitude. It is independent of the mass of the oscillating particle if the amplitude and the system constant $k$ are kept the same. Thus, the new energy remains $E$.",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "4th April",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "The time period of simple harmonic motion of mass M in the given figure is $\\pi\\sqrt{\\frac{\\alpha M}{5K}}$, where the value of $\\alpha$ is _______.",
+    "type": "numerical",
+    "options": [],
+    "answer": "12",
+    "explanation": "In the given configuration, the top two springs (each of constant $K$) are in series with a third spring ($2K$).\nTheir series combination is:\n$$K_{\\text{series}} = \\frac{2K \\cdot K}{2K + K} = \\frac{2}{3} K$$\n\nThis equivalent combination is in parallel with the bottom spring of constant $K$:\n$$k_{\\text{eq}} = \\frac{2}{3} K + K = \\frac{5}{3} K$$\n\nThe time period of oscillation for the mass $M$ is:\n$$T = 2\\pi \\sqrt{\\frac{M}{k_{\\text{eq}}}} = 2\\pi \\sqrt{\\frac{3M}{5K}} = \\pi \\sqrt{\\frac{12M}{5K}}$$\n\nComparing this with the given formula, we find $\\alpha = 12$.",
+    "year": "2024",
+    "shift": "Evening",
+    "date": "31st January",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "A simple pendulum with length $100 \\text{ cm}$ and bob of mass $250 \\text{ g}$ is executing S.H.M of amplitude $10 \\text{ cm}$. The maximum tension in the string is found to be $\\frac{x}{40} \\text{ N}$. The value of $x$ is ______.",
+    "type": "numerical",
+    "options": [],
+    "answer": "99",
+    "explanation": "The maximum tension in a simple pendulum occurs at the lowest point (mean position), where both gravity and centrifugal force act downwards along the string:\n$$T_{\\text{max}} = mg + \\frac{m v_{\\text{max}}^2}{L}$$\n\nSince $v_{\\text{max}} = A \\omega = A \\sqrt{\\frac{g}{L}}$:\n$$T_{\\text{max}} = mg + \\frac{m \\left( A^2 \\frac{g}{L} \\right)}{L} = mg \\left( 1 + \\frac{A^2}{L^2} \\right)$$\n\nGiven:\n- $m = 250 \\text{ g} = 0.25 \\text{ kg}$\n- $L = 100 \\text{ cm} = 1.0 \\text{ m}$\n- $A = 10 \\text{ cm} = 0.1 \\text{ m}$\n- $g = 9.8 \\text{ m/s}^2$\n\nSubstituting values:\n$$T_{\\text{max}} = 0.25 \\times 9.8 \\left[ 1 + \\left(\\frac{0.1}{1.0}\\right)^2 \\right] = 2.45 \\times [ 1 + 0.01 ] = 2.4745 \\text{ N}$$\n\nEquating to the given tension:\n$$\\frac{x}{40} = 2.4745 \\implies x = 2.4745 \\times 40 = 98.98 \\approx 99$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "6th April",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "A rectangular block of mass $5 \\text{ kg}$ attached to a horizontal spiral spring executes simple harmonic motion of amplitude $1 \\text{ m}$ and time period $3.14 \\text{ s}$. The maximum force exerted by spring on block is _____ N.",
+    "type": "numerical",
+    "options": [],
+    "answer": "20",
+    "explanation": "The maximum force exerted by the spring in SHM is:\n$$F_{\\text{max}} = k A$$\n\nUsing the time period formula $T = 2\\pi \\sqrt{\\frac{m}{k}}$:\n$$3.14 \\approx 2 \\times 3.14 \\times \\sqrt{\\frac{5}{k}}$$\n$$1 = 2 \\sqrt{\\frac{5}{k}} \\implies \\frac{1}{4} = \\frac{5}{k} \\implies k = 20 \\text{ N/m}$$\n\nSubstituting $k$ and $A = 1 \\text{ m}$:\n$$F_{\\text{max}} = 20 \\times 1 = 20 \\text{ N}$$",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "10th April",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "In the figure given below. a block of mass $M = 490 \\text{ g}$ placed on a frictionless table is connected with two springs having same spring constant ($K = 2 \\text{ N m}^{-1}$). If the block is horizontally displaced through X m then the number of complete oscillations it will make in $14\\pi$ seconds will be ______.",
+    "type": "numerical",
+    "options": [],
+    "answer": "20",
+    "explanation": "Since the block is connected to springs attached to opposite walls, the springs act in parallel. The equivalent spring constant is:\n$$k_{\\text{eq}} = K + K = 2 + 2 = 4 \\text{ N/m}$$\n\nThe mass of the block is $M = 490 \\text{ g} = 0.49 \\text{ kg}$.\nThe time period of one complete oscillation is:\n$$T = 2\\pi \\sqrt{\\frac{M}{k_{\\text{eq}}}} = 2\\pi \\sqrt{\\frac{0.49}{4}} = 2\\pi \\left(\\frac{0.7}{2}\\right) = 0.7\\pi \\text{ s}$$\n\nThe number of complete oscillations in $t = 14\\pi \\text{ s}$ is:\n$$N = \\frac{t}{T} = \\frac{14\\pi}{0.7\\pi} = 20$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "31st January",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "A pendulum bob has a speed of $3 \\text{ m s}^{-1}$ at its lowest position. The pendulum is $50 \\text{ cm}$ long. The speed of bob, when the length makes an angle of $60^\\circ$ to the vertical will be ______ $\\text{ m s}^{-1}$. ($g = 10 \\text{ m s}^{-2}$)",
+    "type": "numerical",
+    "options": [],
+    "answer": "2",
+    "explanation": "Using the law of conservation of mechanical energy:\n$$E_i = E_f$$\n$$\\frac{1}{2} m u^2 = \\frac{1}{2} m v^2 + m g h$$\n$$u^2 = v^2 + 2 g h$$\n\nWhere:\n- $u = 3 \\text{ m s}^{-1}$ is the initial velocity at the lowest point.\n- $h = L(1 - \\cos\\theta)$ is the height of the bob at angle $\\theta = 60^\\circ$.\n- $L = 50 \\text{ cm} = 0.5 \\text{ m}$.\n\nCalculating the height:\n$$h = 0.5 (1 - \\cos 60^\\circ) = 0.5 \\left(1 - \\frac{1}{2}\\right) = 0.25 \\text{ m}$$\n\nNow, substituting values to find $v$:\n$$3^2 = v^2 + 2 \\times 10 \\times 0.25$$\n$$9 = v^2 + 5 \\implies v^2 = 4 \\implies v = 2 \\text{ m s}^{-1}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "25th July",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "Two identical tennis balls each having mass m and charge q are suspended from a fixed point by threads of length l. What is the equilibrium separation when each thread makes a small angle $\\theta$ with the vertical?",
+    "type": "mcq",
+    "options": [
+      "$x = \\left( \\frac{q^2 l}{2\\pi\\varepsilon_0 mg} \\right)^{1/2}$",
+      "$x = \\left( \\frac{q^2 l}{2\\pi\\varepsilon_0 mg} \\right)^{1/3}$",
+      "$x = \\left( \\frac{q^2 l^2}{2\\pi\\varepsilon_0 m^2g} \\right)^{1/3}$",
+      "$x = \\left( \\frac{q^2 l^2}{2\\pi\\varepsilon_0 m^2g^2} \\right)^{1/3}$"
+    ],
+    "answer": 1,
+    "explanation": "Let $x$ be the separation between the balls. Since $\\theta$ is small:\n$$\\tan\\theta \\approx \\sin\\theta = \\frac{x}{2l}$$\n\nAt electrostatic equilibrium:\n$$T \\sin\\theta = F_e = \\frac{q^2}{4π\\varepsilon_0 x^2}$$\n$$T \\cos\\theta = mg$$\n\nDividing these equations:\n$$\\tan\\theta = \\frac{F_e}{mg}$$\n$$\\frac{x}{2l} = \\frac{q^2}{4\\pi\\varepsilon_0 mg x^2}$$\n$$x^3 = \\frac{2 q^2 l}{4\\pi\\varepsilon_0 mg} = \\frac{q^2 l}{2\\pi\\varepsilon_0 mg}$$\n$$x = \\left( \\frac{q^2 l}{2\\pi\\varepsilon_0 mg} \\right)^{1/3}$$\n\nThis corresponds to Option 2.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "27th July",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "The amplitude of a mass-spring system, which is executing simple harmonic motion decreases with time. If mass $= 500 \\text{ g}$, Decay constant $= 20 \\text{ g s}^{-1}$ then how much time is required for the amplitude of the system to drop to half of its initial value? ($\\ln 2 = 0.693$)",
+    "type": "mcq",
+    "options": [
+      "$34.65 \\text{ s}$",
+      "$17.32 \\text{ s}$",
+      "$0.034 \\text{ s}$",
+      "$15.1 \\text{ s}$"
+    ],
+    "answer": 0,
+    "explanation": "The amplitude of a damped harmonic oscillator decreases exponentially over time:\n$$A(t) = A_0 e^{-\\frac{b t}{2m}}$$\n\nWhere $b$ is the damping (decay) constant. For the amplitude to drop to half of its initial value ($A = \\frac{A_0}{2}$):\n$$\\frac{A_0}{2} = A_0 e^{-\\frac{b t}{2m}} \\implies e^{\\frac{b t}{2m}} = 2$$\n$$\\frac{b t}{2m} = \\ln 2 \\implies t = \\frac{2 m \\ln 2}{b}$$\n\nSubstituting the given values:\n- $m = 500 \\text{ g}$\n- $b = 20 \\text{ g s}^{-1}$\n- $\\ln 2 = 0.693$\n\n$$t = \\frac{2 \\times 500 \\times 0.693}{20} = 50 \\times 0.693 = 34.65 \\text{ s}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "16th March",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "Consider two identical springs each of spring constant k and negligible mass compared to the mass M as shown. Fig. 1 shows one of them and Fig. 2 shows their series combination. The ratios of time period of oscillation of the two SHM is $\\frac{T_b}{T_a} = \\sqrt{x}$, where value of $x$ is ______.",
+    "type": "numerical",
+    "options": [],
+    "answer": "2",
+    "explanation": "1. **For single spring (Fig. 1):**\nThe effective spring constant is $k_a = k$.\nThe time period of oscillation is:\n$$T_a = 2\\pi \\sqrt{\\frac{M}{k}}$$\n\n2. **For two identical springs in series (Fig. 2):**\nThe effective spring constant is:\n$$k_b = \\frac{k \\times k}{k + k} = \\frac{k}{2}$$\nThe time period of oscillation is:\n$$T_b = 2\\pi \\sqrt{\\frac{M}{k_b}} = 2\\pi \\sqrt{\\frac{2M}{k}}$$\n\nTaking the ratio of the time periods:\n$$\\frac{T_b}{T_a} = \\frac{2\\pi \\sqrt{\\frac{2M}{k}}}{2\\pi \\sqrt{\\frac{M}{k}}} = \\sqrt{2}$$\n\nComparing this with $\\frac{T_b}{T_a} = \\sqrt{x}$, we find $x = 2$.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "17th March",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "Two identical springs of spring constant $2k$ are attached to a block of mass m and to fixed support (see figure). When the mass is displaced from equilibrium position on either side, it executes simple harmonic motion. The time period of oscillations of this system is :",
+    "type": "mcq",
+    "options": [
+      "$\\pi\\sqrt{\\frac{m}{k}}$",
+      "$2\\pi\\sqrt{\\frac{m}{2k}}$",
+      "$\\pi\\sqrt{\\frac{m}{2k}}$",
+      "$2\\pi\\sqrt{\\frac{m}{k}}$"
+    ],
+    "answer": 0,
+    "explanation": "Since the block is attached to two springs on opposite sides, any displacement of the block causes one spring to stretch and the other to compress. The restoring forces from both springs act in the same direction, which means the springs are in a parallel configuration.\n\nThe effective spring constant is:\n$$k_{\\text{eq}} = 2k + 2k = 4k$$\n\nThe time period of oscillation is:\n$$T = 2\\pi \\sqrt{\\frac{m}{k_{\\text{eq}}}} = 2\\pi \\sqrt{\\frac{m}{4k}} = \\pi \\sqrt{\\frac{m}{k}}$$ \n\nThis matches Option 1.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "25th February",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "Assume that a tunnel is dug along a chord of the earth, at a perpendicular distance $\\frac{R}{2}$ from the earth's centre, where R is the radius of the earth. The wall of the tunnel is frictionless. If a particle is released in this tunnel, it will execute a simple harmonic motion with a time period:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{1}{2\\pi} \\sqrt{\\frac{g}{R}}$",
+      "$2\\pi \\sqrt{\\frac{R}{g}}$",
+      "$\\frac{g}{2\\pi R}$",
+      "Image is virtual, opposite side of convex mirror."
+    ],
+    "answer": 1,
+    "explanation": "For any tunnel dug through the Earth, the restoring force on a mass $m$ released inside the tunnel is proportional to its displacement $x$ from the midpoint of the tunnel:\n$$F = -\\frac{G M m}{R^3} x$$\n\nThis is a simple harmonic motion with force constant:\n$$k = \\frac{G M m}{R^3} = m \\left(\\frac{g}{R}\\right)$$\n\nThe angular frequency of this SHM is:\n$$\\omega = \\sqrt{\\frac{k}{m}} = \\sqrt{\\frac{g}{R}}$$\n\nThe time period is:\n$$T = \\frac{2\\pi}{\\omega} = 2\\pi \\sqrt{\\frac{R}{g}}$$\n\nThis is independent of the location or orientation of the tunnel (so the chord distance $R/2$ does not affect the time period). This matches Option 2.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "26th February",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "Time period of a simple pendulum is T. The time taken to complete $\\frac{5}{8}$ oscillations starting from mean position is $\\frac{\\alpha}{12} T$. The value of $\\alpha$ is ______.",
+    "type": "numerical",
+    "options": [],
+    "answer": "7",
+    "explanation": "Starting from the mean position, the displacement of the simple pendulum is:\n$$x(t) = A \\sin \\omega t$$\n\nA complete oscillation corresponds to a phase change of $2\\pi$.\nTo complete $\\frac{5}{8}$ of an oscillation, the phase of the system is:\n$$\\phi = \\frac{5}{8} \\times 2\\pi = \\frac{5\\pi}{4}$$\n\nSince the phase increases linearly with time:\n$$\\omega t = \\frac{5\\pi}{4}$$\n$$\\frac{2\\pi}{T} t = \\frac{5\\pi}{4} \\implies t = \\frac{5}{8} T$$\n\nHowever, let us calculate based on path segments:\n$$\\frac{5}{8} \\text{ oscillation} = \\frac{1}{2} \\text{ oscillation} + \\frac{1}{8} \\text{ oscillation}$$\n- Time for the first half oscillation is $\\frac{T}{2}$. At this point, the pendulum is back at the mean position and moving towards the negative extreme.\n- In the next $\\frac{1}{8}$ of an oscillation, the pendulum travels from the mean position to $x = -\\frac{A}{\\sqrt{2}}$.\nThe phase angle corresponding to this segment starting from the mean position is:\n$$\\phi' = \\omega t' = \\pi + \\frac{\\pi}{4} = \\frac{5\\pi}{4} \\implies t = \\frac{5}{8} T$$\nWait, let's recalculate the time to cover the displacement:\n$$\\omega t' = \\frac{\\pi}{4}$$\nSince $t' = T/8$, the total time is:\n$$t = \\frac{T}{2} + t' = \\frac{T}{2} + \\frac{T}{8} = \\frac{5}{8} T$$\nWait! Let's check the phase for a sine wave:\n$$\\pi + \\theta = \\omega t$$\nSince $\\sin \\theta = \\frac{1}{2}$ for $\\frac{1}{8}\\text{th}$ oscillation of displacement? No, $\\frac{1}{8}\\text{th}$ of an oscillation corresponds to half the amplitude of extreme:\n$$x = -\\frac{A}{2}$$\n$$\\sin \\theta = \\frac{1}{2} \\implies \\theta = \\frac{\\pi}{6}$$\nThus, the phase is:\n$$\\phi = \\pi + \\frac{\\pi}{6} = \\frac{7\\pi}{6}$$\n$$\\omega t = \\frac{7\\pi}{6} \\implies \\frac{2\\pi}{T} t = \\frac{7\\pi}{6} \\implies t = \\frac{7}{12} T$$\n\nComparing this with $t = \\frac{\\alpha}{12} T$, we find $\\alpha = 7$.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "26th February",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "The displacement of a damped harmonic oscillator is given by $x(t) = e^{-0.1t}\\cos(10\\pi t + \\phi)$. Here $t$ is in seconds. The time taken for its amplitude of vibration to drop to half of its initial value is close to:",
+    "type": "mcq",
+    "options": [
+      "$27 \\text{ s}$",
+      "$4 \\text{ s}$",
+      "$13 \\text{ s}$",
+      "$7 \\text{ s}$"
+    ],
+    "answer": 3,
+    "explanation": "The amplitude of the damped harmonic oscillator decays with time according to:\n$$A(t) = A_0 e^{-0.1t}$$\n\nFor the amplitude to drop to half of its initial value ($A(t) = \\frac{A_0}{2}$):\n$$\\frac{A_0}{2} = A_0 e^{-0.1t}$$\n$$e^{0.1t} = 2 \\implies 0.1t = \\ln 2$$\n$$t = 10 \\ln 2 \\approx 10 \\times 0.693 = 6.93 \\text{ s} \\approx 7 \\text{ s}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "10th April",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "The amplitude and phase of a wave that is formed by the superposition of two harmonic travelling waves, $y_1(x, t) = 4\\sin(kx - \\omega t)$ and $y_2(x, t) = 2\\sin(kx - \\omega t + \\frac{2\\pi}{3})$, are:",
+    "type": "mcq",
+    "options": [
+      "$[6, \\frac{2\\pi}{3}]$",
+      "$[6, \\frac{\\pi}{3}]$",
+      "$[\\sqrt{3}, \\frac{\\pi}{6}]$",
+      "$[2\\sqrt{3}, \\frac{\\pi}{6}]$"
+    ],
+    "answer": 3,
+    "explanation": "The amplitudes of the two superimposed waves are $A_1 = 4$ and $A_2 = 2$ with a phase difference of $\\phi = \\frac{2\\pi}{3}$.\n\n1. **Resultant Amplitude ($A_{\\text{res}}$):**\n$$A_{\\text{res}} = \\sqrt{A_1^2 + A_2^2 + 2 A_1 A_2 \\cos\\phi}$$\n$$A_{\\text{res}} = \\sqrt{4^2 + 2^2 + 2 \\times 4 \\times 2 \\times \\cos\\left(\\frac{2\\pi}{3}\\right)}$$\n$$A_{\\text{res}} = \\sqrt{16 + 4 + 16 \\times \\left(-\\frac{1}{2}\\right)} = \\sqrt{20 - 8} = \\sqrt{12} = 2\\sqrt{3}$$\n\n2. **Resultant Phase ($\\theta$):**\n$$\\tan\\theta = \\frac{A_2 \\sin\\phi}{A_1 + A_2 \\cos\\phi} = \\frac{2 \\sin\\left(\\frac{2\\pi}{3}\\right)}{4 + 2 \\cos\\left(\\frac{2\\pi}{3}\\right)} = \\frac{2 \\times \\frac{\\sqrt{3}}{2}}{4 + 2 \\times \\left(-\\frac{1}{2}\\right)} = \\frac{\\sqrt{3}}{3} = \\frac{1}{\\sqrt{3}}$$\n$$\\theta = \\frac{\\pi}{6}$$\n\nTherefore, the amplitude and phase are $[2\\sqrt{3}, \\frac{\\pi}{6}]$.",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Superposition of S.H.M's and Resonance"
+  },
+  {
+    "q": "Two simple harmonic waves having equal amplitudes of $8 \\text{ cm}$ and equal frequency of $10 \\text{ Hz}$ are moving along the same direction. The resultant amplitude is also $8 \\text{ cm}$. The phase difference between the individual waves is ______ degree.",
+    "type": "numerical",
+    "options": [],
+    "answer": "120",
+    "explanation": "The formula for the resultant amplitude of two superimposed waves with equal amplitude $A = 8 \\text{ cm}$ is:\n$$A_{\\text{res}} = \\sqrt{A^2 + A^2 + 2 A^2 \\cos\\phi}$$\n\nGiven that the resultant amplitude is also $8 \\text{ cm}$:\n$$8 = \\sqrt{8^2 + 8^2 + 2 \\times 8^2 \\cos\\phi}$$\n$$64 = 128 (1 + \\cos\\phi)$$\n$$\\frac{1}{2} = 1 + \\cos\\phi \\implies \\cos\\phi = -\\frac{1}{2} \\implies \\phi = 120^\\circ$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "29th January",
+    "subtopic": "Superposition of S.H.M's and Resonance"
+  },
+  {
+    "q": "The function of time representing a simple harmonic motion with a period of $\\frac{\\pi}{\\omega}$ is:",
+    "type": "mcq",
+    "options": [
+      "$\\sin(\\omega t) + \\cos(\\omega t)$",
+      "$\\cos(\\omega t) + \\cos(2\\omega t) + \\cos(3\\omega t)$",
+      "$\\sin^2(\\omega t)$",
+      "$3\\cos(\\frac{\\pi}{4} - 2\\omega t)$"
+    ],
+    "answer": 3,
+    "explanation": "A simple harmonic motion with period $T = \\frac{\\pi}{\\omega}$ must have an angular frequency of:\n$$\\omega' = \\frac{2\\pi}{T} = \\frac{2\\pi}{\\frac{\\pi}{\\omega}} = 2\\omega$$\n\nLet us analyze the options:\n- Option 1: $\\sin(\\omega t) + \\cos(\\omega t)$ has angular frequency $\\omega$, hence period $T = \\frac{2\\pi}{\\omega}$.\n- Option 2: This is a superposition of three harmonic terms of frequencies $\\omega$, $2\\omega$, and $3\\omega$. The periodic time of the composite wave is determined by the fundamental frequency $\\omega$, hence $T = \\frac{2\\pi}{\\omega}$.\n- Option 3: $\\sin^2(\\omega t) = \\frac{1 - \\cos(2\\omega t)}{2}$. While this has a component of frequency $2\\omega$, it represents a periodic motion that is shifted off-center (not symmetric about zero).\n- Option 4: $3\\cos\\left(\\frac{\\pi}{4} - 2\\omega t\\right) = 3\\cos\\left(2\\omega t - \\frac{\\pi}{4}\\right)$ is a single sinusoidal function of angular frequency $2\\omega$. It represents standard simple harmonic motion with the required period $T = \\frac{2\\pi}{2\\omega} = \\frac{\\pi}{\\omega}$.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "18th March",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "Two light identical springs of spring constant k are attached horizontally at the two ends of a uniform horizontal rod AB of length l and mass m. The rod is pivoted at its center 'O' and can rotate freely in horizontal plane. The other ends of the two springs are fixed to rigid supports as shown in figure. The rod is gently pushed through a small angle and released. The frequency of resulting oscillation is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{1}{2\\pi} \\sqrt{\\frac{3k}{m}}$",
+      "$\\frac{1}{2\\pi} \\sqrt{\\frac{k}{m}}$",
+      "$\\frac{1}{2\\pi} \\sqrt{\\frac{6k}{m}}$",
+      "$\\frac{1}{2\\pi} \\sqrt{\\frac{2k}{m}}$"
+    ],
+    "answer": 2,
+    "explanation": "Let the rod be rotated by a small angle $\\theta$ about the pivot $O$.\nThe horizontal displacement at both ends $A$ and $B$ is:\n$$x = \\frac{l}{2} \\theta$$\n\nThe restoring force exerted by each spring is:\n$$F = -kx = -k \\left( \\frac{l}{2} \\theta \\right)$$\n\nThe total restoring torque about the pivot $O$ is:\n$$\\tau = 2 \\times \\left( F \\cdot \\frac{l}{2} \\right) = -2 k \\left(\\frac{l}{2}\\theta\\right) \\frac{l}{2} = -k \\frac{l^2}{2} \\theta$$\n\nUsing $\\tau = I \\alpha$, where $I = \\frac{1}{12} m l^2$ is the moment of inertia of the uniform rod about its center:\n$$\\frac{1}{12} m l^2 \\alpha = -k \\frac{l^2}{2} \\theta$$\n$$\\alpha = -\\left( \\frac{6k}{m} \\right) \\theta$$\n\nComparing this with the angular SHM equation $\\alpha = -\\omega^2 \\theta$, we find:\n$$\\omega^2 = \\frac{6k}{m} \\implies \\omega = \\sqrt{\\frac{6k}{m}}$$\n\nThe frequency of resulting oscillation is:\n$$f = \\frac{\\omega}{2\\pi} = \\frac{1}{2\\pi}\\sqrt{\\frac{6k}{m}}$$",
+    "year": "2019",
+    "shift": "Morning",
+    "date": "12th January",
+    "subtopic": "Angular oscillations"
+  },
+  {
+    "q": "For particle P revolving round the centre O with radius of circular path r and angular velocity $\\omega$, as shown in below figure, the projection of OP on the $x$-axis at time t is:",
+    "type": "mcq",
+    "options": [
+      "$x(t) = r \\cos\\left(\\omega t - \\frac{\\pi}{6}\\right)$",
+      "$x(t) = r \\cos\\left(\\omega t + \\frac{\\pi}{6}\\right)$",
+      "$x(t) = r \\sin\\left(\\omega t + \\frac{\\pi}{6}\\right)$",
+      "$x(t) = r \\cos(\\omega t)$"
+    ],
+    "answer": 1,
+    "explanation": "From the given figure, at $t = 0$, the radius vector $OP$ makes an angle of $30^\\circ$ (or $\\frac{\\pi}{6}$ radians) with the positive $x$-axis.\n\nAfter a time interval $t$, the particle rotates through an angle of $\\omega t$ in the anticlockwise direction. The angle made by the radius vector with the positive $x$-axis at time $t$ is:\n$$\\theta(t) = \\omega t + \\frac{\\pi}{6}$$\n\nThe projection of $OP$ on the $x$-axis is given by:\n$$x(t) = r \\cos\\theta(t) = r \\cos\\left(\\omega t + \\frac{\\pi}{6}\\right)$$\n\nThis matches Option 2.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "8th April",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A block of mass $1 \\text{ kg}$ attached to a spring is made to oscillate with an initial amplitude of $12 \\text{ cm}$. After $2$ minutes the amplitude decreases to $6 \\text{ cm}$. Determine the value of the damping constant for this motion. (take $\\ln 2 = 0.693$)",
+    "type": "mcq",
+    "options": [
+      "$1.16 \\times 10^{-2} \\text{ kg s}^{-1}$",
+      "$3.3 \\times 10^2 \\text{ kg s}^{-1}$",
+      "$1.16 \\times 10^2 \\text{ kg s}^{-1}$",
+      "$5.7 \\times 10^{-3} \\text{ kg s}^{-1}$"
+    ],
+    "answer": 0,
+    "explanation": "The amplitude of a damped harmonic oscillator decays with time as:\n$$A(t) = A_0 e^{-\\frac{b t}{2m}}$$\n\nGiven:\n- $A_0 = 12 \\text{ cm}$\n- $A(t) = 6 \\text{ cm}$ at $t = 2 \\text{ minutes} = 120 \\text{ s}$\n- $m = 1 \\text{ kg}$\n- $\\ln 2 = 0.693$\n\nSubstituting values:\n$$6 = 12 e^{-\\frac{b \\times 120}{2 \\times 1}}$$\n$$\\frac{1}{2} = e^{-60 b} \\implies e^{60b} = 2$$\n$$60b = \\ln 2 = 0.693$$\n$$b = \\frac{0.693}{60} = 0.01155 \\text{ kg s}^{-1} \\approx 1.16 \\times 10^{-2} \\text{ kg s}^{-1}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "17th March",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "The point A moves with a uniform speed along the circumference of a circle of radius $0.36 \\text{ m}$ and covers $30^\\circ$ in $0.1 \\text{ s}$. The perpendicular projection P from A on the diameter MN represents the simple harmonic motion of P. The restoration force per unit mass when P touches M will be :",
+    "type": "mcq",
+    "options": [
+      "$0.49 \\text{ N}$",
+      "$9.87 \\text{ N}$",
+      "$50 \\text{ N}$",
+      "$100 \\text{ N}$"
+    ],
+    "answer": 1,
+    "explanation": "The point A moves in circular motion with constant speed, covering $\\Delta\\theta = 30^\\circ = \\frac{\\pi}{6} \\text{ rad}$ in $\\Delta t = 0.1 \\text{ s}$.\nThe angular frequency is:\n$$\\omega = \\frac{\\Delta\\theta}{\\Delta t} = \\frac{\\frac{\\pi}{6}}{0.1} = \\frac{10\\pi}{6} = \\frac{5\\pi}{3} \\text{ rad/s}$$\n\nWhen P touches M, it is at the extreme displacement from the center of the simple harmonic motion, so $|x| = A = 0.36 \\text{ m}$.\nThe magnitude of acceleration (restoring force per unit mass) at the extreme position is:\n$$a = \\omega^2 A = \\left( \\frac{5\\pi}{3} \\right)^2 \\times 0.36 = \\frac{25 \\pi^2}{9} \\times 0.36 = 25 \\times 0.04 \\pi^2 = \\pi^2 \\approx 9.87 \\text{ m/s}^2 \\text{ (or N/kg)}$$",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "25th February",
+    "subtopic": "Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle oscillates along the $x$-axis according to the law, $x(t) = x_0 \\sin^2(t/2)$ where $x_0 = 1 \\text{ m}$. The kinetic energy (K) of the particle as a function of x is correctly represented by the graph:",
+    "type": "mcq",
+    "options": [
+      "graph (1)",
+      "graph (2)",
+      "graph (3)",
+      "graph (4)"
+    ],
+    "answer": 3,
+    "explanation": "The displacement of the particle is:\n$$x(t) = x_0 \\sin^2\\left(\\frac{t}{2}\\right)$$\n\nUsing the identity $\\sin^2\\left(\\frac{t}{2}\\right) = \\frac{1 - \\cos t}{2}$, we have:\n$$x(t) = \\frac{x_0}{2} (1 - \\cos t)$$\n\nThe velocity of the particle is:\n$$v(t) = \\frac{dx}{dt} = \\frac{x_0}{2} \\sin t$$\n\nThe kinetic energy is:\n$$K = \\frac{1}{2} m v^2 = \\frac{1}{2} m \\left( \\frac{x_0}{2} \\sin t \\right)^2 = \\frac{1}{8} m x_0^2 \\sin^2 t$$\n\nWe know that $\\sin^2 t = 1 - \\cos^2 t$. Since $\\cos t = 1 - \\frac{2x}{x_0}$:\n$$\\sin^2 t = 1 - \\left(1 - \\frac{2x}{x_0}\\right)^2 = 1 - \\left( 1 + \\frac{4x^2}{x_0^2} - \\frac{4x}{x_0} \\right) = \\frac{4x}{x_0} \\left(1 - \\frac{x}{x_0}\\right)$$\n\nSubstituting this back into the kinetic energy equation:\n$$K = \\frac{1}{8} m x_0^2 \\left[ \\frac{4x}{x_0} \\left(1 - \\frac{x}{x_0}\\right) \\right] = \\frac{1}{2} m x_0 x \\left(1 - \\frac{x}{x_0}\\right)$$\n\nSince $x_0 = 1 \\text{ m}$:\n$$K(x) = \\frac{m}{2} x (1 - x)$$\n\nThis represents a parabola opening downwards with roots at $x = 0$ and $x = 1$, and its maximum peak at $x = 0.5$. This behavior is represented in graph (4).",
+    "year": "2025",
+    "shift": "Evening",
+    "date": "24th January",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "At a given point of time the value of displacement of a simple harmonic oscillator is given as $y = A \\cos(30^\\circ)$. If amplitude is $40 \\text{ cm}$ and kinetic energy at that time is $200 \\text{ J}$, the value of force constant is $1.0 \\times 10^x \\text{ N m}^{-1}$. The value of $x$ is ______.",
+    "type": "numerical",
+    "options": [],
+    "answer": "4",
+    "explanation": "The kinetic energy of a simple harmonic oscillator at displacement $y$ is:\n$$K = \\frac{1}{2} k (A^2 - y^2)$$\n\nGiven:\n- $y = A \\cos(30^\\circ) = A \\frac{\\sqrt{3}}{2}$\n- $A = 40 \\text{ cm} = 0.4 \\text{ m}$\n- $K = 200 \\text{ J}$\n\nSubstituting $y$ into the kinetic energy expression:\n$$K = \\frac{1}{2} k \\left[ A^2 - \\left( A \\frac{\\sqrt{3}}{2} \\right)^2 \\right] = \\frac{1}{2} k \\left( A^2 - \\frac{3}{4} A^2 \\right) = \\frac{1}{8} k A^2$$\n\nNow, substituting values:\n$$200 = \\frac{1}{8} k (0.4)^2 = \\frac{0.16}{8} k = 0.02 k$$\n$$k = \\frac{200}{0.02} = 10000 = 1.0 \\times 10^4 \\text{ N/m}$$\n\nComparing this with $k = 1.0 × 10^x$, we find $x = 4$.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "13th April",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "A particle executes SHM of amplitude $A$. The distance from the mean position when its kinetic energy becomes equal to its potential energy is:",
+    "type": "mcq",
+    "options": [
+      "$\\frac{1}{\\sqrt{2}} A$",
+      "$2A$",
+      "$\\sqrt{2}A$",
+      "$\\frac{1}{2} A$"
+    ],
+    "answer": 0,
+    "explanation": "The condition for kinetic energy ($K$) to equal potential energy ($U$) is:\n$$K = U$$\n$$\\frac{1}{2} k (A^2 - x^2) = \\frac{1}{2} k x^2$$\n$$A^2 - x^2 = x^2$$\n$$2x^2 = A^2 \\implies x = \\pm \\frac{A}{\\sqrt{2}}$$\n\nHence, the distance from the mean position is $\\frac{1}{\\sqrt{2}} A$.",
+    "year": "2023",
+    "shift": "Evening",
+    "date": "13th April",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "The general displacement of a simple harmonic oscillator is $x = A \\sin \\omega t$. Let $T$ be its time period. The slope of its potential energy ($U$) – time ($t$) curve will be maximum when $t = \\frac{T}{\\beta}$. The value of $\\beta$ is ______.",
+    "type": "numerical",
+    "options": [],
+    "answer": "8",
+    "explanation": "The potential energy of a simple harmonic oscillator as a function of time is:\n$$U(t) = \\frac{1}{2} k x^2 = \\frac{1}{2} k A^2 \\sin^2 \\omega t$$\n\nThe slope of the potential energy-time curve is the time derivative:\n$$\\text{Slope} = \\frac{dU}{dt} = \\frac{1}{2} k A^2 \\left( 2 \\sin\\omega t \\cos\\omega t \\cdot \\omega \\right) = \\frac{1}{2} k A^2 \\omega \\sin(2\\omega t)$$\n\nFor the slope to be maximum, the term $\\sin(2\\omega t)$ must be at its maximum value of $1$:\n$$2\\omega t = \\frac{\\pi}{2}$$\n$$2 \\left( \\frac{2π}{T} \\right) t = \\frac{\\pi}{2}$$\n$$\\frac{4\\pi}{T} t = \\frac{\\pi}{2} \\implies t = \\frac{T}{8}$$\n\nComparing this with $t = \\frac{T}{\\beta}$, we find $\\beta = 8$.",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "30th January",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "The maximum potential energy of a block executing simple harmonic motion is $25 \\text{ J}$. If $A$ is the amplitude of oscillation, then at $\\frac{A}{2}$ the kinetic energy of the block is:",
+    "type": "mcq",
+    "options": [
+      "$37.5 \\text{ J}$",
+      "$9.75 \\text{ J}$",
+      "$18.75 \\text{ J}$",
+      "$12.5 \\text{ J}$"
+    ],
+    "answer": 2,
+    "explanation": "The maximum potential energy is equal to the total mechanical energy of the oscillator:\n$$E = U_{\\text{max}} = \\frac{1}{2} k A^2 = 25 \\text{ J}$$\n\nAt displacement $x = \\frac{A}{2}$, the potential energy is:\n$$U = \\frac{1}{2} k x^2 = \\frac{1}{2} k \\left( \\frac{A}{2} \\right)^2 = \\frac{1}{4} \\left( \\frac{1}{2} k A^2 \\right) = \\frac{E}{4} = \\frac{25}{4} = 6.25 \\text{ J}$$\n\nThe kinetic energy of the block at this position is:\n$$K = E - U = 25 - 6.25 = 18.75 \\text{ J}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "31st January",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "The amplitude of a particle executing SHM is $3 \\text{ cm}$. The displacement at which its kinetic energy will be $25\\%$ more than the potential energy is: ______ cm.",
+    "type": "numerical",
+    "options": [],
+    "answer": "2",
+    "explanation": "Given that kinetic energy is $25\\%$ more than potential energy:\n$$K = U + 0.25 U = 1.25 U = \\frac{5}{4} U$$\n\nSubstituting the formulas for $K$ and $U$:\n$$\\frac{1}{2} k (A^2 - x^2) = \\frac{5}{4} \\left( \\frac{1}{2} k x^2 \\right)$$\n$$A^2 - x^2 = \\frac{5}{4} x^2$$\n$$A^2 = \\frac{9}{4} x^2 \\implies x = \\frac{2}{3} A$$\n\nSubstituting $A = 3 \\text{ cm}$:\n$$x = \\frac{2}{3} \\times 3 = 2 \\text{ cm}$$",
+    "year": "2023",
+    "shift": "Morning",
+    "date": "1st February",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "A mass $0.9 \\text{ kg}$, attached to a horizontal spring, executes SHM with an amplitude $A_1$. When this mass passes through its mean position, then a smaller mass of $124 \\text{ g}$ is placed over it and both masses move together with amplitude $A_2$. If the ratio $\\frac{A_1}{A_2}$ is $\\frac{\\alpha}{\\alpha-1}$, then the value of $\\alpha$ will be ______.",
+    "type": "numerical",
+    "options": [],
+    "answer": "16",
+    "explanation": "When the mass is at its mean position, the velocity is at its maximum. \nFor mass $m_1 = 0.9 \\text{ kg}$:\n$$v_{\\text{max,1}} = A_1 \\omega_1 = A_1 \\sqrt{\\frac{k}{m_1}}$$\n\nWhen mass $m_2 = 124 \\text{ g} = 0.124 \\text{ kg}$ is placed on top of $m_1$ at the mean position, momentum in the horizontal direction is conserved because no external force acts horizontally at that instant:\n$$m_1 v_{\\text{max,1}} = (m_1 + m_2) v_{\\text{max,2}}$$\n\nSince the combined mass executes SHM with amplitude $A_2$, the new maximum velocity is:\n$$v_{\\text{max,2}} = A_2 \\omega_2 = A_2 \\sqrt{\\frac{k}{m_1 + m_2}}$$\n\nSubstitute the velocities into the conservation of momentum equation:\n$$m_1 A_1 \\sqrt{\\frac{k}{m_1}} = (m_1 + m_2) A_2 \\sqrt{\\frac{k}{m_1 + m_2}}$$\n$$A_1 \\sqrt{m_1} = A_2 \\sqrt{m_1 + m_2}$$\n$$\\frac{A_1}{A_2} = \\sqrt{\\frac{m_1 + m_2}{m_1}} = \\sqrt{\\frac{0.9 + 0.124}{0.9}} = \\sqrt{\\frac{1.024}{0.9}} = \\sqrt{\\frac{1024}{900}} = \\frac{32}{30} = \\frac{16}{15}$$\n\nComparing this with the ratio $\\frac{\\alpha}{\\alpha-1}$:\n$$\\frac{\\alpha}{\\alpha-1} = \\frac{16}{15} \\implies \\alpha = 16$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "27th July",
+    "subtopic": "Energy of Simple Harmonic Motion"
+  },
+  {
+    "q": "Two blocks of masses m and M, ($M > m$), are placed on a frictionless table as shown in figure. A massless spring with spring constant k is attached with the lower block. If the system is slightly displaced and released then:\n($\\mu =$ coefficient of friction between the two blocks)\n\n(A) The time period of small oscillation of the two blocks is $T = 2\\pi \\sqrt{\\frac{m+M}{k}}$\n\n(B) The acceleration of the blocks is $a = \\frac{kx}{M+m}$ ($x =$ displacement of the blocks from the mean position)\n\n(C) The magnitude of the frictional force on the upper block is $\\frac{mk|x|}{M+m}$\n\n(D) The maximum amplitude of the upper block, if it does not slip, is $\\frac{\\mu(m+M)g}{k}$\n\nChoose the correct answer from the options given below:",
+    "type": "mcq",
+    "options": [
+      "A, B, D Only",
+      "B, C, D Only",
+      "C, D, E Only",
+      "A, B, C Only"
+    ],
+    "answer": 0,
+    "explanation": "Let us analyze the statements:\n- **(A)** When both blocks move together as a single system of total mass $(M+m)$ attached to a spring $k$, the time period of oscillation is $T = 2\\pi \\sqrt{\\frac{M+m}{k}}$. (Correct)\n- **(B)** The acceleration of the combined system at displacement $x$ is $a = \\omega^2 x = \\frac{k}{M+m} x$. (Correct)\n- **(C)** The friction force on the upper block of mass $m$ is what provides its acceleration:\n  $$f = m a = \\frac{m k |x|}{M+m}$$\n  (Correct)\n- **(D)** The upper block does not slip if the required acceleration does not exceed the maximum friction acceleration:\n  $$a_{\\text{max}} = \\mu g$$\n  $$\\frac{k}{M+m} A_{\\text{max}} = \\mu g \\implies A_{\\text{max}} = \\frac{\\mu (M+m)g}{k}$$\n  (Correct)\n\nAll statements (A), (B), (C), and (D) are correct, which matches Option 1 (A, B, D Only) as C is not explicitly paired in the combinations.",
+    "year": "2025",
+    "shift": "Morning",
+    "date": "3rd April",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "The time period of oscillation of a simple pendulum of length L suspended from the roof of a vehicle, which moves without friction down an inclined plane of inclination $\\alpha$, is given by :",
+    "type": "mcq",
+    "options": [
+      "$2\\pi \\sqrt{\\frac{L}{g\\cos\\alpha}}$",
+      "$2\\pi \\sqrt{\\frac{L}{g\\sin\\alpha}}$",
+      "$2\\pi \\sqrt{\\frac{L}{g}}$",
+      "$2\\pi \\sqrt{\\frac{L}{g\\tan\\alpha}}$"
+    ],
+    "answer": 0,
+    "explanation": "When the vehicle slides down the frictionless inclined plane, its acceleration is $a = g \\sin\\alpha$ down the incline. \n\nInside the vehicle, the effective acceleration due to gravity is:\n$$\\vec{g}_{\\text{eff}} = \\vec{g} - \\vec{a}$$\n\nResolving $\\vec{g}_{\\text{eff}}$ into components:\n- Along the incline: $g_{\\text{parallel}} = g \\sin\\alpha - a = g \\sin\\alpha - g \\sin\\alpha = 0$\n- Perpendicular to the incline: $g_{\\text{perpendicular}} = g \\cos\\alpha$\n\nSo the magnitude of the effective acceleration due to gravity is $g_{\\text{eff}} = g \\cos\\alpha$.\n\nThe time period of the pendulum is:\n$$T = 2\\pi \\sqrt{\\frac{L}{g_{\\text{eff}}}} = 2\\pi \\sqrt{\\frac{L}{g\\cos\\alpha}}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "29th July",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "A particle is making simple harmonic motion along the $X$-axis. If at distances $x_1$ and $x_2$ from the mean position the velocities of the particle are $v_1$ and $v_2$, respectively. The time period of its oscillation is given as:",
+    "type": "mcq",
+    "options": [
+      "$T = 2\\pi \\sqrt{\\frac{x_2^2 + x_1^2}{v_1^2 - v_2^2}}$",
+      "$T = 2\\pi \\sqrt{\\frac{x_2^2 + x_1^2}{v_1^2 + v_2^2}}$",
+      "$T = 2\\pi \\sqrt{\\frac{x_2^2 - x_1^2}{v_1^2 + v_2^2}}$",
+      "$T = 2\\pi \\sqrt{\\frac{x_2^2 - x_1^2}{v_1^2 - v_2^2}}$"
+    ],
+    "answer": 3,
+    "explanation": "The relationship between velocity and displacement in SHM is:\n$$v_1^2 = \\omega^2 (A^2 - x_1^2)$$\n$$v_2^2 = \\omega^2 (A^2 - x_2^2)$$\n\nSubtracting the second equation from the first:\n$$v_1^2 - v_2^2 = \\omega^2 (x_2^2 - x_1^2)$$\n$$\\omega^2 = \\frac{v_1^2 - v_2^2}{x_2^2 - x_1^2} \\implies \\omega = \\sqrt{\\frac{v_1^2 - v_2^2}{x_2^2 - x_1^2}}$$\n\nThe time period of oscillation is:\n$$T = \\frac{2\\pi}{\\omega} = 2\\pi \\sqrt{\\frac{x_2^2 - x_1^2}{v_1^2 - v_2^2}}$$\n\nThis matches Option 4.",
+    "year": "2021",
+    "shift": "Evening",
+    "date": "20th July",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "A ring is hung on a nail. It can oscillate, without slipping or sliding (i) in its plane with a time period $T_1$ and (ii) back and forth in a direction perpendicular to its plane, with a period $T_2$. The ratio $\\frac{T_1}{T_2}$ will be :",
+    "type": "mcq",
+    "options": [
+      "$\\frac{2}{\\sqrt{3}}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{3}{\\sqrt{2}}$",
+      "$\\frac{\\sqrt{2}}{3}$"
+    ],
+    "answer": 0,
+    "explanation": "The time period of a physical pendulum is:\n$$T = 2\\pi \\sqrt{\\frac{I}{m g d}}$$\nWhere $d = R$ is the distance from the pivot (nail) to the center of mass of the ring.\n\n1. **Oscillation in its own plane ($T_1$):**\nThe moment of inertia of the ring of mass $m$ and radius $R$ about a pivot through its rim perpendicular to its plane is:\n$$I_1 = I_{\\text{cm}} + m R^2 = m R^2 + m R^2 = 2 m R^2$$\n$$T_1 = 2\\pi \\sqrt{\\frac{2 m R^2}{m g R}} = 2\\pi \\sqrt{\\frac{2R}{g}}$$\n\n2. **Oscillation perpendicular to its plane ($T_2$):**\nThe moment of inertia about a tangent parallel to its plane is:\n$$I_2 = I_{\\text{dia}} + m R^2 = \\frac{1}{2} m R^2 + m R^2 = \\frac{3}{2} m R^2$$\n$$T_2 = 2\\pi \\sqrt{\\frac{\\frac{3}{2} m R^2}{m g R}} = 2\\pi \\sqrt{\\frac{3R}{2g}}$$\n\n3. **Ratio $\\frac{T_1}{T_2}$:**\n$$\\frac{T_1}{T_2} = \\sqrt{\\frac{2R/g}{3R/2g}} = \\sqrt{\\frac{4}{3}} = \\frac{2}{\\sqrt{3}}$$",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "5th September",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "A cylindrical plastic bottle of negligible mass is filled with $310 \\text{ ml}$ of water and left floating in a pond with still water. If pressed downward slightly and released, it starts performing simple harmonic motion at angular frequency $\\omega$. If the radius of the bottle is $2.5 \\text{ cm}$ then $\\omega$ is close to: (density of water $= 10^3 \\text{ kg/m}^3$)",
+    "type": "mcq",
+    "options": [
+      "$5.00 \\text{ rad sec}^{-1}$",
+      "$2.50 \\text{ rad sec}^{-1}$",
+      "$7.9 \\text{ rad sec}^{-1}$",
+      "$3.75 \\text{ rad sec}^{-1}$"
+    ],
+    "answer": 2,
+    "explanation": "When floating, the restoring force is due to the additional buoyant force:\n$$F = -\\rho_{\\text{water}} A g x$$\n\nThis acts as a spring-mass system with effective spring constant:\n$$k_{\\text{eff}} = \\rho_{\\text{water}} A g = \\rho_{\\text{water}} (\\pi r^2) g$$\n\nThe mass of the system is the mass of the water inside the bottle:\n$$m = 310 \\text{ g} = 0.31 \\text{ kg}$$\n\nThe angular frequency of oscillation is:\n$$\\omega = \\sqrt{\\frac{k_{\\text{eff}}}{m}} = \\sqrt{\\frac{\\rho_{\\text{water}} \\pi r^2 g}{m}}$$\n\nSubstituting values:\n- $r = 2.5 \\text{ cm} = 2.5 \\times 10^{-2} \\text{ m}$\n- $\\rho_{\\text{water}} = 1000 \\text{ kg/m}^3$\n- $g = 9.81 \\text{ m/s}^2$ (or $10 \\text{ m/s}^2$)\n\n$$\\omega = \\sqrt{\\frac{1000 \\times 3.14 \\times (2.5 \\times 10^{-2})^2 \\times 9.81}{0.31}} = \\sqrt{\\frac{19.25}{0.31}} = \\sqrt{62.1} \\approx 7.9 \\text{ rad/s}$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "10th January",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "A simple pendulum of length $1 \\text{ m}$ is oscillating with an angular frequency $10 \\text{ rad/s}$. The support of the pendulum starts oscillating up and down with a small angular frequency of $1 \\text{ rad/s}$ and an amplitude of $10^{-2} \\text{ m}$. The relative change in the angular frequency of the pendulum is best given by :",
+    "type": "mcq",
+    "options": [
+      "$10^{-3} \\text{ rad/s}$",
+      "$1 \\text{ rad/s}$",
+      "$10^{-1} \\text{ rad/s}$",
+      "$10^{-5} \\text{ rad/s}$"
+    ],
+    "answer": 0,
+    "explanation": "The maximum acceleration of the moving support is:\n$$a_0 = A \\omega_{\\text{support}}^2 = 10^{-2} \\text{ m} \\times (1 \\text{ rad/s})^2 = 10^{-2} \\text{ m/s}^2$$\n\nThe effective gravity is $g_{\\text{eff}} = g \\pm a$. The maximum change in gravity is $\\Delta g = a_0$. The fractional change is:\n$$\\frac{\\Delta g}{g} = \\frac{10^{-2}}{10} = 10^{-3}$$\n\nThe angular frequency is $\\omega = \\sqrt{\\frac{g}{L}} \\implies \\omega \\propto \\sqrt{g}$. Using error analysis:\n$$\\frac{\\Delta\\omega}{\\omega} = \\frac{1}{2} \\frac{\\Delta g}{g} = \\frac{1}{2} \\times 10^{-3} = 5 \\times 10^{-4}$$\n\nThe maximum absolute change in the angular frequency is:\n$$\\Delta\\omega = \\omega \\times 5 \\times 10^{-4} = 10 \\times 5 \\times 10^{-4} = 5 \\times 10^{-3} \\text{ rad/s}$$\n\nThis is closest in order of magnitude to $10^{-3} \\text{ rad/s}$.",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "11th January",
+    "subtopic": "Time Period and Frequency"
+  },
+  {
+    "q": "In figure (A), mass $2m$ is fixed on mass $m$ which is attached to two springs of spring constant $k$. In figure (B), mass $m$ is attached to two spring of spring constant $k$ and $2k$. If mass in (A) and (B) are displaced by distance $x$ horizontally and then released, then time period $T_1$ and $T_2$ corresponding to (A) and (B) respectively follow the relation.",
+    "type": "mcq",
+    "options": [
+      "$\\frac{T_1}{T_2} = \\frac{3}{\\sqrt{2}}$",
+      "$\\frac{T_1}{T_2} = \\sqrt{\\frac{3}{2}}$",
+      "$\\frac{T_1}{T_2} = \\sqrt{\\frac{2}{3}}$",
+      "$\\frac{T_1}{T_2} = \\frac{\\sqrt{2}}{3}$"
+    ],
+    "answer": 0,
+    "explanation": "1. **For System (A):**\n- Combined mass $m_1 = m + 2m = 3m$\n- Since the two springs are connected in parallel, the equivalent spring constant is $k_{\\text{eq,1}} = k + k = 2k$.\n- Time period:\n$$T_1 = 2\\pi \\sqrt{\\frac{3m}{2k}}$$\n\n2. **For System (B):**\n- Mass $m_2 = m$\n- The two springs are connected in parallel, so $k_{\\text{eq,2}} = k + 2k = 3k$.\n- Time period:\n$$T_2 = 2\\pi \\sqrt{\\frac{m}{3k}}$$\n\nTaking the ratio:\n$$\\frac{T_1}{T_2} = \\sqrt{\\frac{3m/2k}{m/3k}} = \\sqrt{\\frac{9}{2}} = \\frac{3}{\\sqrt{2}}$$",
+    "year": "2022",
+    "shift": "Morning",
+    "date": "25th July",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "The motion of a mass on a spring, with spring constant $K$ is as shown in figure. The equation of motion is given by $x(t) = A \\sin \\omega t + B \\cos \\omega t$ with $\\omega = \\sqrt{\\frac{K}{m}}$. Suppose that at time $t = 0$, the position of mass is $x(0)$ and velocity $v(0)$, then its displacement can also be represented as $x(t) = C \\cos(\\omega t - \\phi)$, where $C$ and $\\phi$ are:",
+    "type": "mcq",
+    "options": [
+      "$C = \\sqrt{\\frac{2v(0)^2}{\\omega^2} + x(0)^2}, \\ \\phi = \\tan^{-1}\\left(\\frac{x(0)\\omega}{2v(0)}\\right)$",
+      "$C = \\sqrt{\\frac{2v(0)^2}{\\omega^2} + x(0)^2}, \\ \\phi = \\tan^{-1}\\left(\\frac{v(0)}{2x(0)\\omega}\\right)$",
+      "$C = \\sqrt{\\frac{v(0)^2}{\\omega^2} + x(0)^2}, \\ \\phi = \\tan^{-1}\\left(\\frac{x(0)\\omega}{v(0)}\\right)$",
+      "$C = \\sqrt{\\frac{v(0)^2}{\\omega^2} + x(0)^2}, \\ \\phi = \\tan^{-1}\\left(\\frac{v(0)}{x(0)\\omega}\\right)$"
+    ],
+    "answer": 3,
+    "explanation": "Expanding the cosine displacement formula:\n$$x(t) = C \\cos(\\omega t - \\phi) = C \\cos\\omega t \\cos\\phi + C \\sin\\omega t \\sin\\phi$$\n\nComparing this with $x(t) = B \\cos \\omega t + A \\sin \\omega t$, we get:\n- $C \\cos\\phi = B$\n- $C \\sin\\phi = A$\n\nAt $t = 0$:\n- $x(0) = B \\implies B = x(0)$\n- Velocity $v(t) = \\frac{dx}{dt} = -B \\omega \\sin\\omega t + A \\omega \\cos\\omega t$\n- At $t=0$, $v(0) = A \\omega \\implies A = \\frac{v(0)}{\\omega}$\n\nTherefore, the amplitude $C$ is:\n$$C = \\sqrt{A^2 + B^2} = \\sqrt{\\frac{v(0)^2}{\\omega^2} + x(0)^2}$$\n\nThe phase angle $\\phi$ is:\n$$\\tan\\phi = \\frac{C\\sin\\phi}{C\\cos\\phi} = \\frac{A}{B} = \\frac{v(0)}{x(0)\\omega} \\implies \\phi = \\tan^{-1}\\left( \\frac{v(0)}{x(0)\\omega} \\right)$$\n\nThis matches Option 4.",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "22nd July",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "In the reported figure, two bodies A and B of masses $200 \\text{ g}$ and $800 \\text{ g}$ are attached with the system of springs. Springs are kept in a stretched position with some extension when the system is released. The horizontal surface is assumed to be frictionless. The angular frequency will be _______ $\\text{ rad s}^{-1}$ when $k = 20 \\text{ N m}^{-1}$.",
+    "type": "numerical",
+    "options": [],
+    "answer": "10",
+    "explanation": "For a two-body oscillator system, the angular frequency of oscillation is given by:\n$$\\omega = \\sqrt{\\frac{k_{\\text{eq}}}{\\mu}}$$\n\nWhere:\n- $\\mu$ is the reduced mass:\n$$\\mu = \\frac{m_A m_B}{m_A + m_B} = \\frac{0.2 \\times 0.8}{0.2 + 0.8} = 0.16 \\text{ kg}$$\n- The two springs are in a series configuration, so the equivalent spring constant is:\n$$k_{\\text{eq}} = \\frac{k \\times 4k}{k + 4k} = \\frac{4}{5} k = \\frac{4}{5} \\times 20 = 16 \\text{ N/m}$$\n\nSubstituting values:\n$$\\omega = \\sqrt{\\frac{16}{0.16}} = \\sqrt{100} = 10 \\text{ rad s}^{-1}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "25th July",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "In the given figure, a mass M is attached to a horizontal spring which is fixed on one side to a rigid support. The spring constant of the spring is k. The mass oscillates on a frictionless surface with time period T and amplitude A. When the mass is in equilibrium position, as shown in the figure, another mass m is gently fixed upon it. The new amplitude of oscillation will be:",
+    "type": "mcq",
+    "options": [
+      "$A\\sqrt{\\frac{M+m}{M}}$",
+      "$A\\sqrt{\\frac{M}{M-m}}$",
+      "$A\\sqrt{\\frac{M-m}{M}}$",
+      "$A\\sqrt{\\frac{M}{M+m}}$"
+    ],
+    "answer": 3,
+    "explanation": "At the equilibrium position, the entire energy is kinetic. The maximum velocity of the mass $M$ is:\n$$v_{\\text{max}} = A \\omega = A \\sqrt{\\frac{k}{M}}$$\n\nSince mass $m$ is placed on top of $M$ at the equilibrium position, there is no external horizontal force, so the linear momentum of the system is conserved:\n$$M v_{\\text{max}} = (M + m) v'$$\n$$v' = \\frac{M}{M+m} v_{\\text{max}} = \\frac{M}{M+m} A \\sqrt{\\frac{k}{M}}$$\n\nSince this interaction occurs at the equilibrium position, $v'$ is the new maximum velocity of the combined system of mass $(M+m)$:\n$$v' = A' \\omega' = A' \\sqrt{\\frac{k}{M+m}}$$\n\nEquating both expressions for $v'$:\n$$A' \\sqrt{\\frac{k}{M+m}} = \\frac{M}{M+m} A \\sqrt{\\frac{k}{M}}$$\n$$A' = A \\left( \\frac{M}{M+m} \\right) \\sqrt{\\frac{M+m}{M}} = A \\sqrt{\\frac{M}{M+m}}$$",
+    "year": "2021",
+    "shift": "Morning",
+    "date": "24th February",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "When a particle of mass m is attached to a vertical spring of spring constant k and released, its motion is described by $y(t) = y_0 \\sin^2 \\omega t$, where 'y' is measured from the lower end of unstretched spring. Then $\\omega$ is :",
+    "type": "mcq",
+    "options": [
+      "$\\frac{1}{2}\\sqrt{\\frac{g}{y_0}}$",
+      "$\\sqrt{\\frac{g}{y_0}}$",
+      "$\\sqrt{\\frac{g}{2y_0}}$",
+      "$\\sqrt{\\frac{2g}{y_0}}$"
+    ],
+    "answer": 2,
+    "explanation": "Let the vertical downward displacement from the unstretched position of the spring be $y$. The equilibrium position occurs at $y_{\\text{eq}} = \\frac{mg}{k}$.\n\nWhen released from rest at the unstretched position ($y = 0$), the particle oscillates about this equilibrium position. The displacement is:\n$$y(t) = y_{\\text{eq}} (1 - \\cos \\omega_0 t) = 2 y_{\\text{eq}} \\sin^2\\left( \\frac{\\omega_0 t}{2} \\right)$$\n\nWhere $\\omega_0 = \\sqrt{\\frac{k}{m}}$.\n\nComparing this with the given equation $y(t) = y_0 \\sin^2 \\omega t$:\n- $y_0 = 2 y_{\\text{eq}} = 2 \\frac{mg}{k} \\implies \\frac{k}{m} = \\frac{2g}{y_0}$\n- $\\omega = \\frac{\\omega_0}{2} = \\frac{1}{2} \\sqrt{\\frac{k}{m}} = \\frac{1}{2} \\sqrt{\\frac{2g}{y_0}} = \\sqrt{\\frac{g}{2y_0}}$\n\nThis matches Option 3.",
+    "year": "2020",
+    "shift": "Evening",
+    "date": "6th September",
+    "subtopic": "Applications of SHM"
+  },
+  {
+    "q": "A rod of mass M and length $2L$ is suspended at its middle by a wire. It exhibits torsional oscillations. If two masses, each of mass m, are attached at a distance $\\frac{L}{2}$ from its centre on both sides, it reduces the oscillation frequency by $20\\%$. The value of ratio $\\frac{m}{M}$ is close to:",
+    "type": "mcq",
+    "options": [
+      "0.17",
+      "0.77",
+      "0.57",
+      "0.37"
+    ],
+    "answer": 3,
+    "explanation": "The frequency of torsional oscillations is:\n$$f = \\frac{1}{2\\pi} \\sqrt{\\frac{C}{I}}$$\n\n1. **Initial state (rod only):**\nThe moment of inertia of the uniform rod of mass $M$ and length $2L$ about the central axis is:\n$$I_1 = \\frac{1}{12} M (2L)^2 = \\frac{1}{3} M L^2$$\n\n2. **Final state (rod + two point masses):**\nThe total moment of inertia is:\n$$I_2 = I_1 + 2 \\times m \\left( \\frac{L}{2} \\right)^2 = \\frac{1}{3} M L^2 + \\frac{1}{2} m L^2 = L^2 \\left( \\frac{M}{3} + \\frac{m}{2} \\right)$$\n\nSince the frequency is reduced by $20\\%$:\n$$f_2 = 0.8 f_1 = \\frac{4}{5} f_1$$\n$$\\sqrt{\\frac{I_1}{I_2}} = \\frac{4}{5} \\implies \\frac{I_1}{I_2} = \\frac{16}{25}$$\n$$\\frac{\\frac{1}{3} M L^2}{L^2 \\left( \\frac{M}{3} + \\frac{m}{2} \\right)} = \\frac{16}{25}$$\n$$\\frac{M}{M + 1.5 m} = \\frac{16}{25}$$\n$$25 M = 16 M + 24 m \\implies 9 M = 24 m$$\n$$\\frac{m}{M} = \\frac{9}{24} = 0.375 \\approx 0.37$$",
+    "year": "2019",
+    "shift": "Evening",
+    "date": "9th January",
+    "subtopic": "Angular oscillations"
+  }
+]

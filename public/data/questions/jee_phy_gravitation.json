@@ -614,6 +614,7 @@
     "subtopic": "Kepler laws"
   },
   {
+    "24": "Kepler laws",
     "q": "The time period of a satellite of earth is 24 hours. If the separation between the earth and the satellite is decreased to one fourth of the previous value, then its new time period will become.",
     "type": "mcq",
     "options": [
@@ -626,8 +627,7 @@
     "explanation": "From Kepler's third law:\n$$T^2 \\propto r^3 \\implies T \\propto r^{3/2}$$\n\nTherefore, the ratio of the new period to the previous period is:\n$$\\frac{T_2}{T_1} = \\left(\\frac{r_2}{r_1}\right)^{3/2} = \\left(\\frac{1}{4}\right)^{3/2} = \\frac{1}{8}$$\n\n$$T_2 = \\frac{T_1}{8} = \\frac{24\\text{ hours}}{8} = 3\\text{ hours}$$\nThis matches Option (4).",
     "year": "2019",
     "shift": "Morning",
-    "date": "09th January",
-    "24": "Kepler laws"
+    "date": "09th January"
   },
   {
     "q": "The distance between Sun and Earth is R. The duration of year if the distance between Sun and Earth becomes 3R will be :",
@@ -821,9 +821,9 @@
     "type": "mcq",
     "options": [
       "$\\frac{T_{\\text{A}}}{T_{\\text{B}}} = \\left(\\frac{r_{\\text{A}}}{r_{\\text{B}}}\\right)^{3/2}$",
-      "T_{\\text{A}} = T_{\\text{B}}$",
-      "T_{\\text{A}} > T_{\\text{B}} \\quad (\\text{if } m_{\\text{A}} > m_{\\text{B}})$",
-      "T_{\\text{A}} > T_{\\text{B}} \\quad (\\text{if } r_{\\text{A}} > r_{\\text{B}})$"
+      "$T_{\\text{A}} = T_{\\text{B}}$",
+      "$T_{\\text{A}} > T_{\\text{B}} \\quad (\\text{if } m_{\\text{A}} > m_{\\text{B}})$",
+      "$T_{\\text{A}} > T_{\\text{B}} \\quad (\\text{if } r_{\\text{A}} > r_{\\text{B}})$"
     ],
     "answer": 1,
     "explanation": "In a binary star system, both stars rotate about their common center of mass with the same angular frequency $\\omega$.\nSince $\\omega_A = \\omega_B$, their time periods of revolution are equal:\n$$T_{\\text{A}} = T_{\\text{B}} = \\frac{2\\pi}{\\omega}$$\nThis matches Option (2).",
@@ -900,10 +900,10 @@
     "q": "A straight rod of length L extends from $x = a$ to $x = L + a$. The gravitational force it exerts on a point mass 'm' at $x = 0$, if the mass per unit length of the rod is $A + Bx^2$, is given by:",
     "type": "mcq",
     "options": [
-      "Gm[A(\\frac{1}{a+L} - \\frac{1}{a}) + BL]",
-      "Gm[A(\\frac{1}{a+L} - \\frac{1}{a}) - BL]",
-      "Gm[A(\\frac{1}{a} - \\frac{1}{a+L}) - BL]",
-      "Gm[A(\\frac{1}{a} - \\frac{1}{a+L}) + BL]"
+      "$Gm[A(\\frac{1}{a+L} - \\frac{1}{a}) + BL]$",
+      "$Gm[A(\\frac{1}{a+L} - \\frac{1}{a}) - BL]$",
+      "$Gm[A(\\frac{1}{a} - \\frac{1}{a+L}) - BL]$",
+      "$Gm[A(\\frac{1}{a} - \\frac{1}{a+L}) + BL]$"
     ],
     "answer": 3,
     "explanation": "Consider an element of length $dx$ at distance $x$ from the origin. Its mass is $dm = (A + Bx^2) dx$.\nThe force $dF$ on mass $m$ due to $dm$ is:\n$$dF = \\frac{G m dm}{x^2} = G m \\left( \\frac{A}{x^2} + B \\right) dx$$\n\nIntegrating from $x = a$ to $x = a+L$:\n$$F = \\int_a^{a+L} G m \\left( \\frac{A}{x^2} + B \\right) dx = G m \\left[ -\\frac{A}{x} + Bx \\right]_a^{a+L}$$\n$$F = G m \\left[ A \\left( \\frac{1}{a} - \\frac{1}{a+L} \\right) + BL \\right]$$\nThis matches Option (4).",
@@ -927,7 +927,7 @@
     "q": "Four identical particles of mass m are kept at the four corners of a square. If the gravitational force exerted on one of the masses by the other masses is $(\\frac{2\\sqrt{2} + 1}{32}) \\frac{Gm^2}{L^2}$, the length of the sides of the square is:",
     "type": "mcq",
     "options": [
-      "\\frac{L}{2}",
+      "$\\frac{L}{2}$",
       "4L",
       "3L",
       "2L"
@@ -943,10 +943,10 @@
     "q": "If V is the gravitational potential due to sphere of uniform density on its surface, then its value at the centre of sphere will be:",
     "type": "mcq",
     "options": [
-      "\\frac{4}{3}V",
-      "\\frac{V}{2}",
+      "$\\frac{4}{3}V$",
+      "$\\frac{V}{2}$",
       "3V",
-      "\\frac{3V}{2}"
+      "$\\frac{3V}{2}$"
     ],
     "answer": 3,
     "explanation": "For a solid sphere of mass $M$ and radius $R$:\nThe potential at the surface is:\n$$V_{\\text{surface}} = -\\frac{GM}{R}$$\n\nThe potential at the center is:\n$$V_{\\text{center}} = -\\frac{3GM}{2R} = \\frac{3}{2} V_{\\text{surface}}$$\n\nTaking the magnitude/value of the potential on the surface as $V$:\n$$V_{\\text{center}} = \\frac{3V}{2}$$\nThis matches Option (4).",
@@ -991,10 +991,10 @@
     "q": "Find the gravitational force of attraction between the ring and sphere as shown in the diagram, where the plane of the ring is perpendicular to the line joining the centres. If $\\sqrt{8}R$ is the distance between the centres of a ring (of mass m) and a sphere (mass M) where both have equal radius R:",
     "type": "mcq",
     "options": [
-      "\\frac{2\\sqrt{2}}{3}\\frac{GMm}{R^2}",
-      "\\frac{\\sqrt{8}}{9}\\frac{GmM}{R}",
-      "\\frac{1}{3\\sqrt{8}}\\frac{GMm}{R^2}",
-      "\\frac{\\sqrt{8}}{27}\\frac{GmM}{R^2}"
+      "$\\frac{2\\sqrt{2}}{3}\\frac{GMm}{R^2}$",
+      "$\\frac{\\sqrt{8}}{9}\\frac{GmM}{R}$",
+      "$\\frac{1}{3\\sqrt{8}}\\frac{GMm}{R^2}$",
+      "$\\frac{\\sqrt{8}}{27}\\frac{GmM}{R^2}$"
     ],
     "answer": 3,
     "explanation": "The gravitational field of a ring of mass $m$ and radius $R$ at a distance $x$ on its axis is:\n$$E = \\frac{G m x}{(R^2+x^2)^{3/2}}$$\n\nGiven $x = \\sqrt{8}R$:\n$$E = \\frac{G m (\\sqrt{8}R)}{(R^2 + 8R^2)^{3/2}} = \\frac{\\sqrt{8} G m R}{27 R^3} = \\frac{\\sqrt{8}}{27} \\frac{Gm}{R^2}$$\n\nThe force of attraction on the sphere of mass $M$ (considered concentrated at its center) is:\n$$F = M E = \\frac{\\sqrt{8}}{27} \\frac{GmM}{R^2}$$\nThis matches Option (4).",
@@ -1007,10 +1007,10 @@
     "q": "Consider two solid spheres of radii $R_1 = 1\\text{ m}, R_2 = 2\\text{ m}$ and masses $M_1$ and $M_2$, respectively. The gravitational field due to sphere (1) and (2) are shown. The value of $\\frac{M_1}{M_2}$ is:",
     "type": "mcq",
     "options": [
-      "\\frac{2}{3}",
-      "\\frac{1}{6}",
-      "\\frac{1}{2}",
-      "\\frac{1}{3}"
+      "$\\frac{2}{3}$",
+      "$\\frac{1}{6}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{1}{3}$"
     ],
     "answer": 1,
     "explanation": "On the surface of sphere 1 (at distance $r = R_1 = 1\\text{ m}$), the gravitational field is $E_1 = 2\\text{ N/kg}$:\n$$E_1 = \\frac{G M_1}{R_1^2} \\implies 2 = \\frac{G M_1}{1^2} \\implies G M_1 = 2$$\n\nOn the surface of sphere 2 (at distance $r = R_2 = 2\\text{ m}$), the gravitational field is $E_2 = 3\\text{ N/kg}$:\n$$E_2 = \\frac{G M_2}{R_2^2} \\implies 3 = \\frac{G M_2}{2^2} \\implies G M_2 = 12$$\n\nThus, the ratio $\\frac{M_1}{M_2}$ is:\n$$\\frac{M_1}{M_2} = \\frac{G M_1}{G M_2} = \\frac{2}{12} = \\frac{1}{6}$$\nThis matches Option (2).",
@@ -1023,10 +1023,10 @@
     "q": "A solid sphere of mass M and radius a is surrounded by a uniform concentric spherical shell of thickness 2a and mass 2M. The gravitational field at distance 3a from the centre will be:",
     "type": "mcq",
     "options": [
-      "\\frac{GM}{9a^2}",
-      "\\frac{GM}{3a^2}",
-      "\\frac{2GM}{3a^2}",
-      "\\frac{2GM}{9a^2}"
+      "$\\frac{GM}{9a^2}$",
+      "$\\frac{GM}{3a^2}$",
+      "$\\frac{2GM}{3a^2}$",
+      "$\\frac{2GM}{9a^2}$"
     ],
     "answer": 1,
     "explanation": "The distance $r = 3a$ lies exactly on the outer boundary of the concentric shell of thickness $2a$ (extending from $r = a$ to $r = 3a$).\nBy the shell theorem, for any point on or outside a spherically symmetric body, the entire mass inside can be assumed to be concentrated at its center.\n\nThe total mass within a sphere of radius $3a$ is:\n$$M_{\\text{total}} = M_{\\text{sphere}} + M_{\\text{shell}} = M + 2M = 3M$$\n\nThus, the gravitational field is:\n$$E = \\frac{G M_{\\text{total}}}{(3a)^2} = \\frac{G(3M)}{9a^2} = \\frac{GM}{3a^2}$$\nThis matches Option (2).",
@@ -1055,10 +1055,10 @@
     "q": "A simple pendulum doing small oscillations at a place R height above earth surface has time period of $T_1 = 4\\text{ s}$. $T_2$ would be it's time period if it is brought to a point which is at a height 2R from earth surface. Choose the correct relation [R = radius of earth] :",
     "type": "mcq",
     "options": [
-      "2 T_1 = T_2",
-      "2 T_1 = 3 T_2",
-      "T_1 = T_2",
-      "3 T_1 = 2 T_2"
+      "$2 T_1 = T_2$",
+      "$2 T_1 = 3 T_2$",
+      "$T_1 = T_2$",
+      "$3 T_1 = 2 T_2$"
     ],
     "answer": 3,
     "explanation": "The time period of a simple pendulum is $T = 2\\pi \\sqrt{\\frac{L}{g}} \\implies T \\propto \\frac{1}{\\sqrt{g}}$.\nWe know that the acceleration due to gravity at distance $r$ from Earth's center is $g \\propto \\frac{1}{r^2}$. Therefore:\n$$T \\propto r$$\n\nAt height $h_1 = R$, distance $r_1 = 2R \\implies T_1 \\propto 2R$.\nAt height $h_2 = 2R$, distance $r_2 = 3R \\implies T_2 \\propto 3R$.\n\nThus:\n$$\\frac{T_2}{T_1} = \\frac{3}{2} \\implies 3 T_1 = 2 T_2$$\nThis matches Option (4).",
@@ -1087,10 +1087,10 @@
     "q": "At what distance above and below the surface of the earth a body will have same weight? (Take radius of earth as R)",
     "type": "mcq",
     "options": [
-      "\\sqrt{5}R - R",
-      "\\frac{\\sqrt{3}R-R}{2}",
-      "\\frac{R}{2}",
-      "\\frac{\\sqrt{5}R-R}{2}"
+      "$\\sqrt{5}R - R$",
+      "$\\frac{\\sqrt{3}R-R}{2}$",
+      "$\\frac{R}{2}$",
+      "$\\frac{\\sqrt{5}R-R}{2}$"
     ],
     "answer": 3,
     "explanation": "Let $y$ be the distance above and below the surface where gravity is the same, so $h = d = y$.\n$$g_h = g_d \\implies g \\frac{R^2}{(R+y)^2} = g \\left(1 - \\frac{y}{R}\\right)$$\n$$\\frac{R^2}{(R+y)^2} = \\frac{R-y}{R} \\implies R^3 = (R-y)(R+y)^2$$\n$$R^3 = (R-y)(R^2 + 2Ry + y^2) = R^3 + Ry(R - y - y)$$\n$$R^2 - Ry - y^2 = 0$$\n\nSolving for $y$ using the quadratic formula:\n$$y = \\frac{-R + \\sqrt{R^2 - 4(1)(-R^2)}}{2} = \\frac{\\sqrt{5}R - R}{2}$$\nThis matches Option (4).",
@@ -1103,10 +1103,10 @@
     "q": "If R is the radius of the earth and the acceleration due to gravity on the surface of earth is $g = \\pi^2\\text{ m s}^{-2}$, then the length of the second's pendulum at a height $h = 2R$ from the surface of earth will be:",
     "type": "mcq",
     "options": [
-      "\\frac{2}{9}\\text{ m}",
-      "\\frac{1}{9}\\text{ m}",
-      "\\frac{4}{9}\\text{ m}",
-      "\\frac{8}{9}\\text{ m}"
+      "$\\frac{2}{9}\\text{ m}$",
+      "$\\frac{1}{9}\\text{ m}$",
+      "$\\frac{4}{9}\\text{ m}$",
+      "$\\frac{8}{9}\\text{ m}$"
     ],
     "answer": 1,
     "explanation": "The time period of a second's pendulum is $T = 2\\text{ s}$.\nAt a height $h = 2R$, the distance from the center is $r = 3R$:\n$$g' = g \\frac{R^2}{(3R)^2} = \\frac{g}{9} = \\frac{\\pi^2}{9}\\text{ m/s}^2$$\n\nUsing the time period formula:\n$$T = 2\\pi \\sqrt{\\frac{L}{g'}} \\implies 2 = 2\\pi \\sqrt{\\frac{L}{\\pi^2 / 9}}$$\n$$1 = \\pi \\frac{3\\sqrt{L}}{\\pi} \\implies 3\\sqrt{L} = 1 \\implies L = \\frac{1}{9}\\text{ m}$$\nThis matches Option (2).",
@@ -1263,10 +1263,10 @@
     "q": "A body weight W, is projected vertically upwards from earth's surface to reach a height above the earth which is equal to nine times the radius of earth. The weight of the body at that height will be:",
     "type": "mcq",
     "options": [
-      "\\frac{W}{91}",
-      "\\frac{W}{100}",
-      "\\frac{W}{9}",
-      "\\frac{W}{3}"
+      "$\\frac{W}{91}$",
+      "$\\frac{W}{100}$",
+      "$\\frac{W}{9}$",
+      "$\\frac{W}{3}$"
     ],
     "answer": 1,
     "explanation": "At a height $h = 9R$ above the surface, the distance of the body from the center of the Earth is:\n$$r = R + h = R + 9R = 10R$$\n\nThe gravitational force (weight) is inversely proportional to the square of the distance from the center:\n$$W' = W \\frac{R^2}{r^2} = W \\frac{R^2}{(10R)^2} = \\frac{W}{100}$$\nThis matches Option (2).",
@@ -1295,10 +1295,10 @@
     "q": "The length of a seconds pendulum at a height $h = 2R$ from earth surface will be: (Given: R = Radius of earth and acceleration due to gravity at the surface of earth $g = \\pi^2\\text{ m s}^{-2}$)",
     "type": "mcq",
     "options": [
-      "\\frac{2}{9}\\text{ m}",
-      "\\frac{4}{9}\\text{ m}",
-      "\\frac{8}{9}\\text{ m}",
-      "\\frac{1}{9}\\text{ m}"
+      "$\\frac{2}{9}\\text{ m}$",
+      "$\\frac{4}{9}\\text{ m}$",
+      "$\\frac{8}{9}\\text{ m}$",
+      "$\\frac{1}{9}\\text{ m}$"
     ],
     "answer": 3,
     "explanation": "The time period of a second's pendulum is $T = 2\\text{ s}$.\nAt a height $h = 2R$, the distance from the center is $r = 3R$:\n$$g' = g \\frac{R^2}{r^2} = \\frac{g}{9} = \\frac{\\pi^2}{9}\\text{ m/s}^2$$\n\nUsing the time period formula:\n$$T = 2\\pi \\sqrt{\\frac{L}{g'}} \\implies 2 = 2\\pi \\sqrt{\\frac{L}{\\pi^2 / 9}}$$\n$$1 = 3\\sqrt{L} \\implies L = \\frac{1}{9}\\text{ m}$$\nThis matches Option (4).",
@@ -1340,8 +1340,8 @@
     "options": [
       "2W",
       "W",
-      "2^{\\frac{1}{3}} W",
-      "\\sqrt{2}W"
+      "$2^{\\frac{1}{3}} W$",
+      "$\\sqrt{2}W$"
     ],
     "answer": 2,
     "explanation": "Since the average density $\\rho$ is the same:\n$$M \\propto R^3 \\implies R \\propto M^{1/3}$$\n\nThe acceleration due to gravity is:\n$$g = \\frac{GM}{R^2} \\propto \\frac{M}{M^{2/3}} = M^{1/3}$$\n\nGiven the mass of the planet is twice the mass of the Earth:\n$$g_p = g_E (2)^{1/3} \\implies W_p = 2^{1/3} W$$\nThis matches Option (3).",
@@ -1397,10 +1397,10 @@
     "q": "The value of acceleration due to gravity at Earth's surface is $9.8\\text{ m s}^{-2}$. The altitude above its surface at which the acceleration due to gravity decreases to $4.9\\text{ m s}^{-2}$, is close to: (Radius of earth $= 6.4 \\times 10^6\\text{ m}$)",
     "type": "mcq",
     "options": [
-      "1.6 \\times 10^6 m",
-      "2.6 \\times 10^6 m",
-      "6.4 \\times 10^6 m",
-      "9.0 \\times 10^6 m"
+      "$1.6 \\times 10^6 m$",
+      "$2.6 \\times 10^6 m$",
+      "$6.4 \\times 10^6 m$",
+      "$9.0 \\times 10^6 m$"
     ],
     "answer": 1,
     "explanation": "The gravity decreases to half of its value, so $g_h = \\frac{g}{2}$:\n$$g \\frac{R^2}{(R+h)^2} = \\frac{g}{2} \\implies R+h = R\\sqrt{2}$$\n$$h = R(\\sqrt{2}-1) = 6.4 \\times 10^6 \\times (1.414 - 1) = 6.4 \\times 10^6 \\times 0.414 \\approx 2.65 \\times 10^6\\text{ m} \\approx 2.6 \\times 10^6\\text{ m}$$\nThis matches Option (2).",
@@ -1413,10 +1413,10 @@
     "q": "The mass and the diameter of a planet are three times the respective values for the Earth. The period of oscillation of a simple pendulum on the Earth is 2 s. The period of oscillation of the same pendulum on the planet would be:",
     "type": "mcq",
     "options": [
-      "\\frac{\\sqrt{3}}{2} s",
-      "\\frac{2}{\\sqrt{3}} s",
-      "\\frac{3}{2} s",
-      "2\\sqrt{3} s"
+      "$\\frac{\\sqrt{3}}{2} s$",
+      "$\\frac{2}{\\sqrt{3}} s$",
+      "$\\frac{3}{2} s$",
+      "$2\\sqrt{3} s$"
     ],
     "answer": 3,
     "explanation": "Given $M_p = 3 M_E$ and $D_p = 3 D_E \\implies R_p = 3 R_E$.\nThe gravity on the surface of the planet is:\n$$g_p = \\frac{G M_p}{R_p^2} = \\frac{G (3M_E)}{(3R_E)^2} = \\frac{1}{3} \\frac{GM_E}{R_E^2} = \\frac{g}{3}$$\n\nSince the time period of a simple pendulum is $T \\propto \\frac{1}{\\sqrt{g}}$:\n$$T_p = T_E \\sqrt{\\frac{g}{g_p}} = 2 \\times \\sqrt{3} = 2\\sqrt{3}\\text{ s}$$\nThis matches Option (4).",
@@ -1456,10 +1456,10 @@
     "q": "An object is kept at rest at a distance of 3 R above the earth's surface where R is earth's radius. The minimum speed with which it must be projected so that it does not return to earth is : (Assume M = mass of earth, G = Universal gravitational constant)",
     "type": "mcq",
     "options": [
-      "\\sqrt{\\frac{GM}{2R}}",
-      "\\sqrt{\\frac{GM}{R}}",
-      "\\sqrt{\\frac{3GM}{R}}",
-      "\\sqrt{\\frac{2GM}{R}}"
+      "$\\sqrt{\\frac{GM}{2R}}$",
+      "$\\sqrt{\\frac{GM}{R}}$",
+      "$\\sqrt{\\frac{3GM}{R}}$",
+      "$\\sqrt{\\frac{2GM}{R}}$"
     ],
     "answer": 0,
     "explanation": "At a height $h = 3R$, the distance from the center is $r = 4R$.\nThe initial potential energy is $U = -\\frac{GMm}{4R}$.\nTo escape to infinity (where total energy is at least zero):\n$$E = K + U = 0 \\implies \\frac{1}{2} m v^2 - \\frac{GMm}{4R} = 0$$\n$$v^2 = \\frac{GM}{2R} \\implies v = \\sqrt{\\frac{GM}{2R}}$$\nThis matches Option (1).",
@@ -1520,10 +1520,10 @@
     "q": "The mass of the moon is $\\frac{1}{144}$ times the mass of a planet and its diameter $\\frac{1}{16}$ times the diameter of a planet. If the escape velocity on the planet is v, the escape velocity on the moon will be:",
     "type": "mcq",
     "options": [
-      "\\frac{v}{3}",
-      "\\frac{v}{4}",
-      "\\frac{v}{12}",
-      "\\frac{v}{6}"
+      "$\\frac{v}{3}$",
+      "$\\frac{v}{4}$",
+      "$\\frac{v}{12}$",
+      "$\\frac{v}{6}$"
     ],
     "answer": 0,
     "explanation": "The escape velocity is:\n$$v_e = \\sqrt{\\frac{2GM}{R}}$$\n\nGiven $M_m = \\frac{M_p}{144}$ and $R_m = \\frac{R_p}{16}$:\n$$v_m = \\sqrt{\\frac{2G (M_p/144)}{R_p/16}} = \\sqrt{\\frac{16}{144} \\frac{2GM_p}{R_p}} = \\frac{1}{3} \\sqrt{\\frac{2GM_p}{R_p}} = \\frac{v}{3}$$\nThis matches Option (1).",
@@ -1536,10 +1536,10 @@
     "q": "A body of mass m is taken from earth surface to the height h equal to twice the radius of earth ($R_e$), the increase in potential energy will be : (g = acceleration due to gravity on the surface of earth)",
     "type": "mcq",
     "options": [
-      "3mgR_e",
-      "\\frac{1}{3}mgR_e",
-      "\\frac{2}{3}mgR_e",
-      "\\frac{1}{2}mgR_e"
+      "$3mgR_e$",
+      "$\\frac{1}{3}mgR_e$",
+      "$\\frac{2}{3}mgR_e$",
+      "$\\frac{1}{2}mgR_e$"
     ],
     "answer": 2,
     "explanation": "Initial potential energy on Earth's surface:\n$$U_i = -\\frac{GMm}{R_e}$$\n\nAt height $h = 2R_e$, the distance from the center is $r = 3R_e$:\n$$U_f = -\\frac{GMm}{3R_e}$$\n\nThe increase in potential energy is:\n$$\\Delta U = U_f - U_i = GMm \\left( \\frac{1}{R_e} - \\frac{1}{3R_e} \\right) = \\frac{2}{3} \\frac{GMm}{R_e}$$\n\nSince $g = \\frac{GM}{R_e^2} \\implies \\frac{GM}{R_e} = g R_e$:\n$$\\Delta U = \\frac{2}{3} mgR_e$$\nThis matches Option (3).",
@@ -1552,10 +1552,10 @@
     "q": "An object is allowed to fall from a height R above the earth, where R is the radius of earth. Its velocity when it strikes the earth’s surface, ignoring air resistance, will be :",
     "type": "mcq",
     "options": [
-      "2\\sqrt{gR}",
-      "\\sqrt{gR}",
-      "\\sqrt{\\frac{gR}{2}}",
-      "2\\sqrt{2gR}"
+      "$2\\sqrt{gR}$",
+      "$\\sqrt{gR}$",
+      "$\\sqrt{\\frac{gR}{2}}$",
+      "$2\\sqrt{2gR}$"
     ],
     "answer": 1,
     "explanation": "Using conservation of mechanical energy:\n$$E_i = E_f$$\n$$-\\frac{GMm}{2R} = -\\frac{GMm}{R} + \\frac{1}{2} m v^2$$\n$$\\frac{1}{2} m v^2 = \\frac{GMm}{2R} \\implies v^2 = \\frac{GM}{R}$$\n\nSince $g = \\frac{GM}{R^2} \\implies gR = \\frac{GM}{R}$:\n$$v = \\sqrt{gR}$$\nThis matches Option (2).",
@@ -1692,10 +1692,10 @@
     "q": "The energy required to take a satellite to a height h above the Earth surface (radius of Earth $= 6.4 \\times 10^3\\text{ km}$) is $E_1$, and the kinetic energy required for the satellite to be in a circular orbit at this height is $E_2$. The value of $h$ for which $E_1$ and $E_2$ are equal, is",
     "type": "mcq",
     "options": [
-      "1.28 \\times 10^4 km",
-      "6.4 \\times 10^3 km",
-      "3.2 \\times 10^3 km",
-      "1.6 \\times 10^3 km"
+      "$1.28 \\times 10^4 km$",
+      "$6.4 \\times 10^3 km$",
+      "$3.2 \\times 10^3 km$",
+      "$1.6 \\times 10^3 km$"
     ],
     "answer": 2,
     "explanation": "The energy required to lift the satellite to height $h$ is:\n$$E_1 = U(R+h) - U(R) = -\\frac{GMm}{R+h} - \\left(-\\frac{GMm}{R}\\right) = \\frac{GMm h}{R(R+h)}$$\n\nThe kinetic energy in a circular orbit of radius $R+h$ is:\n$$E_2 = \\frac{GMm}{2(R+h)}$$\n\nSetting $E_1 = E_2$:\n$$\\frac{GMm h}{R(R+h)} = \\frac{GMm}{2(R+h)} \\implies \\frac{h}{R} = \\frac{1}{2} \\implies h = \\frac{R}{2}$$\n\nGiven $R = 6.4 \\times 10^3\\text{ km}$:\n$$h = 3.2 \\times 10^3\\text{ km}$$\nThis matches Option (3).",
@@ -1708,10 +1708,10 @@
     "q": "Two stars of masses $3 \\times 10^{31}$ kg each, and at distance $2 \\times 10^{11}$ m rotate in a plane about their common centre of mass O. A meteorite passes through O moving perpendicular to the stars's rotation plane. In order to escape from the gravitational field of this double star, the minimum speed that meteorite should have at O is:",
     "type": "mcq",
     "options": [
-      "2.4 \\times 10^4 m s^{-1}",
-      "3.8 \\times 10^4 m s^{-1}",
-      "2.8 \\times 10^5 m s^{-1}",
-      "1.4 \\times 10^5 m s^{-1}"
+      "$2.4 \\times 10^4 m s^{-1}$",
+      "$3.8 \\times 10^4 m s^{-1}$",
+      "$2.8 \\times 10^5 m s^{-1}$",
+      "$1.4 \\times 10^5 m s^{-1}$"
     ],
     "answer": 2,
     "explanation": "Each star of mass $M$ is at distance $d = 10^{11}\\text{ m}$ from the center of mass O.\nThe gravitational potential at O is:\n$$V = -\\frac{GM}{d} - \\frac{GM}{d} = -\\frac{2GM}{d}$$\n\nFor a meteorite of mass $m$ to escape to infinity, its total energy must be at least zero:\n$$\\frac{1}{2} m v^2 + m V = 0 \\implies v = \\sqrt{-2V} = \\sqrt{\\frac{4GM}{d}}$$\n\nSubstituting the given values:\n$$v = \\sqrt{\\frac{4 \\times (6.67 \\times 10^{-11}) \\times (3 \\times 10^{31})}{10^{11}}} \\approx 2.8 \\times 10^5\\text{ m/s}$$\nThis matches Option (3).",
@@ -1756,10 +1756,10 @@
     "q": "A light planet is revolving around a massive star in a circular orbit of radius R with a period of revolution T. If the force of attraction between planet and star is proportional to $R^{-3/2}$ then choose the correct option :",
     "type": "mcq",
     "options": [
-      "T^2 \\propto R^{5/2}",
-      "T^2 \\propto R^{7/2}",
-      "T^2 \\propto R^{3/2}",
-      "T^2 \\propto R^3"
+      "$T^2 \\propto R^{5/2}$",
+      "$T^2 \\propto R^{7/2}$",
+      "$T^2 \\propto R^{3/2}$",
+      "$T^2 \\propto R^3$"
     ],
     "answer": 0,
     "explanation": "The gravitational force provides the necessary centripetal force:\n$$F \\propto R^{-3/2} \\implies m \\omega^2 R \\propto R^{-3/2}$$\n$$\\omega^2 \\propto R^{-5/2}$$\n\nSince $T = \\frac{2\\pi}{\\omega} \\implies T^2 \\propto \\frac{1}{\\omega^2}$:\n$$T^2 \\propto R^{5/2}$$\nThis matches Option (1).",
@@ -1788,7 +1788,7 @@
     "q": "Two satellites of masses m and 3 m revolve around the earth in circular orbits of radii r & 3r respectively. The ratio of orbital speeds of the satellites respectively is",
     "type": "mcq",
     "options": [
-      "\\sqrt{3} : 1",
+      "$\\sqrt{3} : 1$",
       "3 : 1",
       "9 : 1",
       "1 : 1"
@@ -1804,10 +1804,10 @@
     "q": "A space ship of mass $2 \\times 10^4\\text{ kg}$ is launched into a circular orbit close to the earth surface. The additional velocity to be imparted to the space ship in the orbit to overcome the gravitational pull will be (if $g = 10\\text{ m s}^{-2}$ and radius of earth = 6400 km):",
     "type": "mcq",
     "options": [
-      "11. 2(\\sqrt{2} - 1) km s^{-1}",
-      "8(\\sqrt{2} - 1) km s^{-1}",
-      "7. 9(\\sqrt{2} - 1) km s^{-1}",
-      "7. 4(\\sqrt{2} - 1) km s^{-1}"
+      "$11. 2(\\sqrt{2} - 1) km s^{-1}$",
+      "$8(\\sqrt{2} - 1) km s^{-1}$",
+      "$7. 9(\\sqrt{2} - 1) km s^{-1}$",
+      "$7. 4(\\sqrt{2} - 1) km s^{-1}$"
     ],
     "answer": 1,
     "explanation": "The orbital speed of a satellite close to the surface of the Earth is:\n$$v_o = \\sqrt{gR} = \\sqrt{10 \\times 6400 \\times 10^3} = 8000\\text{ m/s} = 8\\text{ km/s}$$\n\nThe escape velocity is:\n$$v_e = \\sqrt{2gR} = 8\\sqrt{2}\\text{ km/s}$$\n\nThe additional velocity needed to overcome the gravitational pull (escape) is:\n$$\\Delta v = v_e - v_o = 8(\\sqrt{2}-1)\\text{ km/s}$$\nThis matches Option (2).",
@@ -1836,10 +1836,10 @@
     "q": "Two planets A and B of equal mass are having their period of revolutions $T_A$ and $T_B$ such that $T_A = 2 T_B$. These planets are revolving in the circular orbits of radii $r_A$ and $r_B$ respectively. Which out of the following would be the correct relationship of their orbits?",
     "type": "mcq",
     "options": [
-      "2r_A^2 = r_B^3",
-      "r_A^3 = 2r_B^3",
-      "r_A^3 = 4r_B^3",
-      "T_2^2 - T_B^2 = \\frac{\\pi^2}{GM} (r_B^3 - 4r_A^3)"
+      "$2r_A^2 = r_B^3$",
+      "$r_A^3 = 2r_B^3$",
+      "$r_A^3 = 4r_B^3$",
+      "$T_2^2 - T_B^2 = \\frac{\\pi^2}{GM} (r_B^3 - 4r_A^3)$"
     ],
     "answer": 2,
     "explanation": "By Kepler's third law, the square of the time period of revolution is proportional to the cube of the radius of the orbit:\n$$T^2 \\propto r^3 \\implies \\left(\\frac{T_A}{T_B}\\right)^2 = \\left(\\frac{r_A}{r_B}\\right)^3$$\n\nGiven $T_A = 2T_B$:\n$$(2)^2 = \\left(\\frac{r_A}{r_B}\\right)^3 \\implies 4 = \\frac{r_A^3}{r_B^3} \\implies r_A^3 = 4 r_B^3$$\nThis matches Option (3).",
@@ -1868,10 +1868,10 @@
     "q": "Two satellites A and B of masses 200 kg and 400 kg are revolving round the earth at height of 600 km and 1600 km respectively. If $T_A$ and $T_B$ are the time periods of A and B respectively then the value of $T_B - T_A$: [Given: radius of earth = 6400 km, mass of earth $= 6 \\times 10^{24}\\text{ kg}$]",
     "type": "mcq",
     "options": [
-      "4. 24 \\times 10^3 s",
-      "3. 33 \\times 10^2 s",
-      "1. 33 \\times 10^3 s",
-      "4. 24 \\times 10^2 s"
+      "$4. 24 \\times 10^3 s$",
+      "$3. 33 \\times 10^2 s$",
+      "$1. 33 \\times 10^3 s$",
+      "$4. 24 \\times 10^2 s$"
     ],
     "answer": 2,
     "explanation": "The orbital radii of A and B from the Earth's center are:\n$$r_A = R + h_A = 6400\\text{ km} + 600\\text{ km} = 7000\\text{ km} = 7 \\times 10^6\\text{ m}$$\n$$r_B = R + h_B = 6400\\text{ km} + 1600\\text{ km} = 8000\\text{ km} = 8 \\times 10^6\\text{ m}$$\n\nUsing the time period formula $T = 2\\pi \\sqrt{\\frac{r^3}{GM}}$:\n$$GM = (6.67 \\times 10^{-11}) \\times (6 \\times 10^{24}) \\approx 4 \\times 10^{14}$$\n\n$$T_A = 2\\pi \\sqrt{\\frac{(7 \\times 10^6)^3}{4 \\times 10^{14}}} \\approx 5818\\text{ s}$$\n$$T_B = 2\\pi \\sqrt{\\frac{(8 \\times 10^6)^3}{4 \\times 10^{14}}} \\approx 7108\\text{ s}$$\n\n$$T_B - T_A \\approx 7108\\text{ s} - 5818\\text{ s} = 1290\\text{ s} \\approx 1.33 \\times 10^3\\text{ s}$$\nThis matches Option (3).",
@@ -1884,10 +1884,10 @@
     "q": "A satellite is moving in a low nearly circular orbit around the earth. Its radius is roughly equal to that of the earth's radius $R_e$. By firing rockets attached to it, its speed is instantaneously increased in the direction of its motion so that it become $\\sqrt{\\frac{3}{2}}$ times larger. Due to this the farthest distance from the centre of the earth that the satellite reaches is R. Value of R is :",
     "type": "mcq",
     "options": [
-      "4R_e",
-      "2. 5R_e",
-      "3 R_e",
-      "2 R_e"
+      "$4R_e$",
+      "$2. 5R_e$",
+      "$3 R_e$",
+      "$2 R_e$"
     ],
     "answer": 2,
     "explanation": "The initial velocity in a near-surface orbit is:\n$$v_i = \\sqrt{\\frac{GM}{R_e}}$$\n\nThe new speed at perigee $r_p = R_e$ is:\n$$v = \\sqrt{\\frac{3}{2}} v_i = \\sqrt{\\frac{3GM}{2R_e}}$$\n\nLet the farthest distance (apogee) be $r_a = R$. By conservation of angular momentum:\n$$R_e v = R v_a \\implies v_a = \\frac{R_e}{R} v$$\n\nBy conservation of mechanical energy:\n$$\\frac{1}{2} m v^2 - \\frac{GMm}{R_e} = \\frac{1}{2} m v_a^2 - \\frac{GMm}{R}$$\n$$\\frac{1}{2} v^2 - \\frac{GM}{R_e} = \\frac{1}{2} \\left( \\frac{R_e}{R} \\right)^2 v^2 - \\frac{GM}{R}$$\n\nSubstituting $v^2 = \\frac{3GM}{2R_e}$:\n$$\\frac{3GM}{4R_e} - \\frac{GM}{R_e} = \\frac{3GM R_e}{4R^2} - \\frac{GM}{R}$$\n$$-\\frac{1}{4R_e} = \\frac{3 R_e}{4R^2} - \\frac{1}{R}$$\n$$R^2 - 4 R R_e + 3 R_e^2 = 0 \\implies (R - 3R_e)(R - R_e) = 0$$\n\nSince $R > R_e$, we have $R = 3R_e$. This matches Option (3).",
@@ -1916,10 +1916,10 @@
     "q": "A satellite is moving with a constant speed v in circular orbit around the earth. An object of mass 'm' is ejected from the satellite such that it just escapes from the gravitational pull of the earth. At the time of ejection, the kinetic energy of the object is:",
     "type": "mcq",
     "options": [
-      "\\frac{1}{2} m v^2",
-      "m v^2",
-      "\\frac{3}{2} m v^2",
-      "2 m v^2"
+      "$\\frac{1}{2} m v^2$",
+      "$m v^2$",
+      "$\\frac{3}{2} m v^2$",
+      "$2 m v^2$"
     ],
     "answer": 1,
     "explanation": "The orbital velocity is $v = \\sqrt{\\frac{GM}{r}}$.\nThe potential energy of the object at orbital radius $r$ is:\n$$U = -\\frac{GMm}{r} = -m v^2$$\n\nFor the object to escape, its total mechanical energy must be at least zero:\n$$E = K + U = 0 \\implies K = -U = m v^2$$\nThis matches Option (2).",
@@ -2034,10 +2034,10 @@
     "q": "If the distance of the earth from Sun is $1.5 \\times 10^6\\text{ km}$, then the distance of an imaginary planet from Sun, if its period of revolution is 2.83 years is:",
     "type": "mcq",
     "options": [
-      "6 \\times 10^7 km",
-      "6 \\times 10^6 km",
-      "3 \\times 10^6 km",
-      "3 \\times 10^7 km"
+      "$6 \\times 10^7 km$",
+      "$6 \\times 10^6 km$",
+      "$3 \\times 10^6 km$",
+      "$3 \\times 10^7 km$"
     ],
     "answer": 2,
     "explanation": "According to Kepler's third law:\n$$\\left( \\frac{T_p}{T_e} \\right)^2 = \\left( \\frac{r_p}{r_e} \\right)^3$$\n\nGiven $T_e = 1\\text{ year}$ and $T_p = 2.83\\text{ years} \\approx 2\\sqrt{2}\\text{ years}$:\n$$(2.83)^2 \\approx 8 = \\left( \\frac{r_p}{r_e} \\right)^3 \\implies \\frac{r_p}{r_e} = 2$$\n\n$$r_p = 2 r_e = 2 \\times (1.5 \\times 10^6\\text{ km}) = 3 \\times 10^6\\text{ km}$$\nThis matches Option (3).",
@@ -2050,8 +2050,8 @@
     "q": "A geostationary satellite is orbiting around an arbitrary planet P at a height of 11R above the surface of P, R being the radius of P. The time period of another satellite in hours at a height of 2R from the surface of P is ________ has the time period of 24 hours.",
     "type": "mcq",
     "options": [
-      "6\\sqrt{2}",
-      "\\frac{6}{\\sqrt{2}}",
+      "$6\\sqrt{2}$",
+      "$\\frac{6}{\\sqrt{2}}$",
       "3",
       "5"
     ],
@@ -2066,10 +2066,10 @@
     "q": "The angular momentum of a planet of mass M moving around the sun in an elliptical orbit is $\\vec{L}$. The magnitude of the areal velocity of the planet is :",
     "type": "mcq",
     "options": [
-      "\\frac{4L}{M}",
-      "\\frac{L}{M}",
-      "\\frac{2L}{M}",
-      "\\frac{L}{2M}"
+      "$\\frac{4L}{M}$",
+      "$\\frac{L}{M}$",
+      "$\\frac{2L}{M}$",
+      "$\\frac{L}{2M}$"
     ],
     "answer": 3,
     "explanation": "By definition, the areal velocity of a planet of mass $M$ moving in an orbit under a central gravitational force is constant and is given by:\n$$\\frac{dA}{dt} = \\frac{L}{2M}$$\nThis matches Option (4).",
@@ -2098,10 +2098,10 @@
     "q": "If the angular momentum of a planet of mass m, moving around the Sun in a circular orbit is L, about the center of the Sun, its areal velocity is:",
     "type": "mcq",
     "options": [
-      "\\frac{L}{m}",
-      "\\frac{4L}{m}",
-      "\\frac{L}{2m}",
-      "\\frac{2L}{m}"
+      "$\\frac{L}{m}$",
+      "$\\frac{4L}{m}$",
+      "$\\frac{L}{2m}$",
+      "$\\frac{2L}{m}$"
     ],
     "answer": 2,
     "explanation": "The areal velocity of a planet of mass $m$ is directly related to its angular momentum $L$ by:\n$$\\frac{dA}{dt} = \\frac{L}{2m}$$\nThis matches Option (3).",
@@ -2146,10 +2146,10 @@
     "q": "Two stars of masses m and 2m at a distance d rotate about their common centre of mass in free space. The period of revolution is",
     "type": "mcq",
     "options": [
-      "2\\pi \\sqrt{\\frac{d^3}{3Gm}}",
-      "2\\pi \\sqrt{\\frac{3Gm}{d^3}}",
-      "\\frac{1}{2\\pi}\\sqrt{\\frac{3Gm}{d^3}}",
-      "\\frac{1}{2\\pi}\\sqrt{\\frac{d^3}{3Gm}}"
+      "$2\\pi \\sqrt{\\frac{d^3}{3Gm}}$",
+      "$2\\pi \\sqrt{\\frac{3Gm}{d^3}}$",
+      "$\\frac{1}{2\\pi}\\sqrt{\\frac{3Gm}{d^3}}$",
+      "$\\frac{1}{2\\pi}\\sqrt{\\frac{d^3}{3Gm}}$"
     ],
     "answer": 0,
     "explanation": "For a binary star system of masses $m_1 = m$ and $m_2 = 2m$, the reduced mass is:\n$$\\mu = \\frac{m_1 m_2}{m_1 + m_2} = \\frac{2m^2}{3m} = \\frac{2}{3}m$$\n\nThe equation of circular motion under gravitational attraction is:\n$$\\mu \\omega^2 d = \\frac{G m_1 m_2}{d^2} \\implies \\left(\\frac{2}{3}m\\right) \\omega^2 d = \\frac{2 G m^2}{d^2}$$\n$$\\omega^2 = \\frac{3 G m}{d^3} \\implies \\omega = \\sqrt{\\frac{3 G m}{d^3}}$$\n\nThe period of revolution is:\n$$T = \\frac{2\\pi}{\\omega} = 2\\pi \\sqrt{\\frac{d^3}{3Gm}}$$\nThis matches Option (1).",
@@ -2162,10 +2162,10 @@
     "q": "The mass density of a spherical galaxy varies as $\\frac{K}{r}$ over a large distance r from its center. In that region, a small star is in a circular orbit of radius R. Then the period of revolution, T depends on R as:",
     "type": "mcq",
     "options": [
-      "T^2 \\propto R",
-      "T^2 \\propto R^3",
-      "T^2 \\propto \\frac{1}{R^3}",
-      "T \\propto R"
+      "$T^2 \\propto R$",
+      "$T^2 \\propto R^3$",
+      "$T^2 \\propto \\frac{1}{R^3}$",
+      "$T \\propto R$"
     ],
     "answer": 0,
     "explanation": "The mass enclosed in a sphere of radius $R$ is:\n$$M(R) = \\int_0^R 4\\pi r^2 \\rho(r) dr = \\int_0^R 4\\pi r^2 \\frac{K}{r} dr = 2\\pi K R^2$$\n\nThe orbital speed of a star at distance $R$ is:\n$$v = \\sqrt{\\frac{G M(R)}{R}} = \\sqrt{\\frac{G (2\\pi K R^2)}{R}} \\propto \\sqrt{R}$$\n\nThe time period of revolution $T$ is:\n$$T = \\frac{2\\pi R}{v} \\propto \\frac{R}{\\sqrt{R}} = \\sqrt{R} \\implies T^2 \\propto R$$\nThis matches Option (1).",
@@ -2178,10 +2178,10 @@
     "q": "A satellite of mass M is launched vertically upwards with an initial speed $u$ from the surface of the earth. After it reaches height $R$ ($R = $ radius of the earth), it ejects a rocket of mass $\\frac{M}{10}$ so that subsequently the satellite moves in a circular orbit. The kinetic energy of the rocket is ($G$ is the gravitational constant; $M_e$ is the mass of the earth):",
     "type": "mcq",
     "options": [
-      "\\frac{M}{20} \\left( u^2 + \\frac{113}{200} \\frac{GM_e}{R} \\right)",
-      "5M \\left( u^2 - \\frac{119}{200} \\frac{GM_e}{R} \\right)",
-      "\\frac{3M}{8} \\left( u + \\sqrt{\\frac{5GM_e}{6R}} \\right)^2",
-      "\\frac{M}{20} \\left( u - \\sqrt{\\frac{2GM_e}{3R}} \\right)^2"
+      "$\\frac{M}{20} \\left( u^2 + \\frac{113}{200} \\frac{GM_e}{R} \\right)$",
+      "$5M \\left( u^2 - \\frac{119}{200} \\frac{GM_e}{R} \\right)$",
+      "$\\frac{3M}{8} \\left( u + \\sqrt{\\frac{5GM_e}{6R}} \\right)^2$",
+      "$\\frac{M}{20} \\left( u - \\sqrt{\\frac{2GM_e}{3R}} \\right)^2$"
     ],
     "answer": 1,
     "explanation": "Applying conservation of energy and linear momentum at height $R$ leads to the kinetic energy of the ejected rocket of mass $\\frac{M}{10}$ as:\n$$K_{\\text{rocket}} = 5M \\left( u^2 - \\frac{119}{200} \\frac{GM_e}{R} \\right)$$\nThis matches Option (2).",
@@ -2194,10 +2194,10 @@
     "q": "Four identical particles of mass M are located at the corners of a square of side 'a'. What should be their speed if each of them revolves under the influence of other's gravitational field in a circular orbit circumscribing the square?",
     "type": "mcq",
     "options": [
-      "1.35\\sqrt{\\frac{GM}{a}}",
-      "1.21\\sqrt{\\frac{GM}{a}}",
-      "1.41\\sqrt{\\frac{GM}{a}}",
-      "1.16\\sqrt{\\frac{GM}{a}}"
+      "$1.35\\sqrt{\\frac{GM}{a}}$",
+      "$1.21\\sqrt{\\frac{GM}{a}}$",
+      "$1.41\\sqrt{\\frac{GM}{a}}$",
+      "$1.16\\sqrt{\\frac{GM}{a}}$"
     ],
     "answer": 3,
     "explanation": "The radius of the circumscribed circle is $R = \\frac{a}{\\sqrt{2}}$.\nThe net force acting on any particle directed towards the center is:\n$$F_{\\text{net}} = \\frac{G M^2}{4R^2} (2\\sqrt{2} + 1) = \\frac{G M^2}{2a^2} (2\\sqrt{2} + 1)$$\n\nThis force acts as the centripetal force:\n$$\\frac{M v^2}{R} = \\frac{G M^2}{2a^2} (2\\sqrt{2} + 1) \\implies \\frac{M v^2}{a/\\sqrt{2}} = \\frac{G M^2}{2a^2} (2\\sqrt{2} + 1)$$\n$$v^2 = \\frac{GM}{a} \\frac{2\\sqrt{2} + 1}{2\\sqrt{2}} = \\frac{GM}{a} \\left( 1 + \\frac{1}{2\\sqrt{2}} \\right) \\approx 1.353 \\frac{GM}{a}$$\n$$v \\approx 1.16 \\sqrt{\\frac{GM}{a}}$$\nThis matches Option (4).",
@@ -2211,9 +2211,9 @@
     "type": "mcq",
     "options": [
       "TR is a constant",
-      "T^2/R^3 is a constant",
+      "$T^2/R^3 is a constant$",
       "T/R is a constant",
-      "T/R^2 is a constant"
+      "$T/R^2 is a constant$"
     ],
     "answer": 2,
     "explanation": "The mass enclosed inside a radius $R$ is:\n$$M(R) = \\int_0^R 4\\pi r^2 \\rho(r) dr = \\int_0^R 4\\pi r^2 \\left( \\frac{K}{r^2} \\right) dr = 4\\pi K R$$\n\nThe orbital speed is:\n$$v = \\sqrt{\\frac{G M(R)}{R}} = \\sqrt{\\frac{G(4\\pi K R)}{R}} = \\sqrt{4\\pi G K} = \\text{constant}$$\n\nThe orbital period $T$ is:\n$$T = \\frac{2\\pi R}{v} \\propto R \\implies \\frac{T}{R} = \\text{constant}$$\nThis matches Option (3).",
@@ -2258,10 +2258,10 @@
     "q": "The height ‘h’ at which the weight of a body will be the same as that at the same depth ‘h’ from the surface of the earth is (Radius of the earth is R and effect of the rotation of the earth is neglected)",
     "type": "mcq",
     "options": [
-      "\\sqrt{5} R - R",
-      "\\frac{R}{2}",
-      "\\frac{\\sqrt{5}R-R}{2}",
-      "\\frac{\\sqrt{3}R-R}{2}"
+      "$\\sqrt{5} R - R$",
+      "$\\frac{R}{2}$",
+      "$\\frac{\\sqrt{5}R-R}{2}$",
+      "$\\frac{\\sqrt{3}R-R}{2}$"
     ],
     "answer": 2,
     "explanation": "Equating the gravity at height $h$ and depth $h$:\n$$g_h = g_d \\implies \\frac{R^2}{(R+h)^2} = 1 - \\frac{h}{R} = \\frac{R-h}{R}$$\n$$R^3 = (R-h)(R+h)^2 \\implies R^3 = (R-h)(R^2 + 2Rh + h^2)$$\n$$R^3 = R^3 + Rh (R - h - h) \\implies R^2 - Rh - h^2 = 0$$\n\nSolving for $h$ using the quadratic formula:\n$$h = \\frac{-R + \\sqrt{R^2 - 4(1)(-R^2)}}{2} = \\frac{\\sqrt{5}R-R}{2}$$\nThis matches Option (3).",
@@ -2274,10 +2274,10 @@
     "q": "The mass density of a planet of radius R varies with the distance r from its centre as $\\rho(r) = \\rho_0 \\left(1 - \\frac{r^2}{R^2}\\right)$. Then the gravitational field is maximum at:",
     "type": "mcq",
     "options": [
-      "r = \\sqrt{\\frac{3}{4}} R",
+      "$r = \\sqrt{\\frac{3}{4}} R$",
       "r = R",
-      "r = \\frac{1}{\\sqrt{3}}R",
-      "r = \\sqrt{\\frac{5}{9}}R"
+      "$r = \\frac{1}{\\sqrt{3}}R$",
+      "$r = \\sqrt{\\frac{5}{9}}R$"
     ],
     "answer": 3,
     "explanation": "The mass enclosed within a distance $r$ is:\n$$M(r) = \\int_0^r 4\\pi x^2 \\rho(x) dx = 4\\pi \\rho_0 \\int_0^r x^2 \\left(1 - \\frac{x^2}{R^2}\\right) dx = 4\\pi \\rho_0 \\left[ \\frac{r^3}{3} - \\frac{r^5}{5R^2} \\right]$$\n\nThe gravitational field $E(r)$ is:\n$$E(r) = \\frac{G M(r)}{r^2} = 4\\pi G \\rho_0 \\left( \\frac{r}{3} - \\frac{r^3}{5R^2} \\right)$$\n\nTo find where $E(r)$ is maximum, set $\\frac{dE}{dr} = 0$:\n$$\\frac{1}{3} - \\frac{3r^2}{5R^2} = 0 \\implies r^2 = \\frac{5}{9}R^2 \\implies r = \\sqrt{\\frac{5}{9}} R$$\nThis matches Option (4).",
@@ -2317,10 +2317,10 @@
     "q": "A body is projected vertically upwards from the surface of earth with a velocity sufficient enough to carry it to infinity. The time taken by it to reach height h is ______ S.",
     "type": "mcq",
     "options": [
-      "\\sqrt{\\frac{R_e}{2g}}\\left[ \\left(1 + \\frac{h}{R_e}\\right)^{3/2} - 1 \\right]",
-      "\\sqrt{\\frac{2R_e}{g}}\\left[ \\left(1 + \\frac{h}{R_e}\\right)^{3/2} - 1 \\right]",
-      "\\frac{1}{3}\\sqrt{\\frac{R_e}{2g}}\\left[ \\left(1 + \\frac{h}{R_e}\\right)^{3/2} - 1 \\right]",
-      "\\frac{1}{3}\\sqrt{\\frac{2R_e}{g}}\\left[ \\left(1 + \\frac{h}{R_e}\\right)^{3/2} - 1 \\right]"
+      "$\\sqrt{\\frac{R_e}{2g}}\\left[ \\left(1 + \\frac{h}{R_e}\\right)^{3/2} - 1 \\right]$",
+      "$\\sqrt{\\frac{2R_e}{g}}\\left[ \\left(1 + \\frac{h}{R_e}\\right)^{3/2} - 1 \\right]$",
+      "$\\frac{1}{3}\\sqrt{\\frac{R_e}{2g}}\\left[ \\left(1 + \\frac{h}{R_e}\\right)^{3/2} - 1 \\right]$",
+      "$\\frac{1}{3}\\sqrt{\\frac{2R_e}{g}}\\left[ \\left(1 + \\frac{h}{R_e}\\right)^{3/2} - 1 \\right]$"
     ],
     "answer": 3,
     "explanation": "Since the body is projected with escape velocity:\n$$v = \\frac{dr}{dt} = \\sqrt{\\frac{2GM}{r}} \\implies r^{1/2} dr = \\sqrt{2GM} dt$$\n\nIntegrating from $r = R_e$ to $r = R_e + h$:\n$$\\int_{R_e}^{R_e + h} r^{1/2} dr = \\sqrt{2GM} \\int_0^t dt$$\n$$\\frac{2}{3} \\left[ (R_e+h)^{3/2} - R_e^{3/2} \\right] = \\sqrt{2GM} t$$\n$$t = \\frac{2}{3\\sqrt{2GM}} R_e^{3/2} \\left[ \\left(1 + \\frac{h}{R_e}\\right)^{3/2} - 1 \\right]$$\n\nSince $\\sqrt{2GM} = \\sqrt{2gR_e^2} = R_e\\sqrt{2g}$:\n$$t = \\frac{2}{3 R_e \\sqrt{2g}} R_e^{3/2} \\left[ \\left(1 + \\frac{h}{R_e}\\right)^{3/2} - 1 \\right] = \\frac{1}{3} \\sqrt{\\frac{2R_e}{g}} \\left[ \\left(1 + \\frac{h}{R_e}\\right)^{3/2} - 1 \\right]$$\nThis matches Option (4).",
@@ -2335,8 +2335,8 @@
     "options": [
       "$\\frac{A}{(x^2+a^2)^{1/2}}$",
       "$\\frac{A}{(x^2+a^2)^{3/2}}$",
-      "A(x^2+a^2)^{1/2}",
-      "A(x^2+a^2)^{3/2}"
+      "$A(x^2+a^2)^{1/2}$",
+      "$A(x^2+a^2)^{3/2}$"
     ],
     "answer": 0,
     "explanation": "The gravitational field $E$ is related to the potential $V$ by:\n$$E = -\\frac{dV}{dx} \\implies dV = -E dx = -\\frac{Ax}{(x^2+a^2)^{3/2}} dx$$\n\nIntegrating from $x$ to $\\infty$:\n$$V(\\infty) - V(x) = \\int_x^\\infty -\\frac{Ax}{(x^2+a^2)^{3/2}} dx$$\n\nUsing the substitution $u = x^2 + a^2 \\implies du = 2x dx$:\n$$0 - V(x) = \\left[ -\\frac{A}{\\sqrt{x^2+a^2}} \\right]_x^\\infty = 0 - \\left(-\\frac{A}{\\sqrt{x^2+a^2}}\\right)$$\n$$V(x) = -\\frac{A}{(x^2+a^2)^{1/2}} \\implies |V(x)| = \\frac{A}{(x^2+a^2)^{1/2}}$$\n\nThis matches Option (1). Note that in some keys compiled from original papers, it may be labeled as Option (2) due to different question shuffling.",
@@ -2349,10 +2349,10 @@
     "q": "Two planets have masses M and 16 M and their radii are a and 2a, respectively. The separation between the centres of the planets is 10a. A body of mass m is fired from the surface of the larger planet towards the smaller planet along the line joining their centres. For the body to be able to reach at the surface of smaller planet, the minimum firing speed needed is :",
     "type": "mcq",
     "options": [
-      "2\\sqrt{\\frac{GM}{a}}",
-      "4\\sqrt{\\frac{GM}{a}}",
-      "\\sqrt{\\frac{GM^2}{ma}}",
-      "\\frac{3}{2}\\sqrt{\\frac{5GM}{a}}"
+      "$2\\sqrt{\\frac{GM}{a}}$",
+      "$4\\sqrt{\\frac{GM}{a}}$",
+      "$\\sqrt{\\frac{GM^2}{ma}}$",
+      "$\\frac{3}{2}\\sqrt{\\frac{5GM}{a}}$"
     ],
     "answer": 3,
     "explanation": "Let the neutral point (where net gravitational force is zero) be at a distance $r$ from the smaller planet of mass $M$:\n$$\\frac{GM}{r^2} = \\frac{G(16M)}{(10a-r)^2} \\implies \\frac{1}{r} = \\frac{4}{10a-r} \\implies r = 2a$$\n\nThe potential at the surface of the larger planet ($r = 8a$ from $M$, $r = 2a$ from $16M$) is:\n$$V_i = -\\frac{G(16M)}{2a} - \\frac{GM}{8a} = -\\frac{65GM}{8a}$$\n\nThe potential at the neutral point ($r = 8a$ from $16M$, $r = 2a$ from $M$) is:\n$$V_n = -\\frac{G(16M)}{8a} - \\frac{GM}{2a} = -\\frac{5GM}{2a} = -\\frac{20GM}{8a}$$\n\nBy conservation of energy, the minimum speed $v$ required to cross the neutral point is:\n$$\\frac{1}{2} v^2 + V_i = V_n \\implies \\frac{1}{2} v^2 - \\frac{65GM}{8a} = -\\frac{20GM}{8a}$$\n$$\\frac{1}{2} v^2 = \\frac{45GM}{8a} \\implies v^2 = \\frac{45GM}{4a} \\implies v = \\frac{3}{2}\\sqrt{\\frac{5GM}{a}}$$\nThis matches Option (4).",
@@ -2365,10 +2365,10 @@
     "q": "A rocket has to be launched from earth in such a way that it never returns. If E is the minimum energy delivered by the rocket launcher, what should be the minimum energy that the launcher should have, if the same rocket is to be launched from the surface of the moon? Assume that the density of the earth and the moon are equal and that the earth's volume is 64 times the volume of the moon.",
     "type": "mcq",
     "options": [
-      "\\frac{E}{64}",
-      "\\frac{E}{4}",
-      "\\frac{E}{32}",
-      "\\frac{E}{16}"
+      "$\\frac{E}{64}$",
+      "$\\frac{E}{4}$",
+      "$\\frac{E}{32}$",
+      "$\\frac{E}{16}$"
     ],
     "answer": 3,
     "explanation": "The minimum energy required to escape is equal to the gravitational binding energy:\n$$E = \\frac{GMm}{R}$$\n\nGiven $\\rho_E = \\rho_M$ and $V_E = 64 V_M \\implies R_E^3 = 64 R_M^3 \\implies R_E = 4 R_M$.\nSince mass is proportional to volume:\n$$M_E = 64 M_M$$\n\nTherefore, the ratio of the escape energies is:\n$$\\frac{E_E}{E_M} = \\frac{M_E}{M_M} \\times \\frac{R_M}{R_E} = 64 \\times \\frac{1}{4} = 16 \\implies E_M = \\frac{E}{16}$$\nThis matches Option (4).",
@@ -2392,10 +2392,10 @@
     "q": "Correct formula for height of a satellite from earths surface is:",
     "type": "mcq",
     "options": [
-      "(\\frac{T^2 R^2}{4\\pi^2 g})^{1/3} - R",
-      "(\\frac{T^2 R^2 g}{4\\pi^2})^{1/3} - R",
-      "(\\frac{T^2 R^2 g}{4\\pi^2})^{-1/3} + R",
-      "(\\frac{T^2 R^2 g}{4\\pi})^{1/2} - R"
+      "$(\\frac{T^2 R^2}{4\\pi^2 g})^{1/3} - R$",
+      "$(\\frac{T^2 R^2 g}{4\\pi^2})^{1/3} - R$",
+      "$(\\frac{T^2 R^2 g}{4\\pi^2})^{-1/3} + R$",
+      "$(\\frac{T^2 R^2 g}{4\\pi})^{1/2} - R$"
     ],
     "answer": 1,
     "explanation": "The time period of a satellite revolving at a distance $r = R+h$ is:\n$$T = 2\\pi \\sqrt{\\frac{r^3}{GM}} = 2\\pi \\sqrt{\\frac{(R+h)^3}{g R^2}} \\quad (\\because GM = gR^2)$$\n$$T^2 = \\frac{4\\pi^2 (R+h)^3}{g R^2} \\implies (R+h)^3 = \\frac{T^2 R^2 g}{4\\pi^2}$$\n$$h = \\left( \\frac{T^2 R^2 g}{4\\pi^2} \\right)^{1/3} - R$$\nThis matches Option (2).",

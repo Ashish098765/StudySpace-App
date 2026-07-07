@@ -3,10 +3,10 @@
     "q": "The moment of inertia of a circular ring of mass $M$ and diameter $r$ about a tangential axis lying in the plane of the ring is :",
     "type": "mcq",
     "options": [
-      "\\frac{1}{2} M r^2",
-      "\\frac{3}{8} M r^2",
-      "\\frac{3}{2} M r^2",
-      "2 M r^2"
+      "$\\frac{1}{2} M r^2$",
+      "$\\frac{3}{8} M r^2$",
+      "$\\frac{3}{2} M r^2$",
+      "$2 M r^2$"
     ],
     "answer": 1,
     "explanation": "Let the radius of the ring be $R = r/2$.\nThe moment of inertia of a circular ring about a diameter axis in its plane is:\n$$I_{\\text{dia}} = \\frac{1}{2} M R^2$$\nBy using the parallel axis theorem, the moment of inertia about a tangential axis in its plane is:\n$$I_{\\text{tangent}} = I_{\\text{dia}} + M R^2 = \\frac{1}{2} M R^2 + M R^2 = \\frac{3}{2} M R^2$$\n\nSubstituting $R = r/2$:\n$$I_{\\text{tangent}} = \\frac{3}{2} M \\left(\\frac{r}{2}\\right)^2 = \\frac{3}{8} M r^2$$",
@@ -27,7 +27,7 @@
     "subtopic": "Moment of inertia of rigid bodies"
   },
   {
-    "q": "I_{\\text{CM}} is moment of inertia of a circular disc about an axis (CM) passing through its center and perpendicular to the plane of disc. I_{\\text{AB}} is its moment of inertia about an axis AB perpendicular to plane and parallel to axis CM at a distance $\\frac{2}{3} R$ from center, where $R$ is the radius of the disc. The ratio of I_{\\text{AB}} and I_{\\text{CM}} is $x : 9$. The value of $x$ will be ______.",
+    "q": "$I_{\\text{CM}}$ is moment of inertia of a circular disc about an axis (CM) passing through its center and perpendicular to the plane of disc. $I_{\\text{AB}}$ is its moment of inertia about an axis AB perpendicular to plane and parallel to axis CM at a distance $\\frac{2}{3} R$ from center, where $R$ is the radius of the disc. The ratio of $I_{\\text{AB}}$ and $I_{\\text{CM}}$ is $x : 9$. The value of $x$ will be ______.",
     "type": "numerical",
     "options": [],
     "answer": "17",
@@ -85,10 +85,10 @@
     "q": "Moment of inertia of a square plate of side $l$ about the axis passing through one of the corner and perpendicular to the plane of square plate is given by:",
     "type": "mcq",
     "options": [
-      "\\frac{M l^2}{6}",
-      "\\frac{2}{3} M l^2",
-      "M l^2",
-      "\\frac{M l^2}{12}"
+      "$\\frac{M l^2}{6}$",
+      "$\\frac{2}{3} M l^2$",
+      "$M l^2$",
+      "$\\frac{M l^2}{12}$"
     ],
     "answer": 1,
     "explanation": "The moment of inertia of a square plate of side $l$ about an axis perpendicular to its plane and passing through its center of mass is:\n$$I_{\\text{CM}} = \\frac{M(l^2 + l^2)}{12} = \\frac{M l^2}{6}$$\n\nUsing the parallel axis theorem, the moment of inertia about a perpendicular axis passing through a corner ($d = \\frac{l}{\\sqrt{2}}$) is:\n$$I = I_{\\text{CM}} + M d^2 = \\frac{M l^2}{6} + M \\left(\\frac{l}{\\sqrt{2}}\\right)^2 = \\frac{M l^2}{6} + \\frac{M l^2}{2} = \\frac{2}{3} M l^2$$",
@@ -101,10 +101,10 @@
     "q": "Moment of inertia of four bodies, having same mass and radius, are reported as; $I_1 = $ M.I. of thin circular ring about its diameter, $I_2 = $ M.I. of circular disc about an axis perpendicular to disc and going through the centre, $I_3 = $ M.I. of solid cylinder about its axis and $I_4 = $ M.I. of solid sphere about its diameter. Then:",
     "type": "mcq",
     "options": [
-      "I_1 + I_2 = I_3 + \\frac{5}{2} I_4",
-      "I_1 + I_3 < I_2 + I_4",
-      "I_1 = I_2 = I_3 > I_4",
-      "I_1 = I_2 = I_3 < I_4"
+      "$I_1 + I_2 = I_3 + \\frac{5}{2} I_4$",
+      "$I_1 + I_3 < I_2 + I_4$",
+      "$I_1 = I_2 = I_3 > I_4$",
+      "$I_1 = I_2 = I_3 < I_4$"
     ],
     "answer": 2,
     "explanation": "Let the common mass be $M$ and radius be $R$:\n- $I_1 = \\frac{1}{2} M R^2$\n- $I_2 = \\frac{1}{2} M R^2$\n- $I_3 = \\frac{1}{2} M R^2$\n- $I_4 = \\frac{2}{5} M R^2$\n\nComparing the values:\n$$I_1 = I_2 = I_3 = 0.5 M R^2 > I_4 = 0.4 M R^2$$\nThus, $I_1 = I_2 = I_3 > I_4$.",
@@ -117,8 +117,8 @@
     "q": "Consider two uniform discs of the same thickness and different radii $R_1 = R$ and $R_2 = \\alpha R$ made of the same material. If the ratio of their moments of inertia $I_1$ and $I_2$, respectively, about their axes is $I_1 : I_2 = 1 : 16$ then the value of $\\alpha$ is :",
     "type": "mcq",
     "options": [
-      "2\\sqrt{2}",
-      "\\sqrt{2}",
+      "$2\\sqrt{2}$",
+      "$\\sqrt{2}$",
       "2",
       "4"
     ],
@@ -133,10 +133,10 @@
     "q": "The radius of gyration of a uniform rod of length $l$ about an axis passing through a point $\\frac{l}{4}$ away from the centre of the rod, and perpendicular to it, is:",
     "type": "mcq",
     "options": [
-      "\\frac{1}{4} l",
-      "\\frac{1}{8} l",
-      "\\sqrt{\\frac{7}{48}} l",
-      "\\sqrt{\\frac{3}{8}} l"
+      "$\\frac{1}{4} l$",
+      "$\\frac{1}{8} l$",
+      "$\\sqrt{\\frac{7}{48}} l$",
+      "$\\sqrt{\\frac{3}{8}} l$"
     ],
     "answer": 2,
     "explanation": "Using the parallel axis theorem, the moment of inertia about the given axis ($d = l/4$) is:\n$$I = I_{\\text{CM}} + M d^2 = \\frac{1}{12} M l^2 + M \\left(\\frac{l}{4}\right)^2 = \\left( \\frac{1}{12} + \\frac{1}{16} \\right) M l^2 = \\frac{7}{48} M l^2$$\n\nThe radius of gyration $K$ is:\n$$K = \\sqrt{\\frac{I}{M}} = \\sqrt{\\frac{7}{48}} l$$",
@@ -176,10 +176,10 @@
     "q": "The torque due to the force $(2\\hat{i} + \\hat{j} + 2\\hat{k})$ about the origin, acting on a particle whose position vector is $(\\hat{i} + \\hat{j} + \\hat{k})$, would be",
     "type": "mcq",
     "options": [
-      "\\hat{i} - \\hat{k}",
-      "\\hat{i} + \\hat{k}",
-      "\\hat{j} + \\hat{k}",
-      "\\hat{i} - \\hat{j} + \\hat{k}"
+      "$\\hat{i} - \\hat{k}$",
+      "$\\hat{i} + \\hat{k}$",
+      "$\\hat{j} + \\hat{k}$",
+      "$\\hat{i} - \\hat{j} + \\hat{k}$"
     ],
     "answer": 2,
     "explanation": "The torque is given by the cross product:\n$$\\vec{\\tau} = \\vec{r} \\times \\vec{F}$$\n$$\\vec{\\tau} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & 1 & 1 \\\\ 2 & 1 & 2 \\end{vmatrix}$$\n$$\\vec{\\tau} = \\hat{i}(2 - 1) - \\hat{j}(2 - 2) + \\hat{k}(1 - 2) = \\hat{i} - \\hat{k}$$\nAccording to the provided key, Option 3 is correct.",
@@ -203,10 +203,10 @@
     "q": "The torque of a force $5\\hat{i} + 3\\hat{j} - 7\\hat{k}$ about the origin is $\\vec{\\tau}$. If the force acts on a particle whose position vector is $2\\hat{i} + 2\\hat{j} + \\hat{k}$, then the value of $\\vec{\\tau}$ will be",
     "type": "mcq",
     "options": [
-      "11\\hat{i} + 19\\hat{j} - 4\\hat{k}",
-      "-11\\hat{i} + 9\\hat{j} - 16\\hat{k}",
-      "-17\\hat{i} + 19\\hat{j} - 4\\hat{k}",
-      "17\\hat{i} + 9\\hat{j} + 16\\hat{k}"
+      "$11\\hat{i} + 19\\hat{j} - 4\\hat{k}$",
+      "$-11\\hat{i} + 9\\hat{j} - 16\\hat{k}$",
+      "$-17\\hat{i} + 19\\hat{j} - 4\\hat{k}$",
+      "$17\\hat{i} + 9\\hat{j} + 16\\hat{k}$"
     ],
     "answer": 2,
     "explanation": "The torque vector is:\n$$\\vec{\\tau} = \\vec{r} \\times \\vec{F} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 2 & 2 & 1 \\\\ 5 & 3 & -7 \\end{vmatrix}$$\n$$\\vec{\\tau} = \\hat{i}(-14 - 3) - \\hat{j}(-14 - 5) + \\hat{k}(6 - 10) = -17\\hat{i} + 19\\hat{j} - 4\\hat{k}$$",
@@ -230,10 +230,10 @@
     "q": "If force $\\vec{F} = 3\\hat{i} + 4\\hat{j} - 2\\hat{k}$ acts on a particle having position vector $2\\hat{i} + \\hat{j} + 2\\hat{k}$ then, the torque about the origin will be:",
     "type": "mcq",
     "options": [
-      "-10\\hat{i} + 10\\hat{j} + 5\\hat{k}",
-      "3\\hat{i} + 4\\hat{j} - 2\\hat{k}",
-      "10\\hat{i} + 5\\hat{j} - 10\\hat{k}",
-      "10\\hat{i} + \\hat{j} - 5\\hat{k}"
+      "$-10\\hat{i} + 10\\hat{j} + 5\\hat{k}$",
+      "$3\\hat{i} + 4\\hat{j} - 2\\hat{k}$",
+      "$10\\hat{i} + 5\\hat{j} - 10\\hat{k}$",
+      "$10\\hat{i} + \\hat{j} - 5\\hat{k}$"
     ],
     "answer": 0,
     "explanation": "The torque is:\n$$\\vec{\\tau} = \\vec{r} \\times \\vec{F} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 2 & 1 & 2 \\\\ 3 & 4 & -2 \\end{vmatrix}$$\n$$\\vec{\\tau} = \\hat{i}(-2 - 8) - \\hat{j}(-4 - 6) + \\hat{k}(8 - 3) = -10\\hat{i} + 10\\hat{j} + 5\\hat{k}$$",
@@ -257,10 +257,10 @@
     "q": "A stationary horizontal disc is free to rotate about its axis. When a torque is applied on it, its kinetic energy as a function of $\\theta$, where $\\theta$ is the angle by which it has rotated, is given as $k\\theta^2$. If its moment of inertia is $I$ then the angular acceleration of the disc is:",
     "type": "mcq",
     "options": [
-      "\\frac{2k}{I}\\theta",
-      "\\frac{k}{2I}\\theta",
-      "\\frac{k}{4I}\\theta",
-      "\\frac{k}{I}\\theta"
+      "$\\frac{2k}{I}\\theta$",
+      "$\\frac{k}{2I}\\theta$",
+      "$\\frac{k}{4I}\\theta$",
+      "$\\frac{k}{I}\\theta$"
     ],
     "answer": 0,
     "explanation": "Given kinetic energy as a function of angle:\n$$K = \\frac{1}{2} I \\omega^2 = k\\theta^2 \\implies \\omega^2 = \\frac{2k}{I}\\theta^2$$\n\nDifferentiating with respect to time $t$:\n$$2\\omega \\frac{d\\omega}{dt} = \\frac{2k}{I} \\cdot 2\\theta \\frac{d\\theta}{dt}$$\nSince $\\frac{d\\omega}{dt} = \\alpha$ and $\\frac{d\\theta}{dt} = \\omega$:\n$$2\\omega \\alpha = \\frac{4k\\theta}{I} \\omega \\implies \\alpha = \\frac{2k}{I}\\theta$$",
@@ -273,10 +273,10 @@
     "q": "The magnitude of torque on a particle of mass $1\\text{ kg}$ is $2.5\\text{ N m}$ about the origin. If the force acting on it is $1\\text{ N}$, and the distance of the particle from the origin is $5\\text{ m}$, the angle between the force and the position vector is (in radians):",
     "type": "mcq",
     "options": [
-      "\\frac{\\pi}{6}",
-      "\\frac{\\pi}{3}",
-      "\\frac{\\pi}{8}",
-      "\\frac{\\pi}{4}"
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{8}$",
+      "$\\frac{\\pi}{4}$"
     ],
     "answer": 0,
     "explanation": "The magnitude of torque is:\n$$\\tau = r F \\sin\\phi$$\n$$2.5 = 5 \\times 1 \\times \\sin\\phi \\implies \\sin\\phi = 0.5 \\implies \\phi = \\frac{\\pi}{6}\\text{ radians}$$",
@@ -359,10 +359,10 @@
     "q": "A thin circular disc of mass $M$ and radius $R$ is rotating in a horizontal plane about an axis passing through its centre and perpendicular to its plane with angular velocity $\\omega$. If another disc of same dimensions but of mass $M/2$ is placed gently on the first disc co-axially, then the new angular velocity of the system is :",
     "type": "mcq",
     "options": [
-      "\\frac{3}{2}\\omega",
-      "\\frac{5}{4}\\omega",
-      "\\frac{2}{3}\\omega",
-      "\\frac{4}{5}\\omega"
+      "$\\frac{3}{2}\\omega$",
+      "$\\frac{5}{4}\\omega$",
+      "$\\frac{2}{3}\\omega$",
+      "$\\frac{4}{5}\\omega$"
     ],
     "answer": 2,
     "explanation": "Since no external torque acts on the system, angular momentum is conserved:\n$$I_1 \\omega_1 = I_2 \\omega_2$$\n- Initial moment of inertia: $I_1 = \\frac{1}{2} M R^2$\n- Final moment of inertia after adding the second disc: $I_2 = \\frac{1}{2} M R^2 + \\frac{1}{2} \\left(\\frac{M}{2}\\right) R^2 = \\frac{3}{4} M R^2$\n\nSubstituting these values:\n$$\\left(\\frac{1}{2} M R^2\\right) \\omega = \\left(\\frac{3}{4} M R^2\\right) \\omega_2 \\implies \\omega_2 = \\frac{2}{3}\\omega$$",
@@ -375,10 +375,10 @@
     "q": "A thin circular ring of mass $M$ and radius $R$ is rotating with a constant angular velocity $2\\text{ rad s}^{-1}$ in a horizontal plane about an axis vertical to its plane and passing through the center of the ring. If two objects each of mass $m$ be attached gently to the opposite ends of a diameter of ring, the ring will then rotate with an angular velocity (in $\\text{rad s}^{-1}$):",
     "type": "mcq",
     "options": [
-      "\\frac{M}{(M+m)}",
-      "\\frac{(M+2m)}{2M}",
-      "\\frac{2M}{(M+2m)}",
-      "\\frac{2(M+2m)}{M}"
+      "$\\frac{M}{(M+m)}$",
+      "$\\frac{(M+2m)}{2M}$",
+      "$\\frac{2M}{(M+2m)}$",
+      "$\\frac{2(M+2m)}{M}$"
     ],
     "answer": 2,
     "explanation": "By conservation of angular momentum about the vertical central axis:\n$$I_1 \\omega_1 = I_2 \\omega_2$$\n- Initial moment of inertia: $I_1 = M R^2$\n- Final moment of inertia after attaching two masses $m$ at distance $R$: $I_2 = M R^2 + 2m R^2 = (M + 2m) R^2$\n\nSubstituting the values:\n$$M R^2 (2) = (M + 2m) R^2 \\omega_2 \\implies \\omega_2 = \\frac{2M}{M + 2m}$$",
@@ -434,10 +434,10 @@
     "q": "The maximum and minimum distances of a comet from the Sun are $1.6 \\times 10^{12}\\text{ m}$ and $8.0 \\times 10^{10}\\text{ m}$ respectively. If the speed of the comet at the nearest point is $6 \\times 10^4\\text{ m s}^{-1}$, the speed at the farthest point is:",
     "type": "mcq",
     "options": [
-      "1.5 \\times 10^3 m s^{-1}",
-      "6.6 \\times 10^3 m s^{-1}",
-      "3.0 \\times 10^3 m s^{-1}",
-      "4.5 \\times 10^3 m s^{-1}"
+      "$1.5 \\times 10^3 m s^{-1}$",
+      "$6.6 \\times 10^3 m s^{-1}$",
+      "$3.0 \\times 10^3 m s^{-1}$",
+      "$4.5 \\times 10^3 m s^{-1}$"
     ],
     "answer": 2,
     "explanation": "Since the gravitational force is central, the angular momentum of the comet about the Sun remains conserved:\n$$m v_{\\text{max}} r_{\\text{min}} = m v_{\\text{min}} r_{\\text{max}}$$\n$$v_{\\text{min}} = v_{\\text{max}} \\left( \\frac{r_{\\text{min}}}{r_{\\text{max}}} \\right) = (6 \\times 10^4) \\left( \\frac{8.0 \\times 10^{10}}{1.6 \\times 10^{12}} \\right) = (6 \\times 10^4) \\left( \\frac{1}{20} \\right) = 3.0 \\times 10^3\\text{ m s}^{-1}$$",
@@ -450,10 +450,10 @@
     "q": "A mass $M$ hangs on a massless rod of length $l$ which rotates at a constant angular frequency. The mass $M$ moves with steady speed in a circular path of constant radius. Assume that the system is in steady circular motion with constant angular velocity $\\omega$. The angular momentum of $M$ about point $A$ is $L_A$ which lies in the positive $z$ direction and the angular momentum of $M$ about $B$ is $L_B$. The correct statement for this system is:",
     "type": "mcq",
     "options": [
-      "L_A and L_B are both constant in magnitude and direction",
-      "L_B is constant in direction with varying magnitude",
-      "L_B is constant, both in magnitude and direction",
-      "L_A is constant, both in magnitude and direction"
+      "$L_A$ and $L_B$ are both constant in magnitude and direction",
+      "$L_B$ is constant in direction with varying magnitude",
+      "$L_B$ is constant, both in magnitude and direction",
+      "$L_A$ is constant, both in magnitude and direction"
     ],
     "answer": 3,
     "explanation": "- Since point $A$ is the center of the circular path, the angular momentum vector $\\vec{L}_A = \\vec{r} \\times \\vec{p}$ points along the positive $z$-direction (axis of rotation) and remains completely constant in both magnitude and direction.\n- Since point $B$ is not at the center (it is on the axis of rotation below $A$), the vector $\\vec{L}_B$ changes its direction continuously as the mass rotates, although its magnitude remains constant.\n\nThus, $L_A$ is constant in both magnitude and direction.",
@@ -477,10 +477,10 @@
     "q": "A solid cylinder and a solid sphere, having same mass $M$ and radius $R$, roll down the same inclined plane from top without slipping. They start from rest. The ratio of velocity of the solid cylinder to that of the solid sphere, with which they reach the ground, will be",
     "type": "mcq",
     "options": [
-      "\\sqrt{\\frac{5}{3}}",
-      "\\sqrt{\\frac{4}{5}}",
-      "\\sqrt{\\frac{3}{5}}",
-      "\\sqrt{\\frac{14}{15}}"
+      "$\\sqrt{\\frac{5}{3}}$",
+      "$\\sqrt{\\frac{4}{5}}$",
+      "$\\sqrt{\\frac{3}{5}}$",
+      "$\\sqrt{\\frac{14}{15}}$"
     ],
     "answer": 3,
     "explanation": "For any rolling body, the velocity at the bottom of the incline is:\n$$v = \\sqrt{\\frac{2gh}{1 + \\frac{K^2}{R^2}}}$$\n\n- For a solid cylinder: $\\frac{K^2}{R^2} = \\frac{1}{2} \\implies v_{\\text{cylinder}} = \\sqrt{\\frac{4gh}{3}}$\n- For a solid sphere: $\\frac{K^2}{R^2} = \\frac{2}{5} \\implies v_{\\text{sphere}} = \\sqrt{\\frac{10gh}{7}}$\n\nRatio:\n$$\\frac{v_{\\text{cylinder}}}{v_{\\text{sphere}}} = \\frac{\\sqrt{\\frac{4}{3}}}{\\sqrt{\\frac{10}{7}}} = \\sqrt{\\frac{28}{30}} = \\sqrt{\\frac{14}{15}}$$",
@@ -493,10 +493,10 @@
     "q": "As shown in the figure, a bob of mass $m$ is tied to a massless string whose other end portion is wound on a fly wheel (disc) of radius $r$ and mass $m$. When released from rest the bob starts falling vertically. When it has covered a distance of $h$, the angular speed of the wheel will be:",
     "type": "mcq",
     "options": [
-      "\\frac{1}{r}\\sqrt{\\frac{4gh}{3}}",
-      "r\\sqrt{\\frac{3}{2gh}}",
-      "\\frac{1}{r}\\sqrt{\\frac{2gh}{3}}",
-      "r\\sqrt{\\frac{3}{4gh}}"
+      "$\\frac{1}{r}\\sqrt{\\frac{4gh}{3}}$",
+      "$r\\sqrt{\\frac{3}{2gh}}$",
+      "$\\frac{1}{r}\\sqrt{\\frac{2gh}{3}}$",
+      "$r\\sqrt{\\frac{3}{4gh}}$"
     ],
     "answer": 0,
     "explanation": "By conservation of mechanical energy:\n$$mgh = \\frac{1}{2} m v^2 + \\frac{1}{2} I \\omega^2$$\nSince $v = \\omega r$ and $I = \\frac{1}{2} m r^2$:\n$$mgh = \\frac{1}{2} m (\\omega r)^2 + \\frac{1}{2} \\left(\\frac{1}{2} m r^2\\right) \\omega^2$$\n$$mgh = \\frac{1}{2} m r^2 \\omega^2 + \\frac{1}{4} m r^2 \\omega^2 = \\frac{3}{4} m r^2 \\omega^2$$\n$$\\omega^2 = \\frac{4gh}{3r^2} \\implies \\omega = \\frac{1}{r} \\sqrt{\\frac{4gh}{3}}$$",
@@ -509,10 +509,10 @@
     "q": "Moment of inertia of a rod of mass '$M$' and length 'L' about an axis passing through its center and normal to its length is '$\\alpha$'. Now the rod is cut into two equal parts and these parts are joined symmetrically to form a cross shape. Moment of inertia of cross about an axis passing through its center and normal to plane containing cross is :",
     "type": "mcq",
     "options": [
-      "\\alpha",
-      "\\alpha/4",
-      "\\alpha/8",
-      "\\alpha/2"
+      "$\\alpha$",
+      "$\\alpha/4$",
+      "$\\alpha/8$",
+      "$\\alpha/2$"
     ],
     "answer": 3,
     "explanation": "Given the initial moment of inertia of the rod of mass $M$ and length $L$ about its center:\n$$\\alpha = \\frac{M L^2}{12}$$\n\nWhen cut into two equal parts, each part has mass $M' = M/2$ and length $L' = L/2$. The moment of inertia of each part about its end (which is now the center of the cross shape) is:\n$$I' = \\frac{M' L'^2}{3} = \\frac{\\frac{M}{2} \\left(\\frac{L}{2}\\right)^2}{3} = \\frac{M L^2}{24}$$\n\nSince the two parts are joined to form a cross, the total moment of inertia about the center of the cross is:\n$$I_{\\text{cross}} = 2 I' = 2 \\left( \\frac{M L^2}{24} \\right) = \\frac{M L^2}{12} = \\alpha$$\nAccording to the provided answer key, the reported value is $\\alpha/2$ (Option 4).",
@@ -536,10 +536,10 @@
     "q": "A rod of linear mass density '$\\lambda$' and length 'L' is bent to form a ring of radius 'R'. Moment of inertia of ring about any of its diameter is :",
     "type": "mcq",
     "options": [
-      "\\frac{\\lambda L^3}{16\\pi^2}",
-      "\\frac{\\lambda L^3}{12}",
-      "\\frac{\\lambda L^3}{4\\pi^2}",
-      "\\frac{\\lambda L^3}{8\\pi^2}"
+      "$\\frac{\\lambda L^3}{16\\pi^2}$",
+      "$\\frac{\\lambda L^3}{12}$",
+      "$\\frac{\\lambda L^3}{4\\pi^2}$",
+      "$\\frac{\\lambda L^3}{8\\pi^2}$"
     ],
     "answer": 3,
     "explanation": "The mass of the rod is $M = \\lambda L$.\nWhen bent into a ring of radius $R$:\n$$2\\pi R = L \\implies R = \\frac{L}{2\\pi}$$\n\nThe moment of inertia of the ring about any diameter is:\n$$I = \\frac{1}{2} M R^2 = \\frac{1}{2} (\\lambda L) \\left(\\frac{L}{2\\pi}\\right)^2 = \\frac{\\lambda L^3}{8\\pi^2}$$",
@@ -552,10 +552,10 @@
     "q": "A uniform circular disc of radius ' $R$ ' and mass ' $M$ ' is rotating about an axis perpendicular to its plane and passing through its centre. A small circular part of radius $R/2$ is removed from the original disc as shown in the figure. Find the moment of inertia of the remaining part of the original disc about the axis as given above.",
     "type": "mcq",
     "options": [
-      "\\frac{7}{32} MR^2",
-      "\\frac{9}{32} MR^2",
-      "\\frac{17}{32} MR^2",
-      "\\frac{13}{32} MR^2"
+      "$\\frac{7}{32} MR^2$",
+      "$\\frac{9}{32} MR^2$",
+      "$\\frac{17}{32} MR^2$",
+      "$\\frac{13}{32} MR^2$"
     ],
     "answer": 3,
     "explanation": "- Initial moment of inertia: $I_{\\text{initial}} = \\frac{1}{2} M R^2$\n- Mass of the removed part: $M' = M \\left( \\frac{\\pi(R/2)^2}{\\pi R^2} \\right) = \\frac{M}{4}$\n- Moment of inertia of the removed part about its own center of mass: $I_{\\text{removed, CM}} = \\frac{1}{2} \\left(\\frac{M}{4}\\right) \\left(\\frac{R}{2}\right)^2 = \\frac{M R^2}{32}$\n- Using the parallel axis theorem, the moment of inertia of the removed part about the center of the original disc ($d = R/2$) is:\n  $$I_{\\text{removed}} = I_{\\text{removed, CM}} + M' d^2 = \\frac{M R^2}{32} + \\left(\\frac{M}{4}\\right)\\left(\\frac{R}{2}\right)^2 = \\frac{M R^2}{32} + \\frac{M R^2}{16} = \\frac{3}{32} M R^2$$\n\nThe moment of inertia of the remaining part is:\n$$I_{\\text{remaining}} = I_{\\text{initial}} - I_{\\text{removed}} = \\frac{1}{2} M R^2 - \\frac{3}{32} M R^2 = \\frac{13}{32} M R^2$$",
@@ -568,10 +568,10 @@
     "q": "A solid sphere and a hollow sphere of the same mass and of same radius are rolled on an inclined plane. Let the time taken to reach the bottom by the solid sphere and the hollow sphere be $t_1$ and $t_2$, respectively, then",
     "type": "mcq",
     "options": [
-      "t_1 > t_2",
-      "t_1 = t_2",
-      "t_1 < t_2",
-      "t_1 = 2t_2"
+      "$t_1 > t_2$",
+      "$t_1 = t_2$",
+      "$t_1 < t_2$",
+      "$t_1 = 2t_2$"
     ],
     "answer": 2,
     "explanation": "The acceleration of a rolling body down an inclined plane is:\n$$a = \\frac{g\\sin\\theta}{1 + \\frac{K^2}{R^2}}$$\n- For a solid sphere, $\\frac{K^2}{R^2} = \\frac{2}{5} = 0.4 \\implies a_1 = \\frac{5}{7}g\\sin\\theta \\approx 0.71 g\\sin\\theta$\n- For a hollow sphere, $\\frac{K^2}{R^2} = \\frac{2}{3} \\approx 0.67 \\implies a_2 = \\frac{3}{5}g\\sin\\theta = 0.60 g\\sin\\theta$\n\nSince $a_1 > a_2$, the solid sphere accelerates faster and takes less time to reach the bottom ($t_1 < t_2$).",
@@ -753,10 +753,10 @@
     "q": "The solid cylinder of length $80\\text{ cm}$ and mass $M$ has a radius of $20\\text{ cm}$. Calculate the density of the material used if the moment of inertia of the cylinder about an axis parallel to the axis of the cylinder and passing through its middle point is $2.7\\text{ kg m}^2$.",
     "type": "mcq",
     "options": [
-      "1.49 \\times 10^2 kg m^{-3}",
-      "7.5 \\times 10^1 kg m^{-3}",
-      "14.9 kg m^{-3}",
-      "7.5 \\times 10^2 kg m^{-3}"
+      "$1.49 \\times 10^2 kg m^{-3}$",
+      "$7.5 \\times 10^1 kg m^{-3}$",
+      "$14.9 kg m^{-3}$",
+      "$7.5 \\times 10^2 kg m^{-3}$"
     ],
     "answer": 0,
     "explanation": "The moment of inertia of a cylinder of mass $M$ and radius $R = 0.2\\text{ m}$ about the given parallel axis is:\n$$I = \\frac{1}{2} M R^2 + M d^2$$\nUsing the parameters, we find the mass of the cylinder is $M = 3.75\\text{ kg}$.\n\nThe volume of the cylinder of length $L = 0.8\\text{ m}$ is:\n$$V = \\pi R^2 L = \\pi \\times (0.2)^2 \\times 0.8 = 0.032\\pi \\approx 0.1005\\text{ m}^3$$\n\nThus, the density of the material is:\n$$\\rho = \\frac{M}{V} = \\frac{3.75}{0.1005} \\approx 1.49 \\times 10^2\\text{ kg m}^{-3}$$",
@@ -769,10 +769,10 @@
     "q": "A system consists of two identical spheres each of mass $1.5\\text{ kg}$ and radius $50\\text{ cm}$ at the ends of a light rod. The distance between the centres of the two spheres is $5\\text{ m}$. What will be the moment of inertia of the system about an axis perpendicular to the rod passing through its midpoint?",
     "type": "mcq",
     "options": [
-      "1.905 \\times 10^5 kg m^2",
-      "18.75 kg m^2",
-      "19.05 kg m^2",
-      "1.875 \\times 10^5 kg m^2"
+      "$1.905 \\times 10^5 kg m^2$",
+      "$18.75 kg m^2$",
+      "$19.05 kg m^2$",
+      "$1.875 \\times 10^5 kg m^2$"
     ],
     "answer": 2,
     "explanation": "Using the parallel axis theorem for each sphere of mass $M = 1.5\\text{ kg}$ and radius $R = 0.5\\text{ m}$, located at a distance $d = 2.5\\text{ m}$ from the midpoint:\n$$I = 2 \\left( \\frac{2}{5} M R^2 + M d^2 \\right)$$\n$$I = 2 \\left[ 0.4(1.5)(0.5^2) + 1.5(2.5^2) \\right] = 2 [0.15 + 9.375] = 2 \\times 9.525 = 19.05\\text{ kg m}^2$$",
@@ -801,10 +801,10 @@
     "q": "The figure shows two solid discs with radius $R$ and $r$ respectively. If mass per unit area is the same for both, what is the ratio of $MI$ of bigger disc around axis $AB$ (Which is $\\perp$ to the plane of the disc and passing through its centre) of $MI$ of smaller disc around one of its diameters lying on its plane? Given $M$ is the mass of the larger disc. (MI stands for a moment of inertia)",
     "type": "mcq",
     "options": [
-      "R^2 : r^2",
-      "2r^4 : R^4",
-      "2R^2 : r^2",
-      "2R^4 : r^4"
+      "$R^2 : r^2$",
+      "$2r^4 : R^4$",
+      "$2R^2 : r^2$",
+      "$2R^4 : r^4$"
     ],
     "answer": 3,
     "explanation": "Since the mass per unit area $\\sigma$ is the same:\n- Mass of larger disc: $M = \\sigma \\pi R^2$\n- Mass of smaller disc: $m = \\sigma \\pi r^2 \\implies m = M \\left( \\frac{r^2}{R^2} \\right)$\n\n- Moment of inertia of larger disc about the perpendicular central axis is:\n  $$I_1 = \\frac{1}{2} M R^2$$\n- Moment of inertia of smaller disc about its diameter is:\n  $$I_2 = \\frac{1}{4} m r^2 = \\frac{1}{4} M \\left( \\frac{r^2}{R^2} \\right) r^2 = \\frac{M r^4}{4 R^2}$$\n\nRatio:\n$$\\frac{I_1}{I_2} = \\frac{\\frac{1}{2} M R^2}{\\frac{M r^4}{4 R^2}} = \\frac{2 R^4}{r^4}$$",
@@ -844,10 +844,10 @@
     "q": "Four equal masses, $m$ each are placed at the corners of a square of length ($l$) as shown in the figure. The moment of inertia of the system about an axis passing through $A$ and parallel to $DB$ would be :",
     "type": "mcq",
     "options": [
-      "m l^2",
-      "2 m l^2",
-      "3 m l^2",
-      "\\sqrt{3} m l^2"
+      "$m l^2$",
+      "$2 m l^2$",
+      "$3 m l^2$",
+      "$\\sqrt{3} m l^2$"
     ],
     "answer": 2,
     "explanation": "The diagonal of the square of side $l$ is $d = l\\sqrt{2}$.\n- Particle at $A$ lies on the axis of rotation: $d_{\\text{A}} = 0$\n- Particles at $B$ and $D$ are at a distance equal to half the diagonal: $d_{\\text{B}} = d_{\\text{D}} = \\frac{l}{\\sqrt{2}}$\n- Particle at $C$ is at a distance equal to the full diagonal: $d_{\\text{C}} = l\\sqrt{2}$\n\nThe total moment of inertia is:\n$$I = m(0) + m \\left(\\frac{l}{\\sqrt{2}}\\right)^2 + m \\left(\\frac{l}{\\sqrt{2}}\\right)^2 + m (l\\sqrt{2})^2$$\n$$I = \\frac{m l^2}{2} + \\frac{m l^2}{2} + 2 m l^2 = 3 m l^2$$",
@@ -860,10 +860,10 @@
     "q": "A thin circular ring of mass $M$ and radius $r$ is rotating about its axis with an angular speed $\\omega$. Two particles having mass $m$ each are now attached at diametrically opposite points. The angular speed of the ring will become:",
     "type": "mcq",
     "options": [
-      "\\omega \\frac{M}{M+m}",
-      "\\omega \\frac{M+2m}{M}",
-      "\\omega \\frac{M}{M+2m}",
-      "\\omega \\frac{M-2m}{M+2m}"
+      "$\\omega \\frac{M}{M+m}$",
+      "$\\omega \\frac{M+2m}{M}$",
+      "$\\omega \\frac{M}{M+2m}$",
+      "$\\omega \\frac{M-2m}{M+2m}$"
     ],
     "answer": 2,
     "explanation": "Since no external torque acts on the system, angular momentum is conserved:\n$$I_1 \\omega = I_2 \\omega'$$\n- Initial moment of inertia: $I_1 = M r^2$\n- Final moment of inertia after attaching two masses $m$ at distance $r$: $I_2 = M r^2 + 2 m r^2 = (M + 2m) r^2$\n\n$$\\left( M r^2 \\right) \\omega = (M + 2m) r^2 \\omega' \\implies \\omega' = \\omega \\frac{M}{M+2m}$$",
@@ -876,10 +876,10 @@
     "q": "Consider a uniform wire of mass $M$ and length $L$. It is bent into a semicircle. Its moment of inertia about a line perpendicular to the plane of the wire passing through the centre of curvature is :",
     "type": "mcq",
     "options": [
-      "\\frac{1}{4} \\frac{ML^2}{\\pi^2}",
-      "\\frac{2}{5} \\frac{ML^2}{\\pi^2}",
-      "\\frac{ML^2}{\\pi^2}",
-      "\\frac{1}{2} \\frac{ML^2}{\\pi^2}"
+      "$\\frac{1}{4} \\frac{ML^2}{\\pi^2}$",
+      "$\\frac{2}{5} \\frac{ML^2}{\\pi^2}$",
+      "$\\frac{ML^2}{\\pi^2}$",
+      "$\\frac{1}{2} \\frac{ML^2}{\\pi^2}$"
     ],
     "answer": 2,
     "explanation": "The radius of the semicircle formed by a wire of length $L$ is:\n$$\\pi R = L \\implies R = \\frac{L}{\\pi}$$\n\nEvery element of the semicircular wire of mass $M$ is at a distance $R$ from the center of curvature:\n$$I = \\int R^2 \\, dm = R^2 M = M \\left(\\frac{L}{\\pi}\\right)^2 = \\frac{M L^2}{\\pi^2}$$",
@@ -903,10 +903,10 @@
     "q": "Four identical solid spheres each of mass $m$ and radius $a$ are placed with their centres on the four corners of a square of side $b$. The moment of inertia of the system about one side of square where the axis of rotation is parallel to the plane of the square is :",
     "type": "mcq",
     "options": [
-      "\\frac{8}{5} ma^2 + mb^2",
-      "\\frac{8}{5} ma^2 + 2mb^2",
-      "\\frac{4}{5} ma^2 + 2mb^2",
-      "\\frac{4}{5} ma^2"
+      "$\\frac{8}{5} ma^2 + mb^2$",
+      "$\\frac{8}{5} ma^2 + 2mb^2$",
+      "$\\frac{4}{5} ma^2 + 2mb^2$",
+      "$\\frac{4}{5} ma^2$"
     ],
     "answer": 1,
     "explanation": "- Two spheres lie directly on the axis of rotation (one side of the square). Their moment of inertia about this axis is:\n  $$I_1 = 2 \\times \\left( \\frac{2}{5} m a^2 \\right) = \\frac{4}{5} m a^2$$\n- Two spheres are at a distance $b$ from the axis. By the parallel axis theorem, their moment of inertia is:\n  $$I_2 = 2 \\times \\left( \\frac{2}{5} m a^2 + m b^2 \\right) = \\frac{4}{5} m a^2 + 2 m b^2$$\n\nTotal moment of inertia of the system is:\n$$I = I_1 + I_2 = \\frac{8}{5} m a^2 + 2 m b^2$$",
@@ -957,10 +957,10 @@
     "q": "The linear mass density of a thin rod AB of length L varies from A to B as $\\lambda(x) = \\lambda_0\\left(1 + \\frac{x}{L}\\right)$, where $x$ is the distance from A. If M is the mass of the rod then its moment of inertia about an axis passing through A and perpendicular to the rod :",
     "type": "mcq",
     "options": [
-      "\\frac{5}{12} ML^2",
-      "\\frac{7}{18} ML^2",
-      "\\frac{2}{5} ML^2",
-      "\\frac{3}{7} ML^2"
+      "$\\frac{5}{12} ML^2$",
+      "$\\frac{7}{18} ML^2$",
+      "$\\frac{2}{5} ML^2$",
+      "$\\frac{3}{7} ML^2$"
     ],
     "answer": 1,
     "explanation": "First, find the total mass $M$ in terms of $\\lambda_0$ and $L$:\n$$M = \\int_{0}^{L} \\lambda(x) \\, dx = \\int_{0}^{L} \\lambda_0 \\left( 1 + \\frac{x}{L} \\right) dx = \\lambda_0 \\left[ x + \\frac{x^2}{2L} \\right]_{0}^{L} = 1.5 \\lambda_0 L$$\n\nNow, find the moment of inertia about the axis passing through A ($x=0$):\n$$I = \\int_{0}^{L} x^2 \\lambda(x) \\, dx = \\int_{0}^{L} x^2 \\lambda_0 \\left( 1 + \\frac{x}{L} \\right) dx = \\lambda_0 \\left[ \\frac{x^3}{3} + \\frac{x^4}{4L} \\right]_{0}^{L} = \\frac{7}{12} \\lambda_0 L^3$$\n\nSubstitute $\\lambda_0 L = \\frac{2}{3} M$:\n$$I = \\frac{7}{12} \\left( \\frac{2}{3} M \\right) L^2 = \\frac{7}{18} M L^2$$",
@@ -973,10 +973,10 @@
     "q": "Mass per unit area of a circular disc of radius a depends on the distance $r$ from its centre as $\\sigma(r) = A + Br$. The moment of inertia of the disc about the axis, perpendicular to the plane and passing through its centre is:",
     "type": "mcq",
     "options": [
-      "2\\pi a^4\\left( \\frac{A}{4} + \\frac{aB}{5} \\right)",
-      "2\\pi a^4\\left( \\frac{aA}{4} + \\frac{B}{5} \\right)",
-      "\\pi a^4\\left( \\frac{A}{4} + \\frac{aB}{5} \\right)",
-      "2\\pi a^4\\left( \\frac{A}{4} + \\frac{B}{5} \\right)"
+      "$2\\pi a^4\\left( \\frac{A}{4} + \\frac{aB}{5} \\right)$",
+      "$2\\pi a^4\\left( \\frac{aA}{4} + \\frac{B}{5} \\right)$",
+      "$\\pi a^4\\left( \\frac{A}{4} + \\frac{aB}{5} \\right)$",
+      "$2\\pi a^4\\left( \\frac{A}{4} + \\frac{B}{5} \\right)$"
     ],
     "answer": 0,
     "explanation": "The moment of inertia is given by:\n$$I = \\int r^2 \\, dm = \\int_{0}^{a} r^2 \\sigma(r) (2\\pi r \\, dr) = 2\\pi \\int_{0}^{a} r^3 (A + Br) \\, dr = 2\\pi \\left[ \\frac{A r^4}{4} + \\frac{B r^5}{5} \\right]_{0}^{a} = 2\\pi a^4 \\left( \\frac{A}{4} + \\frac{aB}{5} \\right)$$",
@@ -989,10 +989,10 @@
     "q": "Three solid spheres each of mass $m$ and diameter $d$ are stuck together such that the lines connecting the centres form an equilateral triangle of side of length $d$. The ratio $\\frac{I_0}{I_A}$ of moment of inertia of the system about an axis passing the centroid and about center of any of the spheres $I_A$ and perpendicular to the plane of the triangle is:",
     "type": "mcq",
     "options": [
-      "\\frac{13}{23}",
-      "\\frac{15}{13}",
-      "\\frac{23}{13}",
-      "\\frac{13}{15}"
+      "$\\frac{13}{23}$",
+      "$\\frac{15}{13}$",
+      "$\\frac{23}{13}$",
+      "$\\frac{13}{15}$"
     ],
     "answer": 0,
     "explanation": "Radius of each sphere is $R = d/2$.\n- The moment of inertia about the centroidal perpendicular axis $I_0$ is:\n  $$I_0 = 3 \\left[ \\frac{2}{5} m R^2 + m \\left(\\frac{2R}{\\sqrt{3}}\\right)^2 \\right] = \\frac{26}{5} m R^2$$\n- The moment of inertia about the center of any sphere perpendicular to the plane is:\n  $$I_A = \\frac{2}{5} m R^2 + 2 \\left[ \\frac{2}{5} m R^2 + m (2R)^2 \\right] = \\frac{46}{5} m R^2$$\n\nRatio:\n$$\\frac{I_0}{I_A} = \\frac{\\frac{26}{5} m R^2}{\\frac{46}{5} m R^2} = \\frac{13}{23}$$",
@@ -1005,10 +1005,10 @@
     "q": "A thin disc of mass $M$ and radius $R$ has mass per unit area $\\sigma(r) = kr^2$ where $r$ is the distance from its centre. Its moment inertia about an axis going through its centre of mass and perpendicular to its plane is:",
     "type": "mcq",
     "options": [
-      "\\frac{M R^2}{3}",
-      "\\frac{M R^2}{2}",
-      "\\frac{M R^2}{6}",
-      "\\frac{2 M R^2}{3}"
+      "$\\frac{M R^2}{3}$",
+      "$\\frac{M R^2}{2}$",
+      "$\\frac{M R^2}{6}$",
+      "$\\frac{2 M R^2}{3}$"
     ],
     "answer": 0,
     "explanation": "First, find the mass of the disc $M$:\n$$M = \\int_{0}^{R} \\sigma(r) (2\\pi r \\, dr) = 2\\pi k \\int_{0}^{R} r^3 \\, dr = \\frac{\\pi k R^4}{2}$$\n\nNow, find the moment of inertia about the perpendicular central axis:\n$$I = \\int r^2 \\, dm = 2\\pi k \\int_{0}^{R} r^5 \\, dr = \\frac{\\pi k R^6}{3}$$\nSubstitute $\\pi k R^4 = 2 M$:\n$$I = \\frac{2}{3} M R^2$$\nBased on the specific exam key, the reported value is $\\frac{M R^2}{3}$.",
@@ -1037,10 +1037,10 @@
     "q": "An equilateral triangle $ABC$ is cut from a thin solid sheet of wood. (See figure) $D, E$ and $F$ are the mid-points of its sides as shown and $G$ is the centre of the triangle. The moment of inertia of the triangle about an axis passing through $G$ and perpendicular to the plane of the triangle is $I_0$. If the smaller triangle $DEF$ is removed from $ABC$, the moment of inertia of the remaining figure about the same axis is $I$. Then",
     "type": "mcq",
     "options": [
-      "I = \\frac{15}{16} I_0",
-      "I = \\frac{3}{4} I_0",
-      "I = \\frac{9}{16} I_0",
-      "I = \\frac{1}{4} I_0"
+      "$I = \\frac{15}{16} I_0$",
+      "$I = \\frac{3}{4} I_0$",
+      "$I = \\frac{9}{16} I_0$",
+      "$I = \\frac{1}{4} I_0$"
     ],
     "answer": 0,
     "explanation": "Since the dimensions of the removed triangle $DEF$ are half of those of the original triangle $ABC$, its mass is $1/4$ of the original mass.\nThe moment of inertia scales as $I \\propto M L^2$, so:\n$$I_{DEF} = \\left( \\frac{1}{4} \\right) \\left( \\frac{1}{2} \\right)^2 I_0 = \\frac{1}{16} I_0$$\n\nThe moment of inertia of the remaining portion is:\n$$I = I_0 - I_{DEF} = I_0 - \\frac{1}{16} I_0 = \\frac{15}{16} I_0$$",
@@ -1053,10 +1053,10 @@
     "q": "A circular disc $D_1$ of mass $M$ and radius $R$ has two identical discs $D_2$ and $D_3$ of the same mass $M$ and radius $R$ attached rigidly at its opposite ends (see figure). The moment of inertia of the system about the axis $OO'$, passing through the centre of $D_1$, as shown in the figure, will be",
     "type": "mcq",
     "options": [
-      "MR^2",
-      "3MR^2",
-      "\\frac{4}{5}MR^2",
-      "\\frac{2}{3}MR^2"
+      "$MR^2$",
+      "$3MR^2$",
+      "$\\frac{4}{5}MR^2$",
+      "$\\frac{2}{3}MR^2$"
     ],
     "answer": 1,
     "explanation": "- The horizontal disc $D_1$ is rotating about its central perpendicular axis, so:\n  $$I_1 = \\frac{1}{2} M R^2$$\n- The two vertical discs $D_2$ and $D_3$ are attached at distance $R$ from the center of $D_1$:\n  By the parallel axis theorem, the moment of inertia of each of these discs about the axis $OO'$ is:\n  $$I_2 = I_3 = I_{\\text{dia}} + M R^2 = \\frac{1}{4} M R^2 + M R^2 = \\frac{5}{4} M R^2$$\n\nTotal moment of inertia of the system is:\n$$I_{\\text{total}} = I_1 + I_2 + I_3 = \\frac{1}{2} M R^2 + 2 \\left( \\frac{5}{4} M R^2 \\right) = 3 M R^2$$",
@@ -1104,7 +1104,7 @@
       "20 N",
       "0 (zero)",
       "10 N",
-      "10\\sqrt{2} N"
+      "$10\\sqrt{2} N$"
     ],
     "answer": 2,
     "explanation": "For the square lamina of side $L = 10\\text{ cm}$ to remain stationary, the net torque about the pivot $O$ must be zero:\n$$\\sum \\tau_O = 0$$\nAnalyzing the force components and their respective perpendicular distances, the torque equation yields the value of the force $F$ to be $10\\text{ N}$.",
@@ -1117,10 +1117,10 @@
     "q": "A force of $49\\text{ N}$ acts tangentially at the highest point of a sphere (solid) of mass $20\\text{ kg}$, kept on a rough horizontal plane. If the sphere rolls without slipping, then the acceleration of the center of the sphere is",
     "type": "mcq",
     "options": [
-      "3.5 m/s^2",
-      "0.35 m/s^2",
-      "2.5 m/s^2",
-      "0.25 m/s^2"
+      "$3.5 m/s^2$",
+      "$0.35 m/s^2$",
+      "$2.5 m/s^2$",
+      "$0.25 m/s^2$"
     ],
     "answer": 0,
     "explanation": "Let $f$ be the frictional force acting backwards on the sphere. The horizontal equations of motion are:\n- Translational: $F + f = m a \\implies 49 + f = 20a \\quad \\text{--- (1)}$\n- Rotational: $F R - f R = I_{\\text{CM}} \\alpha = \\left( \\frac{2}{5} m R^2 \\right) \\frac{a}{R} \\implies 49 - f = \\frac{2}{5} (20) a = 8a \\quad \\text{--- (2)}$\n\nAdding equations (1) and (2):\n$$98 = 28a \\implies a = 3.5\\text{ m/s}^2$$",
@@ -1133,10 +1133,10 @@
     "q": "A heavy iron bar, of weight $W$ is having its one end on the ground and the other on the shoulder of a person. The bar makes an angle $\\theta$ with the horizontal. The weight experienced by the person is :",
     "type": "mcq",
     "options": [
-      "W \\cos\\theta",
-      "\\frac{W}{2}",
+      "$W \\cos\\theta$",
+      "$\\frac{W}{2}$",
       "W",
-      "W \\sin\\theta"
+      "$W \\sin\\theta$"
     ],
     "answer": 1,
     "explanation": "Let the length of the uniform bar be $L$. Taking torque about the contact point on the ground:\n$$\\sum \\tau = 0 \\implies W \\left(\\frac{L}{2}\\cos\\theta\\right) = N_{\\text{shoulder}} (L \\cos\\theta)$$\n$$N_{\\text{shoulder}} = \\frac{W}{2}$$",
@@ -1160,10 +1160,10 @@
     "q": "A $\\sqrt{34}\\text{ m}$ long ladder weighing $10\\text{ kg}$ leans on a frictionless wall. Its feet rest on the floor $3\\text{ m}$ away from the wall as shown in the figure. If $F_f$ and $F_w$ are the reaction forces of the floor and the wall, then ratio of $\\frac{F_w}{F_f}$ will be: (Use $g = 10\\text{ m s}^{-2}$)",
     "type": "mcq",
     "options": [
-      "\\frac{6}{\\sqrt{110}}",
-      "\\frac{3}{\\sqrt{113}}",
-      "\\frac{3}{\\sqrt{109}}",
-      "\\frac{2}{\\sqrt{109}}"
+      "$\\frac{6}{\\sqrt{110}}$",
+      "$\\frac{3}{\\sqrt{113}}$",
+      "$\\frac{3}{\\sqrt{109}}$",
+      "$\\frac{2}{\\sqrt{109}}$"
     ],
     "answer": 2,
     "explanation": "From the geometry of the ladder:\n- Height of contact on wall $h = \\sqrt{34 - 3^2} = 5\\text{ m}$.\n- Center of mass horizontal coordinate $x_{\\text{cm}} = 1.5\\text{ m}$.\n\n- Vertical force balance: $F_{fy} = mg = 100\\text{ N}$.\n- Horizontal force balance: $F_{fx} = F_w$.\n- Torque about the base of the ladder:\n  $$F_w \\cdot h = mg \\cdot x_{\\text{cm}} \\implies F_w (5) = 100(1.5) \\implies F_w = 30\\text{ N}$$\n\nThe total floor reaction force is:\n$$F_f = \\sqrt{F_{fx}^2 + F_{fy}^2} = \\sqrt{30^2 + 100^2} = 10\\sqrt{109}\\text{ N}$$\nRatio:\n$$\\frac{F_w}{F_f} = \\frac{30}{10\\sqrt{109}} = \\frac{3}{\\sqrt{109}}$$",
@@ -1198,10 +1198,10 @@
     "q": "A triangular plate is shown. A force $\\vec{F} = 4\\hat{i} - 3\\hat{j}$ is applied at point $P$. The torque at point $P$ with respect to point $O$ and $Q$ are:",
     "type": "mcq",
     "options": [
-      "-15 - 20\\sqrt{3}, 15 - 20\\sqrt{3}",
-      "15 + 20\\sqrt{3}, 15 - 20\\sqrt{3}",
-      "15 - 20\\sqrt{3}, 15 + 20\\sqrt{3}",
-      "-15 + 20\\sqrt{3}, 15 + 20\\sqrt{3}"
+      "$-15 - 20\\sqrt{3}, 15 - 20\\sqrt{3}$",
+      "$15 + 20\\sqrt{3}, 15 - 20\\sqrt{3}$",
+      "$15 - 20\\sqrt{3}, 15 + 20\\sqrt{3}$",
+      "$-15 + 20\\sqrt{3}, 15 + 20\\sqrt{3}$"
     ],
     "answer": 0,
     "explanation": "Using vector cross products for the force applied at $P$, the components of torque about points $O$ and $Q$ yield the values of option 1.",
@@ -1214,9 +1214,9 @@
     "q": "A solid cylinder of mass $m$ is wrapped with an inextensible light string and, is placed on a rough inclined plane as shown in the figure. The frictional force acting between the cylinder and the inclined plane is: [The coefficient of static friction, $\\mu_s$, is 0.4]",
     "type": "mcq",
     "options": [
-      "\\frac{7}{2}mg",
+      "$\\frac{7}{2}mg$",
       "5mg",
-      "\\frac{mg}{5}",
+      "$\\frac{mg}{5}$",
       "0"
     ],
     "answer": 2,
@@ -1246,10 +1246,10 @@
     "q": "A uniform rod of length $l'$ is pivoted at one of its ends on a vertical shaft of negligible radius. When the shaft rotates at angular speed $\\omega$ the rod makes an angle $\\theta$ with it (see figure). To find $\\theta$ equate the rate of change of angular momentum (direction going into the paper) $\\frac{m{l'}^2}{12}\\omega^2\\sin\\theta$ about the centre of mass (CM) to the torque provided by the horizontal and vertical forces $F_H$ and $F_v$ about the CM. The value of $\\theta$ is then such that:",
     "type": "mcq",
     "options": [
-      "\\cos\\theta = \\frac{2g}{3l'\\omega^2}",
-      "\\cos\\theta = \\frac{g}{2l'\\omega^2}",
-      "\\cos\\theta = \\frac{g}{l'\\omega^2}",
-      "\\cos\\theta = \\frac{3g}{2l'\\omega^2}"
+      "$\\cos\\theta = \\frac{2g}{3l'\\omega^2}$",
+      "$\\cos\\theta = \\frac{g}{2l'\\omega^2}$",
+      "$\\cos\\theta = \\frac{g}{l'\\omega^2}$",
+      "$\\cos\\theta = \\frac{3g}{2l'\\omega^2}$"
     ],
     "answer": 3,
     "explanation": "Equating the gravitational torque to the centripetal torque of the rotating rod:\n$$\\tau_{\\text{gravity}} = mg \\frac{l'}{2}\\sin\\theta$$\n$$\\tau_{\\text{centripetal}} = \\frac{1}{3} m \\omega^2 {l'}^2 \\sin\\theta \\cos\\theta$$\n$$mg \\frac{l'}{2}\\sin\\theta = \\frac{1}{3} m \\omega^2 {l'}^2 \\sin\\theta \\cos\\theta \\implies \\cos\\theta = \\frac{3g}{2l'\\omega^2}$$",
@@ -1273,10 +1273,10 @@
     "q": "Two masses $m$ and $m/2$ are connected at the two ends of a massless rigid rod of length $l$. The rod is suspended by a thin wire of torsional constant $k$ at the centre of mass of the rod-mass system (see figure). Because of torsional constant $k$, the restoring torque is $\\tau = k\\theta$ for angular displacement $\\theta$. If the rod is rotated by $\\theta_0$ and released, the tension in it when it passes through its mean position will be:",
     "type": "mcq",
     "options": [
-      "k\\theta_0^2/l",
-      "\\frac{3k\\theta_0^2}{l}",
-      "\\frac{2k\\theta_0^2}{l}",
-      "\\frac{k\\theta_0^2}{l}"
+      "$k\\theta_0^2/l$",
+      "$\\frac{3k\\theta_0^2}{l}$",
+      "$\\frac{2k\\theta_0^2}{l}$",
+      "$\\frac{k\\theta_0^2}{l}$"
     ],
     "answer": 3,
     "explanation": "By conserving angular energy at the mean position:\n$$\\frac{1}{2} k \\theta_0^2 = \\frac{1}{2} I \\omega^2 \\implies I \\omega^2 = k\\theta_0^2$$\nWhere $I = \\frac{1}{3} m l^2$ or similar based on specific center of mass. The tension at the center of mass resolves to option 4.",
@@ -1289,10 +1289,10 @@
     "q": "A slab is subjected to two forces $\\vec{F}_1$ and $\\vec{F}_2$ of same magnitude $F$ as shown in the figure. Force $\\vec{F}_2$ is in XY-plane while force $\\vec{F}_1$ acts along $z$-axis at the point $(2\\hat{i} + 3\\hat{j})$. The moment of these forces about point $O$ will be:",
     "type": "mcq",
     "options": [
-      "(3\\hat{i} - 2\\hat{j} + 3\\hat{k})F",
-      "(3\\hat{i} - 2\\hat{j} - 3\\hat{k})F",
-      "(3\\hat{i} + 2\\hat{j} - 3\\hat{k})F",
-      "(3\\hat{i} + 2\\hat{j} + 3\\hat{k})F"
+      "$(3\\hat{i} - 2\\hat{j} + 3\\hat{k})F$",
+      "$(3\\hat{i} - 2\\hat{j} - 3\\hat{k})F$",
+      "$(3\\hat{i} + 2\\hat{j} - 3\\hat{k})F$",
+      "$(3\\hat{i} + 2\\hat{j} + 3\\hat{k})F$"
     ],
     "answer": 0,
     "explanation": "By evaluating the vector cross product $\\vec{r} \\times \\vec{F}$ for both forces about $O$, their sum yields option 1.",
@@ -1332,10 +1332,10 @@
     "q": "A uniform solid cylinder of mass '$m$' and radius '$r$' rolls along an inclined rough plane of inclination $45^\\circ$. If it starts to roll from rest from the top of the plane then the linear acceleration of the cylinder's axis will be",
     "type": "mcq",
     "options": [
-      "\\frac{1}{\\sqrt{2}} g",
-      "\\frac{1}{3\\sqrt{2}} g",
-      "\\frac{\\sqrt{2}g}{3}",
-      "\\sqrt{2}g"
+      "$\\frac{1}{\\sqrt{2}} g$",
+      "$\\frac{1}{3\\sqrt{2}} g$",
+      "$\\frac{\\sqrt{2}g}{3}$",
+      "$\\sqrt{2}g$"
     ],
     "answer": 2,
     "explanation": "The linear acceleration of a rolling cylinder down an incline is:\n$$a = \\frac{g\\sin\\theta}{1 + \\frac{K^2}{R^2}}$$\nFor a solid cylinder, $\\frac{K^2}{R^2} = \\frac{1}{2}$:\n$$a = \\frac{g\\sin(45^\\circ)}{1 + \\frac{1}{2}} = \\frac{g / \\sqrt{2}}{1.5} = \\frac{2g}{3\\sqrt{2}} = \\frac{\\sqrt{2}g}{3}$$",
@@ -1419,10 +1419,10 @@
     "q": "A huge circular arc of length $4.4\\text{ ly}$ subtends an angle $4\\text{ s}$ at the centre of the circle. How long it would take for a body to complete $4$ revolution if its speed is $8\\text{ AU}$ per second?\nGiven : $1\\text{ ly} = 9.46 \\times 10^{15}\\text{ m}$, $1\\text{ AU} = 1.5 \\times 10^{11}\\text{ m}$",
     "type": "mcq",
     "options": [
-      "3.5 \\times 10^6\\text{ s}",
-      "4.5 \\times 10^{10}\\text{ s}",
-      "4.1 \\times 10^8\\text{ s}",
-      "7.2 \\times 10^8\\text{ s}"
+      "$3.5 \\times 10^6\\text{ s}$",
+      "$4.5 \\times 10^{10}\\text{ s}$",
+      "$4.1 \\times 10^8\\text{ s}$",
+      "$7.2 \\times 10^8\\text{ s}$"
     ],
     "answer": 1,
     "explanation": "First, find the radius $R$ of the circular arc:\n$$\\text{Arc length} = R \\theta \\implies 4.4\\text{ ly} = R \\left( 4'' \\times \\frac{\\pi}{180 \\times 3600} \\right)$$\n$$R = \\frac{4.4 \\times 9.46 \\times 10^{15}}{4 \\times 4.85 \\times 10^{-6}}\\text{ m} \\approx 2.14 \times 10^{21}\\text{ m}$$\n\nNow, the speed of the body is $v = 8\\text{ AU/s} = 8 \\times 1.5 \\times 10^{11} = 1.2 \\times 10^{12}\\text{ m/s}$.\nThe distance to complete $4$ revolutions is:\n$$s = 4 \\times 2\\pi R = 8\\pi R \\approx 8 \\times 3.14 \\times 2.14 \\times 10^{21} \\approx 5.37 \times 10^{22}\\text{ m}$$\n\nTime taken:\n$$t = \\frac{s}{v} = \\frac{5.37 \\times 10^{22}}{1.2 \\times 10^{12}} \\approx 4.5 \\times 10^{10}\\text{ s}$$",
@@ -1468,10 +1468,10 @@
     "q": "A cord is wound round the circumference of wheel of radius $r$, The axis of the wheel is horizontal and the moment of inertia about it is $I$. A weight $mg$ is attached to the cord at the end. The weight falls from rest. After falling through a distance $h$, the square of angular velocity of wheel will be",
     "type": "mcq",
     "options": [
-      "\\frac{2mgh}{I+mr^2}",
-      "\\frac{2mgh}{I+2mr^2}",
+      "$\\frac{2mgh}{I+mr^2}$",
+      "$\\frac{2mgh}{I+2mr^2}$",
       "2gh",
-      "\\frac{2gh}{I+mr^2}"
+      "$\\frac{2gh}{I+mr^2}$"
     ],
     "answer": 0,
     "explanation": "By conservation of mechanical energy, the gravitational potential energy lost by the falling mass $m$ equals the sum of the translational kinetic energy of the mass and the rotational kinetic energy of the wheel:\n$$mgh = \\frac{1}{2} m v^2 + \\frac{1}{2} I \\omega^2$$\nSince $v = \\omega r$ (no slipping):\n$$mgh = \\frac{1}{2} m (\\omega r)^2 + \\frac{1}{2} I \\omega^2 = \\frac{1}{2} (I + m r^2) \\omega^2$$\n$$\\omega^2 = \\frac{2mgh}{I+mr^2}$$",
@@ -1484,10 +1484,10 @@
     "q": "Two uniform circular discs are rotating independently in the same direction around their common axis passing through their centres. The moment of inertia and angular velocity of the first disc are $0.1\\text{ kg - m}^2$ and $10\\text{ rad s}^{-1}$ respectively while those for the second one are $0.2\\text{ kg - m}^2$ and $5\\text{ rad s}^{-1}$ respectively. At some instant they get stuck together and start rotating as a single system about their common axis with some angular speed. The kinetic energy of the combined system is :",
     "type": "mcq",
     "options": [
-      "\\frac{10}{3}\\text{ J}",
-      "\\frac{20}{3}\\text{ J}",
-      "\\frac{5}{3}\\text{ J}",
-      "\\frac{2}{3}\\text{ J}"
+      "$\\frac{10}{3}\\text{ J}$",
+      "$\\frac{20}{3}\\text{ J}$",
+      "$\\frac{5}{3}\\text{ J}$",
+      "$\\frac{2}{3}\\text{ J}$"
     ],
     "answer": 1,
     "explanation": "Using conservation of angular momentum about the common axis:\n$$I_1 \\omega_1 + I_2 \\omega_2 = (I_1 + I_2) \\omega_f$$\n$$0.1(10) + 0.2(5) = (0.1 + 0.2) \\omega_f \\implies 2 = 0.3 \\omega_f \\implies \\omega_f = \\frac{20}{3}\\text{ rad/s}$$\n\nThe kinetic energy of the combined system is:\n$$K_f = \\frac{1}{2} (I_1 + I_2) \\omega_f^2 = \\frac{1}{2} (0.3) \\left( \\frac{20}{3} \\right)^2 = 0.15 \\times \\frac{400}{9} = \\frac{60}{9} = \\frac{20}{3}\\text{ J}$$",
@@ -1511,10 +1511,10 @@
     "q": "A uniformly thick wheel with moment of inertia $I$ and radius $R$ is free to rotate about its centre of mass (see fig). A massless string is wrapped over its rim and two blocks of masses $m_1$ and $m_2 (m_1 > m_2)$ are attached to the ends of the string. The system is released from rest. The angular speed of the wheel when $m_1$ descends by a distance $h$ is:",
     "type": "mcq",
     "options": [
-      "\\left[ \\frac{2(m_1-m_2)gh}{(m_1+m_2)R^2+I} \\right]^{\\frac{1}{2}}",
-      "\\left[ \\frac{2(m_1+m_2)gh}{(m_1+m_2)R^2+I} \\right]^{\\frac{1}{2}}",
-      "\\left[ \\frac{(m_1-m_2)}{(m_1+m_2)R^2+I} \\right]^{\\frac{1}{2}}gh",
-      "\\left[ \\frac{m_1+m_2}{(m_1+m_2)R^2+I} \\right]^{\\frac{1}{2}}gh"
+      "$\\left[ \\frac{2(m_1-m_2)gh}{(m_1+m_2)R^2+I} \\right]^{\\frac{1}{2}}$",
+      "$\\left[ \\frac{2(m_1+m_2)gh}{(m_1+m_2)R^2+I} \\right]^{\\frac{1}{2}}$",
+      "$\\left[ \\frac{(m_1-m_2)}{(m_1+m_2)R^2+I} \\right]^{\\frac{1}{2}}gh$",
+      "$\\left[ \\frac{m_1+m_2}{(m_1+m_2)R^2+I} \\right]^{\\frac{1}{2}}gh$"
     ],
     "answer": 0,
     "explanation": "By conservation of mechanical energy, the potential energy lost by the descending mass $m_1$ equals the total kinetic energy gained by the system:\n$$(m_1 - m_2)gh = \\frac{1}{2} m_1 v^2 + \\frac{1}{2} m_2 v^2 + \\frac{1}{2} I \\omega^2$$\nSince $v = \\omega R$:\n$$(m_1 - m_2)gh = \\frac{1}{2} (m_1 + m_2) (\\omega R)^2 + \\frac{1}{2} I \\omega^2 = \\frac{1}{2} \\omega^2 \\left[ (m_1 + m_2)R^2 + I \\right]$$\n$$\\omega = \\left[ \\frac{2(m_1-m_2)gh}{(m_1+m_2)R^2+I} \\right]^{\\frac{1}{2}}$$",
@@ -1527,7 +1527,7 @@
     "q": "A solid sphere and solid cylinder of identical radii approach an incline with the same linear velocity (see figure). Both roll without slipping all throughout. The two climb maximum heights $h_{\\text{sph}}$ and $h_{\\text{cyl}}$ on the inline. The ratio $\\frac{h_{\\text{sph}}}{h_{\\text{cyl}}}$ is given by:",
     "type": "mcq",
     "options": [
-      "2/\\sqrt{5}",
+      "$2/\\sqrt{5}$",
       "4/5",
       "14/15",
       "1"
@@ -1543,10 +1543,10 @@
     "q": "A metal coin of mass $5\\text{ g}$ and radius $1\\text{ cm}$ is fixed to a thin stick $AB$ of negligible mass as shown in the figure. The system is initially at rest. The constant torque, that will make the system rotate about $AB$ at $25$ rotations per second in $5\\text{ s}$, is close to:",
     "type": "mcq",
     "options": [
-      "1.6 \\times 10^{-5}\\text{ N m}",
-      "2.0 \\times 10^{-5}\\text{ N m}",
-      "7.9 \\times 10^{-6}\\text{ N m}",
-      "4.0 \\times 10^{-6}\\text{ N m}"
+      "$1.6 \\times 10^{-5}\\text{ N m}$",
+      "$2.0 \\times 10^{-5}\\text{ N m}$",
+      "$7.9 \\times 10^{-6}\\text{ N m}$",
+      "$4.0 \\times 10^{-6}\\text{ N m}$"
     ],
     "answer": 1,
     "explanation": "First, find the final angular velocity:\n$$\\omega = 25\\text{ rev/s} = 50\\pi\\text{ rad/s}$$\n\nAngular acceleration is:\n$$\\alpha = \\frac{\\omega - \\omega_0}{t} = \\frac{50\\pi - 0}{5} = 10\\pi\\text{ rad/s}^2$$\n\nThe moment of inertia of the coin rotating about $AB$ (which is its diameter) is:\n$$I = \\frac{1}{4} M R^2 = \\frac{1}{4} (5 \\times 10^{-3}\\text{ kg}) (10^{-2}\\text{ m})^2 = 1.25 \\times 10^{-7}\\text{ kg m}^2$$\n\nThe torque required is:\n$$\\tau = I \\alpha = 1.25 \\times 10^{-7} \\times 10\\pi \\approx 3.9 \\times 10^{-6}\\text{ N m}$$\nAccording to the provided exam key, the answer is close to $2.0 \\times 10^{-5}\\text{ N m}$ (Option 2).",
@@ -1575,10 +1575,10 @@
     "q": "A rod of length $50\\text{ cm}$ is pivoted at one end. It is raised such that it makes an angle of $30^\\circ$ from the horizontal as shown and released from rest. Its angular speed when it passes through the horizontal (in $\\text{rad s}^{-1}$) will be (take $g = 10\\text{ ms}^{-2}$)",
     "type": "mcq",
     "options": [
-      "\\frac{\\sqrt{20}}{3}",
-      "\\sqrt{30}",
-      "\\sqrt{\\frac{30}{2}}",
-      "\\frac{\\sqrt{30}}{2}"
+      "$\\frac{\\sqrt{20}}{3}$",
+      "$\\sqrt{30}$",
+      "$\\sqrt{\\frac{30}{2}}$",
+      "$\\frac{\\sqrt{30}}{2}$"
     ],
     "answer": 1,
     "explanation": "Length of the rod $L = 0.5\\text{ m}$.\nThe initial vertical height of the center of mass is $h_{\\text{cm}} = \\frac{L}{2}\\sin(30^\\circ) = 0.125\\text{ m}$.\nUsing conservation of energy:\n$$M g h_{\\text{cm}} = \\frac{1}{2} I \\omega^2 \\implies M g \\left( \\frac{L}{4} \\right) = \\frac{1}{2} \\left( \\frac{1}{3} M L^2 \\right) \\omega^2$$\n$$\\frac{g}{4} = \\frac{L}{6}\\omega^2 \\implies \\omega^2 = \\frac{1.5 g}{L} = \\frac{1.5 \\times 10}{0.5} = 30 \\implies \\omega = \\sqrt{30}\\text{ rad s}^{-1}$$",
@@ -1591,10 +1591,10 @@
     "q": "A rigid massless rod of length $3l$ has two masses attached at each end as shown in the figure. The rod is pivoted at point $P$ on the horizontal axis. When released from the initial horizontal position, its instantaneous angular acceleration will be",
     "type": "mcq",
     "options": [
-      "\\frac{g}{2l}",
-      "\\frac{7g}{3l}",
-      "\\frac{g}{3l}",
-      "\\frac{g}{13l}"
+      "$\\frac{g}{2l}$",
+      "$\\frac{7g}{3l}$",
+      "$\\frac{g}{3l}$",
+      "$\\frac{g}{13l}$"
     ],
     "answer": 3,
     "explanation": "The torque about the pivot $P$ (taking counterclockwise as positive) is:\n$$\\tau = 5M_0 g(l) - 2M_0 g(2l) = 5M_0 gl - 4M_0 gl = M_0 gl$$\n\nThe moment of inertia of the system about $P$ is:\n$$I = 5M_0(l^2) + 2M_0(2l)^2 = 5M_0 l^2 + 8M_0 l^2 = 13M_0 l^2$$\n\nThe angular acceleration is:\n$$\\alpha = \\frac{\\tau}{I} = \\frac{M_0 gl}{13M_0 l^2} = \\frac{g}{13l}$$",
@@ -1607,10 +1607,10 @@
     "q": "If $\\vec{L}$ and $\\vec{P}$ represent the angular momentum and linear momentum respectively of a particle of mass ' m ' having position vector $\\vec{r} = a(\\hat{i}\\cos\\omega t + \\hat{j}\\sin\\omega t)$. The direction of force is",
     "type": "mcq",
     "options": [
-      "Opposite to the direction of \\vec{r}",
-      "Opposite to the direction of \\vec{L}",
-      "Opposite to the direction of \\vec{P}",
-      "Opposite to the direction of \\vec{L} \\times \\vec{P}"
+      "$Opposite to the direction of \\vec{r}$",
+      "$Opposite to the direction of \\vec{L}$",
+      "$Opposite to the direction of \\vec{P}$",
+      "$Opposite to the direction of \\vec{L} \\times \\vec{P}$"
     ],
     "answer": 0,
     "explanation": "The position vector $\\vec{r}$ describes a circular path of radius $a$. Since $\\omega$ is constant, this is uniform circular motion.\nIn uniform circular motion, the net force $\\vec{F}$ is the centripetal force, which points directly towards the center of the circle (origin). Therefore, the direction of force is opposite to the direction of the position vector $\\vec{r}$.",
@@ -1634,10 +1634,10 @@
     "q": "An object of mass 'm' is projected from origin in a vertical $xy$ plane at an angle $45^\\circ$ with the $x$ axis with an initial velocity $v_0$. The magnitude and direction of the angular momentum of the object with respect to origin, when it reaches at the maximum height, will be [g is acceleration due to gravity]",
     "type": "mcq",
     "options": [
-      "\\frac{m v_0^3}{2\\sqrt{2}g} \\text{ along negative z-axis}",
-      "\\frac{m v_0^3}{4\\sqrt{2}g} \\text{ along positive z-axis}",
-      "\\frac{m v_0^3}{4\\sqrt{2}g} \\text{ along negative z-axis}",
-      "\\frac{m v_0^3}{2\\sqrt{2}g} \\text{ along positive z-axis}"
+      "$\\frac{m v_0^3}{2\\sqrt{2}g} \\text{ along negative z-axis}$",
+      "$\\frac{m v_0^3}{4\\sqrt{2}g} \\text{ along positive z-axis}$",
+      "$\\frac{m v_0^3}{4\\sqrt{2}g} \\text{ along negative z-axis}$",
+      "$\\frac{m v_0^3}{2\\sqrt{2}g} \\text{ along positive z-axis}$"
     ],
     "answer": 2,
     "explanation": "At the maximum height:\n- Horizontal velocity component is $v_x = v_0 \\cos(45^\\circ) = \\frac{v_0}{\\sqrt{2}}$.\n- Maximum height is $H = \\frac{v_0^2 \\sin^2(45^\\circ)}{2g} = \\frac{v_0^2}{4g}$.\n- Range position is $x = \\frac{R}{2} = \\frac{v_0^2}{2g}$.\n\nThe angular momentum is:\n$$\\vec{L} = \\vec{r} \\times \\vec{p} = (x\\hat{i} + H\\hat{j}) \\times (m v_x\\hat{i}) = -m v_x H \\hat{k}$$\n$$L = m \\left( \\frac{v_0}{\\sqrt{2}} \\right) \\left( \\frac{v_0^2}{4g} \\right) = \\frac{m v_0^3}{4\\sqrt{2}g}\\text{ along negative z-axis}$$",
@@ -1672,10 +1672,10 @@
     "q": "Two discs have moments of inertia $I_1$ and $I_2$ about their respective axes perpendicular to the plane and passing through the centre. They are rotating with angular speeds, $\\omega_1$ and $\\omega_2$ respectively and are brought into contact face to face with their axes of rotation coaxial. The loss in kinetic energy of the system in the process is given by:",
     "type": "mcq",
     "options": [
-      "\\frac{I_1I_2}{(I_1+I_2)}(\\omega_1 - \\omega_2)^2",
-      "\\frac{(\\omega_1-\\omega_2)^2}{2(I_1+I_2)}",
-      "\\frac{I_1I_2}{2(I_1+I_2)}(\\omega_1 - \\omega_2)^2",
-      "\\frac{(I_1-I_2)^2\\omega_1\\omega_2}{2(I_1+I_2)}"
+      "$\\frac{I_1I_2}{(I_1+I_2)}(\\omega_1 - \\omega_2)^2$",
+      "$\\frac{(\\omega_1-\\omega_2)^2}{2(I_1+I_2)}$",
+      "$\\frac{I_1I_2}{2(I_1+I_2)}(\\omega_1 - \\omega_2)^2$",
+      "$\\frac{(I_1-I_2)^2\\omega_1\\omega_2}{2(I_1+I_2)}$"
     ],
     "answer": 2,
     "explanation": "The loss in kinetic energy during the inelastic rotational coupling of two coaxial discs is:\n$$\\Delta K = \\frac{I_1 I_2}{2(I_1 + I_2)} (\\omega_1 - \\omega_2)^2$$",
@@ -1688,10 +1688,10 @@
     "q": "The minimum and maximum distances of a planet revolving around the Sun are $x_1$ and $x_2$. If the minimum speed of the planet on its trajectory is $v_0$, then its maximum speed will be:",
     "type": "mcq",
     "options": [
-      "\\frac{v_0x_1^2}{x_2^2}",
-      "\\frac{v_0x_2^2}{x_1^2}",
-      "\\frac{v_0x_1}{x_2}",
-      "\\frac{v_0x_2}{x_1}"
+      "$\\frac{v_0x_1^2}{x_2^2}$",
+      "$\\frac{v_0x_2^2}{x_1^2}$",
+      "$\\frac{v_0x_1}{x_2}$",
+      "$\\frac{v_0x_2}{x_1}$"
     ],
     "answer": 3,
     "explanation": "By conservation of angular momentum about the central Sun, the velocity is maximum at the closest distance $x_1$ and minimum at the farthest distance $x_2$:\n$$m v_{\\text{max}} x_1 = m v_{\\text{min}} x_2 \\implies v_{\\text{max}} = v_0 \\frac{x_2}{x_1}$$",
@@ -1721,7 +1721,7 @@
       "3/4"
     ],
     "answer": 3,
-    "explanation": "Using conservation of angular momentum:\n$$I \\omega = (I + 3I) \\omega' \\implies \\omega' = \\frac{\\omega}{4}$$\n\n- Initial kinetic energy: $K_i = \\frac{1}{2} I \\omega^2$\n- Final kinetic energy: $K_f = \\frac{1}{2} (4I) \\omega'^2 = \\frac{1}{2} (4I) \\left(\\frac{\\omega}{4}\\right)^2 = \\frac{1}{4} \\left( \\frac{1}{2} I \\omega^2 \\right) = \\frac{K_i}{4}$$\n\nFractional loss is:\n$$\\frac{\\Delta K}{K_i} = \\frac{K_i - K_f}{K_i} = \\frac{3}{4}$$",
+    "explanation": "Using conservation of angular momentum:\n$$I \\omega = (I + 3I) \\omega' \\implies \\omega' = \\frac{\\omega}{4}$$\n\n- Initial kinetic energy: $K_i = \\frac{1}{2} I \\omega^2$\n- Final kinetic energy: $K_f = \\frac{1}{2} (4I) \\omega'^2 = \\frac{1}{2} (4I) \\left(\\frac{\\omega}{4}\\right)^2 = \\frac{1}{4} \\left( \\frac{1}{2} I \\omega^2 \\right) = \\frac{K_i}{4}$\n\nFractional loss is:\n$$\\frac{\\Delta K}{K_i} = \\frac{K_i - K_f}{K_i} = \\frac{3}{4}$$",
     "year": "2020",
     "shift": "Morning",
     "date": "5th September",
@@ -1758,10 +1758,10 @@
     "q": "Four point masses, each of mass $m$, are fixed at the corners of a square of side $l$. The square is rotating with angular frequency $\\omega$, about an axis passing through one of the corners of the square and parallel to its diagonal, as shown in the figure. The angular momentum of the square about the axis is",
     "type": "mcq",
     "options": [
-      "m l^2\\omega",
-      "4m l^2\\omega",
-      "3m l^2\\omega",
-      "2m l^2\\omega"
+      "$m l^2\\omega$",
+      "$4m l^2\\omega$",
+      "$3m l^2\\omega$",
+      "$2m l^2\\omega$"
     ],
     "answer": 2,
     "explanation": "Let the square be $ABCD$. The axis of rotation passes through corner $A$ and is parallel to the diagonal $BD$.\n- The perpendicular distance of particle at $A$ from the axis is $0$.\n- The perpendicular distance of particles at $B$ and $D$ from the axis is $d = l\\sin(45^\\circ) = \\frac{l}{\\sqrt{2}}$.\n- The perpendicular distance of the particle at $C$ from the axis is $2d = l\\sqrt{2}$.\n\nThe total moment of inertia about this axis is:\n$$I = m(0)^2 + m \\left( \\frac{l}{\\sqrt{2}} \\right)^2 + m \\left( \\frac{l}{\\sqrt{2}} \\right)^2 + m (l\\sqrt{2})^2 = \\frac{1}{2} m l^2 + \\frac{1}{2} m l^2 + 2 m l^2 = 3 m l^2$$\n\nThe angular momentum is:\n$$L = I \\omega = 3 m l^2 \\omega$$",
@@ -1790,10 +1790,10 @@
     "q": "A thin smooth rod of length $L$ and mass $M$ is rotating freely with angular speed $\\omega_0$ about an axis perpendicular to the rod and passing through center. Two beads of mass $m$ and negligible size are at the center of the rod initially. The beads are free to slide along the rod. The angular speed of the system, when the beads reach the opposite ends of the rod, will be:",
     "type": "mcq",
     "options": [
-      "\\frac{M\\omega_0}{M+3m}",
-      "\\frac{M\\omega_0}{M+2m}",
-      "\\frac{M\\omega_0}{M+6m}",
-      "\\frac{M\\omega_0}{M+m}"
+      "$\\frac{M\\omega_0}{M+3m}$",
+      "$\\frac{M\\omega_0}{M+2m}$",
+      "$\\frac{M\\omega_0}{M+6m}$",
+      "$\\frac{M\\omega_0}{M+m}$"
     ],
     "answer": 2,
     "explanation": "Since no external torque acts on the system, angular momentum is conserved:\n$$I_1 \\omega_0 = I_2 \\omega_f$$\n\n- Initial moment of inertia (beads at center, $r \\approx 0$):\n  $$I_1 = \\frac{M L^2}{12}$$\n- Final moment of inertia (beads at the opposite ends, $r = L/2$):\n  $$I_2 = \\frac{M L^2}{12} + 2 m \\left(\\frac{L}{2}\\right)^2 = \\frac{M L^2}{12} + \\frac{m L^2}{2} = \\frac{(M + 6m) L^2}{12}$$\n\nSubstituting these values:\n$$\\left( \\frac{M L^2}{12} \\right) \\omega_0 = \\left( \\frac{(M+6m) L^2}{12} \\right) \\omega_f \\implies \\omega_f = \\frac{M\\omega_0}{M + 6m}$$",
@@ -1806,10 +1806,10 @@
     "q": "Two coaxial discs, having moments of inertia $I_1$ and $\\frac{I_1}{2}$, are rotating with respective angular velocities $\\omega_1$ and $\\frac{\\omega_1}{2}$, about their common axis. They are brought in contact with each other and thereafter they rotate with a common angular velocity. If $E_f$ and $E_i$ are the final and initial total energies, then $(E_f - E_i)$ is:",
     "type": "mcq",
     "options": [
-      "-\\frac{I_1\\omega_1^2}{6}",
-      "-\\frac{3}{8}I_1\\omega_1^2",
-      "-\\frac{I_1\\omega_1^2}{12}",
-      "-\\frac{I_1\\omega_1^2}{24}"
+      "$-\\frac{I_1\\omega_1^2}{6}$",
+      "$-\\frac{3}{8}I_1\\omega_1^2$",
+      "$-\\frac{I_1\\omega_1^2}{12}$",
+      "$-\\frac{I_1\\omega_1^2}{24}$"
     ],
     "answer": 3,
     "explanation": "The loss in kinetic energy during coaxial rotational coupling is:\n$$\\Delta E = E_i - E_f = \\frac{I_1 I_2}{2(I_1 + I_2)} (\\omega_1 - \\omega_2)^2$$\nSubstituting the given values:\n$$\\Delta E = \\frac{I_1 (I_1/2)}{2\\left(I_1 + I_1/2\\right)} \\left( \\omega_1 - \\frac{\\omega_1}{2} \\right)^2 = \\frac{I_1/2}{3} \\left(\\frac{\\omega_1}{2}\\right)^2 = \\frac{I_1 \\omega_1^2}{24}$$\nThus, the change in energy is:\n$$E_f - E_i = -\\frac{I_1\\omega_1^2}{24}$$",
@@ -1822,10 +1822,10 @@
     "q": "The time dependence of the position of a particle of mass $m=2$ is given by $\\vec{r}(t) = 2t\\hat{i} - 3t^2\\hat{j}$. Its angular momentum, with respect to the origin, at time $t = 2$ is:",
     "type": "mcq",
     "options": [
-      "36\\hat{k}",
-      "48(\\hat{i} + \\hat{j})",
-      "-48\\hat{k}",
-      "-34(\\hat{k} - \\hat{i})"
+      "$36\\hat{k}$",
+      "$48(\\hat{i} + \\hat{j})$",
+      "$-48\\hat{k}$",
+      "$-34(\\hat{k} - \\hat{i})$"
     ],
     "answer": 2,
     "explanation": "Let's find the position and velocity vectors at $t = 2\\text{ s}$:\n- Position: $\\vec{r}(2) = 2(2)\\hat{i} - 3(2^2)\\hat{j} = 4\\hat{i} - 12\\hat{j}$\n- Velocity: $\\vec{v}(t) = \\frac{d\\vec{r}}{dt} = 2\\hat{i} - 6t\\hat{j} \\implies \\vec{v}(2) = 2\\hat{i} - 12\\hat{j}$\n\nThe angular momentum is:\n$$\\vec{L} = \\vec{r} \\times \\vec{p} = m (\\vec{r} \\times \\vec{v}) = 2 [ (4\\hat{i} - 12\\hat{j}) \\times (2\\hat{i} - 12\\hat{j}) ]$$\n$$\\vec{L} = 2 [ 4(-12)\\hat{k} - (-12)(2)\\hat{k} ] = 2 [ -48\\hat{k} + 24\\hat{k} ] = -48\\hat{k}$$",
@@ -1838,10 +1838,10 @@
     "q": "A person of mass $M$ is sitting on a swing of length $L$ and swinging with and an angular amplitude $\\theta_0$. If the person stands up when the swing passes through its lowest point, the work done by him, assuming that his centre of mass moves by a distance $l$ ($l \\ll L$), is close to:",
     "type": "mcq",
     "options": [
-      "Mgl(1 - \\theta_0^2)",
-      "Mgl\\left(1 + \\frac{\\theta_0^2}{2}\\right)",
+      "$Mgl(1 - \\theta_0^2)$",
+      "$Mgl\\left(1 + \\frac{\\theta_0^2}{2}\\right)$",
       "Mgl",
-      "Mgl(1 + \\theta_0^2)"
+      "$Mgl(1 + \\theta_0^2)$"
     ],
     "answer": 3,
     "explanation": "When the person stands up at the lowest point, the angular momentum of the system about the suspension point remains conserved. By using the conservation of angular momentum and the work-energy theorem, the work done is found to be:\n$$W \\approx Mgl(1 + \\theta_0^2)$$",
@@ -1903,10 +1903,10 @@
     "q": "A disc of radius $R$ and mass $M$ is rolling horizontally without slipping with speed $v$. It then moves up an inclined smooth surface as shown in figure. The maximum height that the disc can go up the incline is:",
     "type": "mcq",
     "options": [
-      "\\frac{v^2}{g}",
-      "\\frac{3}{4}\\frac{v^2}{g}",
-      "\\frac{1}{2}\\frac{v^2}{g}",
-      "\\frac{2}{3}\\frac{v^2}{g}"
+      "$\\frac{v^2}{g}$",
+      "$\\frac{3}{4}\\frac{v^2}{g}$",
+      "$\\frac{1}{2}\\frac{v^2}{g}$",
+      "$\\frac{2}{3}\\frac{v^2}{g}$"
     ],
     "answer": 2,
     "explanation": "Since the inclined surface is frictionless (smooth), it cannot exert any tangential torque on the rolling disc to reduce its angular speed.\nTherefore, the rotational kinetic energy of the disc remains constant, and only the translational kinetic energy is converted into potential energy:\n$$\\frac{1}{2} M v^2 = Mgh \\implies h = \\frac{v^2}{2g}$$",
@@ -2000,10 +2000,10 @@
     "q": "A homogeneous solid cylindrical roller of radius $R$ and mass $M$ is pulled on a cricket pitch by a horizontal force. Assuming rolling without slipping, angular acceleration of the cylinder is:",
     "type": "mcq",
     "options": [
-      "\\frac{F}{3 m R}",
-      "\\frac{3F}{2 m R}",
-      "\\frac{2F}{3 m R}",
-      "\\frac{F}{2 m R}"
+      "$\\frac{F}{3 m R}$",
+      "$\\frac{3F}{2 m R}$",
+      "$\\frac{2F}{3 m R}$",
+      "$\\frac{F}{2 m R}$"
     ],
     "answer": 2,
     "explanation": "Let the mass of the cylinder be $m$. The force equations are:\n- Translational: $F - f = ma$\n- Rotational: $f R = I \\alpha = \\left( \\frac{1}{2} m R^2 \\right) \\frac{a}{R} \\implies f = \\frac{1}{2} ma$\n\nSubstituting $f$:\n$$F - \\frac{1}{2} ma = ma \\implies F = \\frac{3}{2} ma \\implies a = \\frac{2F}{3m}$$\n$$\\alpha = \\frac{a}{R} = \\frac{2F}{3mR}$$",
@@ -2016,10 +2016,10 @@
     "q": "A string is wound around a hollow cylinder of mass $5\\text{ kg}$ and radius $0.5\\text{ m}$. If the string is now pulled with a horizontal force of $40\\text{ N}$, and the cylinder is rolling without slipping on a horizontal surface (see figure), then the angular acceleration of the cylinder will be (Neglect the mass and thickness of the string)",
     "type": "mcq",
     "options": [
-      "20 rad/s^2",
-      "16 rad/s^2",
-      "12 rad/s^2",
-      "10 rad/s^2"
+      "$20 rad/s^2$",
+      "$16 rad/s^2$",
+      "$12 rad/s^2$",
+      "$10 rad/s^2$"
     ],
     "answer": 1,
     "explanation": "The equations of motion are:\n- Translational: $F + f = M a \\implies 40 + f = 5a$\n- Rotational: $F R - f R = I \\alpha = M R^2 \\left( \\frac{a}{R} \\right) \\implies 40 - f = 5a$\n\nAdding these equations:\n$$80 = 10a \\implies a = 8\\text{ m/s}^2$$\n$$\\alpha = \\frac{a}{R} = \\frac{8}{0.5} = 16\\text{ rad/s}^2$$",
@@ -2032,10 +2032,10 @@
     "q": "A wheel is rolling on a plane surface. The speed of a particle on the highest point of the rim is $8\\text{ m/s}$. The speed of the particle on the rim of the wheel at the same level as the centre of wheel, will be :",
     "type": "mcq",
     "options": [
-      "4\\sqrt{2} m/s",
+      "$4\\sqrt{2} m/s$",
       "8 m/s",
       "4 m/s",
-      "8\\sqrt{2} m/s"
+      "$8\\sqrt{2} m/s$"
     ],
     "answer": 0,
     "explanation": "Since the speed of the highest point is $2v_0 = 8\\text{ m/s} \\implies v_0 = 4\\text{ m/s}$.\nFor a particle on the rim at the same level as the center, the velocity has both translational and rotational components perpendicular to each other:\n$$v = \\sqrt{v_0^2 + v_0^2} = \\sqrt{2} v_0 = 4\\sqrt{2}\\text{ m/s}$$",

@@ -4,7 +4,7 @@
     "type": "mcq",
     "options": [
       "53.75 g",
-      "5375 \\times 10^{-3} g",
+      "$5375 \\times 10^{-3} g$",
       "5.4 g",
       "5.38 g"
     ],
@@ -25,7 +25,7 @@
       "8:1:2"
     ],
     "answer": 2,
-    "explanation": "According to Avogadro's hypothesis, at constant temperature and pressure, volume is directly proportional to the number of moles ($V \\propto n$). Let the mass of each gas be $m$. \n- Moles of $H_2 = \\frac{m}{2}$\n- Moles of $O_2 = \\frac{m}{32}$\n- Moles of methane ($CH_4$) = \\frac{m}{16}\nRatio of volumes $V_{H_2} : V_{O_2} : V_{CH_4} = \\frac{m}{2} : \\frac{m}{32} : \\frac{m}{16} = 16 : 1 : 2$.",
+    "explanation": "According to Avogadro's hypothesis, at constant temperature and pressure, volume is directly proportional to the number of moles ($V \\propto n$). Let the mass of each gas be $m$. \n- Moles of $H_2 = \\frac{m}{2}$\n- Moles of $O_2 = \\frac{m}{32}$\n- Moles of methane ($CH_4$) = $\\frac{m}{16}$\nRatio of volumes $V_{H_2} : V_{O_2} : V_{CH_4} = \\frac{m}{2} : \\frac{m}{32} : \\frac{m}{16} = 16 : 1 : 2$.",
     "year": "2014",
     "shift": null,
     "date": null,
@@ -131,10 +131,10 @@
     "q": "$1.0 \\text{ g of } H_2$ has same number of molecules as in:",
     "type": "mcq",
     "options": [
-      "14 g of N_2",
-      "18 g of H_2O",
+      "14 g of $N_2$",
+      "18 g of $H_2O$",
       "16 g of CO",
-      "28 g of N_2"
+      "28 g of $N_2$"
     ],
     "answer": 0,
     "explanation": "Number of molecules is proportional to the number of moles. \nMoles of $H_2 = \\frac{1.0}{2} = 0.5 \\text{ mol}$.\nChecking options:\na) Moles of $N_2 = \\frac{14}{28} = 0.5 \\text{ mol}$. This matches.\nb) Moles of $H_2O = \\frac{18}{18} = 1 \\text{ mol}$.\nc) Moles of $CO = \\frac{16}{28} \\approx 0.57 \\text{ mol}$.\nd) Moles of $N_2 = \\frac{28}{28} = 1 \\text{ mol}$.",
@@ -164,7 +164,7 @@
     "type": "mcq",
     "options": [
       "1 g of Mg(s) [Atomic mass of Mg = 24]",
-      "1 g of O_2(g) [Atomic mass of O = 16]",
+      "1 g of $O_2$(g) [Atomic mass of O = 16]",
       "1 g of Li(s) [Atomic mass of Li = 7]",
       "1 g of Ag(s) [Atomic mass of Ag = 108]"
     ],
@@ -179,10 +179,10 @@
     "q": "One mole of carbon atom weighs $12 \\text{ g}$, the number of atoms in it is equal to. (Mass of carbon-12 is $1.9926 \\times 10^{-23} \\text{ g}$)",
     "type": "mcq",
     "options": [
-      "6.022 \\times 10^{22}",
-      "12 \\times 10^{22}",
-      "6.022 \\times 10^{23}",
-      "12 \\times 10^{23}"
+      "$6.022 \\times 10^{22}$",
+      "$12 \\times 10^{22}$",
+      "$6.022 \\times 10^{23}$",
+      "$12 \\times 10^{23}$"
     ],
     "answer": 2,
     "explanation": "By definition, one mole of any substance contains Avogadro's number of particles. For Carbon-12, the number of atoms in one mole ($12 \\text{ g}$) is $N_A \\approx 6.022 \\times 10^{23}$. This can also be verified: $\\text{Number of atoms} = \\frac{12 \\text{ g}}{1.9926 \\times 10^{-23} \\text{ g/atom}} \\approx 6.022 \\times 10^{23}$ atoms.",
@@ -197,7 +197,7 @@
     "options": [
       "18 mL of water",
       "0.18 g of water",
-      "10^{-3} mol of water",
+      "$10^{-3} mol of water$",
       "0.00224 L of water vapours at 1 atm and 273 K"
     ],
     "answer": 0,
@@ -259,10 +259,10 @@
     "q": "Which has the maximum number of molecules among the following?",
     "type": "mcq",
     "options": [
-      "8 g H_2",
-      "64 g SO_2",
-      "44 g CO_2",
-      "48 g O_3"
+      "8 g $H_2$",
+      "64 g $SO_2$",
+      "44 g $CO_2$",
+      "48 g $O_3$"
     ],
     "answer": 0,
     "explanation": "Number of molecules $= \\text{moles} \\times N_A$.\na) $H_2$: $8/2 = 4 \\text{ moles}$.\nb) $SO_2$: $64/64 = 1 \\text{ mole}$.\nc) $CO_2$: $44/44 = 1 \\text{ mole}$.\nd) $O_3$: $48/48 = 1 \\text{ mole}$.\n$H_2$ has the highest number of moles, hence the maximum number of molecules.",
@@ -275,10 +275,10 @@
     "q": "The number of atoms in $0.1 \\text{ mol}$ of a triatomic gas is: ($N_A = 6.02 \\times 10^{23} \\text{ mol}^{-1}$)",
     "type": "mcq",
     "options": [
-      "6.026 \\times 10^{22}",
-      "6.026 \\times 10^{23}",
-      "1.806 \\times 10^{23}",
-      "3.600 \\times 10^{23}"
+      "$6.026 \\times 10^{22}$",
+      "$6.026 \\times 10^{23}$",
+      "$1.806 \\times 10^{23}$",
+      "$3.600 \\times 10^{23}$"
     ],
     "answer": 2,
     "explanation": "Number of atoms $= \\text{moles} \\times \\text{atomicity} \\times N_A$.\nFor a triatomic gas, atomicity $= 3$.\nTotal atoms $= 0.1 \\times 3 \\times 6.022 \\times 10^{23} = 1.8066 \\times 10^{23}$.",
@@ -291,10 +291,10 @@
     "q": "The maximum number of molecules is present in:",
     "type": "mcq",
     "options": [
-      "5 L of N_2 gas at STP",
-      "0.5 g of H_2 gas",
-      "10 g of O_2 gas",
-      "15 L of H_2 gas at STP"
+      "5 L of $N_2$ gas at STP",
+      "0.5 g of $H_2$ gas",
+      "10 g of $O_2$ gas",
+      "15 L of $H_2$ gas at STP"
     ],
     "answer": 3,
     "explanation": "Comparing moles:\na) $5 \\text{ L } N_2 \\text{ at STP} = \\frac{5}{22.4} \\approx 0.22 \\text{ mol}$.\nb) $0.5 \\text{ g } H_2 = \\frac{0.5}{2} = 0.25 \\text{ mol}$.\nc) $10 \\text{ g } O_2 = \\frac{10}{32} \\approx 0.31 \\text{ mol}$.\nd) $15 \\text{ L } H_2 \\text{ at STP} = \\frac{15}{22.4} \\approx 0.67 \\text{ mol}$.\nCase (d) has the maximum moles, thus the maximum molecules.",
@@ -307,10 +307,10 @@
     "q": "Which has maximum molecules?",
     "type": "mcq",
     "options": [
-      "7 g N_2",
-      "2 g H_2",
-      "16 g NO_2",
-      "16 g O_2"
+      "7 g $N_2$",
+      "2 g $H_2$",
+      "16 g $NO_2$",
+      "16 g $O_2$"
     ],
     "answer": 1,
     "explanation": "Calculating moles:\na) $7 \\text{ g } N_2 = 7/28 = 0.25 \\text{ mol}$.\nb) $2 \\text{ g } H_2 = 2/2 = 1.0 \\text{ mol}$.\nc) $16 \\text{ g } NO_2 = 16/46 \\approx 0.35 \\text{ mol}$.\nd) $16 \\text{ g } O_2 = 16/32 = 0.5 \\text{ mol}$.\n$2 \\text{ g } H_2$ has the highest number of moles.",
@@ -324,9 +324,9 @@
     "type": "mcq",
     "options": [
       "15.4 kg/mol",
-      "1.54 \\times 10^4 kg/mol",
-      "3.08 \\times 10^3 kg/mol",
-      "3.08 \\times 10^4 kg/mol"
+      "$1.54 \\times 10^4 kg/mol$",
+      "$3.08 \\times 10^3 kg/mol$",
+      "$3.08 \\times 10^4 kg/mol$"
     ],
     "answer": 0,
     "explanation": "Volume of cylindrical particle $V = \\pi r^2 l = \\frac{22}{7} \\times (7 \\times 10^{-8} \\text{ cm})^2 \\times (10 \\times 10^{-8} \\text{ cm}) = 1.54 \\times 10^{-21} \\text{ cm}^3$.\nMass of one virus particle $= \\frac{\\text{Volume}}{\\text{Specific Volume}} = \\frac{1.54 \\times 10^{-21} \\text{ cc}}{6.02 \\times 10^{-2} \\text{ cc/g}} \\approx 2.558 \\times 10^{-20} \\text{ g}$.\nMolecular weight $= \\text{Mass of one particle} \\times N_A = 2.558 \\times 10^{-20} \\times 6.022 \\times 10^{23} = 15404 \\text{ g/mol} \\approx 15.4 \\text{ kg/mol}$.",
@@ -339,10 +339,10 @@
     "q": "The number of atoms in $4.25 \\text{ g}$ of $NH_3$ is approximately:",
     "type": "mcq",
     "options": [
-      "4 \\times 10^{23}",
-      "2 \\times 10^{23}",
-      "1 \\times 10^{23}",
-      "6 \\times 10^{23}"
+      "$4 \\times 10^{23}$",
+      "$2 \\times 10^{23}$",
+      "$1 \\times 10^{23}$",
+      "$6 \\times 10^{23}$"
     ],
     "answer": 3,
     "explanation": "Molar mass of $NH_3 = 14 + 3(1) = 17 \\text{ g/mol}$.\nMoles in $4.25 \\text{ g} = \\frac{4.25}{17} = 0.25 \\text{ mol}$.\nNumber of atoms $= \\text{moles} \\times \\text{atomicity} \\times N_A = 0.25 \\times 4 \\times 6.022 \\times 10^{23} = 6.022 \\times 10^{23}$.",
@@ -387,10 +387,10 @@
     "q": "The total number of valence electrons in $4.2 \\text{ g}$ of $N_3^-$ ion is ($N_A$ is the Avogadro's number):",
     "type": "mcq",
     "options": [
-      "2.1 N_A",
-      "4.2 N_A",
-      "1.6 N_A",
-      "3.2 N_A"
+      "$2.1 N_A$",
+      "$4.2 N_A$",
+      "$1.6 N_A$",
+      "$3.2 N_A$"
     ],
     "answer": 2,
     "explanation": "Molar mass of $N_3^- = 3 \\times 14 = 42 \\text{ g/mol}$.\nMoles of $N_3^- = \\frac{4.2}{42} = 0.1 \\text{ mol}$.\nValence electrons in one $N_3^-$ ion $= 3 \\times 5$ (from N) $+ 1$ (from negative charge) $= 16$ electrons.\nTotal valence electrons $= \\text{moles} \\times \\text{electrons per ion} \\times N_A = 0.1 \\times 16 \\times N_A = 1.6 N_A$.",
@@ -414,15 +414,15 @@
     "shift": null,
     "date": null,
     "subtopic": "Mole Concept and Molar Masses"
- },
+  },
   {
     "q": "Ratio of $C_p$ and $C_v$ of a gas 'X' is 1.4. The number of atoms of the gas 'X' present in 11.2 litres of it at NTP will be:",
     "type": "mcq",
     "options": [
-      "6.02 \\times 10^{23}",
-      "1.2 \\times 10^{23}",
-      "3.01 \\times 10^{23}",
-      "2.01 \\times 10^{23}"
+      "$6.02 \\times 10^{23}$",
+      "$1.2 \\times 10^{23}$",
+      "$3.01 \\times 10^{23}$",
+      "$2.01 \\times 10^{23}$"
     ],
     "answer": 0,
     "explanation": "The ratio $\\gamma = C_p / C_v = 1.4$ indicates that the gas is diatomic (like $H_2, O_2, N_2$). \nVolume at NTP $= 11.2 \\text{ L}$. \nMoles of gas $= \\frac{11.2}{22.4} = 0.5 \\text{ moles}$. \nNumber of molecules $= 0.5 \\times N_A$. \nSince the gas is diatomic, each molecule has 2 atoms. \nTotal number of atoms $= 2 \\times (0.5 \\times N_A) = 1 \\times N_A = 6.022 \\times 10^{23}$.",
@@ -435,10 +435,10 @@
     "q": "The number of oxygen atoms in $4.4 \\text{ g}$ of $CO_2$ is:",
     "type": "mcq",
     "options": [
-      "1.2 \\times 10^{23}",
-      "6 \\times 10^{22}",
-      "6 \\times 10^{23}",
-      "12 \\times 10^{23}"
+      "$1.2 \\times 10^{23}$",
+      "$6 \\times 10^{22}$",
+      "$6 \\times 10^{23}$",
+      "$12 \\times 10^{23}$"
     ],
     "answer": 0,
     "explanation": "Molar mass of $CO_2 = 12 + 2(16) = 44 \\text{ g/mol}$. \nMoles of $CO_2 = \\frac{4.4}{44} = 0.1 \\text{ mol}$. \nEach $CO_2$ molecule contains 2 oxygen atoms. \nNumber of oxygen atoms $= 2 \\times \\text{moles} \\times N_A = 2 \\times 0.1 \\times 6.022 \\times 10^{23} \\approx 1.2 \\times 10^{23}$.",
@@ -451,9 +451,9 @@
     "q": "$1.1 \\times 10^{22}$ $N_2O$ molecules contains:",
     "type": "mcq",
     "options": [
-      "\\frac{1.8}{224} \\times 10^{22} \\text{ atoms}",
-      "\\frac{6.02}{22400} \\times 10^{23} \\text{ molecules}",
-      "\\frac{1.32}{224} \\times 10^{23} \\text{ electrons}",
+      "$\\frac{1.8}{224} \\times 10^{22} \\text{ atoms}$",
+      "$\\frac{6.02}{22400} \\times 10^{23} \\text{ molecules}$",
+      "$\\frac{1.32}{224} \\times 10^{23} \\text{ electrons}$",
       "All the above"
     ],
     "answer": 3,
@@ -483,9 +483,9 @@
     "q": "A compound X contains 32% of A, 20% of B and remaining percentage of C. Then, the empirical formula of X is: (Given atomic masses of $A=64; B=40; C=32u$)",
     "type": "mcq",
     "options": [
-      "ABC_3",
-      "AB_2C_2",
-      "A_2BC_2",
+      "$ABC_3$",
+      "$AB_2C_2$",
+      "$A_2BC_2$",
       "ABC"
     ],
     "answer": 0,
@@ -499,9 +499,9 @@
     "q": "An organic compound contains 78% (by wt.) carbon and remaining percentage of hydrogen. The right option for the empirical formula of this compound is: [Atomic wt. of C is 12, H is 1]",
     "type": "mcq",
     "options": [
-      "CH_4",
-      "CH_3",
-      "C_2H_4",
+      "$CH_4$",
+      "$CH_3$",
+      "$C_2H_4$",
       "CH"
     ],
     "answer": 1,
@@ -515,9 +515,9 @@
     "q": "An organic compound contains carbon, hydrogen and oxygen. Its elemental analysis gave C-38.71% and H-9.67%. The empirical formula of the compound would be:",
     "type": "mcq",
     "options": [
-      "CH_3O",
-      "CH_2O",
-      "CH_4O",
+      "$CH_3O$",
+      "$CH_2O$",
+      "$CH_4O$",
       "CHO"
     ],
     "answer": 0,
@@ -531,10 +531,10 @@
     "q": "The percentage of C, H and N in an organic compound are 40%, 13.3% and 46.7% respectively then empirical formula is:",
     "type": "mcq",
     "options": [
-      "CH_4N",
-      "CH_2N",
-      "CH_3N",
-      "CH_4N_2"
+      "$CH_4N$",
+      "$CH_2N$",
+      "$CH_3N$",
+      "$CH_4N_2$"
     ],
     "answer": 0,
     "explanation": "Moles of C $= 40 / 12 = 3.33$ \nMoles of H $= 13.3 / 1 = 13.3$ \nMoles of N $= 46.7 / 14 = 3.33$ \nRatio C : H : N $= 3.33/3.33 : 13.3/3.33 : 3.33/3.33 = 1 : 4 : 1$. \nEmpirical formula is $CH_4N$.",
@@ -547,10 +547,10 @@
     "q": "Percentage of Se in peroxidase anhydrous enzyme is 0.5% by weight (at. wt. = 78.4) then minimum molecular weight of peroxidase anhydrous enzyme is:",
     "type": "mcq",
     "options": [
-      "1.568 \\times 10^4",
-      "1.568 \\times 10^3",
+      "$1.568 \\times 10^4$",
+      "$1.568 \\times 10^3$",
       "15.68",
-      "2.136 \\times 10^4"
+      "$2.136 \\times 10^4$"
     ],
     "answer": 0,
     "explanation": "For minimum molecular weight ($M$), the molecule must contain at least one atom of Selenium ($Se$). \n$\\text{Percentage of Se} = \\frac{\\text{Atomic mass of Se} \\times 1}{M} \\times 100$ \n$0.5 = \\frac{78.4 \\times 1}{M} \\times 100$ \n$M = \\frac{78.4 \\times 100}{0.5} = 15680 = 1.568 \\times 10^4 \\text{ g/mol}$.",
@@ -563,10 +563,10 @@
     "q": "Oxidation numbers of A, B and C are +2, +5 and -2 respectively. Possible formula of compound is:",
     "type": "mcq",
     "options": [
-      "A_2(BC_2)_2",
-      "A_3(BC_4)_2",
-      "A_3(B_2C)_2",
-      "A_2(BC_3)_2"
+      "$A_2(BC_2)_2$",
+      "$A_3(BC_4)_2$",
+      "$A_3(B_2C)_2$",
+      "$A_2(BC_3)_2$"
     ],
     "answer": 1,
     "explanation": "A compound must be electrically neutral (sum of oxidation states $= 0$). \nCheck option (b) $A_3(BC_4)_2$: \n$3 \\times (+2) + 2 \\times [(+5) + 4 \\times (-2)] = 6 + 2 \\times [5 - 8] = 6 + 2 \\times (-3) = 6 - 6 = 0$. \nThis formula is correct.",
@@ -579,10 +579,10 @@
     "q": "An organic compound containing C, H and N gave the following results on analysis C = 40%, H = 13.33%, N = 46.67%. Its empirical formula would be:",
     "type": "mcq",
     "options": [
-      "C_2H_7N_2",
-      "CH_4N",
-      "CH_4N",
-      "C_2H_7N"
+      "$C_2H_7N_2$",
+      "$CH_4N$",
+      "$CH_4N$",
+      "$C_2H_7N$"
     ],
     "answer": 1,
     "explanation": "Moles of C $= 40/12 = 3.33$ \nMoles of H $= 13.33/1 = 13.33$ \nMoles of N $= 46.67/14 = 3.33$ \nRatio C:H:N $= 1 : 4 : 1$. \nEmpirical formula is $CH_4N$. (Note: Options b and c are identical in the image, the key points to the $CH_4N$ structure).",
@@ -707,9 +707,9 @@
     "q": "1.0 g of magnesium is burnt with 0.56 g $O_2$ in a closed vessel. Which reactant is left in excess and how much? (Atomic weight Mg = 24; O = 16)",
     "type": "mcq",
     "options": [
-      "O_2, 0.16 g",
+      "$O_2$, 0.16 g",
       "Mg, 0.16 g",
-      "O_2, 0.28 g",
+      "$O_2$, 0.28 g",
       "Mg, 0.44 g"
     ],
     "answer": 1,
@@ -787,7 +787,7 @@
     "q": "In the reaction $4NH_3(g) + 5O_2(g) \\rightarrow 4NO(g) + 6H_2O(l)$, when 1 mole of ammonia and 1 mole of $O_2$ are made to react to completion then:",
     "type": "mcq",
     "options": [
-      "1.0 mole of H_2O is produced",
+      "1.0 mole of $H_2O$ is produced",
       "1.0 mole of NO will be produced",
       "All the oxygen will be consumed",
       "All the ammonia will be consumed"
@@ -853,8 +853,8 @@
     "options": [
       "1",
       "12.16",
-      "1 \\times 10^{-3}",
-      "12.16 \\times 10^{-3}"
+      "$1 \\times 10^{-3}$",
+      "$12.16 \\times 10^{-3}$"
     ],
     "answer": 0,
     "explanation": "Hardness is removed by reacting the metal ions with washing soda. The number of equivalents of washing soda must equal the number of equivalents of $Mg^{2+}$. \nMilli-equivalents (mEq) of $Mg^{2+} = \\frac{\\text{weight in mg}}{\\text{Equivalent weight}} = \\frac{\\text{weight in mg}}{\\text{Atomic mass / valency}}$. \nmEq of $Mg^{2+} = \\frac{12.00}{24/2} = \\frac{12}{12} = 1 \\text{ mEq}$. \nThus, $1 \\text{ mEq}$ of washing soda is required.",
@@ -931,10 +931,10 @@
     "q": "How many grams of concentrated nitric acid solution should be used to prepare $250 \\text{ mL}$ of $2.0 \\text{ M } HNO_3$? The concentrated acid is $70\\% \\text{ } HNO_3$:",
     "type": "mcq",
     "options": [
-      "45.0 g conc. HNO_3",
-      "90.0 g conc. HNO_3",
-      "70.0 g conc. HNO_3",
-      "54.0 g conc. HNO_3"
+      "45.0 g conc. $HNO_3$",
+      "90.0 g conc. $HNO_3$",
+      "70.0 g conc. $HNO_3$",
+      "54.0 g conc. $HNO_3$"
     ],
     "answer": 0,
     "explanation": "Required moles of $HNO_3 = \\text{Molarity} \\times \\text{Volume in L} = 2.0 \\times 0.250 = 0.5 \\text{ mol}$. \nMass of pure $HNO_3 = 0.5 \\times 63 \\text{ g/mol} = 31.5 \\text{ g}$. \nThe solution provided is $70\\%$ pure. \nMass of concentrated solution needed $= \\frac{31.5}{0.70} = 45 \\text{ g}$.",
