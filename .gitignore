@@ -6,3 +6,5 @@ raw_jsons/
 master_catalog.json
 scraper.py
 jee_questions.json
+serviceAccountKey.json
+upload_to_firestore.js
