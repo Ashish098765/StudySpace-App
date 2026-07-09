@@ -141,13 +141,13 @@
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+        // Import Supabase
+        import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
         const firebaseConfig = {
             apiKey: "AIzaSyB57PcjYtWktsOGKFLQmWX-Nc6HtYeZxp8",
             authDomain: "studyspace-f6e22.firebaseapp.com",
             projectId: "studyspace-f6e22",
-            databaseURL: "https://studyspace-f6e22-default-rtdb.firebaseio.com/",
             storageBucket: "studyspace-f6e22.firebasestorage.app",
             messagingSenderId: "498741408880",
             appId: "1:498741408880:web:bd5fdea00d10e9329130b5",
@@ -156,7 +156,11 @@
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
-        const db = getDatabase(app);
+
+        // Initialize Supabase using your Public Anon Key
+        const SUPABASE_URL = 'https://YOUR-PROJECT-ID.supabase.co';
+        const SUPABASE_ANON_KEY = 'YOUR-ANON-PUBLIC-KEY';
+        const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         
         let currentUser = null;
         let isAIGenerating = false; 
@@ -357,26 +361,22 @@
             chapterListContainer.innerHTML = "";
 
             try {
-                // 1. Fetch the master database from Firestore only once per session
-                // 1. Fetch the master database from Realtime Database only once per session
+                // 1. Fetch the master database from Supabase only once per session
                 if (masterDatabase.length === 0) {
-                    // Read the root of your Realtime Database
-                    const snapshot = await get(ref(db, '/'));
-                    
-                    if (snapshot.exists()) {
-                        const rawData = snapshot.val();
+                    const { data: fetchedData, error } = await supabase
+                        .from('questions')
+                        .select('data');
                         
-                        // If your JSON was an array, use it directly. 
-                        // If it was an object, convert it to an array so your existing map/filter logic works.
-                        if (Array.isArray(rawData)) {
-                            masterDatabase = rawData;
-                        } else {
-                            // Convert object properties into an array of questions
-                            masterDatabase = Object.values(rawData);
-                        }
-                    } else {
-                        throw new Error("No questions found in Realtime Database.");
+                    if (error) {
+                        throw new Error("Failed to load from Supabase: " + error.message);
                     }
+                    
+                    if (!fetchedData || fetchedData.length === 0) {
+                        throw new Error("No questions found in your Supabase table.");
+                    }
+                    
+                    // Unpack the JSONB column wrappers back into a clean array matching the rest of the app logic
+                    masterDatabase = fetchedData.map(row => row.data);
                 }
                     
                     

@@ -169,25 +169,28 @@ socket.on('message', (data) => {
 // Function to fetch and display the questions
 // Function to fetch and display the questions from the master database
 // Function to fetch and display the questions from Firestore
+// Function to fetch and display the questions from Supabase
 async function loadQuestions() {
     try {
-        console.log("Fetching questions from Firestore for the study room...");
+        console.log("Fetching questions from Supabase for the study room...");
         
-        // Query the "questions" collection from Firestore
-        const querySnapshot = await getDocs(collection(db, "questions"));
-        const roomQuestions = [];
+        // Query the JSONB column data rows from Supabase
+        const { data: fetchedData, error } = await supabase
+            .from('questions')
+            .select('data');
+
+        if (error) throw error;
+
+        // Unpack structural rows into global array space
+        const roomQuestions = fetchedData.map(row => row.data);
         
-        querySnapshot.forEach((doc) => {
-            roomQuestions.push({ id: doc.id, ...doc.data() });
-        });
+        console.log("Successfully loaded database via Supabase. Total questions:", roomQuestions.length);
         
-        console.log("Successfully loaded Firestore database. Total questions:", roomQuestions.length);
-        
-        // You can now filter or display roomQuestions in your video grid/chat!
+        // Data is ready for use! 
         // Example: const filteredRoomQuestions = roomQuestions.filter(q => q.chapter === "Kinematics");
 
     } catch (error) {
-        console.error("Error loading questions from Firestore:", error);
+        console.error("Error loading questions from Supabase client layer:", error);
     }
 }
 
