@@ -1,5 +1,8 @@
 node_modules/
-JEE_Physics_Units_Full_Solutions.pdf
-jee_phy_units.pdf
-extracted_images/
-raw_pdfs/
+debug_parser.py
+chapter_list.txt
+batch_parser.py
+raw_jsons/
+master_catalog.json
+scraper.py
+jee_questions.json

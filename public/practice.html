@@ -141,6 +141,7 @@
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyB57PcjYtWktsOGKFLQmWX-Nc6HtYeZxp8",
@@ -154,6 +155,7 @@
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
+        const db = getFirestore(app);
         
         let currentUser = null;
         let isAIGenerating = false; 
@@ -168,6 +170,7 @@
         let selectedChapterId = ""; 
         let activeMetadata = null; 
         let filteredPracticeSet = [];
+        let masterDatabase = [];
         
         let currentFocusIndex = 0;
         let selectedOptionIndex = null;
@@ -348,15 +351,50 @@
             
             const sidebarContainer = document.getElementById('subject-sidebar-container');
             const chapterListContainer = document.getElementById('chapter-list-container');
-            sidebarContainer.innerHTML = '<div style="padding: 1rem; color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-spinner fa-spin"></i> Loading Modules...</div>';
+            
+            sidebarContainer.innerHTML = '<div style="padding: 1rem; color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-spinner fa-spin"></i> Loading Database...</div>';
             chapterListContainer.innerHTML = "";
 
             try {
-                const metaFile = examName === "JEE Mains" ? "/data/metadata_jee.json" : "/data/metadata_neet.json"; 
-                const response = await fetch(metaFile);
-                if (!response.ok) throw new Error("Metadata JSON file not found.");
+                // 1. Fetch the master database from Firestore only once per session
+                if (masterDatabase.length === 0) {
+                    const querySnapshot = await getDocs(collection(db, "questions"));
+                    const fetchedQuestions = [];
+                    
+                    querySnapshot.forEach((doc) => {
+                        // Push the document data into our array, attaching the document ID as well
+                        fetchedQuestions.push({ id: doc.id, ...doc.data() });
+                    });
+                    
+                    if (fetchedQuestions.length === 0) {
+                        throw new Error("No questions found in Firestore collection.");
+                    }
+                    
+                    masterDatabase = fetchedQuestions;
+                }
                 
-                activeMetadata = await response.json();
+                // 2. Filter questions by the selected exam
+                const examFilter = examName === "JEE Mains" ? "JEE Main" : "NEET UG";
+                const examQuestions = masterDatabase.filter(q => q.exam === examFilter || q.exam === examName);
+                
+                // 3. Dynamically group available questions by Chapter
+                const chaptersMap = {};
+                examQuestions.forEach(q => {
+                    const ch = q.chapter || "Uncategorized";
+                    if (!chaptersMap[ch]) chaptersMap[ch] = 0;
+                    chaptersMap[ch]++;
+                });
+                
+                // 4. Build the activeMetadata structure for the UI
+                // Since the Python script doesn't extract Subject (Physics/Math), we group them under a general tab.
+                activeMetadata = {
+                    "All Subjects": Object.keys(chaptersMap).map(ch => ({
+                        name: ch,
+                        id: ch, 
+                        total: chaptersMap[ch]
+                    }))
+                };
+                
                 sidebarContainer.innerHTML = "";
                 const availableSubjects = Object.keys(activeMetadata);
                 
@@ -373,7 +411,10 @@
                 });
 
                 if(availableSubjects.length > 0) renderChapterInventoryList(availableSubjects[0]);
-            } catch (error) { console.error(error); }
+            } catch (error) { 
+                console.error(error); 
+                sidebarContainer.innerHTML = '<div style="color: var(--error-red); padding: 1rem;">Failed to load master database. Ensure master_database_ready.json is in the same directory.</div>';
+            }
         };
 
         function renderChapterInventoryList(subjectName) {
@@ -421,25 +462,26 @@
             document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><br><br>Loading Question Bank...</div>';
 
             try {
-                const response = await fetch(`/data/questions/${selectedChapterId}.json`);
-                if (!response.ok) throw new Error("Question file missing.");
+                // Filter the master database in memory instead of fetching a new file
+                let rawQuestions = masterDatabase.filter(q => q.chapter === chapterName);
                 
-                let rawQuestions = await response.json();
                 if(rawQuestions.length === 0) {
-                    document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--error-red);">No questions available.</div>';
+                    document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--error-red);">No questions available for this chapter.</div>';
                     return;
                 }
 
                 filteredPracticeSet = rawQuestions.map(q => ({
                     ...q,
-                    uid: `${selectedChapterId}_${generateQuestionId(q.q)}`
+                    q: q.q_en, // Map the Python output key to match the HTML expectations
+                    uid: q.question_id || `${selectedChapterId}_${generateQuestionId(q.q_en || "")}`
                 }));
 
+                // Existing sorting logic remains identical
                 filteredPracticeSet.sort((a, b) => {
                     const getTimestamp = (q) => {
                         const year = parseInt(q.year) || 0;
                         const months = { 'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6, 
-                                         'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12 };
+                                        'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12 };
                         let month = 0; let day = 0;
                         if (q.date) {
                             const dateParts = q.date.toLowerCase();
@@ -463,7 +505,7 @@
                 renderIndexList();
             } catch (error) {
                 console.error(error);
-                document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--error-red);">Failed to load the dataset. Ensure the JSON was pushed to the server.</div>';
+                document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--error-red);">Failed to process the dataset.</div>';
             }
         };
 
