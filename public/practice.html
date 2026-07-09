@@ -383,7 +383,9 @@
                 
                 // 2. Filter questions by the selected exam
                 const examFilter = examName === "JEE Mains" ? "JEE Main" : "NEET UG";
-                const examQuestions = masterDatabase.filter(q => q.exam === examFilter || q.exam === examName);
+
+                // Keep the question if it matches the exam name, OR if the question doesn't have an exam tag at all
+                const examQuestions = masterDatabase.filter(q => q.exam === examFilter || q.exam === examName || !q.exam);
                 
                 // 3. Dynamically group available questions by Chapter
                 const chaptersMap = {};
