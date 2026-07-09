@@ -363,51 +363,52 @@
             try {
                 // 1. Fetch the master database from Supabase only once per session
                 if (masterDatabase.length === 0) {
-                    const { data: fetchedData, error } = await supabase
-                        .from('questions')
-                        .select('data');
+                    const { data: fetchedData, error } = await supabase.from('questions').select('data');
                         
-                    if (error) {
-                        throw new Error("Failed to load from Supabase: " + error.message);
-                    }
+                    if (error) throw new Error("Failed to load from Supabase: " + error.message);
+                    if (!fetchedData || fetchedData.length === 0) throw new Error("No questions found in your Supabase table.");
                     
-                    if (!fetchedData || fetchedData.length === 0) {
-                        throw new Error("No questions found in your Supabase table.");
-                    }
-                    
-                    // Unpack the JSONB column wrappers back into a clean array matching the rest of the app logic
                     masterDatabase = fetchedData.map(row => row.data);
                 }
                     
-                    
+                // 2. Filter questions by exam (with a fallback to show all data if the tags are missing)
+                let examFilter = examName === "JEE Mains" ? "JEE Main" : "NEET UG";
+                let examQuestions = masterDatabase.filter(q => 
+                    (q.exam && q.exam.includes(examFilter)) || 
+                    (q.exam && q.exam.includes(examName))
+                );
                 
-                // 2. Filter questions by the selected exam
-                const examFilter = examName === "JEE Mains" ? "JEE Main" : "NEET UG";
-
-                // Keep the question if it matches the exam name, OR if the question doesn't have an exam tag at all
-                const examQuestions = masterDatabase.filter(q => q.exam === examFilter || q.exam === examName || !q.exam);
+                if (examQuestions.length === 0) {
+                    examQuestions = masterDatabase; // Fallback: Use all questions if filter fails
+                }
                 
-                // 3. Dynamically group available questions by Chapter
-                const chaptersMap = {};
+                // 3. Dynamically group by Subject, then Chapter
+                activeMetadata = {};
+                
+                // Pre-fill the standard subjects so the buttons always appear on the left
+                const defaultSubjects = examName === "JEE Mains" ? ["Physics", "Chemistry", "Mathematics"] : ["Physics", "Chemistry", "Biology"];
+                defaultSubjects.forEach(sub => activeMetadata[sub] = {});
+                
                 examQuestions.forEach(q => {
-                    const ch = q.chapter || "Uncategorized";
-                    if (!chaptersMap[ch]) chaptersMap[ch] = 0;
-                    chaptersMap[ch]++;
+                    let sub = q.subject ? q.subject.trim() : "Uncategorized";
+                    
+                    // Normalize names to fix any typos in your database
+                    if (sub.toLowerCase().includes("phys")) sub = "Physics";
+                    else if (sub.toLowerCase().includes("chem")) sub = "Chemistry";
+                    else if (sub.toLowerCase().includes("math")) sub = "Mathematics";
+                    else if (sub.toLowerCase().includes("bio")) sub = "Biology";
+                    
+                    if (!activeMetadata[sub]) activeMetadata[sub] = {};
+                    
+                    const ch = q.chapter ? q.chapter.trim() : "Uncategorized";
+                    if (!activeMetadata[sub][ch]) activeMetadata[sub][ch] = 0;
+                    activeMetadata[sub][ch]++;
                 });
-                
-                // 4. Build the activeMetadata structure for the UI
-                // Since the Python script doesn't extract Subject (Physics/Math), we group them under a general tab.
-                activeMetadata = {
-                    "All Subjects": Object.keys(chaptersMap).map(ch => ({
-                        name: ch,
-                        id: ch, 
-                        total: chaptersMap[ch]
-                    }))
-                };
                 
                 sidebarContainer.innerHTML = "";
                 const availableSubjects = Object.keys(activeMetadata);
                 
+                // 4. Render the Sidebar Buttons
                 availableSubjects.forEach((sub, idx) => {
                     const btn = document.createElement('button');
                     btn.className = `sidebar-btn ${idx === 0 ? 'active' : ''}`;
@@ -420,10 +421,12 @@
                     sidebarContainer.appendChild(btn);
                 });
 
+                // Auto-load the first subject's chapters
                 if(availableSubjects.length > 0) renderChapterInventoryList(availableSubjects[0]);
+
             } catch (error) { 
                 console.error(error); 
-                sidebarContainer.innerHTML = '<div style="color: var(--error-red); padding: 1rem;">Failed to load master database. Ensure master_database_ready.json is in the same directory.</div>';
+                sidebarContainer.innerHTML = `<div style="color: var(--error-red); padding: 1rem;">${error.message}</div>`;
             }
         };
 
@@ -432,7 +435,21 @@
             const container = document.getElementById('chapter-list-container');
             container.innerHTML = "";
             
-            const chapters = activeMetadata[subjectName] || [];
+            // Convert the chapter map into an array for rendering
+            const chapterMap = activeMetadata[subjectName] || {};
+            const chapters = Object.keys(chapterMap).map(ch => ({
+                name: ch,
+                total: chapterMap[ch]
+            }));
+            
+            if (chapters.length === 0) {
+                container.innerHTML = `<div style="padding: 2rem; color: var(--text-muted); text-align: center;">No chapters available in database for ${subjectName}.</div>`;
+                return;
+            }
+
+            // Sort chapters alphabetically
+            chapters.sort((a, b) => a.name.localeCompare(b.name));
+            
             chapters.forEach(ch => {
                 const divRow = document.createElement('div');
                 divRow.className = "chapter-row";
@@ -443,7 +460,8 @@
                     </div>
                     <div class="chapter-stats"><span>${ch.total} Qs</span></div>
                 `;
-                divRow.onclick = () => launchSession(ch.name, ch.id);
+                // Pass BOTH the specific subject and chapter to the next screen
+                divRow.onclick = () => launchSession(subjectName, ch.name);
                 container.appendChild(divRow);
             });
         }
@@ -458,9 +476,9 @@
             return Math.abs(hash).toString();
         }
 
-        window.launchSession = async (chapterName, chapterFileId) => {
+        window.launchSession = async (subjectName, chapterName) => {
+            selectedActiveSubject = subjectName;
             selectedActiveChapter = chapterName;
-            selectedChapterId = chapterFileId;
 
             document.getElementById('list-badge-subject').innerHTML = `<i class="fa-solid fa-book"></i> ${selectedActiveSubject}`;
             document.getElementById('list-badge-chapter').innerHTML = `<i class="fa-solid fa-list"></i> ${selectedActiveChapter}`;
@@ -472,8 +490,18 @@
             document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><br><br>Loading Question Bank...</div>';
 
             try {
-                // Filter the master database in memory instead of fetching a new file
-                let rawQuestions = masterDatabase.filter(q => q.chapter === chapterName);
+                // Filter the master database to match both Subject and Chapter
+                let rawQuestions = masterDatabase.filter(q => {
+                    let qSub = q.subject ? q.subject.trim() : "Uncategorized";
+                    if (qSub.toLowerCase().includes("phys")) qSub = "Physics";
+                    else if (qSub.toLowerCase().includes("chem")) qSub = "Chemistry";
+                    else if (qSub.toLowerCase().includes("math")) qSub = "Mathematics";
+                    else if (qSub.toLowerCase().includes("bio")) qSub = "Biology";
+                    
+                    const qChap = q.chapter ? q.chapter.trim() : "Uncategorized";
+                    
+                    return qSub === subjectName && qChap === chapterName;
+                });
                 
                 if(rawQuestions.length === 0) {
                     document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--error-red);">No questions available for this chapter.</div>';
@@ -482,16 +510,15 @@
 
                 filteredPracticeSet = rawQuestions.map(q => ({
                     ...q,
-                    q: q.q_en, // Map the Python output key to match the HTML expectations
-                    uid: q.question_id || `${selectedChapterId}_${generateQuestionId(q.q_en || "")}`
+                    q: q.q_en, 
+                    uid: q.question_id || `${generateQuestionId(q.q_en || "")}`
                 }));
 
-                // Existing sorting logic remains identical
+                // Sort by Date and Shift
                 filteredPracticeSet.sort((a, b) => {
                     const getTimestamp = (q) => {
                         const year = parseInt(q.year) || 0;
-                        const months = { 'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6, 
-                                        'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12 };
+                        const months = { 'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6, 'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12 };
                         let month = 0; let day = 0;
                         if (q.date) {
                             const dateParts = q.date.toLowerCase();
