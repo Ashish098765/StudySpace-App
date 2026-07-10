@@ -182,7 +182,6 @@ let examDataCache = {};
 
 // This function is triggered from your HTML Gateway buttons
 window.navigateToExplorer = async function(examName) {
-    // 1. Switch screens (assuming you have a function to hide/show divs)
     document.getElementById('exam-gateway-screen').style.display = 'none';
     document.getElementById('chapter-explorer-screen').style.display = 'block';
     document.getElementById('explorer-title').textContent = `${examName} Workspace`;
@@ -194,16 +193,17 @@ window.navigateToExplorer = async function(examName) {
     chapterList.innerHTML = '';
 
     try {
-        // 2. Fetch data from Supabase 
-        // Note: adjust the .eq() if your exam strings in the DB differ from 'JEE Mains'
+        // NEW: Dynamically determine the correct table and filter
+        const tableName = examName === 'NEET' ? 'neet' : 'jee-mains';
+        const examFilterString = examName === 'NEET' ? 'NEET UG' : 'JEE Main';
+
         const { data, error } = await supabase
-            .from('jee-mains')
+            .from(tableName)
             .select('subject, chapter')
-            .eq('exam', 'JEE Main'); // Assuming 'JEE Main' is how it's saved in your DB
+            .eq('exam', examFilterString); 
 
         if (error) throw error;
 
-        // 3. Group and remove duplicates
         examDataCache = {};
         data.forEach(row => {
             const subjName = formatTitle(row.subject);
@@ -216,7 +216,6 @@ window.navigateToExplorer = async function(examName) {
             examDataCache[subjName].set(chapSlug, chapTitle);
         });
 
-        // 4. Render the Sidebar (Subjects)
         sidebar.innerHTML = '';
         const subjects = Object.keys(examDataCache).sort();
 
@@ -226,16 +225,12 @@ window.navigateToExplorer = async function(examName) {
             btn.textContent = subj;
             
             btn.onclick = () => {
-                // Highlight active button
                 document.querySelectorAll('.sidebar-subject-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                
-                // Render the chapters for this subject
                 renderChapters(subj, examDataCache[subj]);
             };
             sidebar.appendChild(btn);
 
-            // Auto-click the first subject to populate the right panel immediately
             if (index === 0) btn.click();
         });
 

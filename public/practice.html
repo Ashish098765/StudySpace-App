@@ -383,10 +383,9 @@
             const sidebarContainer = document.getElementById('subject-sidebar-container');
             const chapterListContainer = document.getElementById('chapter-list-container');
             
-            // Check if the background load finished. If not, show the loader temporarily.
             if (!isDatabaseLoaded) {
                 sidebarContainer.innerHTML = '<div style="padding: 1rem; color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-spinner fa-spin"></i> Loading Database...</div>';
-                await loadDatabaseInBackground(); // Wait for background task to complete
+                await loadDatabaseInBackground(); 
             }
             
             sidebarContainer.innerHTML = "";
@@ -394,33 +393,43 @@
 
             try {
                 let examFilter = examName === "JEE Mains" ? "JEE Main" : "NEET UG";
+                
+                // Filter the database
                 let examQuestions = masterDatabase.filter(q => 
                     (q.exam && q.exam.includes(examFilter)) || (q.exam && q.exam.includes(examName))
                 );
                 
-                if (examQuestions.length === 0) examQuestions = masterDatabase; 
+                // REMOVED the fallback that was mixing the databases here
                 
                 activeMetadata = {};
-                const defaultSubjects = examName === "JEE Mains" ? ["Physics", "Chemistry", "Mathematics"] : ["Physics", "Chemistry", "Biology"];
-                defaultSubjects.forEach(sub => activeMetadata[sub] = {});
+                
+                // Define strict valid subjects for the chosen exam
+                const validSubjects = examName === "JEE Mains" ? ["Physics", "Chemistry", "Mathematics"] : ["Physics", "Chemistry", "Biology"];
+                validSubjects.forEach(sub => activeMetadata[sub] = {});
                 
                 examQuestions.forEach(q => {
-                    // We can now trust q.subject because it was pre-processed in the background load!
                     let sub = q.subject; 
                     
-                    if (!activeMetadata[sub]) activeMetadata[sub] = {};
-                    
-                    const rawCh = q.chapter ? q.chapter.trim() : "Uncategorized";
-                    const displayCh = formatChapterName(rawCh);
-                    
-                    if (!activeMetadata[sub][displayCh]) {
-                        activeMetadata[sub][displayCh] = { originalSlug: rawCh, count: 0 };
+                    // STRICT GATEKEEPER: Only map the question if it belongs to a valid subject for this exam
+                    if (validSubjects.includes(sub)) {
+                        const rawCh = q.chapter ? q.chapter.trim() : "Uncategorized";
+                        const displayCh = formatChapterName(rawCh);
+                        
+                        if (!activeMetadata[sub][displayCh]) {
+                            activeMetadata[sub][displayCh] = { originalSlug: rawCh, count: 0 };
+                        }
+                        activeMetadata[sub][displayCh].count++;
                     }
-                    activeMetadata[sub][displayCh].count++;
                 });
                 
-                const availableSubjects = Object.keys(activeMetadata);
+                // Clean up empty subjects (e.g., if there are 0 Biology questions, don't show the Biology tab)
+                const availableSubjects = Object.keys(activeMetadata).filter(sub => Object.keys(activeMetadata[sub]).length > 0);
                 
+                if (availableSubjects.length === 0) {
+                    sidebarContainer.innerHTML = `<div style="padding: 1rem; color: var(--text-muted);">No questions found for ${examName}. Check database tags.</div>`;
+                    return;
+                }
+
                 availableSubjects.forEach((sub, idx) => {
                     const btn = document.createElement('button');
                     btn.className = `sidebar-btn ${idx === 0 ? 'active' : ''}`;
@@ -433,17 +442,13 @@
                     sidebarContainer.appendChild(btn);
                 });
 
-                if(availableSubjects.length > 0) renderChapterInventoryList(availableSubjects[0]);
+                renderChapterInventoryList(availableSubjects[0]);
 
             } catch (error) { 
                 console.error(error); 
                 sidebarContainer.innerHTML = `<div style="color: var(--error-red); padding: 1rem;">${error.message}</div>`;
             }
         };
-
-        // --- NEW: Background Loading Logic ---
-        let isDatabaseLoaded = false;
-        let databaseLoadPromise = null;
 
         async function loadDatabaseInBackground() {
             if (isDatabaseLoaded) return;
