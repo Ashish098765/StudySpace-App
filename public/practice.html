@@ -456,7 +456,6 @@
                 try {
                     console.log("Initiating background database fetch...");
                     
-                    // NEW: Fetch from both tables concurrently
                     const [jeeResponse, neetResponse] = await Promise.all([
                         supabase.from('jee-main').select('data'),
                         supabase.from('neet').select('data')
@@ -465,12 +464,25 @@
                     if (jeeResponse.error) throw new Error("Failed to load JEE: " + jeeResponse.error.message);
                     if (neetResponse.error) throw new Error("Failed to load NEET: " + neetResponse.error.message);
                     
-                    // NEW: Combine the data from both tables
-                    const fetchedData = [...(jeeResponse.data || []), ...(neetResponse.data || [])];
+                    // --- THIS IS THE CRITICAL MISSING PIECE ---
+                    // We must manually tag the data so the filter knows where it came from
+                    const jeeData = (jeeResponse.data || []).map(row => {
+                        let qData = row.data;
+                        qData.sourceTable = 'jee-main';
+                        return qData;
+                    });
                     
-                    if (!fetchedData || fetchedData.length === 0) throw new Error("No questions found.");
+                    const neetData = (neetResponse.data || []).map(row => {
+                        let qData = row.data;
+                        qData.sourceTable = 'neet';
+                        return qData;
+                    });
                     
-                    masterDatabase = fetchedData.map(row => row.data);
+                    // Combine the tagged data
+                    masterDatabase = [...jeeData, ...neetData];
+                    // ------------------------------------------
+                    
+                    if (!masterDatabase || masterDatabase.length === 0) throw new Error("No questions found.");
                     
                     // Pre-process and categorize every chapter into its respective subject immediately
                     masterDatabase.forEach(q => {
