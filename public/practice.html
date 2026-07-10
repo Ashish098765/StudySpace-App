@@ -628,9 +628,28 @@
         };
 
         function getCleanPreview(text) {
-            return String(text || "").replace(/\s+/g, ' ').trim();
-        }
+            let cleanText = String(text || "").replace(/\s+/g, ' ').trim();
+            
+            // 1. Remove line-breaking HTML tags (like <p> or <br>) that cause unwanted gaps
+            cleanText = cleanText.replace(/<br\s*\/?>/gi, ' ');
+            cleanText = cleanText.replace(/<\/?(p|div)>/gi, ' ');
 
+            // 2. Force all block/display LaTeX to become inline LaTeX
+            // This stops variables like LC and AC from jumping to a new line
+            cleanText = cleanText.replace(/\$\$/g, '$');
+            cleanText = cleanText.replace(/\\\[/g, '\\(');
+            cleanText = cleanText.replace(/\\\]/g, '\\)');
+            
+            // 3. Clean up any resulting double spaces and truncate if it's too long
+            cleanText = cleanText.replace(/\s+/g, ' ').trim();
+            
+            // Optional: Truncate super long questions so they don't stretch the preview cards
+            if (cleanText.length > 200) {
+                cleanText = cleanText.substring(0, 200) + '...';
+            }
+            
+            return cleanText;
+        }
         function renderIndexList() {
             const container = document.getElementById('index-list-container');
             container.innerHTML = "";
