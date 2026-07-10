@@ -563,7 +563,7 @@
                 const { data, error } = await supabase
                     .from(targetTable)
                     .select('data')
-                    .eq('chapter', chapterSlug);
+                    .eq('data->>chapter', chapterSlug);
 
                 if (error) throw error;
 
