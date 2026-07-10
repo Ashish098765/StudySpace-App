@@ -340,6 +340,32 @@
             html += '</table>';
             return html;
         }
+        // --- NEW: Helper Functions for Formatting & Routing ---
+        function formatChapterName(slug) {
+            if (!slug) return "Unknown Chapter";
+            // Manual overrides for tricky chemical/math names
+            const overrides = {
+                "3d-geometry": "3D Geometry",
+                "d-and-f-block-elements": "d and f-Block Elements",
+                "p-block-elements": "p-Block Elements",
+                "s-block-elements": "s-Block Elements",
+                "some-basic-concepts-of-chemistry": "Basic Concepts of Chemistry"
+            };
+            if (overrides[slug.toLowerCase()]) return overrides[slug.toLowerCase()];
+            
+            // Auto Title Case: "alcohols-phenols" -> "Alcohols Phenols"
+            return slug.split('-')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+        }
+
+        function determineSubject(chapterSlug) {
+            const slug = (chapterSlug || "").toLowerCase();
+            if (slug.match(/(physics|kinematics|motion|energy|work|power|gravitation|thermodynamics|kinetic|oscillation|wave|electrostatics|electric|magnetic|emi|alternating|optics|dual-nature|atom|nuclei|semiconductor|communication|measurement)/)) return "Physics";
+            if (slug.match(/(chemistry|atom|period|bond|state|thermo|equilibrium|redox|hydrogen|s-block|p-block|d-and-f|coordination|environment|organic|hydrocarbon|haloalkane|alcohol|aldehyde|ketone|amine|polymer|biomolecule|everyday|metallurgy)/)) return "Chemistry";
+            if (slug.match(/(math|set|relation|function|trig|algebra|quadratic|complex|matrix|matrices|determinant|permutation|combination|binomial|sequence|series|limit|continuity|differentia|derivative|integral|equation|coordinate|straight|circle|conic|vector|3d|statistics|probability|reasoning)/)) return "Mathematics";
+            return "Uncategorized";
+        }
 
         window.navigateToGateway = () => {
             screenGateway.style.display = 'block';
@@ -361,54 +387,52 @@
             chapterListContainer.innerHTML = "";
 
             try {
-                // 1. Fetch the master database from Supabase only once per session
                 if (masterDatabase.length === 0) {
                     const { data: fetchedData, error } = await supabase.from('questions').select('data');
-                        
                     if (error) throw new Error("Failed to load from Supabase: " + error.message);
                     if (!fetchedData || fetchedData.length === 0) throw new Error("No questions found in your Supabase table.");
-                    
                     masterDatabase = fetchedData.map(row => row.data);
                 }
                     
-                // 2. Filter questions by exam (with a fallback to show all data if the tags are missing)
                 let examFilter = examName === "JEE Mains" ? "JEE Main" : "NEET UG";
                 let examQuestions = masterDatabase.filter(q => 
-                    (q.exam && q.exam.includes(examFilter)) || 
-                    (q.exam && q.exam.includes(examName))
+                    (q.exam && q.exam.includes(examFilter)) || (q.exam && q.exam.includes(examName))
                 );
                 
-                if (examQuestions.length === 0) {
-                    examQuestions = masterDatabase; // Fallback: Use all questions if filter fails
-                }
+                if (examQuestions.length === 0) examQuestions = masterDatabase; 
                 
-                // 3. Dynamically group by Subject, then Chapter
                 activeMetadata = {};
-                
-                // Pre-fill the standard subjects so the buttons always appear on the left
                 const defaultSubjects = examName === "JEE Mains" ? ["Physics", "Chemistry", "Mathematics"] : ["Physics", "Chemistry", "Biology"];
                 defaultSubjects.forEach(sub => activeMetadata[sub] = {});
                 
                 examQuestions.forEach(q => {
-                    let sub = q.subject ? q.subject.trim() : "Uncategorized";
+                    let sub = q.subject ? q.subject.trim() : "";
                     
-                    // Normalize names to fix any typos in your database
-                    if (sub.toLowerCase().includes("phys")) sub = "Physics";
-                    else if (sub.toLowerCase().includes("chem")) sub = "Chemistry";
-                    else if (sub.toLowerCase().includes("math")) sub = "Mathematics";
-                    else if (sub.toLowerCase().includes("bio")) sub = "Biology";
+                    // --- NEW: Route missing subjects based on chapter name ---
+                    if (!sub || sub === "Uncategorized" || sub === "General") {
+                        sub = determineSubject(q.chapter);
+                    } else {
+                        if (sub.toLowerCase().includes("phys")) sub = "Physics";
+                        else if (sub.toLowerCase().includes("chem")) sub = "Chemistry";
+                        else if (sub.toLowerCase().includes("math")) sub = "Mathematics";
+                        else if (sub.toLowerCase().includes("bio")) sub = "Biology";
+                    }
                     
                     if (!activeMetadata[sub]) activeMetadata[sub] = {};
                     
-                    const ch = q.chapter ? q.chapter.trim() : "Uncategorized";
-                    if (!activeMetadata[sub][ch]) activeMetadata[sub][ch] = 0;
-                    activeMetadata[sub][ch]++;
+                    // --- NEW: Format chapter name for display ---
+                    const rawCh = q.chapter ? q.chapter.trim() : "Uncategorized";
+                    const displayCh = formatChapterName(rawCh);
+                    
+                    if (!activeMetadata[sub][displayCh]) {
+                        activeMetadata[sub][displayCh] = { originalSlug: rawCh, count: 0 };
+                    }
+                    activeMetadata[sub][displayCh].count++;
                 });
                 
                 sidebarContainer.innerHTML = "";
                 const availableSubjects = Object.keys(activeMetadata);
                 
-                // 4. Render the Sidebar Buttons
                 availableSubjects.forEach((sub, idx) => {
                     const btn = document.createElement('button');
                     btn.className = `sidebar-btn ${idx === 0 ? 'active' : ''}`;
@@ -421,7 +445,6 @@
                     sidebarContainer.appendChild(btn);
                 });
 
-                // Auto-load the first subject's chapters
                 if(availableSubjects.length > 0) renderChapterInventoryList(availableSubjects[0]);
 
             } catch (error) { 
@@ -435,11 +458,13 @@
             const container = document.getElementById('chapter-list-container');
             container.innerHTML = "";
             
-            // Convert the chapter map into an array for rendering
             const chapterMap = activeMetadata[subjectName] || {};
-            const chapters = Object.keys(chapterMap).map(ch => ({
-                name: ch,
-                total: chapterMap[ch]
+            
+            // Map the data for rendering
+            const chapters = Object.keys(chapterMap).map(displayTitle => ({
+                displayName: displayTitle,
+                originalSlug: chapterMap[displayTitle].originalSlug,
+                total: chapterMap[displayTitle].count
             }));
             
             if (chapters.length === 0) {
@@ -447,8 +472,7 @@
                 return;
             }
 
-            // Sort chapters alphabetically
-            chapters.sort((a, b) => a.name.localeCompare(b.name));
+            chapters.sort((a, b) => a.displayName.localeCompare(b.displayName));
             
             chapters.forEach(ch => {
                 const divRow = document.createElement('div');
@@ -456,12 +480,12 @@
                 divRow.innerHTML = `
                     <div class="chapter-title-wrapper">
                         <i class="fa-solid fa-book-open"></i>
-                        <span class="chapter-name">${ch.name}</span>
+                        <span class="chapter-name">${ch.displayName}</span>
                     </div>
                     <div class="chapter-stats"><span>${ch.total} Qs</span></div>
                 `;
-                // Pass BOTH the specific subject and chapter to the next screen
-                divRow.onclick = () => launchSession(subjectName, ch.name);
+                // Pass both the original slug (for database filtering) and display name (for UI)
+                divRow.onclick = () => launchSession(subjectName, ch.originalSlug, ch.displayName);
                 container.appendChild(divRow);
             });
         }
@@ -476,31 +500,34 @@
             return Math.abs(hash).toString();
         }
 
-        window.launchSession = async (subjectName, chapterName) => {
+        window.launchSession = async (subjectName, chapterSlug, chapterDisplayName) => {
             selectedActiveSubject = subjectName;
-            selectedActiveChapter = chapterName;
+            selectedActiveChapter = chapterSlug; 
+
+            // Use the pretty display name for the top badges
+            const displayTitle = chapterDisplayName || formatChapterName(chapterSlug);
 
             document.getElementById('list-badge-subject').innerHTML = `<i class="fa-solid fa-book"></i> ${selectedActiveSubject}`;
-            document.getElementById('list-badge-chapter').innerHTML = `<i class="fa-solid fa-list"></i> ${selectedActiveChapter}`;
+            document.getElementById('list-badge-chapter').innerHTML = `<i class="fa-solid fa-list"></i> ${displayTitle}`;
             document.getElementById('focus-badge-subject').innerHTML = `<i class="fa-solid fa-book"></i> ${selectedActiveSubject}`;
-            document.getElementById('focus-badge-chapter').innerHTML = `<i class="fa-solid fa-list"></i> ${selectedActiveChapter}`;
+            document.getElementById('focus-badge-chapter').innerHTML = `<i class="fa-solid fa-list"></i> ${displayTitle}`;
             
             screenExplorer.style.display = 'none';
             screenList.style.display = 'block';
             document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><br><br>Loading Question Bank...</div>';
 
             try {
-                // Filter the master database to match both Subject and Chapter
                 let rawQuestions = masterDatabase.filter(q => {
-                    let qSub = q.subject ? q.subject.trim() : "Uncategorized";
-                    if (qSub.toLowerCase().includes("phys")) qSub = "Physics";
+                    let qSub = q.subject ? q.subject.trim() : "";
+                    if (!qSub || qSub === "Uncategorized" || qSub === "General") qSub = determineSubject(q.chapter);
+                    else if (qSub.toLowerCase().includes("phys")) qSub = "Physics";
                     else if (qSub.toLowerCase().includes("chem")) qSub = "Chemistry";
                     else if (qSub.toLowerCase().includes("math")) qSub = "Mathematics";
                     else if (qSub.toLowerCase().includes("bio")) qSub = "Biology";
                     
                     const qChap = q.chapter ? q.chapter.trim() : "Uncategorized";
                     
-                    return qSub === subjectName && qChap === chapterName;
+                    return qSub === subjectName && qChap === chapterSlug;
                 });
                 
                 if(rawQuestions.length === 0) {
@@ -514,7 +541,7 @@
                     uid: q.question_id || `${generateQuestionId(q.q_en || "")}`
                 }));
 
-                // Sort by Date and Shift
+                // (Keep your existing sorting logic down here...)
                 filteredPracticeSet.sort((a, b) => {
                     const getTimestamp = (q) => {
                         const year = parseInt(q.year) || 0;
