@@ -365,7 +365,8 @@
             const slug = (chapterSlug || "").toLowerCase();
             if (slug.match(/(physics|kinematics|motion|energy|work|power|gravitation|thermodynamics|kinetic|oscillation|wave|electrostatics|electric|magnetic|emi|alternating|optics|dual-nature|atom|nuclei|semiconductor|communication|measurement)/)) return "Physics";
             if (slug.match(/(chemistry|atom|period|bond|state|thermo|equilibrium|redox|hydrogen|s-block|p-block|d-and-f|coordination|environment|organic|hydrocarbon|haloalkane|alcohol|aldehyde|ketone|amine|polymer|biomolecule|everyday|metallurgy)/)) return "Chemistry";
-            if (slug.match(/(math|set|relation|function|trig|algebra|quadratic|complex|matrix|matrices|determinant|permutation|combination|binomial|sequence|series|limit|continuity|differentia|derivative|integral|equation|coordinate|straight|circle|conic|vector|3d|statistics|probability|reasoning|area|integration|ellipse|height-and-distance|)/)) return "Mathematics";
+            if (slug.match(/(math|set|relation|function|trig|algebra|quadratic|complex|matrix|matrices|determinant|permutation|combination|binomial|sequence|series|limit|continuity|differentia|derivative|integral|equation|coordinate|straight|circle|conic|vector|3d|statistics|probability|reasoning|area|integration|ellipse|height-and-distance)/)) return "Mathematics";
+            if (slug.match(/(bio|botany|zoology|reproduction|genetics|cell|diversity|structural|plant|human|health|microbe|ecology|environment)/)) return "Biology";
             return "Uncategorized";
         }
 
@@ -485,19 +486,21 @@
                     if (!masterDatabase || masterDatabase.length === 0) throw new Error("No questions found.");
                     
                     // Pre-process and categorize every chapter into its respective subject immediately
-                    masterDatabase.forEach(q => {
-                        let sub = q.subject ? q.subject.trim() : "";
-                        
-                        if (!sub || sub === "Uncategorized" || sub === "General") {
-                            q.subject = determineSubject(q.chapter);
-                        } else {
-                            // Standardize names
-                            if (sub.toLowerCase().includes("phys")) q.subject = "Physics";
-                            else if (sub.toLowerCase().includes("chem")) q.subject = "Chemistry";
-                            else if (sub.toLowerCase().includes("math")) q.subject = "Mathematics";
-                            else if (sub.toLowerCase().includes("bio")) q.subject = "Biology";
-                        }
-                    });
+                    // Pre-process and categorize every chapter into its respective subject immediately
+            masterDatabase.forEach(q => {
+                let sub = q.subject ? q.subject.trim() : "";
+                
+                if (!sub || sub === "Uncategorized" || sub === "General") {
+                    q.subject = determineSubject(q.chapter);
+                } else {
+                    // Standardize names
+                    if (sub.toLowerCase().includes("phys")) q.subject = "Physics";
+                    else if (sub.toLowerCase().includes("chem")) q.subject = "Chemistry";
+                    else if (sub.toLowerCase().includes("math")) q.subject = "Mathematics";
+                    // NEW: Group Botany and Zoology under Biology
+                    else if (sub.toLowerCase().match(/(bio|botany|zoology)/)) q.subject = "Biology"; 
+                }
+            });
 
                     isDatabaseLoaded = true;
                     console.log("✅ Background database loaded and subjects mapped.");
