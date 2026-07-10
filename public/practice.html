@@ -374,6 +374,73 @@
             screenFocus.style.display = 'none';
         };
 
+        window.navigateToExplorer = async (examName) => {
+            selectedTargetExam = examName;
+            document.getElementById('explorer-title').innerText = `${examName} Workspace`;
+            screenGateway.style.display = 'none';
+            screenExplorer.style.display = 'block';
+            
+            const sidebarContainer = document.getElementById('subject-sidebar-container');
+            const chapterListContainer = document.getElementById('chapter-list-container');
+            
+            // Check if the background load finished. If not, show the loader temporarily.
+            if (!isDatabaseLoaded) {
+                sidebarContainer.innerHTML = '<div style="padding: 1rem; color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-spinner fa-spin"></i> Loading Database...</div>';
+                await loadDatabaseInBackground(); // Wait for background task to complete
+            }
+            
+            sidebarContainer.innerHTML = "";
+            chapterListContainer.innerHTML = "";
+
+            try {
+                let examFilter = examName === "JEE Mains" ? "JEE Main" : "NEET UG";
+                let examQuestions = masterDatabase.filter(q => 
+                    (q.exam && q.exam.includes(examFilter)) || (q.exam && q.exam.includes(examName))
+                );
+                
+                if (examQuestions.length === 0) examQuestions = masterDatabase; 
+                
+                activeMetadata = {};
+                const defaultSubjects = examName === "JEE Mains" ? ["Physics", "Chemistry", "Mathematics"] : ["Physics", "Chemistry", "Biology"];
+                defaultSubjects.forEach(sub => activeMetadata[sub] = {});
+                
+                examQuestions.forEach(q => {
+                    // We can now trust q.subject because it was pre-processed in the background load!
+                    let sub = q.subject; 
+                    
+                    if (!activeMetadata[sub]) activeMetadata[sub] = {};
+                    
+                    const rawCh = q.chapter ? q.chapter.trim() : "Uncategorized";
+                    const displayCh = formatChapterName(rawCh);
+                    
+                    if (!activeMetadata[sub][displayCh]) {
+                        activeMetadata[sub][displayCh] = { originalSlug: rawCh, count: 0 };
+                    }
+                    activeMetadata[sub][displayCh].count++;
+                });
+                
+                const availableSubjects = Object.keys(activeMetadata);
+                
+                availableSubjects.forEach((sub, idx) => {
+                    const btn = document.createElement('button');
+                    btn.className = `sidebar-btn ${idx === 0 ? 'active' : ''}`;
+                    btn.innerHTML = `<span>${sub}</span> <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem;"></i>`;
+                    btn.onclick = () => {
+                        document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        renderChapterInventoryList(sub);
+                    };
+                    sidebarContainer.appendChild(btn);
+                });
+
+                if(availableSubjects.length > 0) renderChapterInventoryList(availableSubjects[0]);
+
+            } catch (error) { 
+                console.error(error); 
+                sidebarContainer.innerHTML = `<div style="color: var(--error-red); padding: 1rem;">${error.message}</div>`;
+            }
+        };
+
         // --- NEW: Background Loading Logic ---
         let isDatabaseLoaded = false;
         let databaseLoadPromise = null;
