@@ -197,7 +197,7 @@ window.navigateToExplorer = async function(examName) {
         // 2. Fetch data from Supabase 
         // Note: adjust the .eq() if your exam strings in the DB differ from 'JEE Mains'
         const { data, error } = await supabase
-            .from('questions')
+            .from('jee-mains')
             .select('subject, chapter')
             .eq('exam', 'JEE Main'); // Assuming 'JEE Main' is how it's saved in your DB
 

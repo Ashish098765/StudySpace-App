@@ -452,7 +452,7 @@
             databaseLoadPromise = (async () => {
                 try {
                     console.log("Initiating background database fetch...");
-                    const { data: fetchedData, error } = await supabase.from('questions').select('data');
+                    const { data: fetchedData, error } = await supabase.from('jee-mains').select('data');
                     
                     if (error) throw new Error("Failed to load from Supabase: " + error.message);
                     if (!fetchedData || fetchedData.length === 0) throw new Error("No questions found.");
