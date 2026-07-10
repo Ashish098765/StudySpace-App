@@ -175,7 +175,7 @@
         let selectedChapterId = ""; 
         let activeMetadata = null; 
         let filteredPracticeSet = [];
-        let masterDatabase = [];
+        let globalMetadata = []; 
         let isDatabaseLoaded = false;
         let databaseLoadPromise = null;
         
@@ -387,7 +387,7 @@
             const chapterListContainer = document.getElementById('chapter-list-container');
             
             if (!isDatabaseLoaded) {
-                sidebarContainer.innerHTML = '<div style="padding: 1rem; color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-spinner fa-spin"></i> Loading Database...</div>';
+                sidebarContainer.innerHTML = '<div style="padding: 1rem; color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-spinner fa-spin"></i> Loading Architecture...</div>';
                 await loadDatabaseInBackground(); 
             }
             
@@ -395,37 +395,44 @@
             chapterListContainer.innerHTML = "";
 
             try {
-                // NEW: Determine which table to filter by based on the button clicked
                 let targetTable = examName === "JEE Mains" ? "jee-main" : "neet";
                 
-                // Filter the database strictly by the table it was pulled from
-                let examQuestions = masterDatabase.filter(q => q.sourceTable === targetTable);
+                // Filter our tiny metadata list for the selected exam
+                let examMeta = globalMetadata.filter(row => row.source_table === targetTable);
                 
                 activeMetadata = {};
-                
-                // Define strict valid subjects for the chosen exam
                 const validSubjects = examName === "JEE Mains" ? ["Physics", "Chemistry", "Mathematics"] : ["Physics", "Chemistry", "Biology"];
                 validSubjects.forEach(sub => activeMetadata[sub] = {});
                 
-                examQuestions.forEach(q => {
-                    let sub = q.subject; 
+                // Re-apply your subject standardizer to the metadata rows
+                examMeta.forEach(row => {
+                    let sub = row.subject ? row.subject.trim() : "";
+                    
+                    if (!sub || sub === "Uncategorized" || sub === "General") {
+                        sub = determineSubject(row.chapter);
+                    } else {
+                        if (sub.toLowerCase().includes("phys")) sub = "Physics";
+                        else if (sub.toLowerCase().includes("chem")) sub = "Chemistry";
+                        else if (sub.toLowerCase().includes("math")) sub = "Mathematics";
+                        else if (sub.toLowerCase().match(/(bio|botany|zoology)/)) sub = "Biology"; 
+                    }
                     
                     if (validSubjects.includes(sub)) {
-                        const rawCh = q.chapter ? q.chapter.trim() : "Uncategorized";
+                        const rawCh = row.chapter ? row.chapter.trim() : "Uncategorized";
                         const displayCh = formatChapterName(rawCh);
                         
                         if (!activeMetadata[sub][displayCh]) {
                             activeMetadata[sub][displayCh] = { originalSlug: rawCh, count: 0 };
                         }
-                        activeMetadata[sub][displayCh].count++;
+                        // Add the pre-calculated count from the database view
+                        activeMetadata[sub][displayCh].count += parseInt(row.total_questions);
                     }
                 });
                 
-                // Clean up empty subjects
                 const availableSubjects = Object.keys(activeMetadata).filter(sub => Object.keys(activeMetadata[sub]).length > 0);
                 
                 if (availableSubjects.length === 0) {
-                    sidebarContainer.innerHTML = `<div style="padding: 1rem; color: var(--text-muted);">No questions found for ${examName}. Check database tags.</div>`;
+                    sidebarContainer.innerHTML = `<div style="padding: 1rem; color: var(--text-muted);">No questions found for ${examName}.</div>`;
                     return;
                 }
 
@@ -455,55 +462,24 @@
 
             databaseLoadPromise = (async () => {
                 try {
-                    console.log("Initiating background database fetch...");
+                    console.log("Fetching lightweight metadata view...");
                     
-                    const [jeeResponse, neetResponse] = await Promise.all([
-                        supabase.from('jee-main').select('data'),
-                        supabase.from('neet').select('data')
-                    ]);
+                    // 1. Fetch the tiny summary view instead of the massive tables!
+                    const { data, error } = await supabase
+                        .from('exam_chapter_metadata')
+                        .select('*');
                     
-                    if (jeeResponse.error) throw new Error("Failed to load JEE: " + jeeResponse.error.message);
-                    if (neetResponse.error) throw new Error("Failed to load NEET: " + neetResponse.error.message);
+                    if (error) throw new Error("Metadata fetch failed: " + error.message);
                     
-                    // --- THIS IS THE CRITICAL MISSING PIECE ---
-                    // We must manually tag the data so the filter knows where it came from
-                    const jeeData = (jeeResponse.data || []).map(row => {
-                        let qData = row.data;
-                        qData.sourceTable = 'jee-main';
-                        return qData;
-                    });
+                    // 2. Save it globally
+                    globalMetadata = data || [];
                     
-                    const neetData = (neetResponse.data || []).map(row => {
-                        let qData = row.data;
-                        qData.sourceTable = 'neet';
-                        return qData;
-                    });
-                    
-                    // Combine the tagged data
-                    masterDatabase = [...jeeData, ...neetData];
-                    // ------------------------------------------
-                    
-                    if (!masterDatabase || masterDatabase.length === 0) throw new Error("No questions found.");
-                    
-                    // Pre-process and categorize every chapter into its respective subject immediately
-                    // Pre-process and categorize every chapter into its respective subject immediately
-            masterDatabase.forEach(q => {
-                let sub = q.subject ? q.subject.trim() : "";
-                
-                if (!sub || sub === "Uncategorized" || sub === "General") {
-                    q.subject = determineSubject(q.chapter);
-                } else {
-                    // Standardize names
-                    if (sub.toLowerCase().includes("phys")) q.subject = "Physics";
-                    else if (sub.toLowerCase().includes("chem")) q.subject = "Chemistry";
-                    else if (sub.toLowerCase().includes("math")) q.subject = "Mathematics";
-                    // NEW: Group Botany and Zoology under Biology
-                    else if (sub.toLowerCase().match(/(bio|botany|zoology)/)) q.subject = "Biology"; 
-                }
-            });
+                    if (globalMetadata.length === 0) {
+                        console.warn("⚠️ View returned 0 rows! Check Supabase RLS policies for the view.");
+                    }
 
                     isDatabaseLoaded = true;
-                    console.log("✅ Background database loaded and subjects mapped.");
+                    console.log(`✅ Loaded metadata for ${globalMetadata.length} chapter groupings instantly.`);
                 } catch (error) {
                     console.error("Background load error:", error);
                 }
@@ -566,7 +542,6 @@
             selectedActiveSubject = subjectName;
             selectedActiveChapter = chapterSlug; 
 
-            // Use the pretty display name for the top badges
             const displayTitle = chapterDisplayName || formatChapterName(chapterSlug);
 
             document.getElementById('list-badge-subject').innerHTML = `<i class="fa-solid fa-book"></i> ${selectedActiveSubject}`;
@@ -576,13 +551,25 @@
             
             screenExplorer.style.display = 'none';
             screenList.style.display = 'block';
-            document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><br><br>Loading Question Bank...</div>';
+            
+            // Show a loading spinner because we are fetching fresh data now!
+            document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><br><br>Downloading Question Bank...</div>';
 
             try {
-                // Simplify the filter since we already mapped q.subject properly
-                let rawQuestions = masterDatabase.filter(q => {
-                    const qChap = q.chapter ? q.chapter.trim() : "Uncategorized";
-                    return q.subject === subjectName && qChap === chapterSlug;
+                // 1. Determine exactly which table to query
+                let targetTable = selectedTargetExam === "JEE Mains" ? "jee-main" : "neet";
+
+                // 2. THE LAZY LOAD: Ask Supabase for ONLY the questions in this specific chapter
+                const { data, error } = await supabase
+                    .from(targetTable)
+                    .select('data')
+                    .eq('chapter', chapterSlug);
+
+                if (error) throw error;
+
+                // 3. Ensure JSON parsing (the safeguard we built earlier)
+                let rawQuestions = (data || []).map(row => {
+                    return typeof row.data === 'string' ? JSON.parse(row.data) : row.data;
                 });
                 
                 if(rawQuestions.length === 0) {
@@ -590,13 +577,14 @@
                     return;
                 }
 
+                // 4. Map to your expected format
                 filteredPracticeSet = rawQuestions.map(q => ({
                     ...q,
                     q: q.q_en, 
                     uid: q.question_id || `${generateQuestionId(q.q_en || "")}`
                 }));
 
-                // (Keep your existing sorting logic down here...)
+                // 5. Keep your existing sorting logic exactly as it was:
                 filteredPracticeSet.sort((a, b) => {
                     const getTimestamp = (q) => {
                         const year = parseInt(q.year) || 0;
@@ -623,8 +611,8 @@
 
                 renderIndexList();
             } catch (error) {
-                console.error(error);
-                document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--error-red);">Failed to process the dataset.</div>';
+                console.error("Targeted fetch error:", error);
+                document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--error-red);">Failed to fetch the question bank from server.</div>';
             }
         };
 
