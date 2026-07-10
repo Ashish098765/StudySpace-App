@@ -194,13 +194,11 @@ window.navigateToExplorer = async function(examName) {
 
     try {
         // NEW: Dynamically determine the correct table and filter
-        const tableName = examName === 'NEET' ? 'neet' : 'jee-mains';
-        const examFilterString = examName === 'NEET' ? 'NEET UG' : 'JEE Main';
+        const tableName = examName === 'NEET' ? 'neet' : 'jee-main';
 
         const { data, error } = await supabase
             .from(tableName)
             .select('subject, chapter')
-            .eq('exam', examFilterString); 
 
         if (error) throw error;
 

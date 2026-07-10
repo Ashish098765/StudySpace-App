@@ -394,14 +394,11 @@
             chapterListContainer.innerHTML = "";
 
             try {
-                let examFilter = examName === "JEE Mains" ? "JEE Main" : "NEET UG";
+                // NEW: Determine which table to filter by based on the button clicked
+                let targetTable = examName === "JEE Mains" ? "jee-main" : "neet";
                 
-                // Filter the database
-                let examQuestions = masterDatabase.filter(q => 
-                    (q.exam && q.exam.includes(examFilter)) || (q.exam && q.exam.includes(examName))
-                );
-                
-                // REMOVED the fallback that was mixing the databases here
+                // Filter the database strictly by the table it was pulled from
+                let examQuestions = masterDatabase.filter(q => q.sourceTable === targetTable);
                 
                 activeMetadata = {};
                 
@@ -412,7 +409,6 @@
                 examQuestions.forEach(q => {
                     let sub = q.subject; 
                     
-                    // STRICT GATEKEEPER: Only map the question if it belongs to a valid subject for this exam
                     if (validSubjects.includes(sub)) {
                         const rawCh = q.chapter ? q.chapter.trim() : "Uncategorized";
                         const displayCh = formatChapterName(rawCh);
@@ -424,7 +420,7 @@
                     }
                 });
                 
-                // Clean up empty subjects (e.g., if there are 0 Biology questions, don't show the Biology tab)
+                // Clean up empty subjects
                 const availableSubjects = Object.keys(activeMetadata).filter(sub => Object.keys(activeMetadata[sub]).length > 0);
                 
                 if (availableSubjects.length === 0) {
@@ -462,7 +458,7 @@
                     
                     // NEW: Fetch from both tables concurrently
                     const [jeeResponse, neetResponse] = await Promise.all([
-                        supabase.from('jee-mains').select('data'),
+                        supabase.from('jee-main').select('data'),
                         supabase.from('neet').select('data')
                     ]);
                     
