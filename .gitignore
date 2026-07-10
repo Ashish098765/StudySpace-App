@@ -8,3 +8,5 @@ scraper.py
 jee_questions.json
 serviceAccountKey.json
 upload_to_supabase.js
+neet_questions.json
+get_chapter_list.py
