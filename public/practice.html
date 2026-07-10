@@ -363,7 +363,7 @@
             const slug = (chapterSlug || "").toLowerCase();
             if (slug.match(/(physics|kinematics|motion|energy|work|power|gravitation|thermodynamics|kinetic|oscillation|wave|electrostatics|electric|magnetic|emi|alternating|optics|dual-nature|atom|nuclei|semiconductor|communication|measurement)/)) return "Physics";
             if (slug.match(/(chemistry|atom|period|bond|state|thermo|equilibrium|redox|hydrogen|s-block|p-block|d-and-f|coordination|environment|organic|hydrocarbon|haloalkane|alcohol|aldehyde|ketone|amine|polymer|biomolecule|everyday|metallurgy)/)) return "Chemistry";
-            if (slug.match(/(math|set|relation|function|trig|algebra|quadratic|complex|matrix|matrices|determinant|permutation|combination|binomial|sequence|series|limit|continuity|differentia|derivative|integral|equation|coordinate|straight|circle|conic|vector|3d|statistics|probability|reasoning)/)) return "Mathematics";
+            if (slug.match(/(math|set|relation|function|trig|algebra|quadratic|complex|matrix|matrices|determinant|permutation|combination|binomial|sequence|series|limit|continuity|differentia|derivative|integral|equation|coordinate|straight|circle|conic|vector|3d|statistics|probability|reasoning|area|integration|ellipse|height-and-distance|)/)) return "Mathematics";
             return "Uncategorized";
         }
 
@@ -383,17 +383,16 @@
             const sidebarContainer = document.getElementById('subject-sidebar-container');
             const chapterListContainer = document.getElementById('chapter-list-container');
             
-            sidebarContainer.innerHTML = '<div style="padding: 1rem; color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-spinner fa-spin"></i> Loading Database...</div>';
+            // Check if the background load finished. If not, show the loader temporarily.
+            if (!isDatabaseLoaded) {
+                sidebarContainer.innerHTML = '<div style="padding: 1rem; color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-spinner fa-spin"></i> Loading Database...</div>';
+                await loadDatabaseInBackground(); // Wait for background task to complete
+            }
+            
+            sidebarContainer.innerHTML = "";
             chapterListContainer.innerHTML = "";
 
             try {
-                if (masterDatabase.length === 0) {
-                    const { data: fetchedData, error } = await supabase.from('questions').select('data');
-                    if (error) throw new Error("Failed to load from Supabase: " + error.message);
-                    if (!fetchedData || fetchedData.length === 0) throw new Error("No questions found in your Supabase table.");
-                    masterDatabase = fetchedData.map(row => row.data);
-                }
-                    
                 let examFilter = examName === "JEE Mains" ? "JEE Main" : "NEET UG";
                 let examQuestions = masterDatabase.filter(q => 
                     (q.exam && q.exam.includes(examFilter)) || (q.exam && q.exam.includes(examName))
@@ -406,21 +405,11 @@
                 defaultSubjects.forEach(sub => activeMetadata[sub] = {});
                 
                 examQuestions.forEach(q => {
-                    let sub = q.subject ? q.subject.trim() : "";
-                    
-                    // --- NEW: Route missing subjects based on chapter name ---
-                    if (!sub || sub === "Uncategorized" || sub === "General") {
-                        sub = determineSubject(q.chapter);
-                    } else {
-                        if (sub.toLowerCase().includes("phys")) sub = "Physics";
-                        else if (sub.toLowerCase().includes("chem")) sub = "Chemistry";
-                        else if (sub.toLowerCase().includes("math")) sub = "Mathematics";
-                        else if (sub.toLowerCase().includes("bio")) sub = "Biology";
-                    }
+                    // We can now trust q.subject because it was pre-processed in the background load!
+                    let sub = q.subject; 
                     
                     if (!activeMetadata[sub]) activeMetadata[sub] = {};
                     
-                    // --- NEW: Format chapter name for display ---
                     const rawCh = q.chapter ? q.chapter.trim() : "Uncategorized";
                     const displayCh = formatChapterName(rawCh);
                     
@@ -430,7 +419,6 @@
                     activeMetadata[sub][displayCh].count++;
                 });
                 
-                sidebarContainer.innerHTML = "";
                 const availableSubjects = Object.keys(activeMetadata);
                 
                 availableSubjects.forEach((sub, idx) => {
@@ -452,6 +440,52 @@
                 sidebarContainer.innerHTML = `<div style="color: var(--error-red); padding: 1rem;">${error.message}</div>`;
             }
         };
+
+        // --- NEW: Background Loading Logic ---
+        let isDatabaseLoaded = false;
+        let databaseLoadPromise = null;
+
+        async function loadDatabaseInBackground() {
+            if (isDatabaseLoaded) return;
+            if (databaseLoadPromise) return databaseLoadPromise;
+
+            databaseLoadPromise = (async () => {
+                try {
+                    console.log("Initiating background database fetch...");
+                    const { data: fetchedData, error } = await supabase.from('questions').select('data');
+                    
+                    if (error) throw new Error("Failed to load from Supabase: " + error.message);
+                    if (!fetchedData || fetchedData.length === 0) throw new Error("No questions found.");
+                    
+                    masterDatabase = fetchedData.map(row => row.data);
+                    
+                    // Pre-process and categorize every chapter into its respective subject immediately
+                    masterDatabase.forEach(q => {
+                        let sub = q.subject ? q.subject.trim() : "";
+                        
+                        if (!sub || sub === "Uncategorized" || sub === "General") {
+                            q.subject = determineSubject(q.chapter);
+                        } else {
+                            // Standardize names
+                            if (sub.toLowerCase().includes("phys")) q.subject = "Physics";
+                            else if (sub.toLowerCase().includes("chem")) q.subject = "Chemistry";
+                            else if (sub.toLowerCase().includes("math")) q.subject = "Mathematics";
+                            else if (sub.toLowerCase().includes("bio")) q.subject = "Biology";
+                        }
+                    });
+
+                    isDatabaseLoaded = true;
+                    console.log("✅ Background database loaded and subjects mapped.");
+                } catch (error) {
+                    console.error("Background load error:", error);
+                }
+            })();
+
+            return databaseLoadPromise;
+        }
+
+        // Trigger the background load immediately when the script runs
+        loadDatabaseInBackground();
 
         function renderChapterInventoryList(subjectName) {
             selectedActiveSubject = subjectName;
@@ -517,17 +551,10 @@
             document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><br><br>Loading Question Bank...</div>';
 
             try {
+                // Simplify the filter since we already mapped q.subject properly
                 let rawQuestions = masterDatabase.filter(q => {
-                    let qSub = q.subject ? q.subject.trim() : "";
-                    if (!qSub || qSub === "Uncategorized" || qSub === "General") qSub = determineSubject(q.chapter);
-                    else if (qSub.toLowerCase().includes("phys")) qSub = "Physics";
-                    else if (qSub.toLowerCase().includes("chem")) qSub = "Chemistry";
-                    else if (qSub.toLowerCase().includes("math")) qSub = "Mathematics";
-                    else if (qSub.toLowerCase().includes("bio")) qSub = "Biology";
-                    
                     const qChap = q.chapter ? q.chapter.trim() : "Uncategorized";
-                    
-                    return qSub === subjectName && qChap === chapterSlug;
+                    return q.subject === subjectName && qChap === chapterSlug;
                 });
                 
                 if(rawQuestions.length === 0) {
