@@ -176,6 +176,8 @@
         let activeMetadata = null; 
         let filteredPracticeSet = [];
         let masterDatabase = [];
+        let isDatabaseLoaded = false;
+        let databaseLoadPromise = null;
         
         let currentFocusIndex = 0;
         let selectedOptionIndex = null;
