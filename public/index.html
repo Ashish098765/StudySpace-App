@@ -24,7 +24,7 @@
             StudySpace
         </a>
         <div class="nav-actions">
-            <button id="nav-login-btn" class="btn-login" onclick="window.location.href='/login.html'">Log In</button>
+            <button id="nav-login-btn" class="btn-login" onclick="window.location.href='/login'">Log In</button>
             
             <div id="user-profile-container" style="display: none;">
                 <img id="user-avatar" class="profile-avatar" src="" alt="Avatar">
@@ -68,7 +68,7 @@
                     <button class="dropdown-item" onclick="createPrivateRoom()"><i class="fa-solid fa-plus"></i> Create new room</button>
                     <button class="dropdown-item" onclick="joinPrivateRoom()"><i class="fa-solid fa-arrow-right-to-bracket"></i> Join private room</button>
                     <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 4px 0;"></div>
-                    <button class="dropdown-item" onclick="window.location.href='/room.html?id=public-general'"><i class="fa-solid fa-globe"></i> Join public lobby</button>
+                    <button class="dropdown-item" onclick="window.location.href='/room?id=public-general'"><i class="fa-solid fa-globe"></i> Join public lobby</button>
                 </div>
             </div>
         </header>
@@ -82,21 +82,21 @@
                         <h4><i class="fa-solid fa-mug-hot" style="color: var(--gold); margin-right: 8px;"></i> General Lounge</h4>
                         <p style="font-size: 0.8rem; color: var(--text-muted);">Open to everyone. Mic off, Cam on.</p>
                     </div>
-                    <button class="btn-join" onclick="window.location.href='/room.html?id=public-general'">Join</button>
+                    <button class="btn-join" onclick="window.location.href='/room?id=public-general'">Join</button>
                 </div>
                 <div class="list-item">
                     <div>
                         <h4><i class="fa-solid fa-clock" style="color: var(--danger); margin-right: 8px;"></i> Pomodoro Focus</h4>
                         <p style="font-size: 0.8rem; color: var(--text-muted);">Strict 50/10 study timers.</p>
                     </div>
-                    <button class="btn-join" onclick="window.location.href='/room.html?id=public-pomodoro'">Join</button>
+                    <button class="btn-join" onclick="window.location.href='/room?id=public-pomodoro'">Join</button>
                 </div>
                 <div class="list-item">
                     <div>
                         <h4><i class="fa-solid fa-headphones" style="color: var(--accent); margin-right: 8px;"></i> Quiet Reading</h4>
                         <p style="font-size: 0.8rem; color: var(--text-muted);">Deep focus. No chatting allowed.</p>
                     </div>
-                    <button class="btn-join" onclick="window.location.href='/room.html?id=public-quiet'">Join</button>
+                    <button class="btn-join" onclick="window.location.href='/room?id=public-quiet'">Join</button>
                 </div>
             </div>
 
@@ -111,7 +111,7 @@
         </section>
 
         <section class="feature-grid">
-            <a href="/practice.html" class="feature-card">
+            <a href="/practice" class="feature-card">
                 <div>
                     <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
                     <h3>Question Bank</h3>
@@ -154,7 +154,7 @@
                     <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">
                         Earn house points, brew focus streaks, and track metrics on your live Marauder's Map dashboard.
                     </p>
-                    <button class="btn-join" onclick="window.location.href='themes/harry_potter/hogwarts.html'" style="width: 100%; text-align: center; justify-content: center; background: linear-gradient(135deg, #c5a059, #dfc27d); color: #0a111e; border: none; font-weight: 600; margin-top: 0.5rem;">
+                    <button class="btn-join" onclick="window.location.href='themes/harry_potter/hogwarts'" style="width: 100%; text-align: center; justify-content: center; background: linear-gradient(135deg, #c5a059, #dfc27d); color: #0a111e; border: none; font-weight: 600; margin-top: 0.5rem;">
                         Enter Hogwarts <i class="fa-solid fa-wand-sparkles" style="margin-left: 6px; font-size: 0.85rem;"></i>
                     </button>
                 </div>
