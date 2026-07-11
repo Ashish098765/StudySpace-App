@@ -547,8 +547,8 @@ function getCleanPreview(text) {
     // 1. Remove image markdown tokens completely [IMG: ...]
     cleanText = cleanText.replace(/\[IMG:\s*([^\]]+)\]/g, '');
 
-    // 2. Remove all MathJax/LaTeX blocks entirely from the preview text
-    cleanText = cleanText.replace(/(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\$[\s\S]*?\$|\\\([\s\S]*?\\\))/g, '[Math]');
+    // 2. Remove all MathJax/LaTeX blocks completely WITHOUT the [Math] placeholder
+    cleanText = cleanText.replace(/(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\$[\s\S]*?\$|\\\([\s\S]*?\\\))/g, ' ');
 
     // 3. Strip out any raw HTML tags (like <div>, <img>, etc.) so they don't leak out
     cleanText = cleanText.replace(/<[^>]*>/g, '');
