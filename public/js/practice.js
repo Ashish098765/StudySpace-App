@@ -541,16 +541,24 @@ window.returnToList = () => {
 };
 
 function getCleanPreview(text) {
-    let cleanText = String(text || "").replace(/\s+/g, ' ').trim();
-    cleanText = cleanText.replace(/<br\s*\/?>/gi, ' ');
-    cleanText = cleanText.replace(/<\/?(p|div)>/gi, ' ');
-    cleanText = cleanText.replace(/\$\$/g, '$');
-    cleanText = cleanText.replace(/\\\[/g, '\\(');
-    cleanText = cleanText.replace(/\\\]/g, '\\)');
+    if (!text) return "";
+    let cleanText = String(text);
+
+    // 1. Remove image markdown tokens completely [IMG: ...]
+    cleanText = cleanText.replace(/\[IMG:\s*([^\]]+)\]/g, '');
+
+    // 2. Remove all MathJax/LaTeX blocks entirely from the preview text
+    cleanText = cleanText.replace(/(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\$[\s\S]*?\$|\\\([\s\S]*?\\\))/g, '[Math]');
+
+    // 3. Strip out any raw HTML tags (like <div>, <img>, etc.) so they don't leak out
+    cleanText = cleanText.replace(/<[^>]*>/g, '');
+
+    // 4. Clean up whitespace and newlines
     cleanText = cleanText.replace(/\s+/g, ' ').trim();
     
-    if (cleanText.length > 200) {
-        cleanText = cleanText.substring(0, 200) + '...';
+    // 5. Safely truncate the clean, plain text string
+    if (cleanText.length > 160) {
+        cleanText = cleanText.substring(0, 160) + '...';
     }
     
     return cleanText;
@@ -582,13 +590,17 @@ function renderIndexList() {
         const rowHtml = `
             <div class="index-row" onclick="openFocusQuestion(${index})">
                 <div class="index-q-wrapper">
-                    <div class="index-q-text"><span style="color:#818cf8; font-weight:700;">Q${index + 1}.</span> ${getCleanPreview(q.q)}</div>
+                    <div class="index-q-text">
+                        <span style="color:#818cf8; font-weight:700; margin-right: 4px;">Q${index + 1}.</span>${getCleanPreview(q.q)}
+                    </div>
                     <div style="font-size: 0.8rem; color: var(--text-tertiary); margin-top: 10px; display: flex; gap: 12px; align-items: center; font-weight: 500;">
                         <span style="color: var(--gold); background: rgba(251, 191, 36, 0.1); padding: 3px 8px; border-radius: 6px; border: 1px solid rgba(251, 191, 36, 0.2);"><i class="fa-regular fa-calendar"></i> ${fullDateStr}</span>
                         ${shiftBadgeHtml}
                     </div>
                 </div>
-                ${badgeHtml}
+                <div class="index-status-wrapper">
+                    ${badgeHtml}
+                </div>
             </div>
         `;
         container.insertAdjacentHTML('beforeend', rowHtml);

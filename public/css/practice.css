@@ -124,10 +124,35 @@ nav {
 .tag-chapter { background: rgba(255,255,255,0.05); color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); }
 
 .index-list-container { display: flex; flex-direction: column; gap: 0.8rem; }
-.index-row { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255,255,255,0.03); border-radius: 16px; padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s ease; gap: 1rem; }
+.index-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
 .index-row:hover { border-color: var(--border-hover); background: rgba(255,255,255,0.02); transform: translateX(4px); }
-.index-q-wrapper { flex: 1; min-width: 0; }
-.index-q-text { font-weight: 500; font-size: 1rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; white-space: normal; color: var(--text-main); }
+.index-q-wrapper {
+    flex: 1; /* Automatically stretches to take up all available room on the left */
+    min-width: 0; /* Prevents text overflow elements from pushing out the card wide */
+}
+.index-q-text {
+    color: var(--text-main, #ffffff);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    word-break: break-word;
+}
+.index-status-wrapper {
+    flex-shrink: 0; /* Ensures the badge wrapper never squishes down or wraps */
+    display: flex;
+    align-items: center;
+}
 
 .status-badge { flex-shrink: 0; font-size: 0.75rem; font-weight: 700; padding: 0.4rem 1rem; border-radius: 99px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
 .badge-pending { background: rgba(255, 255, 255, 0.05); color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.1); }
