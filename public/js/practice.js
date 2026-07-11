@@ -896,6 +896,17 @@ async function updateFirebaseProgress(questionUid, isCorrect) {
     localStorage.setItem('studySpace_correctIds', JSON.stringify(correctIds));
     localStorage.setItem('studySpace_wrongIds', JSON.stringify(wrongIds));
 
+    // --- ADD THIS BLOCK FOR HOGWARTS DASHBOARD SYNC ---
+    let pendingCorrect = parseInt(localStorage.getItem("hp_pending_correct") || 0);
+    let pendingIncorrect = parseInt(localStorage.getItem("hp_pending_incorrect") || 0);
+
+    if (isCorrect) {
+        localStorage.setItem("hp_pending_correct", pendingCorrect + 1);
+    } else {
+        localStorage.setItem("hp_pending_incorrect", pendingIncorrect + 1);
+    }
+    // --------------------------------------------------
+
     if(!currentUser) return; 
     const xpGain = isCorrect ? 8 : -2;
 

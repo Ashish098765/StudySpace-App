@@ -1,3 +1,4 @@
+// --- 1. FIREBASE CONFIGURATION & INITIALIZATION ---
 const firebaseConfig = {
     apiKey: "AIzaSyB57PcjYtWktsOGKFLQmWX-Nc6HtYeZxp8",
     authDomain: "studyspace-f6e22.firebaseapp.com",
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         name: "Mischief Managed!",
         coins: 0,
         streak: 0,
+        lastActiveDate: null, // Used to track consecutive daily logins
         questionsSolved: 0,
         questionsAttempted: 0, 
         studyMinutes: 0, 
@@ -38,13 +40,73 @@ document.addEventListener("DOMContentLoaded", () => {
     const houseListEl = document.querySelector(".house-list");
     const loginBtn = document.querySelector(".btn-login-toggle");
     
-    // New Target Interface Selectors
     const userNameEl = document.getElementById("user-display-name");
     const houseNameEl = document.getElementById("user-house-name");
     const houseCrestEl = document.getElementById("user-house-crest");
 
     let studyTimer = null;
     let isStudying = false;
+
+    // --- 2. CORE LOGIC FUNCTIONS ---
+
+    function calculateDailyStreak() {
+        let changed = false;
+        // Get today's date in YYYY-MM-DD format based on local time
+        const today = new Date().toLocaleDateString('en-CA'); 
+        
+        if (userData.lastActiveDate !== today) {
+            if (userData.lastActiveDate) {
+                const lastDate = new Date(userData.lastActiveDate);
+                const currDate = new Date(today);
+                // Calculate difference in days
+                const diffTime = Math.abs(currDate - lastDate);
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+
+                if (diffDays === 1) {
+                    userData.streak += 1; // Logged in exactly the next day
+                } else if (diffDays > 1) {
+                    userData.streak = 1; // Streak broken, reset to 1
+                }
+            } else {
+                userData.streak = 1; // First time logging in
+            }
+            userData.lastActiveDate = today;
+            changed = true;
+        }
+        return changed;
+    }
+
+    function syncCrossPageData() {
+        let changed = false;
+        
+        // Retrieve pending metrics submitted by practice.html or room.html
+        const pendingCorrect = parseInt(localStorage.getItem("hp_pending_correct") || 0);
+        const pendingIncorrect = parseInt(localStorage.getItem("hp_pending_incorrect") || 0);
+        const pendingMins = parseInt(localStorage.getItem("hp_pending_minutes") || 0);
+
+        if (pendingCorrect > 0 || pendingIncorrect > 0 || pendingMins > 0) {
+            // Apply Accuracy Logic
+            userData.questionsSolved += pendingCorrect;
+            userData.questionsAttempted += (pendingCorrect + pendingIncorrect);
+            
+            // Apply Coin Logic: (+8 for correct, -2 for incorrect, cap at 0 minimum)
+            const earnedCoins = (pendingCorrect * 8) - (pendingIncorrect * 2);
+            userData.coins = Math.max(0, userData.coins + earnedCoins);
+            
+            // Apply Study Time Logic
+            userData.studyMinutes += pendingMins;
+
+            // Clear the local cache so we don't double-count
+            localStorage.removeItem("hp_pending_correct");
+            localStorage.removeItem("hp_pending_incorrect");
+            localStorage.removeItem("hp_pending_minutes");
+            
+            changed = true;
+        }
+        return changed;
+    }
+
+    // --- 3. DATABASE SYNC & INITIALIZATION ---
 
     async function initializeUserDashboard() {
         if (loginBtn) {
@@ -73,6 +135,15 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 await userRef.set(userData);
             }
+
+            // Check for cross-page updates and daily streak progression
+            const streakUpdated = calculateDailyStreak();
+            const externalDataUpdated = syncCrossPageData();
+
+            if (streakUpdated || externalDataUpdated) {
+                await syncDataToFirebase();
+            }
+
             renderDashboard();
         } catch (error) {
             console.error("Error connecting to Firestore: ", error);
@@ -94,6 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const cachedScores = localStorage.getItem("house_scores_data");
         const oneHour = 60 * 60 * 1000;
 
+        // Uses a 1-hour cache buffer to reduce server load as requested
         if (lastCheck && cachedScores && (Date.now() - lastCheck < oneHour)) {
             renderHouseCup(JSON.parse(cachedScores));
             return;
@@ -106,6 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
             snapshot.forEach(doc => {
                 const data = doc.data();
                 if (data.house && aggregates[data.house] !== undefined) {
+                    // This dynamically captures the +/- coin changes from all users
                     aggregates[data.house] += (data.coins || 0); 
                 }
             });
@@ -119,12 +192,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // --- 4. RENDER UI ---
+
     function renderDashboard() {
         if (coinCountEl) coinCountEl.innerText = userData.coins;
         if (streakEl) streakEl.innerHTML = `<i class="fa-solid fa-fire-flame-curved"></i> ${userData.streak}`;
         if (solvedEl) solvedEl.innerHTML = `<i class="fa-regular fa-compass"></i> ${userData.questionsSolved}`;
         
-        // Dynamically compute profile strings
         if (userNameEl) userNameEl.innerText = userData.name || "Wizard";
         if (houseNameEl) houseNameEl.innerText = userData.house || "Ravenclaw";
         if (houseCrestEl && userData.house) {
@@ -132,6 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
             houseCrestEl.alt = `${userData.house} Crest`;
         }
 
+        // Accuracy Equation: (Correct / Attempted) * 100
         const accuracyRate = userData.questionsAttempted > 0 
             ? Math.round((userData.questionsSolved / userData.questionsAttempted) * 100) 
             : 0;
@@ -165,6 +240,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // --- 5. EVENT LISTENERS ---
+
     if (startStudyBtn) {
         startStudyBtn.addEventListener("click", () => {
             if (!isStudying) {
@@ -174,9 +251,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 studyTimer = setInterval(() => {
                     userData.studyMinutes += 1;
-                    userData.coins += 1; 
+                    userData.coins += 1; // Keep 1 coin per minute studied as a base reward
                     renderDashboard();
-                }, 5000);
+                }, 60000); // Swapped to real 60-second intervals for actual minute tracking
             } else {
                 clearInterval(studyTimer);
                 isStudying = false;

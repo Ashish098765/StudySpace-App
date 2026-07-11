@@ -369,6 +369,15 @@ chatInput.addEventListener('keypress', (e) => {
 // --- 7. XP TRACKING ---
 // FIXED: Switched to 'pagehide' and removed async to prevent the "Leave site?" popup
 window.addEventListener('pagehide', () => {
+    
+    // --- ADD THIS BLOCK FOR HOGWARTS DASHBOARD SYNC ---
+    if (secondsSpent >= 60) {
+        let minutesSpent = Math.floor(secondsSpent / 60);
+        let pendingMins = parseInt(localStorage.getItem("hp_pending_minutes") || 0);
+        localStorage.setItem("hp_pending_minutes", pendingMins + minutesSpent);
+    }
+    // --------------------------------------------------
+
     const user = window.auth?.currentUser;
     if (user && secondsSpent >= 60) {
         const xpEarned = Math.floor(secondsSpent / 60) * 10;
