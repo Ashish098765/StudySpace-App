@@ -233,6 +233,64 @@ window.navigateToGateway = () => {
     screenList.style.display = 'none';
     screenFocus.style.display = 'none';
 };
+const EXAM_CONFIG = {
+    "JEE Mains": {
+        table: "jee-main",
+        subjects: ["Physics", "Chemistry", "Mathematics"]
+    },
+    "NEET": {
+        table: "neet",
+        subjects: ["Physics", "Chemistry", "Biology"]
+    },
+    "JEE Advanced": {
+        table: "jee-advanced", // Maps to the table name in Supabase
+        subjects: ["Physics", "Chemistry", "Mathematics"]
+    },
+    "BITSAT": {
+        table: "bitsat", // Maps to the table name in Supabase
+        subjects: ["Physics", "Chemistry", "Mathematics", "English", "Logical Reasoning"]
+    },
+    "BITSAT": {
+        table: "bitsat", // Maps to the table name in Supabase
+        subjects: ["Physics", "Chemistry", "Mathematics", "English", "Logical Reasoning"]
+    },
+    "BITSAT": {
+        table: "bitsat", // Maps to the table name in Supabase
+        subjects: ["Physics", "Chemistry", "Mathematics", "English", "Logical Reasoning"]
+    },
+    "BITSAT": {
+        table: "bitsat", // Maps to the table name in Supabase
+        subjects: ["Physics", "Chemistry", "Mathematics", "English", "Logical Reasoning"]
+    },
+    "BITSAT": {
+        table: "bitsat", // Maps to the table name in Supabase
+        subjects: ["Physics", "Chemistry", "Mathematics", "English", "Logical Reasoning"]
+    },
+    "BITSAT": {
+        table: "bitsat", // Maps to the table name in Supabase
+        subjects: ["Physics", "Chemistry", "Mathematics", "English", "Logical Reasoning"]
+    },
+    "BITSAT": {
+        table: "bitsat", // Maps to the table name in Supabase
+        subjects: ["Physics", "Chemistry", "Mathematics", "English", "Logical Reasoning"]
+    },
+    "BITSAT": {
+        table: "bitsat", // Maps to the table name in Supabase
+        subjects: ["Physics", "Chemistry", "Mathematics", "English", "Logical Reasoning"]
+    },
+    "BITSAT": {
+        table: "bitsat", // Maps to the table name in Supabase
+        subjects: ["Physics", "Chemistry", "Mathematics", "English", "Logical Reasoning"]
+    },
+    "BITSAT": {
+        table: "bitsat", // Maps to the table name in Supabase
+        subjects: ["Physics", "Chemistry", "Mathematics", "English", "Logical Reasoning"]
+    },
+    "BITSAT": {
+        table: "bitsat", // Maps to the table name in Supabase
+        subjects: ["Physics", "Chemistry", "Mathematics", "English", "Logical Reasoning"]
+    },
+};
 
 window.navigateToExplorer = async (examName) => {
     selectedTargetExam = examName;
@@ -252,11 +310,15 @@ window.navigateToExplorer = async (examName) => {
     chapterListContainer.innerHTML = "";
 
     try {
-        let targetTable = examName === "JEE Mains" ? "jee-main" : "neet";
+        // 1. Get the exam configuration or fallback to empty defaults
+        const config = EXAM_CONFIG[examName] || { table: examName.toLowerCase().replace(/\s+/g, '-'), subjects: [] };
+        
+        let targetTable = config.table;
+        let validSubjects = config.subjects;
+
         let examMeta = globalMetadata.filter(row => row.source_table === targetTable);
         
         activeMetadata = {};
-        const validSubjects = examName === "JEE Mains" ? ["Physics", "Chemistry", "Mathematics"] : ["Physics", "Chemistry", "Biology"];
         validSubjects.forEach(sub => activeMetadata[sub] = {});
         
         examMeta.forEach(row => {
@@ -265,16 +327,21 @@ window.navigateToExplorer = async (examName) => {
             if (!sub || sub === "Uncategorized" || sub === "General") {
                 sub = determineSubject(row.chapter);
             } else {
+                // Normalize common subjects
                 if (sub.toLowerCase().includes("phys")) sub = "Physics";
                 else if (sub.toLowerCase().includes("chem")) sub = "Chemistry";
                 else if (sub.toLowerCase().includes("math")) sub = "Mathematics";
                 else if (sub.toLowerCase().match(/(bio|botany|zoology)/)) sub = "Biology"; 
+                // Add specific routing for non-science subjects if needed
+                else if (sub.toLowerCase().includes("english")) sub = "English";
+                else if (sub.toLowerCase().includes("reasoning")) sub = "Logical Reasoning";
             }
             
             if (validSubjects.includes(sub)) {
                 const rawCh = row.chapter ? row.chapter.trim() : "Uncategorized";
                 const displayCh = formatChapterName(rawCh);
                 
+                // Metadata format remains strictly unchanged
                 if (!activeMetadata[sub][displayCh]) {
                     activeMetadata[sub][displayCh] = { originalSlug: rawCh, count: 0 };
                 }
@@ -402,7 +469,12 @@ window.launchSession = async (subjectName, chapterSlug, chapterDisplayName) => {
     document.getElementById('index-list-container').innerHTML = '<div style="text-align:center; padding: 4rem; color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><br><br>Downloading Question Bank...</div>';
 
     try {
-        let targetTable = selectedTargetExam === "JEE Mains" ? "jee-main" : "neet";
+        // DYNAMIC ROUTING: Uses the EXAM_CONFIG object instead of if/else
+        let targetTable = EXAM_CONFIG[selectedTargetExam]?.table;
+        
+        if (!targetTable) {
+            throw new Error(`Table mapping not found for exam: ${selectedTargetExam}`);
+        }
 
         const { data, error } = await supabase
             .from(targetTable)
