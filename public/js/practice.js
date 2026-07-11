@@ -254,10 +254,6 @@ const EXAM_CONFIG = {
         table: "bitsat", // Maps to the table name in Supabase
         subjects: ["Physics", "Chemistry", "Mathematics", "English", "Logical Reasoning"]
     },
-    "BITSAT": {
-        table: "bitsat", // Maps to the table name in Supabase
-        subjects: ["Physics", "Chemistry", "Mathematics", "English", "Logical Reasoning"]
-    },
     "COMEDK": {
         table: "comedk", // Maps to the table name in Supabase
         subjects: ["Physics", "Chemistry", "Mathematics"]
