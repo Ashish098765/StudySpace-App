@@ -96,3 +96,77 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+// --- 4. GOOGLE AUTHENTICATION EXTENSION ---
+// Create the Google Provider instance
+const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+// Explicitly attach the function to the global window scope so the HTML can see it
+window.loginWithGoogle = async function() {
+    const googleBtn = document.getElementById("google-login-btn");
+    const originalText = googleBtn.innerHTML;
+    
+    googleBtn.innerHTML = `Summoning Google... <i class="fa-solid fa-spinner fa-spin"></i>`;
+    googleBtn.disabled = true;
+
+    try {
+        // Trigger the Firebase Pop-up auth flow
+        const result = await firebase.auth().signInWithPopup(googleProvider);
+        const user = result.user;
+        
+        if (!user.email) {
+            throw new Error("Could not retrieve email from Google Account.");
+        }
+
+        // Check if this Google user already has a wizard profile document
+        // We use their email as a unique identifier link
+        const userSnapshot = await db.collection("users")
+            .where("email", "==", user.email.toLowerCase())
+            .limit(1)
+            .get();
+
+        let targetedUsername = "";
+
+        if (!userSnapshot.empty) {
+            // User exists -> Log them in directly
+            userSnapshot.forEach(doc => {
+                targetedUsername = doc.id;
+            });
+        } else {
+            // New User -> Auto-generate a unique Discord-style tag and pick a random House
+            const prefix = user.email.split('@')[0].replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+            const discriminator = Math.floor(1000 + Math.random() * 9000);
+            const generatedHandle = `${prefix}#${discriminator}`;
+            
+            const houses = ["Gryffindor", "Ravenclaw", "Hufflepuff", "Slytherin"];
+            const selectedHouse = houses[Math.floor(Math.random() * houses.length)];
+
+            const baseWizardData = {
+                name: user.displayName || user.email.split('@')[0],
+                email: user.email.toLowerCase(),
+                coins: 0,
+                streak: 0,
+                questionsSolved: 0,
+                questionsAttempted: 0,
+                studyMinutes: 0,
+                house: selectedHouse,
+                questProgress: 0,
+                questTotal: 20
+            };
+
+            await db.collection("users").doc(generatedHandle).set(baseWizardData);
+            targetedUsername = generatedHandle;
+        }
+
+        // Save layout token identity details and route back home
+        localStorage.setItem("hogwarts_user", targetedUsername);
+        window.location.href = "hogwarts.html";
+
+    } catch (error) {
+        console.error("Google Authentication Exception:", error);
+        alert("Google Login failed: " + error.message);
+        
+        // Reset button state on failure
+        googleBtn.innerHTML = originalText;
+        googleBtn.disabled = false;
+    }
+};
