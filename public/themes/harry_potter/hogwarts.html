@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hogwarts Study Dashboard</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- Base & Variables --- */
+        :root {
+            --gold: #c5a059;
+            --gold-light: #dfc27d;
+            --dark-blue: #0a111e;
+            --dark-blue-hover: #162238;
+            --text-dark: #2a2418;
+            --text-muted: #6b5f48;
+            --font-main: 'EB Garamond', serif;
+            --card-bg: rgba(253, 248, 237, 0.55);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            height: 100vh;
+            display: flex;
+            background-color: var(--dark-blue); 
+            overflow: hidden;
+        }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            width: 280px; 
+            background-image: url('https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/sidebar_bg.png');
+            background-color: var(--dark-blue);
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid rgba(197, 160, 89, 0.4);
+            position: relative;
+            z-index: 10;
+            padding-bottom: 20px;
+        }
+
+        .logo-container {
+            padding: 35px 20px 15px;
+            text-align: center;
+        }
+
+        .logo-container img {
+            width: 150px; /* Increased Main Logo Size */
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.6));
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+            flex-grow: 1;
+        }
+
+        nav li {
+            margin-bottom: 6px;
+            padding: 0 15px;
+        }
+
+        nav a {
+            display: flex;
+            align-items: center;
+            padding: 14px 22px;
+            color: #9c917a;
+            text-decoration: none;
+            font-size: 19px;
+            font-weight: 500;
+            border-radius: 6px; 
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            position: relative;
+        }
+
+        nav a i {
+            margin-right: 18px;
+            width: 20px;
+            text-align: center;
+            font-size: 17px;
+            color: #7a6e55;
+        }
+
+        nav a:hover {
+            color: #fff;
+            background-color: rgba(255,255,255,0.05);
+        }
+        nav a:hover i {
+            color: var(--gold-light);
+        }
+
+        /* Active Nav Link with Ornate Borders */
+        nav li.active a {
+            background-color: var(--dark-blue-hover);
+            color: var(--gold-light);
+            border: 1px solid var(--gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        nav li.active a i {
+            color: var(--gold-light);
+        }
+
+        /* Corner classes exclusively for the active nav button */
+        .nav-corner {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: url('https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/border.png') center/contain no-repeat;
+            /* Filter converts dark border.png into metallic gold to show on dark blue */
+            filter: invert(72%) sepia(35%) saturate(545%) hue-rotate(354deg) brightness(93%) contrast(88%);
+            pointer-events: none;
+        }
+        .nav-tl { top: 0px; left: 0px; }
+        .nav-tr { top: 0px; right: 0px; transform: scaleX(-1); }
+        .nav-bl { bottom: 0px; left: 0px; transform: scaleY(-1); }
+        .nav-br { bottom: 0px; right: 0px; transform: scale(-1, -1); }
+
+        .expecto-focus {
+            padding: 0 25px;
+            color: var(--gold-light);
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            flex-grow: 1;
+            background: url('https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/bg.png') center/cover no-repeat;
+            background-color: #fdf5e6;
+            padding: 35px 45px; 
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        /* --- Header --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .welcome-text h2 {
+            font-weight: 500;
+            font-size: 21px;
+            color: var(--text-dark);
+            margin-bottom: -2px;
+        }
+
+        .welcome-text h1 {
+            font-size: 52px; 
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+            letter-spacing: 0px;
+        }
+
+        .welcome-text p {
+            color: var(--text-muted);
+            font-size: 17px;
+            font-style: italic;
+        }
+
+        .user-controls {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            position: relative;
+            z-index: 5;
+            margin-top: 10px;
+        }
+
+        .coin-balance {
+            display: flex;
+            align-items: center;
+            background: rgba(197, 160, 89, 0.15); 
+            padding: 7px 18px;
+            border-radius: 30px;
+            border: 1px solid rgba(197, 160, 89, 0.6);
+            font-weight: 600;
+            font-size: 20px;
+            gap: 12px;
+        }
+
+        .coin-balance img {
+            width: 42px; /* Increased Coin Size */
+            mix-blend-mode: multiply !important;
+            background-color: transparent !important;
+        }
+
+        .user-level {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: right;
+        }
+
+        .user-level-text h3 {
+            font-size: 21px;
+            font-weight: 600;
+            margin-bottom: -4px;
+        }
+        
+        .user-level-text p {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        .user-level img {
+            width: 95px; /* Increased Profile Crest Size */
+            mix-blend-mode: multiply !important;
+            background-color: transparent !important;
+        }
+
+        /* --- Owl --- */
+        .header-owl {
+            position: absolute;
+            right: 0px;
+            top: 175px; /* Adjusted slightly up to account for larger size */
+            width: 320px; /* Greatly Increased Owl Size */
+            z-index: 10;
+            mix-blend-mode: multiply;
+            filter: drop-shadow(5px 5px 8px rgba(0,0,0,0.4)) contrast(1.1); 
+            pointer-events: none;
+        }
+
+        /* --- border.png Corner Logic --- */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            border-radius: 4px;
+            padding: 22px 25px;
+            position: relative;
+        }
+
+        .card-corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/border.png') center/contain no-repeat;
+            mix-blend-mode: multiply;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .corner-tl { top: -2px; left: -2px; }
+        .corner-tr { top: -2px; right: -2px; transform: scaleX(-1); }
+        .corner-bl { bottom: -2px; left: -2px; transform: scaleY(-1); }
+        .corner-br { bottom: -2px; right: -2px; transform: scale(-1, -1); }
+
+        /* --- Stats Row --- */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 86%; 
+            margin-top: 5px;
+        }
+
+        .stat-card {
+            padding: 18px 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat-card h4 {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-card h4 i { font-size: 10px; color: var(--gold); margin-left: 4px; }
+
+        .stat-value {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 46px; 
+            font-weight: 500;
+            margin-bottom: 2px;
+            color: var(--text-dark);
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-value i { font-size: 26px; color: var(--gold); }
+        .stat-card:last-child .stat-value i { color: #b33939; }
+        .stat-card p { font-size: 15px; color: var(--text-muted); font-style: italic; position: relative; z-index: 2;}
+
+        /* --- Main Grid Layout --- */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.75fr 1fr; 
+            gap: 20px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            padding-bottom: 10px;
+            color: var(--text-dark);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Today's Plan */
+        .task-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .task-list li { display: flex; align-items: center; justify-content: space-between; }
+        .task-info { display: flex; align-items: center; gap: 15px; }
+        .task-icon {
+            width: 26px; height: 26px;
+            background: var(--dark-blue);
+            color: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .task-text h4 { font-size: 16.5px; color: var(--text-dark); font-weight: 600; }
+        .task-text p { font-size: 13px; color: var(--text-muted); margin-top: 1px; }
+        .task-status.done i { color: #1f5c33; font-size: 20px; }
+        .task-status.pending { width: 18px; height: 18px; border: 1px solid #9c917a; border-radius: 50%; }
+
+        .btn-primary {
+            background: var(--dark-blue);
+            color: var(--gold-light);
+            border: 1px solid var(--gold);
+            padding: 12px;
+            border-radius: 30px;
+            font-family: inherit;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: relative; z-index: 2;
+        }
+        .btn-primary:hover { background: var(--dark-blue-hover); transform: translateY(-1px); }
+
+        /* --- Artwork Section --- */
+        .artwork-card {
+            position: relative;
+            display: flex;
+            border: 1px solid rgba(197, 160, 89, 0.6);
+            border-radius: 6px;
+            background: var(--card-bg); 
+        }
+
+        .castle-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            display: block; 
+        }
+
+        .quote-box {
+            position: absolute;
+            bottom: 12%;  
+            right: 10%; 
+            width: 50%; 
+            text-align: center;
+            color: #e8dbbc;
+            background: transparent; 
+            border: none;
+            padding: 0;
+        }
+
+        .quote-box p {
+            font-size: clamp(14px, 1.4vw, 19px);
+            font-style: italic;
+            margin-bottom: 6px;
+            line-height: 1.35;
+        }
+
+        .quote-box span {
+            color: var(--gold-light);
+            font-size: clamp(10px, 1vw, 12px);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* --- House Cup --- */
+        .house-cup-card { display: flex; flex-direction: column; }
+        .house-list {
+            list-style: none; flex-grow: 1;
+            display: flex; flex-direction: column; gap: 16px;
+            position: relative; z-index: 2;
+        }
+
+        .house-list li { display: flex; align-items: center; justify-content: space-between; font-size: 16.5px; font-weight: 500; }
+        .house-info { display: flex; align-items: center; gap: 15px; }
+
+        .house-info img {
+            width: 55px; /* Increased House Cup Crest Size */
+            mix-blend-mode: multiply !important;
+            background-color: transparent !important;
+        }
+
+        .house-rank { color: var(--text-dark); width: 15px; font-weight: bold; font-size: 15px; }
+        .view-leaderboard {
+            text-align: right; display: block; margin-top: auto; padding-top: 15px;
+            color: var(--text-dark); text-decoration: none; font-size: 15px; font-weight: 600;
+            position: relative; z-index: 2; transition: 0.2s;
+        }
+        .view-leaderboard:hover { color: var(--gold); }
+
+        /* --- Daily Quest --- */
+        .daily-quest {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 30px; margin-top: 0;
+        }
+
+        .quest-left { display: flex; align-items: center; gap: 25px; flex-grow: 1; position: relative; z-index: 2; }
+        .quest-left img {
+            width: 75px; /* Increased Quest Icon Size */
+            mix-blend-mode: multiply !important;
+            background-color: transparent !important;
+        }
+
+        .quest-details h4 { font-size: 18px; font-weight: 600; margin-bottom: 2px; }
+        .quest-details p { font-size: 15px; color: var(--text-muted); margin-bottom: 8px; }
+        .progress-bar {
+            width: 380px; height: 6px; background: rgba(197, 160, 89, 0.2);
+            border-radius: 3px; position: relative; display: flex; align-items: center;
+        }
+        .progress-fill { height: 100%; width: 75%; background: #b58d3c; border-radius: 3px; }
+        .progress-text { position: absolute; right: -45px; font-size: 14.5px; color: var(--text-dark); font-weight: bold; }
+
+        .quest-reward { text-align: right; padding-left: 40px; border-left: 1px solid rgba(197, 160, 89, 0.3); position: relative; z-index: 2; }
+        .quest-reward p { font-size: 14px; color: var(--text-muted); margin-bottom: 2px; }
+        .reward-amount { display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: bold; color: var(--text-dark); }
+        
+        .reward-amount img {
+            width: 36px; /* Increased Quest Reward Coin Size */
+            mix-blend-mode: multiply !important;
+            background-color: transparent !important;
+        }
+        .btn-login-toggle {
+            display: inline-block;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 2px;
+            transition: color 0.2s ease, transform 0.2s ease;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-family: var(--font-main);
+        }
+
+        .btn-login-toggle:hover {
+            color: var(--gold-light);
+            transform: translateY(-0.5px);
+        }
+
+        .btn-login-toggle i {
+            margin-right: 5px;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo-container">
+            <img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/logo_harryporter.png" alt="Hogwarts Logo"> 
+        </div>
+        
+        <nav>
+            <ul>
+                <li class="active">
+                    <a href="#">
+                        <span class="nav-corner nav-tl"></span><span class="nav-corner nav-tr"></span>
+                        <span class="nav-corner nav-bl"></span><span class="nav-corner nav-br"></span>
+                        <i class="fa-solid fa-house"></i> Dashboard
+                    </a>
+                </li>
+                <li><a href="practice.html"><i class="fa-solid fa-file-lines"></i> PYQs</a></li>
+                <li><a href="room.html"><i class="fa-solid fa-landmark"></i> Study Rooms</a></li>
+                <li><a href="#"><i class="fa-solid fa-trophy"></i> Leaderboard</a></li>
+                <li><a href="#"><i class="fa-solid fa-map-location-dot"></i> Quests</a></li>
+                <li><a href="#"><i class="fa-solid fa-book-open"></i> Notes</a></li>
+                <li><a href="#"><i class="fa-regular fa-user"></i> Profile</a></li>
+                <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+            </ul>
+        </nav>
+
+        <div class="expecto-focus">
+            <i class="fa-solid fa-kiwi-bird" style="transform: scaleX(-1);"></i> Expecto Focus!
+        </div>
+    </div>
+
+    <main class="main-content">
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="welcome-text">
+                <h2>Welcome back,</h2>
+                <h1>Mischief Managed! <span style="font-size:26px; color:var(--gold);">⚡</span></h1>
+                <p>Every great wizard starts with a single spell. Keep studying!</p>
+            </div>
+            
+            <div class="user-controls">
+                <div class="coin-balance">
+                    <img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/coin.png" alt="Coins"> <span id="coin-count">1250</span> <i class="fa-solid fa-gem" style="font-size:12px; color:var(--text-muted); margin-left:4px;"></i>
+                </div>
+                <div class="user-level">
+                    <img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/ravenclaw.png" alt="Ravenclaw Crest">
+                    <div class="user-level-text">
+                        <h3>Level 6</h3>
+                        <p>Ravenclaw</p>
+                    <!-- Integrated Interactive Magic Login Toggle Action Link -->
+                    <button class="btn-login-toggle" onclick="location.href='hp_login.html'">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i> Log In
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Enlarged Owl Positioned Accurately -->
+        <img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/owl_with_candle.png" alt="Owl" class="header-owl">
+
+        <!-- Stats -->
+        <div class="stats-row">
+            <div class="card stat-card">
+                <span class="card-corner corner-tl"></span><span class="card-corner corner-tr"></span>
+                <span class="card-corner corner-bl"></span><span class="card-corner corner-br"></span>
+                <h4>Study Streak <i class="fa-solid fa-star"></i></h4>
+                <div class="stat-value"><i class="fa-solid fa-fire-flame-curved"></i> 12</div>
+                <p>days</p>
+            </div>
+            
+            <div class="card stat-card">
+                <span class="card-corner corner-tl"></span><span class="card-corner corner-tr"></span>
+                <span class="card-corner corner-bl"></span><span class="card-corner corner-br"></span>
+                <h4>Questions Solved</h4>
+                <div class="stat-value"><i class="fa-regular fa-compass"></i> 842</div>
+                <p>this month</p>
+            </div>
+
+            <div class="card stat-card">
+                <span class="card-corner corner-tl"></span><span class="card-corner corner-tr"></span>
+                <span class="card-corner corner-bl"></span><span class="card-corner corner-br"></span>
+                <h4>Study Time <i class="fa-solid fa-star"></i></h4>
+                <div class="stat-value"><i class="fa-solid fa-stopwatch"></i> 48h 30m</div>
+                <p>this month</p>
+            </div>
+
+            <div class="card stat-card">
+                <span class="card-corner corner-tl"></span><span class="card-corner corner-tr"></span>
+                <span class="card-corner corner-bl"></span><span class="card-corner corner-br"></span>
+                <h4>Accuracy</h4>
+                <div class="stat-value"><i class="fa-regular fa-circle-check"></i> 78%</div>
+                <p>this month</p>
+            </div>
+        </div>
+
+        <!-- Middle Grid -->
+        <div class="main-grid">
+            
+            <!-- Today's Plan -->
+            <div class="card">
+                <span class="card-corner corner-tl"></span><span class="card-corner corner-tr"></span>
+                <span class="card-corner corner-bl"></span><span class="card-corner corner-br"></span>
+                
+                <h3 class="card-title">Today's Plan</h3>
+                <ul class="task-list">
+                    <li>
+                        <div class="task-info">
+                            <div class="task-icon"><i class="fa-solid fa-check"></i></div>
+                            <div class="task-text"><h4>Physics PYQs</h4><p>30 Questions</p></div>
+                        </div>
+                        <div class="task-status done"><i class="fa-solid fa-check"></i></div>
+                    </li>
+                    <li>
+                        <div class="task-info">
+                            <div class="task-icon"><i class="fa-solid fa-check"></i></div>
+                            <div class="task-text"><h4>Chemistry PYQs</h4><p>25 Questions</p></div>
+                        </div>
+                        <div class="task-status done"><i class="fa-solid fa-check"></i></div>
+                    </li>
+                    <li>
+                        <div class="task-info">
+                            <div class="task-icon" style="background: transparent; border: 1px solid var(--text-muted);"><i class="fa-solid fa-pencil" style="color:var(--text-muted); opacity: 0.5;"></i></div>
+                            <div class="task-text"><h4>Maths PYQs</h4><p>30 Questions</p></div>
+                        </div>
+                        <div class="task-status pending"></div>
+                    </li>
+                    <li>
+                        <div class="task-info">
+                            <div class="task-icon" style="background: transparent; border: 1px solid var(--text-muted);"><i class="fa-solid fa-book-open" style="color:var(--text-muted); opacity: 0.5;"></i></div>
+                            <div class="task-text"><h4>Revision</h4><p>2h 00m</p></div>
+                        </div>
+                        <div class="task-status pending"></div>
+                    </li>
+                </ul>
+                <button class="btn-primary" id="start-study-btn">Start Studying <i class="fa-solid fa-wand-magic-sparkles"></i></button>
+            </div>
+
+            <!-- Artwork & Quote -->
+            <div class="artwork-card">
+                <img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/castle_artwork.png" alt="Castle Artwork" class="castle-img">
+                <div class="quote-box">
+                    <p>"It does not do to dwell on dreams and forget to live."</p>
+                    <span>— Albus Dumbledore</span>
+                </div>
+            </div>
+
+            <!-- House Cup -->
+            <div class="card house-cup-card">
+                <span class="card-corner corner-tl"></span><span class="card-corner corner-tr"></span>
+                <span class="card-corner corner-bl"></span><span class="card-corner corner-br"></span>
+
+                <h3 class="card-title" style="margin-bottom: 10px; border-bottom: none; padding-bottom: 0;">House Cup</h3>
+                <p style="font-size: 14.5px; color: var(--text-muted); margin-bottom: 20px; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 12px; position:relative; z-index:2;">Top 3 Houses</p>
+                
+                <ul class="house-list">
+                    <li>
+                        <div class="house-info"><span class="house-rank">1</span><img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/ravenclaw.png" alt="Ravenclaw"><span>Ravenclaw</span></div>
+                        <span>2450</span>
+                    </li>
+                    <li>
+                        <div class="house-info"><span class="house-rank">2</span><img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/gryffindor.png" alt="Gryffindor"><span>Gryffindor</span></div>
+                        <span>1980</span>
+                    </li>
+                    <li>
+                        <div class="house-info"><span class="house-rank">3</span><img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/hufflepuff.png" alt="Hufflepuff"><span>Hufflepuff</span></div>
+                        <span>1760</span>
+                    </li>
+                    <li>
+                        <div class="house-info"><span class="house-rank">4</span><img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/slytherin.png" alt="Slytherin"><span>Slytherin</span></div>
+                        <span>1420</span>
+                    </li>
+                </ul>
+                <a href="#" class="view-leaderboard">View Leaderboard &rarr;</a>
+            </div>
+
+        </div>
+
+        <!-- Daily Quest Bottom Bar -->
+        <div class="card daily-quest">
+            <span class="card-corner corner-tl"></span><span class="card-corner corner-tr"></span>
+            <span class="card-corner corner-bl"></span><span class="card-corner corner-br"></span>
+
+            <div class="quest-left">
+                <img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/ravenclaw.png" alt="Quest Icon">
+                <div class="quest-details">
+                    <h4>Daily Quest</h4>
+                    <p>Answer 20 PYQs correctly</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                        <span class="progress-text">15/20</span>
+                    </div>
+                </div>
+            </div>
+            <div class="quest-reward">
+                <p>Reward</p>
+                <div class="reward-amount">
+                    <img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/coin.png" alt="Coins"> 50
+                </div>
+            </div>
+        </div>
+
+    </main>
+<!-- Firebase App (the core Firebase SDK) -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<!-- Firebase Firestore (Database) -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+<script type="module" src="hogwarts.js"></script>
+</body>
+</html>
