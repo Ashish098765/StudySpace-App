@@ -14,16 +14,16 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 document.addEventListener("DOMContentLoaded", () => {
-    // --- 2. CURRENT USER STATE ---
-    let currentUser = localStorage.getItem("hogwarts_user") || null;
+    // --- 2. CURRENT USER STATE (Initialized to 0 for Guests) ---
+    let currentUser = localStorage.getItem("hogwarts_user") || "guest";
     let userData = {
-        coins: 1250,
-        streak: 12,
-        questionsSolved: 842,
-        questionsAttempted: 1080, // Tracked to calculate accurate accuracy%
-        studyMinutes: 2910, 
+        coins: 0,
+        streak: 0,
+        questionsSolved: 0,
+        questionsAttempted: 0, 
+        studyMinutes: 0, 
         house: "Ravenclaw",
-        questProgress: 15,
+        questProgress: 0,
         questTotal: 20
     };
 
@@ -44,23 +44,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- 4. FIREBASE SYNCHRONIZATION ---
 
-    // Prompt for username if not logged in
-    async function checkUserAuthentication() {
-        if (!currentUser) {
-            let inputUsername = prompt("Enter your unique Hogwarts Username to access dashboard:");
-            if (!inputUsername) inputUsername = "Wizard_" + Math.floor(Math.random() * 10000);
-            
-            currentUser = inputUsername.trim().toLowerCase();
-            localStorage.setItem("hogwarts_user", currentUser);
+    async function initializeUserDashboard() {
+        // Dynamic UI adjustment if user is a guest vs authenticated
+        if (loginBtn) {
+            if (currentUser === "guest") {
+                loginBtn.innerHTML = `<i class="fa-solid fa-arrow-right-to-bracket"></i> Log In`;
+            } else {
+                loginBtn.innerHTML = `<i class="fa-solid fa-arrow-right-from-bracket"></i> ${currentUser}`;
+            }
         }
         
-        if (loginBtn) loginBtn.innerHTML = `<i class="fa-solid fa-arrow-right-from-bracket"></i> ${currentUser}`;
         await loadUserData();
         await loadHouseScores();
     }
 
-    // Fetch user profile from Firestore
+    // Fetch user profile from Firestore (Only syncs/saves if logged in, stays local if guest)
     async function loadUserData() {
+        if (currentUser === "guest") {
+            renderDashboard();
+            return;
+        }
+
         try {
             const userRef = db.collection("users").doc(currentUser);
             const doc = await userRef.get();
@@ -68,18 +72,19 @@ document.addEventListener("DOMContentLoaded", () => {
             if (doc.exists) {
                 userData = doc.data();
             } else {
-                // Initialize default profile document for new wizard usernames
+                // If logged-in user doesn't have a record yet, create one with base stats
                 await userRef.set(userData);
             }
             renderDashboard();
         } catch (error) {
             console.error("Error connecting to Firestore: ", error);
+            renderDashboard(); // Fallback to current rendering if network fails
         }
     }
 
-    // Push local structural changes to Firestore
+    // Push modifications to Firestore (Only if user is authenticated)
     async function syncDataToFirebase() {
-        if (!currentUser) return;
+        if (currentUser === "guest") return;
         try {
             await db.collection("users").doc(currentUser).set(userData, { merge: true });
         } catch (error) {
@@ -93,31 +98,30 @@ document.addEventListener("DOMContentLoaded", () => {
         const cachedScores = localStorage.getItem("house_scores_data");
         const oneHour = 60 * 60 * 1000;
 
-        // Use cached layout values if calculated within the current hour frame
         if (lastCheck && cachedScores && (Date.now() - lastCheck < oneHour)) {
             renderHouseCup(JSON.parse(cachedScores));
             return;
         }
 
         try {
-            // Aggregate totals over every unique wizard submission document
             const snapshot = await db.collection("users").get();
             const aggregates = { Ravenclaw: 0, Gryffindor: 0, Hufflepuff: 0, Slytherin: 0 };
 
             snapshot.forEach(doc => {
                 const data = doc.data();
                 if (data.house && aggregates[data.house] !== undefined) {
-                    aggregates[data.house] += (data.coins || 0); // Houses rank by collective Galleons earned
+                    aggregates[data.house] += (data.coins || 0); 
                 }
             });
 
-            // Cache items locally
             localStorage.setItem("house_scores_data", JSON.stringify(aggregates));
             localStorage.setItem("house_scores_timestamp", Date.now());
             
             renderHouseCup(aggregates);
         } catch (error) {
             console.error("Error generating aggregate house details: ", error);
+            // Dynamic fallback if firebase has no documents yet
+            renderHouseCup({ Ravenclaw: 0, Gryffindor: 0, Hufflepuff: 0, Slytherin: 0 });
         }
     }
 
@@ -127,18 +131,18 @@ document.addEventListener("DOMContentLoaded", () => {
         if (streakEl) streakEl.innerHTML = `<i class="fa-solid fa-fire-flame-curved"></i> ${userData.streak}`;
         if (solvedEl) solvedEl.innerHTML = `<i class="fa-regular fa-compass"></i> ${userData.questionsSolved}`;
         
-        // Accurate real-time mathematical calculations for Accuracy metrics
+        // Exact mathematical calculation for accuracy rates
         const accuracyRate = userData.questionsAttempted > 0 
             ? Math.round((userData.questionsSolved / userData.questionsAttempted) * 100) 
             : 0;
         if (accuracyEl) accuracyEl.innerHTML = `<i class="fa-regular fa-circle-check"></i> ${accuracyRate}%`;
 
-        // Hours & Minutes parser
+        // Hours & Minutes formatting
         const hrs = Math.floor(userData.studyMinutes / 60);
         const mins = userData.studyMinutes % 60;
         if (studyTimeEl) studyTimeEl.innerHTML = `<i class="fa-solid fa-stopwatch"></i> ${hrs}h ${mins}m`;
 
-        // Daily Quest Bar UI update
+        // Daily Quest UI mapping
         const progressPercent = (userData.questProgress / userData.questTotal) * 100;
         if (questProgressFill) questProgressFill.style.width = `${Math.min(progressPercent, 100)}%`;
         if (questProgressText) questProgressText.innerText = `${userData.questProgress}/${userData.questTotal}`;
@@ -177,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 studyTimer = setInterval(() => {
                     userData.studyMinutes += 1;
-                    userData.coins += 1; // Gain coins via micro tasks
+                    userData.coins += 1; 
                     renderDashboard();
                 }, 5000);
             } else {
@@ -185,22 +189,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 isStudying = false;
                 startStudyBtn.innerHTML = `Start Studying <i class="fa-solid fa-wand-magic-sparkles"></i>`;
                 startStudyBtn.style.background = "var(--dark-blue)";
-                syncDataToFirebase(); // Sync changes to database cloud
+                
+                // Save locally and upload to database if logged in
+                syncDataToFirebase();
             }
         });
     }
 
-    // Clear session for a new user if they click the log in button again
+    // Handle Log In / Log Out layout click states cleanly
     if (loginBtn) {
         loginBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            if(confirm("Do you want to sign out or switch wizards?")) {
-                localStorage.removeItem("hogwarts_user");
-                location.reload();
+            if (currentUser !== "guest") {
+                e.preventDefault();
+                if(confirm("Do you want to log out of this wizard account?")) {
+                    localStorage.removeItem("hogwarts_user");
+                    location.reload();
+                }
             }
+            // If it is a guest, clicking it automatically triggers your HTML's href='hp_login.html' redirection smoothly
         });
     }
 
-    // Run authentication loop on launch
-    checkUserAuthentication();
+    // Run setup on launch
+    initializeUserDashboard();
 });
