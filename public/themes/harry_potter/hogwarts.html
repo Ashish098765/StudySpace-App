@@ -544,7 +544,7 @@
         <header class="header">
             <div class="welcome-text">
                 <h2>Welcome back,</h2>
-                <h1>Mischief Managed! <span style="font-size:26px; color:var(--gold);">⚡</span></h1>
+                <h1>Welcome back, <span id="user-display-name">Mischief Managed!</span> <span style="font-size:26px; color:var(--gold);">⚡</span></h1>
                 <p>Every great wizard starts with a single spell. Keep studying!</p>
             </div>
             
@@ -553,14 +553,13 @@
                     <img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/coin.png" alt="Coins"> <span id="coin-count">1250</span> <i class="fa-solid fa-gem" style="font-size:12px; color:var(--text-muted); margin-left:4px;"></i>
                 </div>
                 <div class="user-level">
-                    <img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/ravenclaw.png" alt="Ravenclaw Crest">
+                    <img id="user-house-crest" src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/ravenclaw.png" alt="House Crest">
                     <div class="user-level-text">
                         <h3>Level 6</h3>
-                        <p>Ravenclaw</p>
-                    <!-- Integrated Interactive Magic Login Toggle Action Link -->
-                    <button class="btn-login-toggle" onclick="location.href='hp_login.html'">
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i> Log In
-                    </button>
+                        <p id="user-house-name">Ravenclaw</p>
+                        <button class="btn-login-toggle" onclick="location.href='hp_login.html'">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i> Log In
+                        </button>
                     </div>
                 </div>
             </div>

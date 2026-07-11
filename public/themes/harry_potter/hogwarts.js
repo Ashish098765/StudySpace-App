@@ -1,4 +1,3 @@
-// --- 1. FIREBASE CONFIGURATION & INITIALIZATION ---
 const firebaseConfig = {
     apiKey: "AIzaSyB57PcjYtWktsOGKFLQmWX-Nc6HtYeZxp8",
     authDomain: "studyspace-f6e22.firebaseapp.com",
@@ -9,14 +8,15 @@ const firebaseConfig = {
     measurementId: "G-J1X8Y7KDQV"
 };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 const db = firebase.firestore();
 
 document.addEventListener("DOMContentLoaded", () => {
-    // --- 2. CURRENT USER STATE (Initialized to 0 for Guests) ---
     let currentUser = localStorage.getItem("hogwarts_user") || "guest";
     let userData = {
+        name: "Mischief Managed!",
         coins: 0,
         streak: 0,
         questionsSolved: 0,
@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
         questTotal: 20
     };
 
-    // --- 3. DOM ELEMENT SELECTORS ---
     const coinCountEl = document.getElementById("coin-count");
     const streakEl = document.querySelector(".stat-card:nth-child(1) .stat-value");
     const solvedEl = document.querySelector(".stat-card:nth-child(2) .stat-value");
@@ -38,14 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const startStudyBtn = document.getElementById("start-study-btn");
     const houseListEl = document.querySelector(".house-list");
     const loginBtn = document.querySelector(".btn-login-toggle");
+    
+    // New Target Interface Selectors
+    const userNameEl = document.getElementById("user-display-name");
+    const houseNameEl = document.getElementById("user-house-name");
+    const houseCrestEl = document.getElementById("user-house-crest");
 
     let studyTimer = null;
     let isStudying = false;
 
-    // --- 4. FIREBASE SYNCHRONIZATION ---
-
     async function initializeUserDashboard() {
-        // Dynamic UI adjustment if user is a guest vs authenticated
         if (loginBtn) {
             if (currentUser === "guest") {
                 loginBtn.innerHTML = `<i class="fa-solid fa-arrow-right-to-bracket"></i> Log In`;
@@ -53,12 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 loginBtn.innerHTML = `<i class="fa-solid fa-arrow-right-from-bracket"></i> ${currentUser}`;
             }
         }
-        
         await loadUserData();
         await loadHouseScores();
     }
 
-    // Fetch user profile from Firestore (Only syncs/saves if logged in, stays local if guest)
     async function loadUserData() {
         if (currentUser === "guest") {
             renderDashboard();
@@ -72,17 +71,15 @@ document.addEventListener("DOMContentLoaded", () => {
             if (doc.exists) {
                 userData = doc.data();
             } else {
-                // If logged-in user doesn't have a record yet, create one with base stats
                 await userRef.set(userData);
             }
             renderDashboard();
         } catch (error) {
             console.error("Error connecting to Firestore: ", error);
-            renderDashboard(); // Fallback to current rendering if network fails
+            renderDashboard();
         }
     }
 
-    // Push modifications to Firestore (Only if user is authenticated)
     async function syncDataToFirebase() {
         if (currentUser === "guest") return;
         try {
@@ -92,7 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Hourly global house score calculations aggregator
     async function loadHouseScores() {
         const lastCheck = localStorage.getItem("house_scores_timestamp");
         const cachedScores = localStorage.getItem("house_scores_data");
@@ -116,33 +112,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
             localStorage.setItem("house_scores_data", JSON.stringify(aggregates));
             localStorage.setItem("house_scores_timestamp", Date.now());
-            
             renderHouseCup(aggregates);
         } catch (error) {
-            console.error("Error generating aggregate house details: ", error);
-            // Dynamic fallback if firebase has no documents yet
+            console.error("Error generating house details: ", error);
             renderHouseCup({ Ravenclaw: 0, Gryffindor: 0, Hufflepuff: 0, Slytherin: 0 });
         }
     }
 
-    // --- 5. RENDER LOGIC ---
     function renderDashboard() {
         if (coinCountEl) coinCountEl.innerText = userData.coins;
         if (streakEl) streakEl.innerHTML = `<i class="fa-solid fa-fire-flame-curved"></i> ${userData.streak}`;
         if (solvedEl) solvedEl.innerHTML = `<i class="fa-regular fa-compass"></i> ${userData.questionsSolved}`;
         
-        // Exact mathematical calculation for accuracy rates
+        // Dynamically compute profile strings
+        if (userNameEl) userNameEl.innerText = userData.name || "Wizard";
+        if (houseNameEl) houseNameEl.innerText = userData.house || "Ravenclaw";
+        if (houseCrestEl && userData.house) {
+            houseCrestEl.src = `https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/${userData.house.toLowerCase()}.png`;
+            houseCrestEl.alt = `${userData.house} Crest`;
+        }
+
         const accuracyRate = userData.questionsAttempted > 0 
             ? Math.round((userData.questionsSolved / userData.questionsAttempted) * 100) 
             : 0;
         if (accuracyEl) accuracyEl.innerHTML = `<i class="fa-regular fa-circle-check"></i> ${accuracyRate}%`;
 
-        // Hours & Minutes formatting
         const hrs = Math.floor(userData.studyMinutes / 60);
         const mins = userData.studyMinutes % 60;
         if (studyTimeEl) studyTimeEl.innerHTML = `<i class="fa-solid fa-stopwatch"></i> ${hrs}h ${mins}m`;
 
-        // Daily Quest UI mapping
         const progressPercent = (userData.questProgress / userData.questTotal) * 100;
         if (questProgressFill) questProgressFill.style.width = `${Math.min(progressPercent, 100)}%`;
         if (questProgressText) questProgressText.innerText = `${userData.questProgress}/${userData.questTotal}`;
@@ -150,8 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderHouseCup(scores) {
         if (!houseListEl) return;
-
-        // Sort dynamically based on top performers
         const sortedHouses = Object.entries(scores).sort((a, b) => b[1] - a[1]);
         houseListEl.innerHTML = "";
 
@@ -169,9 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- 6. ACTION EVENT HANDLERS ---
-
-    // Focus Study Counter Simulation
     if (startStudyBtn) {
         startStudyBtn.addEventListener("click", () => {
             if (!isStudying) {
@@ -189,14 +182,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 isStudying = false;
                 startStudyBtn.innerHTML = `Start Studying <i class="fa-solid fa-wand-magic-sparkles"></i>`;
                 startStudyBtn.style.background = "var(--dark-blue)";
-                
-                // Save locally and upload to database if logged in
                 syncDataToFirebase();
             }
         });
     }
 
-    // Handle Log In / Log Out layout click states cleanly
     if (loginBtn) {
         loginBtn.addEventListener("click", (e) => {
             if (currentUser !== "guest") {
@@ -206,10 +196,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     location.reload();
                 }
             }
-            // If it is a guest, clicking it automatically triggers your HTML's href='hp_login.html' redirection smoothly
         });
     }
 
-    // Run setup on launch
     initializeUserDashboard();
 });
