@@ -236,6 +236,47 @@ document.addEventListener("DOMContentLoaded", () => {
         const progressPercent = (userData.questProgress / userData.questTotal) * 100;
         if (questProgressFill) questProgressFill.style.width = `${Math.min(progressPercent, 100)}%`;
         if (questProgressText) questProgressText.innerText = `${userData.questProgress}/${userData.questTotal}`;
+        const progressPercent = (userData.questProgress / userData.questTotal) * 100;
+        if (questProgressFill) questProgressFill.style.width = `${Math.min(progressPercent, 100)}%`;
+        if (questProgressText) questProgressText.innerText = `${userData.questProgress}/${userData.questTotal}`;
+
+        // --- ADD THIS MISSING BLOCK TO RENDER THE TASKS ---
+        const taskListEl = document.getElementById("dynamic-task-list");
+        if (taskListEl && userData.tasks) {
+            taskListEl.innerHTML = "";
+            userData.tasks.forEach(task => {
+                const isQuestions = task.targetType === "questions";
+                
+                // Format display text (Questions vs Hours/Mins)
+                const subText = isQuestions 
+                    ? `${task.targetValue} Questions` 
+                    : `${Math.floor(task.targetValue / 60)}h ${(task.targetValue % 60).toString().padStart(2, '0')}m`;
+                
+                // Format Icons based on completion and type
+                const iconHtml = task.done 
+                    ? `<div class="task-icon"><i class="fa-solid fa-check"></i></div>` 
+                    : `<div class="task-icon" style="background: transparent; border: 1px solid var(--text-muted);"><i class="fa-solid ${isQuestions ? 'fa-pencil' : 'fa-book-open'}" style="color:var(--text-muted); opacity: 0.5;"></i></div>`;
+                
+                const statusHtml = task.done
+                    ? `<div class="task-status done"><i class="fa-solid fa-check"></i></div>`
+                    : `<div class="task-status pending"></div>`;
+
+                const li = document.createElement("li");
+                if (window.selectedTaskId === task.id) li.classList.add("selected");
+                
+                li.onclick = () => window.selectTask(task.id);
+                
+                li.innerHTML = `
+                    <div class="task-info">
+                        ${iconHtml}
+                        <div class="task-text"><h4 style="${task.done ? 'opacity:0.7; text-decoration:line-through;' : ''}">${task.name}</h4><p>${subText}</p></div>
+                    </div>
+                    ${statusHtml}
+                `;
+                taskListEl.appendChild(li);
+            });
+        }
+        // ---------------------------------------------------
     }
 
     function renderHouseCup(scores) {
