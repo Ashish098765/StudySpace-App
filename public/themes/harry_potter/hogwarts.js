@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- 4. RENDER UI ---
 
-    function renderDashboard() {
+function renderDashboard() {
         if (coinCountEl) coinCountEl.innerText = userData.coins;
         if (streakEl) streakEl.innerHTML = `<i class="fa-solid fa-fire-flame-curved"></i> ${userData.streak}`;
         if (solvedEl) solvedEl.innerHTML = `<i class="fa-regular fa-compass"></i> ${userData.questionsSolved}`;
@@ -233,9 +233,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const mins = userData.studyMinutes % 60;
         if (studyTimeEl) studyTimeEl.innerHTML = `<i class="fa-solid fa-stopwatch"></i> ${hrs}h ${mins}m`;
 
-        const progressPercent = (userData.questProgress / userData.questTotal) * 100;
-        if (questProgressFill) questProgressFill.style.width = `${Math.min(progressPercent, 100)}%`;
-        if (questProgressText) questProgressText.innerText = `${userData.questProgress}/${userData.questTotal}`;
         const progressPercent = (userData.questProgress / userData.questTotal) * 100;
         if (questProgressFill) questProgressFill.style.width = `${Math.min(progressPercent, 100)}%`;
         if (questProgressText) questProgressText.innerText = `${userData.questProgress}/${userData.questTotal}`;
