@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const today = new Date().toLocaleDateString('en-CA'); 
         
         if (userData.lastActiveDate !== today) {
+            userData.tasks = [];
             if (userData.lastActiveDate) {
                 const lastDate = new Date(userData.lastActiveDate);
                 const currDate = new Date(today);
@@ -94,6 +95,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const pendingCorrect = parseInt(localStorage.getItem("hp_pending_correct") || 0);
         const pendingIncorrect = parseInt(localStorage.getItem("hp_pending_incorrect") || 0);
         const pendingMins = parseInt(localStorage.getItem("hp_pending_minutes") || 0);
+
+        const activeTaskId = parseInt(localStorage.getItem("active_task_id"));
+        if (activeTaskId) {
+            const task = userData.tasks.find(t => t.id === activeTaskId);
+            if (task && !task.done) {
+                if (task.targetType === "questions") {
+                    task.currentProgress = (task.currentProgress || 0) + (pendingCorrect + pendingIncorrect);
+                } else if (task.targetType === "time") {
+                    task.currentProgress = (task.currentProgress || 0) + pendingMins;
+                }
+                
+                if (task.currentProgress >= task.targetValue) {
+                    task.done = true;
+                    setTimeout(() => alert(`✨ Magical! You completed your daily task: ${task.name}!`), 500);
+                }
+            }
+            localStorage.removeItem("active_task_id");
+            changed = true;
+        }
 
         if (pendingCorrect > 0 || pendingIncorrect > 0 || pendingMins > 0) {
             // Apply Accuracy Logic
@@ -304,6 +324,7 @@ function renderDashboard() {
             if (window.selectedTaskId) {
                 const selectedTask = userData.tasks.find(t => t.id === window.selectedTaskId);
                 if (selectedTask) {
+                    localStorage.setItem("active_task_id", selectedTask.id);
                     if (selectedTask.targetType === "questions") {
                         // Pass both the Exam and the Subject to practice.html
                         const safeExam = userData.exam || "JEE Mains"; 
@@ -379,6 +400,7 @@ function renderDashboard() {
             subject: subject,
             targetType: type,
             targetValue: value,
+            currentProgress: 0,
             done: false
         };
 
