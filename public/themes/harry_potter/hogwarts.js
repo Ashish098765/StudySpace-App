@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let userData = {
         name: "Mischief Managed!",
         coins: 0,
+        exam: null,
         streak: 0,
         lastActiveDate: null,
         questionsSolved: 0,
@@ -144,6 +145,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 userData = doc.data();
             } else {
                 await userRef.set(userData);
+            }
+            if (!userData.exam && currentUser !== "guest") {
+                document.getElementById("exam-modal").style.display = "flex";
             }
 
             // Check for cross-page updates and daily streak progression
@@ -301,10 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
-    initializeUserDashboard();
-});
-// --- DAILY PLANNER LOGIC ---
+    // --- DAILY PLANNER LOGIC ---
     window.openTaskModal = () => document.getElementById("task-modal").style.display = "flex";
     window.closeTaskModal = () => document.getElementById("task-modal").style.display = "none";
     
@@ -353,3 +354,16 @@ document.addEventListener("DOMContentLoaded", () => {
         window.selectedTaskId = window.selectedTaskId === taskId ? null : taskId;
         renderDashboard();
     };
+    // --- EXAM SELECTION LOGIC ---
+    window.saveExamSelection = () => {
+        const selectedExam = document.getElementById("modal-exam-select").value;
+        userData.exam = selectedExam;
+        document.getElementById("exam-modal").style.display = "none";
+        
+        // Save to Firebase immediately
+        syncDataToFirebase();
+        renderDashboard();
+    };
+
+    initializeUserDashboard();
+});
