@@ -300,15 +300,17 @@ function renderDashboard() {
     if (startStudyBtn) {
         startStudyBtn.addEventListener("click", () => {
             // REDIRECT LOGIC
+            // REDIRECT LOGIC
             if (window.selectedTaskId) {
                 const selectedTask = userData.tasks.find(t => t.id === window.selectedTaskId);
                 if (selectedTask) {
                     if (selectedTask.targetType === "questions") {
-                        // Pass the subject to the practice page
-                        window.location.href = `../../practice.html?subject=${encodeURIComponent(selectedTask.subject)}`;
+                        // Pass both the Exam and the Subject to practice.html
+                        const safeExam = userData.exam || "JEE Mains"; 
+                        window.location.href = `../../practice.html?exam=${encodeURIComponent(safeExam)}&subject=${encodeURIComponent(selectedTask.subject)}`;
                     } else {
-                        // Pass the subject to the study rooms
-                        window.location.href = `../../room.html?subject=${encodeURIComponent(selectedTask.subject)}`;
+                        // Redirect time-based tasks straight into the Pomodoro study room
+                        window.location.href = `../../room.html?id=public-pomodoro`;
                     }
                     return; // Stop execution so the local timer doesn't trigger
                 }

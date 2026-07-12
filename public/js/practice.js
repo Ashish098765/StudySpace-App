@@ -1153,3 +1153,29 @@ window.clearUserProgress = async () => {
         alert(`An error occurred while clearing your progress: ${error.message}`);
     }
 };
+// --- DASHBOARD AUTO-ROUTING INTEGRATION ---
+document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const autoExam = urlParams.get('exam');
+    const autoSubject = urlParams.get('subject');
+
+    // If the URL contains an exam from the Hogwarts Dashboard
+    if (autoExam) {
+        // Wait a brief moment for the DOM to settle, then fire the explorer
+        setTimeout(() => {
+            navigateToExplorer(autoExam).then(() => {
+                
+                if (autoSubject) {
+                    // Find the sidebar button matching the target subject and automatically click it
+                    const sidebarButtons = document.querySelectorAll('.sidebar-btn');
+                    sidebarButtons.forEach(btn => {
+                        if (btn.innerText.trim().includes(autoSubject)) {
+                            btn.click();
+                        }
+                    });
+                }
+                
+            });
+        }, 500); 
+    }
+});
