@@ -143,6 +143,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (doc.exists) {
                 userData = doc.data();
+                if (!userData.tasks) {
+                    userData.tasks = []; 
+                }
             } else {
                 await userRef.set(userData);
             }
