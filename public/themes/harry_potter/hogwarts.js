@@ -20,14 +20,24 @@ document.addEventListener("DOMContentLoaded", () => {
         name: "Mischief Managed!",
         coins: 0,
         streak: 0,
-        lastActiveDate: null, // Used to track consecutive daily logins
+        lastActiveDate: null,
         questionsSolved: 0,
         questionsAttempted: 0, 
         studyMinutes: 0, 
         house: "Ravenclaw",
         questProgress: 0,
-        questTotal: 20
+        questTotal: 20,
+        // Add this array to store tasks
+        tasks: [
+            { id: 1, name: "Physics PYQs", subject: "Physics", targetType: "questions", targetValue: 30, done: true },
+            { id: 2, name: "Chemistry PYQs", subject: "Chemistry", targetType: "questions", targetValue: 25, done: true },
+            { id: 3, name: "Maths PYQs", subject: "Mathematics", targetType: "questions", targetValue: 30, done: false },
+            { id: 4, name: "Revision", subject: "Mathematics", targetType: "time", targetValue: 120, done: false }
+        ]
     };
+    
+    // Add this global tracker right below your selectors
+    window.selectedTaskId = null;
 
     const coinCountEl = document.getElementById("coin-count");
     const streakEl = document.querySelector(".stat-card:nth-child(1) .stat-value");
@@ -244,6 +254,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (startStudyBtn) {
         startStudyBtn.addEventListener("click", () => {
+            // REDIRECT LOGIC
+            if (window.selectedTaskId) {
+                const selectedTask = userData.tasks.find(t => t.id === window.selectedTaskId);
+                if (selectedTask) {
+                    if (selectedTask.targetType === "questions") {
+                        // Pass the subject to the practice page
+                        window.location.href = `../../practice.html?subject=${encodeURIComponent(selectedTask.subject)}`;
+                    } else {
+                        // Pass the subject to the study rooms
+                        window.location.href = `../../room.html?subject=${encodeURIComponent(selectedTask.subject)}`;
+                    }
+                    return; // Stop execution so the local timer doesn't trigger
+                }
+            }
+
+            // FALLBACK: LOCAL TIMER LOGIC (If no task is selected)
             if (!isStudying) {
                 isStudying = true;
                 startStudyBtn.innerHTML = `Focusing... <i class="fa-solid fa-wand-magic-sparkles fa-spin"></i>`;
@@ -251,9 +277,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 studyTimer = setInterval(() => {
                     userData.studyMinutes += 1;
-                    userData.coins += 1; // Keep 1 coin per minute studied as a base reward
+                    userData.coins += 1; 
                     renderDashboard();
-                }, 60000); // Swapped to real 60-second intervals for actual minute tracking
+                }, 60000); 
             } else {
                 clearInterval(studyTimer);
                 isStudying = false;
@@ -278,3 +304,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initializeUserDashboard();
 });
+// --- DAILY PLANNER LOGIC ---
+    window.openTaskModal = () => document.getElementById("task-modal").style.display = "flex";
+    window.closeTaskModal = () => document.getElementById("task-modal").style.display = "none";
+    
+    window.toggleTaskInput = () => {
+        const type = document.getElementById("modal-task-type").value;
+        const label = document.getElementById("target-value-label");
+        const input = document.getElementById("modal-task-value");
+        if (type === "questions") {
+            label.innerText = "Number of Questions";
+            input.placeholder = "e.g., 30";
+        } else {
+            label.innerText = "Study Duration (in minutes)";
+            input.placeholder = "e.g., 120";
+        }
+    };
+
+    window.saveNewTask = () => {
+        const name = document.getElementById("modal-task-name").value.trim();
+        const subject = document.getElementById("modal-task-subject").value;
+        const type = document.getElementById("modal-task-type").value;
+        const value = parseInt(document.getElementById("modal-task-value").value);
+
+        if (!name || isNaN(value) || value <= 0) return alert("Please provide a valid task name and target number.");
+
+        const newTask = {
+            id: Date.now(),
+            name: name,
+            subject: subject,
+            targetType: type,
+            targetValue: value,
+            done: false
+        };
+
+        userData.tasks.push(newTask);
+        syncDataToFirebase();
+        renderDashboard();
+        closeTaskModal();
+        
+        // Reset modal inputs
+        document.getElementById("modal-task-name").value = "";
+        document.getElementById("modal-task-value").value = "";
+    };
+
+    window.selectTask = (taskId) => {
+        // Toggle selection
+        window.selectedTaskId = window.selectedTaskId === taskId ? null : taskId;
+        renderDashboard();
+    };

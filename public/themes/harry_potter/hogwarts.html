@@ -505,6 +505,37 @@
             margin-right: 5px;
             font-size: 11px;
         }
+        /* --- Task Modal & Selection Styles --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 17, 30, 0.85); z-index: 100;
+            display: none; align-items: center; justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        .modal-content {
+            background: url('https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/bg.png') center/cover;
+            background-color: #fdf5e6;
+            border: 2px solid var(--gold); border-radius: 8px;
+            padding: 30px; width: 380px; box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            position: relative;
+        }
+        .modal-content h3 { color: var(--text-dark); margin-bottom: 15px; font-size: 22px; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 10px; }
+        .modal-content label { display: block; font-size: 14px; font-weight: 600; color: var(--text-muted); margin-top: 12px; margin-bottom: 4px; }
+        .modal-content input, .modal-content select {
+            width: 100%; padding: 10px; border: 1px solid rgba(197, 160, 89, 0.6);
+            border-radius: 4px; background: rgba(253, 248, 237, 0.9);
+            font-family: var(--font-main); font-size: 16px; color: var(--text-dark);
+        }
+        .modal-content input:focus, .modal-content select:focus { outline: none; border-color: var(--gold); }
+        .modal-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 25px; }
+        .btn-cancel { background: transparent; border: 1px solid var(--text-muted); color: var(--text-muted); padding: 8px 16px; border-radius: 4px; cursor: pointer; font-family: inherit; font-weight: 600; }
+        .btn-save { background: var(--dark-blue); color: var(--gold-light); border: 1px solid var(--gold); padding: 8px 16px; border-radius: 4px; cursor: pointer; font-family: inherit; font-weight: 600; }
+
+        .task-list li { cursor: pointer; padding: 10px; border-radius: 6px; transition: all 0.2s ease; border: 1px solid transparent; }
+        .task-list li:hover { background: rgba(197, 160, 89, 0.05); }
+        .task-list li.selected { background: rgba(197, 160, 89, 0.15); border: 1px solid rgba(197, 160, 89, 0.5); }
+        .add-task-btn { background: transparent; border: none; color: var(--gold); font-size: 22px; cursor: pointer; transition: transform 0.2s; }
+        .add-task-btn:hover { transform: scale(1.1); color: var(--dark-blue); }
     </style>
 </head>
 <body>
@@ -611,36 +642,12 @@
                 <span class="card-corner corner-tl"></span><span class="card-corner corner-tr"></span>
                 <span class="card-corner corner-bl"></span><span class="card-corner corner-br"></span>
                 
-                <h3 class="card-title">Today's Plan</h3>
-                <ul class="task-list">
-                    <li>
-                        <div class="task-info">
-                            <div class="task-icon"><i class="fa-solid fa-check"></i></div>
-                            <div class="task-text"><h4>Physics PYQs</h4><p>30 Questions</p></div>
-                        </div>
-                        <div class="task-status done"><i class="fa-solid fa-check"></i></div>
-                    </li>
-                    <li>
-                        <div class="task-info">
-                            <div class="task-icon"><i class="fa-solid fa-check"></i></div>
-                            <div class="task-text"><h4>Chemistry PYQs</h4><p>25 Questions</p></div>
-                        </div>
-                        <div class="task-status done"><i class="fa-solid fa-check"></i></div>
-                    </li>
-                    <li>
-                        <div class="task-info">
-                            <div class="task-icon" style="background: transparent; border: 1px solid var(--text-muted);"><i class="fa-solid fa-pencil" style="color:var(--text-muted); opacity: 0.5;"></i></div>
-                            <div class="task-text"><h4>Maths PYQs</h4><p>30 Questions</p></div>
-                        </div>
-                        <div class="task-status pending"></div>
-                    </li>
-                    <li>
-                        <div class="task-info">
-                            <div class="task-icon" style="background: transparent; border: 1px solid var(--text-muted);"><i class="fa-solid fa-book-open" style="color:var(--text-muted); opacity: 0.5;"></i></div>
-                            <div class="task-text"><h4>Revision</h4><p>2h 00m</p></div>
-                        </div>
-                        <div class="task-status pending"></div>
-                    </li>
+                <h3 class="card-title" style="display: flex; justify-content: space-between; align-items: center;">
+                    Today's Plan
+                    <button class="add-task-btn" onclick="openTaskModal()"><i class="fa-solid fa-square-plus"></i></button>
+                </h3>
+                <ul class="task-list" id="dynamic-task-list">
+                    <!-- Tasks will be injected here by JS -->
                 </ul>
                 <button class="btn-primary" id="start-study-btn">Start Studying <i class="fa-solid fa-wand-magic-sparkles"></i></button>
             </div>
@@ -705,6 +712,37 @@
                 <p>Reward</p>
                 <div class="reward-amount">
                     <img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/coin.png" alt="Coins"> 50
+                </div>
+            </div>
+        </div>
+        <div id="task-modal" class="modal-overlay">
+            <div class="modal-content">
+                <h3>Craft New Task</h3>
+                
+                <label>Task Name</label>
+                <input type="text" id="modal-task-name" placeholder="e.g., Physics PYQs">
+                
+                <label>Subject</label>
+                <select id="modal-task-subject">
+                    <option value="Physics">Physics</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="English">English</option>
+                    <option value="Logical Reasoning">Logical Reasoning</option>
+                </select>
+                
+                <label>Target Type</label>
+                <select id="modal-task-type" onchange="toggleTaskInput()">
+                    <option value="questions">Questions Based</option>
+                    <option value="time">Time Based</option>
+                </select>
+                
+                <label id="target-value-label">Number of Questions</label>
+                <input type="number" id="modal-task-value" placeholder="e.g., 30">
+                
+                <div class="modal-actions">
+                    <button class="btn-cancel" onclick="closeTaskModal()">Cancel</button>
+                    <button class="btn-save" onclick="saveNewTask()">Add Task</button>
                 </div>
             </div>
         </div>
