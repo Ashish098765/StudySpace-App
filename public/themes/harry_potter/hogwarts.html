@@ -674,9 +674,16 @@
                 <div class="user-level">
                     <img id="user-house-crest" src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/ravenclaw.png" alt="House Crest">
                     <div class="user-level-text">
-                        <h3>Level 0</h3>
-                        <p id="user-house-name">Login to get House</p>
-                        <button class="btn-login-toggle" onclick="location.href='hp_login.html'">
+                        <h3 id="user-level-display">Level 1</h3>
+                        <p id="user-wizard-title" style="color: var(--gold); font-size: 13px; font-weight: 600; margin-bottom: 2px;"><i class="fa-solid fa-hat-wizard"></i> First Year</p>
+                        <p id="user-house-name" style="margin-bottom: 4px;">Login to get House</p>
+                        
+                        <!-- Dynamic XP Progress Bar -->
+                        <div class="xp-bar" style="width: 100%; height: 5px; background: rgba(197, 160, 89, 0.2); border-radius: 3px; position: relative;" title="XP Progress">
+                            <div id="user-xp-fill" style="height: 100%; width: 0%; background: var(--gold); border-radius: 3px; transition: width 0.3s ease;"></div>
+                        </div>
+
+                        <button class="btn-login-toggle" onclick="location.href='hp_login.html'" style="margin-top: 8px;">
                             <i class="fa-solid fa-arrow-right-to-bracket"></i> Log In
                         </button>
                     </div>

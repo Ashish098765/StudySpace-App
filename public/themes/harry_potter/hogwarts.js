@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let userData = {
         name: "Mischief Managed!",
         coins: 0,
+        xp: 0,
+        level: 1,
         exam: null,
         streak: 0,
         lastActiveDate: null,
@@ -57,6 +59,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let studyTimer = null;
     let isStudying = false;
+    // --- LEVEL UP LOGIC & TITLES ---
+    function getWizardTitle(level) {
+        if (level >= 100) return "Merlin's Legacy";
+        if (level >= 75) return "Master Wizard";
+        if (level >= 50) return "Auror Candidate";
+        if (level >= 35) return "Head Student";
+        if (level >= 20) return "Prefect";
+        if (level >= 10) return "Skilled Wizard";
+        if (level >= 5) return "Apprentice";
+        return "First Year";
+    }
+
+    function calculateLevelProgress(xp) {
+        let currentLvl = 1;
+        // Formula: XP Required = 100 * Level^1.5
+        while (xp >= Math.floor(100 * Math.pow(currentLvl, 1.5))) {
+            currentLvl++;
+        }
+        
+        const currentLvlXp = currentLvl === 1 ? 0 : Math.floor(100 * Math.pow(currentLvl - 1, 1.5));
+        const nextLvlXp = Math.floor(100 * Math.pow(currentLvl, 1.5));
+        const xpIntoLevel = xp - currentLvlXp;
+        const xpRequired = nextLvlXp - currentLvlXp;
+        
+        return { 
+            level: currentLvl, 
+            progressPercent: (xpIntoLevel / xpRequired) * 100, 
+            nextLvlXp: nextLvlXp 
+        };
+    }
     // --- NEW: VIEW NAVIGATION LOGIC (SPA TOGGLING) ---
     const navLinks = document.querySelectorAll(".sidebar nav a");
     const viewSections = document.querySelectorAll(".view-section");
@@ -139,7 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 if (task.currentProgress >= task.targetValue) {
                     task.done = true;
-                    setTimeout(() => alert(`✨ Magical! You completed your daily task: ${task.name}!`), 500);
+                    userData.xp = (userData.xp || 0) + 100; // 100 XP for task completion
+                    setTimeout(() => alert(`Magical! You completed your daily task: ${task.name}! (+100 XP)`), 500);
                 }
             }
             localStorage.removeItem("active_task_id");
@@ -147,6 +180,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (pendingCorrect > 0 || pendingIncorrect > 0 || pendingMins > 0) {
+            // Apply XP Logic: 2 XP per question attempt, +3 XP bonus for correct (Total 5)
+            let earnedXP = (pendingCorrect * 5) + (pendingIncorrect * 2);
+            earnedXP += Math.floor(pendingMins / 30) * 20; // 20 XP per 30 mins active
+            userData.xp = (userData.xp || 0) + earnedXP;
+
             // Apply Accuracy Logic
             userData.questionsSolved += pendingCorrect;
             userData.questionsAttempted += (pendingCorrect + pendingIncorrect);
@@ -267,6 +305,21 @@ function renderDashboard() {
         if (streakEl) streakEl.innerHTML = `<i class="fa-solid fa-fire-flame-curved"></i> ${userData.streak}`;
         if (solvedEl) solvedEl.innerHTML = `<i class="fa-regular fa-compass"></i> ${userData.questionsSolved}`;
         
+        // Calculate dynamic level info
+        const levelStats = calculateLevelProgress(userData.xp || 0);
+        userData.level = levelStats.level;
+        
+        const levelDisplay = document.getElementById("user-level-display");
+        const wizardTitle = document.getElementById("user-wizard-title");
+        const xpFill = document.getElementById("user-xp-fill");
+        
+        if (levelDisplay) levelDisplay.innerText = `Level ${userData.level}`;
+        if (wizardTitle) wizardTitle.innerHTML = `<i class="fa-solid fa-hat-wizard"></i> ${getWizardTitle(userData.level)}`;
+        if (xpFill) {
+            xpFill.style.width = `${Math.min(levelStats.progressPercent, 100)}%`;
+            xpFill.title = `${userData.xp} / ${levelStats.nextLvlXp} XP`;
+        }
+
         if (userNameEl) userNameEl.innerText = userData.name || "Wizard";
         if (houseNameEl) houseNameEl.innerText = userData.house || "Ravenclaw";
         if (houseCrestEl && userData.house) {
@@ -409,8 +462,14 @@ function renderDashboard() {
                 studyTimer = setInterval(() => {
                     userData.studyMinutes += 1;
                     userData.coins += 1; 
+                    
+                    // Small XP drip for active local studying (approx. 20 XP every 30 mins)
+                    if (userData.studyMinutes % 30 === 0) {
+                        userData.xp = (userData.xp || 0) + 20;
+                    }
+
                     renderDashboard();
-                }, 60000); 
+                }, 60000);
             } else {
                 clearInterval(studyTimer);
                 isStudying = false;
@@ -457,16 +516,21 @@ function renderDashboard() {
         document.getElementById("modal-task-value").value = task.targetValue;
         
         // Show Delete Button and handle deletion
+        // Show Delete Button and handle deletion (Prevent deletion if task is done)
         const deleteBtn = document.getElementById("modal-btn-delete");
-        deleteBtn.style.display = "inline-block";
-        deleteBtn.onclick = () => {
-            if(confirm(`Are you sure you want to delete "${task.name}"?`)) {
-                userData.tasks = userData.tasks.filter(t => t.id !== taskId);
-                syncDataToFirebase();
-                renderDashboard();
-                closeTaskModal();
-            }
-        };
+        if (task.done) {
+            deleteBtn.style.display = "none";
+        } else {
+            deleteBtn.style.display = "inline-block";
+            deleteBtn.onclick = () => {
+                if(confirm(`Are you sure you want to delete "${task.name}"?`)) {
+                    userData.tasks = userData.tasks.filter(t => t.id !== taskId);
+                    syncDataToFirebase();
+                    renderDashboard();
+                    closeTaskModal();
+                }
+            };
+        }
         
         // Change the save button temporarily to handle edits
         const saveBtn = document.getElementById("modal-btn-save");
