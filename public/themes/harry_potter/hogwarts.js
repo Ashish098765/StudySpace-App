@@ -569,36 +569,5 @@ function renderDashboard() {
         document.getElementById("daily-quest-modal").style.display = "none";
     };
 
-    window.editTask = (taskId) => {
-        const task = userData.tasks.find(t => t.id === taskId);
-        if (!task) return;
-        
-        // Populate modal with existing data
-        document.getElementById("modal-task-name").value = task.name;
-        document.getElementById("modal-task-subject").value = task.subject;
-        document.getElementById("modal-task-type").value = task.targetType;
-        document.getElementById("modal-task-value").value = task.targetValue;
-        
-        // Change the save button temporarily to handle edits
-        const saveBtn = document.querySelector("#task-modal .btn-save");
-        saveBtn.innerText = "Update Task";
-        saveBtn.onclick = () => {
-            task.name = document.getElementById("modal-task-name").value.trim();
-            task.subject = document.getElementById("modal-task-subject").value;
-            task.targetType = document.getElementById("modal-task-type").value;
-            task.targetValue = parseInt(document.getElementById("modal-task-value").value);
-            
-            syncDataToFirebase();
-            renderDashboard();
-            closeTaskModal();
-            
-            // Reset button to its default "Add Task" state
-            saveBtn.innerText = "Add Task";
-            saveBtn.onclick = saveNewTask;
-        };
-        
-        openTaskModal();
-    };
-
     initializeUserDashboard();
 });
