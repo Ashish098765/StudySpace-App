@@ -296,9 +296,11 @@ function renderDashboard() {
                 const isQuestions = task.targetType === "questions";
                 
                 // Format display text (Questions vs Hours/Mins)
+                const currentProg = task.currentProgress || 0;
+                // Format display text as completed/total format
                 const subText = isQuestions 
-                    ? `${task.targetValue} Questions` 
-                    : `${Math.floor(task.targetValue / 60)}h ${(task.targetValue % 60).toString().padStart(2, '0')}m`;
+                    ? `${currentProg}/${task.targetValue} Questions` 
+                    : `${currentProg}/${task.targetValue} mins`;
                 
                 // Format Icons based on completion and type
                 const iconHtml = task.done 
@@ -317,7 +319,13 @@ function renderDashboard() {
                 li.innerHTML = `
                     <div class="task-info">
                         ${iconHtml}
-                        <div class="task-text"><h4 style="${task.done ? 'opacity:0.7; text-decoration:line-through;' : ''}">${task.name}</h4><p>${subText}</p></div>
+                        <div class="task-text">
+                            <h4 style="${task.done ? 'opacity:0.7; text-decoration:line-through;' : ''}">
+                                ${task.name} 
+                                <i class="fa-solid fa-pen" style="font-size: 11px; margin-left: 6px; cursor: pointer; color: var(--gold);" onclick="event.stopPropagation(); editTask(${task.id})" title="Modify Task"></i>
+                            </h4>
+                            <p>${subText}</p>
+                        </div>
                     </div>
                     ${statusHtml}
                 `;
@@ -334,6 +342,14 @@ function renderDashboard() {
 
         sortedHouses.forEach(([houseName, score], index) => {
             const li = document.createElement("li");
+            
+            // Build the tooltip text
+            let tooltipText = `Top Contributor: Coming Soon!`;
+            if (userData.house === houseName) {
+                tooltipText = `Your Contribution: ${userData.coins} coins\n` + tooltipText;
+            }
+            li.title = tooltipText;
+
             li.innerHTML = `
                 <div class="house-info">
                     <span class="house-rank">${index + 1}</span>
@@ -448,6 +464,18 @@ function renderDashboard() {
     window.selectTask = (taskId) => {
         // Toggle selection
         window.selectedTaskId = window.selectedTaskId === taskId ? null : taskId;
+        
+        // Reset Start Studying button if currently running
+        if (isStudying && window.selectedTaskId) {
+            clearInterval(studyTimer);
+            isStudying = false;
+            const startStudyBtn = document.getElementById("start-study-btn");
+            if (startStudyBtn) {
+                startStudyBtn.innerHTML = `Start Studying <i class="fa-solid fa-wand-magic-sparkles"></i>`;
+                startStudyBtn.style.background = "var(--dark-blue)";
+            }
+        }
+        
         renderDashboard();
     };
     // --- EXAM SELECTION LOGIC ---
@@ -459,6 +487,51 @@ function renderDashboard() {
         // Save to Firebase immediately
         syncDataToFirebase();
         renderDashboard();
+    };
+    const dailyQuestCard = document.querySelector(".daily-quest");
+    if (dailyQuestCard) {
+        dailyQuestCard.style.cursor = "pointer";
+        dailyQuestCard.addEventListener("click", () => {
+            document.getElementById("daily-quest-modal").style.display = "flex";
+            const progressPercent = (userData.questProgress / userData.questTotal) * 100;
+            document.getElementById("modal-quest-progress-fill").style.width = `${Math.min(progressPercent, 100)}%`;
+            document.getElementById("modal-quest-progress-text").innerText = `${userData.questProgress}/${userData.questTotal}`;
+        });
+    }
+
+    window.closeDailyQuestModal = () => {
+        document.getElementById("daily-quest-modal").style.display = "none";
+    };
+
+    window.editTask = (taskId) => {
+        const task = userData.tasks.find(t => t.id === taskId);
+        if (!task) return;
+        
+        // Populate modal with existing data
+        document.getElementById("modal-task-name").value = task.name;
+        document.getElementById("modal-task-subject").value = task.subject;
+        document.getElementById("modal-task-type").value = task.targetType;
+        document.getElementById("modal-task-value").value = task.targetValue;
+        
+        // Change the save button temporarily to handle edits
+        const saveBtn = document.querySelector("#task-modal .btn-save");
+        saveBtn.innerText = "Update Task";
+        saveBtn.onclick = () => {
+            task.name = document.getElementById("modal-task-name").value.trim();
+            task.subject = document.getElementById("modal-task-subject").value;
+            task.targetType = document.getElementById("modal-task-type").value;
+            task.targetValue = parseInt(document.getElementById("modal-task-value").value);
+            
+            syncDataToFirebase();
+            renderDashboard();
+            closeTaskModal();
+            
+            // Reset button to its default "Add Task" state
+            saveBtn.innerText = "Add Task";
+            saveBtn.onclick = saveNewTask;
+        };
+        
+        openTaskModal();
     };
 
     initializeUserDashboard();

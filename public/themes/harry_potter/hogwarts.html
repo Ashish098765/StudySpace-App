@@ -500,21 +500,25 @@
             display: inline-block;
             font-size: 13.5px;
             font-weight: 600;
-            color: var(--gold);
+            color: var(--dark-blue);
+            background-color: var(--gold);
             text-decoration: none;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            margin-top: 2px;
-            transition: color 0.2s ease, transform 0.2s ease;
+            margin-top: 5px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
             border: none;
-            background: transparent;
             cursor: pointer;
             font-family: var(--font-main);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .btn-login-toggle:hover {
-            color: var(--gold-light);
-            transform: translateY(-0.5px);
+            background-color: var(--gold-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
 
         .btn-login-toggle i {
@@ -588,7 +592,7 @@
         <header class="header">
             <div class="welcome-text">
                 <h2>Welcome back,</h2>
-                <h1>Welcome back,<br> <span id="user-display-name">Mischief Managed!</span> <span style="font-size:26px; color:var(--gold);">⚡</span></h1>
+                <h1><span id="user-display-name">Mischief Managed!</span> <span style="font-size:26px; color:var(--gold);">⚡</span></h1>
                 <p>Every great wizard starts with a single spell. Keep studying!</p>
             </div>
             
@@ -599,8 +603,8 @@
                 <div class="user-level">
                     <img id="user-house-crest" src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/ravenclaw.png" alt="House Crest">
                     <div class="user-level-text">
-                        <h3>Level 6</h3>
-                        <p id="user-house-name">Ravenclaw</p>
+                        <h3>Level 0</h3>
+                        <p id="user-house-name">Login to get House</p>
                         <button class="btn-login-toggle" onclick="location.href='hp_login.html'">
                             <i class="fa-solid fa-arrow-right-to-bracket"></i> Log In
                         </button>
@@ -777,6 +781,20 @@
                 
                 <div class="modal-actions" style="justify-content: center;">
                     <button class="btn-save" style="width: 100%;" onclick="saveExamSelection()">Begin Journey</button>
+                </div>
+            </div>
+        </div>
+        <!-- Quest Modal -->
+        <div id="daily-quest-modal" class="modal-overlay">
+            <div class="modal-content">
+                <h3>Daily Quest Progress</h3>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Answer 20 PYQs correctly</p>
+                <div class="progress-bar" style="width: 100%; margin-bottom: 25px;">
+                    <div class="progress-fill" id="modal-quest-progress-fill"></div>
+                    <span class="progress-text" id="modal-quest-progress-text" style="position: static; margin-left: 10px;"></span>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-cancel" onclick="closeDailyQuestModal()">Close</button>
                 </div>
             </div>
         </div>
