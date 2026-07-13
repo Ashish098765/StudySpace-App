@@ -124,9 +124,13 @@
             width: 14px;
             height: 14px;
             background: url('https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/border.png') center/contain no-repeat;
-            /* Filter converts dark border.png into metallic gold to show on dark blue */
             filter: invert(72%) sepia(35%) saturate(545%) hue-rotate(354deg) brightness(93%) contrast(88%);
             pointer-events: none;
+            display: none; /* Hidden by default */
+        }
+
+        nav li.active a .nav-corner {
+            display: block;
         }
         .nav-tl { top: 0px; left: 0px; }
         .nav-tr { top: 0px; right: 0px; transform: scaleX(-1); }
@@ -141,6 +145,18 @@
             display: flex;
             align-items: center;
             gap: 12px;
+        }
+        .view-section {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            width: 100%;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* --- Main Content --- */
@@ -546,16 +562,17 @@
         </div>
         
         <nav>
-            <ul>
+            <ul id="sidebar-nav">
+                <!-- Using data-target to identify which view container to show -->
                 <li class="active">
-                    <a href="#">
+                    <a href="#" data-target="dashboard-view">
                         <span class="nav-corner nav-tl"></span><span class="nav-corner nav-tr"></span>
                         <span class="nav-corner nav-bl"></span><span class="nav-corner nav-br"></span>
                         <i class="fa-solid fa-house"></i> Dashboard
                     </a>
                 </li>
-                <li><a href="../../practice.html"><i class="fa-solid fa-file-lines"></i> PYQs</a></li>
-                <li><a href="../../room.html"><i class="fa-solid fa-landmark"></i> Study Rooms</a></li>
+                <li><a href="#" data-target="pyqs-view"><i class="fa-solid fa-file-lines"></i> PYQs</a></li>
+                <li><a href="#" data-target="study-rooms-view"><i class="fa-solid fa-landmark"></i> Study Rooms</a></li>
                 <li><a href="#"><i class="fa-solid fa-trophy"></i> Leaderboard</a></li>
                 <li><a href="#"><i class="fa-solid fa-map-location-dot"></i> Quests</a></li>
                 <li><a href="#"><i class="fa-solid fa-book-open"></i> Notes</a></li>
@@ -563,19 +580,15 @@
                 <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
             </ul>
         </nav>
-
-        <div class="expecto-focus">
-            <i class="fa-solid fa-kiwi-bird" style="transform: scaleX(-1);"></i> Expecto Focus!
-        </div>
     </div>
 
     <main class="main-content">
-        
+        <div id="dashboard-view" class="view-section">
         <!-- Header -->
         <header class="header">
             <div class="welcome-text">
                 <h2>Welcome back,</h2>
-                <h1>Welcome back, <span id="user-display-name">Mischief Managed!</span> <span style="font-size:26px; color:var(--gold);">⚡</span></h1>
+                <h1>Welcome back,<br> <span id="user-display-name">Mischief Managed!</span> <span style="font-size:26px; color:var(--gold);">⚡</span></h1>
                 <p>Every great wizard starts with a single spell. Keep studying!</p>
             </div>
             
@@ -767,7 +780,20 @@
                 </div>
             </div>
         </div>
-
+    </div>
+    <!-- ==========================================
+         VIEW 2: STUDY ROOMS 
+         ========================================== -->
+    <div id="study-rooms-view" class="view-section" style="display: none;">
+        <header class="header">
+            <div class="welcome-text">
+                <h2>Study Rooms</h2>
+                <h1>Join a Magical Session</h1>
+                <p>Focus with fellow wizards in our enchanted study spaces.</p>
+            </div>
+        </header>
+        <!-- Future Study Room Content goes here -->
+    </div>
     </main>
 <!-- Firebase App (the core Firebase SDK) -->
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>

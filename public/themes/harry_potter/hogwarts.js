@@ -57,6 +57,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let studyTimer = null;
     let isStudying = false;
+    // --- NEW: VIEW NAVIGATION LOGIC (SPA TOGGLING) ---
+    const navLinks = document.querySelectorAll(".sidebar nav a");
+    const viewSections = document.querySelectorAll(".view-section");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            const targetId = link.getAttribute("data-target");
+            
+            // If it has a data-target, handle it as an internal toggle
+            if (targetId) {
+                e.preventDefault(); // Stop normal link behavior
+
+                // 1. Hide all view sections
+                viewSections.forEach(section => {
+                    section.style.display = "none";
+                });
+
+                // 2. Show the targeted section
+                const targetView = document.getElementById(targetId);
+                if (targetView) {
+                    targetView.style.display = "flex"; // Using flex to match the CSS class
+                }
+
+                // 3. Update active state in sidebar
+                document.querySelectorAll(".sidebar nav li").forEach(li => {
+                    li.classList.remove("active");
+                });
+                link.parentElement.classList.add("active");
+            }
+        });
+    });
 
     // --- 2. CORE LOGIC FUNCTIONS ---
 
