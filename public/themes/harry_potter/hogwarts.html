@@ -556,6 +556,77 @@
         .task-list li.selected { background: rgba(197, 160, 89, 0.15); border: 1px solid rgba(197, 160, 89, 0.5); }
         .add-task-btn { background: transparent; border: none; color: var(--gold); font-size: 22px; cursor: pointer; transition: transform 0.2s; }
         .add-task-btn:hover { transform: scale(1.1); color: var(--dark-blue); }
+        /* Task Edit Icon Hover */
+        .task-edit-icon {
+            display: none;
+            font-size: 12px;
+            margin-left: 8px;
+            cursor: pointer;
+            color: var(--gold);
+            transition: color 0.2s;
+        }
+        .task-edit-icon:hover { color: var(--dark-blue); }
+        .task-list li:hover .task-edit-icon { display: inline-block; }
+        /* Custom House Tooltip */
+        .house-item { position: relative; }
+        .house-tooltip {
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%) translateY(15px);
+            background: var(--dark-blue);
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--gold);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            width: 240px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 50;
+            pointer-events: none;
+        }
+        /* Tooltip Arrow */
+        .house-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -8px;
+            border-width: 8px;
+            border-style: solid;
+            border-color: var(--gold) transparent transparent transparent;
+        }
+        .house-item:hover .house-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .house-tooltip h4 {
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.4);
+            padding-bottom: 6px;
+            text-align: center;
+            color: var(--gold-light);
+        }
+        .tooltip-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13.5px;
+            margin-bottom: 6px;
+            color: #d1c7b1;
+        }
+        .tooltip-row.highlight {
+            color: var(--gold-light);
+            font-weight: bold;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(197, 160, 89, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -759,7 +830,8 @@
                 
                 <div class="modal-actions">
                     <button class="btn-cancel" onclick="closeTaskModal()">Cancel</button>
-                    <button class="btn-save" onclick="saveNewTask()">Add Task</button>
+                    <button id="modal-btn-delete" style="display:none; background: #b33939; color: white; border: 1px solid #8e2b2b; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-family: inherit; font-weight: 600;">Delete</button>
+                    <button class="btn-save" id="modal-btn-save" onclick="saveNewTask()">Add Task</button>
                 </div>
             </div>
         </div>
@@ -785,16 +857,33 @@
             </div>
         </div>
         <!-- Quest Modal -->
+        <!-- Enhanced Quest Modal -->
         <div id="daily-quest-modal" class="modal-overlay">
-            <div class="modal-content">
-                <h3>Daily Quest Progress</h3>
-                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Answer 20 PYQs correctly</p>
-                <div class="progress-bar" style="width: 100%; margin-bottom: 25px;">
-                    <div class="progress-fill" id="modal-quest-progress-fill"></div>
-                    <span class="progress-text" id="modal-quest-progress-text" style="position: static; margin-left: 10px;"></span>
+            <div class="modal-content" style="text-align: center; border: 2px solid var(--gold); border-radius: 12px;">
+                <img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/ravenclaw.png" style="width: 80px; mix-blend-mode: multiply; margin-bottom: 15px;" alt="Quest Crest">
+                <h3 style="font-size: 26px; color: var(--dark-blue); border-bottom: none; margin-bottom: 5px; padding-bottom: 0;">Daily Quest</h3>
+                <p style="color: var(--text-muted); font-size: 16px; margin-bottom: 25px;">Answer 20 PYQs correctly</p>
+
+                <div style="background: rgba(197, 160, 89, 0.15); border: 1px solid rgba(197, 160, 89, 0.4); border-radius: 8px; padding: 20px; margin-bottom: 25px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600;">
+                        <span style="color: var(--text-dark);">Your Progress</span>
+                        <span id="modal-quest-progress-text" style="color: var(--gold); font-size: 18px;">0/20</span>
+                    </div>
+                    <div class="progress-bar" style="width: 100%; height: 12px; border-radius: 6px; background: rgba(10, 17, 30, 0.1);">
+                        <div class="progress-fill" id="modal-quest-progress-fill" style="background: linear-gradient(90deg, var(--gold), #f9d976); border-radius: 6px; box-shadow: 0 0 10px rgba(197, 160, 89, 0.5); transition: width 0.5s ease;"></div>
+                    </div>
                 </div>
-                <div class="modal-actions">
-                    <button class="btn-cancel" onclick="closeDailyQuestModal()">Close</button>
+
+                <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 25px;">
+                    <span style="font-weight: bold; color: var(--text-muted); font-size: 15px; text-transform: uppercase; letter-spacing: 1px;">Reward</span>
+                    <div style="display: flex; align-items: center; gap: 8px; background: rgba(253, 248, 237, 0.9); padding: 6px 18px; border-radius: 20px; border: 1px solid var(--gold-light); box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/coin.png" style="width: 26px; mix-blend-mode: multiply;" alt="Coins">
+                        <span style="font-weight: bold; font-size: 20px; color: var(--dark-blue);">50</span>
+                    </div>
+                </div>
+
+                <div class="modal-actions" style="justify-content: center; margin-top: 10px;">
+                    <button class="btn-save" onclick="closeDailyQuestModal()" style="width: 100%; font-size: 17px; padding: 12px; border-radius: 30px;">Awesome!</button>
                 </div>
             </div>
         </div>

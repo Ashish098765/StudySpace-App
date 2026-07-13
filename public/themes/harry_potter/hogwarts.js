@@ -322,7 +322,7 @@ function renderDashboard() {
                         <div class="task-text">
                             <h4 style="${task.done ? 'opacity:0.7; text-decoration:line-through;' : ''}">
                                 ${task.name} 
-                                <i class="fa-solid fa-pen" style="font-size: 11px; margin-left: 6px; cursor: pointer; color: var(--gold);" onclick="event.stopPropagation(); editTask(${task.id})" title="Modify Task"></i>
+                                <i class="fa-solid fa-pen task-edit-icon" onclick="event.stopPropagation(); editTask(${task.id})" title="Modify Task"></i>
                             </h4>
                             <p>${subText}</p>
                         </div>
@@ -342,13 +342,28 @@ function renderDashboard() {
 
         sortedHouses.forEach(([houseName, score], index) => {
             const li = document.createElement("li");
-            
-            // Build the tooltip text
-            let tooltipText = `Top Contributor: Coming Soon!`;
+            li.classList.add("house-item");
+
+            // Build the custom HTML tooltip
+            let personalContributionHtml = '';
             if (userData.house === houseName) {
-                tooltipText = `Your Contribution: ${userData.coins} coins\n` + tooltipText;
+                personalContributionHtml = `
+                    <div class="tooltip-row highlight">
+                        <span>Your Contribution:</span> 
+                        <span>${userData.coins} <i class="fa-solid fa-gem" style="font-size:10px; margin-left:3px;"></i></span>
+                    </div>`;
             }
-            li.title = tooltipText;
+
+            const tooltipHtml = `
+                <div class="house-tooltip">
+                    <h4>${houseName} Stats</h4>
+                    <div class="tooltip-row">
+                        <span>Top Contributor:</span> 
+                        <span>Coming Soon!</span>
+                    </div>
+                    ${personalContributionHtml}
+                </div>
+            `;
 
             li.innerHTML = `
                 <div class="house-info">
@@ -357,6 +372,7 @@ function renderDashboard() {
                     <span>${houseName}</span>
                 </div>
                 <span>${score}</span>
+                ${tooltipHtml}
             `;
             houseListEl.appendChild(li);
         });
@@ -417,7 +433,57 @@ function renderDashboard() {
         });
     }
     // --- DAILY PLANNER LOGIC ---
-    window.openTaskModal = () => document.getElementById("task-modal").style.display = "flex";
+    window.openTaskModal = () => {
+        // Reset modal to "Add" mode
+        document.getElementById("modal-task-name").value = "";
+        document.getElementById("modal-task-value").value = "";
+        document.getElementById("modal-btn-delete").style.display = "none";
+        
+        const saveBtn = document.getElementById("modal-btn-save");
+        saveBtn.innerText = "Add Task";
+        saveBtn.onclick = saveNewTask;
+        
+        document.getElementById("task-modal").style.display = "flex";
+    };
+
+    window.editTask = (taskId) => {
+        const task = userData.tasks.find(t => t.id === taskId);
+        if (!task) return;
+        
+        // Populate modal with existing data
+        document.getElementById("modal-task-name").value = task.name;
+        document.getElementById("modal-task-subject").value = task.subject;
+        document.getElementById("modal-task-type").value = task.targetType;
+        document.getElementById("modal-task-value").value = task.targetValue;
+        
+        // Show Delete Button and handle deletion
+        const deleteBtn = document.getElementById("modal-btn-delete");
+        deleteBtn.style.display = "inline-block";
+        deleteBtn.onclick = () => {
+            if(confirm(`Are you sure you want to delete "${task.name}"?`)) {
+                userData.tasks = userData.tasks.filter(t => t.id !== taskId);
+                syncDataToFirebase();
+                renderDashboard();
+                closeTaskModal();
+            }
+        };
+        
+        // Change the save button temporarily to handle edits
+        const saveBtn = document.getElementById("modal-btn-save");
+        saveBtn.innerText = "Update Task";
+        saveBtn.onclick = () => {
+            task.name = document.getElementById("modal-task-name").value.trim();
+            task.subject = document.getElementById("modal-task-subject").value;
+            task.targetType = document.getElementById("modal-task-type").value;
+            task.targetValue = parseInt(document.getElementById("modal-task-value").value);
+            
+            syncDataToFirebase();
+            renderDashboard();
+            closeTaskModal();
+        };
+        
+        document.getElementById("task-modal").style.display = "flex";
+    };
     window.closeTaskModal = () => document.getElementById("task-modal").style.display = "none";
     
     window.toggleTaskInput = () => {
