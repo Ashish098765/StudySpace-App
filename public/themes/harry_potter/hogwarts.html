@@ -737,81 +737,122 @@
         .item-subtitle { font-size: 0.75rem; color: #73685e; font-weight: 600; }
         .badge-live { background-color: #d63c3c; color: white; font-size: 0.65rem; font-weight: 800; padding: 3px 6px; border-radius: 4px; box-shadow: 0 2px 4px rgba(214, 60, 60, 0.3); }
         .action-btn { width: 28px; height: 28px; border-radius: 6px; background: rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid rgba(0,0,0,0.08); color: #444; font-size: 0.8rem; }
-        /* --- Room Type Popup Styles --- */
+        /* --- Ornate Magical Room Popups --- */
         .room-popup {
             position: fixed;
-            background: var(--dark-blue);
-            border: 1px solid var(--gold);
+            background: linear-gradient(135deg, #0f192b, #060a12);
+            border: 2px solid var(--gold);
             border-radius: 8px;
-            padding: 10px;
+            padding: 8px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            gap: 4px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), 0 0 15px rgba(197, 160, 89, 0.2);
             z-index: 1000;
-            white-space: nowrap;
             opacity: 0;
             visibility: hidden;
             transform: translateX(-10px);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
         .room-popup.show {
             opacity: 1;
             visibility: visible;
-            transform: translateX(10px);
+            transform: translateX(12px);
         }
-
         .room-popup button {
             background: transparent;
-            color: #d1c7b1;
+            color: #dfc27d;
             border: 1px solid transparent;
-            padding: 10px 15px;
+            padding: 12px 20px;
             text-align: left;
             font-family: var(--font-main);
-            font-size: 16px;
-            font-weight: 500;
+            font-size: 18px;
+            font-weight: 600;
             cursor: pointer;
             border-radius: 4px;
             transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
-
+        .room-popup button i {
+            color: var(--gold);
+            font-size: 16px;
+            width: 20px;
+        }
         .room-popup button:hover {
             background: rgba(197, 160, 89, 0.15);
-            border-color: rgba(197, 160, 89, 0.5);
-            color: var(--gold-light);
+            border-color: rgba(197, 160, 89, 0.4);
+            color: #fff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
         }
 
-        /* --- Private Room Modal Tabs --- */
+        /* --- Private Room Parchment Modal --- */
         .room-tabs {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
-            padding-bottom: 10px;
+            gap: 5px;
+            margin-bottom: 22px;
+            border-bottom: 2px solid rgba(197, 160, 89, 0.25);
         }
-
         .room-tab {
             flex: 1;
             background: transparent;
             border: none;
             color: var(--text-muted);
             font-family: var(--font-main);
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 20px;
+            font-weight: 700;
             cursor: pointer;
-            padding: 8px;
-            transition: 0.3s;
+            padding: 10px;
+            transition: all 0.3s ease;
+            border-radius: 4px 4px 0 0;
         }
-
+        .room-tab:hover {
+            color: var(--text-dark);
+        }
         .room-tab.active {
             color: var(--dark-blue);
-            border-bottom: 2px solid var(--gold);
+            background: rgba(197, 160, 89, 0.15);
+            border-bottom: 3px solid var(--gold);
+        }
+        .magical-input-group {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+        .magical-input-group label {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #5e5142 !important;
+        }
+
+        /* Dynamic container adjustments for video views */
+        .agora-local-stream, .agora-remote-stream {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            border-radius: inherit;
+            overflow: hidden;
+        }
+        .cam-preview-box, .grid-cell {
+            position: relative;
+            overflow: hidden;
+        }
+        .cam-preview-box img, .grid-cell img {
+            position: relative;
+            z-index: 1;
+            transition: opacity 0.3s;
+        }
+        .cam-active img {
+            opacity: 0 !important;
+            pointer-events: none;
         }
     </style>
+    <!-- Agora Web SDK -->
+    <script src="https://download.agora.io/sdk/web/AgoraRTC_N-4.22.0.js"></script>
 </head>
 <body>
 
@@ -1277,47 +1318,54 @@
         </div>
     </div>
     </main>
-    <!-- Mini Popup: Appears next to sidebar -->
+    <!-- Mini Popup: Positioned right next to sidebar button -->
     <div id="room-type-popup" class="room-popup">
-        <button id="btn-public-room"><i class="fa-solid fa-earth-americas"></i> Public Room</button>
-        <button id="btn-private-room"><i class="fa-solid fa-lock"></i> Private Room</button>
+        <button id="btn-public-room"><i class="fa-solid fa-earth-americas"></i> Join Public Room</button>
+        <button id="btn-private-room"><i class="fa-solid fa-lock"></i> Private Quarters</button>
     </div>
 
-    <!-- Private Room Modal: Create / Join -->
+    <!-- Private Room Setup Modal -->
     <div id="private-room-modal" class="modal-overlay">
-        <div class="modal-content" style="text-align: center;">
-            <h3 style="border-bottom: none; margin-bottom: 5px;">Private Study Room</h3>
+        <div class="modal-content" style="background: url('https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/bg.png'); max-width: 420px; border-width: 3px;">
+            <span class="card-corner corner-tl"></span><span class="card-corner corner-tr"></span>
+            <span class="card-corner corner-bl"></span><span class="card-corner corner-br"></span>
+            
+            <h3 style="font-size: 24px; text-align: center; border: none; margin-bottom: 10px;">Study Room Wardrobe</h3>
             
             <div class="room-tabs">
-                <button class="room-tab active" id="tab-create-room" onclick="switchRoomTab('create')">Create</button>
-                <button class="room-tab" id="tab-join-room" onclick="switchRoomTab('join')">Join</button>
+                <button class="room-tab active" id="tab-create-room" onclick="switchRoomTab('create')">Forge Room</button>
+                <button class="room-tab" id="tab-join-room" onclick="switchRoomTab('join')">Breach Room</button>
             </div>
             
-            <!-- Create Section -->
+            <!-- Forge / Create -->
             <div id="create-room-section">
-                <label style="text-align: left;">Create Room ID</label>
-                <input type="text" id="create-room-id" placeholder="e.g., DumbledoreArmy">
-                
-                <label style="text-align: left;">Set Password</label>
-                <input type="password" id="create-room-pwd" placeholder="Enter password">
-                
-                <div class="modal-actions" style="justify-content: center; margin-top: 25px;">
-                    <button class="btn-cancel" onclick="closePrivateRoomModal()">Cancel</button>
-                    <button class="btn-save" onclick="handleCreatePrivateRoom()">Create & Enter</button>
+                <div class="magical-input-group">
+                    <label>Room Identifier (Letters or Numbers)</label>
+                    <input type="text" id="create-room-id" placeholder="e.g., GryffindorLounge">
+                </div>
+                <div class="magical-input-group">
+                    <label>Sealing Passphrase</label>
+                    <input type="password" id="create-room-pwd" placeholder="Enter secure spell">
+                </div>
+                <div class="modal-actions" style="margin-top: 30px;">
+                    <button class="btn-cancel" onclick="closePrivateRoomModal()">Retreat</button>
+                    <button class="btn-save" onclick="handleCreatePrivateRoom()">Cast & Open</button>
                 </div>
             </div>
 
-            <!-- Join Section -->
+            <!-- Breach / Join -->
             <div id="join-room-section" style="display: none;">
-                <label style="text-align: left;">Enter Room ID</label>
-                <input type="text" id="join-room-id" placeholder="Room ID">
-                
-                <label style="text-align: left;">Enter Password</label>
-                <input type="password" id="join-room-pwd" placeholder="Password">
-                
-                <div class="modal-actions" style="justify-content: center; margin-top: 25px;">
-                    <button class="btn-cancel" onclick="closePrivateRoomModal()">Cancel</button>
-                    <button class="btn-save" onclick="handleJoinPrivateRoom()">Join Room</button>
+                <div class="magical-input-group">
+                    <label>Target Room ID</label>
+                    <input type="text" id="join-room-id" placeholder="Enter existing ID">
+                </div>
+                <div class="magical-input-group">
+                    <label>Verification Passphrase</label>
+                    <input type="password" id="join-room-pwd" placeholder="Enter spell phrase">
+                </div>
+                <div class="modal-actions" style="margin-top: 30px;">
+                    <button class="btn-cancel" onclick="closePrivateRoomModal()">Retreat</button>
+                    <button class="btn-save" onclick="handleJoinPrivateRoom()">Disillusion & Enter</button>
                 </div>
             </div>
         </div>

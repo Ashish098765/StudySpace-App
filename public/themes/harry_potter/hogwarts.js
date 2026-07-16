@@ -738,21 +738,295 @@ function renderDashboard() {
     window.closeDailyQuestModal = () => {
         document.getElementById("daily-quest-modal").style.display = "none";
     };
-    // --- Study Room View Toggle ---
-    window.toggleView = () => {
-        const defaultView = document.getElementById('default-view');
-        const gridView = document.getElementById('grid-view');
+    // =========================================================================
+    // --- ADVANCED AGORA VIDEO & FIRESTORE REAL-TIME CHAT INTEGRATION ---
+    // =========================================================================
+    const APP_ID = "8a735e3d22a7475babf205eab01d8859"; // Agora App ID[cite: 3]
+    let currentRoomId = "public-general";
+    let agoraClient = null;
+    let localTracks = { audioTrack: null, videoTrack: null };
+    let mediaStates = { mic: false, cam: false, joined: false };
+    let remoteUsersMap = {};
 
-        if (defaultView.classList.contains('hidden')) {
-            // Show default, hide grid
-            defaultView.classList.remove('hidden');
-            gridView.classList.remove('active');
-        } else {
-            // Hide default, show grid
-            defaultView.classList.add('hidden');
-            gridView.classList.add('active');
+    const roomTypePopup = document.getElementById("room-type-popup");
+    const viewSections = document.querySelectorAll(".view-section");
+    const chatContainer = document.querySelector(".chat-container");
+    const chatInput = document.querySelector(".chat-input-bar input");
+    const chatSendBtn = document.querySelector(".chat-icons .fa-paper-plane");
+    
+    // Custom Navigation Hijack for Study Rooms Layout
+    document.querySelectorAll(".sidebar nav a").forEach(link => {
+        link.addEventListener("click", (e) => {
+            const targetId = link.getAttribute("data-target");
+            if (targetId === "study-rooms-view") {
+                e.preventDefault();
+                const linkRect = link.getBoundingClientRect();
+                roomTypePopup.style.top = `${linkRect.top}px`;
+                roomTypePopup.style.left = `${linkRect.right + 8}px`;
+                roomTypePopup.classList.toggle("show");
+                return;
+            }
+            if(roomTypePopup) roomTypePopup.classList.remove("show");
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest("nav") && !e.target.closest("#room-type-popup")) {
+            roomTypePopup.classList.remove("show");
+        }
+    });
+
+    // --- Modal View Management Switches ---
+    window.switchRoomTab = (mode) => {
+        document.getElementById("create-room-section").style.display = mode === "create" ? "block" : "none";
+        document.getElementById("join-room-section").style.display = mode === "join" ? "block" : "none";
+        document.getElementById("tab-create-room").classList.toggle("active", mode === "create");
+        document.getElementById("tab-join-room").classList.toggle("active", mode === "join");
+    };
+
+    window.closePrivateRoomModal = () => {
+        document.getElementById("private-room-modal").style.display = "none";
+    };
+
+    // Route Handler Initializers
+    document.getElementById("btn-public-room").onclick = () => {
+        roomTypePopup.classList.remove("show");
+        enterStudyRoom("public-general");
+    };
+    document.getElementById("btn-private-room").onclick = () => {
+        roomTypePopup.classList.remove("show");
+        document.getElementById("private-room-modal").style.display = "flex";
+    };
+
+    window.handleCreatePrivateRoom = async () => {
+        const id = document.getElementById("create-room-id").value.trim();
+        const pwd = document.getElementById("create-room-pwd").value.trim();
+        if(!id || !pwd) return alert("Must configure Room Code and Passphrase seals!");
+        
+        // Register room rules structure into cloud database
+        await db.collection("rooms").doc(id).set({ password: pwd, created: Date.now() });
+        closePrivateRoomModal();
+        enterStudyRoom(id);
+    };
+
+    window.handleJoinPrivateRoom = async () => {
+        const id = document.getElementById("join-room-id").value.trim();
+        const pwd = document.getElementById("join-room-pwd").value.trim();
+        if(!id || !pwd) return alert("Credentials mandatory to break counter-hexes!");
+        
+        const roomDoc = await db.collection("rooms").doc(id).get();
+        if(!roomDoc.exists || roomDoc.data().password !== pwd) {
+            return alert("Access Denied! The protective spells rejected your passphrase signature.");
+        }
+        closePrivateRoomModal();
+        enterStudyRoom(id);
+    };
+
+    // --- Core Media & Signal Engine Operations ---
+    async function enterStudyRoom(roomId) {
+        currentRoomId = roomId;
+        
+        // Transition Dashboard Frames
+        viewSections.forEach(sec => sec.style.display = "none");
+        document.getElementById("study-rooms-view").style.display = "flex";
+        
+        // Setup Room UI Headers
+        const isPublic = roomId.startsWith("public-");
+        const headerTitle = document.querySelector(".grid-header h2");
+        if(headerTitle) headerTitle.innerText = isPublic ? `Public Lounge (${roomId})` : `Secret Chamber: ${roomId}`;
+
+        // Fire up Media Engine Systems
+        if(!agoraClient) {
+            agoraClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
+            setupAgoraEventListeners();
+        }
+
+        try {
+            if(agoraClient.connectionState !== "DISCONNECTED") await agoraClient.leave();
+            
+            const localUid = await agoraClient.join(APP_ID, currentRoomId, null, null);
+            mediaStates.joined = true;
+
+            // Generate Device Track Records
+            if(!localTracks.audioTrack) localTracks.audioTrack = await AgoraRTC.createMicrophoneAudioTrack();
+            if(!localTracks.videoTrack) localTracks.videoTrack = await AgoraRTC.createCameraVideoTrack();
+
+            // Set Initial Mute Mappings
+            await localTracks.audioTrack.setMuted(!mediaStates.mic);
+            await localTracks.videoTrack.setMuted(!mediaStates.cam);
+
+            // Bind Local Output Playback Surface Frame
+            const localBox = document.querySelector(".cam-preview-box");
+            if(localBox) {
+                let trackDiv = document.getElementById("agora-local-container");
+                if(!trackDiv) {
+                    trackDiv = document.createElement("div");
+                    trackDiv.id = "agora-local-container";
+                    trackDiv.className = "agora-local-stream";
+                    localBox.appendChild(trackDiv);
+                }
+                localTracks.videoTrack.play(trackDiv.id);
+            }
+
+            await agoraClient.publish(Object.values(localTracks));
+            
+            // Push active registry to remote peers index mapping
+            await db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(localUid)).set({
+                name: userData.name || "Mischief Managed",
+                house: userData.house || "Ravenclaw",
+                camActive: mediaStates.cam,
+                timestamp: Date.now()
+            });
+
+            // Spin up real-time bindings orchestration
+            initializeLiveChatEngine();
+            initializeRemoteParticipantsEngine();
+
+        } catch (err) {
+            console.error("Magical Connection Breakdown:", err);
+        }
+    }
+
+    // Bind Active Controls Interfaces
+    document.querySelector(".control-dock .dock-btn:nth-child(1)").onclick = async () => { // Cam Toggle
+        if(!localTracks.videoTrack) return;
+        mediaStates.cam = !mediaStates.cam;
+        await localTracks.videoTrack.setMuted(!mediaStates.cam);
+        
+        const previewWrap = document.querySelector(".cam-preview-box");
+        previewWrap?.classList.toggle("cam-active", mediaStates.cam);
+        document.querySelector(".control-dock .dock-btn:nth-child(1) i").className = mediaStates.cam ? "fa-solid fa-video" : "fa-solid fa-video-slash";
+        
+        if(mediaStates.joined) {
+            db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(agoraClient.uid)).update({ camActive: mediaStates.cam });
         }
     };
 
+    document.querySelector(".control-dock .dock-btn:nth-child(2)").onclick = async () => { // Mic Toggle
+        if(!localTracks.audioTrack) return;
+        mediaStates.mic = !mediaStates.mic;
+        await localTracks.audioTrack.setMuted(!mediaStates.mic);
+        document.querySelector(".control-dock .dock-btn:nth-child(2) i").className = mediaStates.mic ? "fa-solid fa-microphone" : "fa-solid fa-microphone-slash";
+    };
+
+    document.querySelector(".control-dock .leave-btn").onclick = async () => { // Leave Action
+        if(agoraClient) {
+            if(mediaStates.joined) {
+                await db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(agoraClient.uid)).delete();
+            }
+            await agoraClient.leave();
+        }
+        mediaStates.joined = false;
+        // Go back to home dashboard view
+        viewSections.forEach(sec => sec.style.display = "none");
+        document.getElementById("dashboard-view").style.display = "flex";
+    };
+
+    // --- Dynamic Remote Stream Handlers ---
+    function setupAgoraEventListeners() {
+        agoraClient.on("user-published", async (user, mediaType) => {
+            await agoraClient.subscribe(user, mediaType);
+            if(mediaType === "video") {
+                remoteUsersMap[user.uid] = user;
+                renderGridLayoutCells();
+            }
+            if(mediaType === "audio") user.audioTrack.play();
+        });
+
+        agoraClient.on("user-left", (user) => {
+            delete remoteUsersMap[user.uid];
+            renderGridLayoutCells();
+        });
+    }
+
+    function renderGridLayoutCells() {
+        const gridLayout = document.querySelector(".grid-layout");
+        if(!gridLayout) return;
+        
+        // Clear layout while maintaining custom structural frames
+        gridLayout.innerHTML = "";
+        
+        Object.keys(remoteUsersMap).forEach(uid => {
+            const cell = document.createElement("div");
+            cell.className = "grid-cell";
+            cell.id = `remote-cell-${uid}`;
+            cell.innerHTML = `
+                <div id="agora-remote-${uid}" class="agora-remote-stream"></div>
+                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=${uid}&backgroundColor=1b263b" alt="Wizard">
+                <div class="grid-label" id="label-${uid}">Connecting Mage...</div>
+            `;
+            gridLayout.appendChild(cell);
+            
+            // Execute playback tracking pipelines
+            setTimeout(() => {
+                if(remoteUsersMap[uid] && remoteUsersMap[uid].videoTrack) {
+                    remoteUsersMap[uid].videoTrack.play(`agora-remote-${uid}`);
+                }
+            }, 100);
+        });
+    }
+
+    function initializeRemoteParticipantsEngine() {
+        db.collection("rooms").doc(currentRoomId).collection("participants").onSnapshot(snap => {
+            snap.forEach(docSnap => {
+                const uid = docSnap.id;
+                if(agoraClient && uid === String(agoraClient.uid)) return;
+                
+                const data = docSnap.data();
+                const cell = document.getElementById(`remote-cell-${uid}`);
+                const label = document.getElementById(`label-${uid}`);
+                
+                if(label) label.innerText = `${data.name} (${data.house})`;
+                if(cell) cell.classList.toggle("cam-active", data.camActive);
+            });
+        });
+    }
+
+    // --- Instant Real-Time Chat System Execution Engine ---
+    function initializeLiveChatEngine() {
+        if(!chatContainer) return;
+
+        // Strip previous instances references mapping profiles
+        db.collection("rooms").doc(currentRoomId).collection("messages")
+          .orderBy("timestamp", "asc")
+          .limitToLast(30)
+          .onSnapshot(snapshot => {
+              chatContainer.innerHTML = "";
+              snapshot.forEach(docSnap => {
+                  const msg = docSnap.data();
+                  const item = document.createElement("div");
+                  item.className = "chat-item";
+                  item.innerHTML = `
+                      <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=${msg.senderName}&backgroundColor=d4ad8c" class="avatar-img" alt="Avatar">
+                      <div class="chat-body">
+                          <div class="chat-header">
+                              <span class="chat-name">${msg.senderName}</span>
+                              <span class="chat-time">${new Date(msg.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                          </div>
+                          <div class="chat-text">${msg.text}</div>
+                      </div>
+                  `;
+                  chatContainer.appendChild(item);
+              });
+              chatContainer.scrollTop = chatContainer.scrollHeight;
+          });
+    }
+
+    async function submitChatMessage() {
+        const text = chatInput.value.trim();
+        if(!text) return;
+        chatInput.value = "";
+
+        await db.collection("rooms").doc(currentRoomId).collection("messages").add({
+            text: text,
+            senderName: userData.name || "Wizard Guest",
+            timestamp: Date.now()
+        });
+    }
+
+    if(chatSendBtn) chatSendBtn.onclick = submitChatMessage;
+    if(chatInput) {
+        chatInput.onkeypress = (e) => { if(e.key === "Enter") submitChatMessage(); };
+    }
     initializeUserDashboard();
 });
