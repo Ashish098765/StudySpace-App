@@ -1142,8 +1142,9 @@
             <div class="desk-view">
                 <div class="floating-top-bar">
                     <div class="status-pill">
-                        <div class="timer">
-                            <i class="fa-solid fa-hourglass-half"></i> 02:15:30
+                        <!-- Added ID for the live timer -->
+                        <div class="timer" id="room-active-timer">
+                            <i class="fa-solid fa-hourglass-half"></i> 00:00:00
                         </div>
                     </div>
                     <button class="btn-invite">
@@ -1182,11 +1183,12 @@
                     <!-- DISCORD-STYLE GRID VIEW -->
                     <div class="video-grid-container" id="grid-view">
                         <div class="grid-header">
-                            <h2 id="grid-header-title">Room Participants</h2>
+                            <h2 id="grid-header-title">Room Participants (1)</h2>
                             <button class="btn-view-toggle small" onclick="toggleView()">
                                 <i class="fa-solid fa-arrow-left"></i> Back to Desk
                             </button>
                         </div>
+                        <!-- Cleaned out all dummy cells, added ID -->
                         <div class="grid-layout" id="main-grid-layout">
                             <!-- Real-time participants will be injected here by JS -->
                         </div>
@@ -1217,7 +1219,8 @@
                     <div class="tab">People (1)</div>
                 </div>
 
-                <div class="torn-paper-block" style="flex-grow: 1; display: flex; flex-direction: column; padding-bottom: 10px;">
+                <div class="torn-paper-block" id="chat-section-block" style="flex-grow: 1; display: flex; flex-direction: column; padding-bottom: 10px;">
+                    <!-- Cleaned out dummy chats -->
                     <div class="chat-container" style="margin-top: 0;">
                         <!-- Real-time chat messages will appear here -->
                     </div>

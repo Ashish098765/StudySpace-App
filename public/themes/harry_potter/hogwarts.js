@@ -702,9 +702,10 @@ function renderDashboard() {
             if (!participants.empty) {
                 return alert("This Room ID is currently active! Please choose a unique ID or join the existing room.");
             } else {
-                // Room is empty (abandoned). Clean out old messages to provide a fresh room.
+                // Room is abandoned. Completely wipe all ghost data and old chats.
                 const oldMsgs = await roomRef.collection("messages").get();
                 oldMsgs.forEach(m => m.ref.delete());
+                participants.forEach(p => p.ref.delete());
             }
         }
         
@@ -727,7 +728,16 @@ function renderDashboard() {
     };
 
     // --- Core Media & Signal Engine Operations ---
-    let roomStudyTimer = null; // Global tracker for live room study time
+    let roomStudyTimer = null; 
+    let uiTimerInterval = null;
+    let roomSeconds = 0;
+
+    // Ghost user cleanup on browser tab close
+    window.addEventListener("beforeunload", () => {
+        if(mediaStates.joined && currentRoomId && agoraClient) {
+            db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(agoraClient.uid)).delete();
+        }
+    });
 
     async function enterStudyRoom(roomId) {
         currentRoomId = roomId;
@@ -746,6 +756,19 @@ function renderDashboard() {
         const isPublic = roomId.startsWith("public-");
         const headerTitle = document.querySelector(".grid-header h2");
         if(headerTitle) headerTitle.innerText = isPublic ? `Public Lounge (${roomId})` : `Secret Chamber: ${roomId}`;
+
+        // Reset & Start Live UI Timer
+        roomSeconds = 0;
+        const timerDisplay = document.getElementById("room-active-timer");
+        if(timerDisplay) timerDisplay.innerHTML = `<i class="fa-solid fa-hourglass-half"></i> 00:00:00`;
+        
+        uiTimerInterval = setInterval(() => {
+            roomSeconds++;
+            const h = String(Math.floor(roomSeconds / 3600)).padStart(2, '0');
+            const m = String(Math.floor((roomSeconds % 3600) / 60)).padStart(2, '0');
+            const s = String(roomSeconds % 60).padStart(2, '0');
+            if(timerDisplay) timerDisplay.innerHTML = `<i class="fa-solid fa-hourglass-half"></i> ${h}:${m}:${s}`;
+        }, 1000);
 
         if(!agoraClient) {
             agoraClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
@@ -792,7 +815,7 @@ function renderDashboard() {
                 timestamp: Date.now()
             });
 
-            // Start Live Study Time Sync
+            // Start Live Dashboard Study Time Sync
             roomStudyTimer = setInterval(() => {
                 userData.studyMinutes += 1;
                 userData.coins += 1;
@@ -877,7 +900,11 @@ function renderDashboard() {
     const leaveBtn = document.querySelector(".control-dock .leave-btn");
     if (leaveBtn) {
         leaveBtn.onclick = async () => {
-            if (roomStudyTimer) clearInterval(roomStudyTimer); // Stop timer
+            if (roomStudyTimer) clearInterval(roomStudyTimer);
+            if (uiTimerInterval) clearInterval(uiTimerInterval);
+            
+            const timerDisplay = document.getElementById("room-active-timer");
+            if(timerDisplay) timerDisplay.innerHTML = `<i class="fa-solid fa-hourglass-half"></i> 00:00:00`;
 
             if(agoraClient) {
                 if(mediaStates.joined) {
@@ -887,12 +914,10 @@ function renderDashboard() {
             }
             mediaStates.joined = false;
             
-            // Go back to home dashboard view
             if(viewSections) viewSections.forEach(sec => sec.style.display = "none");
             const dashboard = document.getElementById("dashboard-view");
             if(dashboard) dashboard.style.display = "flex";
             
-            // Reset Sidebar Highlight back to Dashboard
             document.querySelectorAll(".sidebar nav li").forEach(li => li.classList.remove("active"));
             const dashboardLink = document.querySelector(".sidebar nav a[data-target='dashboard-view']");
             if (dashboardLink) dashboardLink.parentElement.classList.add("active");
@@ -923,7 +948,7 @@ function renderDashboard() {
         const gridLayout = document.getElementById("main-grid-layout");
         if(!gridLayout) return;
         
-        gridLayout.innerHTML = ""; // Ensure fresh grid
+        gridLayout.innerHTML = ""; 
         
         Object.keys(remoteUsersMap).forEach(uid => {
             const cell = document.createElement("div");
@@ -961,7 +986,6 @@ function renderDashboard() {
                 if(cell) cell.classList.toggle("cam-active", data.camActive);
             });
             
-            // Update the "People" tab counter and Grid Header
             const peopleTab = document.querySelector(".tabs-header .tab:nth-child(2)");
             if (peopleTab) peopleTab.innerText = `People (${participantCount})`;
             
@@ -1042,7 +1066,7 @@ function renderDashboard() {
     // --- RIGHT SIDEBAR TABS (Chat vs People) ---
     const tabChat = document.querySelector(".tabs-header .tab:nth-child(1)");
     const tabPeople = document.querySelector(".tabs-header .tab:nth-child(2)");
-    const chatSection = document.querySelector(".torn-paper-block:nth-child(2)");
+    const chatSection = document.getElementById("chat-section-block");
     
     if (tabChat && tabPeople) {
         tabChat.addEventListener("click", () => {
@@ -1055,7 +1079,7 @@ function renderDashboard() {
             tabPeople.classList.add("active");
             tabChat.classList.remove("active");
             if (chatSection) chatSection.style.display = "none";
-            window.toggleView();
+            // Removed window.toggleView() to fix the unwanted main window switch
         });
     }
 
