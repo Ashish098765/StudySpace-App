@@ -617,7 +617,6 @@ function renderDashboard() {
     const viewSections = document.querySelectorAll(".view-section");
     const chatContainer = document.querySelector(".chat-container");
     const chatInput = document.querySelector(".chat-input-bar input");
-    const chatSendBtn = document.querySelector(".chat-icons .fa-paper-plane");
     
     // Custom Navigation Hijack for Study Rooms Layout
     document.querySelectorAll(".sidebar nav a").forEach(link => {
