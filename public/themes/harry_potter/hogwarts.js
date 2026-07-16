@@ -704,6 +704,12 @@ function renderDashboard() {
         if (viewSections) viewSections.forEach(sec => sec.style.display = "none");
         const studyRoomsView = document.getElementById("study-rooms-view");
         if (studyRoomsView) studyRoomsView.style.display = "flex";
+
+        // --- NEW: Highlight Study Rooms in Sidebar ---
+        document.querySelectorAll(".sidebar nav li").forEach(li => li.classList.remove("active"));
+        const studyRoomLink = document.querySelector(".sidebar nav a[data-target='study-rooms-view']");
+        if (studyRoomLink) studyRoomLink.parentElement.classList.add("active");
+        // -------------------------------------------
         
         // Setup Room UI Headers
         const isPublic = roomId.startsWith("public-");
@@ -759,6 +765,7 @@ function renderDashboard() {
 
         } catch (err) {
             console.error("Magical Connection Breakdown:", err);
+            alert("Video Engine failed to start. Please ensure the Agora script is loaded!");
         }
     }
 
@@ -771,7 +778,7 @@ function renderDashboard() {
             await localTracks.videoTrack.setMuted(!mediaStates.cam);
             
             const previewWrap = document.querySelector(".cam-preview-box");
-            previewWrap?.classList.toggle("cam-active", mediaStates.cam);
+            if (previewWrap) previewWrap.classList.toggle("cam-active", mediaStates.cam);
             const camIcon = document.querySelector(".control-dock .dock-btn:nth-child(1) i");
             if(camIcon) camIcon.className = mediaStates.cam ? "fa-solid fa-video" : "fa-solid fa-video-slash";
             
@@ -792,6 +799,45 @@ function renderDashboard() {
         };
     }
 
+    // --- NEW: Screen Share Button Logic ---
+    const screenBtn = document.querySelector(".control-dock .dock-btn:nth-child(3)");
+    if (screenBtn) {
+        screenBtn.onclick = async () => {
+            if (!mediaStates.screen) {
+                try {
+                    // Create and publish the screen track
+                    localTracks.screenTrack = await AgoraRTC.createScreenVideoTrack();
+                    await agoraClient.unpublish([localTracks.videoTrack]);
+                    await agoraClient.publish([localTracks.screenTrack]);
+                    mediaStates.screen = true;
+                    
+                    // Light up the screen share icon in gold
+                    const screenIcon = document.querySelector(".control-dock .dock-btn:nth-child(3) i");
+                    if (screenIcon) screenIcon.style.color = "var(--gold)";
+
+                    // Listen for when the user clicks "Stop Sharing" on the browser popup
+                    localTracks.screenTrack.on("track-ended", async () => {
+                        await agoraClient.unpublish([localTracks.screenTrack]);
+                        localTracks.screenTrack.close();
+                        await agoraClient.publish([localTracks.videoTrack]);
+                        mediaStates.screen = false;
+                        if (screenIcon) screenIcon.style.color = "";
+                    });
+                } catch (error) {
+                    console.error("Screen sharing failed:", error);
+                }
+            } else {
+                // Manually stop sharing
+                await agoraClient.unpublish([localTracks.screenTrack]);
+                localTracks.screenTrack.close();
+                await agoraClient.publish([localTracks.videoTrack]);
+                mediaStates.screen = false;
+                const screenIcon = document.querySelector(".control-dock .dock-btn:nth-child(3) i");
+                if (screenIcon) screenIcon.style.color = "";
+            }
+        };
+    }
+
     const leaveBtn = document.querySelector(".control-dock .leave-btn");
     if (leaveBtn) {
         leaveBtn.onclick = async () => {
@@ -802,27 +848,17 @@ function renderDashboard() {
                 await agoraClient.leave();
             }
             mediaStates.joined = false;
+            
+            // Go back to home dashboard view
             if(viewSections) viewSections.forEach(sec => sec.style.display = "none");
             const dashboard = document.getElementById("dashboard-view");
             if(dashboard) dashboard.style.display = "flex";
+            
+            // --- NEW: Reset Sidebar Highlight back to Dashboard ---
+            document.querySelectorAll(".sidebar nav li").forEach(li => li.classList.remove("active"));
+            const dashboardLink = document.querySelector(".sidebar nav a[data-target='dashboard-view']");
+            if (dashboardLink) dashboardLink.parentElement.classList.add("active");
         };
-    }
-
-    // --- Dynamic Remote Stream Handlers ---
-    function setupAgoraEventListeners() {
-        agoraClient.on("user-published", async (user, mediaType) => {
-            await agoraClient.subscribe(user, mediaType);
-            if(mediaType === "video") {
-                remoteUsersMap[user.uid] = user;
-                renderGridLayoutCells();
-            }
-            if(mediaType === "audio") user.audioTrack.play();
-        });
-
-        agoraClient.on("user-left", (user) => {
-            delete remoteUsersMap[user.uid];
-            renderGridLayoutCells();
-        });
     }
 
     function renderGridLayoutCells() {
