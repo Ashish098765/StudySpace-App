@@ -642,19 +642,27 @@ function renderDashboard() {
     // =========================================================================
     // --- ADVANCED AGORA VIDEO & FIRESTORE REAL-TIME CHAT INTEGRATION ---
     // =========================================================================
-    const APP_ID = "8a735e3d22a7475babf205eab01d8859"; // Agora App ID
+    const APP_ID = "8a735e3d22a7475babf205eab01d8859"; 
     let currentRoomId = "public-general";
     let agoraClient = null;
-    let localTracks = { audioTrack: null, videoTrack: null };
-    let mediaStates = { mic: false, cam: false, joined: false };
+    let localTracks = { audioTrack: null, videoTrack: null, screenTrack: null };
+    let mediaStates = { mic: false, cam: false, screen: false, joined: false };
     let remoteUsersMap = {};
+    let isConnecting = false; // Connection lock to prevent double-firing
+
+    // Generate a stable UID per device to prevent ghost cloning
+    let localAgoraUid = localStorage.getItem("hp_agora_uid");
+    if (!localAgoraUid) {
+        localAgoraUid = Math.floor(Math.random() * 1000000) + 1;
+        localStorage.setItem("hp_agora_uid", localAgoraUid);
+    }
 
     const roomTypePopup = document.getElementById("room-type-popup");
     const viewSections = document.querySelectorAll(".view-section");
     const chatContainer = document.querySelector(".chat-container");
     const chatInput = document.querySelector(".chat-input-bar input");
     
-    // Custom Navigation Hijack for Study Rooms Layout
+    // --- Custom Navigation Hijack for Study Rooms Layout ---
     document.querySelectorAll(".sidebar nav a").forEach(link => {
         link.addEventListener("click", (e) => {
             const targetId = link.getAttribute("data-target");
@@ -662,16 +670,19 @@ function renderDashboard() {
             
             e.preventDefault();
             
-            // Fix 1: Direct Redirection if already joined
+            // Fix 1: Handle Room Navigation Correctly
             if (targetId === "study-rooms-view") {
                 if (mediaStates.joined) {
+                    // Already in a room: Jump straight in, no popup!
                     if(roomTypePopup) roomTypePopup.classList.remove("show");
                     if (viewSections) viewSections.forEach(sec => sec.style.display = "none");
-                    const targetView = document.getElementById(targetId);
+                    const targetView = document.getElementById("study-rooms-view");
                     if (targetView) targetView.style.display = "flex";
+                    
                     document.querySelectorAll(".sidebar nav li").forEach(li => li.classList.remove("active"));
                     link.parentElement.classList.add("active");
                 } else {
+                    // Not in a room: Show popup
                     const linkRect = link.getBoundingClientRect();
                     if(roomTypePopup) {
                         roomTypePopup.style.top = `${linkRect.top}px`;
@@ -682,10 +693,13 @@ function renderDashboard() {
                 return;
             }
             
+            // Handle Dashboard & Other Tabs
             if(roomTypePopup) roomTypePopup.classList.remove("show");
             if (viewSections) viewSections.forEach(sec => sec.style.display = "none");
+            
             const targetView = document.getElementById(targetId);
             if (targetView) targetView.style.display = "flex";
+            
             document.querySelectorAll(".sidebar nav li").forEach(li => li.classList.remove("active"));
             link.parentElement.classList.add("active");
         });
@@ -728,6 +742,7 @@ function renderDashboard() {
         };
     }
 
+    // --- STRICT PRIVATE ROOM CREATION LOGIC ---
     window.handleCreatePrivateRoom = async () => {
         const id = document.getElementById("create-room-id").value.trim();
         const pwd = document.getElementById("create-room-pwd").value.trim();
@@ -741,6 +756,7 @@ function renderDashboard() {
             if (!participants.empty) {
                 return alert("This Room ID is currently active! Please choose a unique ID or join the existing room.");
             } else {
+                // Room is completely abandoned. Wipe all old ghost data for a fresh start.
                 const oldMsgs = await roomRef.collection("messages").get();
                 oldMsgs.forEach(m => m.ref.delete());
                 participants.forEach(p => p.ref.delete());
@@ -770,30 +786,36 @@ function renderDashboard() {
     let uiTimerInterval = null;
     let roomSeconds = 0;
 
+    // Ghost user cleanup on browser tab close
     window.addEventListener("beforeunload", () => {
         if(mediaStates.joined && currentRoomId && agoraClient) {
-            db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(agoraClient.uid)).delete();
+            db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(localAgoraUid)).delete();
         }
     });
 
     async function enterStudyRoom(roomId) {
+        if (isConnecting) return; // Prevent double-clicks causing overlapping bugs
+        isConnecting = true;
         currentRoomId = roomId;
         
+        // Transition Dashboard Frames
         if (viewSections) viewSections.forEach(sec => sec.style.display = "none");
         const studyRoomsView = document.getElementById("study-rooms-view");
         if (studyRoomsView) studyRoomsView.style.display = "flex";
 
+        // Highlight Study Rooms in Sidebar
         document.querySelectorAll(".sidebar nav li").forEach(li => li.classList.remove("active"));
         const studyRoomLink = document.querySelector(".sidebar nav a[data-target='study-rooms-view']");
         if (studyRoomLink) studyRoomLink.parentElement.classList.add("active");
         
+        // Setup Room UI Headers
         const isPublic = roomId.startsWith("public-");
         const headerTitle = document.querySelector(".grid-header h2");
         if(headerTitle) headerTitle.innerText = isPublic ? `Public Lounge (${roomId})` : `Secret Chamber: ${roomId}`;
 
-        // Fix 5 & 6: Clear Overlapping Timers & Handle Private Room Sync
-        if (uiTimerInterval) clearInterval(uiTimerInterval);
-        if (roomStudyTimer) clearInterval(roomStudyTimer);
+        // Fix 5 & 6: Clean Timers & Handle Private Room Sync Properly
+        if (uiTimerInterval) { clearInterval(uiTimerInterval); uiTimerInterval = null; }
+        if (roomStudyTimer) { clearInterval(roomStudyTimer); roomStudyTimer = null; }
         roomSeconds = 0;
 
         if (!isPublic) {
@@ -820,7 +842,8 @@ function renderDashboard() {
         try {
             if(agoraClient.connectionState !== "DISCONNECTED") await agoraClient.leave();
             
-            const localUid = await agoraClient.join(APP_ID, currentRoomId, null, null);
+            // Join with stable local UID
+            await agoraClient.join(APP_ID, currentRoomId, null, Number(localAgoraUid));
             mediaStates.joined = true;
 
             if(!localTracks.audioTrack) localTracks.audioTrack = await AgoraRTC.createMicrophoneAudioTrack();
@@ -829,6 +852,7 @@ function renderDashboard() {
             await localTracks.audioTrack.setMuted(!mediaStates.mic);
             await localTracks.videoTrack.setMuted(!mediaStates.cam);
 
+            // Force UI Icons to match default off states (Show slashes)
             const camIcon = document.querySelector(".control-dock .dock-btn:nth-child(1) i");
             if(camIcon) camIcon.className = mediaStates.cam ? "fa-solid fa-video" : "fa-solid fa-video-slash";
             
@@ -847,15 +871,16 @@ function renderDashboard() {
                 localTracks.videoTrack.play(trackDiv.id);
             }
 
-            await agoraClient.publish(Object.values(localTracks));
+            await agoraClient.publish([localTracks.audioTrack, localTracks.videoTrack]);
             
-            await db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(localUid)).set({
+            await db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(localAgoraUid)).set({
                 name: userData.name || "Mischief Managed",
                 house: userData.house || "Ravenclaw",
                 camActive: mediaStates.cam,
                 timestamp: Date.now()
             });
 
+            // Sync main dashboard stats live from room
             roomStudyTimer = setInterval(() => {
                 userData.studyMinutes += 1;
                 userData.coins += 1;
@@ -870,9 +895,12 @@ function renderDashboard() {
         } catch (err) {
             console.error("Magical Connection Breakdown:", err);
             alert("Video Engine failed to start. Please ensure the Agora script is loaded!");
+        } finally {
+            isConnecting = false;
         }
     }
 
+    // Bind Active Controls Interfaces
     const camBtn = document.querySelector(".control-dock .dock-btn:nth-child(1)");
     if (camBtn) {
         camBtn.onclick = async () => {
@@ -882,11 +910,12 @@ function renderDashboard() {
             
             const previewWrap = document.querySelector(".cam-preview-box");
             if (previewWrap) previewWrap.classList.toggle("cam-active", mediaStates.cam);
+            
             const camIcon = document.querySelector(".control-dock .dock-btn:nth-child(1) i");
             if(camIcon) camIcon.className = mediaStates.cam ? "fa-solid fa-video" : "fa-solid fa-video-slash";
             
             if(mediaStates.joined) {
-                db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(agoraClient.uid)).update({ camActive: mediaStates.cam });
+                db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(localAgoraUid)).update({ camActive: mediaStates.cam });
             }
         };
     }
@@ -939,20 +968,19 @@ function renderDashboard() {
     const leaveBtn = document.querySelector(".control-dock .leave-btn");
     if (leaveBtn) {
         leaveBtn.onclick = async () => {
-            if (roomStudyTimer) clearInterval(roomStudyTimer);
-            if (uiTimerInterval) clearInterval(uiTimerInterval);
+            if (roomStudyTimer) { clearInterval(roomStudyTimer); roomStudyTimer = null; }
+            if (uiTimerInterval) { clearInterval(uiTimerInterval); uiTimerInterval = null; }
             
             const timerDisplay = document.getElementById("room-active-timer");
             if(timerDisplay) timerDisplay.innerHTML = `<i class="fa-solid fa-hourglass-half"></i> 00:00:00`;
 
-            if(agoraClient) {
-                if(mediaStates.joined) {
-                    await db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(agoraClient.uid)).delete();
-                }
+            if(agoraClient && mediaStates.joined) {
+                await db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(localAgoraUid)).delete();
                 await agoraClient.leave();
             }
             mediaStates.joined = false;
             
+            // Go back to home dashboard view
             if(viewSections) viewSections.forEach(sec => sec.style.display = "none");
             const dashboard = document.getElementById("dashboard-view");
             if(dashboard) dashboard.style.display = "flex";
@@ -963,9 +991,11 @@ function renderDashboard() {
         };
     }
 
+    // --- Dynamic Remote Stream Handlers ---
     window.setupAgoraEventListeners = function() {
         agoraClient.on("user-published", async (user, mediaType) => {
             await agoraClient.subscribe(user, mediaType);
+            
             if(mediaType === "video") {
                 remoteUsersMap[user.uid] = user;
                 renderGridLayoutCells();
@@ -977,6 +1007,8 @@ function renderDashboard() {
 
         agoraClient.on("user-left", (user) => {
             delete remoteUsersMap[user.uid];
+            // Fix Ghost issue: forcefully scrub Firebase if Agora detects drop
+            db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(user.uid)).delete();
             renderGridLayoutCells();
         });
     };
@@ -988,8 +1020,12 @@ function renderDashboard() {
         gridLayout.innerHTML = ""; 
         
         Object.keys(remoteUsersMap).forEach(uid => {
+            const user = remoteUsersMap[uid];
+            // Auto hide avatar if video is streaming
+            const hasVideoClass = user.hasVideo ? 'cam-active' : '';
+            
             const cell = document.createElement("div");
-            cell.className = "grid-cell";
+            cell.className = `grid-cell ${hasVideoClass}`;
             cell.id = `remote-cell-${uid}`;
             cell.innerHTML = `
                 <div id="agora-remote-${uid}" class="agora-remote-stream"></div>
@@ -1017,9 +1053,9 @@ function renderDashboard() {
                 const uid = docSnap.id;
                 const data = docSnap.data();
 
-                // Fix 4: Build dynamic list in the People Tab
+                // Build dynamic list in the People Tab
                 if (peopleContainer) {
-                    const isMe = agoraClient && String(agoraClient.uid) === uid;
+                    const isMe = String(localAgoraUid) === uid;
                     const personItem = document.createElement("div");
                     personItem.className = "list-item";
                     personItem.innerHTML = `
@@ -1035,13 +1071,10 @@ function renderDashboard() {
                     peopleContainer.appendChild(personItem);
                 }
                 
-                if(agoraClient && uid === String(agoraClient.uid)) return;
+                if(String(localAgoraUid) === uid) return; // Don't override local grid properties
                 
-                const cell = document.getElementById(`remote-cell-${uid}`);
                 const label = document.getElementById(`label-${uid}`);
-                
                 if(label) label.innerText = `${data.name} (${data.house})`;
-                if(cell) cell.classList.toggle("cam-active", data.camActive);
             });
             
             const peopleTab = document.querySelector(".tabs-header .tab:nth-child(2)");
@@ -1052,6 +1085,7 @@ function renderDashboard() {
         });
     }
 
+    // --- Instant Real-Time Chat System Execution Engine ---
     function initializeLiveChatEngine() {
         const chatContainer = document.querySelector(".chat-container");
         if(!chatContainer) return;
@@ -1137,6 +1171,7 @@ function renderDashboard() {
             tabChat.classList.remove("active");
             if (chatSection) chatSection.style.display = "none";
             if (peopleSection) peopleSection.style.display = "flex";
+            // Fix 1: Removed window.toggleView() so it doesn't hijack the main screen!
         });
     }
 
