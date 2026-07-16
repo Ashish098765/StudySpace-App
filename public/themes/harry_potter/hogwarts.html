@@ -842,6 +842,9 @@
         .cam-preview-box, .grid-cell {
             position: relative;
             overflow: hidden;
+            border-radius: 16px; /* Discord/Zoom rounded corners */
+            background-color: #111827; /* Deep modern dark background */
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
         }
         .cam-preview-box img, .grid-cell img {
             position: relative;
@@ -1166,16 +1169,11 @@
                             </button>
                         </div>
 
+                        <!-- Replaced Static Tasks with Dynamic Container -->
                         <div class="overlay-card parchment-style">
                             <h3>Today's Plan</h3>
-                            <div class="plan-item">
-                                <strong>1.</strong> <div>Review PYQs<br><small>Physics</small></div>
-                            </div>
-                            <div class="plan-item">
-                                <strong>2.</strong> <div>Solve DPP<br><small>Mathematics</small></div>
-                            </div>
-                            <div class="plan-item">
-                                <strong>3.</strong> <div>Revise Notes<br><small>Chemistry</small></div>
+                            <div id="room-todays-plan">
+                                <!-- Tasks injected dynamically by JS -->
                             </div>
                         </div>
                     </div>
@@ -1188,7 +1186,6 @@
                                 <i class="fa-solid fa-arrow-left"></i> Back to Desk
                             </button>
                         </div>
-                        <!-- Cleaned out all dummy cells, added ID -->
                         <div class="grid-layout" id="main-grid-layout">
                             <!-- Real-time participants will be injected here by JS -->
                         </div>
@@ -1220,7 +1217,6 @@
                 </div>
 
                 <div class="torn-paper-block" id="chat-section-block" style="flex-grow: 1; display: flex; flex-direction: column; padding-bottom: 10px;">
-                    <!-- Cleaned out dummy chats -->
                     <div class="chat-container" style="margin-top: 0;">
                         <!-- Real-time chat messages will appear here -->
                     </div>
@@ -1230,18 +1226,16 @@
                     </div>
                 </div>
                 
+                <!-- NEW: Dynamic People List Block -->
+                <div class="torn-paper-block" id="people-section-block" style="display: none; flex-grow: 1; flex-direction: column; overflow-y: auto;">
+                    <!-- Participants list injected here -->
+                </div>
+
                 <div class="torn-paper-block">
                     <div class="section-header">
                         <div class="room-section-title">Pinned Notes <img src="https://img.icons8.com/color/48/scroll.png" alt="Scroll"></div>
                     </div>
                     <div style="font-size: 13px; color: var(--text-muted); font-style: italic; text-align: center; padding: 10px;">No scrolls pinned yet.</div>
-                </div>
-
-                <div class="torn-paper-block">
-                    <div class="section-header">
-                        <div class="room-section-title">Active Screen Shares <img src="https://img.icons8.com/fluency/48/monitor--v1.png" alt="Monitor"></div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--text-muted); font-style: italic; text-align: center; padding: 10px;">No active visions.</div>
                 </div>
             </aside>
         </div>

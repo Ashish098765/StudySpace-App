@@ -15,6 +15,11 @@ if (!firebase.apps.length) {
 const db = firebase.firestore();
 
 document.addEventListener("DOMContentLoaded", () => {
+    let localSessionId = localStorage.getItem("hp_session_id");
+    if (!localSessionId) {
+        localSessionId = Date.now().toString(36) + Math.random().toString(36).substr(2);
+        localStorage.setItem("hp_session_id", localSessionId);
+    }
     let currentUser = localStorage.getItem("hogwarts_user") || "guest";
     let userData = {
         name: "Mischief Managed!",
@@ -200,11 +205,19 @@ document.addEventListener("DOMContentLoaded", () => {
             const doc = await userRef.get();
 
             if (doc.exists) {
-                userData = doc.data();
-                if (!userData.tasks) {
-                    userData.tasks = []; 
+                const fetchedData = doc.data();
+                // Block multi-device login
+                if (fetchedData.sessionId && fetchedData.sessionId !== localSessionId) {
+                    alert("Your magical signature is active on another device. Logging out to protect your account.");
+                    localStorage.removeItem("hogwarts_user");
+                    location.reload();
+                    return;
                 }
+                userData = fetchedData;
+                userData.sessionId = localSessionId; // Update session
+                if (!userData.tasks) userData.tasks = []; 
             } else {
+                userData.sessionId = localSessionId;
                 await userRef.set(userData);
             }
             if (!userData.exam && currentUser !== "guest") {
@@ -355,6 +368,29 @@ function renderDashboard() {
             });
         }
         // ---------------------------------------------------
+    }
+    function renderRoomTasks() {
+        const roomPlanContainer = document.getElementById("room-todays-plan");
+        if (!roomPlanContainer) return;
+        
+        if (!userData.tasks || userData.tasks.length === 0) {
+            roomPlanContainer.innerHTML = `<div style="font-size: 13px; color: var(--text-muted); font-style: italic;">No tasks crafted yet. Focus your mind.</div>`;
+            return;
+        }
+
+        roomPlanContainer.innerHTML = userData.tasks.map((task, index) => {
+            const progress = Math.min((task.currentProgress / task.targetValue) * 100, 100) || 0;
+            return `
+            <div class="plan-item" style="display:block; margin-bottom: 15px;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-size:15px; font-family:'Nunito',sans-serif;">
+                    <strong style="color:var(--navy-dark);">${index + 1}. ${task.name}</strong>
+                    <small style="color:var(--text-muted); font-weight:bold;">${task.currentProgress || 0}/${task.targetValue}</small>
+                </div>
+                <div class="progress-bar" style="width: 100%; height: 6px; background: rgba(197, 160, 89, 0.2); border-radius: 3px;">
+                    <div class="progress-fill" style="height: 100%; width: ${progress}%; background: ${task.done ? '#1f5c33' : '#b58d3c'}; border-radius: 3px;"></div>
+                </div>
+            </div>`;
+        }).join('');
     }
 
     function renderHouseCup(scores) {
@@ -626,27 +662,32 @@ function renderDashboard() {
             
             e.preventDefault();
             
-            // Handle Study Rooms Popup
+            // Fix 1: Direct Redirection if already joined
             if (targetId === "study-rooms-view") {
-                const linkRect = link.getBoundingClientRect();
-                if(roomTypePopup) {
-                    roomTypePopup.style.top = `${linkRect.top}px`;
-                    roomTypePopup.style.left = `${linkRect.right + 8}px`;
-                    roomTypePopup.classList.toggle("show");
+                if (mediaStates.joined) {
+                    if(roomTypePopup) roomTypePopup.classList.remove("show");
+                    if (viewSections) viewSections.forEach(sec => sec.style.display = "none");
+                    const targetView = document.getElementById(targetId);
+                    if (targetView) targetView.style.display = "flex";
+                    document.querySelectorAll(".sidebar nav li").forEach(li => li.classList.remove("active"));
+                    link.parentElement.classList.add("active");
+                } else {
+                    const linkRect = link.getBoundingClientRect();
+                    if(roomTypePopup) {
+                        roomTypePopup.style.top = `${linkRect.top}px`;
+                        roomTypePopup.style.left = `${linkRect.right + 8}px`;
+                        roomTypePopup.classList.toggle("show");
+                    }
                 }
                 return;
             }
             
-            // --- NEW: Handle all other tabs (like Dashboard) ---
             if(roomTypePopup) roomTypePopup.classList.remove("show");
-            
             if (viewSections) viewSections.forEach(sec => sec.style.display = "none");
             const targetView = document.getElementById(targetId);
             if (targetView) targetView.style.display = "flex";
-            
             document.querySelectorAll(".sidebar nav li").forEach(li => li.classList.remove("active"));
             link.parentElement.classList.add("active");
-            // ----------------------------------------------------
         });
     });
 
@@ -656,7 +697,6 @@ function renderDashboard() {
         }
     });
 
-    // --- Modal View Management Switches ---
     window.switchRoomTab = (mode) => {
         document.getElementById("create-room-section").style.display = mode === "create" ? "block" : "none";
         document.getElementById("join-room-section").style.display = mode === "join" ? "block" : "none";
@@ -688,7 +728,6 @@ function renderDashboard() {
         };
     }
 
-    // --- STRICT PRIVATE ROOM CREATION LOGIC ---
     window.handleCreatePrivateRoom = async () => {
         const id = document.getElementById("create-room-id").value.trim();
         const pwd = document.getElementById("create-room-pwd").value.trim();
@@ -702,7 +741,6 @@ function renderDashboard() {
             if (!participants.empty) {
                 return alert("This Room ID is currently active! Please choose a unique ID or join the existing room.");
             } else {
-                // Room is abandoned. Completely wipe all ghost data and old chats.
                 const oldMsgs = await roomRef.collection("messages").get();
                 oldMsgs.forEach(m => m.ref.delete());
                 participants.forEach(p => p.ref.delete());
@@ -732,7 +770,6 @@ function renderDashboard() {
     let uiTimerInterval = null;
     let roomSeconds = 0;
 
-    // Ghost user cleanup on browser tab close
     window.addEventListener("beforeunload", () => {
         if(mediaStates.joined && currentRoomId && agoraClient) {
             db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(agoraClient.uid)).delete();
@@ -742,26 +779,31 @@ function renderDashboard() {
     async function enterStudyRoom(roomId) {
         currentRoomId = roomId;
         
-        // Transition Dashboard Frames
         if (viewSections) viewSections.forEach(sec => sec.style.display = "none");
         const studyRoomsView = document.getElementById("study-rooms-view");
         if (studyRoomsView) studyRoomsView.style.display = "flex";
 
-        // Highlight Study Rooms in Sidebar
         document.querySelectorAll(".sidebar nav li").forEach(li => li.classList.remove("active"));
         const studyRoomLink = document.querySelector(".sidebar nav a[data-target='study-rooms-view']");
         if (studyRoomLink) studyRoomLink.parentElement.classList.add("active");
         
-        // Setup Room UI Headers
         const isPublic = roomId.startsWith("public-");
         const headerTitle = document.querySelector(".grid-header h2");
         if(headerTitle) headerTitle.innerText = isPublic ? `Public Lounge (${roomId})` : `Secret Chamber: ${roomId}`;
 
-        // Reset & Start Live UI Timer
+        // Fix 5 & 6: Clear Overlapping Timers & Handle Private Room Sync
+        if (uiTimerInterval) clearInterval(uiTimerInterval);
+        if (roomStudyTimer) clearInterval(roomStudyTimer);
         roomSeconds = 0;
+
+        if (!isPublic) {
+            const roomDoc = await db.collection("rooms").doc(roomId).get();
+            if (roomDoc.exists && roomDoc.data().created) {
+                roomSeconds = Math.floor((Date.now() - roomDoc.data().created) / 1000);
+            }
+        }
+
         const timerDisplay = document.getElementById("room-active-timer");
-        if(timerDisplay) timerDisplay.innerHTML = `<i class="fa-solid fa-hourglass-half"></i> 00:00:00`;
-        
         uiTimerInterval = setInterval(() => {
             roomSeconds++;
             const h = String(Math.floor(roomSeconds / 3600)).padStart(2, '0');
@@ -787,7 +829,6 @@ function renderDashboard() {
             await localTracks.audioTrack.setMuted(!mediaStates.mic);
             await localTracks.videoTrack.setMuted(!mediaStates.cam);
 
-            // Force UI Icons to match default off states (Show slashes)
             const camIcon = document.querySelector(".control-dock .dock-btn:nth-child(1) i");
             if(camIcon) camIcon.className = mediaStates.cam ? "fa-solid fa-video" : "fa-solid fa-video-slash";
             
@@ -815,7 +856,6 @@ function renderDashboard() {
                 timestamp: Date.now()
             });
 
-            // Start Live Dashboard Study Time Sync
             roomStudyTimer = setInterval(() => {
                 userData.studyMinutes += 1;
                 userData.coins += 1;
@@ -833,7 +873,6 @@ function renderDashboard() {
         }
     }
 
-    // Bind Active Controls Interfaces
     const camBtn = document.querySelector(".control-dock .dock-btn:nth-child(1)");
     if (camBtn) {
         camBtn.onclick = async () => {
@@ -924,11 +963,9 @@ function renderDashboard() {
         };
     }
 
-    // --- Dynamic Remote Stream Handlers ---
     window.setupAgoraEventListeners = function() {
         agoraClient.on("user-published", async (user, mediaType) => {
             await agoraClient.subscribe(user, mediaType);
-            
             if(mediaType === "video") {
                 remoteUsersMap[user.uid] = user;
                 renderGridLayoutCells();
@@ -972,13 +1009,34 @@ function renderDashboard() {
     function initializeRemoteParticipantsEngine() {
         db.collection("rooms").doc(currentRoomId).collection("participants").onSnapshot(snap => {
             let participantCount = 0;
+            const peopleContainer = document.getElementById("people-section-block");
+            if (peopleContainer) peopleContainer.innerHTML = ""; // Clear list
+
             snap.forEach(docSnap => {
                 participantCount++;
                 const uid = docSnap.id;
+                const data = docSnap.data();
+
+                // Fix 4: Build dynamic list in the People Tab
+                if (peopleContainer) {
+                    const isMe = agoraClient && String(agoraClient.uid) === uid;
+                    const personItem = document.createElement("div");
+                    personItem.className = "list-item";
+                    personItem.innerHTML = `
+                        <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=${data.name}&backgroundColor=1b263b" class="avatar-img" style="width:36px; height:36px; border:2px solid var(--gold);" alt="User">
+                        <div class="item-text">
+                            <div class="item-title" style="font-size:14.5px;">${data.name} ${isMe ? "(You)" : ""}</div>
+                            <div class="item-subtitle">${data.house}</div>
+                        </div>
+                        <div>
+                            <i class="fa-solid ${data.camActive ? 'fa-video' : 'fa-video-slash'}" style="color: ${data.camActive ? 'var(--gold)' : 'var(--text-muted)'}; font-size: 13px; margin-right: 5px;"></i>
+                        </div>
+                    `;
+                    peopleContainer.appendChild(personItem);
+                }
                 
                 if(agoraClient && uid === String(agoraClient.uid)) return;
                 
-                const data = docSnap.data();
                 const cell = document.getElementById(`remote-cell-${uid}`);
                 const label = document.getElementById(`label-${uid}`);
                 
@@ -994,7 +1052,6 @@ function renderDashboard() {
         });
     }
 
-    // --- Instant Real-Time Chat System Execution Engine ---
     function initializeLiveChatEngine() {
         const chatContainer = document.querySelector(".chat-container");
         if(!chatContainer) return;
@@ -1047,7 +1104,6 @@ function renderDashboard() {
         chatInputElem.onkeypress = (e) => { if(e.key === "Enter") submitChatMessage(); };
     }
 
-    // --- STUDY ROOM VIEW TOGGLE (Grid vs Desk) ---
     window.toggleView = () => {
         const defaultView = document.getElementById('default-view');
         const gridView = document.getElementById('grid-view');
@@ -1063,23 +1119,24 @@ function renderDashboard() {
         }
     };
 
-    // --- RIGHT SIDEBAR TABS (Chat vs People) ---
     const tabChat = document.querySelector(".tabs-header .tab:nth-child(1)");
     const tabPeople = document.querySelector(".tabs-header .tab:nth-child(2)");
     const chatSection = document.getElementById("chat-section-block");
+    const peopleSection = document.getElementById("people-section-block");
     
     if (tabChat && tabPeople) {
         tabChat.addEventListener("click", () => {
             tabChat.classList.add("active");
             tabPeople.classList.remove("active");
             if (chatSection) chatSection.style.display = "flex";
+            if (peopleSection) peopleSection.style.display = "none";
         });
         
         tabPeople.addEventListener("click", () => {
             tabPeople.classList.add("active");
             tabChat.classList.remove("active");
             if (chatSection) chatSection.style.display = "none";
-            // Removed window.toggleView() to fix the unwanted main window switch
+            if (peopleSection) peopleSection.style.display = "flex";
         });
     }
 
