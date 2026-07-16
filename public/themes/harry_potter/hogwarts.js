@@ -559,9 +559,6 @@ function renderDashboard() {
         document.getElementById("modal-task-name").value = "";
         document.getElementById("modal-task-value").value = "";
     };
-
-    window.selectTask = (taskId) => {
-        // Toggle selection
         window.selectTask = (taskId) => {
         // Toggle selection
         window.selectedTaskId = window.selectedTaskId === taskId ? null : taskId;
