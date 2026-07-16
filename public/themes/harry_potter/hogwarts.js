@@ -623,8 +623,12 @@ function renderDashboard() {
     document.querySelectorAll(".sidebar nav a").forEach(link => {
         link.addEventListener("click", (e) => {
             const targetId = link.getAttribute("data-target");
+            if (!targetId) return;
+            
+            e.preventDefault();
+            
+            // Handle Study Rooms Popup
             if (targetId === "study-rooms-view") {
-                e.preventDefault();
                 const linkRect = link.getBoundingClientRect();
                 if(roomTypePopup) {
                     roomTypePopup.style.top = `${linkRect.top}px`;
@@ -633,7 +637,17 @@ function renderDashboard() {
                 }
                 return;
             }
+            
+            // --- NEW: Handle all other tabs (like Dashboard) ---
             if(roomTypePopup) roomTypePopup.classList.remove("show");
+            
+            if (viewSections) viewSections.forEach(sec => sec.style.display = "none");
+            const targetView = document.getElementById(targetId);
+            if (targetView) targetView.style.display = "flex";
+            
+            document.querySelectorAll(".sidebar nav li").forEach(li => li.classList.remove("active"));
+            link.parentElement.classList.add("active");
+            // ----------------------------------------------------
         });
     });
 
@@ -677,7 +691,6 @@ function renderDashboard() {
         const pwd = document.getElementById("create-room-pwd").value.trim();
         if(!id || !pwd) return alert("Must configure Room Code and Passphrase seals!");
         
-        // Register room rules structure into cloud database
         await db.collection("rooms").doc(id).set({ password: pwd, created: Date.now() });
         closePrivateRoomModal();
         enterStudyRoom(id);
@@ -705,18 +718,16 @@ function renderDashboard() {
         const studyRoomsView = document.getElementById("study-rooms-view");
         if (studyRoomsView) studyRoomsView.style.display = "flex";
 
-        // --- NEW: Highlight Study Rooms in Sidebar ---
+        // Highlight Study Rooms in Sidebar
         document.querySelectorAll(".sidebar nav li").forEach(li => li.classList.remove("active"));
         const studyRoomLink = document.querySelector(".sidebar nav a[data-target='study-rooms-view']");
         if (studyRoomLink) studyRoomLink.parentElement.classList.add("active");
-        // -------------------------------------------
         
         // Setup Room UI Headers
         const isPublic = roomId.startsWith("public-");
         const headerTitle = document.querySelector(".grid-header h2");
         if(headerTitle) headerTitle.innerText = isPublic ? `Public Lounge (${roomId})` : `Secret Chamber: ${roomId}`;
 
-        // Fire up Media Engine Systems
         if(!agoraClient) {
             agoraClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
             setupAgoraEventListeners();
@@ -728,15 +739,20 @@ function renderDashboard() {
             const localUid = await agoraClient.join(APP_ID, currentRoomId, null, null);
             mediaStates.joined = true;
 
-            // Generate Device Track Records
             if(!localTracks.audioTrack) localTracks.audioTrack = await AgoraRTC.createMicrophoneAudioTrack();
             if(!localTracks.videoTrack) localTracks.videoTrack = await AgoraRTC.createCameraVideoTrack();
 
-            // Set Initial Mute Mappings
             await localTracks.audioTrack.setMuted(!mediaStates.mic);
             await localTracks.videoTrack.setMuted(!mediaStates.cam);
 
-            // Bind Local Output Playback Surface Frame
+            // --- NEW: Force UI Icons to match default off states (Show slashes) ---
+            const camIcon = document.querySelector(".control-dock .dock-btn:nth-child(1) i");
+            if(camIcon) camIcon.className = mediaStates.cam ? "fa-solid fa-video" : "fa-solid fa-video-slash";
+            
+            const micIcon = document.querySelector(".control-dock .dock-btn:nth-child(2) i");
+            if(micIcon) micIcon.className = mediaStates.mic ? "fa-solid fa-microphone" : "fa-solid fa-microphone-slash";
+            // ----------------------------------------------------------------------
+
             const localBox = document.querySelector(".cam-preview-box");
             if(localBox) {
                 let trackDiv = document.getElementById("agora-local-container");
@@ -751,7 +767,6 @@ function renderDashboard() {
 
             await agoraClient.publish(Object.values(localTracks));
             
-            // Push active registry to remote peers index mapping
             await db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(localUid)).set({
                 name: userData.name || "Mischief Managed",
                 house: userData.house || "Ravenclaw",
@@ -759,7 +774,7 @@ function renderDashboard() {
                 timestamp: Date.now()
             });
 
-            // Spin up real-time bindings orchestration
+            // These will now successfully fire since Agora didn't crash
             initializeLiveChatEngine();
             initializeRemoteParticipantsEngine();
 
