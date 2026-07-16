@@ -666,9 +666,12 @@ function renderDashboard() {
 
     window.closePrivateRoomModal = () => {
         document.getElementById("private-room-modal").style.display = "none";
+        document.getElementById("create-room-id").value = "";
+        document.getElementById("create-room-pwd").value = "";
+        document.getElementById("join-room-id").value = "";
+        document.getElementById("join-room-pwd").value = "";
     };
 
-    // Route Handler Initializers (SAFE BINDINGS)
     const btnPublic = document.getElementById("btn-public-room");
     if (btnPublic) {
         btnPublic.onclick = () => {
@@ -685,12 +688,27 @@ function renderDashboard() {
         };
     }
 
+    // --- STRICT PRIVATE ROOM CREATION LOGIC ---
     window.handleCreatePrivateRoom = async () => {
         const id = document.getElementById("create-room-id").value.trim();
         const pwd = document.getElementById("create-room-pwd").value.trim();
         if(!id || !pwd) return alert("Must configure Room Code and Passphrase seals!");
         
-        await db.collection("rooms").doc(id).set({ password: pwd, created: Date.now() });
+        const roomRef = db.collection("rooms").doc(id);
+        const roomDoc = await roomRef.get();
+
+        if (roomDoc.exists) {
+            const participants = await roomRef.collection("participants").get();
+            if (!participants.empty) {
+                return alert("This Room ID is currently active! Please choose a unique ID or join the existing room.");
+            } else {
+                // Room is empty (abandoned). Clean out old messages to provide a fresh room.
+                const oldMsgs = await roomRef.collection("messages").get();
+                oldMsgs.forEach(m => m.ref.delete());
+            }
+        }
+        
+        await roomRef.set({ password: pwd, created: Date.now() });
         closePrivateRoomModal();
         enterStudyRoom(id);
     };
@@ -709,6 +727,8 @@ function renderDashboard() {
     };
 
     // --- Core Media & Signal Engine Operations ---
+    let roomStudyTimer = null; // Global tracker for live room study time
+
     async function enterStudyRoom(roomId) {
         currentRoomId = roomId;
         
@@ -744,13 +764,12 @@ function renderDashboard() {
             await localTracks.audioTrack.setMuted(!mediaStates.mic);
             await localTracks.videoTrack.setMuted(!mediaStates.cam);
 
-            // --- NEW: Force UI Icons to match default off states (Show slashes) ---
+            // Force UI Icons to match default off states (Show slashes)
             const camIcon = document.querySelector(".control-dock .dock-btn:nth-child(1) i");
             if(camIcon) camIcon.className = mediaStates.cam ? "fa-solid fa-video" : "fa-solid fa-video-slash";
             
             const micIcon = document.querySelector(".control-dock .dock-btn:nth-child(2) i");
             if(micIcon) micIcon.className = mediaStates.mic ? "fa-solid fa-microphone" : "fa-solid fa-microphone-slash";
-            // ----------------------------------------------------------------------
 
             const localBox = document.querySelector(".cam-preview-box");
             if(localBox) {
@@ -773,7 +792,15 @@ function renderDashboard() {
                 timestamp: Date.now()
             });
 
-            // These will now successfully fire since Agora didn't crash
+            // Start Live Study Time Sync
+            roomStudyTimer = setInterval(() => {
+                userData.studyMinutes += 1;
+                userData.coins += 1;
+                if (userData.studyMinutes % 30 === 0) userData.xp = (userData.xp || 0) + 20;
+                renderDashboard();
+                syncDataToFirebase();
+            }, 60000);
+
             initializeLiveChatEngine();
             initializeRemoteParticipantsEngine();
 
@@ -783,7 +810,7 @@ function renderDashboard() {
         }
     }
 
-    // Bind Active Controls Interfaces (SAFE BINDINGS)
+    // Bind Active Controls Interfaces
     const camBtn = document.querySelector(".control-dock .dock-btn:nth-child(1)");
     if (camBtn) {
         camBtn.onclick = async () => {
@@ -813,23 +840,19 @@ function renderDashboard() {
         };
     }
 
-    // --- NEW: Screen Share Button Logic ---
     const screenBtn = document.querySelector(".control-dock .dock-btn:nth-child(3)");
     if (screenBtn) {
         screenBtn.onclick = async () => {
             if (!mediaStates.screen) {
                 try {
-                    // Create and publish the screen track
                     localTracks.screenTrack = await AgoraRTC.createScreenVideoTrack();
                     await agoraClient.unpublish([localTracks.videoTrack]);
                     await agoraClient.publish([localTracks.screenTrack]);
                     mediaStates.screen = true;
                     
-                    // Light up the screen share icon in gold
                     const screenIcon = document.querySelector(".control-dock .dock-btn:nth-child(3) i");
                     if (screenIcon) screenIcon.style.color = "var(--gold)";
 
-                    // Listen for when the user clicks "Stop Sharing" on the browser popup
                     localTracks.screenTrack.on("track-ended", async () => {
                         await agoraClient.unpublish([localTracks.screenTrack]);
                         localTracks.screenTrack.close();
@@ -841,7 +864,6 @@ function renderDashboard() {
                     console.error("Screen sharing failed:", error);
                 }
             } else {
-                // Manually stop sharing
                 await agoraClient.unpublish([localTracks.screenTrack]);
                 localTracks.screenTrack.close();
                 await agoraClient.publish([localTracks.videoTrack]);
@@ -855,6 +877,8 @@ function renderDashboard() {
     const leaveBtn = document.querySelector(".control-dock .leave-btn");
     if (leaveBtn) {
         leaveBtn.onclick = async () => {
+            if (roomStudyTimer) clearInterval(roomStudyTimer); // Stop timer
+
             if(agoraClient) {
                 if(mediaStates.joined) {
                     await db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(agoraClient.uid)).delete();
@@ -868,7 +892,7 @@ function renderDashboard() {
             const dashboard = document.getElementById("dashboard-view");
             if(dashboard) dashboard.style.display = "flex";
             
-            // --- NEW: Reset Sidebar Highlight back to Dashboard ---
+            // Reset Sidebar Highlight back to Dashboard
             document.querySelectorAll(".sidebar nav li").forEach(li => li.classList.remove("active"));
             const dashboardLink = document.querySelector(".sidebar nav a[data-target='dashboard-view']");
             if (dashboardLink) dashboardLink.parentElement.classList.add("active");
@@ -880,7 +904,6 @@ function renderDashboard() {
         agoraClient.on("user-published", async (user, mediaType) => {
             await agoraClient.subscribe(user, mediaType);
             
-            // If they publish video (Camera OR Screen Share), add to grid
             if(mediaType === "video") {
                 remoteUsersMap[user.uid] = user;
                 renderGridLayoutCells();
@@ -897,11 +920,10 @@ function renderDashboard() {
     };
 
     function renderGridLayoutCells() {
-        const gridLayout = document.querySelector(".grid-layout");
+        const gridLayout = document.getElementById("main-grid-layout");
         if(!gridLayout) return;
         
-        // Clear layout while maintaining custom structural frames
-        gridLayout.innerHTML = "";
+        gridLayout.innerHTML = ""; // Ensure fresh grid
         
         Object.keys(remoteUsersMap).forEach(uid => {
             const cell = document.createElement("div");
@@ -914,7 +936,6 @@ function renderDashboard() {
             `;
             gridLayout.appendChild(cell);
             
-            // Execute playback tracking pipelines
             setTimeout(() => {
                 if(remoteUsersMap[uid] && remoteUsersMap[uid].videoTrack) {
                     remoteUsersMap[uid].videoTrack.play(`agora-remote-${uid}`);
@@ -930,10 +951,6 @@ function renderDashboard() {
                 participantCount++;
                 const uid = docSnap.id;
                 
-                // Update the "People" tab counter
-                const peopleTab = document.querySelector(".tabs-header .tab:nth-child(2)");
-                if (peopleTab) peopleTab.innerText = `People (${participantCount})`;
-
                 if(agoraClient && uid === String(agoraClient.uid)) return;
                 
                 const data = docSnap.data();
@@ -943,6 +960,13 @@ function renderDashboard() {
                 if(label) label.innerText = `${data.name} (${data.house})`;
                 if(cell) cell.classList.toggle("cam-active", data.camActive);
             });
+            
+            // Update the "People" tab counter and Grid Header
+            const peopleTab = document.querySelector(".tabs-header .tab:nth-child(2)");
+            if (peopleTab) peopleTab.innerText = `People (${participantCount})`;
+            
+            const gridHeader = document.getElementById("grid-header-title");
+            if (gridHeader) gridHeader.innerText = `Room Participants (${participantCount})`;
         });
     }
 
@@ -951,7 +975,6 @@ function renderDashboard() {
         const chatContainer = document.querySelector(".chat-container");
         if(!chatContainer) return;
 
-        // Strip previous instances references mapping profiles
         db.collection("rooms").doc(currentRoomId).collection("messages")
           .orderBy("timestamp", "asc")
           .limitToLast(50)
@@ -973,7 +996,6 @@ function renderDashboard() {
                   `;
                   chatContainer.appendChild(item);
               });
-              // Auto-scroll to latest message
               chatContainer.scrollTop = chatContainer.scrollHeight;
           });
     }
@@ -993,7 +1015,6 @@ function renderDashboard() {
         });
     }
 
-    // Bind Chat Send Buttons
     const chatSendBtn = document.querySelector(".chat-icons .fa-paper-plane");
     if(chatSendBtn) chatSendBtn.onclick = submitChatMessage;
     
@@ -1034,7 +1055,6 @@ function renderDashboard() {
             tabPeople.classList.add("active");
             tabChat.classList.remove("active");
             if (chatSection) chatSection.style.display = "none";
-            // Expand grid view automatically when looking at people
             window.toggleView();
         });
     }

@@ -1182,35 +1182,13 @@
                     <!-- DISCORD-STYLE GRID VIEW -->
                     <div class="video-grid-container" id="grid-view">
                         <div class="grid-header">
-                            <h2>Room Participants (4/8)</h2>
+                            <h2 id="grid-header-title">Room Participants</h2>
                             <button class="btn-view-toggle small" onclick="toggleView()">
                                 <i class="fa-solid fa-arrow-left"></i> Back to Desk
                             </button>
                         </div>
-                        <div class="grid-layout">
-                            <div class="grid-cell active-speaker">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Ravenclaw&backgroundColor=1b263b" alt="You">
-                                <div class="grid-label">You <i class="fa-solid fa-microphone" style="color:#2b9348;"></i></div>
-                            </div>
-                            <div class="grid-cell">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Orion&backgroundColor=d4ad8c" alt="Orion">
-                                <div class="grid-label">Prof. Orion <i class="fa-solid fa-microphone-slash mic-off"></i></div>
-                            </div>
-                            <div class="grid-cell">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Amelia&backgroundColor=b0765c" alt="Amelia">
-                                <div class="grid-label">Amelia <i class="fa-solid fa-microphone-slash mic-off"></i></div>
-                            </div>
-                            <div class="grid-cell">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Noah&backgroundColor=7a9ebf" alt="Noah">
-                                <div class="grid-label">Noah <i class="fa-solid fa-microphone"></i></div>
-                            </div>
-                            <div class="grid-cell">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Luna&backgroundColor=e8d3ba" alt="Luna">
-                                <div class="grid-label">Luna <i class="fa-solid fa-microphone-slash mic-off"></i></div>
-                            </div>
-                            <div class="grid-cell" style="background: rgba(0,0,0,0.5); border: 1px dashed rgba(197, 168, 128, 0.2);">
-                                <i class="fa-solid fa-chair" style="font-size: 2.5rem; color: rgba(255,255,255,0.1);"></i>
-                            </div>
+                        <div class="grid-layout" id="main-grid-layout">
+                            <!-- Real-time participants will be injected here by JS -->
                         </div>
                     </div>
                 </div>
@@ -1231,88 +1209,36 @@
                     </button>
                 </div>
             </div>
-
+            
             <!-- RIGHT SIDEBAR -->
             <aside class="right-sidebar-frame">
                 <div class="tabs-header">
                     <div class="tab active">Chat <img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1784129492/hp_room_seal.png" class="wax-seal" alt="Seal"></div>
-                    <div class="tab">People (36)</div>
+                    <div class="tab">People (1)</div>
                 </div>
 
                 <div class="torn-paper-block" style="flex-grow: 1; display: flex; flex-direction: column; padding-bottom: 10px;">
                     <div class="chat-container" style="margin-top: 0;">
-                        <div class="chat-item">
-                            <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Orion&backgroundColor=d4ad8c" class="avatar-img" alt="Orion">
-                            <div class="chat-body">
-                                <div class="chat-header"><span class="chat-name">Professor Orion</span><span class="chat-time">09:30 AM</span></div>
-                                <div class="chat-text">Good focus everyone! Take short breaks and drink water.</div>
-                            </div>
-                            <img src="https://img.icons8.com/office/48/pin.png" class="pin-img" style="filter: grayscale(100%) opacity(0.7);" alt="Pin">
-                        </div>
-                        <div class="chat-item">
-                            <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Amelia&backgroundColor=b0765c" class="avatar-img" alt="Amelia">
-                            <div class="chat-body">
-                                <div class="chat-header"><span class="chat-name">Amelia</span><span class="chat-time">09:31 AM</span></div>
-                                <div class="chat-text">Sharing my Dijkstra notes for the algorithm session.</div>
-                            </div>
-                            <img src="https://img.icons8.com/office/48/pin.png"" class="pin-img" alt="Pin">
-                        </div>
-                        <div class="chat-item">
-                            <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Noah&backgroundColor=7a9ebf" class="avatar-img" alt="Noah">
-                            <div class="chat-body">
-                                <div class="chat-header"><span class="chat-name">Noah</span><span class="chat-time">09:31 AM</span></div>
-                                <div class="chat-text">This explanation helped a lot!</div>
-                            </div>
-                        </div>
-                        <div class="chat-item">
-                            <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Luna&backgroundColor=e8d3ba" class="avatar-img" alt="Luna">
-                            <div class="chat-body">
-                                <div class="chat-header"><span class="chat-name">Luna</span><span class="chat-time">09:32 AM</span></div>
-                                <div class="chat-text">Can someone share the link to the probability sheet?</div>
-                            </div>
-                        </div>
+                        <!-- Real-time chat messages will appear here -->
                     </div>
                     <div class="chat-input-bar">
                         <input type="text" placeholder="Type a message...">
-                        <div class="chat-icons"><i class="fa-regular fa-face-smile"></i><i class="fa-regular fa-paper-plane"></i></div>
+                        <div class="chat-icons"><i class="fa-regular fa-face-smile"></i><i class="fa-solid fa-paper-plane" style="cursor:pointer; color:var(--gold);"></i></div>
                     </div>
                 </div>
                 
                 <div class="torn-paper-block">
                     <div class="section-header">
                         <div class="room-section-title">Pinned Notes <img src="https://img.icons8.com/color/48/scroll.png" alt="Scroll"></div>
-                        <a href="#" class="view-all">View all</a>
                     </div>
-                    <div class="list-item">
-                        <img src="https://img.icons8.com/fluency/48/document--v1.png" class="file-icon" alt="Doc">
-                        <div class="item-text"><div class="item-title">Data Structures Cheatsheet</div><div class="item-subtitle">Pinned by Amelia • Today</div></div>
-                    </div>
-                    <div class="list-item">
-                        <img src="https://img.icons8.com/fluency/48/ms-excel.png" class="file-icon" alt="Sheet">
-                        <div class="item-text"><div class="item-title">Probability Formulas</div><div class="item-subtitle">Pinned by Noah • Today</div></div>
-                    </div>
-                    <div class="list-item">
-                        <img src="https://img.icons8.com/color/48/microsoft-word-2019.png" class="file-icon" alt="Word">
-                        <div class="item-text"><div class="item-title">Graph Algorithms Summary</div><div class="item-subtitle">Pinned by Professor Orion • Yesterday</div></div>
-                    </div>
+                    <div style="font-size: 13px; color: var(--text-muted); font-style: italic; text-align: center; padding: 10px;">No scrolls pinned yet.</div>
                 </div>
 
                 <div class="torn-paper-block">
                     <div class="section-header">
                         <div class="room-section-title">Active Screen Shares <img src="https://img.icons8.com/fluency/48/monitor--v1.png" alt="Monitor"></div>
-                        <a href="#" class="view-all">View all</a>
                     </div>
-                    <div class="list-item">
-                        <img src="https://img.icons8.com/color/48/console.png" class="file-icon" style="background:#1c2128; padding: 4px;" alt="Terminal">
-                        <div class="item-text"><div class="item-title">Amelia</div><div class="item-subtitle">binary_search.py</div></div>
-                        <div class="badge-live">LIVE</div>
-                        <div class="action-btn"><i class="fa-solid fa-display"></i></div>
-                    </div>
-                    <div class="list-item">
-                        <img src="https://img.icons8.com/color/48/books.png" class="file-icon" style="background:#3a6642; padding: 4px;" alt="Book">
-                        <div class="item-text"><div class="item-title">Noah</div><div class="item-subtitle">Physics Notes.pdf</div></div>
-                        <div class="action-btn"><i class="fa-solid fa-display"></i></div>
-                    </div>
+                    <div style="font-size: 13px; color: var(--text-muted); font-style: italic; text-align: center; padding: 10px;">No active visions.</div>
                 </div>
             </aside>
         </div>
