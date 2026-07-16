@@ -737,6 +737,80 @@
         .item-subtitle { font-size: 0.75rem; color: #73685e; font-weight: 600; }
         .badge-live { background-color: #d63c3c; color: white; font-size: 0.65rem; font-weight: 800; padding: 3px 6px; border-radius: 4px; box-shadow: 0 2px 4px rgba(214, 60, 60, 0.3); }
         .action-btn { width: 28px; height: 28px; border-radius: 6px; background: rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid rgba(0,0,0,0.08); color: #444; font-size: 0.8rem; }
+        /* --- Room Type Popup Styles --- */
+        .room-popup {
+            position: fixed;
+            background: var(--dark-blue);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            z-index: 1000;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .room-popup.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(10px);
+        }
+
+        .room-popup button {
+            background: transparent;
+            color: #d1c7b1;
+            border: 1px solid transparent;
+            padding: 10px 15px;
+            text-align: left;
+            font-family: var(--font-main);
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .room-popup button:hover {
+            background: rgba(197, 160, 89, 0.15);
+            border-color: rgba(197, 160, 89, 0.5);
+            color: var(--gold-light);
+        }
+
+        /* --- Private Room Modal Tabs --- */
+        .room-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .room-tab {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-main);
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 8px;
+            transition: 0.3s;
+        }
+
+        .room-tab.active {
+            color: var(--dark-blue);
+            border-bottom: 2px solid var(--gold);
+        }
     </style>
 </head>
 <body>
@@ -1203,6 +1277,51 @@
         </div>
     </div>
     </main>
+    <!-- Mini Popup: Appears next to sidebar -->
+    <div id="room-type-popup" class="room-popup">
+        <button id="btn-public-room"><i class="fa-solid fa-earth-americas"></i> Public Room</button>
+        <button id="btn-private-room"><i class="fa-solid fa-lock"></i> Private Room</button>
+    </div>
+
+    <!-- Private Room Modal: Create / Join -->
+    <div id="private-room-modal" class="modal-overlay">
+        <div class="modal-content" style="text-align: center;">
+            <h3 style="border-bottom: none; margin-bottom: 5px;">Private Study Room</h3>
+            
+            <div class="room-tabs">
+                <button class="room-tab active" id="tab-create-room" onclick="switchRoomTab('create')">Create</button>
+                <button class="room-tab" id="tab-join-room" onclick="switchRoomTab('join')">Join</button>
+            </div>
+            
+            <!-- Create Section -->
+            <div id="create-room-section">
+                <label style="text-align: left;">Create Room ID</label>
+                <input type="text" id="create-room-id" placeholder="e.g., DumbledoreArmy">
+                
+                <label style="text-align: left;">Set Password</label>
+                <input type="password" id="create-room-pwd" placeholder="Enter password">
+                
+                <div class="modal-actions" style="justify-content: center; margin-top: 25px;">
+                    <button class="btn-cancel" onclick="closePrivateRoomModal()">Cancel</button>
+                    <button class="btn-save" onclick="handleCreatePrivateRoom()">Create & Enter</button>
+                </div>
+            </div>
+
+            <!-- Join Section -->
+            <div id="join-room-section" style="display: none;">
+                <label style="text-align: left;">Enter Room ID</label>
+                <input type="text" id="join-room-id" placeholder="Room ID">
+                
+                <label style="text-align: left;">Enter Password</label>
+                <input type="password" id="join-room-pwd" placeholder="Password">
+                
+                <div class="modal-actions" style="justify-content: center; margin-top: 25px;">
+                    <button class="btn-cancel" onclick="closePrivateRoomModal()">Cancel</button>
+                    <button class="btn-save" onclick="handleJoinPrivateRoom()">Join Room</button>
+                </div>
+            </div>
+        </div>
+    </div>
 <!-- Firebase App (the core Firebase SDK) -->
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <!-- Firebase Firestore (Database) -->

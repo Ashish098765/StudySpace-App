@@ -89,30 +89,45 @@ document.addEventListener("DOMContentLoaded", () => {
             nextLvlXp: nextLvlXp 
         };
     }
-    // --- NEW: VIEW NAVIGATION LOGIC (SPA TOGGLING) ---
+    // --- VIEW NAVIGATION LOGIC & STUDY ROOMS LOGIC ---
     const navLinks = document.querySelectorAll(".sidebar nav a");
     const viewSections = document.querySelectorAll(".view-section");
+    const roomTypePopup = document.getElementById("room-type-popup");
 
     navLinks.forEach(link => {
         link.addEventListener("click", (e) => {
             const targetId = link.getAttribute("data-target");
             
-            // If it has a data-target, handle it as an internal toggle
             if (targetId) {
-                e.preventDefault(); // Stop normal link behavior
+                e.preventDefault(); 
+                
+                // 1. Handle Study Rooms Button Intercept
+                if (targetId === "study-rooms-view") {
+                    // Position the popup exactly next to the clicked link
+                    const linkRect = link.getBoundingClientRect();
+                    roomTypePopup.style.top = `${linkRect.top}px`;
+                    roomTypePopup.style.left = `${linkRect.right + 5}px`; 
+                    roomTypePopup.classList.toggle("show");
+                    
+                    // Highlight the nav bar button temporarily
+                    document.querySelectorAll(".sidebar nav li").forEach(li => li.classList.remove("active"));
+                    link.parentElement.classList.add("active");
+                    return; 
+                }
 
-                // 1. Hide all view sections
+                // Close popup if any other nav link is clicked
+                if(roomTypePopup) roomTypePopup.classList.remove("show");
+
+                // 2. Standard SPA view toggle
                 viewSections.forEach(section => {
                     section.style.display = "none";
                 });
 
-                // 2. Show the targeted section
                 const targetView = document.getElementById(targetId);
                 if (targetView) {
-                    targetView.style.display = "flex"; // Using flex to match the CSS class
+                    targetView.style.display = "flex"; 
                 }
 
-                // 3. Update active state in sidebar
                 document.querySelectorAll(".sidebar nav li").forEach(li => {
                     li.classList.remove("active");
                 });
@@ -120,6 +135,97 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // Close the mini-popup when clicking outside of it
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest("nav") && !e.target.closest("#room-type-popup")) {
+            if(roomTypePopup) roomTypePopup.classList.remove("show");
+        }
+    });
+
+    // --- Study Rooms Actions ---
+    
+    // Public Room Action
+    document.getElementById("btn-public-room")?.addEventListener("click", () => {
+        roomTypePopup.classList.remove("show");
+        viewSections.forEach(sec => sec.style.display = "none");
+        document.getElementById("study-rooms-view").style.display = "flex";
+        
+        // NOTE: If you are redirecting to your external room.html, use this instead:
+        // window.location.href = "room.html?id=public-general";
+    });
+
+    // Private Room Action (Opens Modal)
+    document.getElementById("btn-private-room")?.addEventListener("click", () => {
+        roomTypePopup.classList.remove("show");
+        document.getElementById("private-room-modal").style.display = "flex";
+    });
+
+    // Private Room Modal: Tab Switcher
+    window.switchRoomTab = (tab) => {
+        const createSec = document.getElementById("create-room-section");
+        const joinSec = document.getElementById("join-room-section");
+        const tabCreate = document.getElementById("tab-create-room");
+        const tabJoin = document.getElementById("tab-join-room");
+
+        if (tab === "create") {
+            createSec.style.display = "block";
+            joinSec.style.display = "none";
+            tabCreate.classList.add("active");
+            tabJoin.classList.remove("active");
+        } else {
+            createSec.style.display = "none";
+            joinSec.style.display = "block";
+            tabCreate.classList.remove("active");
+            tabJoin.classList.add("active");
+        }
+    };
+
+    window.closePrivateRoomModal = () => {
+        document.getElementById("private-room-modal").style.display = "none";
+        
+        // Clear inputs on close
+        document.getElementById("create-room-id").value = "";
+        document.getElementById("create-room-pwd").value = "";
+        document.getElementById("join-room-id").value = "";
+        document.getElementById("join-room-pwd").value = "";
+    };
+
+    window.handleCreatePrivateRoom = () => {
+        const id = document.getElementById("create-room-id").value.trim();
+        const pwd = document.getElementById("create-room-pwd").value.trim();
+        
+        if (!id || !pwd) return alert("Please enter both a Room ID and Password!");
+        
+        // Here you would typically push the new room and hashed password to Firebase.
+        alert(`Private room created! ID: ${id}`);
+        closePrivateRoomModal();
+        
+        // Trigger UI change
+        viewSections.forEach(sec => sec.style.display = "none");
+        document.getElementById("study-rooms-view").style.display = "flex";
+        
+        // NOTE: If using external room.html, append parameters:
+        // window.location.href = `room.html?id=${id}&pwd=${pwd}`;
+    };
+
+    window.handleJoinPrivateRoom = () => {
+        const id = document.getElementById("join-room-id").value.trim();
+        const pwd = document.getElementById("join-room-pwd").value.trim();
+        
+        if (!id || !pwd) return alert("Please enter both the Room ID and Password!");
+        
+        // Here you would query Firebase to see if the room exists and matches the password.
+        alert(`Joining private room: ${id}`);
+        closePrivateRoomModal();
+        
+        // Trigger UI change
+        viewSections.forEach(sec => sec.style.display = "none");
+        document.getElementById("study-rooms-view").style.display = "flex";
+        
+        // NOTE: If using external room.html, append parameters:
+        // window.location.href = `room.html?id=${id}&pwd=${pwd}`;
+    };
 
     // --- 2. CORE LOGIC FUNCTIONS ---
 
@@ -631,6 +737,21 @@ function renderDashboard() {
 
     window.closeDailyQuestModal = () => {
         document.getElementById("daily-quest-modal").style.display = "none";
+    };
+    // --- Study Room View Toggle ---
+    window.toggleView = () => {
+        const defaultView = document.getElementById('default-view');
+        const gridView = document.getElementById('grid-view');
+
+        if (defaultView.classList.contains('hidden')) {
+            // Show default, hide grid
+            defaultView.classList.remove('hidden');
+            gridView.classList.remove('active');
+        } else {
+            // Hide default, show grid
+            defaultView.classList.add('hidden');
+            gridView.classList.add('active');
+        }
     };
 
     initializeUserDashboard();
