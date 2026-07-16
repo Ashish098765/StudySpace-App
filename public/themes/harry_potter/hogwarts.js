@@ -562,6 +562,8 @@ function renderDashboard() {
 
     window.selectTask = (taskId) => {
         // Toggle selection
+        window.selectTask = (taskId) => {
+        // Toggle selection
         window.selectedTaskId = window.selectedTaskId === taskId ? null : taskId;
         
         // Reset Start Studying button if currently running
@@ -577,6 +579,7 @@ function renderDashboard() {
         
         renderDashboard();
     };
+
     // --- EXAM SELECTION LOGIC ---
     window.saveExamSelection = () => {
         const selectedExam = document.getElementById("modal-exam-select").value;
@@ -587,6 +590,7 @@ function renderDashboard() {
         syncDataToFirebase();
         renderDashboard();
     };
+
     const dailyQuestCard = document.querySelector(".daily-quest");
     if (dailyQuestCard) {
         dailyQuestCard.style.cursor = "pointer";
@@ -601,10 +605,11 @@ function renderDashboard() {
     window.closeDailyQuestModal = () => {
         document.getElementById("daily-quest-modal").style.display = "none";
     };
+
     // =========================================================================
     // --- ADVANCED AGORA VIDEO & FIRESTORE REAL-TIME CHAT INTEGRATION ---
     // =========================================================================
-    const APP_ID = "8a735e3d22a7475babf205eab01d8859"; // Agora App ID[cite: 3]
+    const APP_ID = "8a735e3d22a7475babf205eab01d8859"; // Agora App ID
     let currentRoomId = "public-general";
     let agoraClient = null;
     let localTracks = { audioTrack: null, videoTrack: null };
@@ -624,9 +629,11 @@ function renderDashboard() {
             if (targetId === "study-rooms-view") {
                 e.preventDefault();
                 const linkRect = link.getBoundingClientRect();
-                roomTypePopup.style.top = `${linkRect.top}px`;
-                roomTypePopup.style.left = `${linkRect.right + 8}px`;
-                roomTypePopup.classList.toggle("show");
+                if(roomTypePopup) {
+                    roomTypePopup.style.top = `${linkRect.top}px`;
+                    roomTypePopup.style.left = `${linkRect.right + 8}px`;
+                    roomTypePopup.classList.toggle("show");
+                }
                 return;
             }
             if(roomTypePopup) roomTypePopup.classList.remove("show");
@@ -635,7 +642,7 @@ function renderDashboard() {
 
     document.addEventListener("click", (e) => {
         if (!e.target.closest("nav") && !e.target.closest("#room-type-popup")) {
-            roomTypePopup.classList.remove("show");
+            if(roomTypePopup) roomTypePopup.classList.remove("show");
         }
     });
 
@@ -651,15 +658,22 @@ function renderDashboard() {
         document.getElementById("private-room-modal").style.display = "none";
     };
 
-    // Route Handler Initializers
-    document.getElementById("btn-public-room").onclick = () => {
-        roomTypePopup.classList.remove("show");
-        enterStudyRoom("public-general");
-    };
-    document.getElementById("btn-private-room").onclick = () => {
-        roomTypePopup.classList.remove("show");
-        document.getElementById("private-room-modal").style.display = "flex";
-    };
+    // Route Handler Initializers (SAFE BINDINGS)
+    const btnPublic = document.getElementById("btn-public-room");
+    if (btnPublic) {
+        btnPublic.onclick = () => {
+            roomTypePopup.classList.remove("show");
+            enterStudyRoom("public-general");
+        };
+    }
+
+    const btnPrivate = document.getElementById("btn-private-room");
+    if (btnPrivate) {
+        btnPrivate.onclick = () => {
+            roomTypePopup.classList.remove("show");
+            document.getElementById("private-room-modal").style.display = "flex";
+        };
+    }
 
     window.handleCreatePrivateRoom = async () => {
         const id = document.getElementById("create-room-id").value.trim();
@@ -690,8 +704,9 @@ function renderDashboard() {
         currentRoomId = roomId;
         
         // Transition Dashboard Frames
-        viewSections.forEach(sec => sec.style.display = "none");
-        document.getElementById("study-rooms-view").style.display = "flex";
+        if (viewSections) viewSections.forEach(sec => sec.style.display = "none");
+        const studyRoomsView = document.getElementById("study-rooms-view");
+        if (studyRoomsView) studyRoomsView.style.display = "flex";
         
         // Setup Room UI Headers
         const isPublic = roomId.startsWith("public-");
@@ -750,40 +765,51 @@ function renderDashboard() {
         }
     }
 
-    // Bind Active Controls Interfaces
-    document.querySelector(".control-dock .dock-btn:nth-child(1)").onclick = async () => { // Cam Toggle
-        if(!localTracks.videoTrack) return;
-        mediaStates.cam = !mediaStates.cam;
-        await localTracks.videoTrack.setMuted(!mediaStates.cam);
-        
-        const previewWrap = document.querySelector(".cam-preview-box");
-        previewWrap?.classList.toggle("cam-active", mediaStates.cam);
-        document.querySelector(".control-dock .dock-btn:nth-child(1) i").className = mediaStates.cam ? "fa-solid fa-video" : "fa-solid fa-video-slash";
-        
-        if(mediaStates.joined) {
-            db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(agoraClient.uid)).update({ camActive: mediaStates.cam });
-        }
-    };
-
-    document.querySelector(".control-dock .dock-btn:nth-child(2)").onclick = async () => { // Mic Toggle
-        if(!localTracks.audioTrack) return;
-        mediaStates.mic = !mediaStates.mic;
-        await localTracks.audioTrack.setMuted(!mediaStates.mic);
-        document.querySelector(".control-dock .dock-btn:nth-child(2) i").className = mediaStates.mic ? "fa-solid fa-microphone" : "fa-solid fa-microphone-slash";
-    };
-
-    document.querySelector(".control-dock .leave-btn").onclick = async () => { // Leave Action
-        if(agoraClient) {
+    // Bind Active Controls Interfaces (SAFE BINDINGS)
+    const camBtn = document.querySelector(".control-dock .dock-btn:nth-child(1)");
+    if (camBtn) {
+        camBtn.onclick = async () => {
+            if(!localTracks.videoTrack) return;
+            mediaStates.cam = !mediaStates.cam;
+            await localTracks.videoTrack.setMuted(!mediaStates.cam);
+            
+            const previewWrap = document.querySelector(".cam-preview-box");
+            previewWrap?.classList.toggle("cam-active", mediaStates.cam);
+            const camIcon = document.querySelector(".control-dock .dock-btn:nth-child(1) i");
+            if(camIcon) camIcon.className = mediaStates.cam ? "fa-solid fa-video" : "fa-solid fa-video-slash";
+            
             if(mediaStates.joined) {
-                await db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(agoraClient.uid)).delete();
+                db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(agoraClient.uid)).update({ camActive: mediaStates.cam });
             }
-            await agoraClient.leave();
-        }
-        mediaStates.joined = false;
-        // Go back to home dashboard view
-        viewSections.forEach(sec => sec.style.display = "none");
-        document.getElementById("dashboard-view").style.display = "flex";
-    };
+        };
+    }
+
+    const micBtn = document.querySelector(".control-dock .dock-btn:nth-child(2)");
+    if (micBtn) {
+        micBtn.onclick = async () => {
+            if(!localTracks.audioTrack) return;
+            mediaStates.mic = !mediaStates.mic;
+            await localTracks.audioTrack.setMuted(!mediaStates.mic);
+            const micIcon = document.querySelector(".control-dock .dock-btn:nth-child(2) i");
+            if(micIcon) micIcon.className = mediaStates.mic ? "fa-solid fa-microphone" : "fa-solid fa-microphone-slash";
+        };
+    }
+
+    const leaveBtn = document.querySelector(".control-dock .leave-btn");
+    if (leaveBtn) {
+        leaveBtn.onclick = async () => {
+            if(agoraClient) {
+                if(mediaStates.joined) {
+                    await db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(agoraClient.uid)).delete();
+                }
+                await agoraClient.leave();
+            }
+            mediaStates.joined = false;
+            if(viewSections) viewSections.forEach(sec => sec.style.display = "none");
+            const dashboard = document.getElementById("dashboard-view");
+            if(dashboard) dashboard.style.display = "flex";
+        };
+    }
 
     // --- Dynamic Remote Stream Handlers ---
     function setupAgoraEventListeners() {
@@ -876,6 +902,7 @@ function renderDashboard() {
     }
 
     async function submitChatMessage() {
+        if(!chatInput) return;
         const text = chatInput.value.trim();
         if(!text) return;
         chatInput.value = "";
@@ -891,5 +918,22 @@ function renderDashboard() {
     if(chatInput) {
         chatInput.onkeypress = (e) => { if(e.key === "Enter") submitChatMessage(); };
     }
+
+    // --- STUDY ROOM VIEW TOGGLE ---
+    window.toggleView = () => {
+        const defaultView = document.getElementById('default-view');
+        const gridView = document.getElementById('grid-view');
+
+        if (defaultView && gridView) {
+            if (defaultView.classList.contains('hidden')) {
+                defaultView.classList.remove('hidden');
+                gridView.classList.remove('active');
+            } else {
+                defaultView.classList.add('hidden');
+                gridView.classList.add('active');
+            }
+        }
+    };
+
     initializeUserDashboard();
 });
