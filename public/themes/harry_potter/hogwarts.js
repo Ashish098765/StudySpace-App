@@ -876,6 +876,27 @@ function renderDashboard() {
         };
     }
 
+    // --- Dynamic Remote Stream Handlers ---
+    window.setupAgoraEventListeners = function() {
+        agoraClient.on("user-published", async (user, mediaType) => {
+            await agoraClient.subscribe(user, mediaType);
+            
+            // If they publish video (Camera OR Screen Share), add to grid
+            if(mediaType === "video") {
+                remoteUsersMap[user.uid] = user;
+                renderGridLayoutCells();
+            }
+            if(mediaType === "audio") {
+                user.audioTrack.play();
+            }
+        });
+
+        agoraClient.on("user-left", (user) => {
+            delete remoteUsersMap[user.uid];
+            renderGridLayoutCells();
+        });
+    };
+
     function renderGridLayoutCells() {
         const gridLayout = document.querySelector(".grid-layout");
         if(!gridLayout) return;
@@ -905,8 +926,15 @@ function renderDashboard() {
 
     function initializeRemoteParticipantsEngine() {
         db.collection("rooms").doc(currentRoomId).collection("participants").onSnapshot(snap => {
+            let participantCount = 0;
             snap.forEach(docSnap => {
+                participantCount++;
                 const uid = docSnap.id;
+                
+                // Update the "People" tab counter
+                const peopleTab = document.querySelector(".tabs-header .tab:nth-child(2)");
+                if (peopleTab) peopleTab.innerText = `People (${participantCount})`;
+
                 if(agoraClient && uid === String(agoraClient.uid)) return;
                 
                 const data = docSnap.data();
@@ -921,12 +949,13 @@ function renderDashboard() {
 
     // --- Instant Real-Time Chat System Execution Engine ---
     function initializeLiveChatEngine() {
+        const chatContainer = document.querySelector(".chat-container");
         if(!chatContainer) return;
 
         // Strip previous instances references mapping profiles
         db.collection("rooms").doc(currentRoomId).collection("messages")
           .orderBy("timestamp", "asc")
-          .limitToLast(30)
+          .limitToLast(50)
           .onSnapshot(snapshot => {
               chatContainer.innerHTML = "";
               snapshot.forEach(docSnap => {
@@ -945,12 +974,15 @@ function renderDashboard() {
                   `;
                   chatContainer.appendChild(item);
               });
+              // Auto-scroll to latest message
               chatContainer.scrollTop = chatContainer.scrollHeight;
           });
     }
 
     async function submitChatMessage() {
+        const chatInput = document.querySelector(".chat-input-bar input");
         if(!chatInput) return;
+        
         const text = chatInput.value.trim();
         if(!text) return;
         chatInput.value = "";
@@ -962,12 +994,16 @@ function renderDashboard() {
         });
     }
 
+    // Bind Chat Send Buttons
+    const chatSendBtn = document.querySelector(".chat-icons .fa-paper-plane");
     if(chatSendBtn) chatSendBtn.onclick = submitChatMessage;
-    if(chatInput) {
-        chatInput.onkeypress = (e) => { if(e.key === "Enter") submitChatMessage(); };
+    
+    const chatInputElem = document.querySelector(".chat-input-bar input");
+    if(chatInputElem) {
+        chatInputElem.onkeypress = (e) => { if(e.key === "Enter") submitChatMessage(); };
     }
 
-    // --- STUDY ROOM VIEW TOGGLE ---
+    // --- STUDY ROOM VIEW TOGGLE (Grid vs Desk) ---
     window.toggleView = () => {
         const defaultView = document.getElementById('default-view');
         const gridView = document.getElementById('grid-view');
@@ -982,6 +1018,27 @@ function renderDashboard() {
             }
         }
     };
+
+    // --- RIGHT SIDEBAR TABS (Chat vs People) ---
+    const tabChat = document.querySelector(".tabs-header .tab:nth-child(1)");
+    const tabPeople = document.querySelector(".tabs-header .tab:nth-child(2)");
+    const chatSection = document.querySelector(".torn-paper-block:nth-child(2)");
+    
+    if (tabChat && tabPeople) {
+        tabChat.addEventListener("click", () => {
+            tabChat.classList.add("active");
+            tabPeople.classList.remove("active");
+            if (chatSection) chatSection.style.display = "flex";
+        });
+        
+        tabPeople.addEventListener("click", () => {
+            tabPeople.classList.add("active");
+            tabChat.classList.remove("active");
+            if (chatSection) chatSection.style.display = "none";
+            // Expand grid view automatically when looking at people
+            window.toggleView();
+        });
+    }
 
     initializeUserDashboard();
 });
