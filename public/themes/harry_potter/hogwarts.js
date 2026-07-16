@@ -367,6 +367,28 @@ function renderDashboard() {
                 taskListEl.appendChild(li);
             });
         }
+
+        // --- NEW: Render Tasks in Study Room ---
+        const roomPlanContainer = document.getElementById("room-todays-plan");
+        if (roomPlanContainer) {
+            if (!userData.tasks || userData.tasks.length === 0) {
+                roomPlanContainer.innerHTML = `<div style="font-size: 13px; color: var(--text-muted); font-style: italic; padding: 10px; text-align: center;">No tasks crafted yet. Focus your mind.</div>`;
+            } else {
+                roomPlanContainer.innerHTML = userData.tasks.map((task, index) => {
+                    const progress = Math.min(((task.currentProgress || 0) / task.targetValue) * 100, 100) || 0;
+                    return `
+                    <div class="plan-item" style="display:block; margin-bottom: 15px;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-size:15px; font-family:'Nunito',sans-serif;">
+                            <strong style="color:var(--navy-dark);">${index + 1}. ${task.name}</strong>
+                            <small style="color:var(--text-muted); font-weight:bold;">${task.currentProgress || 0}/${task.targetValue}</small>
+                        </div>
+                        <div class="progress-bar" style="width: 100%; height: 6px; background: rgba(197, 160, 89, 0.2); border-radius: 3px;">
+                            <div class="progress-fill" style="height: 100%; width: ${progress}%; background: ${task.done ? '#1f5c33' : '#b58d3c'}; border-radius: 3px;"></div>
+                        </div>
+                    </div>`;
+                }).join('');
+            }
+        }
         // ---------------------------------------------------
     }
     function renderRoomTasks() {
@@ -846,32 +868,23 @@ function renderDashboard() {
             await agoraClient.join(APP_ID, currentRoomId, null, Number(localAgoraUid));
             mediaStates.joined = true;
 
+            // Only request Microphone permission on join (keep camera completely off)
             if(!localTracks.audioTrack) localTracks.audioTrack = await AgoraRTC.createMicrophoneAudioTrack();
-            if(!localTracks.videoTrack) localTracks.videoTrack = await AgoraRTC.createCameraVideoTrack();
-
             await localTracks.audioTrack.setMuted(!mediaStates.mic);
-            await localTracks.videoTrack.setMuted(!mediaStates.cam);
 
-            // Force UI Icons to match default off states (Show slashes)
+            // Force UI Icons to default off states
             const camIcon = document.querySelector(".control-dock .dock-btn:nth-child(1) i");
-            if(camIcon) camIcon.className = mediaStates.cam ? "fa-solid fa-video" : "fa-solid fa-video-slash";
+            if(camIcon) camIcon.className = "fa-solid fa-video-slash";
             
             const micIcon = document.querySelector(".control-dock .dock-btn:nth-child(2) i");
-            if(micIcon) micIcon.className = mediaStates.mic ? "fa-solid fa-microphone" : "fa-solid fa-microphone-slash";
+            if(micIcon) micIcon.className = "fa-solid fa-microphone-slash";
 
-            const localBox = document.querySelector(".cam-preview-box");
-            if(localBox) {
-                let trackDiv = document.getElementById("agora-local-container");
-                if(!trackDiv) {
-                    trackDiv = document.createElement("div");
-                    trackDiv.id = "agora-local-container";
-                    trackDiv.className = "agora-local-stream";
-                    localBox.appendChild(trackDiv);
-                }
-                localTracks.videoTrack.play(trackDiv.id);
-            }
+            // Ensure canvas is hidden so avatar shows
+            const trackDiv = document.getElementById("agora-local-container");
+            if (trackDiv) trackDiv.style.display = "none";
 
-            await agoraClient.publish([localTracks.audioTrack, localTracks.videoTrack]);
+            // Only publish audio track to the room
+            await agoraClient.publish([localTracks.audioTrack]);
             
             await db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(localAgoraUid)).set({
                 name: userData.name || "Mischief Managed",
@@ -904,13 +917,40 @@ function renderDashboard() {
     const camBtn = document.querySelector(".control-dock .dock-btn:nth-child(1)");
     if (camBtn) {
         camBtn.onclick = async () => {
-            if(!localTracks.videoTrack) return;
+            // 1. If camera track doesn't exist, create it NOW
+            if(!localTracks.videoTrack) {
+                try {
+                    localTracks.videoTrack = await AgoraRTC.createCameraVideoTrack();
+                    
+                    const localBox = document.querySelector(".cam-preview-box");
+                    if(localBox) {
+                        let trackDiv = document.getElementById("agora-local-container");
+                        if(!trackDiv) {
+                            trackDiv = document.createElement("div");
+                            trackDiv.id = "agora-local-container";
+                            trackDiv.className = "agora-local-stream";
+                            localBox.appendChild(trackDiv);
+                        }
+                        localTracks.videoTrack.play(trackDiv.id);
+                    }
+                    if(mediaStates.joined) await agoraClient.publish([localTracks.videoTrack]);
+                } catch (e) {
+                    console.error("Camera access denied or missing:", e);
+                    return;
+                }
+            }
+
             mediaStates.cam = !mediaStates.cam;
-            await localTracks.videoTrack.setMuted(!mediaStates.cam);
+            
+            // 2. Use setEnabled to completely turn off the hardware light when disabled
+            await localTracks.videoTrack.setEnabled(mediaStates.cam);
             
             const previewWrap = document.querySelector(".cam-preview-box");
             if (previewWrap) previewWrap.classList.toggle("cam-active", mediaStates.cam);
             
+            const trackDiv = document.getElementById("agora-local-container");
+            if (trackDiv) trackDiv.style.display = mediaStates.cam ? "block" : "none";
+
             const camIcon = document.querySelector(".control-dock .dock-btn:nth-child(1) i");
             if(camIcon) camIcon.className = mediaStates.cam ? "fa-solid fa-video" : "fa-solid fa-video-slash";
             
@@ -978,6 +1018,32 @@ function renderDashboard() {
                 await db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(localAgoraUid)).delete();
                 await agoraClient.leave();
             }
+            if(agoraClient && mediaStates.joined) {
+                await db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(localAgoraUid)).delete();
+                await agoraClient.leave();
+            }
+
+            // --- NEW: Completely shut down hardware devices ---
+            if (localTracks.videoTrack) {
+                localTracks.videoTrack.stop();
+                localTracks.videoTrack.close();
+                localTracks.videoTrack = null;
+            }
+            if (localTracks.audioTrack) {
+                localTracks.audioTrack.stop();
+                localTracks.audioTrack.close();
+                localTracks.audioTrack = null;
+            }
+            if (localTracks.screenTrack) {
+                localTracks.screenTrack.stop();
+                localTracks.screenTrack.close();
+                localTracks.screenTrack = null;
+            }
+            mediaStates.cam = false;
+            mediaStates.mic = false;
+            mediaStates.screen = false;
+            // ---------------------------------------------------
+
             mediaStates.joined = false;
             
             // Go back to home dashboard view
