@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentUser = localStorage.getItem("hogwarts_user") || "guest";
     let userData = {
         name: "Mischief Managed!",
+        avatar: localStorage.getItem("hp_user_avatar") || "https://www.gravatar.com/avatar/?d=mp",
         coins: 0,
         xp: 0,
         level: 1,
@@ -743,9 +744,39 @@ function renderDashboard() {
     window.closePrivateRoomModal = () => {
         document.getElementById("private-room-modal").style.display = "none";
         document.getElementById("create-room-id").value = "";
-        document.getElementById("create-room-pwd").value = "";
+        
+        // Reset password fields to hidden
+        const createPwd = document.getElementById("create-room-pwd");
+        createPwd.value = "";
+        createPwd.type = "password";
+        
         document.getElementById("join-room-id").value = "";
-        document.getElementById("join-room-pwd").value = "";
+        
+        const joinPwd = document.getElementById("join-room-pwd");
+        joinPwd.value = "";
+        joinPwd.type = "password";
+
+        // Reset icons back to default
+        document.querySelectorAll(".password-toggle").forEach(icon => {
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+            icon.style.color = "var(--text-muted)";
+        });
+    };
+    // --- Reveal Password Logic ---
+    window.togglePasswordVisibility = (inputId, iconElement) => {
+        const inputField = document.getElementById(inputId);
+        if (inputField.type === "password") {
+            inputField.type = "text";
+            iconElement.classList.remove("fa-eye");
+            iconElement.classList.add("fa-eye-slash");
+            iconElement.style.color = "var(--gold)"; // Highlights the icon when visible
+        } else {
+            inputField.type = "password";
+            iconElement.classList.remove("fa-eye-slash");
+            iconElement.classList.add("fa-eye");
+            iconElement.style.color = "var(--text-muted)";
+        }
     };
 
     const btnPublic = document.getElementById("btn-public-room");
@@ -885,6 +916,8 @@ function renderDashboard() {
 
             // Only publish audio track to the room
             await agoraClient.publish([localTracks.audioTrack]);
+            const localCamImg = document.querySelector(".cam-preview-box img");
+            if (localCamImg) localCamImg.src = userData.avatar;
             
             await db.collection("rooms").doc(currentRoomId).collection("participants").doc(String(localAgoraUid)).set({
                 name: userData.name || "Mischief Managed",
@@ -1095,7 +1128,8 @@ function renderDashboard() {
             cell.id = `remote-cell-${uid}`;
             cell.innerHTML = `
                 <div id="agora-remote-${uid}" class="agora-remote-stream"></div>
-                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=${uid}&backgroundColor=1b263b" alt="Wizard">
+                <!-- Replaced hardcoded Dicebear with default placeholder and dynamic ID -->
+                <img id="grid-img-${uid}" src="https://www.gravatar.com/avatar/?d=mp" alt="Wizard">
                 <div class="grid-label" id="label-${uid}">Connecting Mage...</div>
             `;
             gridLayout.appendChild(cell);
@@ -1120,12 +1154,14 @@ function renderDashboard() {
                 const data = docSnap.data();
 
                 // Build dynamic list in the People Tab
+                // Build dynamic list in the People Tab
                 if (peopleContainer) {
                     const isMe = String(localAgoraUid) === uid;
                     const personItem = document.createElement("div");
                     personItem.className = "list-item";
                     personItem.innerHTML = `
-                        <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=${data.name}&backgroundColor=1b263b" class="avatar-img" style="width:36px; height:36px; border:2px solid var(--gold);" alt="User">
+                        <!-- Inject Real Firebase Avatar -->
+                        <img src="${data.avatar || 'https://www.gravatar.com/avatar/?d=mp'}" class="avatar-img" style="width:36px; height:36px; border:2px solid var(--gold); border-radius:50%; object-fit:cover;" alt="User">
                         <div class="item-text">
                             <div class="item-title" style="font-size:14.5px;">${data.name} ${isMe ? "(You)" : ""}</div>
                             <div class="item-subtitle">${data.house}</div>
@@ -1141,6 +1177,10 @@ function renderDashboard() {
                 
                 const label = document.getElementById(`label-${uid}`);
                 if(label) label.innerText = `${data.name} (${data.house})`;
+
+                // --- NEW: Update Grid Cell Image with Real Avatar ---
+                const gridImg = document.getElementById(`grid-img-${uid}`);
+                if (gridImg) gridImg.src = data.avatar || "https://www.gravatar.com/avatar/?d=mp";
             });
             
             const peopleTab = document.querySelector(".tabs-header .tab:nth-child(2)");
@@ -1166,7 +1206,8 @@ function renderDashboard() {
                   const item = document.createElement("div");
                   item.className = "chat-item";
                   item.innerHTML = `
-                      <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=${msg.senderName}&backgroundColor=d4ad8c" class="avatar-img" alt="Avatar">
+                      <!-- Use Message Avatar Instead of Dicebear -->
+                      <img src="${msg.avatar || 'https://www.gravatar.com/avatar/?d=mp'}" class="avatar-img" style="border-radius:50%; object-fit:cover;" alt="Avatar">
                       <div class="chat-body">
                           <div class="chat-header">
                               <span class="chat-name">${msg.senderName}</span>
@@ -1192,6 +1233,7 @@ function renderDashboard() {
         await db.collection("rooms").doc(currentRoomId).collection("messages").add({
             text: text,
             senderName: userData.name || "Wizard Guest",
+            avatar: userData.avatar, // --- NEW: Attach Avatar to message ---
             timestamp: Date.now()
         });
     }

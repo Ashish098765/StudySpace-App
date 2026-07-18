@@ -855,6 +855,41 @@
             opacity: 0 !important;
             pointer-events: none;
         }
+        /* --- Enhanced Modal Visibility --- */
+        .modal-overlay {
+            backdrop-filter: blur(8px) !important; /* Increases the background blur to make the modal pop */
+            background: rgba(10, 17, 30, 0.9) !important; /* Darkens the background slightly */
+        }
+
+        .modal-content {
+            box-shadow: 0 15px 50px rgba(0,0,0,0.8), 0 0 20px rgba(197, 160, 89, 0.3) !important; /* Stronger shadow with a faint gold glow */
+        }
+
+        /* --- Password Toggle Styling --- */
+        .password-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .password-wrapper input {
+            width: 100%;
+            padding-right: 35px !important; /* Prevents text from going under the icon */
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .password-toggle:hover {
+            color: var(--dark-blue);
+        }
     </style>
 </head>
 <body>
@@ -1268,7 +1303,10 @@
                 </div>
                 <div class="magical-input-group">
                     <label>Sealing Passphrase</label>
-                    <input type="password" id="create-room-pwd" placeholder="Enter secure spell">
+                    <div class="password-wrapper">
+                        <input type="password" id="create-room-pwd" placeholder="Enter secure spell">
+                        <i class="fa-regular fa-eye password-toggle" onclick="togglePasswordVisibility('create-room-pwd', this)"></i>
+                    </div>
                 </div>
                 <div class="modal-actions" style="margin-top: 30px;">
                     <button class="btn-cancel" onclick="closePrivateRoomModal()">Retreat</button>
@@ -1284,7 +1322,10 @@
                 </div>
                 <div class="magical-input-group">
                     <label>Verification Passphrase</label>
-                    <input type="password" id="join-room-pwd" placeholder="Enter spell phrase">
+                    <div class="password-wrapper">
+                        <input type="password" id="join-room-pwd" placeholder="Enter spell phrase">
+                        <i class="fa-regular fa-eye password-toggle" onclick="togglePasswordVisibility('join-room-pwd', this)"></i>
+                    </div>
                 </div>
                 <div class="modal-actions" style="margin-top: 30px;">
                     <button class="btn-cancel" onclick="closePrivateRoomModal()">Retreat</button>
