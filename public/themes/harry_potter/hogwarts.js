@@ -49,10 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
         questTotal: 20,
         // Add this array to store tasks
         tasks: [
-            { id: 1, name: "Physics PYQs", subject: "Physics", targetType: "questions", targetValue: 30, done: true },
-            { id: 2, name: "Chemistry PYQs", subject: "Chemistry", targetType: "questions", targetValue: 25, done: true },
-            { id: 3, name: "Maths PYQs", subject: "Mathematics", targetType: "questions", targetValue: 30, done: false },
-            { id: 4, name: "Revision", subject: "Mathematics", targetType: "time", targetValue: 120, done: false }
         ]
     };
     
