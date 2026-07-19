@@ -84,6 +84,28 @@ document.addEventListener("DOMContentLoaded", () => {
         return "First Year";
     }
 
+    // --- QUEST POOL ---
+        const questPool = [
+            { id: "q1", title: "The Scholar's Path", desc: "Study for 60 minutes", total: 60, type: "time", reward: 30 },
+            { id: "q2", title: "Trial by Fire", desc: "Solve 20 questions correctly", total: 20, type: "solved", reward: 50 },
+            { id: "q3", title: "Taskmaster", desc: "Complete 3 planner tasks", total: 3, type: "tasks", reward: 40 },
+            { id: "q4", title: "Endurance Test", desc: "Attempt 50 questions", total: 50, type: "attempted", reward: 60 },
+            { id: "q5", title: "Deep Work", desc: "Study for 120 minutes", total: 120, type: "time", reward: 100 },
+            { id: "q6", title: "Quick Sprints", desc: "Solve 10 questions correctly", total: 10, type: "solved", reward: 20 },
+            { id: "q7", title: "Daily Planner", desc: "Complete 1 planner task", total: 1, type: "tasks", reward: 15 }
+        ];
+
+        // Function to pick 4 random quests
+        function assignDailyQuests() {
+            // Shuffle the array and grab the first 4
+            const shuffled = questPool.sort(() => 0.5 - Math.random());
+            userData.dailyQuests = shuffled.slice(0, 4).map(q => ({
+                ...q,
+                progress: 0,
+                completed: false
+            }));
+        }
+
     function calculateLevelProgress(xp) {
         let currentLvl = 1;
         // Formula: XP Required = 100 * Level^1.5
@@ -107,27 +129,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function calculateDailyStreak() {
         let changed = false;
-        // Get today's date in YYYY-MM-DD format based on local time
         const today = new Date().toLocaleDateString('en-CA'); 
         
         if (userData.lastActiveDate !== today) {
-            userData.tasks = [];
+            userData.tasks = []; // Reset daily tasks
             if (userData.lastActiveDate) {
                 const lastDate = new Date(userData.lastActiveDate);
                 const currDate = new Date(today);
-                // Calculate difference in days
                 const diffTime = Math.abs(currDate - lastDate);
                 const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
 
                 if (diffDays === 1) {
-                    userData.streak += 1; // Logged in exactly the next day
+                    userData.streak += 1;
                 } else if (diffDays > 1) {
-                    userData.streak = 1; // Streak broken, reset to 1
+                    userData.streak = 1;
                 }
             } else {
-                userData.streak = 1; // First time logging in
+                userData.streak = 1;
             }
             userData.lastActiveDate = today;
+            assignDailyQuests(); // Assign new quests on a new day!
+            changed = true;
+        }
+        
+        // Safety check: If for some reason they don't have quests, assign them
+        if (!userData.dailyQuests || userData.dailyQuests.length === 0) {
+            assignDailyQuests();
             changed = true;
         }
         return changed;
@@ -405,6 +432,70 @@ function renderDashboard() {
         }
         // ---------------------------------------------------
     }
+    function renderDailyQuests() {
+        const container = document.getElementById("daily-quests-container");
+        if (!container || !userData.dailyQuests) return;
+
+        container.innerHTML = ""; // Clear existing
+
+        userData.dailyQuests.forEach(quest => {
+            const progressPercent = Math.min((quest.progress / quest.total) * 100, 100);
+            const isDone = quest.completed;
+            
+            // Change colors if completed
+            const barColor = isDone ? "#1f5c33" : "#b58d3c";
+            const titleStyle = isDone ? "text-decoration: line-through; opacity: 0.7;" : "";
+
+            container.innerHTML += `
+                <div class="card daily-quest" style="padding: 15px 20px; flex-direction: row; align-items: center; justify-content: space-between; display: flex;">
+                    <span class="card-corner corner-tl"></span><span class="card-corner corner-tr"></span>
+                    <span class="card-corner corner-bl"></span><span class="card-corner corner-br"></span>
+                    
+                    <div class="quest-left" style="display: flex; align-items: center; gap: 15px; flex-grow: 1;">
+                        <div style="width: 40px; height: 40px; background: var(--dark-blue); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px;">
+                            <i class="fa-solid ${isDone ? 'fa-check' : 'fa-star'}"></i>
+                        </div>
+                        <div class="quest-details" style="flex-grow: 1;">
+                            <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 2px; color: var(--text-dark); ${titleStyle}">${quest.title}</h4>
+                            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 6px;">${quest.desc}</p>
+                            <div class="progress-bar" style="width: 100%; height: 5px; background: rgba(197, 160, 89, 0.2); border-radius: 3px; position: relative;">
+                                <div class="progress-fill" style="height: 100%; width: ${progressPercent}%; background: ${barColor}; border-radius: 3px; transition: width 0.3s ease;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quest-reward" style="text-align: right; padding-left: 20px; border-left: 1px solid rgba(197, 160, 89, 0.3);">
+                        <div class="reward-amount" style="font-size: 18px; font-weight: bold; color: var(--text-dark); display: flex; align-items: center; gap: 6px;">
+                            <img src="https://res.cloudinary.com/dyxyzz9r9/image/upload/v1783761433/coin.png" style="width: 20px; mix-blend-mode: multiply;" alt="Coins"> ${quest.reward}
+                        </div>
+                        <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">${quest.progress}/${quest.total}</p>
+                    </div>
+                </div>
+            `;
+        });
+    }
+    window.updateQuestProgress = function(type, amount) {
+        if (!userData.dailyQuests) return;
+        let updated = false;
+
+        userData.dailyQuests.forEach(q => {
+            if (!q.completed && q.type === type) {
+                q.progress += amount;
+                if (q.progress >= q.total) {
+                    q.progress = q.total;
+                    q.completed = true;
+                    userData.coins += q.reward; // Give them the coins!
+                    userData.xp = (userData.xp || 0) + (q.reward * 2); 
+                    alert(`Quest Completed: ${q.title}! (+${q.reward} Coins)`);
+                }
+                updated = true;
+            }
+        });
+
+        if (updated) {
+            renderDailyQuests();
+            syncDataToFirebase();
+        }
+    };
     function renderRoomTasks() {
         const roomPlanContainer = document.getElementById("room-todays-plan");
         if (!roomPlanContainer) return;
