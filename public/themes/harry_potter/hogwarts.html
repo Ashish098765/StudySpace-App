@@ -65,9 +65,10 @@
         }
 
         .logo-container img {
-            width: 150px; /* Increased Main Logo Size */
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.6));
-        }
+        width: 150px;
+        /* Inverts the dark brown to a light blue/white, then adds brightness and a subtle shadow */
+        filter: invert(1) hue-rotate(180deg) brightness(1.5) drop-shadow(0 2px 5px rgba(0,0,0,0.8));
+    }
 
         nav ul {
             list-style: none;

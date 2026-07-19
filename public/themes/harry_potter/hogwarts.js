@@ -363,6 +363,9 @@ function renderDashboard() {
         const progressPercent = (userData.questProgress / userData.questTotal) * 100;
         if (questProgressFill) questProgressFill.style.width = `${Math.min(progressPercent, 100)}%`;
         if (questProgressText) questProgressText.innerText = `${userData.questProgress}/${userData.questTotal}`;
+        if (typeof renderDailyQuests === "function") {
+        renderDailyQuests();
+    }
 
         // --- ADD THIS MISSING BLOCK TO RENDER THE TASKS ---
         const taskListEl = document.getElementById("dynamic-task-list");
