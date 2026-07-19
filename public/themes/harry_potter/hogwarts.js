@@ -21,9 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("hp_session_id", localSessionId);
     }
     let currentUser = localStorage.getItem("hogwarts_user") || "guest";
+    let safeAvatar = localStorage.getItem("hp_user_avatar");
+    if (!safeAvatar || safeAvatar === "undefined" || safeAvatar === "null") {
+        safeAvatar = "https://api.dicebear.com/7.x/adventurer/svg?seed=Wizard&backgroundColor=1b263b";
+    }
+    
     let userData = {
         name: "Mischief Managed!",
-        avatar: localStorage.getItem("hp_user_avatar") || "https://www.gravatar.com/avatar/?d=mp",
+        avatar: safeAvatar,
         coins: 0,
         xp: 0,
         level: 1,
