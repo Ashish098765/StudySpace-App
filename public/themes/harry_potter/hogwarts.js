@@ -20,15 +20,21 @@ document.addEventListener("DOMContentLoaded", () => {
         localSessionId = Date.now().toString(36) + Math.random().toString(36).substr(2);
         localStorage.setItem("hp_session_id", localSessionId);
     }
-    let currentUser = localStorage.getItem("hogwarts_user") || "guest";
-    let safeAvatar = localStorage.getItem("hp_user_avatar");
-    if (!safeAvatar || safeAvatar === "undefined" || safeAvatar === "null") {
-        safeAvatar = "https://api.dicebear.com/7.x/adventurer/svg?seed=Wizard&backgroundColor=1b263b";
-    }
     
+    let currentUser = localStorage.getItem("hogwarts_user") || "guest";
+    
+    // --- NEW: Safely pull Google Name and Avatar ---
+    let storedName = localStorage.getItem("hp_user_name") || "Mischief Managed!";
+    let storedAvatar = localStorage.getItem("hp_user_avatar");
+    
+    // If no Google avatar exists, create a dynamic one based on their name
+    if (!storedAvatar || storedAvatar === "undefined" || storedAvatar === "null") {
+        storedAvatar = `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(storedName)}&backgroundColor=1b263b`;
+    }
+
     let userData = {
-        name: "Mischief Managed!",
-        avatar: safeAvatar,
+        name: storedName,
+        avatar: storedAvatar,
         coins: 0,
         xp: 0,
         level: 1,
@@ -221,6 +227,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 userData = fetchedData;
                 userData.sessionId = localSessionId; // Update session
+                
+                // Force a valid avatar if Firebase has broken data
+                if (!userData.avatar || userData.avatar === "undefined" || userData.avatar === "null") {
+                    userData.avatar = "https://api.dicebear.com/7.x/adventurer/svg?seed=" + encodeURIComponent(userData.name || "Wizard") + "&backgroundColor=1b263b";
+                }
+                
                 if (!userData.tasks) userData.tasks = []; 
             } else {
                 userData.sessionId = localSessionId;
@@ -800,11 +812,28 @@ function renderDashboard() {
         };
     }
 
+    // --- NEW: Cryptographic Password Hashing Utility ---
+    async function hashPassword(password) {
+        const msgBuffer = new TextEncoder().encode(password);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
     // --- STRICT PRIVATE ROOM CREATION LOGIC ---
     window.handleCreatePrivateRoom = async () => {
         const id = document.getElementById("create-room-id").value.trim();
         const pwd = document.getElementById("create-room-pwd").value.trim();
         if(!id || !pwd) return alert("Must configure Room Code and Passphrase seals!");
+        
+        // 1. Password Complexity Rules (Min 8 chars, 1 Uppercase, 1 Lowercase, 1 Number, 1 Special)
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordRegex.test(pwd)) {
+            return alert("Weak Spell! Passphrase must be at least 8 characters long and contain an uppercase letter, lowercase letter, number, and special character (@$!%*?&).");
+        }
+
+        // 2. Hash the password for secure Firestore storage
+        const hashedPwd = await hashPassword(pwd);
         
         const roomRef = db.collection("rooms").doc(id);
         const roomDoc = await roomRef.get();
@@ -821,7 +850,8 @@ function renderDashboard() {
             }
         }
         
-        await roomRef.set({ password: pwd, created: Date.now() });
+        // Send the hash to Firebase, NOT the plaintext password
+        await roomRef.set({ password: hashedPwd, created: Date.now() });
         closePrivateRoomModal();
         enterStudyRoom(id);
     };
@@ -831,8 +861,11 @@ function renderDashboard() {
         const pwd = document.getElementById("join-room-pwd").value.trim();
         if(!id || !pwd) return alert("Credentials mandatory to break counter-hexes!");
         
+        // Hash the user's input to compare against the secure database hash
+        const hashedPwd = await hashPassword(pwd);
+        
         const roomDoc = await db.collection("rooms").doc(id).get();
-        if(!roomDoc.exists || roomDoc.data().password !== pwd) {
+        if(!roomDoc.exists || roomDoc.data().password !== hashedPwd) {
             return alert("Access Denied! The protective spells rejected your passphrase signature.");
         }
         closePrivateRoomModal();
@@ -945,7 +978,8 @@ function renderDashboard() {
 
         } catch (err) {
             console.error("Magical Connection Breakdown:", err);
-            alert("Video Engine failed to start. Please ensure the Agora script is loaded!");
+            // This will now show the REAL error on your screen
+            alert("Room Connection Error: " + (err.message || err.code || err)); 
         } finally {
             isConnecting = false;
         }
@@ -1159,14 +1193,17 @@ function renderDashboard() {
                 const data = docSnap.data();
 
                 // Build dynamic list in the People Tab
-                // Build dynamic list in the People Tab
+                const validParticipantAvatar = (data.avatar && data.avatar !== "undefined" && data.avatar !== "null") 
+                    ? data.avatar 
+                    : `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(data.name)}&backgroundColor=1b263b`;
+
                 if (peopleContainer) {
                     const isMe = String(localAgoraUid) === uid;
                     const personItem = document.createElement("div");
                     personItem.className = "list-item";
                     personItem.innerHTML = `
-                        <!-- Inject Real Firebase Avatar -->
-                        <img src="${data.avatar || 'https://www.gravatar.com/avatar/?d=mp'}" class="avatar-img" style="width:36px; height:36px; border:2px solid var(--gold); border-radius:50%; object-fit:cover;" alt="User">
+                        <!-- Inject Real Firebase Avatar or Safe Fallback -->
+                        <img src="${validParticipantAvatar}" class="avatar-img" style="width:36px; height:36px; border:2px solid var(--gold); border-radius:50%; object-fit:cover;" alt="User">
                         <div class="item-text">
                             <div class="item-title" style="font-size:14.5px;">${data.name} ${isMe ? "(You)" : ""}</div>
                             <div class="item-subtitle">${data.house}</div>
@@ -1183,9 +1220,9 @@ function renderDashboard() {
                 const label = document.getElementById(`label-${uid}`);
                 if(label) label.innerText = `${data.name} (${data.house})`;
 
-                // --- NEW: Update Grid Cell Image with Real Avatar ---
+                // --- Update Grid Cell Image with Real Avatar ---
                 const gridImg = document.getElementById(`grid-img-${uid}`);
-                if (gridImg) gridImg.src = data.avatar || "https://www.gravatar.com/avatar/?d=mp";
+                if (gridImg) gridImg.src = validParticipantAvatar;
             });
             
             const peopleTab = document.querySelector(".tabs-header .tab:nth-child(2)");
@@ -1210,9 +1247,13 @@ function renderDashboard() {
                   const msg = docSnap.data();
                   const item = document.createElement("div");
                   item.className = "chat-item";
+                  const validChatAvatar = (msg.avatar && msg.avatar !== "undefined" && msg.avatar !== "null") 
+                      ? msg.avatar 
+                      : `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(msg.senderName)}&backgroundColor=d4ad8c`;
+
                   item.innerHTML = `
-                      <!-- Use Message Avatar Instead of Dicebear -->
-                      <img src="${msg.avatar || 'https://www.gravatar.com/avatar/?d=mp'}" class="avatar-img" style="border-radius:50%; object-fit:cover;" alt="Avatar">
+                      <!-- Use Validated Message Avatar -->
+                      <img src="${validChatAvatar}" class="avatar-img" style="border-radius:50%; object-fit:cover;" alt="Avatar">
                       <div class="chat-body">
                           <div class="chat-header">
                               <span class="chat-name">${msg.senderName}</span>

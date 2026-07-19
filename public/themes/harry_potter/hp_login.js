@@ -157,8 +157,15 @@ window.loginWithGoogle = async function() {
             targetedUsername = generatedHandle;
         }
 
-        // Save layout token identity details and route back home
+        // Save layout token identity details
         localStorage.setItem("hogwarts_user", targetedUsername);
+        
+        // --- NEW: Save the Gmail Avatar and Name ---
+        localStorage.setItem("hp_user_avatar", user.photoURL);
+        localStorage.setItem("hp_user_name", user.displayName);
+        // -------------------------------------------
+
+        // Route back home
         window.location.href = "hogwarts.html";
 
     } catch (error) {
